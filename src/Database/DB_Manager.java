@@ -8,6 +8,11 @@ package Database;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -21,7 +26,35 @@ public class DB_Manager {
         Connection conn = dbc.getConnection();
         
         ResultSet rs = null;
+        return rs;
     }
     
+    public boolean add_screen_pigment()
+    {
+        
+    }
     
+    public int get_pigment_id(String pigment_name)
+    {
+        try 
+        {
+            DBConnection db = new DBConnection();
+            Connection conn = db.getConnection();
+    
+        
+            PreparedStatement ps =
+            conn.prepareStatement("SELECT pigment_id FROM pigment WHERE pigment_id = ?");
+            int item = 1;
+            
+            ps.setString(item++, pigment_name);
+            ResultSet rs = ps.executeQuery();
+            
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    
+    }
+            
+                
 }
