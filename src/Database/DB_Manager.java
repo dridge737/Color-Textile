@@ -25,13 +25,12 @@ public class DB_Manager {
         DBConnection dbc = new DBConnection();
         Connection conn = dbc.getConnection();
         
-        ResultSet rs = null;
-        return rs;
+        return false;
     }
     
     public boolean add_screen_pigment()
     {
-        
+        return false;
     }
     
     public int get_pigment_id(String pigment_name)
@@ -42,18 +41,20 @@ public class DB_Manager {
             Connection conn = db.getConnection();
     
         
-            PreparedStatement ps =
-            conn.prepareStatement("SELECT pigment_id FROM pigment WHERE pigment_id = ?");
+            PreparedStatement ps = conn.prepareStatement("SELECT pigment_no FROM pigment WHERE pigment_name = ?");
             int item = 1;
             
             ps.setString(item++, pigment_name);
             ResultSet rs = ps.executeQuery();
-            
+            rs.next();
+            int pigment_id = rs.getInt("pigment_no");
+            return pigment_id;
             
         } catch (SQLException ex) {
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
         }
     
+        return 0;
     }
             
                 

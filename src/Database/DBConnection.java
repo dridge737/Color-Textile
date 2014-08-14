@@ -19,7 +19,7 @@ public class DBConnection {
     
     public DBConnection()
     {
-        url = "jdbc:mysql://localhost:3306/demo";
+        url = "jdbc:mysql://localhost:3306/color_textile";
         driver = "com.mysql.jdbc.Driver";
         username = "root";
         password = "";
