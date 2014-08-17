@@ -28,10 +28,28 @@ public class DB_Manager {
         return false;
     }
     
-    public boolean add_screen_pigment()
+    public boolean add_screen_pigment(colortextile_class.screen_pigment new_screen_pigment)
     {
+        DBConnection db = new DBConnection();
+        Connection conn = db.getConnection();
+        
+        PreparedStatement ps;
+        try {
+            ps = conn.prepareStatement("INSERT INTO screen_pigment (pigment_no, pigment_percentage, id_colorway) VALUES (?,?,?)");
+        
+        int item = 1;
+        
+        ps.setInt(item++, new_screen_pigment.getPigment_no());
+        ps.setFloat(item++, new_screen_pigment.getPigment_percentage());
+        ps.setInt(item++, new_screen_pigment.getId_colorway());
+        ps.executeUpdate();
+        return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
+        }
         return false;
     }
+    
     
     public int get_pigment_id(String pigment_name)
     {
