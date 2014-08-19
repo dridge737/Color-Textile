@@ -25,7 +25,7 @@ public class AddPigmentForm extends javax.swing.JFrame
     private void initComponents() {
         bindingGroup = new org.jdesktop.beansbinding.BindingGroup();
 
-        color_textilePUEntityManager = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory("color_textilePU").createEntityManager();
+        color_textilePUEntityManager = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory(null).createEntityManager();
         pigments_1Query = java.beans.Beans.isDesignTime() ? null : color_textilePUEntityManager.createQuery("SELECT p FROM Pigments_1 p");
         pigments_1List = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : pigments_1Query.getResultList();
         jButton1 = new javax.swing.JButton();
@@ -76,19 +76,15 @@ public class AddPigmentForm extends javax.swing.JFrame
         org.jdesktop.swingbinding.JTableBinding.ColumnBinding columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${idPigment}"));
         columnBinding.setColumnName("Id Pigment");
         columnBinding.setColumnClass(Integer.class);
-        columnBinding.setEditable(false);
         columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${pigmentName}"));
         columnBinding.setColumnName("Pigment Name");
         columnBinding.setColumnClass(String.class);
-        columnBinding.setEditable(false);
         columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${stock}"));
         columnBinding.setColumnName("Stock");
         columnBinding.setColumnClass(Integer.class);
-        columnBinding.setEditable(false);
         columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${tingi}"));
         columnBinding.setColumnName("Tingi");
         columnBinding.setColumnClass(Integer.class);
-        columnBinding.setEditable(false);
         bindingGroup.addBinding(jTableBinding);
         jTableBinding.bind();
         jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
