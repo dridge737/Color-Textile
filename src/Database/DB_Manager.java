@@ -74,6 +74,11 @@ public class DB_Manager {
     
         return 0;
     }
-            
+           
+    public int trial_Commit()
+    {
+        return 0;
+    }
+    
                 
 }
