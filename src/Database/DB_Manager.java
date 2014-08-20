@@ -74,6 +74,25 @@ public class DB_Manager {
     
         return 0;
     }
+    
+    public void add_customer_data(String name) {
+        try {
+            DBConnection db = new DBConnection();
+            Connection conn = db.getConnection();
+
+            String query = "insert into simpledb (customer_name) values (?)";
+
+            PreparedStatement preparedStmt = conn.prepareStatement(query);
+            preparedStmt.setString(1, name);
+
+            preparedStmt.execute();
+
+        } catch (Exception ex) {
+            System.out.println(ex);
+
+        }
+
+    }
            
     public int trial_Commit()
     {
