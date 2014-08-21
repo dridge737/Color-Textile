@@ -20,6 +20,7 @@ import java.util.logging.Logger;
  */
 public class DB_Manager {
    
+    //ADD
     public boolean add_textile(String customer_name)
     {
         DBConnection dbc = new DBConnection();
@@ -50,7 +51,26 @@ public class DB_Manager {
         return false;
     }
     
+    public void add_customer_data(String name) {
+        try {
+            DBConnection db = new DBConnection();
+            Connection conn = db.getConnection();
+
+            String query = "insert into customer (customer_name) values (?)";
+
+            PreparedStatement preparedStmt = conn.prepareStatement(query);
+            preparedStmt.setString(1, name);
+
+            preparedStmt.execute();
+
+        } catch (Exception ex) {
+            System.out.println(ex);
+
+        }
+
+    }
     
+    //ADD END
     public int get_pigment_id(String pigment_name)
     {
         try 
@@ -75,24 +95,8 @@ public class DB_Manager {
         return 0;
     }
     
-    public void add_customer_data(String name) {
-        try {
-            DBConnection db = new DBConnection();
-            Connection conn = db.getConnection();
-
-            String query = "insert into simpledb (customer_name) values (?)";
-
-            PreparedStatement preparedStmt = conn.prepareStatement(query);
-            preparedStmt.setString(1, name);
-
-            preparedStmt.execute();
-
-        } catch (Exception ex) {
-            System.out.println(ex);
-
-        }
-
-    }
+    
+    
            
     public int trial_Commit()
     {
