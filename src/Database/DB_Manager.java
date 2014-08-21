@@ -20,7 +20,10 @@ import java.util.logging.Logger;
  */
 public class DB_Manager {
    
-    //ADD
+    //ADD START
+    ///Add functions for sql
+    ///Start function names with add_*
+    
     public boolean add_textile(String customer_name)
     {
         DBConnection dbc = new DBConnection();
@@ -33,16 +36,14 @@ public class DB_Manager {
     {
         DBConnection db = new DBConnection();
         Connection conn = db.getConnection();
-        
-        PreparedStatement ps;
+       
         try {
-            ps = conn.prepareStatement("INSERT INTO screen_pigment (pigment_no, pigment_percentage, id_colorway) VALUES (?,?,?)");
+             PreparedStatement ps = conn.prepareStatement("INSERT INTO screen_pigment (pigment_no, pigment_percentage) VALUES (?,?)");
         
         int item = 1;
         
         ps.setInt(item++, new_screen_pigment.getPigment_no());
         ps.setFloat(item++, new_screen_pigment.getPigment_percentage());
-        ps.setInt(item++, new_screen_pigment.getId_colorway());
         ps.executeUpdate();
         return true;
         } catch (SQLException ex) {
@@ -65,12 +66,38 @@ public class DB_Manager {
 
         } catch (Exception ex) {
             System.out.println(ex);
-
         }
-
+    }
+    
+    public boolean add_colorway_and_screen(int id_screen, int id_colorway)
+    {
+        try{
+        
+            DBConnection db = new DBConnection();
+            Connection conn = db.getConnection();
+            
+            PreparedStatement ps = conn.prepareStatement("INSERT INTO colorway_and_screen (id_screen, id_colorway)"
+                                                       + "VALUES (?, ?);");
+            int item =1;
+            ps.setInt(item++, id_screen);
+            ps.setInt(item++, id_colorway);
+            ps.executeUpdate();
+            return true;
+        }
+        catch(SQLException ex)
+        {
+            System.out.println(ex);
+        }
+        return false;
     }
     
     //ADD END
+    
+    //GET START
+    ///GET and search function here
+    ///Start every function with get_* or search_*
+  
+
     public int get_pigment_id(String pigment_name)
     {
         try 
@@ -78,10 +105,8 @@ public class DB_Manager {
             DBConnection db = new DBConnection();
             Connection conn = db.getConnection();
     
-        
             PreparedStatement ps = conn.prepareStatement("SELECT pigment_no FROM pigment WHERE pigment_name = ?");
             int item = 1;
-            
             ps.setString(item++, pigment_name);
             ResultSet rs = ps.executeQuery();
             rs.next();
@@ -95,13 +120,96 @@ public class DB_Manager {
         return 0;
     }
     
+    public int get_id_screen(int pigment_no, float pigment_percentage)
+    {
+        try{
+            DBConnection db = new DBConnection();
+            Connection conn = db.getConnection();
+            
+            PreparedStatement ps = 
+            conn.prepareStatement("SELECT id_screen FROM screen_pigment WHERE pigment_no = ? AND pigment_percentage =?");
+            int item = 1;
+            ps.setInt(item++, pigment_no);
+            ps.setFloat(item++, pigment_percentage);
+            ResultSet rs = ps.executeQuery();
+            rs.next();
+            int id_screen = rs.getInt("id_screen");
+            
+            return id_screen;
+        }
+        catch(SQLException ex){
+            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return 0;
+    }
     
+    public int  get_id_color_screen(int id_screen, int id_colorway)
+    {
+        try{
+            DBConnection db = new DBConnection();
+            Connection conn = db.getConnection();
+            
+            PreparedStatement ps = 
+            conn.prepareStatement("SELECT id_color_screen FROM colorway_and_screen WHERE id_screen = ? AND id_colorway = ?");
+            int item = 1;
+            
+            ps.setInt(item++, id_screen);
+            ps.setInt(item, id_colorway);
+            
+            ResultSet rs = ps.executeQuery();
+            rs.next();
+            int id_color_screen = rs.getInt("id_color_screen");
+            
+            return id_color_screen;
+        }
+        catch(SQLException ex){
+            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return 0;
+    }
     
-           
-    public int trial_Commit()
+    public int get_id_colorway()
     {
         return 0;
     }
     
-                
+    //SKELETON TO COPY ONLY. Not usable
+    public void get_skeleton()
+    {
+        try{
+            DBConnection db = new DBConnection();
+            Connection conn = db.getConnection();
+            
+            PreparedStatement ps = 
+            conn.prepareStatement("SELECT  FROM  WHERE ");
+            int item = 1;
+            
+            
+            
+            ResultSet rs = ps.executeQuery();
+            rs.next();
+        }
+        catch(SQLException ex){
+            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    
+    }
+    
+    //GET END
+    
+    //UPDATE START
+    ///EDIT and UPDATE function for SQL
+    ///START all functions here with update_*
+    
+    //UPDATE END
+    
+    //DELETE START
+    ///DELETE function for SQL
+    ///START all function here with delete_*
+    
+    //DELETE END
+     
 }
