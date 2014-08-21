@@ -91,6 +91,51 @@ public class DB_Manager {
         return false;
     }
     
+    public boolean add_textile(colortextile_class.textile new_textile)
+    {
+        try{
+        
+            DBConnection db = new DBConnection();
+            Connection conn = db.getConnection();
+            
+            PreparedStatement ps = conn.prepareStatement("INSERT INTO textile (textile_code, textile_name) VALUES (?,?);");
+            int item = 1;
+            ps.setString(item++, new_textile.getTextile_code());
+            ps.setString(item++, new_textile.getTextile_name());
+            
+            ps.executeUpdate();
+            return true;
+        }
+        catch(SQLException ex)
+        {
+            System.out.println(ex);
+        }
+        return false;
+    }
+    
+    public boolean add_design(colortextile_class.design new_design)
+    {
+         try{
+        
+            DBConnection db = new DBConnection();
+            Connection conn = db.getConnection();
+            
+            PreparedStatement ps = conn.prepareStatement("INSERT INTO design (design_code, textile_code) VALUES (?, ?);");
+            
+            int item = 1;
+            ps.setString(item++, new_design.getDesign_code());
+            ps.setString(item++, new_design.getTextile_code()); 
+            
+            ps.executeUpdate();
+            return true;
+        }
+        catch(SQLException ex)
+        {
+            System.out.println(ex);
+        }
+        return false;
+    }
+    
     //ADD END
     
     //GET START
@@ -144,7 +189,7 @@ public class DB_Manager {
         return 0;
     }
     
-    public int  get_id_color_screen(int id_screen, int id_colorway)
+    public int get_id_color_screen(int id_screen, int id_colorway)
     {
         try{
             DBConnection db = new DBConnection();
