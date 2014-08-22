@@ -14,7 +14,6 @@ public class screen_pigment {
     private int id_screen;
     private int pigment_no;
     private float pigment_percentage;
-    private int id_colorway;
 
     /**
      * @return the id_screen
@@ -58,17 +57,4 @@ public class screen_pigment {
         this.pigment_percentage = pigment_percentage;
     }
 
-    /**
-     * @return the id_colorway
-     */
-    public int getId_colorway() {
-        return id_colorway;
-    }
-
-    /**
-     * @param id_colorway the id_colorway to set
-     */
-    public void setId_colorway(int id_colorway) {
-        this.id_colorway = id_colorway;
-    }
 }

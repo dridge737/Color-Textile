@@ -69,6 +69,31 @@ public class DB_Manager {
         }
     }
     
+    public boolean add_colorway(colortextile_class.colorway new_colorway)
+    {
+        try{
+        
+            DBConnection db = new DBConnection();
+            Connection conn = db.getConnection();
+            
+            PreparedStatement ps = conn.prepareStatement("INSERT INTO colorway (colorway_name, binder, design_code,weight_kg)"
+                                                       + "VALUES (?, ?, ?, ?);");
+            int item =1;
+            ps.setString(item++, new_colorway.getColorway_name());
+            ps.setFloat(item++, new_colorway.getBinder());
+            ps.setString(item++, new_colorway.getDesign_code());
+            ps.setFloat(item++, new_colorway.getWeight_kg());
+            
+            ps.executeUpdate(); 
+            return true;
+        }
+        catch(SQLException ex)
+        {
+            System.out.println(ex);
+        }
+        return false;
+    }
+    
     public boolean add_colorway_and_screen(int id_screen, int id_colorway)
     {
         try{
@@ -138,12 +163,14 @@ public class DB_Manager {
     
     //ADD END
     
+    ///////////////////////////////////////////////////////////////////////////////////////////
+    
     //GET START
     ///GET and search function here
     ///Start every function with get_* or search_*
   
 
-    public int get_pigment_id(String pigment_name)
+    public int get_id_pigment(String pigment_name)
     {
         try 
         {
@@ -245,11 +272,15 @@ public class DB_Manager {
     
     //GET END
     
+    ///////////////////////////////////////////////////////////////////////////////////////////
+    
     //UPDATE START
     ///EDIT and UPDATE function for SQL
     ///START all functions here with update_*
     
     //UPDATE END
+    
+    ///////////////////////////////////////////////////////////////////////////////////////////
     
     //DELETE START
     ///DELETE function for SQL

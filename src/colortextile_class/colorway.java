@@ -15,6 +15,7 @@ public class colorway {
     private String colorway_name;
     private float binder;
     private String design_code;
+    private float weight_kg;
 
     /**
      * @return the id_colorway
@@ -70,5 +71,19 @@ public class colorway {
      */
     public void setDesign_code(String design_code) {
         this.design_code = design_code;
+    }
+
+    /**
+     * @return the weight_kg
+     */
+    public float getWeight_kg() {
+        return weight_kg;
+    }
+
+    /**
+     * @param weight_kg the weight_kg to set
+     */
+    public void setWeight_kg(float weight_kg) {
+        this.weight_kg = weight_kg;
     }
 }

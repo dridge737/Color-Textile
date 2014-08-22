@@ -71,4 +71,9 @@ public class pigment {
     public void setStock(int stock) {
         this.stock = stock;
     }
+    
+    public void get_id_pigment_from_name()
+    {
+        
+    }
 }
