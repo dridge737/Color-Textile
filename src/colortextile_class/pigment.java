@@ -5,7 +5,7 @@
  */
 
 package colortextile_class;
-
+import Database.DB_Manager;
 /**
  *
  * @author Eldridge
@@ -74,6 +74,8 @@ public class pigment {
     
     public void get_id_pigment_from_name()
     {
+        DB_Manager newDbManager = new DB_Manager();
+        pigment_id = newDbManager.get_id_pigment(pigment_name);
         
     }
 }

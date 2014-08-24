@@ -136,8 +136,11 @@ public class Add_new_design extends javax.swing.JFrame {
         // TODO add your handling code here:
          
          screen_pigment newScreenPigment = new screen_pigment();
-         
-         newScreenPigment
+         pigment Pigment_Object = new pigment();
+         Pigment_Object.setPigment_name(pigment_name.getSelectedItem().toString());
+         newScreenPigment.setPigment_no(Pigment_Object.getPigment_id());
+         newScreenPigment.setPigment_percentage(Float.parseFloat(binder.getSelectedItem().toString()));
+         newScreenPigment.add_new_screen_pigment();
          
          colorway newColorway = new colorway();
          /*

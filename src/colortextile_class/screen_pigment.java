@@ -5,7 +5,7 @@
  */
 
 package colortextile_class;
-
+import Database.DB_Manager;
 /**
  *
  * @author Eldridge
@@ -55,6 +55,12 @@ public class screen_pigment {
      */
     public void setPigment_percentage(float pigment_percentage) {
         this.pigment_percentage = pigment_percentage;
+    }
+    
+    public void add_new_screen_pigment()
+    {
+        DB_Manager new_conn = new DB_Manager();
+        new_conn.add_screen_pigment(this);
     }
 
 }
