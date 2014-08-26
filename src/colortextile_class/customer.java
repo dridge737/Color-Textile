@@ -6,6 +6,8 @@
 
 package colortextile_class;
 
+import Database.DB_Manager;
+
 /**
  *
  * @author Eldridge
@@ -40,6 +42,12 @@ public class customer {
      */
     public void setCustomer_name(String Customer_name) {
         this.Customer_name = Customer_name;
+    }
+    
+    public void add_new_customer()
+    {
+        DB_Manager new_conn = new DB_Manager();
+        new_conn.add_customer(this);
     }
    
 }

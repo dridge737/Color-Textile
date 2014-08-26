@@ -52,7 +52,7 @@ public class DB_Manager {
         return false;
     }
     
-    public boolean add_customer_data(String name) {
+    public boolean add_customer(colortextile_class.customer new_customer) {
         try {
             DBConnection db = new DBConnection();
             Connection conn = db.getConnection();
@@ -60,7 +60,7 @@ public class DB_Manager {
             String query = "insert into customer (customer_name) values (?)";
 
             PreparedStatement preparedStmt = conn.prepareStatement(query);
-            preparedStmt.setString(1, name);
+            preparedStmt.setString(1, new_customer.getCustomer_name());
 
             preparedStmt.execute();
             return true;
