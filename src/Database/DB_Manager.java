@@ -52,7 +52,7 @@ public class DB_Manager {
         return false;
     }
     
-    public void add_customer_data(String name) {
+    public boolean add_customer_data(String name) {
         try {
             DBConnection db = new DBConnection();
             Connection conn = db.getConnection();
@@ -63,10 +63,36 @@ public class DB_Manager {
             preparedStmt.setString(1, name);
 
             preparedStmt.execute();
-
-        } catch (Exception ex) {
-            System.out.println(ex);
+            return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
         }
+        return false;
+    }
+    
+    public int get_customer_id(String customer_name)
+    {
+        try
+        {
+            DBConnection db = new DBConnection();
+            Connection conn = db.getConnection();
+        
+            PreparedStatement ps = conn.prepareStatement("SELECT id_customer FROM customer WHERE customer_name = ?");
+            int item = 1;
+            
+            ps.setString(item++, customer_name);
+            ResultSet rs = ps.executeQuery();
+            rs.next();
+            int customer_id = rs.getInt("id_customer");
+            return customer_id;
+            
+            
+        } 
+        catch (SQLException ex) 
+        {
+            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return 0;
     }
     
     public boolean add_colorway(colortextile_class.colorway new_colorway)
