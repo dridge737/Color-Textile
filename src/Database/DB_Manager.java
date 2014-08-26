@@ -70,30 +70,6 @@ public class DB_Manager {
         return false;
     }
     
-    public int get_customer_id(String customer_name)
-    {
-        try
-        {
-            DBConnection db = new DBConnection();
-            Connection conn = db.getConnection();
-        
-            PreparedStatement ps = conn.prepareStatement("SELECT id_customer FROM customer WHERE customer_name = ?");
-            int item = 1;
-            
-            ps.setString(item++, customer_name);
-            ResultSet rs = ps.executeQuery();
-            rs.next();
-            int customer_id = rs.getInt("id_customer");
-            return customer_id;
-            
-            
-        } 
-        catch (SQLException ex) 
-        {
-            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return 0;
-    }
     
     public boolean add_colorway(colortextile_class.colorway new_colorway)
     {
@@ -294,6 +270,31 @@ public class DB_Manager {
         }
         
     
+    }
+    
+    public int get_id_customer(String customer_name)
+    {
+        try
+        {
+            DBConnection db = new DBConnection();
+            Connection conn = db.getConnection();
+        
+            PreparedStatement ps = conn.prepareStatement("SELECT id_customer FROM customer WHERE customer_name = ?");
+            int item = 1;
+            
+            ps.setString(item++, customer_name);
+            ResultSet rs = ps.executeQuery();
+            rs.next();
+            int customer_id = rs.getInt("id_customer");
+            return customer_id;
+            
+            
+        } 
+        catch (SQLException ex) 
+        {
+            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return 0;
     }
     
     //GET END
