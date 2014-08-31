@@ -52,7 +52,7 @@ public class DB_Manager {
         return false;
     }
     
-    public void add_customer_data(String name) {
+    public boolean add_customer(colortextile_class.customer new_customer) {
         try {
             DBConnection db = new DBConnection();
             Connection conn = db.getConnection();
@@ -60,14 +60,16 @@ public class DB_Manager {
             String query = "INSERT INTO customer (customer_name) VALUES (?)";
 
             PreparedStatement preparedStmt = conn.prepareStatement(query);
-            preparedStmt.setString(1, name);
+            preparedStmt.setString(1, new_customer.getCustomer_name());
 
             preparedStmt.execute();
-
-        } catch (Exception ex) {
-            System.out.println(ex);
+            return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
         }
+        return false;
     }
+    
     
     public boolean add_colorway(colortextile_class.colorway new_colorway)
     {
@@ -267,6 +269,31 @@ public class DB_Manager {
         }
         
     
+    }
+    
+    public int get_id_customer(String customer_name)
+    {
+        try
+        {
+            DBConnection db = new DBConnection();
+            Connection conn = db.getConnection();
+        
+            PreparedStatement ps = conn.prepareStatement("SELECT id_customer FROM customer WHERE customer_name = ?");
+            int item = 1;
+            
+            ps.setString(item++, customer_name);
+            ResultSet rs = ps.executeQuery();
+            rs.next();
+            int customer_id = rs.getInt("id_customer");
+            return customer_id;
+            
+            
+        } 
+        catch (SQLException ex) 
+        {
+            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return 0;
     }
     
     //GET END
