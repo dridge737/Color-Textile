@@ -12,7 +12,7 @@ package colortextile_class;
  */
 public class design {
     private String design_code;
-    private String textile_code;
+    private String design_name;
 
     /**
      * @return the design_code
@@ -29,16 +29,17 @@ public class design {
     }
 
     /**
-     * @return the textile_code
+     * @return the design_name
      */
-    public String getTextile_code() {
-        return textile_code;
+    public String getDesign_name() {
+        return design_name;
     }
 
     /**
-     * @param textile_code the textile_code to set
+     * @param design_name the design_name to set
      */
-    public void setTextile_code(String textile_code) {
-        this.textile_code = textile_code;
+    public void setDesign_name(String design_name) {
+        this.design_name = design_name;
     }
+
 }

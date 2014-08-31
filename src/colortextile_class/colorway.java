@@ -14,7 +14,6 @@ public class colorway {
     private int id_colorway;
     private String colorway_name;
     private float binder;
-    private String design_code;
     private float weight_kg;
 
     /**
@@ -60,20 +59,6 @@ public class colorway {
     }
 
     /**
-     * @return the design_code
-     */
-    public String getDesign_code() {
-        return design_code;
-    }
-
-    /**
-     * @param design_code the design_code to set
-     */
-    public void setDesign_code(String design_code) {
-        this.design_code = design_code;
-    }
-
-    /**
      * @return the weight_kg
      */
     public float getWeight_kg() {
@@ -85,5 +70,12 @@ public class colorway {
      */
     public void setWeight_kg(float weight_kg) {
         this.weight_kg = weight_kg;
+    }
+    
+    public boolean add_new_colorway()
+    {
+        Database.DB_Manager new_conn = new Database.DB_Manager();
+        return new_conn.add_colorway(this);
+        
     }
 }

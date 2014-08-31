@@ -62,5 +62,12 @@ public class screen_pigment {
         DB_Manager new_conn = new DB_Manager();
         new_conn.add_screen_pigment(this);
     }
+    
+    public void get_screen_pigment_id_from_pigment_no_and_pigment_percentage()
+    {
+        DB_Manager new_conn = new DB_Manager();
+        id_screen = new_conn.get_id_screen(pigment_no, pigment_percentage);
+    }
+    
 
 }

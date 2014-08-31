@@ -76,6 +76,6 @@ public class pigment {
     {
         DB_Manager newDbManager = new DB_Manager();
         pigment_id = newDbManager.get_id_pigment(pigment_name);
-        
     }
+    
 }

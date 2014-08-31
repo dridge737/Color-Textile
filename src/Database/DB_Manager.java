@@ -57,7 +57,7 @@ public class DB_Manager {
             DBConnection db = new DBConnection();
             Connection conn = db.getConnection();
 
-            String query = "insert into customer (customer_name) values (?)";
+            String query = "INSERT INTO customer (customer_name) VALUES (?)";
 
             PreparedStatement preparedStmt = conn.prepareStatement(query);
             preparedStmt.setString(1, name);
@@ -76,12 +76,11 @@ public class DB_Manager {
             DBConnection db = new DBConnection();
             Connection conn = db.getConnection();
             
-            PreparedStatement ps = conn.prepareStatement("INSERT INTO colorway (colorway_name, binder, design_code,weight_kg)"
-                                                       + "VALUES (?, ?, ?, ?);");
+            PreparedStatement ps = conn.prepareStatement("INSERT INTO colorway (colorway_name, binder, weight_kg)"
+                                                       + "VALUES (?, ?, ?);");
             int item =1;
             ps.setString(item++, new_colorway.getColorway_name());
             ps.setFloat(item++, new_colorway.getBinder());
-            ps.setString(item++, new_colorway.getDesign_code());
             ps.setFloat(item++, new_colorway.getWeight_kg());
             
             ps.executeUpdate(); 
@@ -94,14 +93,14 @@ public class DB_Manager {
         return false;
     }
     
-    public boolean add_colorway_and_screen(int id_screen, int id_colorway)
+    public boolean add_colorway_and_screen_connect(int id_screen, int id_colorway)
     {
         try{
         
             DBConnection db = new DBConnection();
             Connection conn = db.getConnection();
             
-            PreparedStatement ps = conn.prepareStatement("INSERT INTO colorway_and_screen (id_screen, id_colorway)"
+            PreparedStatement ps = conn.prepareStatement("INSERT INTO colorway_and_screen_screen (id_screen, id_colorway)"
                                                        + "VALUES (?, ?);");
             int item =1;
             ps.setInt(item++, id_screen);
@@ -116,18 +115,18 @@ public class DB_Manager {
         return false;
     }
     
-    public boolean add_textile(colortextile_class.textile new_textile)
+    public boolean add_design_colorway_connect(String design_code, int id_colorway)
     {
         try{
         
             DBConnection db = new DBConnection();
             Connection conn = db.getConnection();
             
-            PreparedStatement ps = conn.prepareStatement("INSERT INTO textile (textile_code, textile_name) VALUES (?,?);");
+            PreparedStatement ps = conn.prepareStatement("INSERT INTO design_colorway_connect(design_code, id_colorway)"
+                                                       + "VALUES (?, ?);");
             int item = 1;
-            ps.setString(item++, new_textile.getTextile_code());
-            ps.setString(item++, new_textile.getTextile_name());
-            
+            ps.setString(item++, design_code);
+            ps.setInt(item++, id_colorway);
             ps.executeUpdate();
             return true;
         }
@@ -137,7 +136,7 @@ public class DB_Manager {
         }
         return false;
     }
-    
+
     public boolean add_design(colortextile_class.design new_design)
     {
          try{
@@ -145,7 +144,7 @@ public class DB_Manager {
             DBConnection db = new DBConnection();
             Connection conn = db.getConnection();
             
-            PreparedStatement ps = conn.prepareStatement("INSERT INTO design (design_code, textile_code) VALUES (?, ?);");
+            PreparedStatement ps = conn.prepareStatement("INSERT INTO design (design_code, design_name) VALUES (?, ?);");
             
             int item = 1;
             ps.setString(item++, new_design.getDesign_code());
