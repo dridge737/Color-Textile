@@ -148,7 +148,7 @@ public class DB_Manager {
             
             int item = 1;
             ps.setString(item++, new_design.getDesign_code());
-            ps.setString(item++, new_design.getTextile_code()); 
+            ps.setString(item++, new_design.getDesign_name()); 
             
             ps.executeUpdate();
             return true;
