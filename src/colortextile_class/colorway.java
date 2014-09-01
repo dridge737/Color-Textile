@@ -75,13 +75,23 @@ public class colorway {
     public boolean add_new_colorway()
     {
         Database.DB_Manager new_conn = new Database.DB_Manager();
-        return new_conn.add_colorway(this);
+        
+        if(set_id_colorway_from_variables())
+            return new_conn.add_colorway(this);
+        
+        return false;
     }
     
-    public boolean get_id_colorway()
+    public boolean set_id_colorway_from_variables()
     {
         Database.DB_Manager new_conn = new Database.DB_Manager();
-        new_conn.get_id_colorway(this);
-        return true;
+        int temp_colorway_id = new_conn.get_id_colorway(this);
+        if(id_colorway != -1)
+        {
+            this.id_colorway = temp_colorway_id;
+            return true;
+        }
+        return false;
+        
     }
 }

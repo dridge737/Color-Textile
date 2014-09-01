@@ -42,4 +42,17 @@ public class design {
         this.design_name = design_name;
     }
 
+    public boolean add_new_design()
+    {
+        Database.DB_Manager new_conn = new Database.DB_Manager();
+        new_conn.add_design(this);
+        return false;
+    }
+    
+    public boolean get_design_code_using_variables()
+    {
+        Database.DB_Manager new_conn = new Database.DB_Manager();
+       return false;
+    }
+    
 }

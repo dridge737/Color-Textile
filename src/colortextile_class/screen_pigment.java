@@ -57,16 +57,28 @@ public class screen_pigment {
         this.pigment_percentage = pigment_percentage;
     }
     
-    public void add_new_screen_pigment()
+    public boolean add_new_screen_pigment()
     {
         DB_Manager new_conn = new DB_Manager();
-        new_conn.add_screen_pigment(this);
+        if(!get_screen_pigment_id_from_pigment_no_and_pigment_percentage())
+        {
+            new_conn.add_screen_pigment(this);
+            return true;
+        }
+        return false;
     }
     
-    public void get_screen_pigment_id_from_pigment_no_and_pigment_percentage()
+    public boolean get_screen_pigment_id_from_pigment_no_and_pigment_percentage()
     {
         DB_Manager new_conn = new DB_Manager();
-        id_screen = new_conn.get_id_screen(pigment_no, pigment_percentage);
+        int temp_id_screen = new_conn.get_id_screen(pigment_no, pigment_percentage);
+        if(temp_id_screen == -1)
+        {
+            return false;
+        }
+        
+        id_screen = temp_id_screen;
+        return true;
     }
     
 

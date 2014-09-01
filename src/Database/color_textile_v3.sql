@@ -12,17 +12,16 @@ CREATE  TABLE IF NOT EXISTS `color_textile`.`colorway` (
   `id_colorway` INT(11) NOT NULL AUTO_INCREMENT ,
   `colorway_name` VARCHAR(45) NULL DEFAULT NULL ,
   `binder` FLOAT NULL DEFAULT NULL ,
-  `design_code` VARCHAR(45) NULL DEFAULT NULL ,
-  `weight_kg` INT(11) NULL DEFAULT NULL ,
+  `weight_kg` FLOAT NULL DEFAULT NULL ,
   PRIMARY KEY (`id_colorway`) )
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = latin1;
 
 
 -- -----------------------------------------------------
--- Table `color_textile`.`colorway_and_screen`
+-- Table `color_textile`.`colorway_screen_connect`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `color_textile`.`colorway_and_screen` (
+CREATE  TABLE IF NOT EXISTS `color_textile`.`colorway_screen_connect` (
   `id_color_screen` INT(11) NOT NULL AUTO_INCREMENT ,
   `id_screen` INT(11) NULL DEFAULT NULL ,
   `id_colorway` INT(11) NULL DEFAULT NULL ,
@@ -48,8 +47,20 @@ DEFAULT CHARACTER SET = latin1;
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `color_textile`.`design` (
   `design_code` VARCHAR(45) NOT NULL ,
-  `textile_code` VARCHAR(45) NULL DEFAULT NULL ,
+  `design_name` VARCHAR(45) NULL DEFAULT NULL ,
   PRIMARY KEY (`design_code`) )
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = latin1;
+
+
+-- -----------------------------------------------------
+-- Table `color_textile`.`design_colorway_connect`
+-- -----------------------------------------------------
+CREATE  TABLE IF NOT EXISTS `color_textile`.`design_colorway_connect` (
+  `id_design_colorway` INT(11) NOT NULL AUTO_INCREMENT ,
+  `design_code` VARCHAR(45) NULL DEFAULT NULL ,
+  `id_colorway` INT(11) NULL DEFAULT NULL ,
+  PRIMARY KEY (`id_design_colorway`) )
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = latin1;
 
@@ -58,13 +69,13 @@ DEFAULT CHARACTER SET = latin1;
 -- Table `color_textile`.`job_order`
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `color_textile`.`job_order` (
-  `job_order_id` INT(11) NOT NULL AUTO_INCREMENT ,
+  `id_job_order` INT(11) NOT NULL AUTO_INCREMENT ,
   `date` DATE NULL DEFAULT NULL ,
   `quantity` INT(11) NULL DEFAULT NULL ,
   `fabric_style` VARCHAR(45) NULL DEFAULT NULL ,
-  `customer_id` INT(11) NULL DEFAULT NULL ,
+  `id_customer` INT(11) NULL DEFAULT NULL ,
   `design_code` VARCHAR(45) NULL DEFAULT NULL ,
-  PRIMARY KEY (`job_order_id`) )
+  PRIMARY KEY (`id_job_order`) )
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = latin1;
 
@@ -91,17 +102,6 @@ CREATE  TABLE IF NOT EXISTS `color_textile`.`screen_pigment` (
   `pigment_no` INT(11) NULL DEFAULT NULL ,
   `pigment_percentage` FLOAT NULL DEFAULT NULL ,
   PRIMARY KEY (`id_screen`) )
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = latin1;
-
-
--- -----------------------------------------------------
--- Table `color_textile`.`textile`
--- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `color_textile`.`textile` (
-  `textile_code` VARCHAR(45) NOT NULL ,
-  `textile_name` VARCHAR(45) NULL DEFAULT NULL ,
-  PRIMARY KEY (`textile_code`) )
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = latin1;
 

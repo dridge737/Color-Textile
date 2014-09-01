@@ -6,6 +6,7 @@
 
 package colortextile_form;
 import colortextile_class.*;
+import javax.swing.JOptionPane;
 /**
  *
  * @author Eldridge
@@ -164,7 +165,11 @@ public class Add_new_design extends javax.swing.JFrame {
          newScreenPigment.setPigment_no(Pigment_Object.getPigment_id());
          newScreenPigment.setPigment_percentage(Float.parseFloat(pigment_percentage.getText()));
          //Add new Item
-         newScreenPigment.add_new_screen_pigment();
+         if(!newScreenPigment.add_new_screen_pigment())
+         {
+             newScreenPigment.get_screen_pigment_id_from_pigment_no_and_pigment_percentage();
+         }
+         
          
          //Object Declaration
          colorway newColorway = new colorway();
@@ -173,12 +178,14 @@ public class Add_new_design extends javax.swing.JFrame {
          newColorway.setColorway_name(colorway_name.getText());
          newColorway.setWeight_kg(Float.parseFloat(weigh_kg.getText()));
          //Add new Item
-         newColorway.add_new_colorway();
+         
+         
+         
          
          colorway_and_screen new_c_and_s = new colorway_and_screen();
          
-         new_c_and_s.setId_colorway();
-         new_c_and_s.setId_screen();
+        // new_c_and_s.setId_colorway();
+        // new_c_and_s.setId_screen();
          
        
     }//GEN-LAST:event_jButton1ActionPerformed

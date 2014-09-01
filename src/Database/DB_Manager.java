@@ -166,7 +166,7 @@ public class DB_Manager {
     //ADD END
     
     ///////////////////////////////////////////////////////////////////////////////////////////
-    
+        
     //GET START
     ///GET and search function here
     ///Start every function with get_* or search_*
@@ -183,15 +183,18 @@ public class DB_Manager {
             int item = 1;
             ps.setString(item++, pigment_name);
             ResultSet rs = ps.executeQuery();
-            rs.next();
-            int pigment_id = rs.getInt("pigment_no");
-            return pigment_id;
+            if(rs.first())
+            {
+                rs.next();
+                int pigment_id = rs.getInt("pigment_no");
+                return pigment_id;
+            }   
             
         } catch (SQLException ex) {
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
         }
     
-        return 0;
+        return -1;
     }
     
     public int get_id_screen(int pigment_no, float pigment_percentage)
@@ -206,16 +209,18 @@ public class DB_Manager {
             ps.setInt(item++, pigment_no);
             ps.setFloat(item++, pigment_percentage);
             ResultSet rs = ps.executeQuery();
-            rs.next();
-            int id_screen = rs.getInt("id_screen");
-            
-            return id_screen;
+            if(rs.first())
+            {
+                rs.next();
+                int id_screen = rs.getInt("id_screen");
+                return id_screen;
+            }
         }
         catch(SQLException ex){
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        return 0;
+        return -1;
     }
     
     public int get_id_color_screen(int id_screen, int id_colorway)
@@ -232,16 +237,18 @@ public class DB_Manager {
             ps.setInt(item, id_colorway);
             
             ResultSet rs = ps.executeQuery();
-            rs.next();
-            int id_color_screen = rs.getInt("id_color_screen");
-            
-            return id_color_screen;
+            if(rs.first())
+            {
+                rs.next();
+                int id_color_screen = rs.getInt("id_color_screen");
+                return id_color_screen;
+            }
         }
         catch(SQLException ex){
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        return 0;
+        return -1;
     }
     
     public int get_id_colorway(colortextile_class.colorway existing_colorway)
@@ -259,15 +266,21 @@ public class DB_Manager {
             ps.setFloat(item++, existing_colorway.getWeight_kg());
             
             ResultSet rs = ps.executeQuery();
-            rs.next();
-            int id_colorway = rs.getInt("id_colorway");
-            
-            return id_colorway;
+            if(rs.first())
+            {
+                rs.next();
+                int id_colorway = rs.getInt("id_colorway");
+                return id_colorway;
+            }
         }
         catch(SQLException ex){
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
         }
         
+        return -1;
+    }
+    
+    public int get_design_code(colortextile_class.design new_design){
         return -1;
     }
     
@@ -281,8 +294,6 @@ public class DB_Manager {
             PreparedStatement ps = 
             conn.prepareStatement("SELECT  FROM  WHERE ");
             int item = 1;
-            
-            
             
             ResultSet rs = ps.executeQuery();
             rs.next();
@@ -306,10 +317,12 @@ public class DB_Manager {
             
             ps.setString(item++, customer_name);
             ResultSet rs = ps.executeQuery();
-            rs.next();
-            int customer_id = rs.getInt("id_customer");
-            return customer_id;
-            
+            if(rs.first())
+            {
+                rs.next();
+                int customer_id = rs.getInt("id_customer");
+                return customer_id;
+            }
             
         } 
         catch (SQLException ex) 

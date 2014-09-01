@@ -57,5 +57,25 @@ public class colorway_and_screen {
         this.id_colorway = id_colorway;
     }
     
+    public boolean add_colorway_and_screen()
+    {
+        Database.DB_Manager new_conn = new Database.DB_Manager();
+        if(set_id_colorway_and_screen_from_variables())
+            return new_conn.add_colorway_and_screen_connect(this.id_screen, this.id_colorway);
+        
+        return false;
+    }
+    
+    public boolean set_id_colorway_and_screen_from_variables()
+    {
+        Database.DB_Manager new_conn = new Database.DB_Manager();
+        int temp_id_colorway_screen = new_conn.get_id_color_screen(this.id_screen, this.id_colorway);
+        if(temp_id_colorway_screen != -1)
+        {
+            this.id_color_screen = temp_id_colorway_screen;
+            return true;
+        }
+        return false;
+    }
     
 }

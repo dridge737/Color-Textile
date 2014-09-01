@@ -18,7 +18,8 @@ public class ColorTextile {
     public static void main(String[] args) {
         // TODO code application logic here
         Database.DB_Manager newManager = new Database.DB_Manager();
-       // int trial_get_pigment_id =  newManager.get_pigment_id("VIOLET_MFB");
+        //int trial_get_pigment_id =  newManager.get_id_pigment("VIOLET_MFB");
+        int trial_get_id_screen = newManager.get_id_screen(1, 1);
         
        // System.out.println(trial_get_pigment_id);
  
