@@ -76,6 +76,12 @@ public class colorway {
     {
         Database.DB_Manager new_conn = new Database.DB_Manager();
         return new_conn.add_colorway(this);
-        
+    }
+    
+    public boolean get_id_colorway()
+    {
+        Database.DB_Manager new_conn = new Database.DB_Manager();
+        new_conn.get_id_colorway(this);
+        return true;
     }
 }

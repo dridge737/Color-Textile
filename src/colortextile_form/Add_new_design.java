@@ -175,6 +175,11 @@ public class Add_new_design extends javax.swing.JFrame {
          //Add new Item
          newColorway.add_new_colorway();
          
+         colorway_and_screen new_c_and_s = new colorway_and_screen();
+         
+         new_c_and_s.setId_colorway();
+         new_c_and_s.setId_screen();
+         
        
     }//GEN-LAST:event_jButton1ActionPerformed
 

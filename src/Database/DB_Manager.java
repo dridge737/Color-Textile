@@ -13,6 +13,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import colortextile_class.*;
 
 /**
  *
@@ -243,9 +244,31 @@ public class DB_Manager {
         return 0;
     }
     
-    public int get_id_colorway()
+    public int get_id_colorway(colortextile_class.colorway existing_colorway)
     {
-        return 0;
+        try{
+            DBConnection db = new DBConnection();
+            Connection conn = db.getConnection();
+            
+            PreparedStatement ps = 
+            conn.prepareStatement("SELECT id_colorway FROM colorway WHERE colorway_name = ? AND binder = ? AND weight_kg = ?;");
+            
+            int item = 1;
+            ps.setString(item++, existing_colorway.getColorway_name());
+            ps.setFloat(item++, existing_colorway.getBinder());
+            ps.setFloat(item++, existing_colorway.getWeight_kg());
+            
+            ResultSet rs = ps.executeQuery();
+            rs.next();
+            int id_colorway = rs.getInt("id_colorway");
+            
+            return id_colorway;
+        }
+        catch(SQLException ex){
+            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return -1;
     }
     
     //SKELETON TO COPY ONLY. Not usable
