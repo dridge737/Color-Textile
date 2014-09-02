@@ -45,13 +45,23 @@ public class design {
     public boolean add_new_design()
     {
         Database.DB_Manager new_conn = new Database.DB_Manager();
-        new_conn.add_design(this);
+        if(!get_design_code_using_variables())
+        {
+            new_conn.add_design(this);
+            return true;
+        }
         return false;
     }
     
     public boolean get_design_code_using_variables()
     {
         Database.DB_Manager new_conn = new Database.DB_Manager();
+        String temp_design_code = new_conn.get_design_code(this);
+        if(temp_design_code != null)
+        {
+            this.design_code = temp_design_code;
+            return true;
+        }
        return false;
     }
     

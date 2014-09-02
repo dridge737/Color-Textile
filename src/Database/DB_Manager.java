@@ -280,8 +280,30 @@ public class DB_Manager {
         return -1;
     }
     
-    public int get_design_code(colortextile_class.design new_design){
-        return -1;
+    public String get_design_code(colortextile_class.design new_design)
+    {
+        try{
+            DBConnection db = new DBConnection();
+            Connection conn = db.getConnection();
+            
+            PreparedStatement ps = 
+            conn.prepareStatement("SELECT design_code FROM design WHERE design_name = ?");
+            int item = 1;
+            ps.setString(item++, new_design.getDesign_name());
+            ResultSet rs = ps.executeQuery();
+            if(rs.first())
+            {
+                rs.next();
+                String design_code = rs.getString("design_code");
+                return design_code;
+            }
+            
+        }
+        catch(SQLException ex){
+            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return null;
     }
     
     //SKELETON TO COPY ONLY. Not usable
