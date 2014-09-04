@@ -354,6 +354,31 @@ public class DB_Manager {
         return 0;
     }
     
+    public String get_customer_name_list() 
+    {
+        //winston: not yet finished
+        try
+        {
+          DBConnection db = new DBConnection();
+          Connection conn = db.getConnection();  
+          
+            PreparedStatement ps = conn.prepareStatement("SELECT * FROM customer ");
+            ResultSet rs = ps.executeQuery();
+            
+            while(rs.next())
+            {
+                String name = rs.getString("customer_name");
+                return name;
+            }
+        }
+        catch (SQLException ex)
+        {
+            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
+            
+    
     //GET END
     
     ///////////////////////////////////////////////////////////////////////////////////////////
