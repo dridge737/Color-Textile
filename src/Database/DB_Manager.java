@@ -6,14 +6,15 @@
 
 package Database;
 
+import colortextile_class.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import colortextile_class.*;
 
 /**
  *
@@ -354,9 +355,10 @@ public class DB_Manager {
         return 0;
     }
     
-    public String get_customer_name_list() 
+    public ArrayList<String> get_customer_list() 
     {
         //winston: not yet finished
+        ArrayList<String> names = new ArrayList<>();
         try
         {
           DBConnection db = new DBConnection();
@@ -367,15 +369,15 @@ public class DB_Manager {
             
             while(rs.next())
             {
-                String name = rs.getString("customer_name");
-                return name;
+                names.add(rs.getString("customer_name"));
+                return names;
             }
         }
         catch (SQLException ex)
         {
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+        return null;
     }
             
     

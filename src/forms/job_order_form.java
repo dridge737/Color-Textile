@@ -5,7 +5,7 @@
  */
 
 package forms;
-
+import Database.DB_Manager;
 /**
  *
  * @author Winston
@@ -17,6 +17,9 @@ public class job_order_form extends javax.swing.JFrame {
      */
     public job_order_form() {
         initComponents();
+        DB_Manager list = new DB_Manager();
+        
+        
     }
 
     /**
