@@ -357,7 +357,8 @@ public class DB_Manager {
     
     public ArrayList<String> get_customer_list() 
     {
-        //winston: not yet finished
+        //winston: is this right?
+        
         ArrayList<String> names = new ArrayList<>();
         try
         {

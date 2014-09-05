@@ -20,7 +20,17 @@ public class job_order_form extends javax.swing.JFrame {
         DB_Manager list = new DB_Manager();
         
         
-    }
+        for ( String name : list.get_customer_list() )
+        {
+        this.combo_customer.addItem(name);
+        }
+        // something is wrong
+        for ( String name : list.get_customer_list() )
+        {
+        System.out.println("Name  =" + name);
+        }
+        
+        }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -42,8 +52,6 @@ public class job_order_form extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         label_customer.setText("Customer Name:");
-
-        combo_customer.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         Button_new_customer.setText("new customer");
 
