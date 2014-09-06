@@ -376,6 +376,7 @@ public class DB_Manager {
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
         }
         
+        return null;
     }
             
     

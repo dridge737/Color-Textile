@@ -18,6 +18,8 @@ public class Add_new_design extends javax.swing.JFrame {
      */
     public Add_new_design() {
         initComponents();
+        pigment_name.addItem("Hello");
+        
     }
 
     /**
@@ -49,7 +51,7 @@ public class Add_new_design extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         binder.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        binder.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        binder.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "2.5", "2.7", "4.2", "5" }));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel1.setText("Pigment Name :");
@@ -88,7 +90,6 @@ public class Add_new_design extends javax.swing.JFrame {
         colorway_name.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         pigment_name.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        pigment_name.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         pigment_name.setName("pigment_name"); // NOI18N
 
         pigment_percentage.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -135,17 +136,18 @@ public class Add_new_design extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(29, 29, 29)
                         .addComponent(jLabel2)
                         .addGap(10, 10, 10)
-                        .addComponent(binder, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(68, 68, 68))
+                        .addComponent(binder, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel3))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(53, 53, 53)
                         .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(8, 8, 8)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -153,8 +155,7 @@ public class Add_new_design extends javax.swing.JFrame {
                         .addGap(35, 35, 35)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addGap(102, 102, 102)
+                                .addGap(113, 113, 113)
                                 .addComponent(jButton1))
                             .addComponent(jLabel6)
                             .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -163,7 +164,7 @@ public class Add_new_design extends javax.swing.JFrame {
                         .addComponent(weigh_kg, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel5)))
-                .addGap(0, 289, Short.MAX_VALUE))
+                .addGap(0, 327, Short.MAX_VALUE))
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(

@@ -78,4 +78,6 @@ public class pigment {
         pigment_id = newDbManager.get_id_pigment(pigment_name);
     }
     
+    
+    
 }
