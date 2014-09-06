@@ -371,8 +371,8 @@ public class DB_Manager {
             while(rs.next())
             {
                 names.add(rs.getString("customer_name"));
-                return names;
             }
+            return names;
         }
         catch (SQLException ex)
         {

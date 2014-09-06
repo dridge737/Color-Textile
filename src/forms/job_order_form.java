@@ -15,7 +15,8 @@ public class job_order_form extends javax.swing.JFrame {
     /**
      * Creates new form job_order_form
      */
-    public job_order_form() {
+    public job_order_form() 
+    {
         initComponents();
         DB_Manager list = new DB_Manager();
         
@@ -24,13 +25,8 @@ public class job_order_form extends javax.swing.JFrame {
         {
         this.combo_customer.addItem(name);
         }
-        // something is wrong
-        for ( String name : list.get_customer_list() )
-        {
-        System.out.println("Name  =" + name);
-        }
         
-        }
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
