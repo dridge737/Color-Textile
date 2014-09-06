@@ -6,6 +6,8 @@
 
 package colortextile_class;
 import Database.DB_Manager;
+import java.sql.ResultSet;
+import java.util.ArrayList;
 /**
  *
  * @author Eldridge
@@ -76,6 +78,13 @@ public class pigment {
     {
         DB_Manager newDbManager = new DB_Manager();
         pigment_id = newDbManager.get_id_pigment(pigment_name);
+    }
+    
+    public ArrayList<String> get_all_pigment_name()
+    {
+        DB_Manager new_conn = new DB_Manager();
+        return new_conn.get_all_pigment_name();
+        
     }
     
     

@@ -6,6 +6,7 @@
 
 package colortextile_form;
 import colortextile_class.*;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 /**
  *
@@ -18,8 +19,12 @@ public class Add_new_design extends javax.swing.JFrame {
      */
     public Add_new_design() {
         initComponents();
-        pigment_name.addItem("Hello");
-        
+        colortextile_class.pigment list_pigment = new colortextile_class.pigment();
+        ArrayList<String> pigment_list = list_pigment.get_all_pigment_name();
+        for(int temp_i = 0; temp_i < pigment_list.size(); temp_i++)
+        {
+            pigment_name.addItem(pigment_list.get(temp_i));
+        }
     }
 
     /**
@@ -107,10 +112,10 @@ public class Add_new_design extends javax.swing.JFrame {
                         .addComponent(colorway_name, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addComponent(pigment_name, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addComponent(pigment_name, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(pigment_percentage, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(463, Short.MAX_VALUE))
             .addComponent(jSeparator1)
         );
         jPanel1Layout.setVerticalGroup(
@@ -199,10 +204,10 @@ public class Add_new_design extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-         
-         screen_pigment newScreenPigment = new screen_pigment();
+
          //Object Declaration
          pigment Pigment_Object = new pigment();
+         screen_pigment newScreenPigment = new screen_pigment();
          //Set item
          Pigment_Object.setPigment_name(pigment_name.getSelectedItem().toString());
          newScreenPigment.setPigment_no(Pigment_Object.getPigment_id());
