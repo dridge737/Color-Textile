@@ -6,14 +6,16 @@
 
 package Database;
 
+import colortextile_class.*;
+import java.sql.Array;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import colortextile_class.*;
 
 /**
  *
@@ -306,6 +308,31 @@ public class DB_Manager {
         return null;
     }
     
+    public ArrayList<String> get_all_pigment_name()
+    {
+        try
+        {
+            DBConnection db = new DBConnection();
+            Connection conn = db.getConnection();
+
+            PreparedStatement ps = conn.prepareStatement("SELECT pigment_name FROM pigment");
+            ResultSet rs = ps.executeQuery();
+            ArrayList<String> pigment_list = new ArrayList<String>();
+            while(rs.next())
+            {
+                pigment_list.add(rs.getString(1));
+            }
+            return pigment_list;
+        }
+        catch(SQLException ex)
+        {
+            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return null;
+        
+    }
+    
     //SKELETON TO COPY ONLY. Not usable
     public void get_skeleton()
     {
@@ -354,9 +381,11 @@ public class DB_Manager {
         return 0;
     }
     
-    public String get_customer_name_list() 
+    public ArrayList<String> get_customer_list() 
     {
-        //winston: not yet finished
+        //winston: is this right?
+        
+        ArrayList<String> names = new ArrayList<>();
         try
         {
           DBConnection db = new DBConnection();
@@ -367,15 +396,15 @@ public class DB_Manager {
             
             while(rs.next())
             {
-                String name = rs.getString("customer_name");
-                return name;
+                names.add(rs.getString("customer_name"));
             }
+            return names;
         }
         catch (SQLException ex)
         {
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         return null;
     }
             

@@ -15,6 +15,7 @@ import Database.DB_Manager;
 public class customer {
     private int Customer_id;
     private String Customer_name;
+    private String[] Customer_list;
 
     /**
      * @return the Customer_id

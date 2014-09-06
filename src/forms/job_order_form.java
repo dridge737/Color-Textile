@@ -5,7 +5,7 @@
  */
 
 package forms;
-
+import Database.DB_Manager;
 /**
  *
  * @author Winston
@@ -15,8 +15,17 @@ public class job_order_form extends javax.swing.JFrame {
     /**
      * Creates new form job_order_form
      */
-    public job_order_form() {
+    public job_order_form() 
+    {
         initComponents();
+        DB_Manager list = new DB_Manager();
+        
+        
+        for ( String name : list.get_customer_list() )
+        {
+        this.combo_customer.addItem(name);
+        }
+        
     }
 
     /**
@@ -39,8 +48,6 @@ public class job_order_form extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         label_customer.setText("Customer Name:");
-
-        combo_customer.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         Button_new_customer.setText("new customer");
 
