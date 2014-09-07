@@ -7,6 +7,7 @@
 package colortextile_class;
 
 import Database.DB_Manager;
+import java.util.ArrayList;
 
 /**
  *
@@ -15,7 +16,7 @@ import Database.DB_Manager;
 public class customer {
     private int Customer_id;
     private String Customer_name;
-    private String[] Customer_list;
+    private ArrayList<String> Customer_names = new ArrayList<String>();
 
     /**
      * @return the Customer_id
@@ -50,5 +51,22 @@ public class customer {
         DB_Manager new_conn = new DB_Manager();
         new_conn.add_customer(this);
     }
+
+    /**
+     * @return the Customer_names
+     */
+    public ArrayList<String> getCustomer_names() {
+        return Customer_names;
+    }
+
+    /**
+     * @param Customer_names the Customer_names to set
+     */
+    public void setCustomer_names(ArrayList<String> Customer_names) {
+        this.Customer_names = Customer_names;
+    }
+    
+    
+    
    
 }

@@ -6,6 +6,11 @@
 
 package forms;
 import Database.DB_Manager;
+import colortextile_class.job_order;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  *
  * @author Winston
@@ -19,8 +24,6 @@ public class job_order_form extends javax.swing.JFrame {
     {
         initComponents();
         DB_Manager list = new DB_Manager();
-        
-        
         for ( String name : list.get_customer_list() )
         {
         this.combo_customer.addItem(name);
@@ -29,6 +32,7 @@ public class job_order_form extends javax.swing.JFrame {
         
         
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -42,38 +46,45 @@ public class job_order_form extends javax.swing.JFrame {
         label_customer = new javax.swing.JLabel();
         combo_customer = new javax.swing.JComboBox();
         Button_new_customer = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
+        text_job_order = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        Button_new_customer1 = new javax.swing.JButton();
+        spinner_date = new javax.swing.JSpinner();
+        label_notification = new javax.swing.JLabel();
+        combo_fabric_style = new javax.swing.JComboBox();
+        spinner_quantity = new javax.swing.JSpinner();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         label_customer.setText("Customer Name:");
 
-        combo_customer.setEditable(true);
-
         Button_new_customer.setText("new customer");
-
-        jTextField1.setText("jTextField1");
-
-        jTextField2.setText("jTextField1");
-
-        jTextField3.setText("jTextField1");
-
-        jTextField4.setText("jTextField1");
-
-        jTextField5.setText("jTextField1");
 
         jLabel1.setText("Job Order:");
 
-        jLabel2.setText("jLabel2");
+        jLabel2.setText("Date:");
 
-        jLabel3.setText("quantity");
+        jLabel3.setText("Quantity");
+
+        jLabel4.setText("fabric Style:");
+
+        Button_new_customer1.setText("Save Job Order");
+        Button_new_customer1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Button_new_customer1ActionPerformed(evt);
+            }
+        });
+
+        spinner_date.setModel(new javax.swing.SpinnerDateModel());
+
+        label_notification.setText("jLabel6");
+
+        combo_fabric_style.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Fabric 1", "Fabric 2", "Fabric 3", " " }));
+
+        spinner_quantity.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -85,18 +96,24 @@ public class job_order_form extends javax.swing.JFrame {
                     .addComponent(label_customer)
                     .addComponent(jLabel1)
                     .addComponent(jLabel2)
-                    .addComponent(jLabel3))
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel4))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextField1)
+                    .addComponent(text_job_order)
                     .addComponent(combo_customer, 0, 219, Short.MAX_VALUE)
-                    .addComponent(jTextField2)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jTextField4)
-                    .addComponent(jTextField5))
+                    .addComponent(spinner_date)
+                    .addComponent(combo_fabric_style, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(spinner_quantity))
                 .addGap(49, 49, 49)
-                .addComponent(Button_new_customer, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Button_new_customer, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Button_new_customer1, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(41, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(label_notification)
+                .addGap(267, 267, 267))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -108,25 +125,75 @@ public class job_order_form extends javax.swing.JFrame {
                     .addComponent(Button_new_customer))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(text_job_order, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
+                    .addComponent(jLabel2)
+                    .addComponent(spinner_date, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
+                    .addComponent(jLabel3)
+                    .addComponent(spinner_quantity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(217, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(Button_new_customer1)
+                    .addComponent(combo_fabric_style, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(65, 65, 65)
+                .addComponent(label_notification)
+                .addContainerGap(162, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void Button_new_customer1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_new_customer1ActionPerformed
+        // TODO add your handling code here:
+        if (this.text_job_order.getText().trim().equals("") || this.combo_fabric_style.getSelectedItem().toString().trim().equals("") )
+        {
+            this.label_notification.setVisible(true);
+            this.label_notification.setText("Please complete all fields");
+        } else {
+            job_order job = new job_order();
+                job.setJob_id(this.text_job_order.getText());   
+                //job.setDate((Date) this.spinner_date.getValue());
+                
+                String expectedPattern = "MM/dd/yyyy";
+    SimpleDateFormat formatter = new SimpleDateFormat(expectedPattern);
+    String stringDate = formatter.format(this.spinner_date.getValue() );
+    try
+    {
+      // (2) give the formatter a String that matches the SimpleDateFormat pattern
+      String userInput = "09/22/2009";
+      Date date = formatter.parse(stringDate);
+ 
+      // (3) prints out "Tue Sep 22 00:00:00 EDT 2009"
+      System.out.println(date);
+    }
+    catch (ParseException e)
+    {
+      // execution will come here if the String that is given
+      // does not match the expected format.
+      e.printStackTrace();
+    }
+                
+    
+    
+   
+                
+                
+                
+                System.out.println("hello world:"+ this.spinner_date.getValue() );
+                job.setQuantity((Integer) this.spinner_quantity.getValue());
+
+                job.setFabric_style(this.combo_fabric_style.getSelectedItem().toString());
+                job.add_new_job_order();
+                        this.label_notification.setVisible(true);
+            this.label_notification.setText("Customer info Added");
+        }
+        
+    }//GEN-LAST:event_Button_new_customer1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -165,15 +232,17 @@ public class job_order_form extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Button_new_customer;
+    private javax.swing.JButton Button_new_customer1;
     private javax.swing.JComboBox combo_customer;
+    private javax.swing.JComboBox combo_fabric_style;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel label_customer;
+    private javax.swing.JLabel label_notification;
+    private javax.swing.JSpinner spinner_date;
+    private javax.swing.JSpinner spinner_quantity;
+    private javax.swing.JTextField text_job_order;
     // End of variables declaration//GEN-END:variables
 }

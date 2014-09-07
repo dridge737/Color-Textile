@@ -9,6 +9,7 @@ package Database;
 import colortextile_class.*;
 import java.sql.Array;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -161,6 +162,30 @@ public class DB_Manager {
         catch(SQLException ex)
         {
             System.out.println(ex);
+        }
+        return false;
+    }
+    
+    public boolean add_job_order(colortextile_class.job_order new_job)
+    {
+        try {
+            DBConnection db = new DBConnection();
+            Connection conn = db.getConnection();
+
+            String query = "INSERT INTO job_order (job_order_id, date, quantity, fabric_style, customer_id, design_code) VALUES (?, ?, ?, ?, ?, ?)";
+
+            PreparedStatement preparedStmt = conn.prepareStatement(query);
+            preparedStmt.setString(1, new_job.getJob_id());
+            preparedStmt.setDate(2, (Date) new_job.getDate());
+            preparedStmt.setInt(3, new_job.getQuantity());         
+            preparedStmt.setString(4, new_job.getFabric_style());
+            preparedStmt.setInt(5, new_job.getCustomer_id());
+            preparedStmt.setString(6, new_job.getDesign_code());
+
+            preparedStmt.execute();
+            return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
         }
         return false;
     }
@@ -391,7 +416,7 @@ public class DB_Manager {
           DBConnection db = new DBConnection();
           Connection conn = db.getConnection();  
           
-            PreparedStatement ps = conn.prepareStatement("SELECT * FROM customer ");
+            PreparedStatement ps = conn.prepareStatement("SELECT * FROM customer ORDER BY customer_name ASC ");
             ResultSet rs = ps.executeQuery();
             
             while(rs.next())
@@ -427,4 +452,35 @@ public class DB_Manager {
     
     //DELETE END
      
+    //SEARCH START
+    //SEARCH function for SQL
+    //START all functions here with search_*
+    
+    public ArrayList<String> Search_Customer_Name(colortextile_class.customer customer_name){
+        
+         ArrayList<String> names = new ArrayList<>();
+        try
+        {
+          DBConnection db = new DBConnection();
+          Connection conn = db.getConnection();  
+          
+            PreparedStatement ps = conn.prepareStatement("SELECT * FROM customer WHERE customer= '%"+ customer_name +"%'");
+            ResultSet rs = ps.executeQuery();
+            
+            while(rs.next())
+            {
+                names.add(rs.getString("customer_name"));
+            }
+            return names;
+        }
+        catch (SQLException ex)
+        {
+            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return null;
+    }
+    
+    
+    //SEARCH END
 }

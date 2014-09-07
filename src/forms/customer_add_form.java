@@ -36,6 +36,7 @@ public class customer_add_form extends javax.swing.JFrame {
         label_notification = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setAlwaysOnTop(true);
 
         label_customername.setText("Customer Name:");
 
