@@ -7,9 +7,12 @@
 package forms;
 import Database.DB_Manager;
 import colortextile_class.job_order;
+import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import javax.swing.JSpinner;
+import javax.swing.SpinnerDateModel;
 
 /**
  *
@@ -155,36 +158,14 @@ public class job_order_form extends javax.swing.JFrame {
             this.label_notification.setVisible(true);
             this.label_notification.setText("Please complete all fields");
         } else {
-            job_order job = new job_order();
-                job.setJob_id(this.text_job_order.getText());   
-                //job.setDate((Date) this.spinner_date.getValue());
-                
-                String expectedPattern = "MM/dd/yyyy";
-    SimpleDateFormat formatter = new SimpleDateFormat(expectedPattern);
-    String stringDate = formatter.format(this.spinner_date.getValue() );
-    try
-    {
-      // (2) give the formatter a String that matches the SimpleDateFormat pattern
-      String userInput = "09/22/2009";
-      Date date = formatter.parse(stringDate);
- 
-      // (3) prints out "Tue Sep 22 00:00:00 EDT 2009"
-      System.out.println(date);
-    }
-    catch (ParseException e)
-    {
-      // execution will come here if the String that is given
-      // does not match the expected format.
-      e.printStackTrace();
-    }
-                
-    
-    
-   
-                
-                
-                
-                System.out.println("hello world:"+ this.spinner_date.getValue() );
+            
+                SimpleDateFormat formater = new SimpleDateFormat("yyyy/MM/dd");
+                String spinnerValue = formater.format(this.spinner_date.getValue());
+                System.out.println(spinnerValue);
+            
+                job_order job = new job_order();
+                job.setJob_id(this.text_job_order.getText());
+                job.setDate(spinnerValue);
                 job.setQuantity((Integer) this.spinner_quantity.getValue());
 
                 job.setFabric_style(this.combo_fabric_style.getSelectedItem().toString());

@@ -7,6 +7,7 @@
 package colortextile_class;
 
 import Database.DB_Manager;
+import java.sql.Timestamp;
 import java.util.Date;
 
 /**
@@ -15,7 +16,7 @@ import java.util.Date;
  */
 public class job_order {
     private String job_id;
-    private Date date;
+    private String date;
     private int quantity;
     private String fabric_style;
     private int customer_id;
@@ -38,14 +39,14 @@ public class job_order {
     /**
      * @return the date
      */
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
     /**
      * @param date the date to set
      */
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
