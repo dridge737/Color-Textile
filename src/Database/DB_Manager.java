@@ -14,6 +14,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -176,7 +177,7 @@ public class DB_Manager {
 
             PreparedStatement preparedStmt = conn.prepareStatement(query);
             preparedStmt.setString(1, new_job.getJob_id());
-            preparedStmt.setDate(2, (Date) new_job.getDate());
+            preparedStmt.setString(2, new_job.getDate());
             preparedStmt.setInt(3, new_job.getQuantity());         
             preparedStmt.setString(4, new_job.getFabric_style());
             preparedStmt.setInt(5, new_job.getCustomer_id());
