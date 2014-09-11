@@ -9,12 +9,10 @@ package Database;
 import colortextile_class.*;
 import java.sql.Array;
 import java.sql.Connection;
-import java.sql.Date;
-import java.sql.DriverManager;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -387,14 +385,12 @@ public class DB_Manager {
             DBConnection db = new DBConnection();
             Connection conn = db.getConnection();
         
-            PreparedStatement ps = conn.prepareStatement("SELECT id_customer FROM customer WHERE customer_name = ?");
-            int item = 1;
-            
-            ps.setString(item++, customer_name);
+            PreparedStatement ps = conn.prepareStatement("SELECT id_customer FROM customer WHERE customer_name = '"+ customer_name + "'");
             ResultSet rs = ps.executeQuery();
-            if(rs.first())
+            
+            while(rs.next())
             {
-                rs.next();
+                
                 int customer_id = rs.getInt("id_customer");
                 return customer_id;
             }
@@ -407,7 +403,7 @@ public class DB_Manager {
         return 0;
     }
     
-    public ArrayList<String> get_customer_list() 
+    public ArrayList<String> get_customer_list(colortextile_class.customer customer_name) 
     {
         //winston: is this right?
         
@@ -424,6 +420,8 @@ public class DB_Manager {
             {
                 names.add(rs.getString("customer_name"));
             }
+            customer_name.setCustomer_names(names);
+            
             return names;
         }
         catch (SQLException ex)
@@ -432,6 +430,28 @@ public class DB_Manager {
         }
 
         return null;
+        
+    }
+    
+    public ResultSet get_all_job_order(colortextile_class.job_order job_order){
+        
+        try
+        {
+          DBConnection db = new DBConnection();
+          Connection conn = db.getConnection();  
+          
+            PreparedStatement ps = conn.prepareStatement("SELECT * FROM job_order ORDER BY date ASC ");
+            ResultSet rs = ps.executeQuery();
+            
+            return rs;
+        }
+        catch (SQLException ex)
+        {
+            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return null;
+        
     }
             
     
@@ -457,7 +477,7 @@ public class DB_Manager {
     //SEARCH function for SQL
     //START all functions here with search_*
     
-    public ArrayList<String> Search_Customer_Name(colortextile_class.customer customer_name){
+    public void Search_Customer_Name(colortextile_class.customer customer_name){
         
          ArrayList<String> names = new ArrayList<>();
         try
@@ -465,20 +485,81 @@ public class DB_Manager {
           DBConnection db = new DBConnection();
           Connection conn = db.getConnection();  
           
-            PreparedStatement ps = conn.prepareStatement("SELECT * FROM customer WHERE customer= '%"+ customer_name +"%'");
+            PreparedStatement ps = conn.prepareStatement("SELECT * FROM customer WHERE customer_name= '"+ customer_name.getCustomer_name() +"'");
             ResultSet rs = ps.executeQuery();
             
             while(rs.next())
             {
                 names.add(rs.getString("customer_name"));
             }
-            return names;
+            customer_name.setCustomer_names(names);
+            
         }
         catch (SQLException ex)
         {
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
         }
-
+    }
+    
+    public ResultSet Search_Job_Order(colortextile_class.job_order job ){
+        
+         try
+        {
+          DBConnection db = new DBConnection();
+          Connection conn = db.getConnection();  
+          
+          String sql ="SELECT * FROM job_order WHERE";
+          int increment = 0;
+          
+          if (job.getCustomer_id() != 0){
+              sql = sql + " customer_id = '"+job.getCustomer_id()+"'";
+              increment++;
+          } 
+          System.out.println(sql);
+          if (job.getDate_from() != null){
+              
+              if(increment > 0)
+              { sql = sql + " AND";
+              }
+              sql = sql + " date BETWEEN '"+job.getDate_from()+"' AND '" + job.getDate_to()+"'";
+              increment++;
+          }
+          if (job.getDesign_code() != null){
+              if(increment > 0)
+              { sql = sql + " AND";
+              }
+              sql = sql + " design_code= '"+job.getDesign_code()+"'";
+              increment++;
+          }
+          if (job.getJob_id() != null){
+              if(increment > 0)
+              { sql = sql + " AND";
+              }
+              sql = sql + " job_order_id= '"+job.getJob_id()+"'";
+              increment++;
+          }
+          
+          System.out.println(sql);
+          
+          if (sql == "SELECT * FROM job_order WHERE")
+          {
+              System.out.print("nothing to be searched");
+          } else {
+          
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            
+            job_order results = new job_order();
+            return rs;
+           
+            
+          }
+        }
+        catch (Exception ex)
+        {
+            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
         return null;
     }
     

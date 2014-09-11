@@ -5,14 +5,12 @@
  */
 
 package forms;
+
 import Database.DB_Manager;
+import colortextile_class.customer;
 import colortextile_class.job_order;
-import java.sql.Timestamp;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import javax.swing.JSpinner;
-import javax.swing.SpinnerDateModel;
+
 
 /**
  *
@@ -26,14 +24,21 @@ public class job_order_form extends javax.swing.JFrame {
     public job_order_form() 
     {
         initComponents();
-        DB_Manager list = new DB_Manager();
-        for ( String name : list.get_customer_list() )
+        
+        fill_customer_list();
+        
+        
+    }
+    
+    public void fill_customer_list(){
+        this.combo_customer.removeAllItems();
+        this.combo_customer.addItem(" ");
+        customer list = new customer();
+        list.get_customer_list();
+        for ( String name : list.getCustomer_names() )
         {
         this.combo_customer.addItem(name);
         }
-        
-        
-        
     }
     
 
@@ -59,12 +64,27 @@ public class job_order_form extends javax.swing.JFrame {
         label_notification = new javax.swing.JLabel();
         combo_fabric_style = new javax.swing.JComboBox();
         spinner_quantity = new javax.swing.JSpinner();
+        text_design_code = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowFocusListener(new java.awt.event.WindowFocusListener() {
+            public void windowGainedFocus(java.awt.event.WindowEvent evt) {
+                formWindowGainedFocus(evt);
+            }
+            public void windowLostFocus(java.awt.event.WindowEvent evt) {
+            }
+        });
 
         label_customer.setText("Customer Name:");
 
+        combo_customer.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "" }));
+
         Button_new_customer.setText("new customer");
+        Button_new_customer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Button_new_customerActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("Job Order:");
 
@@ -83,7 +103,7 @@ public class job_order_form extends javax.swing.JFrame {
 
         spinner_date.setModel(new javax.swing.SpinnerDateModel());
 
-        label_notification.setText("jLabel6");
+        label_notification.setText("Design Code:");
 
         combo_fabric_style.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Fabric 1", "Fabric 2", "Fabric 3", " " }));
 
@@ -100,23 +120,21 @@ public class job_order_form extends javax.swing.JFrame {
                     .addComponent(jLabel1)
                     .addComponent(jLabel2)
                     .addComponent(jLabel3)
-                    .addComponent(jLabel4))
+                    .addComponent(jLabel4)
+                    .addComponent(label_notification))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(text_job_order)
                     .addComponent(combo_customer, 0, 219, Short.MAX_VALUE)
                     .addComponent(spinner_date)
                     .addComponent(combo_fabric_style, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(spinner_quantity))
+                    .addComponent(spinner_quantity)
+                    .addComponent(text_design_code))
                 .addGap(49, 49, 49)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(Button_new_customer, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Button_new_customer1, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(41, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(label_notification)
-                .addGap(267, 267, 267))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -141,11 +159,13 @@ public class job_order_form extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(Button_new_customer1)
                     .addComponent(combo_fabric_style, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(65, 65, 65)
-                .addComponent(label_notification)
-                .addContainerGap(162, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(label_notification)
+                    .addComponent(text_design_code, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Button_new_customer1))
+                .addContainerGap(49, Short.MAX_VALUE))
         );
 
         pack();
@@ -153,7 +173,7 @@ public class job_order_form extends javax.swing.JFrame {
 
     private void Button_new_customer1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_new_customer1ActionPerformed
         // TODO add your handling code here:
-        if (this.text_job_order.getText().trim().equals("") || this.combo_fabric_style.getSelectedItem().toString().trim().equals("") )
+        if (this.text_job_order.getText().trim().equals("") || this.combo_fabric_style.getSelectedItem().toString().trim().equals("") || this.text_design_code.getText().trim().equals("") )
         {
             this.label_notification.setVisible(true);
             this.label_notification.setText("Please complete all fields");
@@ -162,19 +182,34 @@ public class job_order_form extends javax.swing.JFrame {
                 SimpleDateFormat formater = new SimpleDateFormat("yyyy/MM/dd");
                 String spinnerValue = formater.format(this.spinner_date.getValue());
                 System.out.println(spinnerValue);
+                
+                DB_Manager conn = new DB_Manager();
+               
             
                 job_order job = new job_order();
                 job.setJob_id(this.text_job_order.getText());
                 job.setDate(spinnerValue);
                 job.setQuantity((Integer) this.spinner_quantity.getValue());
-
+                job.setCustomer_id(conn.get_id_customer(this.combo_customer.getSelectedItem().toString()));
                 job.setFabric_style(this.combo_fabric_style.getSelectedItem().toString());
+                job.setDesign_code(this.text_design_code.getText());
                 job.add_new_job_order();
                         this.label_notification.setVisible(true);
             this.label_notification.setText("Customer info Added");
         }
         
     }//GEN-LAST:event_Button_new_customer1ActionPerformed
+
+    private void Button_new_customerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_new_customerActionPerformed
+        // TODO add your handling code here:
+        customer_add_form add = new customer_add_form();
+        add.setVisible(true);
+    }//GEN-LAST:event_Button_new_customerActionPerformed
+
+    private void formWindowGainedFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowGainedFocus
+        // TODO add your handling code here:
+        fill_customer_list();
+    }//GEN-LAST:event_formWindowGainedFocus
 
     /**
      * @param args the command line arguments
@@ -224,6 +259,7 @@ public class job_order_form extends javax.swing.JFrame {
     private javax.swing.JLabel label_notification;
     private javax.swing.JSpinner spinner_date;
     private javax.swing.JSpinner spinner_quantity;
+    private javax.swing.JTextField text_design_code;
     private javax.swing.JTextField text_job_order;
     // End of variables declaration//GEN-END:variables
 }

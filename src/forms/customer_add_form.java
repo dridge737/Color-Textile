@@ -35,7 +35,7 @@ public class customer_add_form extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         label_notification = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setAlwaysOnTop(true);
 
         label_customername.setText("Customer Name:");
@@ -94,10 +94,23 @@ public class customer_add_form extends javax.swing.JFrame {
             this.label_notification.setText("Please type a name");
         } else {
             customer custom = new customer();
-                custom.setCustomer_name(this.text_customer_name.getText());
-                custom.add_new_customer();
+            custom.setCustomer_name(this.text_customer_name.getText());
+
+            custom.searchCustomer_name();
+     
+        
+            if(!(custom.getCustomer_names().isEmpty())){
+                this.label_notification.setText("Customer already exist");
+
+            } else {          
+ 
+            custom.add_new_customer();
             this.label_notification.setVisible(true);
             this.label_notification.setText("Customer info Added");
+            }
+
+             
+     
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
