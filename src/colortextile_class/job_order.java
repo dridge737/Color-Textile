@@ -7,6 +7,7 @@
 package colortextile_class;
 
 import Database.DB_Manager;
+import java.sql.ResultSet;
 import java.sql.Timestamp;
 import java.util.Date;
 
@@ -17,10 +18,13 @@ import java.util.Date;
 public class job_order {
     private String job_id;
     private String date;
+    private String date_from;
+    private String date_to;
     private int quantity;
     private String fabric_style;
     private int customer_id;
     private String design_code;
+    private ResultSet job_order_resultset;
 
     /**
      * @return the job_id
@@ -111,6 +115,63 @@ public class job_order {
         DB_Manager new_conn = new DB_Manager();
         new_conn.add_job_order(this);
     }
+    
+    public void search_job_order()
+    {
+        DB_Manager new_conn = new DB_Manager();
+        this.setJob_order_resultset(new_conn.Search_Job_Order(this));
+        
+    }
+    
+    public void job_order_all()
+    {
+        DB_Manager new_conn = new DB_Manager();
+        this.setJob_order_resultset(new_conn.get_all_job_order(this));
+    }
+
+    /**
+     * @return the date_from
+     */
+    public String getDate_from() {
+        return date_from;
+    }
+
+    /**
+     * @param date_from the date_from to set
+     */
+    public void setDate_from(String date_from) {
+        this.date_from = date_from;
+    }
+
+    /**
+     * @return the date_to
+     */
+    public String getDate_to() {
+        return date_to;
+    }
+
+    /**
+     * @param date_to the date_to to set
+     */
+    public void setDate_to(String date_to) {
+        this.date_to = date_to;
+    }
+
+    /**
+     * @return the job_order_resultset
+     */
+    public ResultSet getJob_order_resultset() {
+        return job_order_resultset;
+    }
+
+    /**
+     * @param job_order_resultset the job_order_resultset to set
+     */
+    public void setJob_order_resultset(ResultSet job_order_resultset) {
+        this.job_order_resultset = job_order_resultset;
+    }
+
+
 
   
     

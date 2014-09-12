@@ -66,6 +66,18 @@ public class customer {
         this.Customer_names = Customer_names;
     }
     
+    public void searchCustomer_name() {
+        DB_Manager new_conn = new DB_Manager();
+        new_conn.Search_Customer_Name(this);
+        
+    }
+    
+    public void get_customer_list() {
+        DB_Manager new_conn = new DB_Manager();
+        new_conn.get_customer_list(this);
+    }
+
+  
     
     
    
