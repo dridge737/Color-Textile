@@ -271,11 +271,6 @@ public class Add_new_design extends javax.swing.JFrame {
         });
 
         pigment_percentage8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        pigment_percentage8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                pigment_percentage8ActionPerformed(evt);
-            }
-        });
         pigment_percentage8.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 pigment_percentage8FocusLost(evt);
@@ -306,6 +301,11 @@ public class Add_new_design extends javax.swing.JFrame {
         pigment_name2.setName("pigment_name"); // NOI18N
 
         pigment_percentage9.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        pigment_percentage9.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                pigment_percentage9FocusLost(evt);
+            }
+        });
 
         jLabel39.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel39.setText("%");
@@ -323,6 +323,11 @@ public class Add_new_design extends javax.swing.JFrame {
         pigment_name3.setName("pigment_name"); // NOI18N
 
         pigment_percentage10.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        pigment_percentage10.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                pigment_percentage10FocusLost(evt);
+            }
+        });
 
         jLabel42.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel42.setText("%");
@@ -340,6 +345,11 @@ public class Add_new_design extends javax.swing.JFrame {
         pigment_name1.setName("pigment_name"); // NOI18N
 
         pigment_percentage11.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        pigment_percentage11.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                pigment_percentage11FocusLost(evt);
+            }
+        });
 
         jLabel45.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel45.setText("%");
@@ -500,6 +510,11 @@ public class Add_new_design extends javax.swing.JFrame {
         pigment_name4.setName("pigment_name"); // NOI18N
 
         pigment_percentage12.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        pigment_percentage12.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                pigment_percentage12FocusLost(evt);
+            }
+        });
 
         jTextField14.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jTextField14.setEnabled(false);
@@ -525,6 +540,11 @@ public class Add_new_design extends javax.swing.JFrame {
         pigment_name5.setName("pigment_name"); // NOI18N
 
         pigment_percentage13.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        pigment_percentage13.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                pigment_percentage13FocusLost(evt);
+            }
+        });
 
         jLabel55.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel55.setText("%");
@@ -542,6 +562,11 @@ public class Add_new_design extends javax.swing.JFrame {
         pigment_name6.setName("pigment_name"); // NOI18N
 
         pigment_percentage14.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        pigment_percentage14.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                pigment_percentage14FocusLost(evt);
+            }
+        });
 
         jLabel58.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel58.setText("%");
@@ -559,6 +584,11 @@ public class Add_new_design extends javax.swing.JFrame {
         pigment_name7.setName("pigment_name"); // NOI18N
 
         pigment_percentage15.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        pigment_percentage15.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                pigment_percentage15FocusLost(evt);
+            }
+        });
 
         jLabel61.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel61.setText("%");
@@ -719,6 +749,11 @@ public class Add_new_design extends javax.swing.JFrame {
         pigment_name8.setName("pigment_name"); // NOI18N
 
         pigment_percentage16.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        pigment_percentage16.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                pigment_percentage16FocusLost(evt);
+            }
+        });
 
         jTextField18.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jTextField18.setEnabled(false);
@@ -744,6 +779,11 @@ public class Add_new_design extends javax.swing.JFrame {
         pigment_name9.setName("pigment_name"); // NOI18N
 
         pigment_percentage17.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        pigment_percentage17.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                pigment_percentage17FocusLost(evt);
+            }
+        });
 
         jLabel71.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel71.setText("%");
@@ -761,6 +801,11 @@ public class Add_new_design extends javax.swing.JFrame {
         pigment_name10.setName("pigment_name"); // NOI18N
 
         pigment_percentage18.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        pigment_percentage18.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                pigment_percentage18FocusLost(evt);
+            }
+        });
 
         jLabel74.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel74.setText("%");
@@ -778,6 +823,11 @@ public class Add_new_design extends javax.swing.JFrame {
         pigment_name11.setName("pigment_name"); // NOI18N
 
         pigment_percentage19.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        pigment_percentage19.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                pigment_percentage19FocusLost(evt);
+            }
+        });
 
         jLabel77.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel77.setText("%");
@@ -938,6 +988,11 @@ public class Add_new_design extends javax.swing.JFrame {
         pigment_name12.setName("pigment_name"); // NOI18N
 
         pigment_percentage20.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        pigment_percentage20.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                pigment_percentage20FocusLost(evt);
+            }
+        });
 
         jTextField22.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jTextField22.setEnabled(false);
@@ -963,6 +1018,11 @@ public class Add_new_design extends javax.swing.JFrame {
         pigment_name13.setName("pigment_name"); // NOI18N
 
         pigment_percentage21.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        pigment_percentage21.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                pigment_percentage21FocusLost(evt);
+            }
+        });
 
         jLabel87.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel87.setText("%");
@@ -980,6 +1040,11 @@ public class Add_new_design extends javax.swing.JFrame {
         pigment_name14.setName("pigment_name"); // NOI18N
 
         pigment_percentage22.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        pigment_percentage22.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                pigment_percentage22FocusLost(evt);
+            }
+        });
 
         jLabel90.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel90.setText("%");
@@ -997,6 +1062,11 @@ public class Add_new_design extends javax.swing.JFrame {
         pigment_name15.setName("pigment_name"); // NOI18N
 
         pigment_percentage23.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        pigment_percentage23.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                pigment_percentage23FocusLost(evt);
+            }
+        });
 
         jLabel93.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel93.setText("%");
@@ -1157,6 +1227,11 @@ public class Add_new_design extends javax.swing.JFrame {
         pigment_name16.setName("pigment_name"); // NOI18N
 
         pigment_percentage24.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        pigment_percentage24.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                pigment_percentage24FocusGained(evt);
+            }
+        });
 
         jTextField26.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jTextField26.setEnabled(false);
@@ -1182,6 +1257,11 @@ public class Add_new_design extends javax.swing.JFrame {
         pigment_name17.setName("pigment_name"); // NOI18N
 
         pigment_percentage25.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        pigment_percentage25.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                pigment_percentage25FocusLost(evt);
+            }
+        });
 
         jLabel103.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel103.setText("%");
@@ -1199,6 +1279,11 @@ public class Add_new_design extends javax.swing.JFrame {
         pigment_name18.setName("pigment_name"); // NOI18N
 
         pigment_percentage26.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        pigment_percentage26.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                pigment_percentage26FocusLost(evt);
+            }
+        });
 
         jLabel106.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel106.setText("%");
@@ -1216,6 +1301,11 @@ public class Add_new_design extends javax.swing.JFrame {
         pigment_name19.setName("pigment_name"); // NOI18N
 
         pigment_percentage27.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        pigment_percentage27.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                pigment_percentage27FocusLost(evt);
+            }
+        });
 
         jLabel109.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel109.setText("%");
@@ -1376,6 +1466,11 @@ public class Add_new_design extends javax.swing.JFrame {
         pigment_name20.setName("pigment_name"); // NOI18N
 
         pigment_percentage28.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        pigment_percentage28.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                pigment_percentage28FocusLost(evt);
+            }
+        });
 
         jTextField30.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jTextField30.setEnabled(false);
@@ -1401,6 +1496,11 @@ public class Add_new_design extends javax.swing.JFrame {
         pigment_name21.setName("pigment_name"); // NOI18N
 
         pigment_percentage29.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        pigment_percentage29.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                pigment_percentage29FocusLost(evt);
+            }
+        });
 
         jLabel119.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel119.setText("%");
@@ -1418,6 +1518,11 @@ public class Add_new_design extends javax.swing.JFrame {
         pigment_name22.setName("pigment_name"); // NOI18N
 
         pigment_percentage30.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        pigment_percentage30.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                pigment_percentage30FocusLost(evt);
+            }
+        });
 
         jLabel122.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel122.setText("%");
@@ -1435,6 +1540,11 @@ public class Add_new_design extends javax.swing.JFrame {
         pigment_name23.setName("pigment_name"); // NOI18N
 
         pigment_percentage31.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        pigment_percentage31.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                pigment_percentage31FocusLost(evt);
+            }
+        });
 
         jLabel125.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel125.setText("%");
@@ -1688,41 +1798,147 @@ public class Add_new_design extends javax.swing.JFrame {
            count_screen_1-=1;
     }//GEN-LAST:event_pigment_namePropertyChange
 
-    private void checkText(JTextField the_textfield)
+    private boolean checkText(JTextField the_textfield)
     {
-        //System.out.println("Hello" + the_textfield.getText());
-        
         String regex = "\\D";
         Pattern p = Pattern.compile(regex);
-        //System.out.println(p.toString());
-        //the_textfield.getText().contains(p.pattern()
         
-        if(p.matcher(the_textfield.getText()).find())
+        return p.matcher(the_textfield.getText()).find();
+    }
+    
+    private void check_this_textbox(JTextField the_textfield)
+    {
+        boolean text_check = checkText(the_textfield);
+        if(text_check)
         {
-            System.out.println("Hello");
             the_textfield.setBackground(Color.red);
         }
-        the_textfield.setBackground(Color.white);
+        else
+            the_textfield.setBackground(Color.white);
+        
+        add_order.setEnabled(!text_check);
     }
+    
     private void pigment_percentage8FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_pigment_percentage8FocusLost
         // TODO add your handling code here:
-        checkText(pigment_percentage8);
-        
+        check_this_textbox(pigment_percentage8);
+            
     }//GEN-LAST:event_pigment_percentage8FocusLost
 
-    private void pigment_percentage8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pigment_percentage8ActionPerformed
+    private void pigment_percentage9FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_pigment_percentage9FocusLost
         // TODO add your handling code here:
-        
-        String regex = "\\D";
-        Pattern p = Pattern.compile(regex);
-        if(evt.getSource().toString().matches(regex))
-        {
-            System.out.println("Hello");
-            this.setBackground(Color.red);
-        }
-        this.setBackground(Color.white);
-        
-    }//GEN-LAST:event_pigment_percentage8ActionPerformed
+        check_this_textbox(pigment_percentage9);
+    }//GEN-LAST:event_pigment_percentage9FocusLost
+
+    private void pigment_percentage10FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_pigment_percentage10FocusLost
+        // TODO add your handling code here:
+        check_this_textbox(pigment_percentage10);
+    }//GEN-LAST:event_pigment_percentage10FocusLost
+
+    private void pigment_percentage11FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_pigment_percentage11FocusLost
+        // TODO add your handling code here:
+        check_this_textbox(pigment_percentage11);
+    }//GEN-LAST:event_pigment_percentage11FocusLost
+
+    private void pigment_percentage12FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_pigment_percentage12FocusLost
+        // TODO add your handling code here:
+        check_this_textbox(pigment_percentage12);
+    }//GEN-LAST:event_pigment_percentage12FocusLost
+
+    private void pigment_percentage13FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_pigment_percentage13FocusLost
+        // TODO add your handling code here:
+        check_this_textbox(pigment_percentage13);
+    }//GEN-LAST:event_pigment_percentage13FocusLost
+
+    private void pigment_percentage14FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_pigment_percentage14FocusLost
+        // TODO add your handling code here:
+        check_this_textbox(pigment_percentage14);
+    }//GEN-LAST:event_pigment_percentage14FocusLost
+
+    private void pigment_percentage15FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_pigment_percentage15FocusLost
+        // TODO add your handling code here:
+        check_this_textbox(pigment_percentage15);
+    }//GEN-LAST:event_pigment_percentage15FocusLost
+
+    private void pigment_percentage16FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_pigment_percentage16FocusLost
+        // TODO add your handling code here:
+        check_this_textbox(pigment_percentage16);
+    }//GEN-LAST:event_pigment_percentage16FocusLost
+
+    private void pigment_percentage17FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_pigment_percentage17FocusLost
+        // TODO add your handling code here:
+        check_this_textbox(pigment_percentage17);
+    }//GEN-LAST:event_pigment_percentage17FocusLost
+
+    private void pigment_percentage18FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_pigment_percentage18FocusLost
+        // TODO add your handling code here:
+        check_this_textbox(pigment_percentage18);
+    }//GEN-LAST:event_pigment_percentage18FocusLost
+
+    private void pigment_percentage19FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_pigment_percentage19FocusLost
+        // TODO add your handling code here:
+        check_this_textbox(pigment_percentage19);
+    }//GEN-LAST:event_pigment_percentage19FocusLost
+
+    private void pigment_percentage20FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_pigment_percentage20FocusLost
+        // TODO add your handling code here:
+        check_this_textbox(pigment_percentage20);
+    }//GEN-LAST:event_pigment_percentage20FocusLost
+
+    private void pigment_percentage21FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_pigment_percentage21FocusLost
+        // TODO add your handling code here:
+        check_this_textbox(pigment_percentage21);
+    }//GEN-LAST:event_pigment_percentage21FocusLost
+
+    private void pigment_percentage22FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_pigment_percentage22FocusLost
+        // TODO add your handling code here:
+        check_this_textbox(pigment_percentage22);
+    }//GEN-LAST:event_pigment_percentage22FocusLost
+
+    private void pigment_percentage23FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_pigment_percentage23FocusLost
+        // TODO add your handling code here:
+        check_this_textbox(pigment_percentage23);
+    }//GEN-LAST:event_pigment_percentage23FocusLost
+
+    private void pigment_percentage24FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_pigment_percentage24FocusGained
+        // TODO add your handling code here:
+        check_this_textbox(pigment_percentage24);
+    }//GEN-LAST:event_pigment_percentage24FocusGained
+
+    private void pigment_percentage25FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_pigment_percentage25FocusLost
+        // TODO add your handling code here:
+        check_this_textbox(pigment_percentage25);
+    }//GEN-LAST:event_pigment_percentage25FocusLost
+
+    private void pigment_percentage26FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_pigment_percentage26FocusLost
+        // TODO add your handling code here:
+        check_this_textbox(pigment_percentage26);
+    }//GEN-LAST:event_pigment_percentage26FocusLost
+
+    private void pigment_percentage27FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_pigment_percentage27FocusLost
+        // TODO add your handling code here:
+        check_this_textbox(pigment_percentage27);
+    }//GEN-LAST:event_pigment_percentage27FocusLost
+
+    private void pigment_percentage28FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_pigment_percentage28FocusLost
+        // TODO add your handling code here:
+        check_this_textbox(pigment_percentage28);
+    }//GEN-LAST:event_pigment_percentage28FocusLost
+
+    private void pigment_percentage29FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_pigment_percentage29FocusLost
+        // TODO add your handling code here:
+        check_this_textbox(pigment_percentage29);
+    }//GEN-LAST:event_pigment_percentage29FocusLost
+
+    private void pigment_percentage30FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_pigment_percentage30FocusLost
+        // TODO add your handling code here:
+        check_this_textbox(pigment_percentage30);
+    }//GEN-LAST:event_pigment_percentage30FocusLost
+
+    private void pigment_percentage31FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_pigment_percentage31FocusLost
+        // TODO add your handling code here:
+        check_this_textbox(pigment_percentage31);
+    }//GEN-LAST:event_pigment_percentage31FocusLost
 
     public void addBlankSpace()
     {
