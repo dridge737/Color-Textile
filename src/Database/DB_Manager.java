@@ -453,6 +453,31 @@ public class DB_Manager {
         return null;
         
     }
+    
+    public String get_customer_name(int id){
+        
+        try
+        {
+          DBConnection db = new DBConnection();
+          Connection conn = db.getConnection();  
+          
+            PreparedStatement ps = conn.prepareStatement("SELECT customer_name FROM customer WHERE id_customer = '"+id+"' ");
+            ResultSet rs = ps.executeQuery();
+            
+            while (rs.next()){
+                String name = rs.getString("customer_name");
+                return name;
+            }
+            
+        }
+        catch (SQLException ex)
+        {
+            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return null;
+       
+    }
             
     
     //GET END
