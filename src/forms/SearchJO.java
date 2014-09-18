@@ -14,6 +14,8 @@ import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumn;
 import net.proteanit.sql.DbUtils;
 
 /**
@@ -38,33 +40,35 @@ public class SearchJO extends javax.swing.JFrame {
         
         this.spinner_from.setEnabled(false);
         this.spinner_to.setEnabled(false);
-        
-        fill_table();
-        
-    }
-    public void fill_table(){
         job_order set = new job_order();
         set.job_order_all();
+        fill_table(set.getJob_order_resultset());
+        
+    }
+    public void fill_table(ResultSet rs){
+        
         
         DB_Manager conn= new DB_Manager();
         
+        DefaultTableModel model = new DefaultTableModel();
+        model.addColumn("Job Order");
+        model.addColumn("Customer Name");
+        model.addColumn("Date");
+        model.addColumn("Fabric Style");
+        model.addColumn("Design Code");
         
-        ResultSet rs = set.getJob_order_resultset();
         
         try {
-            while(rs.next())
-            {
-                System.out.println(rs.getInt("customer_id"));
-                String name = conn.get_customer_name(rs.getInt("customer_id"));
-                rs.updateString("customer_id", name);
-                rs.insertRow();
-                System.out.println(name);
+            while(rs.next()) {
+                
+                String[] set1 = { rs.getString("job_order_id"), conn.get_customer_name(rs.getInt("customer_id")), rs.getString("date"), rs.getString("fabric_style"), rs.getString("design_code")};
+                model.addRow(set1);
             }
         } catch (SQLException ex) {
             Logger.getLogger(SearchJO.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        this.jTable1.setModel(DbUtils.resultSetToTableModel(rs));
+        this.jTable1.setModel(model); 
     }
 
     /**
@@ -246,8 +250,7 @@ public class SearchJO extends javax.swing.JFrame {
         }
         
        search.search_job_order();
-        
-        this.jTable1.setModel(DbUtils.resultSetToTableModel(search.getJob_order_resultset()));
+        fill_table(search.getJob_order_resultset());
     }//GEN-LAST:event_button_searchActionPerformed
 
     private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
@@ -264,7 +267,9 @@ public class SearchJO extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        fill_table();
+        job_order set = new job_order();
+        set.job_order_all();
+        fill_table(set.getJob_order_resultset());
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**

@@ -405,7 +405,7 @@ public class DB_Manager {
     
     public ArrayList<String> get_customer_list(colortextile_class.customer customer_name) 
     {
-        //winston: is this right?
+       
         
         ArrayList<String> names = new ArrayList<>();
         try
