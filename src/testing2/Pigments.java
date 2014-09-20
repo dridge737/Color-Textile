@@ -8,7 +8,6 @@ import java.sql.*;
 public class Pigments 
 {
     ConnectToDB test = new ConnectToDB();
-    
     private String pigment_name;
     private int id_pigment, stock, tingi;
       
@@ -65,6 +64,19 @@ public class Pigments
         }
     }
     
+    public void editPigment()
+    {
+        try
+        {
+            PreparedStatement st = test.connection.prepareStatement("UPDATE pigments SET stock='"+stock+"', tingi='"+tingi+"' WHERE pigment_name='"+pigment_name+"'");       
+            st.execute();
+        }
+        catch (Exception e) 
+        {
+            e.printStackTrace();
+        }
+    }
+    
     public ResultSet updateTable()
     {
         try
@@ -85,7 +97,7 @@ public class Pigments
     {
         try
         {
-            PreparedStatement st3 = test.connection.prepareStatement("SELECT * FROM pigments WHERE pigment_name LIKE '%"+pigment_name+"%'");
+            PreparedStatement st3 = test.connection.prepareStatement("SELECT * FROM pigments WHERE pigment_name + '"+pigment_name+"'");
             ResultSet rs = st3.executeQuery("SELECT * FROM pigments WHERE pigment_name = '"+pigment_name+"'");
             return rs;
         }
