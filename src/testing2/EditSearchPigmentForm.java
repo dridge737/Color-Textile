@@ -1,8 +1,9 @@
 package testing2;
 
 import java.sql.*;
+import java.util.logging.*;
 import javax.swing.*;
-import net.proteanit.sql.DbUtils;
+import javax.swing.table.*;
 /**
  *
  * @author asakanaboy_00
@@ -57,7 +58,6 @@ public class EditSearchPigmentForm extends javax.swing.JFrame
         add_pigment_dialog.setTitle("Add Pigment");
         add_pigment_dialog.setMinimumSize(new java.awt.Dimension(350, 266));
         add_pigment_dialog.setModalityType(java.awt.Dialog.ModalityType.APPLICATION_MODAL);
-        add_pigment_dialog.setPreferredSize(new java.awt.Dimension(300, 256));
         add_pigment_dialog.setResizable(false);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -161,7 +161,7 @@ public class EditSearchPigmentForm extends javax.swing.JFrame
 
             }
         ));
-        pigment_table.setCellSelectionEnabled(true);
+        pigment_table.setColumnSelectionAllowed(false);
         pigment_table.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         pigment_table.setDoubleBuffered(true);
         pigment_table.setDragEnabled(true);
@@ -378,8 +378,8 @@ public class EditSearchPigmentForm extends javax.swing.JFrame
     private void search_pigment_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_search_pigment_buttonActionPerformed
         Pigments pigment = new Pigments();
         pigment.setPigment_name(this.search_pigment.getText());       
-        this.search_pigment.setText("");    
-        pigment_table.setModel(DbUtils.resultSetToTableModel(pigment.searchPigment()));
+        this.search_pigment.setText("");  
+        fill_table(pigment.searchPigment());
     }//GEN-LAST:event_search_pigment_buttonActionPerformed
 
     private void pigment_tableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pigment_tableMouseClicked
@@ -441,12 +441,12 @@ public class EditSearchPigmentForm extends javax.swing.JFrame
                 cancel_edit_pigment_button.setVisible(false);
                 edit_stock.setEnabled(false);
                 edit_tingi.setEnabled(false);
-                Pigments pigment3 = new Pigments();
-                pigment3.setPigment_name(this.edit_pigment_name.getText());
-                pigment3.setStock(Integer.parseInt(this.edit_stock.getValue().toString()));
-                pigment3.setTingi(Integer.parseInt(this.edit_tingi.getValue().toString()));
-                pigment3.editPigment();  
-                pigment_table.setModel(DbUtils.resultSetToTableModel(pigment3.updateTable()));
+                Pigments pigment = new Pigments();
+                pigment.setPigment_name(this.edit_pigment_name.getText());
+                pigment.setStock(Integer.parseInt(this.edit_stock.getValue().toString()));
+                pigment.setTingi(Integer.parseInt(this.edit_tingi.getValue().toString()));
+                pigment.editPigment();  
+                fill_table(pigment.updateTable());
                 JOptionPane.showMessageDialog(null,"Pigment has been edited!");
             }
         }
@@ -454,7 +454,7 @@ public class EditSearchPigmentForm extends javax.swing.JFrame
 
     private void reset_pigment_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reset_pigment_buttonActionPerformed
         Pigments pigment = new Pigments();
-        pigment_table.setModel(DbUtils.resultSetToTableModel(pigment.updateTable()));
+        fill_table(pigment.updateTable());
         edit_pigment_name.setText("");
         edit_stock.setValue(0);
         edit_tingi.setValue(0);
@@ -493,10 +493,10 @@ public class EditSearchPigmentForm extends javax.swing.JFrame
                     pigment.setStock(Integer.parseInt(this.add_stock.getValue().toString()));
                     pigment.setTingi(Integer.parseInt(this.add_tingi.getValue().toString()));
                     pigment.addPigment();
+                    JOptionPane.showMessageDialog(null,"Pigment has been added!");
                     this.add_pigment_name.setText("");
                     this.add_stock.setValue(0);
-                    this.add_tingi.setValue(0);
-                    JOptionPane.showMessageDialog(null,"Pigment has been added!");
+                    this.add_tingi.setValue(0);                   
                 }
             }
             catch (Exception e)
@@ -508,7 +508,7 @@ public class EditSearchPigmentForm extends javax.swing.JFrame
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         Pigments pigment = new Pigments();
-        pigment_table.setModel(DbUtils.resultSetToTableModel(pigment.updateTable()));
+        fill_table(pigment.updateTable());      
         edit_pigment_button.setVisible(false);
         save_edit_pigment_button.setVisible(false);
         cancel_edit_pigment_button.setVisible(false);
@@ -516,6 +516,29 @@ public class EditSearchPigmentForm extends javax.swing.JFrame
         jSpinner6.setVisible(false);
     }//GEN-LAST:event_formWindowOpened
 
+    public void fill_table(ResultSet rs) {      
+        DefaultTableModel model = new DefaultTableModel();
+        model.addColumn("Pigment ID");
+        model.addColumn("Pigment Name");
+        model.addColumn("Stock");
+        model.addColumn("Tingi");    
+                
+        try 
+        {
+            while(rs.next()) 
+            {              
+                String[] set1 = { rs.getString("id_pigment"), rs.getString("pigment_name"), rs.getString("stock"), rs.getString("tingi")};
+                model.addRow(set1);
+            }
+        } 
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+                
+        pigment_table.setModel(model); 
+    }
+    
     /**
      * @param args the command line arguments
      */
