@@ -21,9 +21,7 @@ import javax.swing.JTextField;
 public class Add_new_design extends javax.swing.JFrame {
 
     private int count_screen_1 = 0;
-    private int count_screen_2 = 0;
-    private int count_screen_3 = 0;
-    private int count_screen_4 = 0;
+
     
     /**
      * Creates new form Add_new_design
@@ -382,134 +380,157 @@ public class Add_new_design extends javax.swing.JFrame {
         jPanel9.setLayout(jPanel9Layout);
         jPanel9Layout.setHorizontalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSeparator17)
             .addGroup(jPanel9Layout.createSequentialGroup()
-                .addContainerGap(105, Short.MAX_VALUE)
+                .addGap(105, 105, 105)
                 .addComponent(jLabel129)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(4, 4, 4)
                 .addComponent(colorway_name2, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(10, 10, 10)
                 .addComponent(jLabel133)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(weigh_kg8, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(109, 109, 109))
-            .addComponent(jSeparator18, javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGap(10, 10, 10)
+                .addComponent(weigh_kg8, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jSeparator17, javax.swing.GroupLayout.PREFERRED_SIZE, 775, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGroup(jPanel9Layout.createSequentialGroup()
                 .addGap(100, 100, 100)
-                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel9Layout.createSequentialGroup()
-                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel9Layout.createSequentialGroup()
-                                .addComponent(jLabel140)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(name4, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel143, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(binder8, 0, 61, Short.MAX_VALUE)
-                            .addComponent(percentage4))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel9Layout.createSequentialGroup()
-                                .addComponent(jLabel141, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField37, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel142))
-                            .addComponent(jLabel144)))
-                    .addGroup(jPanel9Layout.createSequentialGroup()
-                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel9Layout.createSequentialGroup()
-                                .addComponent(jLabel137)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(name3, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(percentage3))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel9Layout.createSequentialGroup()
-                                .addComponent(jLabel134)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(name2, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(percentage2))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel9Layout.createSequentialGroup()
-                                .addComponent(jLabel131)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(name1, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(percentage1, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(jPanel9Layout.createSequentialGroup()
-                                    .addComponent(jLabel132, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jTextField34, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jLabel130))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
-                                    .addComponent(jLabel135, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jTextField35, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jLabel136)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
-                                .addComponent(jLabel138, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField36, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel139)))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jLabel131)
+                .addGap(10, 10, 10)
+                .addComponent(name1, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(6, 6, 6)
+                .addComponent(percentage1, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(4, 4, 4)
+                .addComponent(jLabel132, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(4, 4, 4)
+                .addComponent(jTextField34, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(4, 4, 4)
+                .addComponent(jLabel130))
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addGap(100, 100, 100)
+                .addComponent(jLabel134)
+                .addGap(10, 10, 10)
+                .addComponent(name2, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(6, 6, 6)
+                .addComponent(percentage2, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(4, 4, 4)
+                .addComponent(jLabel135, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(4, 4, 4)
+                .addComponent(jTextField35, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(4, 4, 4)
+                .addComponent(jLabel136))
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addGap(100, 100, 100)
+                .addComponent(jLabel137)
+                .addGap(10, 10, 10)
+                .addComponent(name3, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(6, 6, 6)
+                .addComponent(percentage3, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(4, 4, 4)
+                .addComponent(jLabel138, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(4, 4, 4)
+                .addComponent(jTextField36, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(4, 4, 4)
+                .addComponent(jLabel139))
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addGap(100, 100, 100)
+                .addComponent(jLabel140)
+                .addGap(10, 10, 10)
+                .addComponent(name4, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(6, 6, 6)
+                .addComponent(percentage4, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(4, 4, 4)
+                .addComponent(jLabel141, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(4, 4, 4)
+                .addComponent(jTextField37, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(4, 4, 4)
+                .addComponent(jLabel142))
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addGap(327, 327, 327)
+                .addComponent(jLabel143)
+                .addGap(6, 6, 6)
+                .addComponent(binder8, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(4, 4, 4)
+                .addComponent(jLabel144))
+            .addComponent(jSeparator18, javax.swing.GroupLayout.PREFERRED_SIZE, 775, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel9Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(11, 11, 11)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel133, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(weigh_kg8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(colorway_name2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel129, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addGap(1, 1, 1)
+                        .addComponent(jLabel129, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(colorway_name2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel133, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addGap(4, 4, 4)
+                        .addComponent(weigh_kg8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(6, 6, 6)
                 .addComponent(jSeparator17, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(4, 4, 4)
-                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(jLabel131))
                     .addComponent(name1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(percentage1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel131)
-                    .addComponent(jLabel132, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField34)
-                    .addComponent(jLabel130))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addGap(2, 2, 2)
+                        .addComponent(jLabel132, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextField34, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(jLabel130)))
+                .addGap(6, 6, 6)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(jLabel134))
                     .addComponent(name2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(percentage2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel134)
-                    .addComponent(jLabel135, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField35)
-                    .addComponent(jLabel136))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addGap(2, 2, 2)
+                        .addComponent(jLabel135, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextField35, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(jLabel136)))
+                .addGap(6, 6, 6)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(jLabel137))
                     .addComponent(name3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(percentage3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel137)
-                    .addComponent(jLabel138, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField36)
-                    .addComponent(jLabel139))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addGap(2, 2, 2)
+                        .addComponent(jLabel138, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextField36, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(jLabel139)))
+                .addGap(6, 6, 6)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(jLabel140))
                     .addComponent(name4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(percentage4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel140)
-                    .addComponent(jLabel141, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField37)
-                    .addComponent(jLabel142))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel143)
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addGap(2, 2, 2)
+                        .addComponent(jLabel141, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextField37, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(jLabel142)))
+                .addGap(11, 11, 11)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(jLabel143))
                     .addComponent(binder8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel144, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addGap(2, 2, 2)
+                        .addComponent(jLabel144, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(jSeparator18, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -1840,12 +1861,14 @@ public class Add_new_design extends javax.swing.JFrame {
         {
             if(temp_pigment_percent.length() > 0)
             {
+                System.out.println("Help");
             float pigment_percent = Float.parseFloat(temp_pigment_percent);
             //declare pigment id
             // MFD_VIOLET --> 1(id)
             pigment new_pigment = new pigment();
             //get pigment id from the pigment name
             new_pigment.setPigment_name(pigment_name);
+            System.out.println(pigment_name);
             new_pigment.get_id_pigment_from_name();
             
             //declare screen_pigment to add in screen_pigment table
@@ -1880,20 +1903,21 @@ public class Add_new_design extends javax.swing.JFrame {
             
             return new_colorway.getId_colorway();
             }
-          //  new_colorway.setBinder(binder_percent);
-         //   new_colorway.setWeight_kg(weight_kg);
+            
         }
         return -1;
     }
     
     private void add_this_colorway_screen(int id_screen, int id_colorway)
     {
+        if(id_screen != -1 || id_colorway != -1)
+        {
         colortextile_class.colorway_and_screen new_c_and_s = new colortextile_class.colorway_and_screen();
         new_c_and_s.setId_colorway(id_colorway);
         new_c_and_s.setId_screen(id_screen);
         
         new_c_and_s.add_colorway_and_screen();
-        
+        }
     }
     
     private String add_this_design(String design_code, String design_name)
@@ -1916,128 +1940,125 @@ public class Add_new_design extends javax.swing.JFrame {
         
     }
     
+    private void add_screen_and_color_screen(String c_name, String perc_text, int color_id)
+    {
+        int screen_pig_id = add_new_screen_pigment(c_name, perc_text);
+        add_this_colorway_screen(screen_pig_id , color_id);
+    }
+    
     private void add_orderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_orderActionPerformed
         // TODO add your handling code here:
-        if(add_this_colorway(colorway_name2.getText(), 
+        int colorway_id = add_this_colorway(colorway_name2.getText(), 
                              Float.parseFloat(binder8.getSelectedItem().toString()),
-                             weigh_kg8.getText()) 
-                != -1 )
-        {
+                             weigh_kg8.getText());
+        if(colorway_id != -1 )
+        {   
+            add_screen_and_color_screen(name1.getSelectedItem().toString(),
+                                      percentage1.getText(), colorway_id );
             
-            System.out.println("Hello");
-            System.out.println(name1.getSelectedItem().toString());
-            System.out.println(percentage1.getText());
-            add_new_screen_pigment(name1.getSelectedItem().toString(),
-                                      percentage1.getText() );
+            add_screen_and_color_screen(name2.getSelectedItem().toString(),
+                                      percentage2.getText(), colorway_id );
             
-            add_new_screen_pigment(name2.getSelectedItem().toString(),
-                                      percentage2.getText() );
+            add_screen_and_color_screen(name3.getSelectedItem().toString(),
+                                      percentage3.getText(), colorway_id );
             
-            add_new_screen_pigment(name3.getSelectedItem().toString(),
-                                      percentage3.getText() );
+            add_screen_and_color_screen(name4.getSelectedItem().toString(),
+                                      percentage4.getText(), colorway_id );
             
-            add_new_screen_pigment(name4.getSelectedItem().toString(),
-                                      percentage4.getText() );
-            
-  
         }
         
-        if(add_this_colorway(colorway_name3.getText(), 
+        colorway_id = add_this_colorway(colorway_name3.getText(), 
                              Float.parseFloat(binder3.getSelectedItem().toString()),
-                             weigh_kg3.getText()) 
-                != -1 )
+                             weigh_kg3.getText());
+        
+        if(colorway_id != -1 )
         {
-           add_new_screen_pigment(name5.getSelectedItem().toString(),
-                                      percentage5.getText() );
+            add_screen_and_color_screen(name5.getSelectedItem().toString(),
+                                      percentage5.getText(), colorway_id );
             
-            add_new_screen_pigment(name6.getSelectedItem().toString(),
-                                      percentage6.getText() );
+            add_screen_and_color_screen(name6.getSelectedItem().toString(),
+                                      percentage6.getText(), colorway_id );
             
-            add_new_screen_pigment(name7.getSelectedItem().toString(),
-                                      percentage7.getText() );
+            add_screen_and_color_screen(name7.getSelectedItem().toString(),
+                                      percentage7.getText(), colorway_id );
             
-            add_new_screen_pigment(name8.getSelectedItem().toString(),
-                                      percentage8.getText() );
+            add_screen_and_color_screen(name8.getSelectedItem().toString(),
+                                      percentage8.getText(), colorway_id );
             
   
         }
-        
-        if(add_this_colorway(colorway_name4.getText(), 
+        colorway_id = add_this_colorway(colorway_name4.getText(), 
                              Float.parseFloat(binder4.getSelectedItem().toString()),
-                             weigh_kg4.getText()) 
-                != -1 )
+                             weigh_kg4.getText());
+        if(colorway_id != -1 )
         {
-           add_new_screen_pigment(name9.getSelectedItem().toString(),
-                                      percentage9.getText() );
+            add_screen_and_color_screen(name9.getSelectedItem().toString(),
+                                      percentage9.getText(), colorway_id );
             
-            add_new_screen_pigment(name10.getSelectedItem().toString(),
-                                      percentage10.getText() );
+            add_screen_and_color_screen(name10.getSelectedItem().toString(),
+                                      percentage10.getText(), colorway_id );
             
-            add_new_screen_pigment(name11.getSelectedItem().toString(),
-                                      percentage11.getText() );
+            add_screen_and_color_screen(name11.getSelectedItem().toString(),
+                                      percentage11.getText(), colorway_id  );
             
-            add_new_screen_pigment(name12.getSelectedItem().toString(),
-                                      percentage12.getText() );
+            add_screen_and_color_screen(name12.getSelectedItem().toString(),
+                                      percentage12.getText(), colorway_id );
   
         }
-        
-        if(add_this_colorway(colorway_name5.getText(), 
+        colorway_id = add_this_colorway(colorway_name5.getText(), 
                              Float.parseFloat(binder5.getSelectedItem().toString()),
-                             weigh_kg5.getText()) 
-                != -1 )
+                             weigh_kg5.getText());
+        if(colorway_id != -1 )
         {
-            add_new_screen_pigment(name13.getSelectedItem().toString(),
-                                      percentage13.getText() );
+            add_screen_and_color_screen(name13.getSelectedItem().toString(),
+                                      percentage13.getText(), colorway_id );
             
-            add_new_screen_pigment(name14.getSelectedItem().toString(),
-                                      percentage14.getText() );
+            add_screen_and_color_screen(name14.getSelectedItem().toString(),
+                                      percentage14.getText(), colorway_id );
             
-            add_new_screen_pigment(name15.getSelectedItem().toString(),
-                                      percentage15.getText() );
+            add_screen_and_color_screen(name15.getSelectedItem().toString(),
+                                      percentage15.getText(), colorway_id );
             
-            add_new_screen_pigment(name16.getSelectedItem().toString(),
-                                      percentage16.getText() );
+            add_screen_and_color_screen(name16.getSelectedItem().toString(),
+                                      percentage16.getText(), colorway_id  );
             
   
         }
         
-         if(add_this_colorway(colorway_name6.getText(), 
+        colorway_id = add_this_colorway(colorway_name6.getText(), 
                              Float.parseFloat(binder6.getSelectedItem().toString()),
-                             weigh_kg6.getText()) 
-                != -1 )
+                             weigh_kg6.getText());
+        if(colorway_id != -1 )
         {
-            add_new_screen_pigment(name17.getSelectedItem().toString(),
-                                      percentage5.getText() );
+            add_screen_and_color_screen(name17.getSelectedItem().toString(),
+                                      percentage17.getText(), colorway_id );
             
-            add_new_screen_pigment(name18.getSelectedItem().toString(),
-                                      percentage6.getText() );
+            add_screen_and_color_screen(name18.getSelectedItem().toString(),
+                                      percentage18.getText(), colorway_id );
             
-            add_new_screen_pigment(name19.getSelectedItem().toString(),
-                                      percentage7.getText() );
+            add_screen_and_color_screen(name19.getSelectedItem().toString(),
+                                      percentage19.getText(), colorway_id );
             
-            add_new_screen_pigment(name20.getSelectedItem().toString(),
-                                      percentage8.getText() );
-  
+            add_screen_and_color_screen(name20.getSelectedItem().toString(),
+                                      percentage20.getText(), colorway_id );
         }
         
-         if(add_this_colorway(colorway_name7.getText(), 
+        colorway_id = add_this_colorway(colorway_name7.getText(), 
                              Float.parseFloat(binder7.getSelectedItem().toString()),
-                             weigh_kg7.getText()) 
-                != -1 )
+                             weigh_kg7.getText());
+        if( colorway_id != -1 )
         {
-            add_new_screen_pigment(name21.getSelectedItem().toString(),
-                                      percentage21.getText() );
+            add_screen_and_color_screen(name21.getSelectedItem().toString(),
+                                      percentage21.getText(), colorway_id );
             
-            add_new_screen_pigment(name22.getSelectedItem().toString(),
-                                      percentage22.getText() );
+            add_screen_and_color_screen(name22.getSelectedItem().toString(),
+                                      percentage22.getText(), colorway_id );
             
-            add_new_screen_pigment(name23.getSelectedItem().toString(),
-                                      percentage23.getText() );
+            add_screen_and_color_screen(name23.getSelectedItem().toString(),
+                                      percentage23.getText(), colorway_id );
             
-            add_new_screen_pigment(name24.getSelectedItem().toString(),
-                                      percentage8.getText() );;
-            
-  
+            add_screen_and_color_screen(name24.getSelectedItem().toString(),
+                                      percentage24.getText(), colorway_id );;
         }
          
     }//GEN-LAST:event_add_orderActionPerformed
@@ -2206,11 +2227,21 @@ public class Add_new_design extends javax.swing.JFrame {
         if(text_check)
         {
             the_textfield.setBackground(Color.red);
+            count_screen_1++;
         }
         else
-            the_textfield.setBackground(Color.white);
-        
-        add_order.setEnabled(!text_check);
+        {
+            if(the_textfield.getBackground() == Color.red)
+            {
+                the_textfield.setBackground(Color.white);           
+                count_screen_1--;
+            }
+        }
+            
+        if(count_screen_1 > 0)
+            add_order.setEnabled(false);
+        else
+            add_order.setEnabled(true);
     }
     
     public void addBlankSpace()

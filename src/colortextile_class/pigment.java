@@ -77,7 +77,7 @@ public class pigment {
     public void get_id_pigment_from_name()
     {
         DB_Manager newDbManager = new DB_Manager();
-        pigment_id = newDbManager.get_id_pigment(pigment_name);
+        pigment_id = newDbManager.get_id_pigment(this.pigment_name);
     }
     
     public ArrayList<String> get_all_pigment_name()

@@ -39,8 +39,12 @@ public class DB_Manager {
     {
         DBConnection db = new DBConnection();
         Connection conn = db.getConnection();
-       
-        try {
+       /*
+        System.out.println("Pigment_no = "+new_screen_pigment.getPigment_no() 
+                            +"\nPigment_percentage = " +new_screen_pigment.getPigment_percentage());
+        */
+        
+               try {
              PreparedStatement ps = conn.prepareStatement("INSERT INTO screen_pigment (pigment_no, pigment_percentage) VALUES (?,?)");
         
         int item = 1;
@@ -208,11 +212,12 @@ public class DB_Manager {
             PreparedStatement ps = conn.prepareStatement("SELECT pigment_no FROM pigment WHERE pigment_name = ?");
             int item = 1;
             ps.setString(item++, pigment_name);
+            
             ResultSet rs = ps.executeQuery();
             if(rs.first())
             {
-                rs.next();
                 int pigment_id = rs.getInt("pigment_no");
+                System.out.println(pigment_id);
                 return pigment_id;
             }   
             
@@ -230,14 +235,17 @@ public class DB_Manager {
             Connection conn = db.getConnection();
             
             PreparedStatement ps = 
-            conn.prepareStatement("SELECT id_screen FROM screen_pigment WHERE pigment_no = ? AND pigment_percentage =?");
+            conn.prepareStatement("SELECT id_screen "
+                                + "FROM screen_pigment "
+                                + "WHERE pigment_no = ? "
+                                + "AND pigment_percentage BETWEEN ? AND ?");
             int item = 1;
             ps.setInt(item++, pigment_no);
+            ps.setFloat(item++, pigment_percentage);
             ps.setFloat(item++, pigment_percentage);
             ResultSet rs = ps.executeQuery();
             if(rs.first())
             {
-                rs.next();
                 int id_screen = rs.getInt("id_screen");
                 return id_screen;
             }
@@ -256,7 +264,10 @@ public class DB_Manager {
             Connection conn = db.getConnection();
             
             PreparedStatement ps = 
-            conn.prepareStatement("SELECT id_color_screen FROM colorway_and_screen WHERE id_screen = ? AND id_colorway = ?");
+            conn.prepareStatement("SELECT id_color_screen "
+                                + "FROM colorway_screen_connect "
+                                + "WHERE id_screen = ? "
+                                + "AND id_colorway = ?");
             int item = 1;
             
             ps.setInt(item++, id_screen);
@@ -265,7 +276,6 @@ public class DB_Manager {
             ResultSet rs = ps.executeQuery();
             if(rs.first())
             {
-                rs.next();
                 int id_color_screen = rs.getInt("id_color_screen");
                 return id_color_screen;
             }
@@ -284,18 +294,27 @@ public class DB_Manager {
             Connection conn = db.getConnection();
             
             PreparedStatement ps = 
-            conn.prepareStatement("SELECT id_colorway FROM colorway WHERE colorway_name = ? AND binder = ? AND weight_kg = ?;");
+            conn.prepareStatement("SELECT id_colorway "
+                                 + "FROM colorway "
+                                 + "WHERE colorway_name LIKE ? "
+                                 + "AND binder LIKE ? "
+                                 + "AND weight_kg BETWEEN ? AND ?");
             
             int item = 1;
             ps.setString(item++, existing_colorway.getColorway_name());
             ps.setFloat(item++, existing_colorway.getBinder());
             ps.setFloat(item++, existing_colorway.getWeight_kg());
-            
+            ps.setFloat(item++, existing_colorway.getWeight_kg());
+            /* 
+            System.out.println("Colorway name :" +existing_colorway.getColorway_name());
+            System.out.println("Binder :" +existing_colorway.getBinder());
+            System.out.println("Weight Kg :" +existing_colorway.getWeight_kg());
+            */
             ResultSet rs = ps.executeQuery();
             if(rs.first())
             {
-                rs.next();
                 int id_colorway = rs.getInt("id_colorway");
+             //   System.out.println(id_colorway);
                 return id_colorway;
             }
         }
@@ -319,7 +338,6 @@ public class DB_Manager {
             ResultSet rs = ps.executeQuery();
             if(rs.first())
             {
-                rs.next();
                 String design_code = rs.getString("design_code");
                 return design_code;
             }
@@ -330,6 +348,12 @@ public class DB_Manager {
         }
         
         return null;
+    }
+    
+    public int get_id_design_colorway(colortextile_class.design_colorway new_des_color)
+    {
+        
+        return -1;
     }
     
     public ArrayList<String> get_all_pigment_name()

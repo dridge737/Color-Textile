@@ -87,7 +87,7 @@ public class colorway {
     {
         Database.DB_Manager new_conn = new Database.DB_Manager();
         int temp_colorway_id = new_conn.get_id_colorway(this);
-        if(id_colorway != -1)
+        if(temp_colorway_id != -1)
         {
             this.id_colorway = temp_colorway_id;
             return true;
