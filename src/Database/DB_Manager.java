@@ -487,7 +487,22 @@ public class DB_Manager {
     //UPDATE START
     ///EDIT and UPDATE function for SQL
     ///START all functions here with update_*
-    
+    public void Update_Job_Order(colortextile_class.job_order job_order){
+        
+        try
+        {
+            DBConnection db = new DBConnection();
+            Connection conn = db.getConnection();  
+          
+          
+        //    PreparedStatement st = conn.prepareStatement("UPDATE job_order SET job_order_id='"+stock+"', date='"+tingi+"' , quantity='"+tingi+"' , fabric_style='"+tingi+"' , design_code='"+tingi+"' WHERE pigment_name='"+pigment_name+"'");       
+        //    st.execute();
+        }
+        catch (Exception e) 
+        {
+            e.printStackTrace();
+        }
+    }
     //UPDATE END
     
     ///////////////////////////////////////////////////////////////////////////////////////////
@@ -523,6 +538,24 @@ public class DB_Manager {
         catch (SQLException ex)
         {
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    public ResultSet Search_job(String id){
+        try{
+            DBConnection db = new DBConnection();
+          Connection conn = db.getConnection();  
+          
+          String sql = "SELECT * FROM job_order WHERE job_order_id = '" + id + "'";
+          
+          PreparedStatement ps = conn.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            
+            job_order results = new job_order();
+            return rs;
+           
+        }catch(Exception e){
+            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, e);
+            return null;
         }
     }
     
