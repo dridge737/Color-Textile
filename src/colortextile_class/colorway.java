@@ -77,9 +77,10 @@ public class colorway {
         Database.DB_Manager new_conn = new Database.DB_Manager();
         
         if(set_id_colorway_from_variables())
-            return new_conn.add_colorway(this);
+            return true;
         
-        return false;
+        return new_conn.add_colorway(this);
+        
     }
     
     public boolean set_id_colorway_from_variables()

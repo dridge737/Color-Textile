@@ -56,7 +56,7 @@
                       <EmptySpace pref="105" max="32767" attributes="0"/>
                       <Component id="jLabel129" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="colorway_name8" min="-2" pref="268" max="-2" attributes="0"/>
+                      <Component id="colorway_name2" min="-2" pref="268" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="jLabel133" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -72,14 +72,14 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="jLabel140" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="pigment_name27" min="-2" pref="165" max="-2" attributes="0"/>
+                                      <Component id="name4" min="-2" pref="165" max="-2" attributes="0"/>
                                   </Group>
                                   <Component id="jLabel143" alignment="1" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="binder8" alignment="0" pref="61" max="32767" attributes="0"/>
-                                  <Component id="pigment_percentage35" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="percentage4" alignment="0" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -98,23 +98,23 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="jLabel137" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="pigment_name26" min="-2" pref="165" max="-2" attributes="0"/>
+                                      <Component id="name3" min="-2" pref="165" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="pigment_percentage34" max="32767" attributes="0"/>
+                                      <Component id="percentage3" max="32767" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="jLabel134" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="pigment_name25" min="-2" pref="165" max="-2" attributes="0"/>
+                                      <Component id="name2" min="-2" pref="165" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="pigment_percentage33" max="32767" attributes="0"/>
+                                      <Component id="percentage2" max="32767" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="jLabel131" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="pigment_name24" min="-2" pref="165" max="-2" attributes="0"/>
+                                      <Component id="name1" min="-2" pref="165" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="pigment_percentage32" min="-2" pref="61" max="-2" attributes="0"/>
+                                      <Component id="percentage1" min="-2" pref="61" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
@@ -159,7 +159,7 @@
                               <Component id="weigh_kg8" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                              <Component id="colorway_name8" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
+                              <Component id="colorway_name2" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
                               <Component id="jLabel129" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -167,8 +167,8 @@
                       <Component id="jSeparator17" min="-2" pref="10" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="pigment_name24" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="pigment_percentage32" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="name1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="percentage1" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel131" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel132" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
                           <Component id="jTextField34" alignment="3" max="32767" attributes="0"/>
@@ -176,8 +176,8 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="pigment_name25" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="pigment_percentage33" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="name2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="percentage2" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel134" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel135" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
                           <Component id="jTextField35" alignment="3" max="32767" attributes="0"/>
@@ -185,8 +185,8 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="pigment_name26" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="pigment_percentage34" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="name3" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="percentage3" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel137" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel138" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
                           <Component id="jTextField36" alignment="3" max="32767" attributes="0"/>
@@ -194,8 +194,8 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="pigment_name27" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="pigment_percentage35" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="name4" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="percentage4" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel140" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel141" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
                           <Component id="jTextField37" alignment="3" max="32767" attributes="0"/>
@@ -222,14 +222,14 @@
                 <Property name="text" type="java.lang.String" value="Colorway Name :"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="colorway_name8">
+            <Component class="javax.swing.JTextField" name="colorway_name2">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="14" style="0"/>
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JComboBox" name="pigment_name24">
+            <Component class="javax.swing.JComboBox" name="name1">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="14" style="0"/>
@@ -240,14 +240,14 @@
                 <Property name="name" type="java.lang.String" value="pigment_name" noResource="true"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="pigment_percentage32">
+            <Component class="javax.swing.JTextField" name="percentage1">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="14" style="0"/>
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="pigment_percentage32FocusLost"/>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="percentage1FocusLost"/>
               </Events>
             </Component>
             <Component class="javax.swing.JSeparator" name="jSeparator17">
@@ -310,7 +310,7 @@
                 <Property name="text" type="java.lang.String" value="Pigment Name :"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JComboBox" name="pigment_name25">
+            <Component class="javax.swing.JComboBox" name="name2">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="14" style="0"/>
@@ -321,14 +321,14 @@
                 <Property name="name" type="java.lang.String" value="pigment_name" noResource="true"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="pigment_percentage33">
+            <Component class="javax.swing.JTextField" name="percentage2">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="14" style="0"/>
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="pigment_percentage33FocusLost"/>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="percentage2FocusLost"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel135">
@@ -363,7 +363,7 @@
                 <Property name="text" type="java.lang.String" value="Pigment Name :"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JComboBox" name="pigment_name26">
+            <Component class="javax.swing.JComboBox" name="name3">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="14" style="0"/>
@@ -374,14 +374,14 @@
                 <Property name="name" type="java.lang.String" value="pigment_name" noResource="true"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="pigment_percentage34">
+            <Component class="javax.swing.JTextField" name="percentage3">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="14" style="0"/>
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="pigment_percentage34FocusLost"/>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="percentage3FocusLost"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel138">
@@ -416,7 +416,7 @@
                 <Property name="text" type="java.lang.String" value="Pigment Name :"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JComboBox" name="pigment_name27">
+            <Component class="javax.swing.JComboBox" name="name4">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="14" style="0"/>
@@ -427,14 +427,14 @@
                 <Property name="name" type="java.lang.String" value="pigment_name" noResource="true"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="pigment_percentage35">
+            <Component class="javax.swing.JTextField" name="percentage4">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="14" style="0"/>
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="pigment_percentage35FocusLost"/>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="percentage4FocusLost"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel141">
@@ -529,14 +529,14 @@
                                   <Group type="102" attributes="0">
                                       <Component id="jLabel60" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="pigment_name7" min="-2" pref="165" max="-2" attributes="0"/>
+                                      <Component id="name8" min="-2" pref="165" max="-2" attributes="0"/>
                                   </Group>
                                   <Component id="jLabel63" alignment="1" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="binder3" pref="61" max="32767" attributes="0"/>
-                                  <Component id="pigment_percentage15" max="32767" attributes="0"/>
+                                  <Component id="percentage8" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -555,23 +555,23 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="jLabel57" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="pigment_name6" min="-2" pref="165" max="-2" attributes="0"/>
+                                      <Component id="name7" min="-2" pref="165" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="pigment_percentage14" max="32767" attributes="0"/>
+                                      <Component id="percentage7" max="32767" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="jLabel54" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="pigment_name5" min="-2" pref="165" max="-2" attributes="0"/>
+                                      <Component id="name6" min="-2" pref="165" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="pigment_percentage13" max="32767" attributes="0"/>
+                                      <Component id="percentage6" max="32767" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="jLabel51" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="pigment_name4" min="-2" pref="165" max="-2" attributes="0"/>
+                                      <Component id="name5" min="-2" pref="165" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="pigment_percentage12" min="-2" pref="61" max="-2" attributes="0"/>
+                                      <Component id="percentage5" min="-2" pref="61" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
@@ -624,8 +624,8 @@
                       <Component id="jSeparator7" min="-2" pref="10" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="pigment_name4" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="pigment_percentage12" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="name5" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="percentage5" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel51" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel52" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
                           <Component id="jTextField14" alignment="3" max="32767" attributes="0"/>
@@ -633,8 +633,8 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="pigment_name5" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="pigment_percentage13" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="name6" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="percentage6" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel54" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel55" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
                           <Component id="jTextField15" alignment="3" max="32767" attributes="0"/>
@@ -642,8 +642,8 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="pigment_name6" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="pigment_percentage14" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="name7" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="percentage7" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel57" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel58" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
                           <Component id="jTextField16" alignment="3" max="32767" attributes="0"/>
@@ -651,8 +651,8 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="pigment_name7" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="pigment_percentage15" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="name8" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="percentage8" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel60" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel61" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
                           <Component id="jTextField17" alignment="3" max="32767" attributes="0"/>
@@ -686,7 +686,7 @@
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JComboBox" name="pigment_name4">
+            <Component class="javax.swing.JComboBox" name="name5">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="14" style="0"/>
@@ -697,14 +697,14 @@
                 <Property name="name" type="java.lang.String" value="pigment_name" noResource="true"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="pigment_percentage12">
+            <Component class="javax.swing.JTextField" name="percentage5">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="14" style="0"/>
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="pigment_percentage12FocusLost"/>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="percentage5FocusLost"/>
               </Events>
             </Component>
             <Component class="javax.swing.JSeparator" name="jSeparator7">
@@ -767,7 +767,7 @@
                 <Property name="text" type="java.lang.String" value="Pigment Name :"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JComboBox" name="pigment_name5">
+            <Component class="javax.swing.JComboBox" name="name6">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="14" style="0"/>
@@ -778,14 +778,14 @@
                 <Property name="name" type="java.lang.String" value="pigment_name" noResource="true"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="pigment_percentage13">
+            <Component class="javax.swing.JTextField" name="percentage6">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="14" style="0"/>
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="pigment_percentage13FocusLost"/>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="percentage6FocusLost"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel55">
@@ -820,7 +820,7 @@
                 <Property name="text" type="java.lang.String" value="Pigment Name :"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JComboBox" name="pigment_name6">
+            <Component class="javax.swing.JComboBox" name="name7">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="14" style="0"/>
@@ -831,14 +831,14 @@
                 <Property name="name" type="java.lang.String" value="pigment_name" noResource="true"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="pigment_percentage14">
+            <Component class="javax.swing.JTextField" name="percentage7">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="14" style="0"/>
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="pigment_percentage14FocusLost"/>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="percentage7FocusLost"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel58">
@@ -873,7 +873,7 @@
                 <Property name="text" type="java.lang.String" value="Pigment Name :"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JComboBox" name="pigment_name7">
+            <Component class="javax.swing.JComboBox" name="name8">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="14" style="0"/>
@@ -884,14 +884,14 @@
                 <Property name="name" type="java.lang.String" value="pigment_name" noResource="true"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="pigment_percentage15">
+            <Component class="javax.swing.JTextField" name="percentage8">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="14" style="0"/>
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="pigment_percentage15FocusLost"/>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="percentage8FocusLost"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel61">
@@ -986,14 +986,14 @@
                                   <Group type="102" attributes="0">
                                       <Component id="jLabel76" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="pigment_name11" min="-2" pref="165" max="-2" attributes="0"/>
+                                      <Component id="name12" min="-2" pref="165" max="-2" attributes="0"/>
                                   </Group>
                                   <Component id="jLabel79" alignment="1" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="binder4" pref="61" max="32767" attributes="0"/>
-                                  <Component id="pigment_percentage19" max="32767" attributes="0"/>
+                                  <Component id="percentage12" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -1012,23 +1012,23 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="jLabel73" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="pigment_name10" min="-2" pref="165" max="-2" attributes="0"/>
+                                      <Component id="name11" min="-2" pref="165" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="pigment_percentage18" max="32767" attributes="0"/>
+                                      <Component id="percentage11" max="32767" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="jLabel70" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="pigment_name9" min="-2" pref="165" max="-2" attributes="0"/>
+                                      <Component id="name10" min="-2" pref="165" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="pigment_percentage17" max="32767" attributes="0"/>
+                                      <Component id="percentage10" max="32767" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="jLabel67" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="pigment_name8" min="-2" pref="165" max="-2" attributes="0"/>
+                                      <Component id="name9" min="-2" pref="165" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="pigment_percentage16" min="-2" pref="61" max="-2" attributes="0"/>
+                                      <Component id="percentage9" min="-2" pref="61" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
@@ -1081,8 +1081,8 @@
                       <Component id="jSeparator9" min="-2" pref="10" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="pigment_name8" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="pigment_percentage16" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="name9" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="percentage9" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel67" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel68" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
                           <Component id="jTextField18" alignment="3" max="32767" attributes="0"/>
@@ -1090,8 +1090,8 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="pigment_name9" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="pigment_percentage17" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="name10" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="percentage10" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel70" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel71" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
                           <Component id="jTextField19" alignment="3" max="32767" attributes="0"/>
@@ -1099,8 +1099,8 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="pigment_name10" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="pigment_percentage18" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="name11" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="percentage11" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel73" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel74" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
                           <Component id="jTextField20" alignment="3" max="32767" attributes="0"/>
@@ -1108,8 +1108,8 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="pigment_name11" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="pigment_percentage19" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="name12" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="percentage12" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel76" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel77" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
                           <Component id="jTextField21" alignment="3" max="32767" attributes="0"/>
@@ -1143,7 +1143,7 @@
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JComboBox" name="pigment_name8">
+            <Component class="javax.swing.JComboBox" name="name9">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="14" style="0"/>
@@ -1154,14 +1154,14 @@
                 <Property name="name" type="java.lang.String" value="pigment_name" noResource="true"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="pigment_percentage16">
+            <Component class="javax.swing.JTextField" name="percentage9">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="14" style="0"/>
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="pigment_percentage16FocusLost"/>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="percentage9FocusLost"/>
               </Events>
             </Component>
             <Component class="javax.swing.JSeparator" name="jSeparator9">
@@ -1224,7 +1224,7 @@
                 <Property name="text" type="java.lang.String" value="Pigment Name :"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JComboBox" name="pigment_name9">
+            <Component class="javax.swing.JComboBox" name="name10">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="14" style="0"/>
@@ -1235,14 +1235,14 @@
                 <Property name="name" type="java.lang.String" value="pigment_name" noResource="true"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="pigment_percentage17">
+            <Component class="javax.swing.JTextField" name="percentage10">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="14" style="0"/>
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="pigment_percentage17FocusLost"/>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="percentage10FocusLost"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel71">
@@ -1277,7 +1277,7 @@
                 <Property name="text" type="java.lang.String" value="Pigment Name :"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JComboBox" name="pigment_name10">
+            <Component class="javax.swing.JComboBox" name="name11">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="14" style="0"/>
@@ -1288,14 +1288,14 @@
                 <Property name="name" type="java.lang.String" value="pigment_name" noResource="true"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="pigment_percentage18">
+            <Component class="javax.swing.JTextField" name="percentage11">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="14" style="0"/>
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="pigment_percentage18FocusLost"/>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="percentage11FocusLost"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel74">
@@ -1330,7 +1330,7 @@
                 <Property name="text" type="java.lang.String" value="Pigment Name :"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JComboBox" name="pigment_name11">
+            <Component class="javax.swing.JComboBox" name="name12">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="14" style="0"/>
@@ -1341,14 +1341,14 @@
                 <Property name="name" type="java.lang.String" value="pigment_name" noResource="true"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="pigment_percentage19">
+            <Component class="javax.swing.JTextField" name="percentage12">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="14" style="0"/>
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="pigment_percentage19FocusLost"/>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="percentage12FocusLost"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel77">
@@ -1443,14 +1443,14 @@
                                   <Group type="102" attributes="0">
                                       <Component id="jLabel92" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="pigment_name15" min="-2" pref="165" max="-2" attributes="0"/>
+                                      <Component id="name16" min="-2" pref="165" max="-2" attributes="0"/>
                                   </Group>
                                   <Component id="jLabel95" alignment="1" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="binder5" pref="61" max="32767" attributes="0"/>
-                                  <Component id="pigment_percentage23" max="32767" attributes="0"/>
+                                  <Component id="percentage16" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -1469,23 +1469,23 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="jLabel89" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="pigment_name14" min="-2" pref="165" max="-2" attributes="0"/>
+                                      <Component id="name15" min="-2" pref="165" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="pigment_percentage22" max="32767" attributes="0"/>
+                                      <Component id="percentage15" max="32767" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="jLabel86" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="pigment_name13" min="-2" pref="165" max="-2" attributes="0"/>
+                                      <Component id="name14" min="-2" pref="165" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="pigment_percentage21" max="32767" attributes="0"/>
+                                      <Component id="percentage14" max="32767" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="jLabel83" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="pigment_name12" min="-2" pref="165" max="-2" attributes="0"/>
+                                      <Component id="name13" min="-2" pref="165" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="pigment_percentage20" min="-2" pref="61" max="-2" attributes="0"/>
+                                      <Component id="percentage13" min="-2" pref="61" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
@@ -1538,8 +1538,8 @@
                       <Component id="jSeparator11" min="-2" pref="10" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="pigment_name12" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="pigment_percentage20" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="name13" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="percentage13" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel83" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel84" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
                           <Component id="jTextField22" alignment="3" max="32767" attributes="0"/>
@@ -1547,8 +1547,8 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="pigment_name13" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="pigment_percentage21" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="name14" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="percentage14" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel86" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel87" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
                           <Component id="jTextField23" alignment="3" max="32767" attributes="0"/>
@@ -1556,8 +1556,8 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="pigment_name14" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="pigment_percentage22" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="name15" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="percentage15" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel89" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel90" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
                           <Component id="jTextField24" alignment="3" max="32767" attributes="0"/>
@@ -1565,8 +1565,8 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="pigment_name15" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="pigment_percentage23" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="name16" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="percentage16" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel92" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel93" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
                           <Component id="jTextField25" alignment="3" max="32767" attributes="0"/>
@@ -1600,7 +1600,7 @@
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JComboBox" name="pigment_name12">
+            <Component class="javax.swing.JComboBox" name="name13">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="14" style="0"/>
@@ -1611,14 +1611,14 @@
                 <Property name="name" type="java.lang.String" value="pigment_name" noResource="true"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="pigment_percentage20">
+            <Component class="javax.swing.JTextField" name="percentage13">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="14" style="0"/>
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="pigment_percentage20FocusLost"/>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="percentage13FocusLost"/>
               </Events>
             </Component>
             <Component class="javax.swing.JSeparator" name="jSeparator11">
@@ -1681,7 +1681,7 @@
                 <Property name="text" type="java.lang.String" value="Pigment Name :"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JComboBox" name="pigment_name13">
+            <Component class="javax.swing.JComboBox" name="name14">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="14" style="0"/>
@@ -1692,14 +1692,14 @@
                 <Property name="name" type="java.lang.String" value="pigment_name" noResource="true"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="pigment_percentage21">
+            <Component class="javax.swing.JTextField" name="percentage14">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="14" style="0"/>
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="pigment_percentage21FocusLost"/>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="percentage14FocusLost"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel87">
@@ -1734,7 +1734,7 @@
                 <Property name="text" type="java.lang.String" value="Pigment Name :"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JComboBox" name="pigment_name14">
+            <Component class="javax.swing.JComboBox" name="name15">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="14" style="0"/>
@@ -1745,14 +1745,14 @@
                 <Property name="name" type="java.lang.String" value="pigment_name" noResource="true"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="pigment_percentage22">
+            <Component class="javax.swing.JTextField" name="percentage15">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="14" style="0"/>
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="pigment_percentage22FocusLost"/>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="percentage15FocusLost"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel90">
@@ -1787,7 +1787,7 @@
                 <Property name="text" type="java.lang.String" value="Pigment Name :"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JComboBox" name="pigment_name15">
+            <Component class="javax.swing.JComboBox" name="name16">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="14" style="0"/>
@@ -1798,14 +1798,14 @@
                 <Property name="name" type="java.lang.String" value="pigment_name" noResource="true"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="pigment_percentage23">
+            <Component class="javax.swing.JTextField" name="percentage16">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="14" style="0"/>
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="pigment_percentage23FocusLost"/>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="percentage16FocusLost"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel93">
@@ -1900,14 +1900,14 @@
                                   <Group type="102" attributes="0">
                                       <Component id="jLabel108" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="pigment_name19" min="-2" pref="165" max="-2" attributes="0"/>
+                                      <Component id="name20" min="-2" pref="165" max="-2" attributes="0"/>
                                   </Group>
                                   <Component id="jLabel111" alignment="1" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="binder6" pref="61" max="32767" attributes="0"/>
-                                  <Component id="pigment_percentage27" max="32767" attributes="0"/>
+                                  <Component id="percentage20" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -1926,23 +1926,23 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="jLabel105" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="pigment_name18" min="-2" pref="165" max="-2" attributes="0"/>
+                                      <Component id="name19" min="-2" pref="165" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="pigment_percentage26" max="32767" attributes="0"/>
+                                      <Component id="percentage19" max="32767" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="jLabel102" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="pigment_name17" min="-2" pref="165" max="-2" attributes="0"/>
+                                      <Component id="name18" min="-2" pref="165" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="pigment_percentage25" max="32767" attributes="0"/>
+                                      <Component id="percentage18" max="32767" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="jLabel99" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="pigment_name16" min="-2" pref="165" max="-2" attributes="0"/>
+                                      <Component id="name17" min="-2" pref="165" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="pigment_percentage24" min="-2" pref="61" max="-2" attributes="0"/>
+                                      <Component id="percentage17" min="-2" pref="61" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
@@ -1995,8 +1995,8 @@
                       <Component id="jSeparator13" min="-2" pref="10" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="pigment_name16" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="pigment_percentage24" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="name17" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="percentage17" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel99" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel100" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
                           <Component id="jTextField26" alignment="3" max="32767" attributes="0"/>
@@ -2004,8 +2004,8 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="pigment_name17" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="pigment_percentage25" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="name18" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="percentage18" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel102" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel103" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
                           <Component id="jTextField27" alignment="3" max="32767" attributes="0"/>
@@ -2013,8 +2013,8 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="pigment_name18" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="pigment_percentage26" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="name19" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="percentage19" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel105" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel106" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
                           <Component id="jTextField28" alignment="3" max="32767" attributes="0"/>
@@ -2022,8 +2022,8 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="pigment_name19" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="pigment_percentage27" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="name20" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="percentage20" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel108" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel109" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
                           <Component id="jTextField29" alignment="3" max="32767" attributes="0"/>
@@ -2057,7 +2057,7 @@
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JComboBox" name="pigment_name16">
+            <Component class="javax.swing.JComboBox" name="name17">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="14" style="0"/>
@@ -2068,14 +2068,14 @@
                 <Property name="name" type="java.lang.String" value="pigment_name" noResource="true"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="pigment_percentage24">
+            <Component class="javax.swing.JTextField" name="percentage17">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="14" style="0"/>
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="pigment_percentage24FocusGained"/>
+                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="percentage17FocusGained"/>
               </Events>
             </Component>
             <Component class="javax.swing.JSeparator" name="jSeparator13">
@@ -2138,7 +2138,7 @@
                 <Property name="text" type="java.lang.String" value="Pigment Name :"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JComboBox" name="pigment_name17">
+            <Component class="javax.swing.JComboBox" name="name18">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="14" style="0"/>
@@ -2149,14 +2149,14 @@
                 <Property name="name" type="java.lang.String" value="pigment_name" noResource="true"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="pigment_percentage25">
+            <Component class="javax.swing.JTextField" name="percentage18">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="14" style="0"/>
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="pigment_percentage25FocusLost"/>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="percentage18FocusLost"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel103">
@@ -2191,7 +2191,7 @@
                 <Property name="text" type="java.lang.String" value="Pigment Name :"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JComboBox" name="pigment_name18">
+            <Component class="javax.swing.JComboBox" name="name19">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="14" style="0"/>
@@ -2202,14 +2202,14 @@
                 <Property name="name" type="java.lang.String" value="pigment_name" noResource="true"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="pigment_percentage26">
+            <Component class="javax.swing.JTextField" name="percentage19">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="14" style="0"/>
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="pigment_percentage26FocusLost"/>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="percentage19FocusLost"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel106">
@@ -2244,7 +2244,7 @@
                 <Property name="text" type="java.lang.String" value="Pigment Name :"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JComboBox" name="pigment_name19">
+            <Component class="javax.swing.JComboBox" name="name20">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="14" style="0"/>
@@ -2255,14 +2255,14 @@
                 <Property name="name" type="java.lang.String" value="pigment_name" noResource="true"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="pigment_percentage27">
+            <Component class="javax.swing.JTextField" name="percentage20">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="14" style="0"/>
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="pigment_percentage27FocusLost"/>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="percentage20FocusLost"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel109">
@@ -2357,14 +2357,14 @@
                                   <Group type="102" attributes="0">
                                       <Component id="jLabel124" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="pigment_name23" min="-2" pref="165" max="-2" attributes="0"/>
+                                      <Component id="name24" min="-2" pref="165" max="-2" attributes="0"/>
                                   </Group>
                                   <Component id="jLabel127" alignment="1" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="binder7" pref="61" max="32767" attributes="0"/>
-                                  <Component id="pigment_percentage31" max="32767" attributes="0"/>
+                                  <Component id="percentage24" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -2383,23 +2383,23 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="jLabel121" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="pigment_name22" min="-2" pref="165" max="-2" attributes="0"/>
+                                      <Component id="name23" min="-2" pref="165" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="pigment_percentage30" max="32767" attributes="0"/>
+                                      <Component id="percentage23" max="32767" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="jLabel118" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="pigment_name21" min="-2" pref="165" max="-2" attributes="0"/>
+                                      <Component id="name22" min="-2" pref="165" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="pigment_percentage29" max="32767" attributes="0"/>
+                                      <Component id="percentage22" max="32767" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="jLabel115" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="pigment_name20" min="-2" pref="165" max="-2" attributes="0"/>
+                                      <Component id="name21" min="-2" pref="165" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="pigment_percentage28" min="-2" pref="61" max="-2" attributes="0"/>
+                                      <Component id="percentage21" min="-2" pref="61" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
@@ -2452,8 +2452,8 @@
                       <Component id="jSeparator15" min="-2" pref="10" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="pigment_name20" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="pigment_percentage28" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="name21" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="percentage21" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel115" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel116" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
                           <Component id="jTextField30" alignment="3" max="32767" attributes="0"/>
@@ -2461,8 +2461,8 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="pigment_name21" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="pigment_percentage29" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="name22" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="percentage22" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel118" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel119" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
                           <Component id="jTextField31" alignment="3" max="32767" attributes="0"/>
@@ -2470,8 +2470,8 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="pigment_name22" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="pigment_percentage30" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="name23" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="percentage23" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel121" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel122" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
                           <Component id="jTextField32" alignment="3" max="32767" attributes="0"/>
@@ -2479,8 +2479,8 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="pigment_name23" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="pigment_percentage31" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="name24" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="percentage24" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel124" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel125" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
                           <Component id="jTextField33" alignment="3" max="32767" attributes="0"/>
@@ -2514,7 +2514,7 @@
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JComboBox" name="pigment_name20">
+            <Component class="javax.swing.JComboBox" name="name21">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="14" style="0"/>
@@ -2525,14 +2525,14 @@
                 <Property name="name" type="java.lang.String" value="pigment_name" noResource="true"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="pigment_percentage28">
+            <Component class="javax.swing.JTextField" name="percentage21">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="14" style="0"/>
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="pigment_percentage28FocusLost"/>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="percentage21FocusLost"/>
               </Events>
             </Component>
             <Component class="javax.swing.JSeparator" name="jSeparator15">
@@ -2595,7 +2595,7 @@
                 <Property name="text" type="java.lang.String" value="Pigment Name :"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JComboBox" name="pigment_name21">
+            <Component class="javax.swing.JComboBox" name="name22">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="14" style="0"/>
@@ -2606,14 +2606,14 @@
                 <Property name="name" type="java.lang.String" value="pigment_name" noResource="true"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="pigment_percentage29">
+            <Component class="javax.swing.JTextField" name="percentage22">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="14" style="0"/>
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="pigment_percentage29FocusLost"/>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="percentage22FocusLost"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel119">
@@ -2648,7 +2648,7 @@
                 <Property name="text" type="java.lang.String" value="Pigment Name :"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JComboBox" name="pigment_name22">
+            <Component class="javax.swing.JComboBox" name="name23">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="14" style="0"/>
@@ -2659,14 +2659,14 @@
                 <Property name="name" type="java.lang.String" value="pigment_name" noResource="true"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="pigment_percentage30">
+            <Component class="javax.swing.JTextField" name="percentage23">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="14" style="0"/>
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="pigment_percentage30FocusLost"/>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="percentage23FocusLost"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel122">
@@ -2701,7 +2701,7 @@
                 <Property name="text" type="java.lang.String" value="Pigment Name :"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JComboBox" name="pigment_name23">
+            <Component class="javax.swing.JComboBox" name="name24">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="14" style="0"/>
@@ -2712,14 +2712,14 @@
                 <Property name="name" type="java.lang.String" value="pigment_name" noResource="true"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="pigment_percentage31">
+            <Component class="javax.swing.JTextField" name="percentage24">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="14" style="0"/>
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="pigment_percentage31FocusLost"/>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="percentage24FocusLost"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel125">

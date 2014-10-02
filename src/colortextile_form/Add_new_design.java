@@ -47,9 +47,9 @@ public class Add_new_design extends javax.swing.JFrame {
         jTabbedPane2 = new javax.swing.JTabbedPane();
         jPanel9 = new javax.swing.JPanel();
         jLabel129 = new javax.swing.JLabel();
-        colorway_name8 = new javax.swing.JTextField();
-        pigment_name24 = new javax.swing.JComboBox();
-        pigment_percentage32 = new javax.swing.JTextField();
+        colorway_name2 = new javax.swing.JTextField();
+        name1 = new javax.swing.JComboBox();
+        percentage1 = new javax.swing.JTextField();
         jSeparator17 = new javax.swing.JSeparator();
         jTextField34 = new javax.swing.JTextField();
         jLabel130 = new javax.swing.JLabel();
@@ -58,20 +58,20 @@ public class Add_new_design extends javax.swing.JFrame {
         jLabel133 = new javax.swing.JLabel();
         weigh_kg8 = new javax.swing.JTextField();
         jLabel134 = new javax.swing.JLabel();
-        pigment_name25 = new javax.swing.JComboBox();
-        pigment_percentage33 = new javax.swing.JTextField();
+        name2 = new javax.swing.JComboBox();
+        percentage2 = new javax.swing.JTextField();
         jLabel135 = new javax.swing.JLabel();
         jTextField35 = new javax.swing.JTextField();
         jLabel136 = new javax.swing.JLabel();
         jLabel137 = new javax.swing.JLabel();
-        pigment_name26 = new javax.swing.JComboBox();
-        pigment_percentage34 = new javax.swing.JTextField();
+        name3 = new javax.swing.JComboBox();
+        percentage3 = new javax.swing.JTextField();
         jLabel138 = new javax.swing.JLabel();
         jTextField36 = new javax.swing.JTextField();
         jLabel139 = new javax.swing.JLabel();
         jLabel140 = new javax.swing.JLabel();
-        pigment_name27 = new javax.swing.JComboBox();
-        pigment_percentage35 = new javax.swing.JTextField();
+        name4 = new javax.swing.JComboBox();
+        percentage4 = new javax.swing.JTextField();
         jLabel141 = new javax.swing.JLabel();
         jTextField37 = new javax.swing.JTextField();
         jLabel142 = new javax.swing.JLabel();
@@ -82,8 +82,8 @@ public class Add_new_design extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         jLabel49 = new javax.swing.JLabel();
         colorway_name3 = new javax.swing.JTextField();
-        pigment_name4 = new javax.swing.JComboBox();
-        pigment_percentage12 = new javax.swing.JTextField();
+        name5 = new javax.swing.JComboBox();
+        percentage5 = new javax.swing.JTextField();
         jSeparator7 = new javax.swing.JSeparator();
         jTextField14 = new javax.swing.JTextField();
         jLabel50 = new javax.swing.JLabel();
@@ -92,20 +92,20 @@ public class Add_new_design extends javax.swing.JFrame {
         jLabel53 = new javax.swing.JLabel();
         weigh_kg3 = new javax.swing.JTextField();
         jLabel54 = new javax.swing.JLabel();
-        pigment_name5 = new javax.swing.JComboBox();
-        pigment_percentage13 = new javax.swing.JTextField();
+        name6 = new javax.swing.JComboBox();
+        percentage6 = new javax.swing.JTextField();
         jLabel55 = new javax.swing.JLabel();
         jTextField15 = new javax.swing.JTextField();
         jLabel56 = new javax.swing.JLabel();
         jLabel57 = new javax.swing.JLabel();
-        pigment_name6 = new javax.swing.JComboBox();
-        pigment_percentage14 = new javax.swing.JTextField();
+        name7 = new javax.swing.JComboBox();
+        percentage7 = new javax.swing.JTextField();
         jLabel58 = new javax.swing.JLabel();
         jTextField16 = new javax.swing.JTextField();
         jLabel59 = new javax.swing.JLabel();
         jLabel60 = new javax.swing.JLabel();
-        pigment_name7 = new javax.swing.JComboBox();
-        pigment_percentage15 = new javax.swing.JTextField();
+        name8 = new javax.swing.JComboBox();
+        percentage8 = new javax.swing.JTextField();
         jLabel61 = new javax.swing.JLabel();
         jTextField17 = new javax.swing.JTextField();
         jLabel62 = new javax.swing.JLabel();
@@ -116,8 +116,8 @@ public class Add_new_design extends javax.swing.JFrame {
         jPanel5 = new javax.swing.JPanel();
         jLabel65 = new javax.swing.JLabel();
         colorway_name4 = new javax.swing.JTextField();
-        pigment_name8 = new javax.swing.JComboBox();
-        pigment_percentage16 = new javax.swing.JTextField();
+        name9 = new javax.swing.JComboBox();
+        percentage9 = new javax.swing.JTextField();
         jSeparator9 = new javax.swing.JSeparator();
         jTextField18 = new javax.swing.JTextField();
         jLabel66 = new javax.swing.JLabel();
@@ -126,20 +126,20 @@ public class Add_new_design extends javax.swing.JFrame {
         jLabel69 = new javax.swing.JLabel();
         weigh_kg4 = new javax.swing.JTextField();
         jLabel70 = new javax.swing.JLabel();
-        pigment_name9 = new javax.swing.JComboBox();
-        pigment_percentage17 = new javax.swing.JTextField();
+        name10 = new javax.swing.JComboBox();
+        percentage10 = new javax.swing.JTextField();
         jLabel71 = new javax.swing.JLabel();
         jTextField19 = new javax.swing.JTextField();
         jLabel72 = new javax.swing.JLabel();
         jLabel73 = new javax.swing.JLabel();
-        pigment_name10 = new javax.swing.JComboBox();
-        pigment_percentage18 = new javax.swing.JTextField();
+        name11 = new javax.swing.JComboBox();
+        percentage11 = new javax.swing.JTextField();
         jLabel74 = new javax.swing.JLabel();
         jTextField20 = new javax.swing.JTextField();
         jLabel75 = new javax.swing.JLabel();
         jLabel76 = new javax.swing.JLabel();
-        pigment_name11 = new javax.swing.JComboBox();
-        pigment_percentage19 = new javax.swing.JTextField();
+        name12 = new javax.swing.JComboBox();
+        percentage12 = new javax.swing.JTextField();
         jLabel77 = new javax.swing.JLabel();
         jTextField21 = new javax.swing.JTextField();
         jLabel78 = new javax.swing.JLabel();
@@ -150,8 +150,8 @@ public class Add_new_design extends javax.swing.JFrame {
         jPanel6 = new javax.swing.JPanel();
         jLabel81 = new javax.swing.JLabel();
         colorway_name5 = new javax.swing.JTextField();
-        pigment_name12 = new javax.swing.JComboBox();
-        pigment_percentage20 = new javax.swing.JTextField();
+        name13 = new javax.swing.JComboBox();
+        percentage13 = new javax.swing.JTextField();
         jSeparator11 = new javax.swing.JSeparator();
         jTextField22 = new javax.swing.JTextField();
         jLabel82 = new javax.swing.JLabel();
@@ -160,20 +160,20 @@ public class Add_new_design extends javax.swing.JFrame {
         jLabel85 = new javax.swing.JLabel();
         weigh_kg5 = new javax.swing.JTextField();
         jLabel86 = new javax.swing.JLabel();
-        pigment_name13 = new javax.swing.JComboBox();
-        pigment_percentage21 = new javax.swing.JTextField();
+        name14 = new javax.swing.JComboBox();
+        percentage14 = new javax.swing.JTextField();
         jLabel87 = new javax.swing.JLabel();
         jTextField23 = new javax.swing.JTextField();
         jLabel88 = new javax.swing.JLabel();
         jLabel89 = new javax.swing.JLabel();
-        pigment_name14 = new javax.swing.JComboBox();
-        pigment_percentage22 = new javax.swing.JTextField();
+        name15 = new javax.swing.JComboBox();
+        percentage15 = new javax.swing.JTextField();
         jLabel90 = new javax.swing.JLabel();
         jTextField24 = new javax.swing.JTextField();
         jLabel91 = new javax.swing.JLabel();
         jLabel92 = new javax.swing.JLabel();
-        pigment_name15 = new javax.swing.JComboBox();
-        pigment_percentage23 = new javax.swing.JTextField();
+        name16 = new javax.swing.JComboBox();
+        percentage16 = new javax.swing.JTextField();
         jLabel93 = new javax.swing.JLabel();
         jTextField25 = new javax.swing.JTextField();
         jLabel94 = new javax.swing.JLabel();
@@ -184,8 +184,8 @@ public class Add_new_design extends javax.swing.JFrame {
         jPanel7 = new javax.swing.JPanel();
         jLabel97 = new javax.swing.JLabel();
         colorway_name6 = new javax.swing.JTextField();
-        pigment_name16 = new javax.swing.JComboBox();
-        pigment_percentage24 = new javax.swing.JTextField();
+        name17 = new javax.swing.JComboBox();
+        percentage17 = new javax.swing.JTextField();
         jSeparator13 = new javax.swing.JSeparator();
         jTextField26 = new javax.swing.JTextField();
         jLabel98 = new javax.swing.JLabel();
@@ -194,20 +194,20 @@ public class Add_new_design extends javax.swing.JFrame {
         jLabel101 = new javax.swing.JLabel();
         weigh_kg6 = new javax.swing.JTextField();
         jLabel102 = new javax.swing.JLabel();
-        pigment_name17 = new javax.swing.JComboBox();
-        pigment_percentage25 = new javax.swing.JTextField();
+        name18 = new javax.swing.JComboBox();
+        percentage18 = new javax.swing.JTextField();
         jLabel103 = new javax.swing.JLabel();
         jTextField27 = new javax.swing.JTextField();
         jLabel104 = new javax.swing.JLabel();
         jLabel105 = new javax.swing.JLabel();
-        pigment_name18 = new javax.swing.JComboBox();
-        pigment_percentage26 = new javax.swing.JTextField();
+        name19 = new javax.swing.JComboBox();
+        percentage19 = new javax.swing.JTextField();
         jLabel106 = new javax.swing.JLabel();
         jTextField28 = new javax.swing.JTextField();
         jLabel107 = new javax.swing.JLabel();
         jLabel108 = new javax.swing.JLabel();
-        pigment_name19 = new javax.swing.JComboBox();
-        pigment_percentage27 = new javax.swing.JTextField();
+        name20 = new javax.swing.JComboBox();
+        percentage20 = new javax.swing.JTextField();
         jLabel109 = new javax.swing.JLabel();
         jTextField29 = new javax.swing.JTextField();
         jLabel110 = new javax.swing.JLabel();
@@ -218,8 +218,8 @@ public class Add_new_design extends javax.swing.JFrame {
         jPanel8 = new javax.swing.JPanel();
         jLabel113 = new javax.swing.JLabel();
         colorway_name7 = new javax.swing.JTextField();
-        pigment_name20 = new javax.swing.JComboBox();
-        pigment_percentage28 = new javax.swing.JTextField();
+        name21 = new javax.swing.JComboBox();
+        percentage21 = new javax.swing.JTextField();
         jSeparator15 = new javax.swing.JSeparator();
         jTextField30 = new javax.swing.JTextField();
         jLabel114 = new javax.swing.JLabel();
@@ -228,20 +228,20 @@ public class Add_new_design extends javax.swing.JFrame {
         jLabel117 = new javax.swing.JLabel();
         weigh_kg7 = new javax.swing.JTextField();
         jLabel118 = new javax.swing.JLabel();
-        pigment_name21 = new javax.swing.JComboBox();
-        pigment_percentage29 = new javax.swing.JTextField();
+        name22 = new javax.swing.JComboBox();
+        percentage22 = new javax.swing.JTextField();
         jLabel119 = new javax.swing.JLabel();
         jTextField31 = new javax.swing.JTextField();
         jLabel120 = new javax.swing.JLabel();
         jLabel121 = new javax.swing.JLabel();
-        pigment_name22 = new javax.swing.JComboBox();
-        pigment_percentage30 = new javax.swing.JTextField();
+        name23 = new javax.swing.JComboBox();
+        percentage23 = new javax.swing.JTextField();
         jLabel122 = new javax.swing.JLabel();
         jTextField32 = new javax.swing.JTextField();
         jLabel123 = new javax.swing.JLabel();
         jLabel124 = new javax.swing.JLabel();
-        pigment_name23 = new javax.swing.JComboBox();
-        pigment_percentage31 = new javax.swing.JTextField();
+        name24 = new javax.swing.JComboBox();
+        percentage24 = new javax.swing.JTextField();
         jLabel125 = new javax.swing.JLabel();
         jTextField33 = new javax.swing.JTextField();
         jLabel126 = new javax.swing.JLabel();
@@ -269,15 +269,15 @@ public class Add_new_design extends javax.swing.JFrame {
         jLabel129.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel129.setText("Colorway Name :");
 
-        colorway_name8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        colorway_name2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
-        pigment_name24.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        pigment_name24.setName("pigment_name"); // NOI18N
+        name1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        name1.setName("pigment_name"); // NOI18N
 
-        pigment_percentage32.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        pigment_percentage32.addFocusListener(new java.awt.event.FocusAdapter() {
+        percentage1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        percentage1.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
-                pigment_percentage32FocusLost(evt);
+                percentage1FocusLost(evt);
             }
         });
 
@@ -306,13 +306,13 @@ public class Add_new_design extends javax.swing.JFrame {
         jLabel134.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel134.setText("Pigment Name :");
 
-        pigment_name25.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        pigment_name25.setName("pigment_name"); // NOI18N
+        name2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        name2.setName("pigment_name"); // NOI18N
 
-        pigment_percentage33.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        pigment_percentage33.addFocusListener(new java.awt.event.FocusAdapter() {
+        percentage2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        percentage2.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
-                pigment_percentage33FocusLost(evt);
+                percentage2FocusLost(evt);
             }
         });
 
@@ -328,13 +328,13 @@ public class Add_new_design extends javax.swing.JFrame {
         jLabel137.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel137.setText("Pigment Name :");
 
-        pigment_name26.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        pigment_name26.setName("pigment_name"); // NOI18N
+        name3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        name3.setName("pigment_name"); // NOI18N
 
-        pigment_percentage34.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        pigment_percentage34.addFocusListener(new java.awt.event.FocusAdapter() {
+        percentage3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        percentage3.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
-                pigment_percentage34FocusLost(evt);
+                percentage3FocusLost(evt);
             }
         });
 
@@ -350,13 +350,13 @@ public class Add_new_design extends javax.swing.JFrame {
         jLabel140.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel140.setText("Pigment Name :");
 
-        pigment_name27.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        pigment_name27.setName("pigment_name"); // NOI18N
+        name4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        name4.setName("pigment_name"); // NOI18N
 
-        pigment_percentage35.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        pigment_percentage35.addFocusListener(new java.awt.event.FocusAdapter() {
+        percentage4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        percentage4.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
-                pigment_percentage35FocusLost(evt);
+                percentage4FocusLost(evt);
             }
         });
 
@@ -387,7 +387,7 @@ public class Add_new_design extends javax.swing.JFrame {
                 .addContainerGap(105, Short.MAX_VALUE)
                 .addComponent(jLabel129)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(colorway_name8, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(colorway_name2, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel133)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -402,12 +402,12 @@ public class Add_new_design extends javax.swing.JFrame {
                             .addGroup(jPanel9Layout.createSequentialGroup()
                                 .addComponent(jLabel140)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(pigment_name27, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(name4, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel143, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(binder8, 0, 61, Short.MAX_VALUE)
-                            .addComponent(pigment_percentage35))
+                            .addComponent(percentage4))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel9Layout.createSequentialGroup()
@@ -422,21 +422,21 @@ public class Add_new_design extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel9Layout.createSequentialGroup()
                                 .addComponent(jLabel137)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(pigment_name26, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(name3, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(pigment_percentage34))
+                                .addComponent(percentage3))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel9Layout.createSequentialGroup()
                                 .addComponent(jLabel134)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(pigment_name25, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(name2, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(pigment_percentage33))
+                                .addComponent(percentage2))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel9Layout.createSequentialGroup()
                                 .addComponent(jLabel131)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(pigment_name24, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(name1, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(pigment_percentage32, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(percentage1, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -469,38 +469,38 @@ public class Add_new_design extends javax.swing.JFrame {
                         .addComponent(jLabel133, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(weigh_kg8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(colorway_name8, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(colorway_name2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel129, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator17, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(4, 4, 4)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(pigment_name24, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pigment_percentage32, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(name1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(percentage1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel131)
                     .addComponent(jLabel132, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField34)
                     .addComponent(jLabel130))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(pigment_name25, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pigment_percentage33, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(name2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(percentage2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel134)
                     .addComponent(jLabel135, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField35)
                     .addComponent(jLabel136))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(pigment_name26, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pigment_percentage34, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(name3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(percentage3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel137)
                     .addComponent(jLabel138, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField36)
                     .addComponent(jLabel139))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(pigment_name27, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pigment_percentage35, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(name4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(percentage4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel140)
                     .addComponent(jLabel141, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField37)
@@ -521,13 +521,13 @@ public class Add_new_design extends javax.swing.JFrame {
 
         colorway_name3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
-        pigment_name4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        pigment_name4.setName("pigment_name"); // NOI18N
+        name5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        name5.setName("pigment_name"); // NOI18N
 
-        pigment_percentage12.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        pigment_percentage12.addFocusListener(new java.awt.event.FocusAdapter() {
+        percentage5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        percentage5.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
-                pigment_percentage12FocusLost(evt);
+                percentage5FocusLost(evt);
             }
         });
 
@@ -556,13 +556,13 @@ public class Add_new_design extends javax.swing.JFrame {
         jLabel54.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel54.setText("Pigment Name :");
 
-        pigment_name5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        pigment_name5.setName("pigment_name"); // NOI18N
+        name6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        name6.setName("pigment_name"); // NOI18N
 
-        pigment_percentage13.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        pigment_percentage13.addFocusListener(new java.awt.event.FocusAdapter() {
+        percentage6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        percentage6.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
-                pigment_percentage13FocusLost(evt);
+                percentage6FocusLost(evt);
             }
         });
 
@@ -578,13 +578,13 @@ public class Add_new_design extends javax.swing.JFrame {
         jLabel57.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel57.setText("Pigment Name :");
 
-        pigment_name6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        pigment_name6.setName("pigment_name"); // NOI18N
+        name7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        name7.setName("pigment_name"); // NOI18N
 
-        pigment_percentage14.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        pigment_percentage14.addFocusListener(new java.awt.event.FocusAdapter() {
+        percentage7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        percentage7.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
-                pigment_percentage14FocusLost(evt);
+                percentage7FocusLost(evt);
             }
         });
 
@@ -600,13 +600,13 @@ public class Add_new_design extends javax.swing.JFrame {
         jLabel60.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel60.setText("Pigment Name :");
 
-        pigment_name7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        pigment_name7.setName("pigment_name"); // NOI18N
+        name8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        name8.setName("pigment_name"); // NOI18N
 
-        pigment_percentage15.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        pigment_percentage15.addFocusListener(new java.awt.event.FocusAdapter() {
+        percentage8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        percentage8.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
-                pigment_percentage15FocusLost(evt);
+                percentage8FocusLost(evt);
             }
         });
 
@@ -652,12 +652,12 @@ public class Add_new_design extends javax.swing.JFrame {
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addComponent(jLabel60)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(pigment_name7, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(name8, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel63, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(binder3, 0, 61, Short.MAX_VALUE)
-                            .addComponent(pigment_percentage15))
+                            .addComponent(percentage8))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel4Layout.createSequentialGroup()
@@ -672,21 +672,21 @@ public class Add_new_design extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
                                 .addComponent(jLabel57)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(pigment_name6, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(name7, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(pigment_percentage14))
+                                .addComponent(percentage7))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
                                 .addComponent(jLabel54)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(pigment_name5, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(name6, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(pigment_percentage13))
+                                .addComponent(percentage6))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
                                 .addComponent(jLabel51)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(pigment_name4, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(name5, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(pigment_percentage12, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(percentage5, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -725,32 +725,32 @@ public class Add_new_design extends javax.swing.JFrame {
                 .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(4, 4, 4)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(pigment_name4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pigment_percentage12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(name5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(percentage5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel51)
                     .addComponent(jLabel52, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField14)
                     .addComponent(jLabel50))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(pigment_name5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pigment_percentage13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(name6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(percentage6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel54)
                     .addComponent(jLabel55, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField15)
                     .addComponent(jLabel56))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(pigment_name6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pigment_percentage14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(name7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(percentage7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel57)
                     .addComponent(jLabel58, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField16)
                     .addComponent(jLabel59))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(pigment_name7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pigment_percentage15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(name8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(percentage8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel60)
                     .addComponent(jLabel61, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField17)
@@ -771,13 +771,13 @@ public class Add_new_design extends javax.swing.JFrame {
 
         colorway_name4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
-        pigment_name8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        pigment_name8.setName("pigment_name"); // NOI18N
+        name9.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        name9.setName("pigment_name"); // NOI18N
 
-        pigment_percentage16.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        pigment_percentage16.addFocusListener(new java.awt.event.FocusAdapter() {
+        percentage9.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        percentage9.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
-                pigment_percentage16FocusLost(evt);
+                percentage9FocusLost(evt);
             }
         });
 
@@ -806,13 +806,13 @@ public class Add_new_design extends javax.swing.JFrame {
         jLabel70.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel70.setText("Pigment Name :");
 
-        pigment_name9.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        pigment_name9.setName("pigment_name"); // NOI18N
+        name10.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        name10.setName("pigment_name"); // NOI18N
 
-        pigment_percentage17.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        pigment_percentage17.addFocusListener(new java.awt.event.FocusAdapter() {
+        percentage10.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        percentage10.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
-                pigment_percentage17FocusLost(evt);
+                percentage10FocusLost(evt);
             }
         });
 
@@ -828,13 +828,13 @@ public class Add_new_design extends javax.swing.JFrame {
         jLabel73.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel73.setText("Pigment Name :");
 
-        pigment_name10.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        pigment_name10.setName("pigment_name"); // NOI18N
+        name11.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        name11.setName("pigment_name"); // NOI18N
 
-        pigment_percentage18.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        pigment_percentage18.addFocusListener(new java.awt.event.FocusAdapter() {
+        percentage11.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        percentage11.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
-                pigment_percentage18FocusLost(evt);
+                percentage11FocusLost(evt);
             }
         });
 
@@ -850,13 +850,13 @@ public class Add_new_design extends javax.swing.JFrame {
         jLabel76.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel76.setText("Pigment Name :");
 
-        pigment_name11.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        pigment_name11.setName("pigment_name"); // NOI18N
+        name12.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        name12.setName("pigment_name"); // NOI18N
 
-        pigment_percentage19.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        pigment_percentage19.addFocusListener(new java.awt.event.FocusAdapter() {
+        percentage12.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        percentage12.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
-                pigment_percentage19FocusLost(evt);
+                percentage12FocusLost(evt);
             }
         });
 
@@ -902,12 +902,12 @@ public class Add_new_design extends javax.swing.JFrame {
                             .addGroup(jPanel5Layout.createSequentialGroup()
                                 .addComponent(jLabel76)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(pigment_name11, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(name12, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel79, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(binder4, 0, 61, Short.MAX_VALUE)
-                            .addComponent(pigment_percentage19))
+                            .addComponent(percentage12))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel5Layout.createSequentialGroup()
@@ -922,21 +922,21 @@ public class Add_new_design extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel5Layout.createSequentialGroup()
                                 .addComponent(jLabel73)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(pigment_name10, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(name11, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(pigment_percentage18))
+                                .addComponent(percentage11))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel5Layout.createSequentialGroup()
                                 .addComponent(jLabel70)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(pigment_name9, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(name10, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(pigment_percentage17))
+                                .addComponent(percentage10))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel5Layout.createSequentialGroup()
                                 .addComponent(jLabel67)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(pigment_name8, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(name9, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(pigment_percentage16, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(percentage9, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -975,32 +975,32 @@ public class Add_new_design extends javax.swing.JFrame {
                 .addComponent(jSeparator9, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(4, 4, 4)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(pigment_name8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pigment_percentage16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(name9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(percentage9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel67)
                     .addComponent(jLabel68, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField18)
                     .addComponent(jLabel66))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(pigment_name9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pigment_percentage17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(name10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(percentage10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel70)
                     .addComponent(jLabel71, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField19)
                     .addComponent(jLabel72))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(pigment_name10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pigment_percentage18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(name11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(percentage11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel73)
                     .addComponent(jLabel74, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField20)
                     .addComponent(jLabel75))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(pigment_name11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pigment_percentage19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(name12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(percentage12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel76)
                     .addComponent(jLabel77, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField21)
@@ -1021,13 +1021,13 @@ public class Add_new_design extends javax.swing.JFrame {
 
         colorway_name5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
-        pigment_name12.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        pigment_name12.setName("pigment_name"); // NOI18N
+        name13.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        name13.setName("pigment_name"); // NOI18N
 
-        pigment_percentage20.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        pigment_percentage20.addFocusListener(new java.awt.event.FocusAdapter() {
+        percentage13.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        percentage13.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
-                pigment_percentage20FocusLost(evt);
+                percentage13FocusLost(evt);
             }
         });
 
@@ -1056,13 +1056,13 @@ public class Add_new_design extends javax.swing.JFrame {
         jLabel86.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel86.setText("Pigment Name :");
 
-        pigment_name13.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        pigment_name13.setName("pigment_name"); // NOI18N
+        name14.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        name14.setName("pigment_name"); // NOI18N
 
-        pigment_percentage21.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        pigment_percentage21.addFocusListener(new java.awt.event.FocusAdapter() {
+        percentage14.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        percentage14.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
-                pigment_percentage21FocusLost(evt);
+                percentage14FocusLost(evt);
             }
         });
 
@@ -1078,13 +1078,13 @@ public class Add_new_design extends javax.swing.JFrame {
         jLabel89.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel89.setText("Pigment Name :");
 
-        pigment_name14.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        pigment_name14.setName("pigment_name"); // NOI18N
+        name15.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        name15.setName("pigment_name"); // NOI18N
 
-        pigment_percentage22.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        pigment_percentage22.addFocusListener(new java.awt.event.FocusAdapter() {
+        percentage15.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        percentage15.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
-                pigment_percentage22FocusLost(evt);
+                percentage15FocusLost(evt);
             }
         });
 
@@ -1100,13 +1100,13 @@ public class Add_new_design extends javax.swing.JFrame {
         jLabel92.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel92.setText("Pigment Name :");
 
-        pigment_name15.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        pigment_name15.setName("pigment_name"); // NOI18N
+        name16.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        name16.setName("pigment_name"); // NOI18N
 
-        pigment_percentage23.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        pigment_percentage23.addFocusListener(new java.awt.event.FocusAdapter() {
+        percentage16.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        percentage16.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
-                pigment_percentage23FocusLost(evt);
+                percentage16FocusLost(evt);
             }
         });
 
@@ -1152,12 +1152,12 @@ public class Add_new_design extends javax.swing.JFrame {
                             .addGroup(jPanel6Layout.createSequentialGroup()
                                 .addComponent(jLabel92)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(pigment_name15, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(name16, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel95, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(binder5, 0, 61, Short.MAX_VALUE)
-                            .addComponent(pigment_percentage23))
+                            .addComponent(percentage16))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel6Layout.createSequentialGroup()
@@ -1172,21 +1172,21 @@ public class Add_new_design extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel6Layout.createSequentialGroup()
                                 .addComponent(jLabel89)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(pigment_name14, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(name15, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(pigment_percentage22))
+                                .addComponent(percentage15))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel6Layout.createSequentialGroup()
                                 .addComponent(jLabel86)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(pigment_name13, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(name14, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(pigment_percentage21))
+                                .addComponent(percentage14))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel6Layout.createSequentialGroup()
                                 .addComponent(jLabel83)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(pigment_name12, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(name13, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(pigment_percentage20, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(percentage13, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1225,32 +1225,32 @@ public class Add_new_design extends javax.swing.JFrame {
                 .addComponent(jSeparator11, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(4, 4, 4)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(pigment_name12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pigment_percentage20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(name13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(percentage13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel83)
                     .addComponent(jLabel84, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField22)
                     .addComponent(jLabel82))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(pigment_name13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pigment_percentage21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(name14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(percentage14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel86)
                     .addComponent(jLabel87, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField23)
                     .addComponent(jLabel88))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(pigment_name14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pigment_percentage22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(name15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(percentage15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel89)
                     .addComponent(jLabel90, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField24)
                     .addComponent(jLabel91))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(pigment_name15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pigment_percentage23, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(name16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(percentage16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel92)
                     .addComponent(jLabel93, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField25)
@@ -1271,13 +1271,13 @@ public class Add_new_design extends javax.swing.JFrame {
 
         colorway_name6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
-        pigment_name16.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        pigment_name16.setName("pigment_name"); // NOI18N
+        name17.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        name17.setName("pigment_name"); // NOI18N
 
-        pigment_percentage24.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        pigment_percentage24.addFocusListener(new java.awt.event.FocusAdapter() {
+        percentage17.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        percentage17.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                pigment_percentage24FocusGained(evt);
+                percentage17FocusGained(evt);
             }
         });
 
@@ -1306,13 +1306,13 @@ public class Add_new_design extends javax.swing.JFrame {
         jLabel102.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel102.setText("Pigment Name :");
 
-        pigment_name17.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        pigment_name17.setName("pigment_name"); // NOI18N
+        name18.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        name18.setName("pigment_name"); // NOI18N
 
-        pigment_percentage25.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        pigment_percentage25.addFocusListener(new java.awt.event.FocusAdapter() {
+        percentage18.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        percentage18.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
-                pigment_percentage25FocusLost(evt);
+                percentage18FocusLost(evt);
             }
         });
 
@@ -1328,13 +1328,13 @@ public class Add_new_design extends javax.swing.JFrame {
         jLabel105.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel105.setText("Pigment Name :");
 
-        pigment_name18.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        pigment_name18.setName("pigment_name"); // NOI18N
+        name19.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        name19.setName("pigment_name"); // NOI18N
 
-        pigment_percentage26.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        pigment_percentage26.addFocusListener(new java.awt.event.FocusAdapter() {
+        percentage19.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        percentage19.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
-                pigment_percentage26FocusLost(evt);
+                percentage19FocusLost(evt);
             }
         });
 
@@ -1350,13 +1350,13 @@ public class Add_new_design extends javax.swing.JFrame {
         jLabel108.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel108.setText("Pigment Name :");
 
-        pigment_name19.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        pigment_name19.setName("pigment_name"); // NOI18N
+        name20.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        name20.setName("pigment_name"); // NOI18N
 
-        pigment_percentage27.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        pigment_percentage27.addFocusListener(new java.awt.event.FocusAdapter() {
+        percentage20.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        percentage20.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
-                pigment_percentage27FocusLost(evt);
+                percentage20FocusLost(evt);
             }
         });
 
@@ -1402,12 +1402,12 @@ public class Add_new_design extends javax.swing.JFrame {
                             .addGroup(jPanel7Layout.createSequentialGroup()
                                 .addComponent(jLabel108)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(pigment_name19, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(name20, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel111, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(binder6, 0, 61, Short.MAX_VALUE)
-                            .addComponent(pigment_percentage27))
+                            .addComponent(percentage20))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel7Layout.createSequentialGroup()
@@ -1422,21 +1422,21 @@ public class Add_new_design extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel7Layout.createSequentialGroup()
                                 .addComponent(jLabel105)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(pigment_name18, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(name19, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(pigment_percentage26))
+                                .addComponent(percentage19))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel7Layout.createSequentialGroup()
                                 .addComponent(jLabel102)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(pigment_name17, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(name18, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(pigment_percentage25))
+                                .addComponent(percentage18))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel7Layout.createSequentialGroup()
                                 .addComponent(jLabel99)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(pigment_name16, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(name17, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(pigment_percentage24, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(percentage17, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1475,32 +1475,32 @@ public class Add_new_design extends javax.swing.JFrame {
                 .addComponent(jSeparator13, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(4, 4, 4)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(pigment_name16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pigment_percentage24, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(name17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(percentage17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel99)
                     .addComponent(jLabel100, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField26)
                     .addComponent(jLabel98))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(pigment_name17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pigment_percentage25, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(name18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(percentage18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel102)
                     .addComponent(jLabel103, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField27)
                     .addComponent(jLabel104))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(pigment_name18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pigment_percentage26, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(name19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(percentage19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel105)
                     .addComponent(jLabel106, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField28)
                     .addComponent(jLabel107))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(pigment_name19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pigment_percentage27, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(name20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(percentage20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel108)
                     .addComponent(jLabel109, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField29)
@@ -1521,13 +1521,13 @@ public class Add_new_design extends javax.swing.JFrame {
 
         colorway_name7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
-        pigment_name20.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        pigment_name20.setName("pigment_name"); // NOI18N
+        name21.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        name21.setName("pigment_name"); // NOI18N
 
-        pigment_percentage28.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        pigment_percentage28.addFocusListener(new java.awt.event.FocusAdapter() {
+        percentage21.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        percentage21.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
-                pigment_percentage28FocusLost(evt);
+                percentage21FocusLost(evt);
             }
         });
 
@@ -1556,13 +1556,13 @@ public class Add_new_design extends javax.swing.JFrame {
         jLabel118.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel118.setText("Pigment Name :");
 
-        pigment_name21.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        pigment_name21.setName("pigment_name"); // NOI18N
+        name22.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        name22.setName("pigment_name"); // NOI18N
 
-        pigment_percentage29.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        pigment_percentage29.addFocusListener(new java.awt.event.FocusAdapter() {
+        percentage22.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        percentage22.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
-                pigment_percentage29FocusLost(evt);
+                percentage22FocusLost(evt);
             }
         });
 
@@ -1578,13 +1578,13 @@ public class Add_new_design extends javax.swing.JFrame {
         jLabel121.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel121.setText("Pigment Name :");
 
-        pigment_name22.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        pigment_name22.setName("pigment_name"); // NOI18N
+        name23.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        name23.setName("pigment_name"); // NOI18N
 
-        pigment_percentage30.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        pigment_percentage30.addFocusListener(new java.awt.event.FocusAdapter() {
+        percentage23.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        percentage23.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
-                pigment_percentage30FocusLost(evt);
+                percentage23FocusLost(evt);
             }
         });
 
@@ -1600,13 +1600,13 @@ public class Add_new_design extends javax.swing.JFrame {
         jLabel124.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel124.setText("Pigment Name :");
 
-        pigment_name23.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        pigment_name23.setName("pigment_name"); // NOI18N
+        name24.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        name24.setName("pigment_name"); // NOI18N
 
-        pigment_percentage31.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        pigment_percentage31.addFocusListener(new java.awt.event.FocusAdapter() {
+        percentage24.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        percentage24.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
-                pigment_percentage31FocusLost(evt);
+                percentage24FocusLost(evt);
             }
         });
 
@@ -1652,12 +1652,12 @@ public class Add_new_design extends javax.swing.JFrame {
                             .addGroup(jPanel8Layout.createSequentialGroup()
                                 .addComponent(jLabel124)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(pigment_name23, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(name24, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel127, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(binder7, 0, 61, Short.MAX_VALUE)
-                            .addComponent(pigment_percentage31))
+                            .addComponent(percentage24))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel8Layout.createSequentialGroup()
@@ -1672,21 +1672,21 @@ public class Add_new_design extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel8Layout.createSequentialGroup()
                                 .addComponent(jLabel121)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(pigment_name22, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(name23, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(pigment_percentage30))
+                                .addComponent(percentage23))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel8Layout.createSequentialGroup()
                                 .addComponent(jLabel118)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(pigment_name21, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(name22, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(pigment_percentage29))
+                                .addComponent(percentage22))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel8Layout.createSequentialGroup()
                                 .addComponent(jLabel115)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(pigment_name20, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(name21, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(pigment_percentage28, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(percentage21, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1725,32 +1725,32 @@ public class Add_new_design extends javax.swing.JFrame {
                 .addComponent(jSeparator15, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(4, 4, 4)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(pigment_name20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pigment_percentage28, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(name21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(percentage21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel115)
                     .addComponent(jLabel116, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField30)
                     .addComponent(jLabel114))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(pigment_name21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pigment_percentage29, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(name22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(percentage22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel118)
                     .addComponent(jLabel119, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField31)
                     .addComponent(jLabel120))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(pigment_name22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pigment_percentage30, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(name23, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(percentage23, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel121)
                     .addComponent(jLabel122, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField32)
                     .addComponent(jLabel123))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(pigment_name23, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pigment_percentage31, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(name24, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(percentage24, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel124)
                     .addComponent(jLabel125, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField33)
@@ -1834,195 +1834,338 @@ public class Add_new_design extends javax.swing.JFrame {
      * @param pigment_name -Declared pigment name
      * @param pigment_percent - percentage of pigment in variable float
      */
-    private void add_new_screen_pigment(String pigment_name, float pigment_percent)
+    private int add_new_screen_pigment(String pigment_name, String temp_pigment_percent)
     {
         if(pigment_name.length()> 0)
         {
-            //declare pigment
+            if(temp_pigment_percent.length() > 0)
+            {
+            float pigment_percent = Float.parseFloat(temp_pigment_percent);
+            //declare pigment id
+            // MFD_VIOLET --> 1(id)
             pigment new_pigment = new pigment();
             //get pigment id from the pigment name
             new_pigment.setPigment_name(pigment_name);
             new_pigment.get_id_pigment_from_name();
             
-            //declare screen_pigment
+            //declare screen_pigment to add in screen_pigment table
             screen_pigment new_screen_pigment = new screen_pigment();
             //set pigment no into the screen pigment
             new_screen_pigment.setPigment_no(new_pigment.getPigment_id());
             new_screen_pigment.setPigment_percentage(pigment_percent);
+            if(!new_screen_pigment.add_new_screen_pigment())
+                new_screen_pigment.get_screen_pigment_id_from_pigment_no_and_pigment_percentage();
+            
+            return new_screen_pigment.getPigment_no();
+            }
+            
         }
+        return -1;
     }
     
-    private void add_this_colorway(String colorway_name, String binder_percent, String weight_kg)
+    private int add_this_colorway(String colorway_name, float binder_percent, String temp_weight_kg)
     {
         if(colorway_name.length()>0)
         {
+            if(temp_weight_kg.length()>0)
+            {
+                float weight_kg = Float.parseFloat(temp_weight_kg);
             colortextile_class.colorway new_colorway = new colortextile_class.colorway();
             new_colorway.setColorway_name(colorway_name);
+            new_colorway.setBinder(binder_percent);
+            new_colorway.setWeight_kg(weight_kg);
+            
+            if(!new_colorway.add_new_colorway())
+                new_colorway.set_id_colorway_from_variables();
+            
+            return new_colorway.getId_colorway();
+            }
           //  new_colorway.setBinder(binder_percent);
          //   new_colorway.setWeight_kg(weight_kg);
         }
+        return -1;
     }
+    
+    private void add_this_colorway_screen(int id_screen, int id_colorway)
+    {
+        colortextile_class.colorway_and_screen new_c_and_s = new colortextile_class.colorway_and_screen();
+        new_c_and_s.setId_colorway(id_colorway);
+        new_c_and_s.setId_screen(id_screen);
+        
+        new_c_and_s.add_colorway_and_screen();
+        
+    }
+    
+    private String add_this_design(String design_code, String design_name)
+    {
+        colortextile_class.design new_design = new colortextile_class.design();
+        new_design.setDesign_code(design_code);
+        new_design.setDesign_name(design_name);
+        
+        if(!new_design.add_new_design())
+            new_design.get_design_code_using_variables();
+            
+        return new_design.getDesign_code();
+    }
+    
+    private void add_this_design_and_colorway(String design_code, int id_colorway)
+    {
+        colortextile_class.design_colorway new_dSign_cWay = new colortextile_class.design_colorway();
+        new_dSign_cWay.setDesign_code(design_code);
+        new_dSign_cWay.setId_design_colorway(id_colorway);
+        
+    }
+    
     private void add_orderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_orderActionPerformed
         // TODO add your handling code here:
-        if(colorway_name8.getText().length() > 0)
-        {
-            if(pigment_name24.getSelectedItem().toString().length()> 0)
-            {
-                //declare pigment
-                pigment new_pigment = new pigment();
-                //get pigment id from the pigment name
-                new_pigment.setPigment_name(pigment_name24.getSelectedItem().toString());
-                new_pigment.get_id_pigment_from_name();
-                
-                //declare screen_pigment
-                screen_pigment new_screen_pigment = new screen_pigment();
-                //set pigment no into the screen pigment
-                new_screen_pigment.setPigment_no(new_pigment.getPigment_id());
-                new_screen_pigment.setPigment_percentage(Float.parseFloat(pigment_percentage32.getText()));
-                
-            }
-        }
-        
-        if(colorway_name3.getText().length() > 0)
+        if(add_this_colorway(colorway_name2.getText(), 
+                             Float.parseFloat(binder8.getSelectedItem().toString()),
+                             weigh_kg8.getText()) 
+                != -1 )
         {
             
+            System.out.println("Hello");
+            System.out.println(name1.getSelectedItem().toString());
+            System.out.println(percentage1.getText());
+            add_new_screen_pigment(name1.getSelectedItem().toString(),
+                                      percentage1.getText() );
+            
+            add_new_screen_pigment(name2.getSelectedItem().toString(),
+                                      percentage2.getText() );
+            
+            add_new_screen_pigment(name3.getSelectedItem().toString(),
+                                      percentage3.getText() );
+            
+            add_new_screen_pigment(name4.getSelectedItem().toString(),
+                                      percentage4.getText() );
+            
+  
         }
         
-        if(colorway_name4.getText().length() > 0)
+        if(add_this_colorway(colorway_name3.getText(), 
+                             Float.parseFloat(binder3.getSelectedItem().toString()),
+                             weigh_kg3.getText()) 
+                != -1 )
         {
+           add_new_screen_pigment(name5.getSelectedItem().toString(),
+                                      percentage5.getText() );
             
+            add_new_screen_pigment(name6.getSelectedItem().toString(),
+                                      percentage6.getText() );
+            
+            add_new_screen_pigment(name7.getSelectedItem().toString(),
+                                      percentage7.getText() );
+            
+            add_new_screen_pigment(name8.getSelectedItem().toString(),
+                                      percentage8.getText() );
+            
+  
         }
         
-        if(colorway_name5.getText().length() > 0)
+        if(add_this_colorway(colorway_name4.getText(), 
+                             Float.parseFloat(binder4.getSelectedItem().toString()),
+                             weigh_kg4.getText()) 
+                != -1 )
         {
+           add_new_screen_pigment(name9.getSelectedItem().toString(),
+                                      percentage9.getText() );
             
+            add_new_screen_pigment(name10.getSelectedItem().toString(),
+                                      percentage10.getText() );
+            
+            add_new_screen_pigment(name11.getSelectedItem().toString(),
+                                      percentage11.getText() );
+            
+            add_new_screen_pigment(name12.getSelectedItem().toString(),
+                                      percentage12.getText() );
+  
         }
+        
+        if(add_this_colorway(colorway_name5.getText(), 
+                             Float.parseFloat(binder5.getSelectedItem().toString()),
+                             weigh_kg5.getText()) 
+                != -1 )
+        {
+            add_new_screen_pigment(name13.getSelectedItem().toString(),
+                                      percentage13.getText() );
+            
+            add_new_screen_pigment(name14.getSelectedItem().toString(),
+                                      percentage14.getText() );
+            
+            add_new_screen_pigment(name15.getSelectedItem().toString(),
+                                      percentage15.getText() );
+            
+            add_new_screen_pigment(name16.getSelectedItem().toString(),
+                                      percentage16.getText() );
+            
+  
+        }
+        
+         if(add_this_colorway(colorway_name6.getText(), 
+                             Float.parseFloat(binder6.getSelectedItem().toString()),
+                             weigh_kg6.getText()) 
+                != -1 )
+        {
+            add_new_screen_pigment(name17.getSelectedItem().toString(),
+                                      percentage5.getText() );
+            
+            add_new_screen_pigment(name18.getSelectedItem().toString(),
+                                      percentage6.getText() );
+            
+            add_new_screen_pigment(name19.getSelectedItem().toString(),
+                                      percentage7.getText() );
+            
+            add_new_screen_pigment(name20.getSelectedItem().toString(),
+                                      percentage8.getText() );
+  
+        }
+        
+         if(add_this_colorway(colorway_name7.getText(), 
+                             Float.parseFloat(binder7.getSelectedItem().toString()),
+                             weigh_kg7.getText()) 
+                != -1 )
+        {
+            add_new_screen_pigment(name21.getSelectedItem().toString(),
+                                      percentage21.getText() );
+            
+            add_new_screen_pigment(name22.getSelectedItem().toString(),
+                                      percentage22.getText() );
+            
+            add_new_screen_pigment(name23.getSelectedItem().toString(),
+                                      percentage23.getText() );
+            
+            add_new_screen_pigment(name24.getSelectedItem().toString(),
+                                      percentage8.getText() );;
+            
+  
+        }
+         
     }//GEN-LAST:event_add_orderActionPerformed
 
-    private void pigment_percentage31FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_pigment_percentage31FocusLost
+    private void percentage24FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_percentage24FocusLost
         // TODO add your handling code here:
-        check_this_textbox(pigment_percentage31);
-    }//GEN-LAST:event_pigment_percentage31FocusLost
+        check_this_textbox(percentage24);
+    }//GEN-LAST:event_percentage24FocusLost
 
-    private void pigment_percentage30FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_pigment_percentage30FocusLost
+    private void percentage23FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_percentage23FocusLost
         // TODO add your handling code here:
-        check_this_textbox(pigment_percentage30);
-    }//GEN-LAST:event_pigment_percentage30FocusLost
+        check_this_textbox(percentage23);
+    }//GEN-LAST:event_percentage23FocusLost
 
-    private void pigment_percentage29FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_pigment_percentage29FocusLost
+    private void percentage22FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_percentage22FocusLost
         // TODO add your handling code here:
-        check_this_textbox(pigment_percentage29);
-    }//GEN-LAST:event_pigment_percentage29FocusLost
+        check_this_textbox(percentage22);
+    }//GEN-LAST:event_percentage22FocusLost
 
     private void weigh_kg7FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_weigh_kg7FocusLost
         // TODO add your handling code here:
         check_this_textbox(weigh_kg7);
     }//GEN-LAST:event_weigh_kg7FocusLost
 
-    private void pigment_percentage28FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_pigment_percentage28FocusLost
+    private void percentage21FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_percentage21FocusLost
         // TODO add your handling code here:
-        check_this_textbox(pigment_percentage28);
-    }//GEN-LAST:event_pigment_percentage28FocusLost
+        check_this_textbox(percentage21);
+    }//GEN-LAST:event_percentage21FocusLost
 
-    private void pigment_percentage27FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_pigment_percentage27FocusLost
+    private void percentage20FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_percentage20FocusLost
         // TODO add your handling code here:
-        check_this_textbox(pigment_percentage27);
-    }//GEN-LAST:event_pigment_percentage27FocusLost
+        check_this_textbox(percentage20);
+    }//GEN-LAST:event_percentage20FocusLost
 
-    private void pigment_percentage26FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_pigment_percentage26FocusLost
+    private void percentage19FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_percentage19FocusLost
         // TODO add your handling code here:
-        check_this_textbox(pigment_percentage26);
-    }//GEN-LAST:event_pigment_percentage26FocusLost
+        check_this_textbox(percentage19);
+    }//GEN-LAST:event_percentage19FocusLost
 
-    private void pigment_percentage25FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_pigment_percentage25FocusLost
+    private void percentage18FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_percentage18FocusLost
         // TODO add your handling code here:
-        check_this_textbox(pigment_percentage25);
-    }//GEN-LAST:event_pigment_percentage25FocusLost
+        check_this_textbox(percentage18);
+    }//GEN-LAST:event_percentage18FocusLost
 
-    private void pigment_percentage24FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_pigment_percentage24FocusGained
+    private void percentage17FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_percentage17FocusGained
         // TODO add your handling code here:
-        check_this_textbox(pigment_percentage24);
-    }//GEN-LAST:event_pigment_percentage24FocusGained
+        check_this_textbox(percentage17);
+    }//GEN-LAST:event_percentage17FocusGained
 
-    private void pigment_percentage23FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_pigment_percentage23FocusLost
+    private void percentage16FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_percentage16FocusLost
         // TODO add your handling code here:
-        check_this_textbox(pigment_percentage23);
-    }//GEN-LAST:event_pigment_percentage23FocusLost
+        check_this_textbox(percentage16);
+    }//GEN-LAST:event_percentage16FocusLost
 
-    private void pigment_percentage22FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_pigment_percentage22FocusLost
+    private void percentage15FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_percentage15FocusLost
         // TODO add your handling code here:
-        check_this_textbox(pigment_percentage22);
-    }//GEN-LAST:event_pigment_percentage22FocusLost
+        check_this_textbox(percentage15);
+    }//GEN-LAST:event_percentage15FocusLost
 
-    private void pigment_percentage21FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_pigment_percentage21FocusLost
+    private void percentage14FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_percentage14FocusLost
         // TODO add your handling code here:
-        check_this_textbox(pigment_percentage21);
-    }//GEN-LAST:event_pigment_percentage21FocusLost
+        check_this_textbox(percentage14);
+    }//GEN-LAST:event_percentage14FocusLost
 
-    private void pigment_percentage20FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_pigment_percentage20FocusLost
+    private void percentage13FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_percentage13FocusLost
         // TODO add your handling code here:
-        check_this_textbox(pigment_percentage20);
-    }//GEN-LAST:event_pigment_percentage20FocusLost
+        check_this_textbox(percentage13);
+    }//GEN-LAST:event_percentage13FocusLost
 
-    private void pigment_percentage19FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_pigment_percentage19FocusLost
+    private void percentage12FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_percentage12FocusLost
         // TODO add your handling code here:
-        check_this_textbox(pigment_percentage19);
-    }//GEN-LAST:event_pigment_percentage19FocusLost
+        check_this_textbox(percentage12);
+    }//GEN-LAST:event_percentage12FocusLost
 
-    private void pigment_percentage18FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_pigment_percentage18FocusLost
+    private void percentage11FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_percentage11FocusLost
         // TODO add your handling code here:
-        check_this_textbox(pigment_percentage18);
-    }//GEN-LAST:event_pigment_percentage18FocusLost
+        check_this_textbox(percentage11);
+    }//GEN-LAST:event_percentage11FocusLost
 
-    private void pigment_percentage17FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_pigment_percentage17FocusLost
+    private void percentage10FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_percentage10FocusLost
         // TODO add your handling code here:
-        check_this_textbox(pigment_percentage17);
-    }//GEN-LAST:event_pigment_percentage17FocusLost
+        check_this_textbox(percentage10);
+    }//GEN-LAST:event_percentage10FocusLost
 
-    private void pigment_percentage16FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_pigment_percentage16FocusLost
+    private void percentage9FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_percentage9FocusLost
         // TODO add your handling code here:
-        check_this_textbox(pigment_percentage16);
-    }//GEN-LAST:event_pigment_percentage16FocusLost
+        check_this_textbox(percentage9);
+    }//GEN-LAST:event_percentage9FocusLost
 
-    private void pigment_percentage15FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_pigment_percentage15FocusLost
+    private void percentage8FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_percentage8FocusLost
         // TODO add your handling code here:
-        check_this_textbox(pigment_percentage15);
-    }//GEN-LAST:event_pigment_percentage15FocusLost
+        check_this_textbox(percentage8);
+    }//GEN-LAST:event_percentage8FocusLost
 
-    private void pigment_percentage14FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_pigment_percentage14FocusLost
+    private void percentage7FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_percentage7FocusLost
         // TODO add your handling code here:
-        check_this_textbox(pigment_percentage14);
-    }//GEN-LAST:event_pigment_percentage14FocusLost
+        check_this_textbox(percentage7);
+    }//GEN-LAST:event_percentage7FocusLost
 
-    private void pigment_percentage13FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_pigment_percentage13FocusLost
+    private void percentage6FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_percentage6FocusLost
         // TODO add your handling code here:
-        check_this_textbox(pigment_percentage13);
-    }//GEN-LAST:event_pigment_percentage13FocusLost
+        check_this_textbox(percentage6);
+    }//GEN-LAST:event_percentage6FocusLost
 
-    private void pigment_percentage12FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_pigment_percentage12FocusLost
+    private void percentage5FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_percentage5FocusLost
         // TODO add your handling code here:
-        check_this_textbox(pigment_percentage12);
-    }//GEN-LAST:event_pigment_percentage12FocusLost
+        check_this_textbox(percentage5);
+    }//GEN-LAST:event_percentage5FocusLost
 
-    private void pigment_percentage32FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_pigment_percentage32FocusLost
+    private void percentage1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_percentage1FocusLost
         // TODO add your handling code here:
-        check_this_textbox(pigment_percentage32);
-    }//GEN-LAST:event_pigment_percentage32FocusLost
+        check_this_textbox(percentage1);
+    }//GEN-LAST:event_percentage1FocusLost
 
-    private void pigment_percentage33FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_pigment_percentage33FocusLost
+    private void percentage2FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_percentage2FocusLost
         // TODO add your handling code here:
-        check_this_textbox(pigment_percentage33);
-    }//GEN-LAST:event_pigment_percentage33FocusLost
+        check_this_textbox(percentage2);
+    }//GEN-LAST:event_percentage2FocusLost
 
-    private void pigment_percentage34FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_pigment_percentage34FocusLost
+    private void percentage3FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_percentage3FocusLost
         // TODO add your handling code here:
-        check_this_textbox(pigment_percentage34);
-    }//GEN-LAST:event_pigment_percentage34FocusLost
+        check_this_textbox(percentage3);
+    }//GEN-LAST:event_percentage3FocusLost
 
-    private void pigment_percentage35FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_pigment_percentage35FocusLost
+    private void percentage4FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_percentage4FocusLost
         // TODO add your handling code here:
-        check_this_textbox(pigment_percentage35);
-    }//GEN-LAST:event_pigment_percentage35FocusLost
+        check_this_textbox(percentage4);
+    }//GEN-LAST:event_percentage4FocusLost
 
     private void weigh_kg8FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_weigh_kg8FocusLost
         // TODO add your handling code here:
@@ -2072,30 +2215,30 @@ public class Add_new_design extends javax.swing.JFrame {
     
     public void addBlankSpace()
     {
-            pigment_name24.addItem("");
-            pigment_name25.addItem("");
-            pigment_name26.addItem("");
-            pigment_name27.addItem("");
-            pigment_name4.addItem("");
-            pigment_name5.addItem("");
-            pigment_name6.addItem("");
-            pigment_name7.addItem("");
-            pigment_name8.addItem("");
-            pigment_name9.addItem("");
-            pigment_name10.addItem("");
-            pigment_name11.addItem("");
-            pigment_name12.addItem("");
-            pigment_name13.addItem("");
-            pigment_name14.addItem("");
-            pigment_name15.addItem("");   
-            pigment_name16.addItem("");   
-            pigment_name17.addItem("");   
-            pigment_name18.addItem("");   
-            pigment_name19.addItem("");   
-            pigment_name20.addItem("");   
-            pigment_name21.addItem("");   
-            pigment_name22.addItem("");   
-            pigment_name23.addItem("");   
+            name1.addItem("");
+            name2.addItem("");
+            name3.addItem("");
+            name4.addItem("");
+            name5.addItem("");
+            name6.addItem("");
+            name7.addItem("");
+            name8.addItem("");
+            name9.addItem("");
+            name10.addItem("");
+            name11.addItem("");
+            name12.addItem("");
+            name13.addItem("");
+            name14.addItem("");
+            name15.addItem("");
+            name16.addItem("");   
+            name17.addItem("");   
+            name18.addItem("");   
+            name19.addItem("");   
+            name20.addItem("");   
+            name21.addItem("");   
+            name22.addItem("");   
+            name23.addItem("");   
+            name24.addItem("");   
     }
     public void addListItems()
     {
@@ -2105,30 +2248,30 @@ public class Add_new_design extends javax.swing.JFrame {
         addBlankSpace();
         for(int temp_i = 0; temp_i < pigment_list.size(); temp_i++)
         {
-            pigment_name24.addItem(pigment_list.get(temp_i));
-            pigment_name25.addItem(pigment_list.get(temp_i));
-            pigment_name26.addItem(pigment_list.get(temp_i));
-            pigment_name27.addItem(pigment_list.get(temp_i));
-            pigment_name4.addItem(pigment_list.get(temp_i));
-            pigment_name5.addItem(pigment_list.get(temp_i));
-            pigment_name6.addItem(pigment_list.get(temp_i));
-            pigment_name7.addItem(pigment_list.get(temp_i));
-            pigment_name8.addItem(pigment_list.get(temp_i));
-            pigment_name9.addItem(pigment_list.get(temp_i));
-            pigment_name10.addItem(pigment_list.get(temp_i));
-            pigment_name11.addItem(pigment_list.get(temp_i));
-            pigment_name12.addItem(pigment_list.get(temp_i));
-            pigment_name13.addItem(pigment_list.get(temp_i));
-            pigment_name14.addItem(pigment_list.get(temp_i));
-            pigment_name15.addItem(pigment_list.get(temp_i));
-            pigment_name16.addItem(pigment_list.get(temp_i));
-            pigment_name17.addItem(pigment_list.get(temp_i));
-            pigment_name18.addItem(pigment_list.get(temp_i));
-            pigment_name19.addItem(pigment_list.get(temp_i));
-            pigment_name20.addItem(pigment_list.get(temp_i));
-            pigment_name21.addItem(pigment_list.get(temp_i));
-            pigment_name22.addItem(pigment_list.get(temp_i));
-            pigment_name23.addItem(pigment_list.get(temp_i));
+            name1.addItem(pigment_list.get(temp_i));
+            name2.addItem(pigment_list.get(temp_i));
+            name3.addItem(pigment_list.get(temp_i));
+            name4.addItem(pigment_list.get(temp_i));
+            name5.addItem(pigment_list.get(temp_i));
+            name6.addItem(pigment_list.get(temp_i));
+            name7.addItem(pigment_list.get(temp_i));
+            name8.addItem(pigment_list.get(temp_i));
+            name9.addItem(pigment_list.get(temp_i));
+            name10.addItem(pigment_list.get(temp_i));
+            name11.addItem(pigment_list.get(temp_i));
+            name12.addItem(pigment_list.get(temp_i));
+            name13.addItem(pigment_list.get(temp_i));
+            name14.addItem(pigment_list.get(temp_i));
+            name15.addItem(pigment_list.get(temp_i));
+            name16.addItem(pigment_list.get(temp_i));
+            name17.addItem(pigment_list.get(temp_i));
+            name18.addItem(pigment_list.get(temp_i));
+            name19.addItem(pigment_list.get(temp_i));
+            name20.addItem(pigment_list.get(temp_i));
+            name21.addItem(pigment_list.get(temp_i));
+            name22.addItem(pigment_list.get(temp_i));
+            name23.addItem(pigment_list.get(temp_i));
+            name24.addItem(pigment_list.get(temp_i));
         }
     }
     /**
@@ -2174,12 +2317,12 @@ public class Add_new_design extends javax.swing.JFrame {
     private javax.swing.JComboBox binder6;
     private javax.swing.JComboBox binder7;
     private javax.swing.JComboBox binder8;
+    private javax.swing.JTextField colorway_name2;
     private javax.swing.JTextField colorway_name3;
     private javax.swing.JTextField colorway_name4;
     private javax.swing.JTextField colorway_name5;
     private javax.swing.JTextField colorway_name6;
     private javax.swing.JTextField colorway_name7;
-    private javax.swing.JTextField colorway_name8;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel100;
     private javax.swing.JLabel jLabel101;
@@ -2329,54 +2472,54 @@ public class Add_new_design extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField36;
     private javax.swing.JTextField jTextField37;
     private javax.swing.JTextField jTextField4;
-    private javax.swing.JComboBox pigment_name10;
-    private javax.swing.JComboBox pigment_name11;
-    private javax.swing.JComboBox pigment_name12;
-    private javax.swing.JComboBox pigment_name13;
-    private javax.swing.JComboBox pigment_name14;
-    private javax.swing.JComboBox pigment_name15;
-    private javax.swing.JComboBox pigment_name16;
-    private javax.swing.JComboBox pigment_name17;
-    private javax.swing.JComboBox pigment_name18;
-    private javax.swing.JComboBox pigment_name19;
-    private javax.swing.JComboBox pigment_name20;
-    private javax.swing.JComboBox pigment_name21;
-    private javax.swing.JComboBox pigment_name22;
-    private javax.swing.JComboBox pigment_name23;
-    private javax.swing.JComboBox pigment_name24;
-    private javax.swing.JComboBox pigment_name25;
-    private javax.swing.JComboBox pigment_name26;
-    private javax.swing.JComboBox pigment_name27;
-    private javax.swing.JComboBox pigment_name4;
-    private javax.swing.JComboBox pigment_name5;
-    private javax.swing.JComboBox pigment_name6;
-    private javax.swing.JComboBox pigment_name7;
-    private javax.swing.JComboBox pigment_name8;
-    private javax.swing.JComboBox pigment_name9;
-    private javax.swing.JTextField pigment_percentage12;
-    private javax.swing.JTextField pigment_percentage13;
-    private javax.swing.JTextField pigment_percentage14;
-    private javax.swing.JTextField pigment_percentage15;
-    private javax.swing.JTextField pigment_percentage16;
-    private javax.swing.JTextField pigment_percentage17;
-    private javax.swing.JTextField pigment_percentage18;
-    private javax.swing.JTextField pigment_percentage19;
-    private javax.swing.JTextField pigment_percentage20;
-    private javax.swing.JTextField pigment_percentage21;
-    private javax.swing.JTextField pigment_percentage22;
-    private javax.swing.JTextField pigment_percentage23;
-    private javax.swing.JTextField pigment_percentage24;
-    private javax.swing.JTextField pigment_percentage25;
-    private javax.swing.JTextField pigment_percentage26;
-    private javax.swing.JTextField pigment_percentage27;
-    private javax.swing.JTextField pigment_percentage28;
-    private javax.swing.JTextField pigment_percentage29;
-    private javax.swing.JTextField pigment_percentage30;
-    private javax.swing.JTextField pigment_percentage31;
-    private javax.swing.JTextField pigment_percentage32;
-    private javax.swing.JTextField pigment_percentage33;
-    private javax.swing.JTextField pigment_percentage34;
-    private javax.swing.JTextField pigment_percentage35;
+    private javax.swing.JComboBox name1;
+    private javax.swing.JComboBox name10;
+    private javax.swing.JComboBox name11;
+    private javax.swing.JComboBox name12;
+    private javax.swing.JComboBox name13;
+    private javax.swing.JComboBox name14;
+    private javax.swing.JComboBox name15;
+    private javax.swing.JComboBox name16;
+    private javax.swing.JComboBox name17;
+    private javax.swing.JComboBox name18;
+    private javax.swing.JComboBox name19;
+    private javax.swing.JComboBox name2;
+    private javax.swing.JComboBox name20;
+    private javax.swing.JComboBox name21;
+    private javax.swing.JComboBox name22;
+    private javax.swing.JComboBox name23;
+    private javax.swing.JComboBox name24;
+    private javax.swing.JComboBox name3;
+    private javax.swing.JComboBox name4;
+    private javax.swing.JComboBox name5;
+    private javax.swing.JComboBox name6;
+    private javax.swing.JComboBox name7;
+    private javax.swing.JComboBox name8;
+    private javax.swing.JComboBox name9;
+    private javax.swing.JTextField percentage1;
+    private javax.swing.JTextField percentage10;
+    private javax.swing.JTextField percentage11;
+    private javax.swing.JTextField percentage12;
+    private javax.swing.JTextField percentage13;
+    private javax.swing.JTextField percentage14;
+    private javax.swing.JTextField percentage15;
+    private javax.swing.JTextField percentage16;
+    private javax.swing.JTextField percentage17;
+    private javax.swing.JTextField percentage18;
+    private javax.swing.JTextField percentage19;
+    private javax.swing.JTextField percentage2;
+    private javax.swing.JTextField percentage20;
+    private javax.swing.JTextField percentage21;
+    private javax.swing.JTextField percentage22;
+    private javax.swing.JTextField percentage23;
+    private javax.swing.JTextField percentage24;
+    private javax.swing.JTextField percentage3;
+    private javax.swing.JTextField percentage4;
+    private javax.swing.JTextField percentage5;
+    private javax.swing.JTextField percentage6;
+    private javax.swing.JTextField percentage7;
+    private javax.swing.JTextField percentage8;
+    private javax.swing.JTextField percentage9;
     private javax.swing.JTextField weigh_kg3;
     private javax.swing.JTextField weigh_kg4;
     private javax.swing.JTextField weigh_kg5;

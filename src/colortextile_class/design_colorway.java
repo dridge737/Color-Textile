@@ -56,4 +56,11 @@ public class design_colorway {
     public void setId_colorway(int id_colorway) {
         this.id_colorway = id_colorway;
     }
+    
+    public boolean add_new_design_and_colorway_using_variables()
+    {
+        
+        return false;
+        
+    }
 }
