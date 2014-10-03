@@ -248,8 +248,8 @@ public class Add_new_design extends javax.swing.JFrame {
         jLabel127 = new javax.swing.JLabel();
         jLabel128 = new javax.swing.JLabel();
         add_order = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        design_name = new javax.swing.JTextField();
+        design_code = new javax.swing.JTextField();
         jTextField3 = new javax.swing.JTextField();
         jTextField4 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
@@ -1798,11 +1798,11 @@ public class Add_new_design extends javax.swing.JFrame {
         });
         getContentPane().add(add_order, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 460, 341, 53));
 
-        jTextField1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(167, 93, 126, 34));
+        design_name.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        getContentPane().add(design_name, new org.netbeans.lib.awtextra.AbsoluteConstraints(167, 93, 126, 34));
 
-        jTextField2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(167, 53, 126, 34));
+        design_code.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        getContentPane().add(design_code, new org.netbeans.lib.awtextra.AbsoluteConstraints(167, 53, 126, 34));
 
         jTextField3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 93, 126, 34));
@@ -1879,7 +1879,7 @@ public class Add_new_design extends javax.swing.JFrame {
             if(!new_screen_pigment.add_new_screen_pigment())
                 new_screen_pigment.get_screen_pigment_id_from_pigment_no_and_pigment_percentage();
             
-            return new_screen_pigment.getPigment_no();
+            return new_screen_pigment.getId_screen();
             }
             
         }
@@ -1897,13 +1897,12 @@ public class Add_new_design extends javax.swing.JFrame {
             new_colorway.setColorway_name(colorway_name);
             new_colorway.setBinder(binder_percent);
             new_colorway.setWeight_kg(weight_kg);
-            
-            if(!new_colorway.add_new_colorway())
+            new_colorway.add_new_colorway();
+            if(new_colorway.getId_colorway() == 0)
                 new_colorway.set_id_colorway_from_variables();
             
             return new_colorway.getId_colorway();
             }
-            
         }
         return -1;
     }
@@ -1911,7 +1910,7 @@ public class Add_new_design extends javax.swing.JFrame {
     private void add_this_colorway_screen(int id_screen, int id_colorway)
     {
         System.out.println("Screen_id = "+id_screen + "Colorway_id= "+id_colorway);
-        if(id_screen != -1 || id_colorway != -1)
+        if(id_screen != -1 && id_colorway != -1)
         {
         colortextile_class.colorway_and_screen new_c_and_s = new colortextile_class.colorway_and_screen();
         new_c_and_s.setId_colorway(id_colorway);
@@ -1939,7 +1938,6 @@ public class Add_new_design extends javax.swing.JFrame {
         new_dSign_cWay.setDesign_code(design_code);
         new_dSign_cWay.setId_design_colorway(id_colorway);
         new_dSign_cWay.add_new_design_and_colorway_using_variables();
-        
     }
     
     private void add_screen_and_color_screen(String c_name, String perc_text, int color_id)
@@ -1950,6 +1948,8 @@ public class Add_new_design extends javax.swing.JFrame {
     
     private void add_orderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_orderActionPerformed
         // TODO add your handling code here:
+        add_this_design(design_code.getText() , design_name.getText());
+        
         int colorway_id = add_this_colorway(colorway_name2.getText(), 
                              Float.parseFloat(binder8.getSelectedItem().toString()),
                              weigh_kg8.getText());
@@ -2356,6 +2356,8 @@ public class Add_new_design extends javax.swing.JFrame {
     private javax.swing.JTextField colorway_name5;
     private javax.swing.JTextField colorway_name6;
     private javax.swing.JTextField colorway_name7;
+    private javax.swing.JTextField design_code;
+    private javax.swing.JTextField design_name;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel100;
     private javax.swing.JLabel jLabel101;
@@ -2477,14 +2479,12 @@ public class Add_new_design extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator8;
     private javax.swing.JSeparator jSeparator9;
     private javax.swing.JTabbedPane jTabbedPane2;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField14;
     private javax.swing.JTextField jTextField15;
     private javax.swing.JTextField jTextField16;
     private javax.swing.JTextField jTextField17;
     private javax.swing.JTextField jTextField18;
     private javax.swing.JTextField jTextField19;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField20;
     private javax.swing.JTextField jTextField21;
     private javax.swing.JTextField jTextField22;
