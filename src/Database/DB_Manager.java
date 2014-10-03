@@ -109,7 +109,7 @@ public class DB_Manager {
             DBConnection db = new DBConnection();
             Connection conn = db.getConnection();
             
-            PreparedStatement ps = conn.prepareStatement("INSERT INTO colorway_and_screen_screen (id_screen, id_colorway)"
+            PreparedStatement ps = conn.prepareStatement("INSERT INTO colorway_screen_connect (id_screen, id_colorway)"
                                                        + "VALUES (?, ?);");
             int item =1;
             ps.setInt(item++, id_screen);
@@ -352,7 +352,34 @@ public class DB_Manager {
     
     public int get_id_design_colorway(colortextile_class.design_colorway new_des_color)
     {
-        
+        try{
+            DBConnection db = new DBConnection();
+            Connection conn = db.getConnection();
+            
+            PreparedStatement ps = 
+            conn.prepareStatement("SELECT id_design_colorway "
+                                 + "FROM design_colorway_connect "
+                                 + "WHERE design_code = ? "
+                                 + "AND id_colorway = ? ");
+            
+            int item = 1;
+            ps.setString(item++, new_des_color.getDesign_code());
+            ps.setFloat(item++, new_des_color.getId_colorway());
+            /* 
+            System.out.println("Design Code :" +new_des_color.getDesign_code());
+            System.out.println("Colorway Id :"  new_des_color.getId_colorway());
+            */
+            ResultSet rs = ps.executeQuery();
+            if(rs.first())
+            {
+                int id_design_colorway = rs.getInt("id_design_colorway");
+             //   System.out.println(id_colorway);
+                return id_design_colorway;
+            }
+        }
+        catch(SQLException ex){
+            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
+        }
         return -1;
     }
     

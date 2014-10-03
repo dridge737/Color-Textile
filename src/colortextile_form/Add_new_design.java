@@ -1910,6 +1910,7 @@ public class Add_new_design extends javax.swing.JFrame {
     
     private void add_this_colorway_screen(int id_screen, int id_colorway)
     {
+        System.out.println("Screen_id = "+id_screen + "Colorway_id= "+id_colorway);
         if(id_screen != -1 || id_colorway != -1)
         {
         colortextile_class.colorway_and_screen new_c_and_s = new colortextile_class.colorway_and_screen();
@@ -1937,6 +1938,7 @@ public class Add_new_design extends javax.swing.JFrame {
         colortextile_class.design_colorway new_dSign_cWay = new colortextile_class.design_colorway();
         new_dSign_cWay.setDesign_code(design_code);
         new_dSign_cWay.setId_design_colorway(id_colorway);
+        new_dSign_cWay.add_new_design_and_colorway_using_variables();
         
     }
     
