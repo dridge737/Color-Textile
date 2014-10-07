@@ -122,7 +122,7 @@
               </Group>
               <EmptySpace min="45" max="32767" attributes="0"/>
           </Group>
-          <Component id="jLabel7" pref="0" max="32767" attributes="0"/>
+          <Component id="jLabel7" alignment="1" pref="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -3068,11 +3068,6 @@
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/Image/PrintText_1.png"/>
-        </Property>
-        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-            <LineBorder roundedCorners="true"/>
-          </Border>
         </Property>
       </Properties>
     </Component>

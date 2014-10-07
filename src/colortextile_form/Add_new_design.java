@@ -1686,7 +1686,6 @@ public class Add_new_design extends javax.swing.JFrame {
         jLabel4.setText("Fabric Style :");
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/PrintText_1.png"))); // NOI18N
-        jLabel7.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
 
         jLabel5.setBackground(new java.awt.Color(255, 255, 255));
         jLabel5.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
@@ -1763,7 +1762,7 @@ public class Add_new_design extends javax.swing.JFrame {
                         .addGap(122, 122, 122)
                         .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+            .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
         );
 
         pack();
