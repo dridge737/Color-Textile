@@ -33,6 +33,8 @@ public class Add_new_design extends javax.swing.JFrame {
     public Add_new_design() {
         initComponents();
         addListItems();
+        
+        //Center the form
         Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
         int x = (int) ((dimension.getWidth() - this.getWidth()) / 2);
         int y = (int) ((dimension.getHeight() - this.getHeight()) / 2);
@@ -286,6 +288,7 @@ public class Add_new_design extends javax.swing.JFrame {
         setLocationByPlatform(true);
         setMinimumSize(new java.awt.Dimension(800, 516));
         setModalExclusionType(java.awt.Dialog.ModalExclusionType.APPLICATION_EXCLUDE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         add_order.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         add_order.setText("Add Order");
@@ -294,6 +297,7 @@ public class Add_new_design extends javax.swing.JFrame {
                 add_orderActionPerformed(evt);
             }
         });
+        getContentPane().add(add_order, new org.netbeans.lib.awtextra.AbsoluteConstraints(233, 564, 341, 53));
 
         jTabbedPane2.setTabPlacement(javax.swing.JTabbedPane.LEFT);
         jTabbedPane2.setToolTipText("");
@@ -1661,192 +1665,104 @@ public class Add_new_design extends javax.swing.JFrame {
 
         jTabbedPane2.addTab("6", jPanel8);
 
+        getContentPane().add(jTabbedPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 277, 772, -1));
+
         design_name.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        getContentPane().add(design_name, new org.netbeans.lib.awtextra.AbsoluteConstraints(232, 207, 126, 34));
 
         design_code.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        getContentPane().add(design_code, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 195, 126, 34));
 
         quantity.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        getContentPane().add(quantity, new org.netbeans.lib.awtextra.AbsoluteConstraints(557, 207, 126, 34));
 
         fabric_style.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        getContentPane().add(fabric_style, new org.netbeans.lib.awtextra.AbsoluteConstraints(397, 207, 126, 34));
+
+        text_name.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
+        getContentPane().add(text_name, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 30, 288, 34));
+        getContentPane().add(text_job_order, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 130, 225, 30));
 
         combo_name.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        getContentPane().add(combo_name, new org.netbeans.lib.awtextra.AbsoluteConstraints(178, 78, 288, 39));
 
+        spinner_date.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
         spinner_date.setModel(new javax.swing.SpinnerDateModel());
+        getContentPane().add(spinner_date, new org.netbeans.lib.awtextra.AbsoluteConstraints(637, 43, 126, 28));
 
+        jCheckBox1.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
         jCheckBox1.setForeground(java.awt.SystemColor.controlLtHighlight);
-        jCheckBox1.setText("New Customer");
+        jCheckBox1.setText("New Customer :");
         jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jCheckBox1ActionPerformed(evt);
             }
         });
+        getContentPane().add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, -1, 40));
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel1.setText("Design Code :");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 120, 34));
 
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
         jLabel2.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel2.setText("Design Name :");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(232, 170, 120, 34));
 
         jLabel3.setBackground(new java.awt.Color(255, 255, 255));
         jLabel3.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel3.setText("Quantity :");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(557, 170, 126, 34));
 
         jLabel8.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Colorway");
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 245, 150, -1));
 
         jLabel4.setBackground(new java.awt.Color(255, 255, 255));
         jLabel4.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel4.setText("Fabric Style :");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(397, 170, 126, 34));
 
         jLabel5.setBackground(new java.awt.Color(255, 255, 255));
         jLabel5.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel5.setText("m");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(721, 206, -1, 34));
 
         jLabel6.setBackground(new java.awt.Color(255, 255, 255));
         jLabel6.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel6.setText("Date:");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(528, 37, 105, 34));
 
         jLabel9.setBackground(new java.awt.Color(255, 255, 255));
         jLabel9.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel9.setText("Customer Name :");
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 153, 34));
 
         jLabel10.setBackground(new java.awt.Color(255, 255, 255));
         jLabel10.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel10.setText("Job Order :");
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 129, 100, 34));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/PrintText_1.png"))); // NOI18N
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(text_job_order, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(439, 439, 439))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 772, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(223, 223, 223)
-                                .addComponent(add_order, javax.swing.GroupLayout.PREFERRED_SIZE, 341, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(5, 5, 5)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jCheckBox1)
-                                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(combo_name, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(text_name, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(62, 62, 62)
-                                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(spinner_date, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addGap(0, 4, Short.MAX_VALUE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(70, 70, 70)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(design_code, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(36, 36, 36)
-                        .addComponent(design_name, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(39, 39, 39)
-                        .addComponent(fabric_style, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(34, 34, 34)
-                        .addComponent(quantity, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(42, 42, 42)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(45, 45, 45)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(34, 34, 34)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(38, 38, 38)
-                .addComponent(jLabel5)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jLabel7)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(37, 37, 37)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(text_name, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jCheckBox1)
-                    .addComponent(spinner_date, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(combo_name, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(12, 12, 12)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(text_job_order, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(2, 2, 2)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(1, 1, 1)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(design_code, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(design_name, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(fabric_style, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(quantity, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(4, 4, 4)
-                .addComponent(jLabel8)
-                .addGap(1, 1, 1)
-                .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(6, 6, 6)
-                .addComponent(add_order, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(111, 111, 111))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 12, Short.MAX_VALUE)
-                    .addComponent(jLabel7)
-                    .addGap(0, 12, Short.MAX_VALUE)))
-        );
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 620, -1, 20));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -1884,7 +1800,9 @@ public class Add_new_design extends javax.swing.JFrame {
                         
         }
     }
-    private void fill_customer_list(){
+    
+    private void fill_customer_list()
+    {
         this.combo_name.removeAllItems();
         this.combo_name.addItem(" ");
         customer list = new customer();
@@ -1894,6 +1812,7 @@ public class Add_new_design extends javax.swing.JFrame {
         this.combo_name.addItem(name);
         }
     }
+    
     private int add_new_screen_pigment(String pigment_name, String temp_pigment_percent)
     {
         if(pigment_name.length()> 0)
@@ -1915,8 +1834,8 @@ public class Add_new_design extends javax.swing.JFrame {
             //set pigment no into the screen pigment
             new_screen_pigment.setPigment_no(new_pigment.getPigment_id());
             new_screen_pigment.setPigment_percentage(pigment_percent);
-            if(!new_screen_pigment.add_new_screen_pigment())
-                new_screen_pigment.get_screen_pigment_id_from_pigment_no_and_pigment_percentage();
+            new_screen_pigment.add_new_screen_pigment();
+            new_screen_pigment.get_screen_pigment_id_from_pigment_no_and_pigment_percentage();
             
             return new_screen_pigment.getId_screen();
             }
@@ -1932,15 +1851,14 @@ public class Add_new_design extends javax.swing.JFrame {
             if(temp_weight_kg.length()>0)
             {
                 float weight_kg = Float.parseFloat(temp_weight_kg);
-            colortextile_class.colorway new_colorway = new colortextile_class.colorway();
-            new_colorway.setColorway_name(colorway_name);
-            new_colorway.setBinder(binder_percent);
-            new_colorway.setWeight_kg(weight_kg);
-            new_colorway.add_new_colorway();
-            if(new_colorway.getId_colorway() == 0)
+                colortextile_class.colorway new_colorway = new colortextile_class.colorway();
+                new_colorway.setColorway_name(colorway_name);
+                new_colorway.setBinder(binder_percent);
+                new_colorway.setWeight_kg(weight_kg);
+                new_colorway.add_new_colorway();
                 new_colorway.set_id_colorway_from_variables();
-            
-            return new_colorway.getId_colorway();
+                
+                return new_colorway.getId_colorway();
             }
         }
         return -1;
@@ -1971,12 +1889,16 @@ public class Add_new_design extends javax.swing.JFrame {
         return new_design.getDesign_code();
     }
     
-    private void add_this_design_and_colorway(String design_code, int id_colorway)
+    private void add_this_design_and_colorway(String design_code, int color_id_temp)
     {
-        colortextile_class.design_colorway new_dSign_cWay = new colortextile_class.design_colorway();
-        new_dSign_cWay.setDesign_code(design_code);
-        new_dSign_cWay.setId_colorway(id_colorway);
-        new_dSign_cWay.add_new_design_and_colorway_using_variables();
+        System.out.println("Design Code = " +design_code+ " Colorway Id = "+color_id_temp );
+        if(color_id_temp != -1)
+        {
+            colortextile_class.design_colorway new_dSign_cWay = new colortextile_class.design_colorway();
+            new_dSign_cWay.setDesign_code(design_code);
+            new_dSign_cWay.setId_colorway(color_id_temp);
+            new_dSign_cWay.add_new_design_and_colorway_using_variables();
+        }
     }
     
     private void add_screen_and_color_screen(String c_name, String perc_text, int color_id)
@@ -1987,10 +1909,8 @@ public class Add_new_design extends javax.swing.JFrame {
     
     private void add_orderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_orderActionPerformed
         // TODO add your handling code here:
-        
         // Winston codes start
-        
-        
+       
         if(this.jCheckBox1.isSelected()){
             if (this.text_name.getText().trim().equals(""))
         {
@@ -2014,19 +1934,13 @@ public class Add_new_design extends javax.swing.JFrame {
         } else {
             add_job();
         }
-       
-        
         // Winston codes end
-        
-        
         
         add_this_design(design_code.getText() , design_name.getText());
         
         int colorway_id = add_this_colorway(colorway_name2.getText(), 
                              Float.parseFloat(binder8.getSelectedItem().toString()),
                              weigh_kg8.getText());
-        
-        add_this_design_and_colorway(design_code.getText(), colorway_id);
         
         if(colorway_id != -1 )
         {   
@@ -2042,31 +1956,37 @@ public class Add_new_design extends javax.swing.JFrame {
             add_screen_and_color_screen(name4.getSelectedItem().toString(),
                                       percentage4.getText(), colorway_id );
             
+             add_this_design_and_colorway(design_code.getText(), colorway_id);
+            
         }
         
-        colorway_id = add_this_colorway(colorway_name3.getText(), 
+        int colorway_id2 = add_this_colorway(colorway_name3.getText(), 
                              Float.parseFloat(binder3.getSelectedItem().toString()),
                              weigh_kg3.getText());
         
-        if(colorway_id != -1 )
+        
+        
+        if(colorway_id2 != -1 )
         {
             add_screen_and_color_screen(name5.getSelectedItem().toString(),
-                                      percentage5.getText(), colorway_id );
+                                      percentage5.getText(), colorway_id2 );
             
             add_screen_and_color_screen(name6.getSelectedItem().toString(),
-                                      percentage6.getText(), colorway_id );
+                                      percentage6.getText(), colorway_id2 );
             
             add_screen_and_color_screen(name7.getSelectedItem().toString(),
-                                      percentage7.getText(), colorway_id );
+                                      percentage7.getText(), colorway_id2 );
             
             add_screen_and_color_screen(name8.getSelectedItem().toString(),
-                                      percentage8.getText(), colorway_id );
+                                      percentage8.getText(), colorway_id2 );
             
-  
+            add_this_design_and_colorway(design_code.getText(), colorway_id2);
+            
         }
         colorway_id = add_this_colorway(colorway_name4.getText(), 
                              Float.parseFloat(binder4.getSelectedItem().toString()),
                              weigh_kg4.getText());
+        
         if(colorway_id != -1 )
         {
             add_screen_and_color_screen(name9.getSelectedItem().toString(),
@@ -2080,11 +2000,14 @@ public class Add_new_design extends javax.swing.JFrame {
             
             add_screen_and_color_screen(name12.getSelectedItem().toString(),
                                       percentage12.getText(), colorway_id );
+            
+            add_this_design_and_colorway(design_code.getText(), colorway_id);
   
         }
         colorway_id = add_this_colorway(colorway_name5.getText(), 
                              Float.parseFloat(binder5.getSelectedItem().toString()),
                              weigh_kg5.getText());
+        
         if(colorway_id != -1 )
         {
             add_screen_and_color_screen(name13.getSelectedItem().toString(),
@@ -2097,14 +2020,17 @@ public class Add_new_design extends javax.swing.JFrame {
                                       percentage15.getText(), colorway_id );
             
             add_screen_and_color_screen(name16.getSelectedItem().toString(),
-                                      percentage16.getText(), colorway_id  );
+                                      percentage16.getText(), colorway_id );
             
-  
+            add_this_design_and_colorway(design_code.getText(), colorway_id);
         }
         
         colorway_id = add_this_colorway(colorway_name6.getText(), 
                              Float.parseFloat(binder6.getSelectedItem().toString()),
                              weigh_kg6.getText());
+        
+        add_this_design_and_colorway(design_code.getText(), colorway_id);
+        
         if(colorway_id != -1 )
         {
             add_screen_and_color_screen(name17.getSelectedItem().toString(),
@@ -2118,11 +2044,14 @@ public class Add_new_design extends javax.swing.JFrame {
             
             add_screen_and_color_screen(name20.getSelectedItem().toString(),
                                       percentage20.getText(), colorway_id );
+            
+            add_this_design_and_colorway(design_code.getText(), colorway_id);
         }
         
         colorway_id = add_this_colorway(colorway_name7.getText(), 
                              Float.parseFloat(binder7.getSelectedItem().toString()),
                              weigh_kg7.getText());
+        
         if( colorway_id != -1 )
         {
             add_screen_and_color_screen(name21.getSelectedItem().toString(),
@@ -2135,7 +2064,9 @@ public class Add_new_design extends javax.swing.JFrame {
                                       percentage23.getText(), colorway_id );
             
             add_screen_and_color_screen(name24.getSelectedItem().toString(),
-                                      percentage24.getText(), colorway_id );;
+                                      percentage24.getText(), colorway_id );
+            
+            add_this_design_and_colorway(design_code.getText(), colorway_id);
         }
          
     }//GEN-LAST:event_add_orderActionPerformed

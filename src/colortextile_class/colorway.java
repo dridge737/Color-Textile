@@ -15,6 +15,10 @@ public class colorway {
     private String colorway_name;
     private float binder;
     private float weight_kg;
+    
+    public colorway(){
+        id_colorway = 0;
+    }
 
     /**
      * @return the id_colorway

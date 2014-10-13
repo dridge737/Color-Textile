@@ -59,8 +59,25 @@ public class design_colorway {
     
     public boolean add_new_design_and_colorway_using_variables()
     {
+        Database.DB_Manager new_conn = new Database.DB_Manager();
+        if(!get_this_design_and_colorway_id_using_variables())
+        {
+            return new_conn.add_design_colorway_connect(this.design_code, this.id_colorway);
+        }
+            return true;
         
-        return false;
-        
+            
+    }
+    
+    public boolean get_this_design_and_colorway_id_using_variables()
+    {
+        Database.DB_Manager new_conn = new Database.DB_Manager();
+        int temp_design_id = new_conn.get_id_design_colorway(this);
+        if(temp_design_id == -1)
+        {
+            return false;
+        }
+        this.id_design_colorway = temp_design_id;
+        return true;
     }
 }
