@@ -30,6 +30,21 @@ public class EditRecipe extends javax.swing.JFrame {
     /**
      * Creates new form Add_new_design
      */
+    public EditRecipe(String job_order_id) {
+        initComponents();
+        addListItems();
+        
+        
+        //Center the form
+        Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
+        int x = (int) ((dimension.getWidth() - this.getWidth()) / 2);
+        //int y = (int) ((dimension.getHeight() - this.getHeight()) / 2);
+        this.setLocation(x,0);
+        //InputVerifier new_verifier = new Verifier();
+        //this.pigment_percentage8.setInputVerifier(new_verifier);
+        fill_customer_list();
+        this.text_name.setVisible(false);
+    }
     public EditRecipe() {
         initComponents();
         addListItems();
@@ -286,8 +301,9 @@ public class EditRecipe extends javax.swing.JFrame {
         binder7 = new javax.swing.JComboBox();
         jLabel127 = new javax.swing.JLabel();
         jLabel128 = new javax.swing.JLabel();
-        add_order = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
+        add_order1 = new javax.swing.JButton();
+        CancelBut = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Add New Design");
@@ -1451,18 +1467,27 @@ public class EditRecipe extends javax.swing.JFrame {
 
         jTabbedPane2.addTab("6", jPanel8);
 
-        add_order.setBackground(new java.awt.Color(255, 255, 255));
-        add_order.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        add_order.setText("Add Order");
-        add_order.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                add_orderActionPerformed(evt);
-            }
-        });
-
         jLabel8.setFont(new java.awt.Font("Century Gothic", 0, 26)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Colorway");
+
+        add_order1.setBackground(new java.awt.Color(255, 255, 255));
+        add_order1.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        add_order1.setText("Save Order");
+        add_order1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                add_order1ActionPerformed(evt);
+            }
+        });
+
+        CancelBut.setBackground(new java.awt.Color(255, 255, 255));
+        CancelBut.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        CancelBut.setText("Cancel");
+        CancelBut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CancelButActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
         jPanel11.setLayout(jPanel11Layout);
@@ -1474,15 +1499,16 @@ public class EditRecipe extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                     .addGroup(jPanel11Layout.createSequentialGroup()
-                        .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel11Layout.createSequentialGroup()
-                                .addGap(62, 62, 62)
-                                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel11Layout.createSequentialGroup()
-                                .addGap(227, 227, 227)
-                                .addComponent(add_order, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 188, Short.MAX_VALUE)))
+                        .addGap(62, 62, 62)
+                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 548, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(jPanel11Layout.createSequentialGroup()
+                .addGap(192, 192, 192)
+                .addComponent(add_order1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(CancelBut, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel11Layout.setVerticalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1491,9 +1517,11 @@ public class EditRecipe extends javax.swing.JFrame {
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(add_order, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(53, 53, 53))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(add_order1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CancelBut, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(48, 48, 48))
         );
 
         getContentPane().add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, 770, 400));
@@ -1505,6 +1533,15 @@ public class EditRecipe extends javax.swing.JFrame {
      * @param pigment_name -Declared pigment name
      * @param pigment_percent - percentage of pigment in variable float
      */
+    
+    private void get_details(String job_order_id)
+    {
+        text_job_order.setText(job_order_id);
+        colortextile_class.job_order this_job = new colortextile_class.job_order();
+        this_job.setJob_id(job_order_id);
+        this_job.search_job_order();
+    }
+    
     private void add_job(){
          if (this.text_job_order.getText().trim().equals("") || this.fabric_style.getText().trim().equals("") || this.design_code.getText().trim().equals("") )
         {
@@ -1641,169 +1678,13 @@ public class EditRecipe extends javax.swing.JFrame {
         add_this_colorway_screen(screen_pig_id , color_id);
     }
     
-    private void add_orderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_orderActionPerformed
+    private void CancelButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelButActionPerformed
         // TODO add your handling code here:
         // Winston codes start
-       
-        if(this.jCheckBox1.isSelected()){
-            if (this.text_name.getText().trim().equals(""))
-        {
-            
-            JOptionPane.showMessageDialog(null,"Please Type a Name!");
-            } else {
-                customer custom = new customer();
-                custom.setCustomer_name(this.text_name.getText());
-
-                custom.searchCustomer_name();
-     
+       this.setVisible(false);
+       this.dispose();
         
-                if(custom.getCustomer_names().isEmpty()){
-  
-                custom.add_new_customer();
-                add_job();
-            } else {
-                JOptionPane.showMessageDialog(null,"Customer already Exist!");
-            }    
-        }
-        } else {
-            add_job();
-        }
-        // Winston codes end
-        
-        add_this_design(design_code.getText() , design_name.getText());
-        
-        int colorway_id = add_this_colorway(colorway_name2.getText(), 
-                             Float.parseFloat(binder8.getSelectedItem().toString()),
-                             weigh_kg8.getText());
-        
-        if(colorway_id != -1 )
-        {   
-            add_screen_and_color_screen(name1.getSelectedItem().toString(),
-                                      percentage1.getText(), colorway_id );
-            
-            add_screen_and_color_screen(name2.getSelectedItem().toString(),
-                                      percentage2.getText(), colorway_id );
-            
-            add_screen_and_color_screen(name3.getSelectedItem().toString(),
-                                      percentage3.getText(), colorway_id );
-            
-            add_screen_and_color_screen(name4.getSelectedItem().toString(),
-                                      percentage4.getText(), colorway_id );
-            
-             add_this_design_and_colorway(design_code.getText(), colorway_id);
-            
-        }
-        
-        int colorway_id2 = add_this_colorway(colorway_name3.getText(), 
-                             Float.parseFloat(binder3.getSelectedItem().toString()),
-                             weigh_kg3.getText());
-        
-        
-        
-        if(colorway_id2 != -1 )
-        {
-            add_screen_and_color_screen(name5.getSelectedItem().toString(),
-                                      percentage5.getText(), colorway_id2 );
-            
-            add_screen_and_color_screen(name6.getSelectedItem().toString(),
-                                      percentage6.getText(), colorway_id2 );
-            
-            add_screen_and_color_screen(name7.getSelectedItem().toString(),
-                                      percentage7.getText(), colorway_id2 );
-            
-            add_screen_and_color_screen(name8.getSelectedItem().toString(),
-                                      percentage8.getText(), colorway_id2 );
-            
-            add_this_design_and_colorway(design_code.getText(), colorway_id2);
-            
-        }
-        colorway_id = add_this_colorway(colorway_name4.getText(), 
-                             Float.parseFloat(binder4.getSelectedItem().toString()),
-                             weigh_kg4.getText());
-        
-        if(colorway_id != -1 )
-        {
-            add_screen_and_color_screen(name9.getSelectedItem().toString(),
-                                      percentage9.getText(), colorway_id );
-            
-            add_screen_and_color_screen(name10.getSelectedItem().toString(),
-                                      percentage10.getText(), colorway_id );
-            
-            add_screen_and_color_screen(name11.getSelectedItem().toString(),
-                                      percentage11.getText(), colorway_id  );
-            
-            add_screen_and_color_screen(name12.getSelectedItem().toString(),
-                                      percentage12.getText(), colorway_id );
-            
-            add_this_design_and_colorway(design_code.getText(), colorway_id);
-  
-        }
-        colorway_id = add_this_colorway(colorway_name5.getText(), 
-                             Float.parseFloat(binder5.getSelectedItem().toString()),
-                             weigh_kg5.getText());
-        
-        if(colorway_id != -1 )
-        {
-            add_screen_and_color_screen(name13.getSelectedItem().toString(),
-                                      percentage13.getText(), colorway_id );
-            
-            add_screen_and_color_screen(name14.getSelectedItem().toString(),
-                                      percentage14.getText(), colorway_id );
-            
-            add_screen_and_color_screen(name15.getSelectedItem().toString(),
-                                      percentage15.getText(), colorway_id );
-            
-            add_screen_and_color_screen(name16.getSelectedItem().toString(),
-                                      percentage16.getText(), colorway_id );
-            
-            add_this_design_and_colorway(design_code.getText(), colorway_id);
-        }
-        
-        colorway_id = add_this_colorway(colorway_name6.getText(), 
-                             Float.parseFloat(binder6.getSelectedItem().toString()),
-                             weigh_kg6.getText());
-        
-        add_this_design_and_colorway(design_code.getText(), colorway_id);
-        
-        if(colorway_id != -1 )
-        {
-            add_screen_and_color_screen(name17.getSelectedItem().toString(),
-                                      percentage17.getText(), colorway_id );
-            
-            add_screen_and_color_screen(name18.getSelectedItem().toString(),
-                                      percentage18.getText(), colorway_id );
-            
-            add_screen_and_color_screen(name19.getSelectedItem().toString(),
-                                      percentage19.getText(), colorway_id );
-            
-            add_screen_and_color_screen(name20.getSelectedItem().toString(),
-                                      percentage20.getText(), colorway_id );
-            
-            add_this_design_and_colorway(design_code.getText(), colorway_id);
-        }
-        
-        colorway_id = add_this_colorway(colorway_name7.getText(), 
-                             Float.parseFloat(binder7.getSelectedItem().toString()),
-                             weigh_kg7.getText());
-        
-        if( colorway_id != -1 )
-        {
-            add_screen_and_color_screen(name21.getSelectedItem().toString(),
-                                      percentage21.getText(), colorway_id );
-            
-            add_screen_and_color_screen(name22.getSelectedItem().toString(),
-                                      percentage22.getText(), colorway_id );
-            
-            add_screen_and_color_screen(name23.getSelectedItem().toString(),
-                                      percentage23.getText(), colorway_id );
-            
-            add_screen_and_color_screen(name24.getSelectedItem().toString(),
-                                      percentage24.getText(), colorway_id );
-            
-            add_this_design_and_colorway(design_code.getText(), colorway_id);
-        }
-         
-    }//GEN-LAST:event_add_orderActionPerformed
+    }//GEN-LAST:event_CancelButActionPerformed
     
     private void percentage24FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_percentage24FocusLost
         // TODO add your handling code here:
@@ -2014,6 +1895,10 @@ public class EditRecipe extends javax.swing.JFrame {
         }        // TODO add your handling code here:
     }//GEN-LAST:event_jCheckBox1ActionPerformed
 
+    private void add_order1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_order1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_add_order1ActionPerformed
+
     
     private void update_kg_prep(String percentage_text, String weight_kg , JTextField this_textfield)
     {
@@ -2080,11 +1965,11 @@ public class EditRecipe extends javax.swing.JFrame {
             
         if(count_screen_1 > 0)
         {
-            add_order.setEnabled(false);
+            CancelBut.setEnabled(false);
             return false;
         }
         else
-            add_order.setEnabled(true);
+            CancelBut.setEnabled(true);
         return true;
     }
     
@@ -2187,7 +2072,8 @@ public class EditRecipe extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton add_order;
+    private javax.swing.JButton CancelBut;
+    private javax.swing.JButton add_order1;
     private javax.swing.JComboBox binder3;
     private javax.swing.JComboBox binder4;
     private javax.swing.JComboBox binder5;

@@ -8,6 +8,7 @@ import java.sql.*;
 public class Pigments 
 {
     ConnectToDB test = new ConnectToDB();
+    //Database.DBConnection test = new Database.DBConnection();
     private String pigment_name;
     private int id_pigment, stock, tingi;
       

@@ -10,6 +10,8 @@ import forms.*;
 import Database.DB_Manager;
 import colortextile_class.customer;
 import colortextile_class.job_order;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
@@ -30,6 +32,11 @@ public class SearchJOGui extends javax.swing.JFrame {
      */
     public SearchJOGui() {
         initComponents();
+        
+        Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
+        int x = (int) ((dimension.getWidth() - this.getWidth()) / 2);
+        //int y = (int) ((dimension.getHeight() - this.getHeight()) / 2);
+        this.setLocation(x,0);
         
         this.combo_customer.addItem("");
         customer list = new customer();
@@ -340,6 +347,12 @@ public class SearchJOGui extends javax.swing.JFrame {
 
     private void button_detailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_detailsActionPerformed
         // TODO add your handling code here:
+        int row = jTable1.getSelectedRow();
+        int total_col = jTable1.getColumnCount();
+        for(int col = 0; col < total_col; col++)
+        {
+            System.out.println(jTable1.getValueAt(row, col));
+        }
     }//GEN-LAST:event_button_detailsActionPerformed
 
     /**

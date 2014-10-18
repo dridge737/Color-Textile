@@ -170,6 +170,12 @@ public class job_order {
     public void setJob_order_resultset(ResultSet job_order_resultset) {
         this.job_order_resultset = job_order_resultset;
     }
+    
+    public void set_details_from_job_order_id()
+    {
+        Database.DB_Manager new_conn = new Database.DB_Manager();
+        //new_conn
+    }
 
 
 

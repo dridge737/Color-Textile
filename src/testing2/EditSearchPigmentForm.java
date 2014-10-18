@@ -142,14 +142,17 @@ public class EditSearchPigmentForm extends javax.swing.JFrame
                 formWindowOpened(evt);
             }
         });
+        getContentPane().setLayout(null);
 
-        exit_edit_search_pigment_button.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        exit_edit_search_pigment_button.setText("exit");
+        exit_edit_search_pigment_button.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
+        exit_edit_search_pigment_button.setText("Close");
         exit_edit_search_pigment_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 exit_edit_search_pigment_buttonActionPerformed(evt);
             }
         });
+        getContentPane().add(exit_edit_search_pigment_button);
+        exit_edit_search_pigment_button.setBounds(180, 130, 127, 36);
 
         pigment_table.setAutoCreateRowSorter(true);
         pigment_table.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -161,7 +164,6 @@ public class EditSearchPigmentForm extends javax.swing.JFrame
 
             }
         ));
-        pigment_table.setColumnSelectionAllowed(false);
         pigment_table.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         pigment_table.setDoubleBuffered(true);
         pigment_table.setDragEnabled(true);
@@ -173,47 +175,50 @@ public class EditSearchPigmentForm extends javax.swing.JFrame
         jScrollPane1.setViewportView(pigment_table);
         pigment_table.getAccessibleContext().setAccessibleDescription("");
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel4.setText("tingi");
+        getContentPane().add(jScrollPane1);
+        jScrollPane1.setBounds(343, 49, 375, 346);
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel5.setText("pigment name");
+        jLabel4.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
+        jLabel4.setText("Tingi :");
 
-        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel6.setText("stock");
+        jLabel5.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
+        jLabel5.setText("Pigment Name :");
+
+        jLabel6.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
+        jLabel6.setText("Stock :");
 
         edit_pigment_name.setEditable(false);
-        edit_pigment_name.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        edit_pigment_name.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         edit_pigment_name.setFocusable(false);
         edit_pigment_name.setName(""); // NOI18N
 
-        edit_stock.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        edit_stock.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         edit_stock.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
         edit_stock.setEnabled(false);
         edit_stock.setFocusable(false);
 
-        edit_tingi.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        edit_tingi.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         edit_tingi.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(1)));
         edit_tingi.setEnabled(false);
 
-        edit_pigment_button.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        edit_pigment_button.setText("edit");
+        edit_pigment_button.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
+        edit_pigment_button.setText("Edit");
         edit_pigment_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 edit_pigment_buttonActionPerformed(evt);
             }
         });
 
-        cancel_edit_pigment_button.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        cancel_edit_pigment_button.setText("cancel");
+        cancel_edit_pigment_button.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
+        cancel_edit_pigment_button.setText("Cancel");
         cancel_edit_pigment_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cancel_edit_pigment_buttonActionPerformed(evt);
             }
         });
 
-        save_edit_pigment_button.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        save_edit_pigment_button.setText("save");
+        save_edit_pigment_button.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
+        save_edit_pigment_button.setText("Save");
         save_edit_pigment_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 save_edit_pigment_buttonActionPerformed(evt);
@@ -234,17 +239,17 @@ public class EditSearchPigmentForm extends javax.swing.JFrame
                             .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(edit_pigment_button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(edit_pigment_button, javax.swing.GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE)
                             .addComponent(edit_stock, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(edit_pigment_name, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(edit_tingi, javax.swing.GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE))
-                        .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(edit_tingi))
+                        .addGap(0, 25, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(save_edit_pigment_button)
                         .addGap(31, 31, 31)
                         .addComponent(cancel_edit_pigment_button)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -271,108 +276,64 @@ public class EditSearchPigmentForm extends javax.swing.JFrame
                 .addGap(0, 11, Short.MAX_VALUE))
         );
 
+        getContentPane().add(jPanel2);
+        jPanel2.setBounds(23, 172, 297, 193);
+
+        jSpinner5.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         jSpinner5.setEnabled(false);
         jSpinner5.setFocusable(false);
+        getContentPane().add(jSpinner5);
+        jSpinner5.setBounds(100, 370, 60, 26);
 
+        jSpinner6.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         jSpinner6.setEnabled(false);
+        getContentPane().add(jSpinner6);
+        jSpinner6.setBounds(200, 370, 80, 26);
 
-        open_add_pigment_form_button.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        open_add_pigment_form_button.setText("add pigment");
+        open_add_pigment_form_button.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
+        open_add_pigment_form_button.setText("Add Pigment");
         open_add_pigment_form_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 open_add_pigment_form_buttonActionPerformed(evt);
             }
         });
+        getContentPane().add(open_add_pigment_form_button);
+        open_add_pigment_form_button.setBounds(20, 130, 127, 36);
 
-        reset_pigment_button.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        reset_pigment_button.setText("reset search");
+        reset_pigment_button.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
+        reset_pigment_button.setText("Reset Search");
         reset_pigment_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 reset_pigment_buttonActionPerformed(evt);
             }
         });
+        getContentPane().add(reset_pigment_button);
+        reset_pigment_button.setBounds(180, 80, 127, 36);
 
-        search_pigment_button.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        search_pigment_button.setText("search ");
+        search_pigment_button.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
+        search_pigment_button.setText("Search");
         search_pigment_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 search_pigment_buttonActionPerformed(evt);
             }
         });
+        getContentPane().add(search_pigment_button);
+        search_pigment_button.setBounds(20, 80, 127, 36);
 
-        search_pigment.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        search_pigment.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
+        getContentPane().add(search_pigment);
+        search_pigment.setBounds(181, 24, 144, 26);
 
-        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel7.setText("pigment name");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(48, 48, 48)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jLabel7)
-                                .addGap(18, 18, 18)
-                                .addComponent(search_pigment, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(open_add_pigment_form_button, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)
-                                    .addComponent(search_pigment_button, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(reset_pigment_button, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)
-                                    .addComponent(exit_edit_search_pigment_button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(58, 58, 58)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jSpinner5, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(31, 31, 31)
-                                .addComponent(jSpinner6, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(26, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(13, 13, 13)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(search_pigment, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel7))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(search_pigment_button)
-                            .addComponent(reset_pigment_button))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(open_add_pigment_form_button)
-                            .addComponent(exit_edit_search_pigment_button))
-                        .addGap(22, 22, 22)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jSpinner6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jSpinner5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-        );
+        jLabel7.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
+        jLabel7.setText("Pigment Name :");
+        getContentPane().add(jLabel7);
+        jLabel7.setBounds(48, 27, 115, 20);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void exit_edit_search_pigment_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exit_edit_search_pigment_buttonActionPerformed
-        dispose();
+        this.dispose();
     }//GEN-LAST:event_exit_edit_search_pigment_buttonActionPerformed
 
     private void search_pigment_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_search_pigment_buttonActionPerformed
