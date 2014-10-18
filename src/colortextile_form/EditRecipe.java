@@ -22,7 +22,7 @@ import javax.swing.JTextField;
  *
  * @author Eldridge
  */
-public class Add_new_design extends javax.swing.JFrame {
+public class EditRecipe extends javax.swing.JFrame {
 
     private int count_screen_1 = 0;
 
@@ -30,7 +30,7 @@ public class Add_new_design extends javax.swing.JFrame {
     /**
      * Creates new form Add_new_design
      */
-    public Add_new_design() {
+    public EditRecipe() {
         initComponents();
         addListItems();
         
@@ -297,7 +297,6 @@ public class Add_new_design extends javax.swing.JFrame {
         setLocationByPlatform(true);
         setMinimumSize(new java.awt.Dimension(790, 710));
         setModalExclusionType(java.awt.Dialog.ModalExclusionType.APPLICATION_EXCLUDE);
-        setPreferredSize(new java.awt.Dimension(805, 715));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel12.setBackground(new java.awt.Color(255, 255, 255));
@@ -334,7 +333,7 @@ public class Add_new_design extends javax.swing.JFrame {
 
         jLabel7.setFont(new java.awt.Font("Century Gothic", 0, 36)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("New Recipe Form");
+        jLabel7.setText("Edit Recipe Form");
 
         javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
         jPanel14.setLayout(jPanel14Layout);
@@ -343,7 +342,7 @@ public class Add_new_design extends javax.swing.JFrame {
             .addGroup(jPanel14Layout.createSequentialGroup()
                 .addGap(53, 53, 53)
                 .addComponent(jLabel7)
-                .addContainerGap(410, Short.MAX_VALUE))
+                .addContainerGap(425, Short.MAX_VALUE))
         );
         jPanel14Layout.setVerticalGroup(
             jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2167,21 +2166,22 @@ public class Add_new_design extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Add_new_design.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EditRecipe.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Add_new_design.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EditRecipe.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Add_new_design.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EditRecipe.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Add_new_design.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EditRecipe.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
-                new Add_new_design().setVisible(true);
+                new EditRecipe().setVisible(true);
             }
         });
     }
