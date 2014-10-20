@@ -20,15 +20,7 @@ private String job_id;
      * Creates new form edit_job_form
      */
 
-public edit_job_form(String job){
-    this.job_id = job;
-    initComponents();
-    this.text_job_order.setText(job_id);
-    
-    
-    
-    
-}
+
     
     public edit_job_form() {
         initComponents();
@@ -43,6 +35,16 @@ public edit_job_form(String job){
             //this.text_design_code.setText(job.getDesign_code());
             
             
+    }
+    
+    public edit_job_form(String job){
+    this.job_id = job;
+    initComponents();
+    this.text_job_order.setText(job_id);
+    
+    
+    
+    
     }
 
     /**
@@ -156,14 +158,16 @@ public edit_job_form(String job){
 
     private void Button_new_customer1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button_new_customer1ActionPerformed
         // TODO add your handling code here:
-        /*
+       /* 
        try{
+       DB_Manager conn = new DB_Manager();
+            job_order job = new job_order();
        
-            job_order job = new job_order
+            
+            
        
        
-       
-       }catch(Exception e){
+       }catch(SQLException e){
        
        JOptionPane.showMessageDialog(null, e);
        

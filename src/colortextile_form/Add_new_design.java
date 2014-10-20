@@ -80,6 +80,8 @@ public class Add_new_design extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jPanel10 = new javax.swing.JPanel();
         jComboBox1 = new javax.swing.JComboBox();
+        text_job_order1 = new javax.swing.JTextField();
+        text_job_order2 = new javax.swing.JTextField();
         jPanel11 = new javax.swing.JPanel();
         jTabbedPane2 = new javax.swing.JTabbedPane();
         jPanel9 = new javax.swing.JPanel();
@@ -348,7 +350,7 @@ public class Add_new_design extends javax.swing.JFrame {
         jPanel14Layout.setVerticalGroup(
             jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel14Layout.createSequentialGroup()
-                .addContainerGap(14, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel7)
                 .addContainerGap())
         );
@@ -404,15 +406,15 @@ public class Add_new_design extends javax.swing.JFrame {
 
         design_code.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jPanel1.add(design_code);
-        design_code.setBounds(195, 146, 240, 34);
+        design_code.setBounds(570, 200, 150, 30);
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel1.setText("Design Code :");
+        jLabel1.setText("Colorway :");
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(20, 146, 153, 34);
+        jLabel1.setBounds(400, 200, 153, 34);
 
         jLabel10.setBackground(new java.awt.Color(255, 255, 255));
         jLabel10.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
@@ -421,8 +423,14 @@ public class Add_new_design extends javax.swing.JFrame {
         jLabel10.setText("Job Order :");
         jPanel1.add(jLabel10);
         jLabel10.setBounds(20, 30, 153, 34);
+
+        text_job_order.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                text_job_orderActionPerformed(evt);
+            }
+        });
         jPanel1.add(text_job_order);
-        text_job_order.setBounds(195, 30, 240, 34);
+        text_job_order.setBounds(200, 30, 60, 34);
 
         jLabel9.setBackground(new java.awt.Color(255, 255, 255));
         jLabel9.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
@@ -448,7 +456,7 @@ public class Add_new_design extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jCheckBox1);
-        jCheckBox1.setBounds(375, 69, 59, 20);
+        jCheckBox1.setBounds(375, 69, 63, 20);
 
         text_name.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
         jPanel1.add(text_name);
@@ -468,7 +476,7 @@ public class Add_new_design extends javax.swing.JFrame {
         spinner_date.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
         spinner_date.setModel(new javax.swing.SpinnerDateModel());
         jPanel1.add(spinner_date);
-        spinner_date.setBounds(570, 30, 158, 34);
+        spinner_date.setBounds(570, 30, 154, 34);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -518,6 +526,10 @@ public class Add_new_design extends javax.swing.JFrame {
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Pongee", "Cotton", "Katunia", "Micropeach", "TC", "Tropicana" }));
         jPanel1.add(jComboBox1);
         jComboBox1.setBounds(570, 146, 150, 34);
+        jPanel1.add(text_job_order1);
+        text_job_order1.setBounds(280, 30, 60, 34);
+        jPanel1.add(text_job_order2);
+        text_job_order2.setBounds(370, 30, 60, 34);
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 48, 770, 240));
 
@@ -1482,7 +1494,7 @@ public class Add_new_design extends javax.swing.JFrame {
                             .addGroup(jPanel11Layout.createSequentialGroup()
                                 .addGap(227, 227, 227)
                                 .addComponent(add_order, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 188, Short.MAX_VALUE)))
+                        .addGap(0, 186, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel11Layout.setVerticalGroup(
@@ -2015,6 +2027,14 @@ public class Add_new_design extends javax.swing.JFrame {
         }        // TODO add your handling code here:
     }//GEN-LAST:event_jCheckBox1ActionPerformed
 
+    private void text_job_orderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_text_job_orderActionPerformed
+        // TODO add your handling code here:
+        
+        if(this.text_job_order.getText().length() == 3){
+            
+        }
+    }//GEN-LAST:event_text_job_orderActionPerformed
+
     
     private void update_kg_prep(String percentage_text, String weight_kg , JTextField this_textfield)
     {
@@ -2414,6 +2434,8 @@ public class Add_new_design extends javax.swing.JFrame {
     private javax.swing.JTextField quantity;
     private javax.swing.JSpinner spinner_date;
     private javax.swing.JTextField text_job_order;
+    private javax.swing.JTextField text_job_order1;
+    private javax.swing.JTextField text_job_order2;
     private javax.swing.JTextField text_name;
     private javax.swing.JTextField weigh_kg3;
     private javax.swing.JTextField weigh_kg4;
