@@ -80,8 +80,6 @@ public class Add_new_design extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jPanel10 = new javax.swing.JPanel();
         jComboBox1 = new javax.swing.JComboBox();
-        text_job_order1 = new javax.swing.JTextField();
-        text_job_order2 = new javax.swing.JTextField();
         jPanel11 = new javax.swing.JPanel();
         jTabbedPane2 = new javax.swing.JTabbedPane();
         jPanel9 = new javax.swing.JPanel();
@@ -424,13 +422,25 @@ public class Add_new_design extends javax.swing.JFrame {
         jPanel1.add(jLabel10);
         jLabel10.setBounds(20, 30, 153, 34);
 
+        text_job_order.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+            }
+            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
+                text_job_orderInputMethodTextChanged(evt);
+            }
+        });
         text_job_order.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 text_job_orderActionPerformed(evt);
             }
         });
+        text_job_order.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                text_job_orderKeyTyped(evt);
+            }
+        });
         jPanel1.add(text_job_order);
-        text_job_order.setBounds(200, 30, 60, 34);
+        text_job_order.setBounds(200, 30, 240, 34);
 
         jLabel9.setBackground(new java.awt.Color(255, 255, 255));
         jLabel9.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
@@ -526,10 +536,6 @@ public class Add_new_design extends javax.swing.JFrame {
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Pongee", "Cotton", "Katunia", "Micropeach", "TC", "Tropicana" }));
         jPanel1.add(jComboBox1);
         jComboBox1.setBounds(570, 146, 150, 34);
-        jPanel1.add(text_job_order1);
-        text_job_order1.setBounds(280, 30, 60, 34);
-        jPanel1.add(text_job_order2);
-        text_job_order2.setBounds(370, 30, 60, 34);
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 48, 770, 240));
 
@@ -2029,11 +2035,29 @@ public class Add_new_design extends javax.swing.JFrame {
 
     private void text_job_orderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_text_job_orderActionPerformed
         // TODO add your handling code here:
-        
-        if(this.text_job_order.getText().length() == 3){
+    }//GEN-LAST:event_text_job_orderActionPerformed
+
+    private void text_job_orderInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_text_job_orderInputMethodTextChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_text_job_orderInputMethodTextChanged
+int count = 0;
+    private void text_job_orderKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_text_job_orderKeyTyped
+        // TODO add your handling code here:
+        if (count < this.text_job_order.getText().length()){
+            if(this.text_job_order.getText().length() == 3){
+            this.text_job_order.setText(this.text_job_order.getText() + "-");
+            }
+            if(this.text_job_order.getText().length() == 6){
+            this.text_job_order.setText(this.text_job_order.getText() + "-");
+            }
             
         }
-    }//GEN-LAST:event_text_job_orderActionPerformed
+        if (this.text_job_order.getText().length() > 11){
+            
+        }
+        
+        count = this.text_job_order.getText().length();
+    }//GEN-LAST:event_text_job_orderKeyTyped
 
     
     private void update_kg_prep(String percentage_text, String weight_kg , JTextField this_textfield)
@@ -2434,8 +2458,6 @@ public class Add_new_design extends javax.swing.JFrame {
     private javax.swing.JTextField quantity;
     private javax.swing.JSpinner spinner_date;
     private javax.swing.JTextField text_job_order;
-    private javax.swing.JTextField text_job_order1;
-    private javax.swing.JTextField text_job_order2;
     private javax.swing.JTextField text_name;
     private javax.swing.JTextField weigh_kg3;
     private javax.swing.JTextField weigh_kg4;
