@@ -29,8 +29,12 @@ public class Main_Menu extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        add_new_recipe = new javax.swing.JButton();
+        search_jo = new javax.swing.JButton();
+        pigments = new javax.swing.JButton();
+        Close_but = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -44,37 +48,82 @@ public class Main_Menu extends javax.swing.JFrame {
         jLabel1.setText("Main Menu");
         jLabel1.setToolTipText("");
 
-        jButton1.setBackground(new java.awt.Color(255, 255, 255));
-        jButton1.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
-        jButton1.setText("Add New Recipe");
-        jButton1.setBorder(null);
+        add_new_recipe.setBackground(new java.awt.Color(255, 255, 255));
+        add_new_recipe.setFont(new java.awt.Font("Century Gothic", 0, 20)); // NOI18N
+        add_new_recipe.setText("Add New Recipe");
+        add_new_recipe.setBorder(null);
+        add_new_recipe.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                add_new_recipeActionPerformed(evt);
+            }
+        });
+
+        search_jo.setBackground(new java.awt.Color(255, 255, 255));
+        search_jo.setFont(new java.awt.Font("Century Gothic", 0, 20)); // NOI18N
+        search_jo.setText("Search Job Order");
+        search_jo.setBorder(null);
+        search_jo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                search_joActionPerformed(evt);
+            }
+        });
+
+        pigments.setBackground(new java.awt.Color(255, 255, 255));
+        pigments.setFont(new java.awt.Font("Century Gothic", 0, 20)); // NOI18N
+        pigments.setText("Pigments");
+        pigments.setBorder(null);
+        pigments.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pigmentsActionPerformed(evt);
+            }
+        });
+
+        Close_but.setBackground(new java.awt.Color(255, 255, 255));
+        Close_but.setFont(new java.awt.Font("Century Gothic", 0, 20)); // NOI18N
+        Close_but.setText("Close");
+        Close_but.setBorder(null);
+        Close_but.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Close_butActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel1))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(58, 58, 58)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(232, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(Close_but, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pigments, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(search_jo, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(jLabel1))
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGap(74, 74, 74)
+                            .addComponent(add_new_recipe, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(86, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(19, 19, 19)
                 .addComponent(jLabel1)
-                .addGap(39, 39, 39)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(186, Short.MAX_VALUE))
+                .addGap(33, 33, 33)
+                .addComponent(add_new_recipe, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(search_jo, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(pigments, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(Close_but, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(20, 0, 510, 330);
+        jPanel1.setBounds(10, 0, 380, 370);
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -86,11 +135,27 @@ public class Main_Menu extends javax.swing.JFrame {
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 330, Short.MAX_VALUE)
         );
 
         getContentPane().add(jPanel2);
         jPanel2.setBounds(523, 0, 26, 330);
+
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 26, Short.MAX_VALUE)
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 370, Short.MAX_VALUE)
+        );
+
+        getContentPane().add(jPanel4);
+        jPanel4.setBounds(0, 0, 26, 370);
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -102,14 +167,37 @@ public class Main_Menu extends javax.swing.JFrame {
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 370, Short.MAX_VALUE)
         );
 
         getContentPane().add(jPanel3);
-        jPanel3.setBounds(0, 0, 26, 330);
+        jPanel3.setBounds(380, 0, 26, 370);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void Close_butActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Close_butActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_Close_butActionPerformed
+
+    private void pigmentsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pigmentsActionPerformed
+        // TODO add your handling code here:
+        testing2.EditSearchPigmentForm new_pigment_form = new testing2.EditSearchPigmentForm();
+        new_pigment_form.setVisible(true);
+    }//GEN-LAST:event_pigmentsActionPerformed
+
+    private void add_new_recipeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_new_recipeActionPerformed
+        // TODO add your handling code here:
+        Add_new_design newDesign = new Add_new_design();
+        newDesign.setVisible(true);
+    }//GEN-LAST:event_add_new_recipeActionPerformed
+
+    private void search_joActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_search_joActionPerformed
+        // TODO add your handling code here:
+        SearchJOGui new_jo = new SearchJOGui();
+        new_jo.setVisible(true);
+    }//GEN-LAST:event_search_joActionPerformed
 
     /**
      * @param args the command line arguments
@@ -147,10 +235,14 @@ public class Main_Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton Close_but;
+    private javax.swing.JButton add_new_recipe;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JButton pigments;
+    private javax.swing.JButton search_jo;
     // End of variables declaration//GEN-END:variables
 }
