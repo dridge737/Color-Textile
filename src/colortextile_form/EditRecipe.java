@@ -363,7 +363,7 @@ public class EditRecipe extends javax.swing.JFrame {
         jPanel14Layout.setVerticalGroup(
             jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel14Layout.createSequentialGroup()
-                .addContainerGap(14, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel7)
                 .addContainerGap())
         );
@@ -419,15 +419,15 @@ public class EditRecipe extends javax.swing.JFrame {
 
         design_code.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jPanel1.add(design_code);
-        design_code.setBounds(195, 146, 240, 34);
+        design_code.setBounds(570, 200, 160, 34);
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel1.setText("Design Code :");
+        jLabel1.setText("Design Color");
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(20, 146, 153, 34);
+        jLabel1.setBounds(410, 200, 153, 34);
 
         jLabel10.setBackground(new java.awt.Color(255, 255, 255));
         jLabel10.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
@@ -463,7 +463,7 @@ public class EditRecipe extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jCheckBox1);
-        jCheckBox1.setBounds(375, 69, 59, 20);
+        jCheckBox1.setBounds(375, 69, 63, 20);
 
         text_name.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
         jPanel1.add(text_name);
@@ -483,7 +483,7 @@ public class EditRecipe extends javax.swing.JFrame {
         spinner_date.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
         spinner_date.setModel(new javax.swing.SpinnerDateModel());
         jPanel1.add(spinner_date);
-        spinner_date.setBounds(570, 30, 158, 34);
+        spinner_date.setBounds(570, 30, 154, 34);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);

@@ -410,7 +410,7 @@ public class Add_new_design extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel1.setText("Colorway :");
+        jLabel1.setText("Design Color :");
         jPanel1.add(jLabel1);
         jLabel1.setBounds(400, 200, 153, 34);
 
@@ -486,7 +486,7 @@ public class Add_new_design extends javax.swing.JFrame {
         spinner_date.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
         spinner_date.setModel(new javax.swing.SpinnerDateModel());
         jPanel1.add(spinner_date);
-        spinner_date.setBounds(570, 30, 154, 34);
+        spinner_date.setBounds(570, 30, 167, 34);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);

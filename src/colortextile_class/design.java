@@ -13,6 +13,7 @@ package colortextile_class;
 public class design {
     private String design_code;
     private String design_name;
+    private String design_color;
 
     /**
      * @return the design_code
@@ -63,6 +64,20 @@ public class design {
             return true;
         }
        return false;
+    }
+
+    /**
+     * @return the design_color
+     */
+    public String getDesign_color() {
+        return design_color;
+    }
+
+    /**
+     * @param design_color the design_color to set
+     */
+    public void setDesign_color(String design_color) {
+        this.design_color = design_color;
     }
     
 }
