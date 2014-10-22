@@ -432,7 +432,7 @@ public class Add_new_design extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jCheckBox1);
-        jCheckBox1.setBounds(375, 69, 63, 20);
+        jCheckBox1.setBounds(375, 69, 59, 20);
 
         text_name.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
         jPanel1.add(text_name);
