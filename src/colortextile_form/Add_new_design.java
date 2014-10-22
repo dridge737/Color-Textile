@@ -406,7 +406,7 @@ public class Add_new_design extends javax.swing.JFrame {
             }
         });
         jPanel1.add(text_job_order);
-        text_job_order.setBounds(195, 30, 240, 34);
+        text_job_order.setBounds(200, 30, 240, 34);
 
         jLabel9.setBackground(new java.awt.Color(255, 255, 255));
         jLabel9.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
@@ -432,7 +432,7 @@ public class Add_new_design extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jCheckBox1);
-        jCheckBox1.setBounds(375, 69, 59, 20);
+        jCheckBox1.setBounds(375, 69, 63, 20);
 
         text_name.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
         jPanel1.add(text_name);
