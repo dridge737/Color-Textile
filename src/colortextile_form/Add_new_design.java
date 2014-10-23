@@ -557,7 +557,7 @@ public class Add_new_design extends javax.swing.JFrame {
 
         jPanel11.setBackground(new java.awt.Color(51, 153, 255));
 
-        jTabbedPane2.setBackground(new java.awt.Color(204, 204, 204));
+        jTabbedPane2.setBackground(new java.awt.Color(255, 255, 255));
         jTabbedPane2.setTabPlacement(javax.swing.JTabbedPane.LEFT);
         jTabbedPane2.setToolTipText("");
         jTabbedPane2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -693,6 +693,7 @@ public class Add_new_design extends javax.swing.JFrame {
         jPanel9.add(kg_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(451, 72, 85, 30));
 
         coverage1.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
+        coverage1.setToolTipText("Input the coverage in percent here");
         coverage1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 coverage1KeyReleased(evt);
