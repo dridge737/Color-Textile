@@ -118,6 +118,7 @@ public class Add_new_design extends javax.swing.JFrame {
         coverage1 = new javax.swing.JTextField();
         jLabel140 = new javax.swing.JLabel();
         jLabel153 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         colorway_name3 = new javax.swing.JTextField();
         name5 = new javax.swing.JComboBox();
@@ -708,6 +709,11 @@ public class Add_new_design extends javax.swing.JFrame {
         jLabel153.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         jLabel153.setText("%");
         jPanel9.add(jLabel153, new org.netbeans.lib.awtextra.AbsoluteConstraints(416, 74, 31, 22));
+
+        jButton2.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        jButton2.setText("+");
+        jButton2.setMargin(new java.awt.Insets(2, 0, 2, 0));
+        jPanel9.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 200, 30, 34));
 
         jTabbedPane2.addTab("1", jPanel9);
 
@@ -1461,7 +1467,7 @@ public class Add_new_design extends javax.swing.JFrame {
                             .addGroup(jPanel11Layout.createSequentialGroup()
                                 .addGap(227, 227, 227)
                                 .addComponent(add_order, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 186, Short.MAX_VALUE)))
+                        .addGap(0, 188, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel11Layout.setVerticalGroup(
@@ -2277,6 +2283,7 @@ int count = 0;
     private javax.swing.JTextField design_name;
     private javax.swing.JComboBox fab_style_comb;
     private javax.swing.JTextField fabric_style;
+    private javax.swing.JButton jButton2;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JCheckBox jCheckBox2;
     private javax.swing.JLabel jLabel1;
