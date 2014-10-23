@@ -692,17 +692,9 @@ public class Add_new_design extends javax.swing.JFrame {
         jPanel9.add(kg_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(451, 72, 85, 30));
 
         coverage1.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
-        coverage1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                coverage1ActionPerformed(evt);
-            }
-        });
         coverage1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 coverage1KeyReleased(evt);
-            }
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                coverage1KeyTyped(evt);
             }
         });
         jPanel9.add(coverage1, new org.netbeans.lib.awtextra.AbsoluteConstraints(615, 10, 60, 34));
@@ -846,17 +838,9 @@ public class Add_new_design extends javax.swing.JFrame {
         jPanel4.add(jLabel156, new org.netbeans.lib.awtextra.AbsoluteConstraints(678, 10, 15, 34));
 
         coverage3.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
-        coverage3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                coverage3ActionPerformed(evt);
-            }
-        });
         coverage3.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 coverage3KeyReleased(evt);
-            }
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                coverage3KeyTyped(evt);
             }
         });
         jPanel4.add(coverage3, new org.netbeans.lib.awtextra.AbsoluteConstraints(615, 10, 60, 34));
@@ -997,17 +981,9 @@ public class Add_new_design extends javax.swing.JFrame {
         jPanel5.add(jLabel158, new org.netbeans.lib.awtextra.AbsoluteConstraints(678, 10, 15, 34));
 
         coverage4.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
-        coverage4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                coverage4ActionPerformed(evt);
-            }
-        });
         coverage4.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 coverage4KeyReleased(evt);
-            }
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                coverage4KeyTyped(evt);
             }
         });
         jPanel5.add(coverage4, new org.netbeans.lib.awtextra.AbsoluteConstraints(615, 10, 60, 34));
@@ -1147,17 +1123,9 @@ public class Add_new_design extends javax.swing.JFrame {
         jPanel6.add(jLabel160, new org.netbeans.lib.awtextra.AbsoluteConstraints(678, 10, 15, 34));
 
         coverage5.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
-        coverage5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                coverage5ActionPerformed(evt);
-            }
-        });
         coverage5.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 coverage5KeyReleased(evt);
-            }
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                coverage5KeyTyped(evt);
             }
         });
         jPanel6.add(coverage5, new org.netbeans.lib.awtextra.AbsoluteConstraints(615, 10, 60, 34));
@@ -1297,17 +1265,9 @@ public class Add_new_design extends javax.swing.JFrame {
         jPanel7.add(jLabel162, new org.netbeans.lib.awtextra.AbsoluteConstraints(678, 10, 15, 34));
 
         coverage6.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
-        coverage6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                coverage6ActionPerformed(evt);
-            }
-        });
         coverage6.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 coverage6KeyReleased(evt);
-            }
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                coverage6KeyTyped(evt);
             }
         });
         jPanel7.add(coverage6, new org.netbeans.lib.awtextra.AbsoluteConstraints(615, 10, 60, 34));
@@ -1336,6 +1296,11 @@ public class Add_new_design extends javax.swing.JFrame {
         percentage21.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 percentage21FocusLost(evt);
+            }
+        });
+        percentage21.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                percentage21KeyReleased(evt);
             }
         });
         jPanel8.add(percentage21, new org.netbeans.lib.awtextra.AbsoluteConstraints(351, 72, 61, 30));
@@ -1447,17 +1412,9 @@ public class Add_new_design extends javax.swing.JFrame {
         jPanel8.add(jLabel154, new org.netbeans.lib.awtextra.AbsoluteConstraints(678, 10, 15, 34));
 
         coverage2.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
-        coverage2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                coverage2ActionPerformed(evt);
-            }
-        });
         coverage2.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 coverage2KeyReleased(evt);
-            }
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                coverage2KeyTyped(evt);
             }
         });
         jPanel8.add(coverage2, new org.netbeans.lib.awtextra.AbsoluteConstraints(615, 10, 60, 34));
@@ -2022,16 +1979,6 @@ int count = 0;
         check_this_textbox(quantity);
     }//GEN-LAST:event_quantityFocusLost
 
-    private void coverage1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_coverage1ActionPerformed
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_coverage1ActionPerformed
-
-    private void coverage1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_coverage1KeyTyped
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_coverage1KeyTyped
-
     private void coverage1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_coverage1KeyReleased
         // TODO add your handling code here:
         if(coverage1.getText().length()>0)
@@ -2043,65 +1990,65 @@ int count = 0;
         }
     }//GEN-LAST:event_coverage1KeyReleased
 
-    private void coverage2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_coverage2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_coverage2ActionPerformed
-
     private void coverage2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_coverage2KeyReleased
         // TODO add your handling code here:
+        if(coverage2.getText().length()>0)
+        {
+            if(!checkText2(coverage2.getText()))
+            {
+                compute_kg(weigh_kg7, Float.parseFloat(coverage2.getText()));
+            }
+        }
     }//GEN-LAST:event_coverage2KeyReleased
-
-    private void coverage2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_coverage2KeyTyped
-        // TODO add your handling code here:
-    }//GEN-LAST:event_coverage2KeyTyped
-
-    private void coverage3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_coverage3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_coverage3ActionPerformed
 
     private void coverage3KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_coverage3KeyReleased
         // TODO add your handling code here:
+        if(coverage3.getText().length()>0)
+        {
+            if(!checkText2(coverage3.getText()))
+            {
+                compute_kg(weigh_kg3, Float.parseFloat(coverage3.getText()));
+            }
+        }
     }//GEN-LAST:event_coverage3KeyReleased
-
-    private void coverage3KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_coverage3KeyTyped
-        // TODO add your handling code here:
-    }//GEN-LAST:event_coverage3KeyTyped
-
-    private void coverage4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_coverage4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_coverage4ActionPerformed
 
     private void coverage4KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_coverage4KeyReleased
         // TODO add your handling code here:
+        if(coverage4.getText().length()>0)
+        {
+            if(!checkText2(coverage4.getText()))
+            {
+                compute_kg(weigh_kg4, Float.parseFloat(coverage4.getText()));
+            }
+        }
     }//GEN-LAST:event_coverage4KeyReleased
-
-    private void coverage4KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_coverage4KeyTyped
-        // TODO add your handling code here:
-    }//GEN-LAST:event_coverage4KeyTyped
-
-    private void coverage5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_coverage5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_coverage5ActionPerformed
 
     private void coverage5KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_coverage5KeyReleased
         // TODO add your handling code here:
+        if(coverage4.getText().length()>0)
+        {
+            if(!checkText2(coverage5.getText()))
+            {
+                compute_kg(weigh_kg5, Float.parseFloat(coverage5.getText()));
+            }
+        }
     }//GEN-LAST:event_coverage5KeyReleased
-
-    private void coverage5KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_coverage5KeyTyped
-        // TODO add your handling code here:
-    }//GEN-LAST:event_coverage5KeyTyped
-
-    private void coverage6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_coverage6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_coverage6ActionPerformed
 
     private void coverage6KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_coverage6KeyReleased
         // TODO add your handling code here:
+        if(coverage6.getText().length()>0)
+        {
+            if(!checkText2(coverage6.getText()))
+            {
+                compute_kg(weigh_kg6, Float.parseFloat(coverage6.getText()));
+            }
+        }
     }//GEN-LAST:event_coverage6KeyReleased
 
-    private void coverage6KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_coverage6KeyTyped
+    private void percentage21KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage21KeyReleased
         // TODO add your handling code here:
-    }//GEN-LAST:event_coverage6KeyTyped
+        
+    }//GEN-LAST:event_percentage21KeyReleased
 
     private void compute_kg(JTextField weigh_kg, float coverage)
     {
