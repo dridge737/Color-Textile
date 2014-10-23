@@ -406,10 +406,10 @@ public class Add_new_design extends javax.swing.JFrame {
         jLabel10.setBounds(20, 30, 153, 34);
 
         text_job_order.addInputMethodListener(new java.awt.event.InputMethodListener() {
-            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
-            }
             public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
                 text_job_orderInputMethodTextChanged(evt);
+            }
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
             }
         });
         text_job_order.addActionListener(new java.awt.event.ActionListener() {
@@ -467,7 +467,7 @@ public class Add_new_design extends javax.swing.JFrame {
         jLabel6.getAccessibleContext().setAccessibleDescription("");
 
         spinner_date.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
-        spinner_date.setModel(new javax.swing.SpinnerDateModel());
+        spinner_date.setModel(new javax.swing.SpinnerDateModel(new java.util.Date(1414069215129L), null, null, java.util.Calendar.DAY_OF_MONTH));
         jPanel1.add(spinner_date);
         spinner_date.setBounds(570, 30, 150, 34);
 
@@ -2066,6 +2066,7 @@ int count = 0;
             {
                 float this_quant = Float.parseFloat(quantity.getText());
                 computation = (80*coverage*this_quant)/1000;
+                
                 weigh_kg.setText(String.format("%.2f", computation));
                // weigh_kg.setText(Float.toString(computation%.02f));
             }
@@ -2077,18 +2078,17 @@ int count = 0;
                 computation = (80*coverage*this_quant)/1000;
                 weigh_kg.setText(String.format("%.2f", computation));
             }
-            
-        
         }
-        
     }
     
     private void update_kg_prep(String percentage_text, String weight_kg , JTextField this_textfield)
     {
+        System.out.println(percentage_text+ " and " +weight_kg);
         if(percentage_text.length()>0 && weight_kg.length()>0)
         {
             boolean text_check = checkText2(percentage_text);
             boolean text_check2 = checkText2(weight_kg);
+            System.out.println(text_check+ " and " +text_check2);
             if(!text_check && !text_check2)
             {
                 try
@@ -2098,7 +2098,7 @@ int count = 0;
                     float weight_prep = temp_weight * temp_percentage / 100;
                     //System.out.println(Float.toString(weight_prep));
                     //Make this 2 Decimal digits
-                    this_textfield.setText(Float.toString(weight_prep));
+                    this_textfield.setText(String.format("%.2f", weight_prep));
             
                 }
                 catch(NumberFormatException ex)
@@ -2109,6 +2109,7 @@ int count = 0;
                 }
             else
             {
+                //System.out.println("WHYYY!");
                 this_textfield.setText("Error!");
             }
         }
@@ -2116,23 +2117,23 @@ int count = 0;
     }
     private boolean checkText2(String this_text)
     {
-        String regex = "\\D";
-        Pattern p = Pattern.compile(regex);
         
+        String regex = "[^0-9]";
+        Pattern p = Pattern.compile(regex);
+        this_text = this_text.replaceFirst("[.]", "");
+        /*
+        String subregex = "[.]" ;
+        Pattern g = Pattern.compile(subregex);
+        this_text = g.matcher(this_text).replaceFirst(this_text);
+        
+        */
         return p.matcher(this_text).find();
     
-    }
-    private boolean checkText(JTextField the_textfield)
-    {
-        String regex = "\\D";
-        Pattern p = Pattern.compile(regex);
-        
-        return p.matcher(the_textfield.getText()).find();
     }
     
     private boolean check_this_textbox(JTextField the_textfield)
     {
-        boolean text_check = checkText(the_textfield);
+        boolean text_check = checkText2(the_textfield.getText());
         if(text_check)
         {
             //System.out.println(the_textfield.getBackground().equals(Color.red));
