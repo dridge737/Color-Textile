@@ -115,6 +115,8 @@ public class Add_new_design extends javax.swing.JFrame {
         jLabel144 = new javax.swing.JLabel();
         kg_1 = new javax.swing.JTextField();
         coverage1 = new javax.swing.JTextField();
+        jLabel140 = new javax.swing.JLabel();
+        jLabel153 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         colorway_name3 = new javax.swing.JTextField();
         name5 = new javax.swing.JComboBox();
@@ -124,7 +126,6 @@ public class Add_new_design extends javax.swing.JFrame {
         jLabel50 = new javax.swing.JLabel();
         jLabel51 = new javax.swing.JLabel();
         jLabel52 = new javax.swing.JLabel();
-        jLabel53 = new javax.swing.JLabel();
         weigh_kg3 = new javax.swing.JTextField();
         jLabel54 = new javax.swing.JLabel();
         name6 = new javax.swing.JComboBox();
@@ -143,6 +144,10 @@ public class Add_new_design extends javax.swing.JFrame {
         jLabel63 = new javax.swing.JLabel();
         jLabel64 = new javax.swing.JLabel();
         jLabel145 = new javax.swing.JLabel();
+        jLabel156 = new javax.swing.JLabel();
+        coverage3 = new javax.swing.JTextField();
+        jLabel157 = new javax.swing.JLabel();
+        jLabel164 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         colorway_name4 = new javax.swing.JTextField();
         name9 = new javax.swing.JComboBox();
@@ -152,7 +157,6 @@ public class Add_new_design extends javax.swing.JFrame {
         jLabel66 = new javax.swing.JLabel();
         jLabel67 = new javax.swing.JLabel();
         jLabel68 = new javax.swing.JLabel();
-        jLabel69 = new javax.swing.JLabel();
         weigh_kg4 = new javax.swing.JTextField();
         jLabel70 = new javax.swing.JLabel();
         name10 = new javax.swing.JComboBox();
@@ -171,6 +175,10 @@ public class Add_new_design extends javax.swing.JFrame {
         jLabel79 = new javax.swing.JLabel();
         jLabel80 = new javax.swing.JLabel();
         jLabel146 = new javax.swing.JLabel();
+        jLabel158 = new javax.swing.JLabel();
+        coverage4 = new javax.swing.JTextField();
+        jLabel159 = new javax.swing.JLabel();
+        jLabel165 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
         colorway_name5 = new javax.swing.JTextField();
         name13 = new javax.swing.JComboBox();
@@ -180,7 +188,6 @@ public class Add_new_design extends javax.swing.JFrame {
         jLabel82 = new javax.swing.JLabel();
         jLabel83 = new javax.swing.JLabel();
         jLabel84 = new javax.swing.JLabel();
-        jLabel85 = new javax.swing.JLabel();
         weigh_kg5 = new javax.swing.JTextField();
         jLabel86 = new javax.swing.JLabel();
         name14 = new javax.swing.JComboBox();
@@ -199,6 +206,10 @@ public class Add_new_design extends javax.swing.JFrame {
         jLabel95 = new javax.swing.JLabel();
         jLabel96 = new javax.swing.JLabel();
         jLabel147 = new javax.swing.JLabel();
+        jLabel160 = new javax.swing.JLabel();
+        coverage5 = new javax.swing.JTextField();
+        jLabel161 = new javax.swing.JLabel();
+        jLabel166 = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
         colorway_name6 = new javax.swing.JTextField();
         name17 = new javax.swing.JComboBox();
@@ -208,7 +219,6 @@ public class Add_new_design extends javax.swing.JFrame {
         jLabel98 = new javax.swing.JLabel();
         jLabel99 = new javax.swing.JLabel();
         jLabel100 = new javax.swing.JLabel();
-        jLabel101 = new javax.swing.JLabel();
         weigh_kg6 = new javax.swing.JTextField();
         jLabel102 = new javax.swing.JLabel();
         name18 = new javax.swing.JComboBox();
@@ -227,6 +237,10 @@ public class Add_new_design extends javax.swing.JFrame {
         jLabel111 = new javax.swing.JLabel();
         jLabel112 = new javax.swing.JLabel();
         jLabel148 = new javax.swing.JLabel();
+        jLabel162 = new javax.swing.JLabel();
+        coverage6 = new javax.swing.JTextField();
+        jLabel163 = new javax.swing.JLabel();
+        jLabel167 = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
         colorway_name7 = new javax.swing.JTextField();
         name21 = new javax.swing.JComboBox();
@@ -236,7 +250,6 @@ public class Add_new_design extends javax.swing.JFrame {
         jLabel114 = new javax.swing.JLabel();
         jLabel115 = new javax.swing.JLabel();
         jLabel116 = new javax.swing.JLabel();
-        jLabel117 = new javax.swing.JLabel();
         weigh_kg7 = new javax.swing.JTextField();
         jLabel118 = new javax.swing.JLabel();
         name22 = new javax.swing.JComboBox();
@@ -255,6 +268,10 @@ public class Add_new_design extends javax.swing.JFrame {
         jLabel127 = new javax.swing.JLabel();
         jLabel128 = new javax.swing.JLabel();
         jLabel149 = new javax.swing.JLabel();
+        jLabel154 = new javax.swing.JLabel();
+        coverage2 = new javax.swing.JTextField();
+        jLabel155 = new javax.swing.JLabel();
+        jLabel168 = new javax.swing.JLabel();
         add_order = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
 
@@ -406,7 +423,7 @@ public class Add_new_design extends javax.swing.JFrame {
             }
         });
         jPanel1.add(text_job_order);
-        text_job_order.setBounds(200, 30, 240, 34);
+        text_job_order.setBounds(195, 30, 240, 34);
 
         jLabel9.setBackground(new java.awt.Color(255, 255, 255));
         jLabel9.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
@@ -550,10 +567,10 @@ public class Add_new_design extends javax.swing.JFrame {
         jLabel129.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         jLabel129.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel129.setText("Screen Name :");
-        jPanel9.add(jLabel129, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 12, 120, 33));
+        jPanel9.add(jLabel129, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 10, 120, 34));
 
         colorway_name2.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
-        jPanel9.add(colorway_name2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 11, 180, 34));
+        jPanel9.add(colorway_name2, new org.netbeans.lib.awtextra.AbsoluteConstraints(133, 10, 180, 34));
 
         name1.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         name1.setName("pigment_name"); // NOI18N
@@ -571,8 +588,9 @@ public class Add_new_design extends javax.swing.JFrame {
         kg_2.setEditable(false);
         kg_2.setBackground(new java.awt.Color(204, 204, 204));
         kg_2.setFont(new java.awt.Font("Century Gothic", 1, 15)); // NOI18N
+        kg_2.setFocusable(false);
         kg_2.setSelectionColor(new java.awt.Color(0, 0, 0));
-        jPanel9.add(kg_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 110, 85, 30));
+        jPanel9.add(kg_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(451, 110, 85, 30));
 
         jLabel130.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         jLabel130.setText("kg / prep");
@@ -584,11 +602,11 @@ public class Add_new_design extends javax.swing.JFrame {
 
         jLabel132.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         jLabel132.setText("%");
-        jPanel9.add(jLabel132, new org.netbeans.lib.awtextra.AbsoluteConstraints(416, 74, 31, 22));
+        jPanel9.add(jLabel132, new org.netbeans.lib.awtextra.AbsoluteConstraints(678, 10, 15, 34));
 
         jLabel133.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
-        jLabel133.setText("Kilograms / KGS :");
-        jPanel9.add(jLabel133, new org.netbeans.lib.awtextra.AbsoluteConstraints(493, 11, -1, 34));
+        jLabel133.setText("Coverage :");
+        jPanel9.add(jLabel133, new org.netbeans.lib.awtextra.AbsoluteConstraints(525, 10, -1, 34));
 
         weigh_kg8.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         weigh_kg8.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -596,7 +614,7 @@ public class Add_new_design extends javax.swing.JFrame {
                 weigh_kg8FocusLost(evt);
             }
         });
-        jPanel9.add(weigh_kg8, new org.netbeans.lib.awtextra.AbsoluteConstraints(624, 11, 60, 34));
+        jPanel9.add(weigh_kg8, new org.netbeans.lib.awtextra.AbsoluteConstraints(452, 10, 60, 34));
 
         jLabel134.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         jLabel134.setText("Pigment Name :");
@@ -645,6 +663,7 @@ public class Add_new_design extends javax.swing.JFrame {
         kg_3.setEditable(false);
         kg_3.setBackground(new java.awt.Color(204, 204, 204));
         kg_3.setFont(new java.awt.Font("Century Gothic", 1, 15)); // NOI18N
+        kg_3.setFocusable(false);
         kg_3.setSelectionColor(new java.awt.Color(0, 0, 0));
         jPanel9.add(kg_3, new org.netbeans.lib.awtextra.AbsoluteConstraints(451, 146, 85, 30));
 
@@ -668,16 +687,33 @@ public class Add_new_design extends javax.swing.JFrame {
         kg_1.setEditable(false);
         kg_1.setBackground(new java.awt.Color(204, 204, 204));
         kg_1.setFont(new java.awt.Font("Century Gothic", 1, 15)); // NOI18N
+        kg_1.setFocusable(false);
         kg_1.setSelectionColor(new java.awt.Color(0, 0, 0));
         jPanel9.add(kg_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(451, 72, 85, 30));
 
         coverage1.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
+        coverage1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                coverage1ActionPerformed(evt);
+            }
+        });
         coverage1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                coverage1KeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 coverage1KeyTyped(evt);
             }
         });
-        jPanel9.add(coverage1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 11, 70, 34));
+        jPanel9.add(coverage1, new org.netbeans.lib.awtextra.AbsoluteConstraints(615, 10, 60, 34));
+
+        jLabel140.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
+        jLabel140.setText("Kilograms / KGS :");
+        jPanel9.add(jLabel140, new org.netbeans.lib.awtextra.AbsoluteConstraints(325, 10, -1, 34));
+
+        jLabel153.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
+        jLabel153.setText("%");
+        jPanel9.add(jLabel153, new org.netbeans.lib.awtextra.AbsoluteConstraints(416, 74, 31, 22));
 
         jTabbedPane2.addTab("1", jPanel9);
 
@@ -685,7 +721,7 @@ public class Add_new_design extends javax.swing.JFrame {
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         colorway_name3.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
-        jPanel4.add(colorway_name3, new org.netbeans.lib.awtextra.AbsoluteConstraints(175, 11, 268, 34));
+        jPanel4.add(colorway_name3, new org.netbeans.lib.awtextra.AbsoluteConstraints(133, 10, 180, 34));
 
         name5.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         name5.setName("pigment_name"); // NOI18N
@@ -703,6 +739,7 @@ public class Add_new_design extends javax.swing.JFrame {
         kg_5.setEditable(false);
         kg_5.setBackground(new java.awt.Color(204, 204, 204));
         kg_5.setFont(new java.awt.Font("Century Gothic", 1, 15)); // NOI18N
+        kg_5.setFocusable(false);
         jPanel4.add(kg_5, new org.netbeans.lib.awtextra.AbsoluteConstraints(451, 72, 85, 30));
 
         jLabel50.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
@@ -717,17 +754,13 @@ public class Add_new_design extends javax.swing.JFrame {
         jLabel52.setText("%");
         jPanel4.add(jLabel52, new org.netbeans.lib.awtextra.AbsoluteConstraints(416, 74, 31, 22));
 
-        jLabel53.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
-        jLabel53.setText("Kilograms / KGS :");
-        jPanel4.add(jLabel53, new org.netbeans.lib.awtextra.AbsoluteConstraints(453, 11, -1, 34));
-
         weigh_kg3.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         weigh_kg3.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 weigh_kg3FocusLost(evt);
             }
         });
-        jPanel4.add(weigh_kg3, new org.netbeans.lib.awtextra.AbsoluteConstraints(584, 11, 60, 34));
+        jPanel4.add(weigh_kg3, new org.netbeans.lib.awtextra.AbsoluteConstraints(452, 10, 60, 34));
 
         jLabel54.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         jLabel54.setText("Pigment Name :");
@@ -752,6 +785,7 @@ public class Add_new_design extends javax.swing.JFrame {
         kg_6.setEditable(false);
         kg_6.setBackground(new java.awt.Color(204, 204, 204));
         kg_6.setFont(new java.awt.Font("Century Gothic", 1, 15)); // NOI18N
+        kg_6.setFocusable(false);
         kg_6.setSelectionColor(new java.awt.Color(0, 0, 0));
         jPanel4.add(kg_6, new org.netbeans.lib.awtextra.AbsoluteConstraints(451, 109, 85, 30));
 
@@ -782,6 +816,7 @@ public class Add_new_design extends javax.swing.JFrame {
         kg_7.setEditable(false);
         kg_7.setBackground(new java.awt.Color(204, 204, 204));
         kg_7.setFont(new java.awt.Font("Century Gothic", 1, 15)); // NOI18N
+        kg_7.setFocusable(false);
         jPanel4.add(kg_7, new org.netbeans.lib.awtextra.AbsoluteConstraints(451, 146, 85, 30));
 
         jLabel59.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
@@ -804,7 +839,35 @@ public class Add_new_design extends javax.swing.JFrame {
         jLabel145.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         jLabel145.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel145.setText("Screen Name :");
-        jPanel4.add(jLabel145, new org.netbeans.lib.awtextra.AbsoluteConstraints(43, 12, 120, 33));
+        jPanel4.add(jLabel145, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 10, 120, 34));
+
+        jLabel156.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
+        jLabel156.setText("%");
+        jPanel4.add(jLabel156, new org.netbeans.lib.awtextra.AbsoluteConstraints(678, 10, 15, 34));
+
+        coverage3.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
+        coverage3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                coverage3ActionPerformed(evt);
+            }
+        });
+        coverage3.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                coverage3KeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                coverage3KeyTyped(evt);
+            }
+        });
+        jPanel4.add(coverage3, new org.netbeans.lib.awtextra.AbsoluteConstraints(615, 10, 60, 34));
+
+        jLabel157.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
+        jLabel157.setText("Coverage :");
+        jPanel4.add(jLabel157, new org.netbeans.lib.awtextra.AbsoluteConstraints(525, 10, -1, 34));
+
+        jLabel164.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
+        jLabel164.setText("Kilograms / KGS :");
+        jPanel4.add(jLabel164, new org.netbeans.lib.awtextra.AbsoluteConstraints(325, 10, -1, 34));
 
         jTabbedPane2.addTab("2", jPanel4);
 
@@ -812,7 +875,7 @@ public class Add_new_design extends javax.swing.JFrame {
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         colorway_name4.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
-        jPanel5.add(colorway_name4, new org.netbeans.lib.awtextra.AbsoluteConstraints(175, 11, 268, 34));
+        jPanel5.add(colorway_name4, new org.netbeans.lib.awtextra.AbsoluteConstraints(133, 10, 180, 34));
 
         name9.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         name9.setName("pigment_name"); // NOI18N
@@ -829,6 +892,7 @@ public class Add_new_design extends javax.swing.JFrame {
 
         kg_9.setBackground(new java.awt.Color(204, 204, 204));
         kg_9.setFont(new java.awt.Font("Century Gothic", 1, 15)); // NOI18N
+        kg_9.setFocusable(false);
         jPanel5.add(kg_9, new org.netbeans.lib.awtextra.AbsoluteConstraints(451, 72, 85, 30));
 
         jLabel66.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
@@ -843,17 +907,13 @@ public class Add_new_design extends javax.swing.JFrame {
         jLabel68.setText("%");
         jPanel5.add(jLabel68, new org.netbeans.lib.awtextra.AbsoluteConstraints(416, 74, 31, 22));
 
-        jLabel69.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
-        jLabel69.setText("Kilograms / KGS :");
-        jPanel5.add(jLabel69, new org.netbeans.lib.awtextra.AbsoluteConstraints(453, 11, -1, 34));
-
         weigh_kg4.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         weigh_kg4.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 weigh_kg4FocusLost(evt);
             }
         });
-        jPanel5.add(weigh_kg4, new org.netbeans.lib.awtextra.AbsoluteConstraints(584, 11, 60, 34));
+        jPanel5.add(weigh_kg4, new org.netbeans.lib.awtextra.AbsoluteConstraints(452, 10, 60, 34));
 
         jLabel70.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         jLabel70.setText("Pigment Name :");
@@ -877,6 +937,7 @@ public class Add_new_design extends javax.swing.JFrame {
 
         kg_10.setBackground(new java.awt.Color(204, 204, 204));
         kg_10.setFont(new java.awt.Font("Century Gothic", 1, 15)); // NOI18N
+        kg_10.setFocusable(false);
         kg_10.setSelectionColor(new java.awt.Color(0, 0, 0));
         jPanel5.add(kg_10, new org.netbeans.lib.awtextra.AbsoluteConstraints(451, 109, 85, 30));
 
@@ -906,6 +967,7 @@ public class Add_new_design extends javax.swing.JFrame {
 
         kg_11.setBackground(new java.awt.Color(204, 204, 204));
         kg_11.setFont(new java.awt.Font("Century Gothic", 1, 15)); // NOI18N
+        kg_11.setFocusable(false);
         jPanel5.add(kg_11, new org.netbeans.lib.awtextra.AbsoluteConstraints(451, 146, 85, 30));
 
         jLabel75.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
@@ -928,7 +990,35 @@ public class Add_new_design extends javax.swing.JFrame {
         jLabel146.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         jLabel146.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel146.setText("Screen Name :");
-        jPanel5.add(jLabel146, new org.netbeans.lib.awtextra.AbsoluteConstraints(43, 12, 120, 33));
+        jPanel5.add(jLabel146, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 10, 120, 34));
+
+        jLabel158.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
+        jLabel158.setText("%");
+        jPanel5.add(jLabel158, new org.netbeans.lib.awtextra.AbsoluteConstraints(678, 10, 15, 34));
+
+        coverage4.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
+        coverage4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                coverage4ActionPerformed(evt);
+            }
+        });
+        coverage4.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                coverage4KeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                coverage4KeyTyped(evt);
+            }
+        });
+        jPanel5.add(coverage4, new org.netbeans.lib.awtextra.AbsoluteConstraints(615, 10, 60, 34));
+
+        jLabel159.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
+        jLabel159.setText("Coverage :");
+        jPanel5.add(jLabel159, new org.netbeans.lib.awtextra.AbsoluteConstraints(525, 10, -1, 34));
+
+        jLabel165.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
+        jLabel165.setText("Kilograms / KGS :");
+        jPanel5.add(jLabel165, new org.netbeans.lib.awtextra.AbsoluteConstraints(325, 10, -1, 34));
 
         jTabbedPane2.addTab("3", jPanel5);
 
@@ -936,7 +1026,7 @@ public class Add_new_design extends javax.swing.JFrame {
         jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         colorway_name5.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
-        jPanel6.add(colorway_name5, new org.netbeans.lib.awtextra.AbsoluteConstraints(175, 11, 268, 34));
+        jPanel6.add(colorway_name5, new org.netbeans.lib.awtextra.AbsoluteConstraints(133, 10, 180, 34));
 
         name13.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         name13.setName("pigment_name"); // NOI18N
@@ -953,6 +1043,7 @@ public class Add_new_design extends javax.swing.JFrame {
 
         kg_13.setBackground(new java.awt.Color(204, 204, 204));
         kg_13.setFont(new java.awt.Font("Century Gothic", 1, 15)); // NOI18N
+        kg_13.setFocusable(false);
         jPanel6.add(kg_13, new org.netbeans.lib.awtextra.AbsoluteConstraints(451, 72, 85, 30));
 
         jLabel82.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
@@ -967,17 +1058,13 @@ public class Add_new_design extends javax.swing.JFrame {
         jLabel84.setText("%");
         jPanel6.add(jLabel84, new org.netbeans.lib.awtextra.AbsoluteConstraints(416, 74, 31, 22));
 
-        jLabel85.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
-        jLabel85.setText("Kilograms / KGS :");
-        jPanel6.add(jLabel85, new org.netbeans.lib.awtextra.AbsoluteConstraints(453, 11, -1, 34));
-
         weigh_kg5.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         weigh_kg5.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 weigh_kg5FocusLost(evt);
             }
         });
-        jPanel6.add(weigh_kg5, new org.netbeans.lib.awtextra.AbsoluteConstraints(584, 11, 60, 34));
+        jPanel6.add(weigh_kg5, new org.netbeans.lib.awtextra.AbsoluteConstraints(452, 10, 60, 34));
 
         jLabel86.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         jLabel86.setText("Pigment Name :");
@@ -1001,6 +1088,7 @@ public class Add_new_design extends javax.swing.JFrame {
 
         kg_14.setBackground(new java.awt.Color(204, 204, 204));
         kg_14.setFont(new java.awt.Font("Century Gothic", 1, 15)); // NOI18N
+        kg_14.setFocusable(false);
         jPanel6.add(kg_14, new org.netbeans.lib.awtextra.AbsoluteConstraints(451, 109, 85, 30));
 
         jLabel88.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
@@ -1029,6 +1117,7 @@ public class Add_new_design extends javax.swing.JFrame {
 
         kg_15.setBackground(new java.awt.Color(204, 204, 204));
         kg_15.setFont(new java.awt.Font("Century Gothic", 1, 15)); // NOI18N
+        kg_15.setFocusable(false);
         jPanel6.add(kg_15, new org.netbeans.lib.awtextra.AbsoluteConstraints(451, 146, 85, 30));
 
         jLabel91.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
@@ -1051,7 +1140,35 @@ public class Add_new_design extends javax.swing.JFrame {
         jLabel147.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         jLabel147.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel147.setText("Screen Name :");
-        jPanel6.add(jLabel147, new org.netbeans.lib.awtextra.AbsoluteConstraints(43, 12, 120, 33));
+        jPanel6.add(jLabel147, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 10, 120, 34));
+
+        jLabel160.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
+        jLabel160.setText("%");
+        jPanel6.add(jLabel160, new org.netbeans.lib.awtextra.AbsoluteConstraints(678, 10, 15, 34));
+
+        coverage5.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
+        coverage5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                coverage5ActionPerformed(evt);
+            }
+        });
+        coverage5.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                coverage5KeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                coverage5KeyTyped(evt);
+            }
+        });
+        jPanel6.add(coverage5, new org.netbeans.lib.awtextra.AbsoluteConstraints(615, 10, 60, 34));
+
+        jLabel161.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
+        jLabel161.setText("Coverage :");
+        jPanel6.add(jLabel161, new org.netbeans.lib.awtextra.AbsoluteConstraints(525, 10, -1, 34));
+
+        jLabel166.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
+        jLabel166.setText("Kilograms / KGS :");
+        jPanel6.add(jLabel166, new org.netbeans.lib.awtextra.AbsoluteConstraints(325, 10, -1, 34));
 
         jTabbedPane2.addTab("4", jPanel6);
 
@@ -1059,7 +1176,7 @@ public class Add_new_design extends javax.swing.JFrame {
         jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         colorway_name6.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
-        jPanel7.add(colorway_name6, new org.netbeans.lib.awtextra.AbsoluteConstraints(175, 11, 268, 34));
+        jPanel7.add(colorway_name6, new org.netbeans.lib.awtextra.AbsoluteConstraints(133, 10, 180, 34));
 
         name17.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         name17.setName("pigment_name"); // NOI18N
@@ -1076,6 +1193,7 @@ public class Add_new_design extends javax.swing.JFrame {
 
         kg_17.setBackground(new java.awt.Color(204, 204, 204));
         kg_17.setFont(new java.awt.Font("Century Gothic", 1, 15)); // NOI18N
+        kg_17.setFocusable(false);
         jPanel7.add(kg_17, new org.netbeans.lib.awtextra.AbsoluteConstraints(451, 72, 85, 30));
 
         jLabel98.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
@@ -1090,17 +1208,13 @@ public class Add_new_design extends javax.swing.JFrame {
         jLabel100.setText("%");
         jPanel7.add(jLabel100, new org.netbeans.lib.awtextra.AbsoluteConstraints(416, 74, 31, 22));
 
-        jLabel101.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
-        jLabel101.setText("Kilograms / KGS :");
-        jPanel7.add(jLabel101, new org.netbeans.lib.awtextra.AbsoluteConstraints(453, 11, -1, 34));
-
         weigh_kg6.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         weigh_kg6.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 weigh_kg6FocusLost(evt);
             }
         });
-        jPanel7.add(weigh_kg6, new org.netbeans.lib.awtextra.AbsoluteConstraints(584, 11, 60, 34));
+        jPanel7.add(weigh_kg6, new org.netbeans.lib.awtextra.AbsoluteConstraints(452, 10, 60, 34));
 
         jLabel102.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         jLabel102.setText("Pigment Name :");
@@ -1124,6 +1238,7 @@ public class Add_new_design extends javax.swing.JFrame {
 
         kg_18.setBackground(new java.awt.Color(204, 204, 204));
         kg_18.setFont(new java.awt.Font("Century Gothic", 1, 15)); // NOI18N
+        kg_18.setFocusable(false);
         jPanel7.add(kg_18, new org.netbeans.lib.awtextra.AbsoluteConstraints(451, 109, 85, 30));
 
         jLabel104.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
@@ -1152,6 +1267,7 @@ public class Add_new_design extends javax.swing.JFrame {
 
         kg_19.setBackground(new java.awt.Color(204, 204, 204));
         kg_19.setFont(new java.awt.Font("Century Gothic", 1, 15)); // NOI18N
+        kg_19.setFocusable(false);
         jPanel7.add(kg_19, new org.netbeans.lib.awtextra.AbsoluteConstraints(451, 146, 85, 30));
 
         jLabel107.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
@@ -1174,7 +1290,35 @@ public class Add_new_design extends javax.swing.JFrame {
         jLabel148.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         jLabel148.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel148.setText("Screen Name :");
-        jPanel7.add(jLabel148, new org.netbeans.lib.awtextra.AbsoluteConstraints(43, 12, 120, 33));
+        jPanel7.add(jLabel148, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 10, 120, 34));
+
+        jLabel162.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
+        jLabel162.setText("%");
+        jPanel7.add(jLabel162, new org.netbeans.lib.awtextra.AbsoluteConstraints(678, 10, 15, 34));
+
+        coverage6.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
+        coverage6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                coverage6ActionPerformed(evt);
+            }
+        });
+        coverage6.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                coverage6KeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                coverage6KeyTyped(evt);
+            }
+        });
+        jPanel7.add(coverage6, new org.netbeans.lib.awtextra.AbsoluteConstraints(615, 10, 60, 34));
+
+        jLabel163.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
+        jLabel163.setText("Coverage :");
+        jPanel7.add(jLabel163, new org.netbeans.lib.awtextra.AbsoluteConstraints(525, 10, -1, 34));
+
+        jLabel167.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
+        jLabel167.setText("Kilograms / KGS :");
+        jPanel7.add(jLabel167, new org.netbeans.lib.awtextra.AbsoluteConstraints(325, 10, -1, 34));
 
         jTabbedPane2.addTab("5", jPanel7);
 
@@ -1182,7 +1326,7 @@ public class Add_new_design extends javax.swing.JFrame {
         jPanel8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         colorway_name7.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
-        jPanel8.add(colorway_name7, new org.netbeans.lib.awtextra.AbsoluteConstraints(175, 11, 268, 34));
+        jPanel8.add(colorway_name7, new org.netbeans.lib.awtextra.AbsoluteConstraints(133, 10, 180, 34));
 
         name21.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         name21.setName("pigment_name"); // NOI18N
@@ -1199,6 +1343,7 @@ public class Add_new_design extends javax.swing.JFrame {
 
         kg_21.setBackground(new java.awt.Color(204, 204, 204));
         kg_21.setFont(new java.awt.Font("Century Gothic", 1, 15)); // NOI18N
+        kg_21.setFocusable(false);
         jPanel8.add(kg_21, new org.netbeans.lib.awtextra.AbsoluteConstraints(451, 72, 85, 30));
 
         jLabel114.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
@@ -1213,17 +1358,13 @@ public class Add_new_design extends javax.swing.JFrame {
         jLabel116.setText("%");
         jPanel8.add(jLabel116, new org.netbeans.lib.awtextra.AbsoluteConstraints(416, 74, 31, 22));
 
-        jLabel117.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
-        jLabel117.setText("Kilograms / KGS :");
-        jPanel8.add(jLabel117, new org.netbeans.lib.awtextra.AbsoluteConstraints(453, 11, -1, 34));
-
         weigh_kg7.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         weigh_kg7.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 weigh_kg7FocusLost(evt);
             }
         });
-        jPanel8.add(weigh_kg7, new org.netbeans.lib.awtextra.AbsoluteConstraints(584, 11, 60, 34));
+        jPanel8.add(weigh_kg7, new org.netbeans.lib.awtextra.AbsoluteConstraints(452, 10, 60, 34));
 
         jLabel118.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         jLabel118.setText("Pigment Name :");
@@ -1247,6 +1388,7 @@ public class Add_new_design extends javax.swing.JFrame {
 
         kg_22.setBackground(new java.awt.Color(204, 204, 204));
         kg_22.setFont(new java.awt.Font("Century Gothic", 1, 15)); // NOI18N
+        kg_22.setFocusable(false);
         jPanel8.add(kg_22, new org.netbeans.lib.awtextra.AbsoluteConstraints(451, 109, 85, 30));
 
         jLabel120.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
@@ -1275,6 +1417,7 @@ public class Add_new_design extends javax.swing.JFrame {
 
         kg_23.setBackground(new java.awt.Color(204, 204, 204));
         kg_23.setFont(new java.awt.Font("Century Gothic", 1, 15)); // NOI18N
+        kg_23.setFocusable(false);
         jPanel8.add(kg_23, new org.netbeans.lib.awtextra.AbsoluteConstraints(451, 146, 85, 30));
 
         jLabel123.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
@@ -1297,7 +1440,35 @@ public class Add_new_design extends javax.swing.JFrame {
         jLabel149.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         jLabel149.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel149.setText("Screen Name :");
-        jPanel8.add(jLabel149, new org.netbeans.lib.awtextra.AbsoluteConstraints(43, 12, 120, 33));
+        jPanel8.add(jLabel149, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 10, 120, 34));
+
+        jLabel154.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
+        jLabel154.setText("%");
+        jPanel8.add(jLabel154, new org.netbeans.lib.awtextra.AbsoluteConstraints(678, 10, 15, 34));
+
+        coverage2.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
+        coverage2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                coverage2ActionPerformed(evt);
+            }
+        });
+        coverage2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                coverage2KeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                coverage2KeyTyped(evt);
+            }
+        });
+        jPanel8.add(coverage2, new org.netbeans.lib.awtextra.AbsoluteConstraints(615, 10, 60, 34));
+
+        jLabel155.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
+        jLabel155.setText("Coverage :");
+        jPanel8.add(jLabel155, new org.netbeans.lib.awtextra.AbsoluteConstraints(525, 10, -1, 34));
+
+        jLabel168.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
+        jLabel168.setText("Kilograms / KGS :");
+        jPanel8.add(jLabel168, new org.netbeans.lib.awtextra.AbsoluteConstraints(325, 10, -1, 34));
 
         jTabbedPane2.addTab("6", jPanel8);
 
@@ -1846,9 +2017,23 @@ int count = 0;
         }
     }//GEN-LAST:event_jCheckBox2ActionPerformed
 
+    private void quantityFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_quantityFocusLost
+        // TODO add your handling code here:
+        check_this_textbox(quantity);
+    }//GEN-LAST:event_quantityFocusLost
+
+    private void coverage1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_coverage1ActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_coverage1ActionPerformed
+
     private void coverage1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_coverage1KeyTyped
         // TODO add your handling code here:
-        //weigh_kg8.setText(coverage1.getText());
+        
+    }//GEN-LAST:event_coverage1KeyTyped
+
+    private void coverage1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_coverage1KeyReleased
+        // TODO add your handling code here:
         if(coverage1.getText().length()>0)
         {
             if(!checkText2(coverage1.getText()))
@@ -1856,12 +2041,67 @@ int count = 0;
                 compute_kg(weigh_kg8, Float.parseFloat(coverage1.getText()));
             }
         }
-    }//GEN-LAST:event_coverage1KeyTyped
+    }//GEN-LAST:event_coverage1KeyReleased
 
-    private void quantityFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_quantityFocusLost
+    private void coverage2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_coverage2ActionPerformed
         // TODO add your handling code here:
-        check_this_textbox(quantity);
-    }//GEN-LAST:event_quantityFocusLost
+    }//GEN-LAST:event_coverage2ActionPerformed
+
+    private void coverage2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_coverage2KeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_coverage2KeyReleased
+
+    private void coverage2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_coverage2KeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_coverage2KeyTyped
+
+    private void coverage3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_coverage3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_coverage3ActionPerformed
+
+    private void coverage3KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_coverage3KeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_coverage3KeyReleased
+
+    private void coverage3KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_coverage3KeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_coverage3KeyTyped
+
+    private void coverage4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_coverage4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_coverage4ActionPerformed
+
+    private void coverage4KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_coverage4KeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_coverage4KeyReleased
+
+    private void coverage4KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_coverage4KeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_coverage4KeyTyped
+
+    private void coverage5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_coverage5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_coverage5ActionPerformed
+
+    private void coverage5KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_coverage5KeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_coverage5KeyReleased
+
+    private void coverage5KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_coverage5KeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_coverage5KeyTyped
+
+    private void coverage6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_coverage6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_coverage6ActionPerformed
+
+    private void coverage6KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_coverage6KeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_coverage6KeyReleased
+
+    private void coverage6KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_coverage6KeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_coverage6KeyTyped
 
     private void compute_kg(JTextField weigh_kg, float coverage)
     {
@@ -2077,6 +2317,11 @@ int count = 0;
     private javax.swing.JTextField colorway_name7;
     private javax.swing.JComboBox combo_name;
     private javax.swing.JTextField coverage1;
+    private javax.swing.JTextField coverage2;
+    private javax.swing.JTextField coverage3;
+    private javax.swing.JTextField coverage4;
+    private javax.swing.JTextField coverage5;
+    private javax.swing.JTextField coverage6;
     private javax.swing.JTextField design_code;
     private javax.swing.JTextField design_name;
     private javax.swing.JComboBox fab_style_comb;
@@ -2086,7 +2331,6 @@ int count = 0;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel100;
-    private javax.swing.JLabel jLabel101;
     private javax.swing.JLabel jLabel102;
     private javax.swing.JLabel jLabel103;
     private javax.swing.JLabel jLabel104;
@@ -2099,7 +2343,6 @@ int count = 0;
     private javax.swing.JLabel jLabel114;
     private javax.swing.JLabel jLabel115;
     private javax.swing.JLabel jLabel116;
-    private javax.swing.JLabel jLabel117;
     private javax.swing.JLabel jLabel118;
     private javax.swing.JLabel jLabel119;
     private javax.swing.JLabel jLabel120;
@@ -2119,6 +2362,7 @@ int count = 0;
     private javax.swing.JLabel jLabel137;
     private javax.swing.JLabel jLabel138;
     private javax.swing.JLabel jLabel139;
+    private javax.swing.JLabel jLabel140;
     private javax.swing.JLabel jLabel143;
     private javax.swing.JLabel jLabel144;
     private javax.swing.JLabel jLabel145;
@@ -2126,6 +2370,22 @@ int count = 0;
     private javax.swing.JLabel jLabel147;
     private javax.swing.JLabel jLabel148;
     private javax.swing.JLabel jLabel149;
+    private javax.swing.JLabel jLabel153;
+    private javax.swing.JLabel jLabel154;
+    private javax.swing.JLabel jLabel155;
+    private javax.swing.JLabel jLabel156;
+    private javax.swing.JLabel jLabel157;
+    private javax.swing.JLabel jLabel158;
+    private javax.swing.JLabel jLabel159;
+    private javax.swing.JLabel jLabel160;
+    private javax.swing.JLabel jLabel161;
+    private javax.swing.JLabel jLabel162;
+    private javax.swing.JLabel jLabel163;
+    private javax.swing.JLabel jLabel164;
+    private javax.swing.JLabel jLabel165;
+    private javax.swing.JLabel jLabel166;
+    private javax.swing.JLabel jLabel167;
+    private javax.swing.JLabel jLabel168;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -2133,7 +2393,6 @@ int count = 0;
     private javax.swing.JLabel jLabel50;
     private javax.swing.JLabel jLabel51;
     private javax.swing.JLabel jLabel52;
-    private javax.swing.JLabel jLabel53;
     private javax.swing.JLabel jLabel54;
     private javax.swing.JLabel jLabel55;
     private javax.swing.JLabel jLabel56;
@@ -2146,7 +2405,6 @@ int count = 0;
     private javax.swing.JLabel jLabel66;
     private javax.swing.JLabel jLabel67;
     private javax.swing.JLabel jLabel68;
-    private javax.swing.JLabel jLabel69;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel70;
     private javax.swing.JLabel jLabel71;
@@ -2160,7 +2418,6 @@ int count = 0;
     private javax.swing.JLabel jLabel82;
     private javax.swing.JLabel jLabel83;
     private javax.swing.JLabel jLabel84;
-    private javax.swing.JLabel jLabel85;
     private javax.swing.JLabel jLabel86;
     private javax.swing.JLabel jLabel87;
     private javax.swing.JLabel jLabel88;
