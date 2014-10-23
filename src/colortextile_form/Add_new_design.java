@@ -2059,14 +2059,15 @@ int count = 0;
             {
                 float this_quant = Float.parseFloat(quantity.getText());
                 computation = (80*coverage*this_quant)/1000;
-                weigh_kg.setText(Float.toString(computation));
+                weigh_kg.setText(String.format("%.2f", computation));
             }
             if(fabric_style.getText().equals("Cotton") || fab_style_comb.getSelectedItem().equals("Cotton")
             || fabric_style.getText().equals("Katunia") || fab_style_comb.getSelectedItem().equals("Katunia"))
             {
                 float this_quant = Float.parseFloat(quantity.getText());
                 computation = (80*coverage*this_quant)/1000;
-                weigh_kg.setText(Float.toString(computation));
+                weigh_kg.setText(String.format("%.2f", computation));
+               // weigh_kg.setText(Float.toString(computation%.02f));
             }
             if(fabric_style.getText().equals("MicroPeach") || fab_style_comb.getSelectedItem().equals("Micropeach")
             || fabric_style.getText().equals("TC") || fab_style_comb.getSelectedItem().equals("TC")
@@ -2074,7 +2075,7 @@ int count = 0;
             {
                 float this_quant = Float.parseFloat(quantity.getText());
                 computation = (80*coverage*this_quant)/1000;
-                weigh_kg.setText(Float.toString(computation));
+                weigh_kg.setText(String.format("%.2f", computation));
             }
             
         
