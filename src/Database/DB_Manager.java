@@ -529,6 +529,26 @@ public class DB_Manager {
         return null;
        
     }
+    
+    public ResultSet get_all_design(){
+        try
+        {
+          DBConnection db = new DBConnection();
+          Connection conn = db.getConnection();  
+          
+            PreparedStatement ps = conn.prepareStatement("SELECT * FROM design ORDER BY design ASC ");
+            ResultSet rs = ps.executeQuery();
+            
+            return rs;
+        }
+        catch (SQLException ex)
+        {
+            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+
+        
+    }
             
     
     //GET END
@@ -653,6 +673,7 @@ public class DB_Manager {
           if (sql == "SELECT * FROM job_order WHERE")
           {
               System.out.print("nothing to be searched");
+              return null;
           } else {
           
             PreparedStatement ps = conn.prepareStatement(sql);
@@ -667,9 +688,58 @@ public class DB_Manager {
         catch (Exception ex)
         {
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
+        return null;
         }
         
+        
+    }
+    public ResultSet Search_Design(colortextile_class.design design) {
+        
+         try
+        {
+          DBConnection db = new DBConnection();
+          Connection conn = db.getConnection();  
+          
+          String sql ="SELECT * FROM design WHERE";
+          int increment = 0;
+          
+          if (design.getDesign_name() != null){
+              sql = sql + " design_name = '"+design.getDesign_name()+"'";
+              increment++;
+          } 
+          System.out.println(sql);
+          
+          if (design.getColorway_name() != null){
+              if(increment > 0)
+              { sql = sql + " AND";
+              }
+              sql = sql + " colorway_name= '"+design.getColorway_name()+"'";
+              increment++;
+          }
+          
+          
+          System.out.println(sql);
+          
+          if (sql == "SELECT * FROM design WHERE")
+          {
+              System.out.print("nothing to be searched");
+              return null;
+          } else {
+          
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            
+            
+            return rs;
+           
+            
+          }
+        }
+        catch (Exception ex)
+        {
+            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
         return null;
+        }
     }
     
     
