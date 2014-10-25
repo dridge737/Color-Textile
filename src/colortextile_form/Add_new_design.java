@@ -408,10 +408,10 @@ public class Add_new_design extends javax.swing.JFrame {
         jLabel10.setBounds(20, 30, 153, 34);
 
         text_job_order.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+            }
             public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
                 text_job_orderInputMethodTextChanged(evt);
-            }
-            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
             }
         });
         text_job_order.addActionListener(new java.awt.event.ActionListener() {
