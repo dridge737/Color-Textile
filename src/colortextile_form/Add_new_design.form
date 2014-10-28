@@ -426,9 +426,12 @@
               <Font name="Century Gothic" size="16" style="0"/>
             </Property>
             <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
-              <SpinnerModel initial="1414069215129" stepSize="5" type="date"/>
+              <SpinnerModel initial="now" stepSize="5" type="date"/>
             </Property>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="spinner_date.setEditor(new JSpinner.DateEditor(spinner_date, &quot;dd/MM/yyyy&quot;));"/>
+          </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="570" y="30" width="150" height="34"/>

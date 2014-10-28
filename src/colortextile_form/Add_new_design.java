@@ -12,13 +12,16 @@ import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.regex.Pattern;
 import javax.swing.InputVerifier;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
+import javax.swing.JSpinner;
 import javax.swing.JTextField;
+import javax.swing.SpinnerDateModel;
 /**
  *
  * @author Eldridge
@@ -34,7 +37,7 @@ public class Add_new_design extends javax.swing.JFrame {
     public Add_new_design() {
         initComponents();
         addListItems();
-       
+        
         //Center the form
         Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
         int x = (int) ((dimension.getWidth() - this.getWidth()) / 2);
@@ -408,10 +411,10 @@ public class Add_new_design extends javax.swing.JFrame {
         jLabel10.setBounds(20, 30, 153, 34);
 
         text_job_order.addInputMethodListener(new java.awt.event.InputMethodListener() {
-            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
-            }
             public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
                 text_job_orderInputMethodTextChanged(evt);
+            }
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
             }
         });
         text_job_order.addActionListener(new java.awt.event.ActionListener() {
@@ -469,9 +472,10 @@ public class Add_new_design extends javax.swing.JFrame {
         jLabel6.getAccessibleContext().setAccessibleDescription("");
 
         spinner_date.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
-        spinner_date.setModel(new javax.swing.SpinnerDateModel(new java.util.Date(1414069215129L), null, null, java.util.Calendar.DAY_OF_MONTH));
+        spinner_date.setModel(new javax.swing.SpinnerDateModel());
         jPanel1.add(spinner_date);
         spinner_date.setBounds(570, 30, 150, 34);
+        spinner_date.setEditor(new JSpinner.DateEditor(spinner_date, "dd/MM/yyyy"));
 
         fab_style_comb.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         fab_style_comb.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Pongee", "Cotton", "Katunia", "Micropeach", "TC", "Tropicana" }));
