@@ -465,6 +465,7 @@ public class Add_new_design extends javax.swing.JFrame {
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel6.setText("Date :");
+        jLabel6.setToolTipText("");
         jLabel6.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         jPanel1.add(jLabel6);
         jLabel6.setBounds(455, 30, 100, 30);
@@ -473,6 +474,7 @@ public class Add_new_design extends javax.swing.JFrame {
 
         spinner_date.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
         spinner_date.setModel(new javax.swing.SpinnerDateModel());
+        spinner_date.setToolTipText("Day, Month and Year");
         jPanel1.add(spinner_date);
         spinner_date.setBounds(570, 30, 150, 34);
         spinner_date.setEditor(new JSpinner.DateEditor(spinner_date, "dd/MM/yyyy"));
@@ -583,9 +585,9 @@ public class Add_new_design extends javax.swing.JFrame {
         jPanel9.add(name1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 72, 165, 30));
 
         percentage1.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
-        percentage1.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                percentage1FocusLost(evt);
+        percentage1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                percentage1KeyReleased(evt);
             }
         });
         jPanel9.add(percentage1, new org.netbeans.lib.awtextra.AbsoluteConstraints(351, 72, 61, 30));
@@ -596,7 +598,7 @@ public class Add_new_design extends javax.swing.JFrame {
         kg_2.setFont(new java.awt.Font("Century Gothic", 1, 15)); // NOI18N
         kg_2.setFocusable(false);
         kg_2.setSelectionColor(new java.awt.Color(0, 0, 0));
-        jPanel9.add(kg_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(451, 110, 85, 30));
+        jPanel9.add(kg_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(451, 109, 85, 30));
 
         jLabel130.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         jLabel130.setText("kg / prep");
@@ -615,9 +617,9 @@ public class Add_new_design extends javax.swing.JFrame {
         jPanel9.add(jLabel133, new org.netbeans.lib.awtextra.AbsoluteConstraints(525, 10, -1, 34));
 
         weigh_kg8.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
-        weigh_kg8.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                weigh_kg8FocusLost(evt);
+        weigh_kg8.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                weigh_kg8KeyReleased(evt);
             }
         });
         jPanel9.add(weigh_kg8, new org.netbeans.lib.awtextra.AbsoluteConstraints(452, 10, 60, 34));
@@ -631,9 +633,9 @@ public class Add_new_design extends javax.swing.JFrame {
         jPanel9.add(name2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 109, 165, 30));
 
         percentage2.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
-        percentage2.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                percentage2FocusLost(evt);
+        percentage2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                percentage2KeyReleased(evt);
             }
         });
         jPanel9.add(percentage2, new org.netbeans.lib.awtextra.AbsoluteConstraints(351, 109, 61, 30));
@@ -655,9 +657,9 @@ public class Add_new_design extends javax.swing.JFrame {
         jPanel9.add(name3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 146, 165, 30));
 
         percentage3.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
-        percentage3.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                percentage3FocusLost(evt);
+        percentage3.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                percentage3KeyReleased(evt);
             }
         });
         jPanel9.add(percentage3, new org.netbeans.lib.awtextra.AbsoluteConstraints(351, 146, 61, 30));
@@ -732,9 +734,9 @@ public class Add_new_design extends javax.swing.JFrame {
         jPanel4.add(name5, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 72, 165, 30));
 
         percentage5.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
-        percentage5.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                percentage5FocusLost(evt);
+        percentage5.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                percentage5KeyReleased(evt);
             }
         });
         jPanel4.add(percentage5, new org.netbeans.lib.awtextra.AbsoluteConstraints(351, 72, 61, 30));
@@ -759,9 +761,9 @@ public class Add_new_design extends javax.swing.JFrame {
         jPanel4.add(jLabel52, new org.netbeans.lib.awtextra.AbsoluteConstraints(416, 74, 31, 22));
 
         weigh_kg3.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
-        weigh_kg3.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                weigh_kg3FocusLost(evt);
+        weigh_kg3.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                weigh_kg3KeyReleased(evt);
             }
         });
         jPanel4.add(weigh_kg3, new org.netbeans.lib.awtextra.AbsoluteConstraints(452, 10, 60, 34));
@@ -775,9 +777,9 @@ public class Add_new_design extends javax.swing.JFrame {
         jPanel4.add(name6, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 109, 165, 30));
 
         percentage6.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
-        percentage6.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                percentage6FocusLost(evt);
+        percentage6.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                percentage6KeyReleased(evt);
             }
         });
         jPanel4.add(percentage6, new org.netbeans.lib.awtextra.AbsoluteConstraints(351, 109, 61, 30));
@@ -806,9 +808,9 @@ public class Add_new_design extends javax.swing.JFrame {
         jPanel4.add(name7, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 146, 165, 30));
 
         percentage7.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
-        percentage7.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                percentage7FocusLost(evt);
+        percentage7.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                percentage7KeyReleased(evt);
             }
         });
         jPanel4.add(percentage7, new org.netbeans.lib.awtextra.AbsoluteConstraints(351, 146, 61, 30));
@@ -878,9 +880,9 @@ public class Add_new_design extends javax.swing.JFrame {
         jPanel5.add(name9, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 72, 165, 30));
 
         percentage9.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
-        percentage9.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                percentage9FocusLost(evt);
+        percentage9.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                percentage9KeyReleased(evt);
             }
         });
         jPanel5.add(percentage9, new org.netbeans.lib.awtextra.AbsoluteConstraints(351, 72, 61, 30));
@@ -904,9 +906,9 @@ public class Add_new_design extends javax.swing.JFrame {
         jPanel5.add(jLabel68, new org.netbeans.lib.awtextra.AbsoluteConstraints(416, 74, 31, 22));
 
         weigh_kg4.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
-        weigh_kg4.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                weigh_kg4FocusLost(evt);
+        weigh_kg4.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                weigh_kg4KeyReleased(evt);
             }
         });
         jPanel5.add(weigh_kg4, new org.netbeans.lib.awtextra.AbsoluteConstraints(452, 10, 60, 34));
@@ -920,9 +922,9 @@ public class Add_new_design extends javax.swing.JFrame {
         jPanel5.add(name10, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 109, 165, 30));
 
         percentage10.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
-        percentage10.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                percentage10FocusLost(evt);
+        percentage10.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                percentage10KeyReleased(evt);
             }
         });
         jPanel5.add(percentage10, new org.netbeans.lib.awtextra.AbsoluteConstraints(351, 109, 61, 30));
@@ -950,9 +952,9 @@ public class Add_new_design extends javax.swing.JFrame {
         jPanel5.add(name11, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 146, 165, 30));
 
         percentage11.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
-        percentage11.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                percentage11FocusLost(evt);
+        percentage11.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                percentage11KeyReleased(evt);
             }
         });
         jPanel5.add(percentage11, new org.netbeans.lib.awtextra.AbsoluteConstraints(351, 146, 61, 30));
@@ -1021,9 +1023,9 @@ public class Add_new_design extends javax.swing.JFrame {
         jPanel6.add(name13, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 72, 165, 30));
 
         percentage13.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
-        percentage13.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                percentage13FocusLost(evt);
+        percentage13.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                percentage13KeyReleased(evt);
             }
         });
         jPanel6.add(percentage13, new org.netbeans.lib.awtextra.AbsoluteConstraints(351, 72, 61, 30));
@@ -1047,9 +1049,9 @@ public class Add_new_design extends javax.swing.JFrame {
         jPanel6.add(jLabel84, new org.netbeans.lib.awtextra.AbsoluteConstraints(416, 74, 31, 22));
 
         weigh_kg5.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
-        weigh_kg5.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                weigh_kg5FocusLost(evt);
+        weigh_kg5.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                weigh_kg5KeyReleased(evt);
             }
         });
         jPanel6.add(weigh_kg5, new org.netbeans.lib.awtextra.AbsoluteConstraints(452, 10, 60, 34));
@@ -1063,9 +1065,9 @@ public class Add_new_design extends javax.swing.JFrame {
         jPanel6.add(name14, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 109, 165, 30));
 
         percentage14.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
-        percentage14.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                percentage14FocusLost(evt);
+        percentage14.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                percentage14KeyReleased(evt);
             }
         });
         jPanel6.add(percentage14, new org.netbeans.lib.awtextra.AbsoluteConstraints(351, 109, 61, 30));
@@ -1092,9 +1094,9 @@ public class Add_new_design extends javax.swing.JFrame {
         jPanel6.add(name15, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 146, 165, 30));
 
         percentage15.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
-        percentage15.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                percentage15FocusLost(evt);
+        percentage15.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                percentage15KeyReleased(evt);
             }
         });
         jPanel6.add(percentage15, new org.netbeans.lib.awtextra.AbsoluteConstraints(351, 146, 61, 30));
@@ -1163,9 +1165,9 @@ public class Add_new_design extends javax.swing.JFrame {
         jPanel7.add(name17, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 72, 165, 30));
 
         percentage17.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
-        percentage17.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                percentage17FocusGained(evt);
+        percentage17.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                percentage17KeyReleased(evt);
             }
         });
         jPanel7.add(percentage17, new org.netbeans.lib.awtextra.AbsoluteConstraints(351, 72, 61, 30));
@@ -1189,9 +1191,9 @@ public class Add_new_design extends javax.swing.JFrame {
         jPanel7.add(jLabel100, new org.netbeans.lib.awtextra.AbsoluteConstraints(416, 74, 31, 22));
 
         weigh_kg6.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
-        weigh_kg6.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                weigh_kg6FocusLost(evt);
+        weigh_kg6.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                weigh_kg6KeyReleased(evt);
             }
         });
         jPanel7.add(weigh_kg6, new org.netbeans.lib.awtextra.AbsoluteConstraints(452, 10, 60, 34));
@@ -1205,9 +1207,9 @@ public class Add_new_design extends javax.swing.JFrame {
         jPanel7.add(name18, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 109, 165, 30));
 
         percentage18.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
-        percentage18.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                percentage18FocusLost(evt);
+        percentage18.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                percentage18KeyReleased(evt);
             }
         });
         jPanel7.add(percentage18, new org.netbeans.lib.awtextra.AbsoluteConstraints(351, 109, 61, 30));
@@ -1234,9 +1236,9 @@ public class Add_new_design extends javax.swing.JFrame {
         jPanel7.add(name19, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 146, 165, 30));
 
         percentage19.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
-        percentage19.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                percentage19FocusLost(evt);
+        percentage19.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                percentage19KeyReleased(evt);
             }
         });
         jPanel7.add(percentage19, new org.netbeans.lib.awtextra.AbsoluteConstraints(351, 146, 61, 30));
@@ -1305,11 +1307,6 @@ public class Add_new_design extends javax.swing.JFrame {
         jPanel8.add(name21, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 72, 165, 30));
 
         percentage21.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
-        percentage21.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                percentage21FocusLost(evt);
-            }
-        });
         percentage21.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 percentage21KeyReleased(evt);
@@ -1336,9 +1333,9 @@ public class Add_new_design extends javax.swing.JFrame {
         jPanel8.add(jLabel116, new org.netbeans.lib.awtextra.AbsoluteConstraints(416, 74, 31, 22));
 
         weigh_kg7.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
-        weigh_kg7.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                weigh_kg7FocusLost(evt);
+        weigh_kg7.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                weigh_kg7KeyReleased(evt);
             }
         });
         jPanel8.add(weigh_kg7, new org.netbeans.lib.awtextra.AbsoluteConstraints(452, 10, 60, 34));
@@ -1352,9 +1349,9 @@ public class Add_new_design extends javax.swing.JFrame {
         jPanel8.add(name22, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 109, 165, 30));
 
         percentage22.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
-        percentage22.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                percentage22FocusLost(evt);
+        percentage22.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                percentage22KeyReleased(evt);
             }
         });
         jPanel8.add(percentage22, new org.netbeans.lib.awtextra.AbsoluteConstraints(351, 109, 61, 30));
@@ -1381,9 +1378,9 @@ public class Add_new_design extends javax.swing.JFrame {
         jPanel8.add(name23, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 146, 165, 30));
 
         percentage23.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
-        percentage23.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                percentage23FocusLost(evt);
+        percentage23.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                percentage23KeyReleased(evt);
             }
         });
         jPanel8.add(percentage23, new org.netbeans.lib.awtextra.AbsoluteConstraints(351, 146, 61, 30));
@@ -1782,163 +1779,6 @@ public class Add_new_design extends javax.swing.JFrame {
          
     }//GEN-LAST:event_add_orderActionPerformed
     
-    private void percentage23FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_percentage23FocusLost
-        // TODO add your handling code here:
-        check_this_textbox(percentage23);
-        update_kg_prep(percentage23.getText(), weigh_kg7.getText(), kg_23);
-    }//GEN-LAST:event_percentage23FocusLost
-
-    private void percentage22FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_percentage22FocusLost
-        // TODO add your handling code here:
-        check_this_textbox(percentage22);
-        update_kg_prep(percentage22.getText(), weigh_kg7.getText(), kg_22);
-    }//GEN-LAST:event_percentage22FocusLost
-
-    private void weigh_kg7FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_weigh_kg7FocusLost
-        // TODO add your handling code here:
-        check_this_textbox(weigh_kg7);
-        update_kg_prep(percentage21.getText(), weigh_kg7.getText(), kg_21);
-        update_kg_prep(percentage22.getText(), weigh_kg7.getText(), kg_22);
-        update_kg_prep(percentage23.getText(), weigh_kg7.getText(), kg_23);
-        
-    }//GEN-LAST:event_weigh_kg7FocusLost
-
-    private void percentage21FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_percentage21FocusLost
-        // TODO add your handling code here:
-        check_this_textbox(percentage21);
-        update_kg_prep(percentage21.getText(), weigh_kg7.getText(), kg_21);
-    }//GEN-LAST:event_percentage21FocusLost
-
-    private void percentage19FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_percentage19FocusLost
-        // TODO add your handling code here:
-        check_this_textbox(percentage19);
-        update_kg_prep(percentage19.getText(), weigh_kg6.getText(), kg_19);
-    }//GEN-LAST:event_percentage19FocusLost
-
-    private void percentage18FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_percentage18FocusLost
-        // TODO add your handling code here:
-        check_this_textbox(percentage18);
-        update_kg_prep(percentage18.getText(), weigh_kg6.getText(), kg_18);
-    }//GEN-LAST:event_percentage18FocusLost
-
-    private void percentage17FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_percentage17FocusGained
-        // TODO add your handling code here:
-        check_this_textbox(percentage17);
-        update_kg_prep(percentage17.getText(), weigh_kg6.getText(), kg_17);
-    }//GEN-LAST:event_percentage17FocusGained
-
-    private void percentage15FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_percentage15FocusLost
-        // TODO add your handling code here:
-        check_this_textbox(percentage15);
-        update_kg_prep(percentage15.getText(), weigh_kg5.getText(), kg_15);
-    }//GEN-LAST:event_percentage15FocusLost
-
-    private void percentage14FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_percentage14FocusLost
-        // TODO add your handling code here:
-        check_this_textbox(percentage14); 
-        update_kg_prep(percentage14.getText(), weigh_kg5.getText(), kg_14);
-    }//GEN-LAST:event_percentage14FocusLost
-
-    private void percentage13FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_percentage13FocusLost
-        // TODO add your handling code here:
-        check_this_textbox(percentage13);
-        update_kg_prep(percentage13.getText(), weigh_kg5.getText(), kg_13);
-    }//GEN-LAST:event_percentage13FocusLost
-
-    private void percentage11FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_percentage11FocusLost
-        // TODO add your handling code here:
-        check_this_textbox(percentage11);        
-        update_kg_prep(percentage11.getText(), weigh_kg4.getText(), kg_11);
-    }//GEN-LAST:event_percentage11FocusLost
-
-    private void percentage10FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_percentage10FocusLost
-        // TODO add your handling code here:
-        check_this_textbox(percentage10);
-        update_kg_prep(percentage10.getText(), weigh_kg4.getText(), kg_10);
-    }//GEN-LAST:event_percentage10FocusLost
-
-    private void percentage9FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_percentage9FocusLost
-        // TODO add your handling code here:
-        check_this_textbox(percentage9);
-        update_kg_prep(percentage9.getText(), weigh_kg4.getText(), kg_9);
-    }//GEN-LAST:event_percentage9FocusLost
-
-    private void percentage7FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_percentage7FocusLost
-        // TODO add your handling code here:
-        check_this_textbox(percentage7);
-        update_kg_prep(percentage7.getText(), weigh_kg3.getText(), kg_7);
-    }//GEN-LAST:event_percentage7FocusLost
-
-    private void percentage6FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_percentage6FocusLost
-        // TODO add your handling code here:
-        check_this_textbox(percentage6);
-        update_kg_prep(percentage6.getText(), weigh_kg3.getText(), kg_6);
-    }//GEN-LAST:event_percentage6FocusLost
-
-    private void percentage5FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_percentage5FocusLost
-        // TODO add your handling code here:
-        check_this_textbox(percentage5);
-        update_kg_prep(percentage5.getText(), weigh_kg3.getText(), kg_5);
-    }//GEN-LAST:event_percentage5FocusLost
-
-    private void percentage1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_percentage1FocusLost
-        // TODO add your handling code here:
-        check_this_textbox(percentage1);
-        update_kg_prep(percentage1.getText(), weigh_kg8.getText(), kg_1);
-    }//GEN-LAST:event_percentage1FocusLost
-
-    private void percentage2FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_percentage2FocusLost
-        // TODO add your handling code here:
-        check_this_textbox(percentage2);
-        update_kg_prep(percentage2.getText(), weigh_kg8.getText(), kg_2);
-    }//GEN-LAST:event_percentage2FocusLost
-
-    private void percentage3FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_percentage3FocusLost
-        // TODO add your handling code here:
-        check_this_textbox(percentage3);
-        update_kg_prep(percentage3.getText(), weigh_kg8.getText(), kg_3);
-    }//GEN-LAST:event_percentage3FocusLost
-
-    private void weigh_kg8FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_weigh_kg8FocusLost
-        // TODO add your handling code here:
-        check_this_textbox(weigh_kg8);
-        update_kg_prep(percentage1.getText(), weigh_kg8.getText(), kg_2);
-        update_kg_prep(percentage2.getText(), weigh_kg8.getText(), kg_2);
-        update_kg_prep(percentage3.getText(), weigh_kg8.getText(), kg_3);
-    }//GEN-LAST:event_weigh_kg8FocusLost
-
-    private void weigh_kg3FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_weigh_kg3FocusLost
-        // TODO add your handling code here:
-        check_this_textbox(weigh_kg3);
-        update_kg_prep(percentage5.getText(), weigh_kg3.getText(), kg_5);
-        update_kg_prep(percentage6.getText(), weigh_kg3.getText(), kg_6);
-        update_kg_prep(percentage7.getText(), weigh_kg3.getText(), kg_7);
-    }//GEN-LAST:event_weigh_kg3FocusLost
-
-    private void weigh_kg4FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_weigh_kg4FocusLost
-        // TODO add your handling code here:
-        check_this_textbox(weigh_kg4);
-        update_kg_prep(percentage9.getText(), weigh_kg4.getText(), kg_9);
-        update_kg_prep(percentage10.getText(), weigh_kg4.getText(), kg_10);
-        update_kg_prep(percentage11.getText(), weigh_kg4.getText(), kg_11);
-    }//GEN-LAST:event_weigh_kg4FocusLost
-
-    private void weigh_kg5FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_weigh_kg5FocusLost
-        // TODO add your handling code here:
-        check_this_textbox(weigh_kg5);
-        update_kg_prep(percentage13.getText(), weigh_kg5.getText(), kg_13);
-        update_kg_prep(percentage14.getText(), weigh_kg5.getText(), kg_14);
-        update_kg_prep(percentage15.getText(), weigh_kg5.getText(), kg_15);
-    }//GEN-LAST:event_weigh_kg5FocusLost
-
-    private void weigh_kg6FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_weigh_kg6FocusLost
-        // TODO add your handling code here:
-        check_this_textbox(weigh_kg6);
-         update_kg_prep(percentage17.getText(), weigh_kg6.getText(), kg_17);
-         update_kg_prep(percentage18.getText(), weigh_kg6.getText(), kg_18);
-         update_kg_prep(percentage19.getText(), weigh_kg6.getText(), kg_19);
-    }//GEN-LAST:event_weigh_kg6FocusLost
-
     private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
         if(this.jCheckBox1.isSelected()){
             this.text_name.setVisible(true);
@@ -2057,10 +1897,161 @@ int count = 0;
         }
     }//GEN-LAST:event_coverage6KeyReleased
 
+    private void percentage1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage1KeyReleased
+        // TODO add your handling code here:
+        check_this_textbox(percentage1);
+        update_kg_prep(percentage1.getText(), weigh_kg8.getText(), kg_1);
+    }//GEN-LAST:event_percentage1KeyReleased
+
+    private void percentage2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage2KeyReleased
+        // TODO add your handling code here:
+        check_this_textbox(percentage2);
+        update_kg_prep(percentage2.getText(), weigh_kg8.getText(), kg_2);
+    }//GEN-LAST:event_percentage2KeyReleased
+
+    private void percentage3KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage3KeyReleased
+        // TODO add your handling code here:
+        check_this_textbox(percentage3);
+        update_kg_prep(percentage3.getText(), weigh_kg8.getText(), kg_3);
+    }//GEN-LAST:event_percentage3KeyReleased
+
+    private void weigh_kg8KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_weigh_kg8KeyReleased
+        // TODO add your handling code here:
+        check_this_textbox(weigh_kg8);
+        update_kg_prep(percentage1.getText(), weigh_kg8.getText(), kg_1);
+        update_kg_prep(percentage2.getText(), weigh_kg8.getText(), kg_2);
+        update_kg_prep(percentage3.getText(), weigh_kg8.getText(), kg_3);
+    }//GEN-LAST:event_weigh_kg8KeyReleased
+
+    private void percentage5KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage5KeyReleased
+        // TODO add your handling code here:
+        check_this_textbox(percentage5);
+        update_kg_prep(percentage5.getText(), weigh_kg8.getText(), kg_5);
+    }//GEN-LAST:event_percentage5KeyReleased
+
+    private void percentage6KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage6KeyReleased
+        // TODO add your handling code here:
+        check_this_textbox(percentage6);
+        update_kg_prep(percentage6.getText(), weigh_kg8.getText(), kg_6);
+    }//GEN-LAST:event_percentage6KeyReleased
+
+    private void percentage7KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage7KeyReleased
+        // TODO add your handling code here:
+        check_this_textbox(percentage7);
+        update_kg_prep(percentage7.getText(), weigh_kg8.getText(), kg_7);
+    }//GEN-LAST:event_percentage7KeyReleased
+
+    private void weigh_kg3KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_weigh_kg3KeyReleased
+        // TODO add your handling code here:
+        check_this_textbox(weigh_kg3);
+        update_kg_prep(percentage5.getText(), weigh_kg3.getText(), kg_5);
+        update_kg_prep(percentage6.getText(), weigh_kg3.getText(), kg_6);
+        update_kg_prep(percentage7.getText(), weigh_kg3.getText(), kg_7);
+    }//GEN-LAST:event_weigh_kg3KeyReleased
+
+    private void percentage9KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage9KeyReleased
+        // TODO add your handling code here:
+        check_this_textbox(percentage9);
+        update_kg_prep(percentage9.getText(), weigh_kg4.getText(), kg_9);
+    }//GEN-LAST:event_percentage9KeyReleased
+
+    private void percentage10KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage10KeyReleased
+        // TODO add your handling code here:
+        check_this_textbox(percentage10);
+        update_kg_prep(percentage10.getText(), weigh_kg4.getText(), kg_10);
+    }//GEN-LAST:event_percentage10KeyReleased
+
+    private void percentage11KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage11KeyReleased
+        // TODO add your handling code here:
+        check_this_textbox(percentage11);        
+        update_kg_prep(percentage11.getText(), weigh_kg4.getText(), kg_11);
+    }//GEN-LAST:event_percentage11KeyReleased
+
+    private void weigh_kg4KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_weigh_kg4KeyReleased
+        // TODO add your handling code here:
+        check_this_textbox(weigh_kg4);
+        update_kg_prep(percentage9.getText(), weigh_kg4.getText(), kg_9);
+        update_kg_prep(percentage10.getText(), weigh_kg4.getText(), kg_10);
+        update_kg_prep(percentage11.getText(), weigh_kg4.getText(), kg_11);
+    }//GEN-LAST:event_weigh_kg4KeyReleased
+
+    private void percentage13KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage13KeyReleased
+        // TODO add your handling code here:
+        check_this_textbox(percentage13);
+        update_kg_prep(percentage13.getText(), weigh_kg5.getText(), kg_13);
+    }//GEN-LAST:event_percentage13KeyReleased
+
+    private void percentage14KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage14KeyReleased
+        // TODO add your handling code here:
+        check_this_textbox(percentage14); 
+        update_kg_prep(percentage14.getText(), weigh_kg5.getText(), kg_14);
+    }//GEN-LAST:event_percentage14KeyReleased
+
+    private void percentage15KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage15KeyReleased
+        // TODO add your handling code here:
+        check_this_textbox(percentage15);
+        update_kg_prep(percentage15.getText(), weigh_kg5.getText(), kg_15);
+    }//GEN-LAST:event_percentage15KeyReleased
+
+    private void weigh_kg5KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_weigh_kg5KeyReleased
+        // TODO add your handling code here:
+        check_this_textbox(weigh_kg5);
+        update_kg_prep(percentage13.getText(), weigh_kg5.getText(), kg_13);
+        update_kg_prep(percentage14.getText(), weigh_kg5.getText(), kg_14);
+        update_kg_prep(percentage15.getText(), weigh_kg5.getText(), kg_15);
+    }//GEN-LAST:event_weigh_kg5KeyReleased
+
+    private void percentage17KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage17KeyReleased
+        // TODO add your handling code here:
+        check_this_textbox(percentage17);
+        update_kg_prep(percentage17.getText(), weigh_kg6.getText(), kg_17);
+    }//GEN-LAST:event_percentage17KeyReleased
+
+    private void percentage18KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage18KeyReleased
+        // TODO add your handling code here:
+        check_this_textbox(percentage18);
+        update_kg_prep(percentage18.getText(), weigh_kg6.getText(), kg_18);
+    }//GEN-LAST:event_percentage18KeyReleased
+
+    private void percentage19KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage19KeyReleased
+        // TODO add your handling code here:
+        check_this_textbox(percentage19);
+        update_kg_prep(percentage19.getText(), weigh_kg6.getText(), kg_19);
+    }//GEN-LAST:event_percentage19KeyReleased
+
+    private void weigh_kg6KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_weigh_kg6KeyReleased
+        // TODO add your handling code here:
+        check_this_textbox(weigh_kg6);
+        update_kg_prep(percentage17.getText(), weigh_kg6.getText(), kg_17);
+        update_kg_prep(percentage18.getText(), weigh_kg6.getText(), kg_18);
+        update_kg_prep(percentage19.getText(), weigh_kg6.getText(), kg_19);
+    }//GEN-LAST:event_weigh_kg6KeyReleased
+
     private void percentage21KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage21KeyReleased
         // TODO add your handling code here:
-        
+        check_this_textbox(percentage21);
+        update_kg_prep(percentage21.getText(), weigh_kg7.getText(), kg_21);
     }//GEN-LAST:event_percentage21KeyReleased
+
+    private void percentage22KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage22KeyReleased
+        // TODO add your handling code here:
+        check_this_textbox(percentage22);
+        update_kg_prep(percentage22.getText(), weigh_kg7.getText(), kg_22);
+    }//GEN-LAST:event_percentage22KeyReleased
+
+    private void percentage23KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage23KeyReleased
+        // TODO add your handling code here:
+        check_this_textbox(percentage23);
+        update_kg_prep(percentage23.getText(), weigh_kg7.getText(), kg_23);
+    }//GEN-LAST:event_percentage23KeyReleased
+
+    private void weigh_kg7KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_weigh_kg7KeyReleased
+        // TODO add your handling code here:
+        check_this_textbox(weigh_kg7);
+        update_kg_prep(percentage21.getText(), weigh_kg7.getText(), kg_21);
+        update_kg_prep(percentage22.getText(), weigh_kg7.getText(), kg_22);
+        update_kg_prep(percentage23.getText(), weigh_kg7.getText(), kg_23);
+    }//GEN-LAST:event_weigh_kg7KeyReleased
 
     private void compute_kg(JTextField weigh_kg, float coverage)
     {
@@ -2070,14 +2061,14 @@ int count = 0;
             if(fabric_style.getText().equals("Pongee") || fab_style_comb.getSelectedItem().equals("Pongee"))
             {
                 float this_quant = Float.parseFloat(quantity.getText());
-                computation = (80*coverage*this_quant)/1000;
+                computation = (80*coverage/100*this_quant)/1000;
                 weigh_kg.setText(String.format("%.2f", computation));
             }
             if(fabric_style.getText().equals("Cotton") || fab_style_comb.getSelectedItem().equals("Cotton")
             || fabric_style.getText().equals("Katunia") || fab_style_comb.getSelectedItem().equals("Katunia"))
             {
                 float this_quant = Float.parseFloat(quantity.getText());
-                computation = (80*coverage*this_quant)/1000;
+                computation = (80*coverage/100*this_quant)/1000;
                 
                 weigh_kg.setText(String.format("%.2f", computation));
                // weigh_kg.setText(Float.toString(computation%.02f));
@@ -2087,7 +2078,7 @@ int count = 0;
             || fabric_style.getText().equals("Tropicana") || fab_style_comb.getSelectedItem().equals("Tropicana"))
             {
                 float this_quant = Float.parseFloat(quantity.getText());
-                computation = (80*coverage*this_quant)/1000;
+                computation = (80*coverage/100*this_quant)/1000;
                 weigh_kg.setText(String.format("%.2f", computation));
             }
         }
