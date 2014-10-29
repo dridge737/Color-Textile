@@ -277,6 +277,37 @@ public class Add_new_design extends javax.swing.JFrame {
         coverage2 = new javax.swing.JTextField();
         jLabel155 = new javax.swing.JLabel();
         jLabel168 = new javax.swing.JLabel();
+        jPanel15 = new javax.swing.JPanel();
+        colorway_name8 = new javax.swing.JTextField();
+        name24 = new javax.swing.JComboBox();
+        percentage24 = new javax.swing.JTextField();
+        jSeparator19 = new javax.swing.JSeparator();
+        kg_24 = new javax.swing.JTextField();
+        jLabel117 = new javax.swing.JLabel();
+        jLabel124 = new javax.swing.JLabel();
+        jLabel125 = new javax.swing.JLabel();
+        weigh_kg9 = new javax.swing.JTextField();
+        jLabel126 = new javax.swing.JLabel();
+        name25 = new javax.swing.JComboBox();
+        percentage25 = new javax.swing.JTextField();
+        jLabel141 = new javax.swing.JLabel();
+        kg_25 = new javax.swing.JTextField();
+        jLabel142 = new javax.swing.JLabel();
+        jLabel150 = new javax.swing.JLabel();
+        name26 = new javax.swing.JComboBox();
+        percentage26 = new javax.swing.JTextField();
+        jLabel151 = new javax.swing.JLabel();
+        kg_26 = new javax.swing.JTextField();
+        jLabel152 = new javax.swing.JLabel();
+        jSeparator20 = new javax.swing.JSeparator();
+        binder9 = new javax.swing.JComboBox();
+        jLabel169 = new javax.swing.JLabel();
+        jLabel170 = new javax.swing.JLabel();
+        jLabel171 = new javax.swing.JLabel();
+        jLabel172 = new javax.swing.JLabel();
+        coverage7 = new javax.swing.JTextField();
+        jLabel173 = new javax.swing.JLabel();
+        jLabel174 = new javax.swing.JLabel();
         add_order = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
 
@@ -411,10 +442,10 @@ public class Add_new_design extends javax.swing.JFrame {
         jLabel10.setBounds(20, 30, 153, 34);
 
         text_job_order.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+            }
             public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
                 text_job_orderInputMethodTextChanged(evt);
-            }
-            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
             }
         });
         text_job_order.addActionListener(new java.awt.event.ActionListener() {
@@ -470,7 +501,6 @@ public class Add_new_design extends javax.swing.JFrame {
         jPanel1.add(jLabel6);
         jLabel6.setBounds(455, 30, 100, 30);
         jLabel6.getAccessibleContext().setAccessibleName("date");
-        jLabel6.getAccessibleContext().setAccessibleDescription("");
 
         spinner_date.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
         spinner_date.setModel(new javax.swing.SpinnerDateModel());
@@ -1438,6 +1468,148 @@ public class Add_new_design extends javax.swing.JFrame {
 
         jTabbedPane2.addTab("6", jPanel8);
 
+        jPanel15.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel15.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        colorway_name8.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
+        jPanel15.add(colorway_name8, new org.netbeans.lib.awtextra.AbsoluteConstraints(133, 10, 180, 34));
+
+        name24.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
+        name24.setName("pigment_name"); // NOI18N
+        jPanel15.add(name24, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 72, 165, 30));
+
+        percentage24.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
+        percentage24.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                percentage24KeyReleased(evt);
+            }
+        });
+        jPanel15.add(percentage24, new org.netbeans.lib.awtextra.AbsoluteConstraints(351, 72, 61, 30));
+        jPanel15.add(jSeparator19, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 51, 775, 10));
+
+        kg_24.setBackground(new java.awt.Color(204, 204, 204));
+        kg_24.setFont(new java.awt.Font("Century Gothic", 1, 15)); // NOI18N
+        kg_24.setFocusable(false);
+        jPanel15.add(kg_24, new org.netbeans.lib.awtextra.AbsoluteConstraints(451, 72, 85, 30));
+
+        jLabel117.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
+        jLabel117.setText("kg / prep");
+        jPanel15.add(jLabel117, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 75, -1, -1));
+
+        jLabel124.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
+        jLabel124.setText("Pigment Name :");
+        jPanel15.add(jLabel124, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 75, -1, -1));
+
+        jLabel125.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
+        jLabel125.setText("%");
+        jPanel15.add(jLabel125, new org.netbeans.lib.awtextra.AbsoluteConstraints(416, 74, 31, 22));
+
+        weigh_kg9.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
+        weigh_kg9.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                weigh_kg9KeyReleased(evt);
+            }
+        });
+        jPanel15.add(weigh_kg9, new org.netbeans.lib.awtextra.AbsoluteConstraints(452, 10, 60, 34));
+
+        jLabel126.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
+        jLabel126.setText("Pigment Name :");
+        jPanel15.add(jLabel126, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 112, -1, -1));
+
+        name25.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
+        name25.setName("pigment_name"); // NOI18N
+        jPanel15.add(name25, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 109, 165, 30));
+
+        percentage25.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
+        percentage25.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                percentage25KeyReleased(evt);
+            }
+        });
+        jPanel15.add(percentage25, new org.netbeans.lib.awtextra.AbsoluteConstraints(351, 109, 61, 30));
+
+        jLabel141.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
+        jLabel141.setText("%");
+        jPanel15.add(jLabel141, new org.netbeans.lib.awtextra.AbsoluteConstraints(416, 111, 31, 22));
+
+        kg_25.setBackground(new java.awt.Color(204, 204, 204));
+        kg_25.setFont(new java.awt.Font("Century Gothic", 1, 15)); // NOI18N
+        kg_25.setFocusable(false);
+        jPanel15.add(kg_25, new org.netbeans.lib.awtextra.AbsoluteConstraints(451, 109, 85, 30));
+
+        jLabel142.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
+        jLabel142.setText("kg / prep");
+        jPanel15.add(jLabel142, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 112, -1, -1));
+
+        jLabel150.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
+        jLabel150.setText("Pigment Name :");
+        jPanel15.add(jLabel150, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 149, -1, -1));
+
+        name26.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
+        name26.setName("pigment_name"); // NOI18N
+        jPanel15.add(name26, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 146, 165, 30));
+
+        percentage26.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
+        percentage26.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                percentage26KeyReleased(evt);
+            }
+        });
+        jPanel15.add(percentage26, new org.netbeans.lib.awtextra.AbsoluteConstraints(351, 146, 61, 30));
+
+        jLabel151.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
+        jLabel151.setText("%");
+        jPanel15.add(jLabel151, new org.netbeans.lib.awtextra.AbsoluteConstraints(416, 148, 31, 22));
+
+        kg_26.setBackground(new java.awt.Color(204, 204, 204));
+        kg_26.setFont(new java.awt.Font("Century Gothic", 1, 15)); // NOI18N
+        kg_26.setFocusable(false);
+        jPanel15.add(kg_26, new org.netbeans.lib.awtextra.AbsoluteConstraints(451, 146, 85, 30));
+
+        jLabel152.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
+        jLabel152.setText("kg / prep");
+        jPanel15.add(jLabel152, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 149, -1, -1));
+        jPanel15.add(jSeparator20, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 255, 775, 10));
+
+        binder9.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
+        binder9.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "3.5", "4", "5.5", "8" }));
+        jPanel15.add(binder9, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 200, 61, 30));
+
+        jLabel169.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
+        jLabel169.setText("Binder :");
+        jPanel15.add(jLabel169, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 205, -1, -1));
+
+        jLabel170.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
+        jLabel170.setText("%");
+        jPanel15.add(jLabel170, new org.netbeans.lib.awtextra.AbsoluteConstraints(416, 205, -1, 22));
+
+        jLabel171.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
+        jLabel171.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel171.setText("Screen Name :");
+        jPanel15.add(jLabel171, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 10, 120, 34));
+
+        jLabel172.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
+        jLabel172.setText("%");
+        jPanel15.add(jLabel172, new org.netbeans.lib.awtextra.AbsoluteConstraints(678, 10, 15, 34));
+
+        coverage7.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
+        coverage7.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                coverage7KeyReleased(evt);
+            }
+        });
+        jPanel15.add(coverage7, new org.netbeans.lib.awtextra.AbsoluteConstraints(615, 10, 60, 34));
+
+        jLabel173.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
+        jLabel173.setText("Coverage :");
+        jPanel15.add(jLabel173, new org.netbeans.lib.awtextra.AbsoluteConstraints(525, 10, -1, 34));
+
+        jLabel174.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
+        jLabel174.setText("Kilograms / KGS :");
+        jPanel15.add(jLabel174, new org.netbeans.lib.awtextra.AbsoluteConstraints(325, 10, -1, 34));
+
+        jTabbedPane2.addTab("7", jPanel15);
+
         add_order.setBackground(new java.awt.Color(255, 255, 255));
         add_order.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         add_order.setText("Add Order");
@@ -2053,6 +2225,43 @@ int count = 0;
         update_kg_prep(percentage23.getText(), weigh_kg7.getText(), kg_23);
     }//GEN-LAST:event_weigh_kg7KeyReleased
 
+    private void percentage24KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage24KeyReleased
+        // TODO add your handling code here:
+        check_this_textbox(percentage24);
+        update_kg_prep(percentage24.getText(), weigh_kg9.getText(), kg_24);
+    }//GEN-LAST:event_percentage24KeyReleased
+
+    private void weigh_kg9KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_weigh_kg9KeyReleased
+        // TODO add your handling code here:
+        check_this_textbox(weigh_kg9);
+        update_kg_prep(percentage24.getText(), weigh_kg9.getText(), kg_24);
+        update_kg_prep(percentage25.getText(), weigh_kg9.getText(), kg_25);
+        update_kg_prep(percentage26.getText(), weigh_kg9.getText(), kg_26);
+    }//GEN-LAST:event_weigh_kg9KeyReleased
+
+    private void percentage25KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage25KeyReleased
+        // TODO add your handling code here:
+        check_this_textbox(percentage25);
+        update_kg_prep(percentage25.getText(), weigh_kg9.getText(), kg_25);
+    }//GEN-LAST:event_percentage25KeyReleased
+
+    private void percentage26KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage26KeyReleased
+        // TODO add your handling code here:
+        check_this_textbox(percentage26);
+        update_kg_prep(percentage26.getText(), weigh_kg9.getText(), kg_26);
+    }//GEN-LAST:event_percentage26KeyReleased
+
+    private void coverage7KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_coverage7KeyReleased
+        // TODO add your handling code here:
+        if(coverage7.getText().length()>0)
+        {
+            if(!checkText2(coverage7.getText()))
+            {
+                compute_kg(weigh_kg6, Float.parseFloat(coverage7.getText()));
+            }
+        }
+    }//GEN-LAST:event_coverage7KeyReleased
+
     private void compute_kg(JTextField weigh_kg, float coverage)
     {
         float computation;
@@ -2260,6 +2469,7 @@ int count = 0;
     private javax.swing.JComboBox binder6;
     private javax.swing.JComboBox binder7;
     private javax.swing.JComboBox binder8;
+    private javax.swing.JComboBox binder9;
     private javax.swing.JTextField colorway_name;
     private javax.swing.JTextField colorway_name2;
     private javax.swing.JTextField colorway_name3;
@@ -2267,6 +2477,7 @@ int count = 0;
     private javax.swing.JTextField colorway_name5;
     private javax.swing.JTextField colorway_name6;
     private javax.swing.JTextField colorway_name7;
+    private javax.swing.JTextField colorway_name8;
     private javax.swing.JComboBox combo_name;
     private javax.swing.JTextField coverage1;
     private javax.swing.JTextField coverage2;
@@ -2274,6 +2485,7 @@ int count = 0;
     private javax.swing.JTextField coverage4;
     private javax.swing.JTextField coverage5;
     private javax.swing.JTextField coverage6;
+    private javax.swing.JTextField coverage7;
     private javax.swing.JTextField design_code;
     private javax.swing.JTextField design_name;
     private javax.swing.JComboBox fab_style_comb;
@@ -2296,12 +2508,16 @@ int count = 0;
     private javax.swing.JLabel jLabel114;
     private javax.swing.JLabel jLabel115;
     private javax.swing.JLabel jLabel116;
+    private javax.swing.JLabel jLabel117;
     private javax.swing.JLabel jLabel118;
     private javax.swing.JLabel jLabel119;
     private javax.swing.JLabel jLabel120;
     private javax.swing.JLabel jLabel121;
     private javax.swing.JLabel jLabel122;
     private javax.swing.JLabel jLabel123;
+    private javax.swing.JLabel jLabel124;
+    private javax.swing.JLabel jLabel125;
+    private javax.swing.JLabel jLabel126;
     private javax.swing.JLabel jLabel127;
     private javax.swing.JLabel jLabel128;
     private javax.swing.JLabel jLabel129;
@@ -2316,6 +2532,8 @@ int count = 0;
     private javax.swing.JLabel jLabel138;
     private javax.swing.JLabel jLabel139;
     private javax.swing.JLabel jLabel140;
+    private javax.swing.JLabel jLabel141;
+    private javax.swing.JLabel jLabel142;
     private javax.swing.JLabel jLabel143;
     private javax.swing.JLabel jLabel144;
     private javax.swing.JLabel jLabel145;
@@ -2323,6 +2541,9 @@ int count = 0;
     private javax.swing.JLabel jLabel147;
     private javax.swing.JLabel jLabel148;
     private javax.swing.JLabel jLabel149;
+    private javax.swing.JLabel jLabel150;
+    private javax.swing.JLabel jLabel151;
+    private javax.swing.JLabel jLabel152;
     private javax.swing.JLabel jLabel153;
     private javax.swing.JLabel jLabel154;
     private javax.swing.JLabel jLabel155;
@@ -2339,6 +2560,12 @@ int count = 0;
     private javax.swing.JLabel jLabel166;
     private javax.swing.JLabel jLabel167;
     private javax.swing.JLabel jLabel168;
+    private javax.swing.JLabel jLabel169;
+    private javax.swing.JLabel jLabel170;
+    private javax.swing.JLabel jLabel171;
+    private javax.swing.JLabel jLabel172;
+    private javax.swing.JLabel jLabel173;
+    private javax.swing.JLabel jLabel174;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -2388,6 +2615,7 @@ int count = 0;
     private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel14;
+    private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -2405,6 +2633,8 @@ int count = 0;
     private javax.swing.JSeparator jSeparator16;
     private javax.swing.JSeparator jSeparator17;
     private javax.swing.JSeparator jSeparator18;
+    private javax.swing.JSeparator jSeparator19;
+    private javax.swing.JSeparator jSeparator20;
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JSeparator jSeparator8;
     private javax.swing.JSeparator jSeparator9;
@@ -2422,6 +2652,9 @@ int count = 0;
     private javax.swing.JTextField kg_21;
     private javax.swing.JTextField kg_22;
     private javax.swing.JTextField kg_23;
+    private javax.swing.JTextField kg_24;
+    private javax.swing.JTextField kg_25;
+    private javax.swing.JTextField kg_26;
     private javax.swing.JTextField kg_3;
     private javax.swing.JTextField kg_5;
     private javax.swing.JTextField kg_6;
@@ -2440,6 +2673,9 @@ int count = 0;
     private javax.swing.JComboBox name21;
     private javax.swing.JComboBox name22;
     private javax.swing.JComboBox name23;
+    private javax.swing.JComboBox name24;
+    private javax.swing.JComboBox name25;
+    private javax.swing.JComboBox name26;
     private javax.swing.JComboBox name3;
     private javax.swing.JComboBox name5;
     private javax.swing.JComboBox name6;
@@ -2458,6 +2694,9 @@ int count = 0;
     private javax.swing.JTextField percentage21;
     private javax.swing.JTextField percentage22;
     private javax.swing.JTextField percentage23;
+    private javax.swing.JTextField percentage24;
+    private javax.swing.JTextField percentage25;
+    private javax.swing.JTextField percentage26;
     private javax.swing.JTextField percentage3;
     private javax.swing.JTextField percentage5;
     private javax.swing.JTextField percentage6;
@@ -2473,6 +2712,7 @@ int count = 0;
     private javax.swing.JTextField weigh_kg6;
     private javax.swing.JTextField weigh_kg7;
     private javax.swing.JTextField weigh_kg8;
+    private javax.swing.JTextField weigh_kg9;
     // End of variables declaration//GEN-END:variables
 
     
