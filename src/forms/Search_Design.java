@@ -23,7 +23,8 @@ public class Search_Design extends javax.swing.JFrame {
 
     private void fill_table() {
     
-        DB_Manager conn = new DB_Manager();
+        DB_Manager table = new DB_Manager();
+        table.get_all_design();
         
         
 }
