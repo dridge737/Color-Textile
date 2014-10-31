@@ -31,11 +31,7 @@ public class Add_new_design extends javax.swing.JFrame {
 
     private int count_screen_1 = 0;
     
-    DefaultListModel list = new DefaultListModel();
-    private int[] quantity_list;
-    private String[] job_order_list;
-    private String[] customer_list;
-    private int list_count =0;
+    
     /**
      * Creates new form Add_new_design
      */
@@ -2297,29 +2293,61 @@ int count = 0;
     private void design_codeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_design_codeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_design_codeActionPerformed
-
-    private void button_include_customerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_include_customerActionPerformed
-        // TODO add your handling code here:
-        if(this.jCheckBox1.isSelected()){
-            if (this.text_name.getText().trim().equals("") && this.text_job_order.getText().trim().equals(""))
-        {
-            
-            JOptionPane.showMessageDialog(null,"Please Type a Name and Job Order!");
-            } else {
-                this.customer_list[this.list_count] = this.text_name.getText();
-                this.job_order_list[this.list_count] = this.text_job_order.getText();
-                this.quantity_list[this.list_count] = Integer.parseInt(this.quantity.getText());
+   
+    DefaultListModel list = new DefaultListModel();
+   // private int[] quantity_list;
+   // private String[] job_order_list;
+   // private String[] customer_list;
+    private int list_count =0;
+    ArrayList quantity_list = new ArrayList( );
+    ArrayList job_list = new ArrayList( );
+    ArrayList customer_list = new ArrayList( );
+  
+    
+    private void include(String customer_name){
+        
+        if (this.quantity.getText().trim().equals("")){
+            JOptionPane.showMessageDialog(null,"Please Enter a quantity!");
+        } else {
+        customer_list.add(customer_name);
+        job_list.add(this.text_job_order.getText());
+        quantity_list.add(this.quantity.getText());
+              //  this.customer_list[this.list_count] = customer_name;
+               // this.job_order_list[this.list_count] = this.text_job_order.getText();
+              //  this.quantity_list[this.list_count] = Integer.parseInt(this.quantity.getText());
                 
-                String combine = this.customer_list[this.list_count] + "    " + this.job_order_list[this.list_count] + "    " + this.quantity_list[this.list_count];
+                String combine = list_count +  "    " + this.job_list.get(list_count) + "    " + this.customer_list.get(list_count) + "    " +  this.quantity_list.get(list_count);
                 list.addElement(combine);
                 
                 this.jList1.setModel(list);
-                
-               
+                this.list_count ++;
         }
-        } else {
+    }
+    
+    private void button_include_customerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_include_customerActionPerformed
+        // TODO add your handling code here:
+        if (this.text_job_order.getText().trim().equals("")){
             JOptionPane.showMessageDialog(null,"Please Type a Name!");
+        } else {
+            if(this.jCheckBox1.isSelected()){
+            if (this.text_name.getText().trim().equals("") )
+            {
+            
+            JOptionPane.showMessageDialog(null,"Please Type a Name!");
+            } else {
+                include(this.text_name.getText().toString());
+               
+                    }
+        } else {
+            if (this.combo_name.getSelectedItem().equals(""))
+            {
+                JOptionPane.showMessageDialog(null,"Please Select a Customer!");
+            } else {
+                include(this.combo_name.getSelectedItem().toString());
+            }
         }
+        }
+        
     }//GEN-LAST:event_button_include_customerActionPerformed
 
     private void compute_kg(JTextField weigh_kg, float coverage)
