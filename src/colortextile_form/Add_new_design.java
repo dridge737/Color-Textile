@@ -601,6 +601,11 @@ public class Add_new_design extends javax.swing.JFrame {
         jLabel4.setBounds(430, 260, 120, 34);
 
         button_remove_customer.setText("Remove Customer");
+        button_remove_customer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_remove_customerActionPerformed(evt);
+            }
+        });
         jPanel1.add(button_remove_customer);
         button_remove_customer.setBounds(510, 160, 180, 30);
 
@@ -2303,7 +2308,18 @@ int count = 0;
     ArrayList job_list = new ArrayList( );
     ArrayList customer_list = new ArrayList( );
   
-    
+    private void fill_list(){
+        int x=0;
+        list.removeAllElements();
+        while(x <= list_count)
+            {
+        String combine = x +  "    " + this.job_list.get(x) + "    " + this.customer_list.get(x) + "    " +  this.quantity_list.get(x);
+                list.addElement(combine);
+                
+                this.jList1.setModel(list);
+                x++;
+            }
+    }
     private void include(String customer_name){
         
         if (this.quantity.getText().trim().equals("")){
@@ -2316,10 +2332,7 @@ int count = 0;
                // this.job_order_list[this.list_count] = this.text_job_order.getText();
               //  this.quantity_list[this.list_count] = Integer.parseInt(this.quantity.getText());
                 
-                String combine = list_count +  "    " + this.job_list.get(list_count) + "    " + this.customer_list.get(list_count) + "    " +  this.quantity_list.get(list_count);
-                list.addElement(combine);
-                
-                this.jList1.setModel(list);
+                fill_list();
                 this.list_count ++;
         }
     }
@@ -2349,6 +2362,24 @@ int count = 0;
         }
         
     }//GEN-LAST:event_button_include_customerActionPerformed
+
+    private void button_remove_customerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_remove_customerActionPerformed
+        // TODO add your handling code here:
+        
+        String a = this.jList1.getSelectedValue().toString();
+        int selected = this.jList1.getSelectedIndex();
+        //JOptionPane.showMessageDialog(null,a);
+        //JOptionPane.showMessageDialog(null,selected);
+        
+        customer_list.remove(selected);
+        job_list.remove(selected);
+        quantity_list.remove(selected);
+        
+        fill_list();
+        
+       // this.jList1.set(selected,selected + "Removed");
+        
+    }//GEN-LAST:event_button_remove_customerActionPerformed
 
     private void compute_kg(JTextField weigh_kg, float coverage)
     {
