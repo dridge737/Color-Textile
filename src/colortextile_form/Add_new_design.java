@@ -60,6 +60,8 @@ public class Add_new_design extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
         jPanel12 = new javax.swing.JPanel();
         jPanel13 = new javax.swing.JPanel();
         jPanel14 = new javax.swing.JPanel();
@@ -93,6 +95,9 @@ public class Add_new_design extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList();
         button_include_customer = new javax.swing.JButton();
+        jLabel12 = new javax.swing.JLabel();
+        quantity_total = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
         jPanel11 = new javax.swing.JPanel();
         jTabbedPane2 = new javax.swing.JTabbedPane();
         jPanel9 = new javax.swing.JPanel();
@@ -316,6 +321,10 @@ public class Add_new_design extends javax.swing.JFrame {
         add_order = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
 
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane2.setViewportView(jTextArea1);
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Add New Design");
         setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
@@ -398,9 +407,9 @@ public class Add_new_design extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel3.setText("Quantity :");
+        jLabel3.setText("Total :");
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(460, 60, 100, 34);
+        jLabel3.setBounds(460, 100, 100, 34);
 
         jLabel5.setBackground(new java.awt.Color(255, 255, 255));
         jLabel5.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
@@ -408,7 +417,7 @@ public class Add_new_design extends javax.swing.JFrame {
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel5.setText("m");
         jPanel1.add(jLabel5);
-        jLabel5.setBounds(730, 60, 13, 34);
+        jLabel5.setBounds(730, 100, 13, 34);
 
         design_name.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jPanel1.add(design_name);
@@ -607,12 +616,12 @@ public class Add_new_design extends javax.swing.JFrame {
             }
         });
         jPanel1.add(button_remove_customer);
-        button_remove_customer.setBounds(510, 160, 180, 30);
+        button_remove_customer.setBounds(290, 160, 150, 30);
 
         jScrollPane1.setViewportView(jList1);
 
         jPanel1.add(jScrollPane1);
-        jScrollPane1.setBounds(30, 110, 410, 90);
+        jScrollPane1.setBounds(30, 110, 240, 90);
 
         button_include_customer.setText("Include Customer");
         button_include_customer.addActionListener(new java.awt.event.ActionListener() {
@@ -621,7 +630,32 @@ public class Add_new_design extends javax.swing.JFrame {
             }
         });
         jPanel1.add(button_include_customer);
-        button_include_customer.setBounds(510, 120, 180, 30);
+        button_include_customer.setBounds(290, 120, 150, 30);
+
+        jLabel12.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel12.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel12.setText("Quantity :");
+        jPanel1.add(jLabel12);
+        jLabel12.setBounds(460, 60, 100, 34);
+
+        quantity_total.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        quantity_total.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                quantity_totalFocusLost(evt);
+            }
+        });
+        jPanel1.add(quantity_total);
+        quantity_total.setBounds(570, 100, 150, 34);
+
+        jLabel13.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel13.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel13.setText("m");
+        jPanel1.add(jLabel13);
+        jLabel13.setBounds(730, 60, 13, 34);
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 770, 300));
 
@@ -1996,15 +2030,25 @@ public class Add_new_design extends javax.swing.JFrame {
 
     private void text_job_orderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_text_job_orderActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_text_job_orderActionPerformed
-
+     
     private void text_job_orderInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_text_job_orderInputMethodTextChanged
         // TODO add your handling code here:
     }//GEN-LAST:event_text_job_orderInputMethodTextChanged
 int count = 0;
+ String job_temp = "";
     private void text_job_orderKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_text_job_orderKeyTyped
         // TODO add your handling code here:
-        if (count < this.text_job_order.getText().length()){
+       
+       
+        if (this.text_job_order.getText().length() > 10 ){
+           // job_temp = job_temp.substring(job_temp.length() - 1);
+             this.text_job_order.setText(job_temp);
+             
+        } else {
+            
+            if (count < this.text_job_order.getText().length()){
             if(this.text_job_order.getText().length() == 3){
             this.text_job_order.setText(this.text_job_order.getText() + "-");
             }
@@ -2012,8 +2056,9 @@ int count = 0;
             this.text_job_order.setText(this.text_job_order.getText() + "-");
             }
             
-        }
-        if (this.text_job_order.getText().length() > 11){
+            }
+            
+            job_temp = this.text_job_order.getText();
             
         }
         
@@ -2300,25 +2345,29 @@ int count = 0;
     }//GEN-LAST:event_design_codeActionPerformed
    
     DefaultListModel list = new DefaultListModel();
-   // private int[] quantity_list;
-   // private String[] job_order_list;
-   // private String[] customer_list;
-    private int list_count =0;
+ 
+   
     ArrayList quantity_list = new ArrayList( );
     ArrayList job_list = new ArrayList( );
     ArrayList customer_list = new ArrayList( );
   
     private void fill_list(){
         int x=0;
+        int total =0;
         list.removeAllElements();
-        while(x <= list_count)
+        total = 0;
+        while(x <= job_list.size() - 1)
             {
         String combine = x +  "    " + this.job_list.get(x) + "    " + this.customer_list.get(x) + "    " +  this.quantity_list.get(x);
                 list.addElement(combine);
                 
-                this.jList1.setModel(list);
+                total = total + Integer.parseInt(this.quantity_list.get(x).toString());
                 x++;
             }
+        
+        this.jList1.setModel(list);
+        this.quantity_total.setText(null);
+        this.quantity_total.setText(total + "");
     }
     private void include(String customer_name){
         
@@ -2333,7 +2382,7 @@ int count = 0;
               //  this.quantity_list[this.list_count] = Integer.parseInt(this.quantity.getText());
                 
                 fill_list();
-                this.list_count ++;
+                
         }
     }
     
@@ -2371,15 +2420,19 @@ int count = 0;
         //JOptionPane.showMessageDialog(null,a);
         //JOptionPane.showMessageDialog(null,selected);
         
-        customer_list.remove(selected);
-        job_list.remove(selected);
-        quantity_list.remove(selected);
+      this.customer_list.remove(selected);
+      this.job_list.remove(selected);
+      this.quantity_list.remove(selected);
+      
+      fill_list();
         
-        fill_list();
-        
-       // this.jList1.set(selected,selected + "Removed");
+       
         
     }//GEN-LAST:event_button_remove_customerActionPerformed
+
+    private void quantity_totalFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_quantity_totalFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_quantity_totalFocusLost
 
     private void compute_kg(JTextField weigh_kg, float coverage)
     {
@@ -2632,6 +2685,7 @@ int count = 0;
     private javax.swing.JLabel jLabel117;
     private javax.swing.JLabel jLabel118;
     private javax.swing.JLabel jLabel119;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel120;
     private javax.swing.JLabel jLabel121;
     private javax.swing.JLabel jLabel122;
@@ -2642,6 +2696,7 @@ int count = 0;
     private javax.swing.JLabel jLabel127;
     private javax.swing.JLabel jLabel128;
     private javax.swing.JLabel jLabel129;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel130;
     private javax.swing.JLabel jLabel131;
     private javax.swing.JLabel jLabel132;
@@ -2747,6 +2802,7 @@ int count = 0;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator10;
     private javax.swing.JSeparator jSeparator11;
     private javax.swing.JSeparator jSeparator12;
@@ -2762,6 +2818,7 @@ int count = 0;
     private javax.swing.JSeparator jSeparator8;
     private javax.swing.JSeparator jSeparator9;
     private javax.swing.JTabbedPane jTabbedPane2;
+    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField kg_1;
     private javax.swing.JTextField kg_10;
     private javax.swing.JTextField kg_11;
@@ -2826,6 +2883,7 @@ int count = 0;
     private javax.swing.JTextField percentage7;
     private javax.swing.JTextField percentage9;
     private javax.swing.JTextField quantity;
+    private javax.swing.JTextField quantity_total;
     private javax.swing.JSpinner spinner_date;
     private javax.swing.JTextField text_job_order;
     private javax.swing.JTextField text_name;
