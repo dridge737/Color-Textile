@@ -181,9 +181,9 @@ public class DB_Manager {
             preparedStmt.setString(1, new_job.getJob_id());
             preparedStmt.setString(2, new_job.getDate());
             preparedStmt.setInt(3, new_job.getQuantity());         
-            preparedStmt.setString(4, new_job.getFabric_style());
+            //preparedStmt.setString(4, new_job.getFabric_style());
             preparedStmt.setInt(5, new_job.getCustomer_id());
-            preparedStmt.setString(6, new_job.getDesign_code());
+            //preparedStmt.setString(6, new_job.getDesign_code());
 
             preparedStmt.execute();
             return true;
@@ -194,6 +194,29 @@ public class DB_Manager {
     }
     
     //ADD END
+    
+    //DELETE START
+    ///DELETE function here
+    ///Start every function with delete_*
+    public boolean delete_design_and_colorway_con_from_id_colorway(int id_colorway)
+    {
+        try {
+            DBConnection db = new DBConnection();
+            Connection conn = db.getConnection();  
+        
+            PreparedStatement ps = conn.prepareStatement("DELETE FROM colorway_screen_connect WHERE id_colorway = ?");
+        
+            int item = 1;
+            ps.setInt(item++, id_colorway);
+            ps.executeUpdate();
+            return true;
+        }
+        catch(SQLException ex){
+            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;      
+        
+    }
     
     ///////////////////////////////////////////////////////////////////////////////////////////
         
@@ -491,7 +514,7 @@ public class DB_Manager {
           DBConnection db = new DBConnection();
           Connection conn = db.getConnection();  
           
-            PreparedStatement ps = conn.prepareStatement("SELECT * FROM job_order ORDER BY date ASC ");
+            PreparedStatement ps = conn.prepareStatement("SELECT * FROM job_order WHERE job_order_id = ?");
             ResultSet rs = ps.executeQuery();
             
             return rs;
@@ -528,6 +551,33 @@ public class DB_Manager {
 
         return null;
        
+    }
+    
+    public colortextile_class.job_order get_job_order_details(String job_order_id)
+    {
+        colortextile_class.job_order this_job = new colortextile_class.job_order();
+        try
+        {
+            DBConnection db = new DBConnection();
+            Connection conn = db.getConnection(); 
+            PreparedStatement ps = conn.prepareStatement("SELECT * FROM job_order WHERE job_order_id = ?");
+            int item = 1;
+            ps.setString(item++, job_order_id);
+            ResultSet rs = ps.executeQuery();
+            rs.first();
+            this_job.setJob_id(job_order_id);
+            this_job.setCustomer_id(rs.getInt("customer_id"));
+            this_job.setQuantity(rs.getInt("quantity"));
+            this_job.setId_purchase(rs.getInt("id_purchase"));
+//            this_job.set
+            
+        }
+        catch(SQLException ex)
+        {
+            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+        return this_job;
     }
     
     public ResultSet get_all_design(){
@@ -741,6 +791,8 @@ public class DB_Manager {
         return null;
         }
     }
+    
+    
     
     
     //SEARCH END

@@ -79,4 +79,10 @@ public class colorway_and_screen {
         return false;
     }
     
+    public boolean delete_id_coloray_from_id_colorway()
+    {
+        Database.DB_Manager new_conn = new Database.DB_Manager();
+        return new_conn.delete_design_and_colorway_con_from_id_colorway(id_colorway);
+    }
+    
 }

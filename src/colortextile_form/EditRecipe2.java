@@ -27,15 +27,17 @@ import javax.swing.SpinnerDateModel;
  *
  * @author Eldridge
  */
-public class Add_new_design extends javax.swing.JFrame {
+public class EditRecipe2 extends javax.swing.JFrame {
 
     private int count_screen_1 = 0;
+    private String job_order;
+    private int colorway_id;
     
     
     /**
      * Creates new form Add_new_design
      */
-    public Add_new_design() {
+    public EditRecipe2() {
         initComponents();
         addListItems();
         
@@ -49,6 +51,32 @@ public class Add_new_design extends javax.swing.JFrame {
         fill_customer_list();
         this.text_name.setVisible(false);
         this.fabric_style.setVisible(false);
+    }
+    
+    public EditRecipe2(String job_order_id)
+    {
+        initComponents();
+        addListItems();
+        job_order = job_order_id;
+        get_details(job_order_id);
+        
+        //Center the form
+        Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
+        int x = (int) ((dimension.getWidth() - this.getWidth()) / 2);
+        //int y = (int) ((dimension.getHeight() - this.getHeight()) / 2);
+        this.setLocation(x,0);
+        //InputVerifier new_verifier = new Verifier();
+        //this.pigment_percentage8.setInputVerifier(new_verifier);
+        fill_customer_list();
+        this.text_name.setVisible(false);
+        this.fabric_style.setVisible(false);
+    }
+    
+    public void get_details(String job_order_id)
+    {
+        colortextile_class.job_order new_job = new colortextile_class.job_order();
+        new_job = new_job.get_details(job_order_id);
+        
     }
 
     /**
@@ -333,7 +361,6 @@ public class Add_new_design extends javax.swing.JFrame {
         setLocationByPlatform(true);
         setMinimumSize(new java.awt.Dimension(790, 710));
         setModalExclusionType(java.awt.Dialog.ModalExclusionType.APPLICATION_EXCLUDE);
-        setPreferredSize(new java.awt.Dimension(805, 715));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel12.setBackground(new java.awt.Color(255, 255, 255));
@@ -370,7 +397,7 @@ public class Add_new_design extends javax.swing.JFrame {
 
         jLabel7.setFont(new java.awt.Font("Century Gothic", 0, 36)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("New Recipe Form");
+        jLabel7.setText("Edit Recipe");
 
         javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
         jPanel14.setLayout(jPanel14Layout);
@@ -379,7 +406,7 @@ public class Add_new_design extends javax.swing.JFrame {
             .addGroup(jPanel14Layout.createSequentialGroup()
                 .addGap(53, 53, 53)
                 .addComponent(jLabel7)
-                .addContainerGap(410, Short.MAX_VALUE))
+                .addContainerGap(521, Short.MAX_VALUE))
         );
         jPanel14Layout.setVerticalGroup(
             jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1679,7 +1706,7 @@ public class Add_new_design extends javax.swing.JFrame {
 
         add_order.setBackground(new java.awt.Color(255, 255, 255));
         add_order.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        add_order.setText("Add Order");
+        add_order.setText("Save Changes for Recipe");
         add_order.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 add_orderActionPerformed(evt);
@@ -1779,7 +1806,6 @@ public class Add_new_design extends javax.swing.JFrame {
         {
             if(temp_pigment_percent.length() > 0)
             {
-                System.out.println("Help");
             float pigment_percent = Float.parseFloat(temp_pigment_percent);
             //declare pigment id
             // MFD_VIOLET --> 1(id)
@@ -1867,10 +1893,16 @@ public class Add_new_design extends javax.swing.JFrame {
         add_this_colorway_screen(screen_pig_id , color_id);
     }
     
+    private void delete_screen_colorway_connect_using_id_colorway(int id_colorway)
+    {
+        colortextile_class.colorway_and_screen new_c_and_s = new colortextile_class.colorway_and_screen();
+        new_c_and_s.setId_colorway(id_colorway);
+    }
+    
     private void add_orderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_orderActionPerformed
         // TODO add your handling code here:
         // Winston codes start
-       
+       /*
         if(this.jCheckBox1.isSelected()){
             if (this.text_name.getText().trim().equals(""))
         {
@@ -1894,8 +1926,9 @@ public class Add_new_design extends javax.swing.JFrame {
         } else {
             add_job();
         }
+        */
         // Winston codes end
-        
+        delete_screen_colorway_connect_using_id_colorway(1);
         add_this_design(design_code.getText() , design_name.getText());
         
         int colorway_id = add_this_colorway(colorway_name2.getText(), 
@@ -2350,7 +2383,7 @@ int count = 0;
     ArrayList quantity_list = new ArrayList( );
     ArrayList job_list = new ArrayList( );
     ArrayList customer_list = new ArrayList( );
-    ArrayList customer_new1 = new ArrayList( );
+  
     private void fill_list(){
         int x=0;
         int total =0;
@@ -2369,7 +2402,7 @@ int count = 0;
         this.quantity_total.setText(null);
         this.quantity_total.setText(total + "");
     }
-    private void include(String customer_name, Boolean old_new){
+    private void include(String customer_name){
         
         if (this.quantity.getText().trim().equals("")){
             JOptionPane.showMessageDialog(null,"Please Enter a quantity!");
@@ -2388,7 +2421,6 @@ int count = 0;
     
     private void button_include_customerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_include_customerActionPerformed
         // TODO add your handling code here:
-        boolean result;
         if (this.text_job_order.getText().trim().equals("")){
             JOptionPane.showMessageDialog(null,"Please Type a Name!");
         } else {
@@ -2398,8 +2430,7 @@ int count = 0;
             
             JOptionPane.showMessageDialog(null,"Please Type a Name!");
             } else {
-                result = true;
-                include(this.text_name.getText().toString() , result);
+                include(this.text_name.getText().toString());
                
                     }
         } else {
@@ -2407,8 +2438,7 @@ int count = 0;
             {
                 JOptionPane.showMessageDialog(null,"Please Select a Customer!");
             } else {
-                result = false;
-                include(this.combo_name.getSelectedItem().toString(), result);
+                include(this.combo_name.getSelectedItem().toString());
             }
         }
         }
@@ -2617,21 +2647,22 @@ int count = 0;
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Add_new_design.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EditRecipe2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Add_new_design.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EditRecipe2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Add_new_design.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EditRecipe2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Add_new_design.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EditRecipe2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
-                new Add_new_design().setVisible(true);
+                new EditRecipe2().setVisible(true);
             }
         });
     }
