@@ -195,6 +195,29 @@ public class DB_Manager {
     
     //ADD END
     
+    //DELETE START
+    ///DELETE function here
+    ///Start every function with delete_*
+    public boolean delete_design_and_colorway_con_from_id_colorway(int id_colorway)
+    {
+        try {
+            DBConnection db = new DBConnection();
+            Connection conn = db.getConnection();  
+        
+            PreparedStatement ps = conn.prepareStatement("DELETE FROM colorway_screen_connect WHERE id_colorway = ?");
+        
+            int item = 1;
+            ps.setInt(item++, id_colorway);
+            ps.executeUpdate();
+            return true;
+        }
+        catch(SQLException ex){
+            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;      
+        
+    }
+    
     ///////////////////////////////////////////////////////////////////////////////////////////
         
     //GET START
@@ -491,7 +514,7 @@ public class DB_Manager {
           DBConnection db = new DBConnection();
           Connection conn = db.getConnection();  
           
-            PreparedStatement ps = conn.prepareStatement("SELECT * FROM job_order ORDER BY date ASC ");
+            PreparedStatement ps = conn.prepareStatement("SELECT * FROM job_order WHERE job_order_id = ?");
             ResultSet rs = ps.executeQuery();
             
             return rs;
@@ -528,6 +551,26 @@ public class DB_Manager {
 
         return null;
        
+    }
+    
+    public colortextile_class.job_order get_job_order_details(String job_order_id)
+    {
+        colortextile_class.job_order this_job = new colortextile_class.job_order();
+        try
+        {
+            DBConnection db = new DBConnection();
+            Connection conn = db.getConnection(); 
+            PreparedStatement ps = conn.prepareStatement("SELECT * FROM job_order WHERE job_order_id = ?");
+            int item = 1;
+            ps.setString(item++, job_order_id);
+            ps.executeQuery();
+        }
+        catch(SQLException ex)
+        {
+            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+        return this_job;
     }
     
     public ResultSet get_all_design(){
@@ -741,6 +784,8 @@ public class DB_Manager {
         return null;
         }
     }
+    
+    
     
     
     //SEARCH END

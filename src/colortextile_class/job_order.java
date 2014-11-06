@@ -26,6 +26,23 @@ public class job_order {
     private String design_code;
     private ResultSet job_order_resultset;
 
+    public void job_order(String job_order_id)
+    {
+        Database.DB_Manager new_conn = new Database.DB_Manager();
+        job_order details = new_conn.get_job_order_details(job_order_id);
+        this.job_id = job_order_id;
+        this.date = details.date;
+        this.design_code = details.design_code;
+        this.fabric_style = details.fabric_style;
+        
+    }
+    
+    public job_order get_details(String job_order_id)
+    {
+        Database.DB_Manager new_conn = new Database.DB_Manager();
+        return new_conn.get_job_order_details(job_order_id);
+        
+    }
     /**
      * @return the job_id
      */
@@ -174,8 +191,11 @@ public class job_order {
     public void set_details_from_job_order_id()
     {
         Database.DB_Manager new_conn = new Database.DB_Manager();
-        //new_conn
+        // = new_conn.get_job_order_details(job_id);
+        
     }
+    
+    
 
 
 
