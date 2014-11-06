@@ -181,9 +181,9 @@ public class DB_Manager {
             preparedStmt.setString(1, new_job.getJob_id());
             preparedStmt.setString(2, new_job.getDate());
             preparedStmt.setInt(3, new_job.getQuantity());         
-            preparedStmt.setString(4, new_job.getFabric_style());
+            //preparedStmt.setString(4, new_job.getFabric_style());
             preparedStmt.setInt(5, new_job.getCustomer_id());
-            preparedStmt.setString(6, new_job.getDesign_code());
+            //preparedStmt.setString(6, new_job.getDesign_code());
 
             preparedStmt.execute();
             return true;
@@ -563,7 +563,14 @@ public class DB_Manager {
             PreparedStatement ps = conn.prepareStatement("SELECT * FROM job_order WHERE job_order_id = ?");
             int item = 1;
             ps.setString(item++, job_order_id);
-            ps.executeQuery();
+            ResultSet rs = ps.executeQuery();
+            rs.first();
+            this_job.setJob_id(job_order_id);
+            this_job.setCustomer_id(rs.getInt("customer_id"));
+            this_job.setQuantity(rs.getInt("quantity"));
+            this_job.setId_purchase(rs.getInt("id_purchase"));
+//            this_job.set
+            
         }
         catch(SQLException ex)
         {

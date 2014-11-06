@@ -13,7 +13,7 @@ public class purchase_order {
     private int id_purchase;
     private String date;
     private String design_code;
-
+    
     /**
      * @return the id_purchase
      */

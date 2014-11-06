@@ -18,12 +18,9 @@ import java.util.Date;
 public class job_order {
     private String job_id;
     private String date;
-    private String date_from;
-    private String date_to;
     private int quantity;
-    private String fabric_style;
     private int customer_id;
-    private String design_code;
+    private int id_purchase;
     private ResultSet job_order_resultset;
 
     public void job_order(String job_order_id)
@@ -32,8 +29,8 @@ public class job_order {
         job_order details = new_conn.get_job_order_details(job_order_id);
         this.job_id = job_order_id;
         this.date = details.date;
-        this.design_code = details.design_code;
-        this.fabric_style = details.fabric_style;
+        //this.design_code = details.design_code;
+        //this.fabric_style = details.fabric_style;
         
     }
     
@@ -86,20 +83,6 @@ public class job_order {
     }
 
     /**
-     * @return the fabric_style
-     */
-    public String getFabric_style() {
-        return fabric_style;
-    }
-
-    /**
-     * @param fabric_style the fabric_style to set
-     */
-    public void setFabric_style(String fabric_style) {
-        this.fabric_style = fabric_style;
-    }
-
-    /**
      * @return the customer_id
      */
     public int getCustomer_id() {
@@ -113,20 +96,6 @@ public class job_order {
         this.customer_id = customer_id;
     }
 
-    /**
-     * @return the design_code
-     */
-    public String getDesign_code() {
-        return design_code;
-    }
-
-    /**
-     * @param design_code the design_code to set
-     */
-    public void setDesign_code(String design_code) {
-        this.design_code = design_code;
-    }
-    
     public void add_new_job_order()
     {
         DB_Manager new_conn = new DB_Manager();
@@ -147,34 +116,6 @@ public class job_order {
     }
 
     /**
-     * @return the date_from
-     */
-    public String getDate_from() {
-        return date_from;
-    }
-
-    /**
-     * @param date_from the date_from to set
-     */
-    public void setDate_from(String date_from) {
-        this.date_from = date_from;
-    }
-
-    /**
-     * @return the date_to
-     */
-    public String getDate_to() {
-        return date_to;
-    }
-
-    /**
-     * @param date_to the date_to to set
-     */
-    public void setDate_to(String date_to) {
-        this.date_to = date_to;
-    }
-
-    /**
      * @return the job_order_resultset
      */
     public ResultSet getJob_order_resultset() {
@@ -191,8 +132,21 @@ public class job_order {
     public void set_details_from_job_order_id()
     {
         Database.DB_Manager new_conn = new Database.DB_Manager();
-        // = new_conn.get_job_order_details(job_id);
-        
+        // = new_conn.get_job_order_details(job_id); 
+    }
+
+    /**
+     * @return the id_purchase
+     */
+    public int getId_purchase() {
+        return id_purchase;
+    }
+
+    /**
+     * @param id_purchase the id_purchase to set
+     */
+    public void setId_purchase(int id_purchase) {
+        this.id_purchase = id_purchase;
     }
     
     
