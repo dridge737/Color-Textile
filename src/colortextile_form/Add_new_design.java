@@ -2350,7 +2350,7 @@ int count = 0;
     ArrayList quantity_list = new ArrayList( );
     ArrayList job_list = new ArrayList( );
     ArrayList customer_list = new ArrayList( );
-  
+    ArrayList customer_new1 = new ArrayList( );
     private void fill_list(){
         int x=0;
         int total =0;
@@ -2369,7 +2369,7 @@ int count = 0;
         this.quantity_total.setText(null);
         this.quantity_total.setText(total + "");
     }
-    private void include(String customer_name){
+    private void include(String customer_name, Boolean old_new){
         
         if (this.quantity.getText().trim().equals("")){
             JOptionPane.showMessageDialog(null,"Please Enter a quantity!");
@@ -2388,6 +2388,7 @@ int count = 0;
     
     private void button_include_customerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_include_customerActionPerformed
         // TODO add your handling code here:
+        boolean result;
         if (this.text_job_order.getText().trim().equals("")){
             JOptionPane.showMessageDialog(null,"Please Type a Name!");
         } else {
@@ -2397,7 +2398,8 @@ int count = 0;
             
             JOptionPane.showMessageDialog(null,"Please Type a Name!");
             } else {
-                include(this.text_name.getText().toString());
+                result = true;
+                include(this.text_name.getText().toString() , result);
                
                     }
         } else {
@@ -2405,7 +2407,8 @@ int count = 0;
             {
                 JOptionPane.showMessageDialog(null,"Please Select a Customer!");
             } else {
-                include(this.combo_name.getSelectedItem().toString());
+                result = false;
+                include(this.combo_name.getSelectedItem().toString(), result);
             }
         }
         }
