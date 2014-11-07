@@ -17,7 +17,7 @@ import java.util.Date;
  */
 public class job_order {
     private String job_id;
-    private String date;
+    //private String date;
     private int quantity;
     private int customer_id;
     private int id_purchase;
@@ -28,7 +28,7 @@ public class job_order {
         Database.DB_Manager new_conn = new Database.DB_Manager();
         job_order details = new_conn.get_job_order_details(job_order_id);
         this.job_id = job_order_id;
-        this.date = details.date;
+        //this.date = details.date;
         //this.design_code = details.design_code;
         //this.fabric_style = details.fabric_style;
         
@@ -54,19 +54,7 @@ public class job_order {
         this.job_id = job_id;
     }
 
-    /**
-     * @return the date
-     */
-    public String getDate() {
-        return date;
-    }
-
-    /**
-     * @param date the date to set
-     */
-    public void setDate(String date) {
-        this.date = date;
-    }
+    
 
     /**
      * @return the quantity

@@ -175,15 +175,13 @@ public class DB_Manager {
             DBConnection db = new DBConnection();
             Connection conn = db.getConnection();
 
-            String query = "INSERT INTO job_order (job_order_id, date, quantity, fabric_style, customer_id, design_code) VALUES (?, ?, ?, ?, ?, ?)";
+            String query = "INSERT INTO job_order (job_order_id, date, quantity, customer_id) VALUES (?, ?, ?, ?)";
 
             PreparedStatement preparedStmt = conn.prepareStatement(query);
             preparedStmt.setString(1, new_job.getJob_id());
             preparedStmt.setString(2, new_job.getDate());
             preparedStmt.setInt(3, new_job.getQuantity());         
-            //preparedStmt.setString(4, new_job.getFabric_style());
             preparedStmt.setInt(5, new_job.getCustomer_id());
-            //preparedStmt.setString(6, new_job.getDesign_code());
 
             preparedStmt.execute();
             return true;

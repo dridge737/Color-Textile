@@ -504,7 +504,7 @@ public class Add_new_design extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jCheckBox1);
-        jCheckBox1.setBounds(380, 40, 59, 20);
+        jCheckBox1.setBounds(380, 40, 63, 20);
 
         text_name.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
         jPanel1.add(text_name);
@@ -591,7 +591,7 @@ public class Add_new_design extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jCheckBox2);
-        jCheckBox2.setBounds(660, 200, 63, 25);
+        jCheckBox2.setBounds(660, 200, 65, 25);
 
         jLabel11.setBackground(new java.awt.Color(255, 255, 255));
         jLabel11.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
@@ -1754,8 +1754,8 @@ public class Add_new_design extends javax.swing.JFrame {
                     job.setCustomer_id(conn.get_id_customer(this.combo_name.getSelectedItem().toString()));
                 }
                 
-                job.setFabric_style(this.fabric_style.getText());
-                job.setDesign_code(this.design_code.getText());
+//                job.setFabric_style(this.fabric_style.getText());
+ //               job.setDesign_code(this.design_code.getText());
                 job.add_new_job_order();
                         
         }
@@ -1871,28 +1871,15 @@ public class Add_new_design extends javax.swing.JFrame {
         // TODO add your handling code here:
         // Winston codes start
        
-        if(this.jCheckBox1.isSelected()){
-            if (this.text_name.getText().trim().equals(""))
+        if (this.jList1.getModel().getSize() == 0)
         {
-            
-            JOptionPane.showMessageDialog(null,"Please Type a Name!");
-            } else {
-                customer custom = new customer();
-                custom.setCustomer_name(this.text_name.getText());
-
-                custom.searchCustomer_name();
-     
-        
-                if(custom.getCustomer_names().isEmpty()){
-  
-                custom.add_new_customer();
-                add_job();
-            } else {
-                JOptionPane.showMessageDialog(null,"Customer already Exist!");
-            }    
-        }
+            JOptionPane.showMessageDialog(null,"PLease include a customer");
         } else {
-            add_job();
+            job_order job = new job_order();
+            purchase_order purchase1 = new purchase_order();
+            
+            
+            
         }
         // Winston codes end
         
@@ -2350,7 +2337,7 @@ int count = 0;
     ArrayList quantity_list = new ArrayList( );
     ArrayList job_list = new ArrayList( );
     ArrayList customer_list = new ArrayList( );
-    ArrayList customer_new1 = new ArrayList( );
+    
     private void fill_list(){
         int x=0;
         int total =0;
@@ -2369,7 +2356,7 @@ int count = 0;
         this.quantity_total.setText(null);
         this.quantity_total.setText(total + "");
     }
-    private void include(String customer_name, Boolean old_new){
+    private void include(String customer_name){
         
         if (this.quantity.getText().trim().equals("")){
             JOptionPane.showMessageDialog(null,"Please Enter a quantity!");
@@ -2377,10 +2364,8 @@ int count = 0;
         customer_list.add(customer_name);
         job_list.add(this.text_job_order.getText());
         quantity_list.add(this.quantity.getText());
-              //  this.customer_list[this.list_count] = customer_name;
-               // this.job_order_list[this.list_count] = this.text_job_order.getText();
-              //  this.quantity_list[this.list_count] = Integer.parseInt(this.quantity.getText());
-                
+        
+        
                 fill_list();
                 
         }
@@ -2388,7 +2373,7 @@ int count = 0;
     
     private void button_include_customerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_include_customerActionPerformed
         // TODO add your handling code here:
-        boolean result;
+       
         if (this.text_job_order.getText().trim().equals("")){
             JOptionPane.showMessageDialog(null,"Please Type a Name!");
         } else {
@@ -2398,17 +2383,29 @@ int count = 0;
             
             JOptionPane.showMessageDialog(null,"Please Type a Name!");
             } else {
-                result = true;
-                include(this.text_name.getText().toString() , result);
-               
+                
+            customer custom = new customer();
+            custom.setCustomer_name(this.text_name.getText());
+
+            custom.searchCustomer_name();
+     
+        
+            if(!(custom.getCustomer_names().isEmpty())){
+                
+                  JOptionPane.showMessageDialog(null,"Customer Name already Exists");
+            } else {          
+            include(this.text_name.getText().toString());
+            custom.add_new_customer();
+            
+            }       
                     }
         } else {
             if (this.combo_name.getSelectedItem().equals(""))
             {
                 JOptionPane.showMessageDialog(null,"Please Select a Customer!");
             } else {
-                result = false;
-                include(this.combo_name.getSelectedItem().toString(), result);
+                
+                include(this.combo_name.getSelectedItem().toString());
             }
         }
         }
@@ -2426,7 +2423,6 @@ int count = 0;
       this.customer_list.remove(selected);
       this.job_list.remove(selected);
       this.quantity_list.remove(selected);
-      
       fill_list();
         
        
