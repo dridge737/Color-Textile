@@ -5,6 +5,8 @@
  */
 package colortextile_class;
 
+import Database.DB_Manager;
+
 /**
  *
  * @author Eldridge
@@ -55,4 +57,17 @@ public class purchase_order {
     public void setDesign_code(String design_code) {
         this.design_code = design_code;
     }
+    
+    public void add_new_purchase()
+    {
+        DB_Manager new_conn = new DB_Manager();
+        new_conn.add_purchase_order(this);
+    }
+    
+    public void get_id_purchase_from_name()
+    {
+        DB_Manager new_conn = new DB_Manager();
+        new_conn.add_purchase_order(this);
+    }
+    
 }

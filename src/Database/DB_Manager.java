@@ -77,6 +77,24 @@ public class DB_Manager {
         return false;
     }
     
+    public boolean add_purchase_order(colortextile_class.purchase_order new_purchase) {
+        try {
+            DBConnection db = new DBConnection();
+            Connection conn = db.getConnection();
+        
+            String query = "INSERT INTO purchase_order (date, design_code) VALUES (?, ?)";
+            
+            PreparedStatement preparedStmt = conn.prepareStatement(query);
+            preparedStmt.setString(1, new_purchase.getDate());
+            preparedStmt.setString(2, new_purchase.getDesign_code());
+            
+            preparedStmt.execute();
+            return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
+               return false;
+        }
+    }
     
     public boolean add_colorway(colortextile_class.colorway new_colorway)
     {
@@ -596,6 +614,37 @@ public class DB_Manager {
         }
 
         
+    }
+    public int get_id_purchase(colortextile_class.purchase_order new_purchase){
+       try{
+            DBConnection db = new DBConnection();
+            Connection conn = db.getConnection();
+            
+            PreparedStatement ps = 
+            conn.prepareStatement("SELECT id_purchase "
+                                 + "FROM purchase_order "
+                                 + "WHERE date = ? "
+                                 + "AND design_code = ? ");
+            
+            int item = 1;
+            ps.setString(item++, new_purchase.getDate());
+            ps.setString(item++, new_purchase.getDesign_code());
+            /* 
+            System.out.println("Date :" +new_purchase.getDate());
+            System.out.println("Colorway Id :"  new_purchase.getDesign_code);
+            */
+            ResultSet rs = ps.executeQuery();
+            if(rs.first())
+            {
+                int id_purchase = rs.getInt("id_purchase");
+             //   System.out.println(id_colorway);
+                return id_purchase;
+            }
+        }
+        catch(SQLException ex){
+            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return -1;
     }
             
     

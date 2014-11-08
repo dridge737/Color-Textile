@@ -1731,6 +1731,22 @@ public class Add_new_design extends javax.swing.JFrame {
      * @param pigment_name -Declared pigment name
      * @param pigment_percent - percentage of pigment in variable float
      */
+    private void add_purchase(){
+        
+        SimpleDateFormat formater = new SimpleDateFormat("yyyy/MM/dd");
+                String spinnerValue = formater.format(this.spinner_date.getValue());
+                System.out.println(spinnerValue);
+                
+        purchase_order purchase = new purchase_order();
+        purchase.setDate(spinnerValue);
+        purchase.setDesign_code(this.design_code.getText());
+        
+        purchase.add_new_purchase();
+        
+        
+        
+        
+    }
     private void add_job(){
          if (this.text_job_order.getText().trim().equals("") || this.fabric_style.getText().trim().equals("") || this.design_code.getText().trim().equals("") )
         {
@@ -1746,7 +1762,7 @@ public class Add_new_design extends javax.swing.JFrame {
             
                 job_order job = new job_order();
                 job.setJob_id(this.text_job_order.getText());
-                job.setDate(spinnerValue);
+               // job.setDate(spinnerValue);
                 job.setQuantity(Integer.parseInt(this.quantity.getText()));
                 if(this.jCheckBox1.isSelected()){
                     job.setCustomer_id(conn.get_id_customer(text_name.getText()));
