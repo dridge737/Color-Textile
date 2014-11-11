@@ -1773,7 +1773,7 @@ public class EditRecipe2 extends javax.swing.JFrame {
             
                 job_order job = new job_order();
                 job.setJob_id(this.text_job_order.getText());
-                job.setDate(spinnerValue);
+                //job.setDate(spinnerValue);
                 job.setQuantity(Integer.parseInt(this.quantity.getText()));
                 if(this.jCheckBox1.isSelected()){
                     job.setCustomer_id(conn.get_id_customer(text_name.getText()));
@@ -1781,8 +1781,8 @@ public class EditRecipe2 extends javax.swing.JFrame {
                     job.setCustomer_id(conn.get_id_customer(this.combo_name.getSelectedItem().toString()));
                 }
                 
-                job.setFabric_style(this.fabric_style.getText());
-                job.setDesign_code(this.design_code.getText());
+                //job.setFabric_style(this.fabric_style.getText());
+                //job.setDesign_code(this.design_code.getText());
                 job.add_new_job_order();
                         
         }

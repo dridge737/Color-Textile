@@ -193,13 +193,15 @@ public class DB_Manager {
             DBConnection db = new DBConnection();
             Connection conn = db.getConnection();
 
-            String query = "INSERT INTO job_order (job_order_id, date, quantity, customer_id) VALUES (?, ?, ?, ?)";
+            String query = "INSERT INTO job_order (job_order_id, "
+                    //+ "date, "
+                    + "quantity, customer_id) VALUES (?, ?, ?, ?)";
 
             PreparedStatement preparedStmt = conn.prepareStatement(query);
             preparedStmt.setString(1, new_job.getJob_id());
-            preparedStmt.setString(2, new_job.getDate());
-            preparedStmt.setInt(3, new_job.getQuantity());         
-            preparedStmt.setInt(5, new_job.getCustomer_id());
+            //preparedStmt.setString(2, new_job.getDate());
+            preparedStmt.setInt(2, new_job.getQuantity());         
+            preparedStmt.setInt(3, new_job.getCustomer_id());
 
             preparedStmt.execute();
             return true;
@@ -742,6 +744,7 @@ public class DB_Manager {
               increment++;
           } 
           System.out.println(sql);
+          /*
           if (job.getDate_from() != null){
               
               if(increment > 0)
@@ -757,6 +760,7 @@ public class DB_Manager {
               sql = sql + " design_code= '"+job.getDesign_code()+"'";
               increment++;
           }
+                  */
           if (job.getJob_id() != null){
               if(increment > 0)
               { sql = sql + " AND";
@@ -805,7 +809,7 @@ public class DB_Manager {
               increment++;
           } 
           System.out.println(sql);
-          
+          /*
           if (design.getColorway_name() != null){
               if(increment > 0)
               { sql = sql + " AND";
@@ -813,7 +817,7 @@ public class DB_Manager {
               sql = sql + " colorway_name= '"+design.getColorway_name()+"'";
               increment++;
           }
-          
+          */
           
           System.out.println(sql);
           
