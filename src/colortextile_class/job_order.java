@@ -137,7 +137,6 @@ public class job_order {
         this.id_purchase = id_purchase;
     }
     
-    
 
 
 
