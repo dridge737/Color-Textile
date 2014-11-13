@@ -2392,6 +2392,14 @@ int count = 0;
         if (this.text_job_order.getText().trim().equals("")){
             JOptionPane.showMessageDialog(null,"Please Type a Name!");
         } else {
+            
+            // check job order if existing
+            job_order check_id = new job_order();
+            
+            if(check_id.check_job_id(this.text_job_order.getText()).trim().equals("")){
+                
+            }
+            
             if(this.jCheckBox1.isSelected()){
             if (this.text_name.getText().trim().equals("") )
             {
@@ -2408,9 +2416,11 @@ int count = 0;
             if(!(custom.getCustomer_names().isEmpty())){
                 
                   JOptionPane.showMessageDialog(null,"Customer Name already Exists");
-            } else {          
-            include(this.text_name.getText().toString());
-            custom.add_new_customer();
+            } else {     
+                
+                
+                include(this.text_name.getText().toString());
+                custom.add_new_customer();
             
             }       
                     }

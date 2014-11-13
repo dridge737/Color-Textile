@@ -757,6 +757,29 @@ public class DB_Manager {
         }
     }
     
+    public String Search_job_id(colortextile_class.job_order job){
+        
+        try{
+            DBConnection db = new DBConnection();
+          Connection conn = db.getConnection();  
+          
+          String sql = "SELECT * FROM job_order WHERE job_order_id = '" + job.getJob_id() + "'";
+          
+          PreparedStatement ps = conn.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            
+            while (rs.first()){
+                String id = rs.getString("job_order_id");
+                return id;
+            }
+           
+        }catch(Exception e){
+            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, e);
+            
+        }
+        return null;
+    }
+    
     public ResultSet Search_Job_Order(colortextile_class.job_order job ){
         
          try
