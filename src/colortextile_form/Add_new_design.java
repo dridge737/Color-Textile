@@ -2395,12 +2395,21 @@ int count = 0;
             
             // check job order if existing
             job_order check_id = new job_order();
-            
-            if(check_id.check_job_id(this.text_job_order.getText()).trim().equals("")){
-                
+            int j = 0;
+            Boolean duplicate;
+            duplicate = false;
+            while(this.job_list.size() < j){
+                if (this.job_list.get(j).toString() == this.text_job_order.getText().toString()){
+                    duplicate = true;
+                }
+                j++;
             }
             
-            if(this.jCheckBox1.isSelected()){
+            if(!(check_id.check_job_id(this.text_job_order.getText()).trim().equals("")) || duplicate == true){
+                
+                  JOptionPane.showMessageDialog(null,"Job Order ID already Exists");
+            } else {
+                if(this.jCheckBox1.isSelected()){
             if (this.text_name.getText().trim().equals("") )
             {
             
@@ -2433,6 +2442,9 @@ int count = 0;
                 include(this.combo_name.getSelectedItem().toString());
             }
         }
+            }
+            
+            
         }
         
     }//GEN-LAST:event_button_include_customerActionPerformed
