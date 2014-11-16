@@ -1745,37 +1745,37 @@ public class Add_new_design extends javax.swing.JFrame {
         
         
         
+        add_job(purchase.get_id_purchase_from_name());
+        
+       
         
     }
-    private void add_job(){
-         if (this.text_job_order.getText().trim().equals("") || this.fabric_style.getText().trim().equals("") || this.design_code.getText().trim().equals("") )
-        {
-            JOptionPane.showMessageDialog(null,"Please Compete all the Fields!");
-        } else {
+    private void add_job(int id_purchase){
+         
             
-                SimpleDateFormat formater = new SimpleDateFormat("yyyy/MM/dd");
-                String spinnerValue = formater.format(this.spinner_date.getValue());
-                System.out.println(spinnerValue);
-                
-                DB_Manager conn = new DB_Manager();
-               
-            
-                job_order job = new job_order();
-                job.setJob_id(this.text_job_order.getText());
-               // job.setDate(spinnerValue);
-                job.setQuantity(Integer.parseInt(this.quantity.getText()));
-                if(this.jCheckBox1.isSelected()){
-                    job.setCustomer_id(conn.get_id_customer(text_name.getText()));
-                }else{
-                    job.setCustomer_id(conn.get_id_customer(this.combo_name.getSelectedItem().toString()));
+                for (int i = 0; i < job_list.size(); i++) {
+                       job_order job = new job_order();
+                       customer id_cust = new customer();
+                       
+                       job.setId_purchase(id_purchase);
+                       id_cust.setCustomer_name(this.customer_list.get(i).toString());
+                       
+                       job.setCustomer_id(id_cust.get_customer_id_from_name());
+                       job.setQuantity(Integer.parseInt(this.quantity_list.get(i).toString()));
+                       job.setJob_id(this.job_list.get(i).toString());
+                job.add_new_job_order();
+                    
                 }
                 
-//                job.setFabric_style(this.fabric_style.getText());
- //               job.setDesign_code(this.design_code.getText());
-                job.add_new_job_order();
+                
+                
+                    
+                
+            
+                
                         
         }
-    }
+    
     
     private void fill_customer_list()
     {
@@ -1891,9 +1891,8 @@ public class Add_new_design extends javax.swing.JFrame {
         {
             JOptionPane.showMessageDialog(null,"PLease include a customer");
         } else {
-            job_order job = new job_order();
-            purchase_order purchase1 = new purchase_order();
             
+            add_purchase();
             
             
         }
@@ -2393,7 +2392,24 @@ int count = 0;
         if (this.text_job_order.getText().trim().equals("")){
             JOptionPane.showMessageDialog(null,"Please Type a Name!");
         } else {
-            if(this.jCheckBox1.isSelected()){
+            
+            // check job order if existing
+            job_order check_id = new job_order();
+            int j = 0;
+            Boolean duplicate;
+            duplicate = false;
+            while(this.job_list.size() < j){
+                if (this.job_list.get(j).toString() == this.text_job_order.getText().toString()){
+                    duplicate = true;
+                }
+                j++;
+            }
+            
+            if(!(check_id.check_job_id(this.text_job_order.getText()).trim().equals("")) || duplicate == true){
+                
+                  JOptionPane.showMessageDialog(null,"Job Order ID already Exists");
+            } else {
+                if(this.jCheckBox1.isSelected()){
             if (this.text_name.getText().trim().equals("") )
             {
             
@@ -2409,9 +2425,11 @@ int count = 0;
             if(!(custom.getCustomer_names().isEmpty())){
                 
                   JOptionPane.showMessageDialog(null,"Customer Name already Exists");
-            } else {          
-            include(this.text_name.getText().toString());
-            custom.add_new_customer();
+            } else {     
+                
+                
+                include(this.text_name.getText().toString());
+                custom.add_new_customer();
             
             }       
                     }
@@ -2424,6 +2442,9 @@ int count = 0;
                 include(this.combo_name.getSelectedItem().toString());
             }
         }
+            }
+            
+            
         }
         
     }//GEN-LAST:event_button_include_customerActionPerformed

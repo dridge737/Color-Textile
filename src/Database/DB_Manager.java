@@ -194,14 +194,13 @@ public class DB_Manager {
             Connection conn = db.getConnection();
 
             String query = "INSERT INTO job_order (job_order_id, "
-                    //+ "date, "
                     + "quantity, customer_id) VALUES (?, ?, ?, ?)";
 
             PreparedStatement preparedStmt = conn.prepareStatement(query);
             preparedStmt.setString(1, new_job.getJob_id());
-            //preparedStmt.setString(2, new_job.getDate());
             preparedStmt.setInt(2, new_job.getQuantity());         
             preparedStmt.setInt(3, new_job.getCustomer_id());
+            preparedStmt.setInt(4, new_job.getId_purchase());
 
             preparedStmt.execute();
             return true;
@@ -470,6 +469,35 @@ public class DB_Manager {
     
     }
     
+    public int get_id_customer_name(colortextile_class.customer id_customer){
+        
+        try{
+            DBConnection db = new DBConnection();
+            Connection conn = db.getConnection();
+            
+            PreparedStatement ps = 
+            conn.prepareStatement("SELECT id_purchase "
+                                 + "FROM customer "
+                                 + "WHERE customer_name = ? ");
+            
+            int item = 1;
+            ps.setString(item++, id_customer.getCustomer_name());
+            
+            ResultSet rs = ps.executeQuery();
+            if(rs.first())
+            {
+                int id_cus = rs.getInt("id_customer");
+             //   System.out.println(id_colorway);
+                return id_cus;
+            }
+        }
+        catch(SQLException ex){
+            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return -1;
+        
+    }
+    
     public int get_id_customer(String customer_name)
     {
         try
@@ -727,6 +755,29 @@ public class DB_Manager {
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, e);
             return null;
         }
+    }
+    
+    public String Search_job_id(colortextile_class.job_order job){
+        
+        try{
+            DBConnection db = new DBConnection();
+          Connection conn = db.getConnection();  
+          
+          String sql = "SELECT * FROM job_order WHERE job_order_id = '" + job.getJob_id() + "'";
+          
+          PreparedStatement ps = conn.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            
+            while (rs.first()){
+                String id = rs.getString("job_order_id");
+                return id;
+            }
+           
+        }catch(Exception e){
+            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, e);
+            
+        }
+        return null;
     }
     
     public ResultSet Search_Job_Order(colortextile_class.job_order job ){

@@ -64,10 +64,10 @@ public class purchase_order {
         new_conn.add_purchase_order(this);
     }
     
-    public void get_id_purchase_from_name()
+    public int get_id_purchase_from_name()
     {
         DB_Manager new_conn = new DB_Manager();
-        new_conn.add_purchase_order(this);
+       return new_conn.get_id_purchase(this);
     }
     
 }

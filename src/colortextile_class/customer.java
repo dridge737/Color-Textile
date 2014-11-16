@@ -77,7 +77,11 @@ public class customer {
         new_conn.get_customer_list(this);
     }
 
-  
+    public int get_customer_id_from_name() {
+        DB_Manager new_conn = new DB_Manager();
+        return new_conn.get_id_customer_name(this);
+        
+    }
     
     
    
