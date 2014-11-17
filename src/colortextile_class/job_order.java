@@ -90,32 +90,15 @@ public class job_order {
         new_conn.add_job_order(this);
     }
     
-    public void search_job_order()
-    {
-        DB_Manager new_conn = new DB_Manager();
-        this.setJob_order_resultset(new_conn.Search_Job_Order(this));
-        
-    }
     
-    public void job_order_all()
+    
+    public ResultSet job_order_all()
     {
         DB_Manager new_conn = new DB_Manager();
-        this.setJob_order_resultset(new_conn.get_all_job_order(this));
+        return new_conn.get_all_job_order(this);
     }
 
-    /**
-     * @return the job_order_resultset
-     */
-    public ResultSet getJob_order_resultset() {
-        return job_order_resultset;
-    }
-
-    /**
-     * @param job_order_resultset the job_order_resultset to set
-     */
-    public void setJob_order_resultset(ResultSet job_order_resultset) {
-        this.job_order_resultset = job_order_resultset;
-    }
+    
     
     public void set_details_from_job_order_id()
     {

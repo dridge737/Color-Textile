@@ -560,7 +560,7 @@ public class DB_Manager {
           DBConnection db = new DBConnection();
           Connection conn = db.getConnection();  
           
-            PreparedStatement ps = conn.prepareStatement("SELECT * FROM job_order WHERE job_order_id = ?");
+            PreparedStatement ps = conn.prepareStatement("SELECT * FROM job_order");
             ResultSet rs = ps.executeQuery();
             
             return rs;
@@ -572,6 +572,23 @@ public class DB_Manager {
 
         return null;
         
+    }
+    
+    public ResultSet get_single_purchase_info(colortextile_class.purchase_order purchase_id){
+        try {
+            DBConnection db = new DBConnection();
+            Connection conn = db.getConnection();  
+          
+            PreparedStatement ps = conn.prepareStatement("SELECT * FROM purchase_order WHERE id_purchase = '"+purchase_id.getId_purchase()+"'");
+            ResultSet rs = ps.executeQuery();
+            
+            return rs;
+        }
+        catch (SQLException ex)
+        {
+            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
     }
     
     public String get_customer_name(int id){

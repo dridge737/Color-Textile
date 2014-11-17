@@ -6,10 +6,11 @@
 
 package colortextile_form;
 
-import forms.*;
 import Database.DB_Manager;
 import colortextile_class.customer;
 import colortextile_class.job_order;
+import colortextile_class.purchase_order;
+import forms.*;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.sql.ResultSet;
@@ -49,8 +50,7 @@ public class SearchJOGui extends javax.swing.JFrame {
         this.spinner_from.setEnabled(false);
         this.spinner_to.setEnabled(false);
         job_order set = new job_order();
-        set.job_order_all();
-        fill_table(set.getJob_order_resultset());
+        fill_table(set.job_order_all());
         
     }
     public String get_table_row_value(){
@@ -71,20 +71,52 @@ public class SearchJOGui extends javax.swing.JFrame {
         DefaultTableModel model = new DefaultTableModel();
         model.addColumn("Job Order");
         model.addColumn("Customer Name");
-        model.addColumn("Date");
-        model.addColumn("Fabric Style");
+        model.addColumn("Quantity");
+        model.addColumn("date");
         model.addColumn("Design Code");
         
         
         try {
             while(rs.next()) {
+                purchase_order info = new purchase_order();
+                ResultSet rs2 = info.get_purchase_info(rs.getInt("id_purchase"));
                 
-                String[] set1 = { rs.getString("job_order_id"), conn.get_customer_name(rs.getInt("customer_id")), rs.getString("date"), rs.getString("fabric_style"), rs.getString("design_code")};
+                String[] set1 = { rs.getString("job_order_id"), conn.get_customer_name(rs.getInt("customer_id")), rs.getString("quantity"), rs2.getString("date"), rs2.getString("design_code")};
                 model.addRow(set1);
             }
         } catch (SQLException ex) {
             Logger.getLogger(SearchJOGui.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+        this.jTable1.setModel(model); 
+    }
+    
+    public void fill_table(ResultSet rs, ResultSet rs3){
+        
+        DB_Manager conn = new DB_Manager();
+        
+        DefaultTableModel model = new DefaultTableModel();
+        model.addColumn("Job Order");
+        model.addColumn("Customer Name");
+        model.addColumn("Quantity");
+        model.addColumn("date");
+        model.addColumn("Design Code");
+        
+        
+        
+        try {
+            while(rs.next()) {
+                purchase_order info = new purchase_order();
+                ResultSet rs2 = info.get_purchase_info(rs.getInt("id_purchase"));
+                
+                String[] set1 = { rs.getString("job_order_id"), conn.get_customer_name(rs.getInt("customer_id")), rs.getString("quantity"), rs2.getString("date"), rs2.getString("design_code")};
+                model.addRow(set1);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(SearchJOGui.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
         
         this.jTable1.setModel(model); 
     }
@@ -284,7 +316,8 @@ public class SearchJOGui extends javax.swing.JFrame {
 
     private void button_searchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_searchActionPerformed
         // TODO add your handling code here:
-        job_order search = new job_order();
+        job_order jobsearch = new job_order();
+        purchase_order purchasesearch = new purchase_order();
         DB_Manager id = new DB_Manager();
         
         SimpleDateFormat formater = new SimpleDateFormat("yyyy/MM/dd");
@@ -292,27 +325,29 @@ public class SearchJOGui extends javax.swing.JFrame {
                 String spinnerValueto = formater.format(this.spinner_to.getValue());
                
         
-       search.setCustomer_id(id.get_id_customer(this.combo_customer.getSelectedItem().toString()));
+       jobsearch.setCustomer_id(id.get_id_customer(this.combo_customer.getSelectedItem().toString()));
         System.out.println(this.combo_customer.getSelectedItem().toString());
         System.out.println(id.get_id_customer(this.combo_customer.getSelectedItem().toString()));
         
         if (!(this.text_job_id.getText().trim().equals(""))){
-            search.setJob_id(this.text_job_id.getText());
+            jobsearch.setJob_id(this.text_job_id.getText());
+        } else {
+            
         }
         
         
         if (this.jCheckBox1.isSelected())
         {
-            search.setDate_from(spinnerValuefrom);
-            search.setDate_to(spinnerValueto);
+            purchasesearch.setDate_from(spinnerValuefrom);
+            purchasesearch.setDate_to(spinnerValueto);
         }
         
         if (!(this.text_design_code.getText().trim().equals(""))){
-            search.setDesign_code(this.text_design_code.getText());
+            purchasesearch.setDesign_code(this.text_design_code.getText());
         }
         
-       search.search_job_order();
-        fill_table(search.getJob_order_resultset());
+       jobsearch.search_job_order();
+        fill_table(jobsearch.getJob_order_resultset());
     }//GEN-LAST:event_button_searchActionPerformed
 
     private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
@@ -330,8 +365,7 @@ public class SearchJOGui extends javax.swing.JFrame {
     private void button_resetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_resetActionPerformed
         // TODO add your handling code here:
         job_order set = new job_order();
-        set.job_order_all();
-        fill_table(set.getJob_order_resultset());
+        fill_table(set.job_order_all());
     }//GEN-LAST:event_button_resetActionPerformed
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
