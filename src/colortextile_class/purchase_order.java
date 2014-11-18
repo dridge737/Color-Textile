@@ -6,6 +6,7 @@
 package colortextile_class;
 
 import Database.DB_Manager;
+import java.sql.ResultSet;
 
 /**
  *
@@ -68,6 +69,12 @@ public class purchase_order {
     {
         DB_Manager new_conn = new DB_Manager();
        return new_conn.get_id_purchase(this);
+    }
+    
+    public ResultSet get_purchase_info(int purchase_id){
+        DB_Manager new_conn = new DB_Manager();
+        this.setId_purchase(id_purchase);
+       return new_conn.get_single_purchase_info(this);
     }
     
 }
