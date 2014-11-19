@@ -117,6 +117,20 @@ public class SearchJOGui extends javax.swing.JFrame {
         }
         
         
+        try {
+            while(rs3.next()) {
+                job_order info = new job_order();
+                ResultSet rs4 = info.getJob_info_from_purchase_id(rs3.getInt("id_purchase"));
+                
+                while(rs4.next()) {
+                    String[] set1 = { rs4.getString("job_order_id"), conn.get_customer_name(rs4.getInt("customer_id")), rs4.getString("quantity"), rs3.getString("date"), rs3.getString("design_code")};
+                model.addRow(set1);
+                }
+                
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(SearchJOGui.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
         this.jTable1.setModel(model); 
     }
@@ -326,13 +340,11 @@ public class SearchJOGui extends javax.swing.JFrame {
                
         
        jobsearch.setCustomer_id(id.get_id_customer(this.combo_customer.getSelectedItem().toString()));
-        System.out.println(this.combo_customer.getSelectedItem().toString());
-        System.out.println(id.get_id_customer(this.combo_customer.getSelectedItem().toString()));
+        //System.out.println(this.combo_customer.getSelectedItem().toString());
+        //System.out.println(id.get_id_customer(this.combo_customer.getSelectedItem().toString()));
         
         if (!(this.text_job_id.getText().trim().equals(""))){
             jobsearch.setJob_id(this.text_job_id.getText());
-        } else {
-            
         }
         
         
@@ -346,8 +358,7 @@ public class SearchJOGui extends javax.swing.JFrame {
             purchasesearch.setDesign_code(this.text_design_code.getText());
         }
         
-       jobsearch.search_job_order();
-        fill_table(jobsearch.getJob_order_resultset());
+        fill_table(jobsearch.Search_job_info(), purchasesearch.Search_purchase_info());
     }//GEN-LAST:event_button_searchActionPerformed
 
     private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
