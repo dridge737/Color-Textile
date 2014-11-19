@@ -120,7 +120,7 @@ public class job_order {
         this.id_purchase = id_purchase;
     }
     
-    public String check_job_id(String JobId){
+    public boolean check_job_id(String JobId){
         this.setJob_id(JobId);
         DB_Manager new_conn = new DB_Manager();
         return new_conn.Search_job_id(this);

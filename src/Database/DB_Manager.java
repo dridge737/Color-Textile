@@ -795,7 +795,7 @@ public class DB_Manager {
         }
     }
     
-    public String Search_job_id(colortextile_class.job_order job){
+    public boolean Search_job_id(colortextile_class.job_order job){
         
         try{
             DBConnection db = new DBConnection();
@@ -808,14 +808,14 @@ public class DB_Manager {
             
             while (rs.first()){
                 String id = rs.getString("job_order_id");
-                return id;
+                return true;
             }
            
         }catch(Exception e){
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, e);
             
         }
-        return null;
+        return false;
     }
     public ResultSet Search_id_purchase(colortextile_class.purchase_order purchase){
         try
