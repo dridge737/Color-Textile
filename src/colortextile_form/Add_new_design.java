@@ -504,7 +504,7 @@ public class Add_new_design extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jCheckBox1);
-        jCheckBox1.setBounds(380, 40, 63, 20);
+        jCheckBox1.setBounds(380, 40, 59, 20);
 
         text_name.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
         jPanel1.add(text_name);
@@ -591,7 +591,7 @@ public class Add_new_design extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jCheckBox2);
-        jCheckBox2.setBounds(660, 200, 65, 25);
+        jCheckBox2.setBounds(660, 200, 63, 25);
 
         jLabel11.setBackground(new java.awt.Color(255, 255, 255));
         jLabel11.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N

@@ -1539,7 +1539,7 @@ public class EditRecipe extends javax.swing.JFrame {
         text_job_order.setText(job_order_id);
         colortextile_class.job_order this_job = new colortextile_class.job_order();
         this_job.setJob_id(job_order_id);
-        this_job.search_job_order();
+        //this_job.search_job_order();
     }
     
     private void add_job(){
@@ -1557,7 +1557,7 @@ public class EditRecipe extends javax.swing.JFrame {
             
                 job_order job = new job_order();
                 job.setJob_id(this.text_job_order.getText());
-                job.setDate(spinnerValue);
+                //job.setDate(spinnerValue);
                 job.setQuantity(Integer.parseInt(this.quantity.getText()));
                 if(this.jCheckBox1.isSelected()){
                     job.setCustomer_id(conn.get_id_customer(text_name.getText()));
@@ -1565,8 +1565,8 @@ public class EditRecipe extends javax.swing.JFrame {
                     job.setCustomer_id(conn.get_id_customer(this.combo_name.getSelectedItem().toString()));
                 }
                 
-                job.setFabric_style(this.fabric_style.getText());
-                job.setDesign_code(this.design_code.getText());
+                //job.setFabric_style(this.fabric_style.getText());
+                //job.setDesign_code(this.design_code.getText());
                 job.add_new_job_order();
                         
         }
