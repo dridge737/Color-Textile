@@ -643,6 +643,27 @@ public class DB_Manager {
         return this_job;
     }
     
+    public ResultSet get_job_order_info_from_purchase_id(colortextile_class.job_order job_order){
+        try
+        {
+            DBConnection db = new DBConnection();
+            Connection conn = db.getConnection(); 
+            PreparedStatement ps = conn.prepareStatement("SELECT * FROM job_order WHERE id_purchase = ?");
+            int item = 1;
+            ps.setInt(item++, job_order.getId_purchase());
+            
+            ResultSet rs = ps.executeQuery();
+            
+            return rs;
+            
+        }
+        catch(SQLException ex)
+        {
+            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+    }
+    
     public ResultSet get_all_design(){
         try
         {
@@ -774,7 +795,7 @@ public class DB_Manager {
         }
     }
     
-    public String Search_job_id(colortextile_class.job_order job){
+    public boolean Search_job_id(colortextile_class.job_order job){
         
         try{
             DBConnection db = new DBConnection();
@@ -787,16 +808,61 @@ public class DB_Manager {
             
             while (rs.first()){
                 String id = rs.getString("job_order_id");
-                return id;
+                return true;
             }
            
         }catch(Exception e){
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, e);
             
         }
-        return null;
+        return false;
     }
-    
+    public ResultSet Search_id_purchase(colortextile_class.purchase_order purchase){
+        try
+        {
+          DBConnection db = new DBConnection();
+          Connection conn = db.getConnection();  
+          
+          String sql ="SELECT * FROM purchase_order WHERE";
+          int increment = 0;
+          
+          if (purchase.getDesign_code() != null){
+              sql = sql + " design_code = '"+purchase.getId_purchase()+"'";
+              increment++;
+          } 
+          System.out.println(sql);
+          
+          if (purchase.getDate_from() != null){
+              
+              if(increment > 0)
+              { sql = sql + " AND";
+              }
+              sql = sql + " date BETWEEN '"+purchase.getDate_from()+"' AND '" + purchase.getDate_to()+"'";
+              increment++;
+          }
+          System.out.println(sql);
+          
+          if (sql == "SELECT * FROM purchase_order WHERE")
+          {
+              System.out.print("nothing to be searched");
+              return null;
+          } else {
+          
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            
+            return rs;
+           
+            
+          }
+        }
+        catch (Exception ex)
+        {
+            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
+        return null;
+        }
+        
+    }
     public ResultSet Search_Job_Order(colortextile_class.job_order job ){
         
          try

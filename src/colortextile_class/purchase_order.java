@@ -17,6 +17,9 @@ public class purchase_order {
     private String date;
     private String design_code;
     
+    private String date_from;
+    private String date_to;
+    
     /**
      * @return the id_purchase
      */
@@ -75,6 +78,40 @@ public class purchase_order {
         DB_Manager new_conn = new DB_Manager();
         this.setId_purchase(id_purchase);
        return new_conn.get_single_purchase_info(this);
+    }
+    
+    public ResultSet Search_purchase_info(){
+        DB_Manager new_conn = new DB_Manager();
+        
+       return new_conn.Search_id_purchase(this);
+    }
+
+    /**
+     * @return the date_from
+     */
+    public String getDate_from() {
+        return date_from;
+    }
+
+    /**
+     * @param date_from the date_from to set
+     */
+    public void setDate_from(String date_from) {
+        this.date_from = date_from;
+    }
+
+    /**
+     * @return the date_to
+     */
+    public String getDate_to() {
+        return date_to;
+    }
+
+    /**
+     * @param date_to the date_to to set
+     */
+    public void setDate_to(String date_to) {
+        this.date_to = date_to;
     }
     
 }
