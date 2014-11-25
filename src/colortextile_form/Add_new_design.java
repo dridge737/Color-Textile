@@ -42,7 +42,7 @@ public class Add_new_design extends javax.swing.JFrame {
         //Center the form
         Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
         int x = (int) ((dimension.getWidth() - this.getWidth()) / 2);
-        //int y = (int) ((dimension.getHeight() - this.getHeight()) / 2);
+//        int y = (int) ((dimension.getHeight() - this.getHeight()) / 2);
         this.setLocation(x,0);
         //InputVerifier new_verifier = new Verifier();
         //this.pigment_percentage8.setInputVerifier(new_verifier);
@@ -66,23 +66,14 @@ public class Add_new_design extends javax.swing.JFrame {
         jPanel13 = new javax.swing.JPanel();
         jPanel14 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
+        spinner_date = new javax.swing.JSpinner();
+        jLabel6 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        quantity = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         design_name = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         fabric_style = new javax.swing.JTextField();
         design_code = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        text_job_order = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
-        combo_name = new javax.swing.JComboBox();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        text_name = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
-        spinner_date = new javax.swing.JSpinner();
         fab_style_comb = new javax.swing.JComboBox();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
@@ -91,13 +82,23 @@ public class Add_new_design extends javax.swing.JFrame {
         jCheckBox2 = new javax.swing.JCheckBox();
         jLabel11 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        jPanel16 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        quantity_total = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        quantity = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
+        combo_name = new javax.swing.JComboBox();
+        button_include_customer = new javax.swing.JButton();
         button_remove_customer = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList();
-        button_include_customer = new javax.swing.JButton();
-        jLabel12 = new javax.swing.JLabel();
-        quantity_total = new javax.swing.JTextField();
-        jLabel13 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        text_job_order = new javax.swing.JTextField();
+        jCheckBox1 = new javax.swing.JCheckBox();
+        text_name = new javax.swing.JTextField();
         jPanel11 = new javax.swing.JPanel();
         jTabbedPane2 = new javax.swing.JTabbedPane();
         jPanel9 = new javax.swing.JPanel();
@@ -320,6 +321,8 @@ public class Add_new_design extends javax.swing.JFrame {
         jLabel174 = new javax.swing.JLabel();
         add_order = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
+        add_order1 = new javax.swing.JButton();
+        add_order2 = new javax.swing.JButton();
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -331,7 +334,7 @@ public class Add_new_design extends javax.swing.JFrame {
         setForeground(java.awt.Color.white);
         setIconImages(null);
         setLocationByPlatform(true);
-        setMinimumSize(new java.awt.Dimension(790, 710));
+        setMinimumSize(new java.awt.Dimension(790, 732));
         setModalExclusionType(java.awt.Dialog.ModalExclusionType.APPLICATION_EXCLUDE);
         setPreferredSize(new java.awt.Dimension(805, 715));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -346,10 +349,10 @@ public class Add_new_design extends javax.swing.JFrame {
         );
         jPanel12Layout.setVerticalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 730, Short.MAX_VALUE)
+            .addGap(0, 790, Short.MAX_VALUE)
         );
 
-        getContentPane().add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 15, -1));
+        getContentPane().add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 15, 790));
 
         jPanel13.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -361,16 +364,29 @@ public class Add_new_design extends javax.swing.JFrame {
         );
         jPanel13Layout.setVerticalGroup(
             jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 730, Short.MAX_VALUE)
+            .addGap(0, 790, Short.MAX_VALUE)
         );
 
-        getContentPane().add(jPanel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(777, 0, 20, 730));
+        getContentPane().add(jPanel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(777, 0, 20, 790));
 
         jPanel14.setBackground(new java.awt.Color(51, 153, 255));
 
         jLabel7.setFont(new java.awt.Font("Century Gothic", 0, 36)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("New Recipe Form");
+
+        spinner_date.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
+        spinner_date.setModel(new javax.swing.SpinnerDateModel());
+        spinner_date.setToolTipText("Day, Month and Year");
+
+        jLabel6.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel6.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel6.setText("Date :");
+        jLabel6.setToolTipText("");
+        jLabel6.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        jLabel6.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
 
         javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
         jPanel14.setLayout(jPanel14Layout);
@@ -379,49 +395,35 @@ public class Add_new_design extends javax.swing.JFrame {
             .addGroup(jPanel14Layout.createSequentialGroup()
                 .addGap(53, 53, 53)
                 .addComponent(jLabel7)
-                .addContainerGap(410, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 129, Short.MAX_VALUE)
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(spinner_date, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(45, 45, 45))
         );
         jPanel14Layout.setVerticalGroup(
             jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel14Layout.createSequentialGroup()
+            .addGroup(jPanel14Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel7)
+                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel7)
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(spinner_date, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
-        getContentPane().add(jPanel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 770, 70));
+        spinner_date.setEditor(new JSpinner.DateEditor(spinner_date, "dd/MM/yyyy"));
+        jLabel6.getAccessibleContext().setAccessibleName("date");
+
+        getContentPane().add(jPanel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 770, 60));
 
         jPanel1.setBackground(new java.awt.Color(51, 153, 255));
         jPanel1.setLayout(null);
 
-        quantity.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        quantity.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                quantityFocusLost(evt);
-            }
-        });
-        jPanel1.add(quantity);
-        quantity.setBounds(570, 60, 150, 34);
-
-        jLabel3.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel3.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel3.setText("Total :");
-        jPanel1.add(jLabel3);
-        jLabel3.setBounds(460, 100, 100, 34);
-
-        jLabel5.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel5.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel5.setText("m");
-        jPanel1.add(jLabel5);
-        jLabel5.setBounds(730, 100, 13, 34);
-
         design_name.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jPanel1.add(design_name);
-        design_name.setBounds(200, 220, 240, 34);
+        design_name.setBounds(210, 220, 200, 34);
 
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
         jLabel2.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
@@ -429,11 +431,11 @@ public class Add_new_design extends javax.swing.JFrame {
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel2.setText("Design Name :");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(20, 220, 153, 34);
+        jLabel2.setBounds(40, 220, 153, 34);
 
         fabric_style.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jPanel1.add(fabric_style);
-        fabric_style.setBounds(570, 220, 150, 34);
+        fabric_style.setBounds(560, 220, 150, 34);
 
         design_code.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         design_code.addActionListener(new java.awt.event.ActionListener() {
@@ -442,96 +444,20 @@ public class Add_new_design extends javax.swing.JFrame {
             }
         });
         jPanel1.add(design_code);
-        design_code.setBounds(200, 260, 240, 34);
+        design_code.setBounds(210, 260, 200, 34);
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel1.setText("Design Color :");
+        jLabel1.setText("Design Code :");
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(20, 260, 153, 34);
-
-        jLabel10.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel10.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(247, 241, 241));
-        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel10.setText("Job Order :");
-        jPanel1.add(jLabel10);
-        jLabel10.setBounds(20, 10, 153, 34);
-
-        text_job_order.addInputMethodListener(new java.awt.event.InputMethodListener() {
-            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
-            }
-            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
-                text_job_orderInputMethodTextChanged(evt);
-            }
-        });
-        text_job_order.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                text_job_orderActionPerformed(evt);
-            }
-        });
-        text_job_order.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                text_job_orderKeyTyped(evt);
-            }
-        });
-        jPanel1.add(text_job_order);
-        text_job_order.setBounds(200, 10, 240, 34);
-
-        jLabel9.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel9.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel9.setText("Customer Name :");
-        jPanel1.add(jLabel9);
-        jLabel9.setBounds(20, 50, 153, 34);
-
-        combo_name.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        combo_name.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel1.add(combo_name);
-        combo_name.setBounds(200, 60, 240, 34);
-
-        jCheckBox1.setBackground(new java.awt.Color(51, 153, 255));
-        jCheckBox1.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        jCheckBox1.setForeground(java.awt.SystemColor.controlLtHighlight);
-        jCheckBox1.setText("New?");
-        jCheckBox1.setOpaque(false);
-        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox1ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jCheckBox1);
-        jCheckBox1.setBounds(380, 40, 59, 20);
-
-        text_name.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
-        jPanel1.add(text_name);
-        text_name.setBounds(200, 60, 240, 34);
-
-        jLabel6.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel6.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel6.setText("Date :");
-        jLabel6.setToolTipText("");
-        jLabel6.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        jPanel1.add(jLabel6);
-        jLabel6.setBounds(450, 10, 100, 30);
-        jLabel6.getAccessibleContext().setAccessibleName("date");
-
-        spinner_date.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
-        spinner_date.setModel(new javax.swing.SpinnerDateModel());
-        spinner_date.setToolTipText("Day, Month and Year");
-        jPanel1.add(spinner_date);
-        spinner_date.setBounds(570, 10, 150, 34);
-        spinner_date.setEditor(new JSpinner.DateEditor(spinner_date, "dd/MM/yyyy"));
+        jLabel1.setBounds(40, 260, 153, 34);
 
         fab_style_comb.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         fab_style_comb.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Pongee", "Cotton", "Katunia", "Micropeach", "TC", "Tropicana" }));
         jPanel1.add(fab_style_comb);
-        fab_style_comb.setBounds(570, 220, 150, 34);
+        fab_style_comb.setBounds(560, 220, 150, 34);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -579,7 +505,7 @@ public class Add_new_design extends javax.swing.JFrame {
 
         colorway_name.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jPanel1.add(colorway_name);
-        colorway_name.setBounds(570, 260, 150, 34);
+        colorway_name.setBounds(560, 260, 150, 34);
 
         jCheckBox2.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         jCheckBox2.setForeground(new java.awt.Color(255, 255, 255));
@@ -591,7 +517,7 @@ public class Add_new_design extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jCheckBox2);
-        jCheckBox2.setBounds(660, 200, 63, 25);
+        jCheckBox2.setBounds(650, 200, 63, 25);
 
         jLabel11.setBackground(new java.awt.Color(255, 255, 255));
         jLabel11.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
@@ -599,7 +525,7 @@ public class Add_new_design extends javax.swing.JFrame {
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel11.setText("Fabric Style :");
         jPanel1.add(jLabel11);
-        jLabel11.setBounds(450, 220, 100, 34);
+        jLabel11.setBounds(440, 220, 100, 34);
 
         jLabel4.setBackground(new java.awt.Color(255, 255, 255));
         jLabel4.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
@@ -607,38 +533,19 @@ public class Add_new_design extends javax.swing.JFrame {
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel4.setText("Design Color :");
         jPanel1.add(jLabel4);
-        jLabel4.setBounds(430, 260, 120, 34);
+        jLabel4.setBounds(420, 260, 120, 34);
 
-        button_remove_customer.setText("Remove Customer");
-        button_remove_customer.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                button_remove_customerActionPerformed(evt);
-            }
-        });
-        jPanel1.add(button_remove_customer);
-        button_remove_customer.setBounds(290, 160, 150, 30);
+        jPanel16.setBackground(new java.awt.Color(51, 51, 51));
+        jPanel16.setOpaque(false);
+        jPanel16.setLayout(null);
 
-        jScrollPane1.setViewportView(jList1);
-
-        jPanel1.add(jScrollPane1);
-        jScrollPane1.setBounds(30, 110, 240, 90);
-
-        button_include_customer.setText("Include Customer");
-        button_include_customer.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                button_include_customerActionPerformed(evt);
-            }
-        });
-        jPanel1.add(button_include_customer);
-        button_include_customer.setBounds(290, 120, 150, 30);
-
-        jLabel12.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel12.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel12.setText("Quantity :");
-        jPanel1.add(jLabel12);
-        jLabel12.setBounds(460, 60, 100, 34);
+        jLabel3.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel3.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel3.setText("Total Quantity :");
+        jPanel16.add(jLabel3);
+        jLabel3.setBounds(415, 120, 130, 34);
 
         quantity_total.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         quantity_total.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -646,18 +553,133 @@ public class Add_new_design extends javax.swing.JFrame {
                 quantity_totalFocusLost(evt);
             }
         });
-        jPanel1.add(quantity_total);
-        quantity_total.setBounds(570, 100, 150, 34);
+        jPanel16.add(quantity_total);
+        quantity_total.setBounds(553, 120, 150, 34);
+
+        jLabel5.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel5.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel5.setText("m");
+        jLabel5.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        jPanel16.add(jLabel5);
+        jLabel5.setBounds(705, 120, 13, 34);
 
         jLabel13.setBackground(new java.awt.Color(255, 255, 255));
         jLabel13.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel13.setText("m");
-        jPanel1.add(jLabel13);
-        jLabel13.setBounds(730, 60, 13, 34);
+        jLabel13.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        jPanel16.add(jLabel13);
+        jLabel13.setBounds(388, 120, 13, 34);
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 770, 300));
+        quantity.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        quantity.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                quantityFocusLost(evt);
+            }
+        });
+        jPanel16.add(quantity);
+        quantity.setBounds(190, 120, 195, 34);
+
+        jLabel12.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel12.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel12.setText("Quantity :");
+        jPanel16.add(jLabel12);
+        jLabel12.setBounds(20, 120, 153, 34);
+
+        combo_name.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        combo_name.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel16.add(combo_name);
+        combo_name.setBounds(190, 70, 210, 34);
+
+        button_include_customer.setBackground(new java.awt.Color(255, 255, 255));
+        button_include_customer.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
+        button_include_customer.setText("Add ");
+        button_include_customer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_include_customerActionPerformed(evt);
+            }
+        });
+        jPanel16.add(button_include_customer);
+        button_include_customer.setBounds(20, 168, 390, 30);
+
+        button_remove_customer.setBackground(new java.awt.Color(255, 255, 255));
+        button_remove_customer.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
+        button_remove_customer.setText("Delete");
+        button_remove_customer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_remove_customerActionPerformed(evt);
+            }
+        });
+        jPanel16.add(button_remove_customer);
+        button_remove_customer.setBounds(420, 168, 300, 30);
+
+        jScrollPane1.setViewportView(jList1);
+
+        jPanel16.add(jScrollPane1);
+        jScrollPane1.setBounds(420, 20, 300, 90);
+
+        jLabel9.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel9.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel9.setText("Customer Name :");
+        jPanel16.add(jLabel9);
+        jLabel9.setBounds(20, 70, 153, 34);
+
+        jLabel10.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel10.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(247, 241, 241));
+        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel10.setText("Job Order :");
+        jPanel16.add(jLabel10);
+        jLabel10.setBounds(20, 20, 153, 34);
+
+        text_job_order.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                text_job_orderActionPerformed(evt);
+            }
+        });
+        text_job_order.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+            }
+            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
+                text_job_orderInputMethodTextChanged(evt);
+            }
+        });
+        text_job_order.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                text_job_orderKeyTyped(evt);
+            }
+        });
+        jPanel16.add(text_job_order);
+        text_job_order.setBounds(190, 20, 210, 34);
+
+        jCheckBox1.setBackground(new java.awt.Color(51, 153, 255));
+        jCheckBox1.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        jCheckBox1.setForeground(java.awt.SystemColor.controlLtHighlight);
+        jCheckBox1.setText("New?");
+        jCheckBox1.setOpaque(false);
+        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox1ActionPerformed(evt);
+            }
+        });
+        jPanel16.add(jCheckBox1);
+        jCheckBox1.setBounds(340, 50, 59, 20);
+
+        text_name.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
+        jPanel16.add(text_name);
+        text_name.setBounds(190, 70, 210, 34);
+
+        jPanel1.add(jPanel16);
+        jPanel16.setBounds(10, 0, 750, 210);
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 770, 300));
 
         jPanel11.setBackground(new java.awt.Color(51, 153, 255));
 
@@ -1679,7 +1701,8 @@ public class Add_new_design extends javax.swing.JFrame {
 
         add_order.setBackground(new java.awt.Color(255, 255, 255));
         add_order.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        add_order.setText("Add Order");
+        add_order.setText("Add & Print");
+        add_order.setToolTipText("");
         add_order.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 add_orderActionPerformed(evt);
@@ -1690,39 +1713,63 @@ public class Add_new_design extends javax.swing.JFrame {
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Screens");
 
+        add_order1.setBackground(new java.awt.Color(255, 255, 255));
+        add_order1.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        add_order1.setText("Preview");
+        add_order1.setToolTipText("");
+        add_order1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                add_order1ActionPerformed(evt);
+            }
+        });
+
+        add_order2.setBackground(new java.awt.Color(255, 255, 255));
+        add_order2.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        add_order2.setText("Cancel");
+        add_order2.setToolTipText("");
+        add_order2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                add_order2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
         jPanel11.setLayout(jPanel11Layout);
         jPanel11Layout.setHorizontalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel11Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(add_order, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(add_order1, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(add_order2, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(14, 14, 14))
             .addGroup(jPanel11Layout.createSequentialGroup()
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel11Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                        .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 748, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel11Layout.createSequentialGroup()
-                        .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel11Layout.createSequentialGroup()
-                                .addGap(62, 62, 62)
-                                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel11Layout.createSequentialGroup()
-                                .addGap(227, 227, 227)
-                                .addComponent(add_order, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 188, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addGap(62, 62, 62)
+                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
         jPanel11Layout.setVerticalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel11Layout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(add_order, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(53, 53, 53))
+                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(add_order, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(add_order1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(add_order2, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(77, 77, 77))
         );
 
-        getContentPane().add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, 770, 430));
+        getContentPane().add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 350, 770, 350));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -2469,6 +2516,14 @@ int count = 0;
         // TODO add your handling code here:
     }//GEN-LAST:event_quantity_totalFocusLost
 
+    private void add_order1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_order1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_add_order1ActionPerformed
+
+    private void add_order2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_order2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_add_order2ActionPerformed
+
     private void compute_kg(JTextField weigh_kg, float coverage)
     {
         float computation;
@@ -2670,6 +2725,8 @@ int count = 0;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton add_order;
+    private javax.swing.JButton add_order1;
+    private javax.swing.JButton add_order2;
     private javax.swing.JComboBox binder3;
     private javax.swing.JComboBox binder4;
     private javax.swing.JComboBox binder5;
@@ -2828,6 +2885,7 @@ int count = 0;
     private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel15;
+    private javax.swing.JPanel jPanel16;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;

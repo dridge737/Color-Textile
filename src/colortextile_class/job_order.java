@@ -99,6 +99,10 @@ public class job_order {
     }
 
     
+    public void get_job_order_list()
+    {
+        Database.DB_Manager new_conn = new Database.DB_Manager();
+    }
     
     public void set_details_from_job_order_id()
     {

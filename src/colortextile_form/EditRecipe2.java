@@ -30,8 +30,6 @@ import javax.swing.SpinnerDateModel;
 public class EditRecipe2 extends javax.swing.JFrame {
 
     private int count_screen_1 = 0;
-    private String job_order;
-    private int colorway_id;
     
     
     /**
@@ -53,12 +51,12 @@ public class EditRecipe2 extends javax.swing.JFrame {
         this.fabric_style.setVisible(false);
     }
     
-    public EditRecipe2(String job_order_id)
+    public EditRecipe2(int purchase_order_id)
     {
         initComponents();
         addListItems();
-        job_order = job_order_id;
-        get_details(job_order_id);
+        set_purchase_order_details(purchase_order_id);
+        set_job_details(purchase_order_id);
         
         //Center the form
         Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
@@ -71,14 +69,56 @@ public class EditRecipe2 extends javax.swing.JFrame {
         this.text_name.setVisible(false);
         this.fabric_style.setVisible(false);
     }
-    
-    public void get_details(String job_order_id)
+    //Set the purchase order details
+    //which includes date, and design details
+    private void set_purchase_order_details(int purchase_order_id)
     {
-        colortextile_class.job_order new_job = new colortextile_class.job_order();
-        new_job = new_job.get_details(job_order_id);
         
     }
-
+    
+    
+    private void set_job_details(int purchase_order_id)
+    {
+        colortextile_class.job_table_functions job_function = new colortextile_class.job_table_functions();
+        List<String> jobList = job_function.get_job_order_list();
+        
+        //set_customer_name(new_job.getCustomer_id());
+        //new_job.getJob_id();
+        
+    }
+    
+    private void set_customer_name(int customer_id)
+    {
+        
+    }
+    
+    private void set_purchase_details()
+    {
+        
+    }
+    
+    private void set_design_details()
+    {
+        
+    }
+    
+    private void set_design_picture()
+    {
+        
+    }
+    
+    //Screens
+    private void get_all_colorway()
+    {
+        
+    }
+    
+    private void get_all_screen_pigment()
+    {
+        
+    }
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -348,6 +388,8 @@ public class EditRecipe2 extends javax.swing.JFrame {
         jLabel174 = new javax.swing.JLabel();
         add_order = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
+        add_order1 = new javax.swing.JButton();
+        add_order2 = new javax.swing.JButton();
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -475,7 +517,7 @@ public class EditRecipe2 extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel1.setText("Design Color :");
+        jLabel1.setText("Design Code :");
         jPanel1.add(jLabel1);
         jLabel1.setBounds(20, 260, 153, 34);
 
@@ -1706,7 +1748,7 @@ public class EditRecipe2 extends javax.swing.JFrame {
 
         add_order.setBackground(new java.awt.Color(255, 255, 255));
         add_order.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        add_order.setText("Save Changes for Recipe");
+        add_order.setText("Save");
         add_order.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 add_orderActionPerformed(evt);
@@ -1716,6 +1758,24 @@ public class EditRecipe2 extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Century Gothic", 0, 30)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Screens");
+
+        add_order1.setBackground(new java.awt.Color(255, 255, 255));
+        add_order1.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        add_order1.setText("Save & Print");
+        add_order1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                add_order1ActionPerformed(evt);
+            }
+        });
+
+        add_order2.setBackground(new java.awt.Color(255, 255, 255));
+        add_order2.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        add_order2.setText("Cancel");
+        add_order2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                add_order2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
         jPanel11.setLayout(jPanel11Layout);
@@ -1727,14 +1787,16 @@ public class EditRecipe2 extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                     .addGroup(jPanel11Layout.createSequentialGroup()
-                        .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel11Layout.createSequentialGroup()
-                                .addGap(62, 62, 62)
-                                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel11Layout.createSequentialGroup()
-                                .addGap(227, 227, 227)
-                                .addComponent(add_order, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 188, Short.MAX_VALUE)))
+                        .addGap(62, 62, 62)
+                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 548, Short.MAX_VALUE))
+                    .addGroup(jPanel11Layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(add_order1, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(add_order, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(add_order2, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         jPanel11Layout.setVerticalGroup(
@@ -1744,9 +1806,12 @@ public class EditRecipe2 extends javax.swing.JFrame {
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(add_order, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(53, 53, 53))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(add_order, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(add_order1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(add_order2, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(48, 48, 48))
         );
 
         getContentPane().add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, 770, 430));
@@ -2464,6 +2529,14 @@ int count = 0;
         // TODO add your handling code here:
     }//GEN-LAST:event_quantity_totalFocusLost
 
+    private void add_order1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_order1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_add_order1ActionPerformed
+
+    private void add_order2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_order2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_add_order2ActionPerformed
+
     private void compute_kg(JTextField weigh_kg, float coverage)
     {
         float computation;
@@ -2666,6 +2739,8 @@ int count = 0;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton add_order;
+    private javax.swing.JButton add_order1;
+    private javax.swing.JButton add_order2;
     private javax.swing.JComboBox binder3;
     private javax.swing.JComboBox binder4;
     private javax.swing.JComboBox binder5;
