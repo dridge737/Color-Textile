@@ -448,6 +448,99 @@ public class DB_Manager {
         
     }
     
+    /**
+     * 
+     * @param id_pigment
+     * @return pigment_name
+     */
+    public String get_pigment_name(int id_pigment)
+    {
+        try{
+            DBConnection db = new DBConnection();
+            Connection conn = db.getConnection();
+            
+            PreparedStatement ps = 
+            conn.prepareStatement("SELECT pigment_name "
+                                 + "FROM pigment "
+                                 + "WHERE pigment_no = ? ");
+            
+            int item = 1;
+            ps.setInt(item++, id_pigment);
+            
+            ResultSet rs = ps.executeQuery();
+            if(rs.first())
+            {
+                String pigment_name = rs.getString("pigment_name");
+             //   System.out.println(id_colorway);
+                return pigment_name;
+            }
+        }
+        catch(SQLException ex){
+            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+            return null;
+    }
+    
+    //EDITING
+    /**
+     * Get the pigment id and percentage from screen_pigment table
+     * @param id_screen
+     * @return 
+     */
+    public screen_pigment get_pigment_id_and_percentage(int id_screen)
+    {
+        try{
+            DBConnection db = new DBConnection();
+            Connection conn = db.getConnection();
+            
+            PreparedStatement ps = 
+            conn.prepareStatement("SELECT pigment_percentage, pigment_no "
+                                 + "FROM screen_pigment "
+                                 + "WHERE id_screen = ? ");
+            
+            int item = 1;
+            ps.setInt(item++, id_screen);
+            
+            ResultSet rs = ps.executeQuery();
+            if(rs.first())
+            {
+                int pigment_percentage = rs.getInt("pigment_percentage");
+                return pigment_percentage;
+            }
+        }
+        catch(SQLException ex){
+            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+            return null;
+    }
+    
+    public int get_pigment_percentage(int id_screen)
+    {
+        try{
+            DBConnection db = new DBConnection();
+            Connection conn = db.getConnection();
+            
+            PreparedStatement ps = 
+            conn.prepareStatement("SELECT pigment_percentage "
+                                 + "FROM screen_pigment "
+                                 + "WHERE id_screen = ? ");
+            
+            int item = 1;
+            ps.setInt(item++, id_screen);
+            
+            ResultSet rs = ps.executeQuery();
+            if(rs.first())
+            {
+                int pigment_percentage = rs.getInt("pigment_percentage");
+                return pigment_percentage;
+            }
+        }
+        catch(SQLException ex){
+            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+            return -1;
+    }
+    
     //SKELETON TO COPY ONLY. Not usable
     public void get_skeleton()
     {
@@ -468,7 +561,7 @@ public class DB_Manager {
         
     
     }
-    
+    //returns id_purchase
     public int get_id_customer_name(colortextile_class.customer id_customer){
         
         try{
@@ -505,12 +598,14 @@ public class DB_Manager {
             DBConnection db = new DBConnection();
             Connection conn = db.getConnection();
         
-            PreparedStatement ps = conn.prepareStatement("SELECT id_customer FROM customer WHERE customer_name = '"+ customer_name + "'");
+            PreparedStatement ps = 
+                    conn.prepareStatement("SELECT id_customer "
+                    + "FROM customer "
+                    + "WHERE customer_name = '"+ customer_name + "'");
             ResultSet rs = ps.executeQuery();
             
             while(rs.next())
             {
-                
                 int customer_id = rs.getInt("id_customer");
                 return customer_id;
             }
@@ -521,6 +616,43 @@ public class DB_Manager {
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
         }
         return 0;
+    }
+    
+    //EDITING
+    //GET CUSTOMER NAME 
+    /**
+     * 
+     * @param customer_id the primary key of customer
+     * @return return a single customer name
+     */    
+    public String get_customer_name(int customer_id)
+    {
+        try
+        {
+            DBConnection db = new DBConnection();
+            Connection conn = db.getConnection();
+        
+            PreparedStatement ps = conn.prepareStatement("SELECT customer_name "
+                                                        + "FROM customer "
+                                                        + "WHERE id_customer = ?");
+            
+            int item = 1;
+            ps.setInt(item++, customer_id);
+            
+            ResultSet rs = ps.executeQuery();
+            
+            while(rs.next())
+            {
+                String customer_name = rs.getString("customer_name");
+                return customer_name;
+            }
+            
+        } 
+        catch (SQLException ex) 
+        {
+            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
     }
     
     public ArrayList<String> get_customer_list(colortextile_class.customer customer_name) 
@@ -589,31 +721,6 @@ public class DB_Manager {
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
-    }
-    
-    public String get_customer_name(int id){
-        
-        try
-        {
-          DBConnection db = new DBConnection();
-          Connection conn = db.getConnection();  
-          
-            PreparedStatement ps = conn.prepareStatement("SELECT customer_name FROM customer WHERE id_customer = '"+id+"' ");
-            ResultSet rs = ps.executeQuery();
-            
-            while (rs.next()){
-                String name = rs.getString("customer_name");
-                return name;
-            }
-            
-        }
-        catch (SQLException ex)
-        {
-            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-        return null;
-       
     }
     
     public colortextile_class.job_order get_job_order_details(String job_order_id)
