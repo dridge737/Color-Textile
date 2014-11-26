@@ -489,6 +489,7 @@ public class DB_Manager {
      */
     public screen_pigment get_pigment_id_and_percentage(int id_screen)
     {
+        
         try{
             DBConnection db = new DBConnection();
             Connection conn = db.getConnection();
@@ -504,8 +505,11 @@ public class DB_Manager {
             ResultSet rs = ps.executeQuery();
             if(rs.first())
             {
-                int pigment_percentage = rs.getInt("pigment_percentage");
-                return pigment_percentage;
+                screen_pigment new_screen = new screen_pigment();
+                new_screen.setPigment_no(rs.getInt("pigment_no"));
+                new_screen.setPigment_percentage(rs.getInt("pigment_percentage"));
+
+                return new_screen;
             }
         }
         catch(SQLException ex){
