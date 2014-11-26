@@ -14,6 +14,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -754,18 +755,27 @@ public class DB_Manager {
         return this_job;
     }
     
-    public ResultSet get_job_order_info_from_purchase_id(colortextile_class.job_order job_order){
+    public List<job_order> get_job_order_info_from_purchase_id(colortextile_class.job_order this_job_order){
         try
         {
             DBConnection db = new DBConnection();
             Connection conn = db.getConnection(); 
             PreparedStatement ps = conn.prepareStatement("SELECT * FROM job_order WHERE id_purchase = ?");
             int item = 1;
-            ps.setInt(item++, job_order.getId_purchase());
+            ps.setInt(item++, this_job_order.getId_purchase());
             
             ResultSet rs = ps.executeQuery();
-            
-            return rs;
+            List<job_order> job_list = new ArrayList<job_order>();
+            job_order this_job = new job_order();
+            while(rs.next())
+            {
+                this_job.setCustomer_id(rs.getInt("customer_id"));
+                this_job.setJob_id(rs.getString("job_order_id"));
+                this_job.setQuantity(rs.getInt("quantity"));
+                
+                job_list.add(this_job);
+            }
+            return job_list;
             
         }
         catch(SQLException ex)
