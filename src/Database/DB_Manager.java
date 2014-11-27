@@ -194,8 +194,7 @@ public class DB_Manager {
             DBConnection db = new DBConnection();
             Connection conn = db.getConnection();
 
-            String query = "INSERT INTO job_order (job_order_id, "
-                    + "quantity, customer_id) VALUES (?, ?, ?, ?)";
+            String query = "INSERT INTO job_order (job_order_id, customer_id, quantity, id_purchase) VALUES (?, ?, ?, ?)";
 
             PreparedStatement preparedStmt = conn.prepareStatement(query);
             preparedStmt.setString(1, new_job.getJob_id());
@@ -922,6 +921,23 @@ public class DB_Manager {
         }
 
         
+    }
+    public void get_id_purchase_last(colortextile_class.purchase_order last_purchase){
+        try
+        {
+        DBConnection db = new DBConnection();
+        Connection conn = db.getConnection();
+        
+        PreparedStatement ps = conn.prepareStatement("SELECT id_purchase FROM purchase_order");
+        
+        ResultSet rs = ps.executeQuery();
+        if (rs.last()) {
+            last_purchase.setId_purchase(rs.getInt("id_purchase"));
+        }
+        } catch(SQLException ex){
+            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }
     public int get_id_purchase(colortextile_class.purchase_order new_purchase){
        try{

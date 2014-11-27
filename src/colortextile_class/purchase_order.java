@@ -62,13 +62,13 @@ public class purchase_order {
         this.design_code = design_code;
     }
     
-    public void add_new_purchase()
+    public boolean add_new_purchase()
     {
         DB_Manager new_conn = new DB_Manager();
-        new_conn.add_purchase_order(this);
+         return new_conn.add_purchase_order(this);
     }
     
-    public int get_id_purchase_from_name()
+    public int get_id_purchase_last()
     {
         DB_Manager new_conn = new DB_Manager();
        return new_conn.get_id_purchase(this);
@@ -112,6 +112,11 @@ public class purchase_order {
      */
     public void setDate_to(String date_to) {
         this.date_to = date_to;
+    }
+    
+    public void getPurchase_Id_Last(){
+        DB_Manager new_conn = new DB_Manager();
+        new_conn.get_id_purchase_last(this);
     }
     
 }
