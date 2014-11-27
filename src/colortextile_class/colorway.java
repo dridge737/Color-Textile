@@ -99,4 +99,16 @@ public class colorway {
         return false;
         
     }
+    
+    public void get_colorway_details_from_colorway_id()
+    {
+        Database.DB_Manager new_conn = new Database.DB_Manager();
+        colorway temp_colorway = new_conn.set_colorway_details_from_colorway_id(this.getId_colorway());
+        
+        this.setBinder(temp_colorway.getBinder());
+        this.setColorway_name(temp_colorway.getColorway_name());
+        this.setWeight_kg(temp_colorway.getWeight_kg());
+        
+        
+    }
 }

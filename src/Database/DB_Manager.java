@@ -298,6 +298,125 @@ public class DB_Manager {
         return -1;
     }
     
+    public List<Colorway_screen_link_functions> get_all_colorway_from_design_code(String this_design_code)
+    {
+        try{
+            DBConnection db = new DBConnection();
+            Connection conn = db.getConnection();
+            
+            PreparedStatement ps = 
+            conn.prepareStatement("SELECT * " 
+                                + "FROM colorway "
+                                + "WHERE id_colorway "
+                                + "IN (SELECT id_colorway "
+                                    + "FROM design_colorway_connect "
+                                    + "WHERE design_code = ? ");
+            
+            int item = 1;
+            ps.setString(item, this_design_code);
+            
+            List<Colorway_screen_link_functions> all_color_screen = new ArrayList<>();
+            Colorway_screen_link_functions current_colorway = new Colorway_screen_link_functions();
+            
+            ResultSet rs = ps.executeQuery();
+            
+            while(rs.next())
+            {
+                current_colorway.setBinder(rs.getFloat("binder"));
+                current_colorway.setColorway_name(rs.getString("colorway_name"));
+                current_colorway.setWeight_kg(rs.getFloat("weight_kg"));
+                current_colorway.setId_colorway(rs.getInt("id_colorway"));
+                current_colorway.add_all_screens_from_colorway();
+                all_color_screen.add(current_colorway);
+            }
+            rs.close();
+            conn.close();
+            
+            return all_color_screen;
+            
+            
+        }
+        catch(SQLException ex){
+            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+    
+    public List<screen_pigment> get_all_screen_pigment_from_colorway_id(int colorway_id)
+    {
+        try{
+            DBConnection db = new DBConnection();
+            Connection conn = db.getConnection();
+            
+            PreparedStatement ps = 
+            conn.prepareStatement("SELECT id_screen, pigment_no, pigment_percentage, pigment_name " 
+                                 + " FROM screen_pigment s_p, pigment p" 
+                                 + " WHERE id_screen "
+                                 + " IN (SELECT id_screen "
+                                     + " FROM colorway_screen_connect "
+                                     + " WHERE id_colorway = ?)"
+                                 + " AND s_p.pigment_no = p.pigment_no");
+            int item = 1;
+            ps.setInt(item, colorway_id);
+            
+            ResultSet rs = ps.executeQuery();
+            
+            List<screen_pigment> this_screen = new ArrayList<>();
+            screen_pigment this_s_pigment = new screen_pigment();
+            
+            while(rs.next())
+            {
+                this_s_pigment.setId_screen(rs.getInt("id_screen"));
+                this_s_pigment.setPigment_no(rs.getInt("pigment_no"));
+                this_s_pigment.setPigment_percentage(rs.getFloat("pigment_percentage"));
+                this_s_pigment.setPigment_name(rs.getString("pigment_name"));
+                this_screen.add(this_s_pigment);
+            }
+            return this_screen;
+            
+            
+        }
+        catch(SQLException ex){
+            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+    
+    //Get all colorway details using the colorway_id
+    public colorway set_colorway_details_from_colorway_id(int id_colorway)
+    {
+        try{
+            DBConnection db = new DBConnection();
+            Connection conn = db.getConnection();
+            
+            PreparedStatement ps = 
+            conn.prepareStatement("SELECT colorway_name,  binder, weight_kg "
+                                + "FROM colorway "
+                                + "WHERE id_colorway = ?");
+            int item = 1;
+            
+            ps.setInt(item, id_colorway);
+            ResultSet rs = ps.executeQuery();
+            
+            
+            colorway this_colorway = new colorway();
+            if(rs.first())
+            {
+                this_colorway.setId_colorway(id_colorway);
+                this_colorway.setColorway_name(rs.getString("colorway_name"));
+                this_colorway.setBinder(rs.getFloat("binder"));
+                this_colorway.setWeight_kg(rs.getFloat("weight_kg"));
+            }
+            return this_colorway;
+        }
+        catch(SQLException ex){
+            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return null;
+        
+    }
+    
     public int get_id_color_screen(int id_screen, int id_colorway)
     {
         try{

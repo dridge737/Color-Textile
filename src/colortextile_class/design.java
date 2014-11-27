@@ -80,6 +80,8 @@ public class design {
     public void setColor_name(String colorway_name) {
         this.color_name = colorway_name;
     }
+    
+    
 
     
 }

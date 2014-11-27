@@ -1880,7 +1880,7 @@ public class EditRecipe2 extends javax.swing.JFrame {
             //declare screen_pigment to add in screen_pigment table
             screen_pigment new_screen_pigment = new screen_pigment();
             //set pigment no into the screen pigment
-            new_screen_pigment.setPigment_no(new_pigment.getPigment_n());
+            new_screen_pigment.setPigment_no(new_pigment.getPigment_no());
             new_screen_pigment.setPigment_percentage(pigment_percent);
             new_screen_pigment.add_new_screen_pigment();
             new_screen_pigment.get_screen_pigment_id_from_pigment_no_and_pigment_percentage();
