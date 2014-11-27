@@ -371,8 +371,11 @@ public class DB_Manager {
                 this_s_pigment.setPigment_name(rs.getString("pigment_name"));
                 this_screen.add(this_s_pigment);
             }
-            return this_screen;
             
+            rs.close();
+            conn.close();
+            
+            return this_screen;
             
         }
         catch(SQLException ex){
