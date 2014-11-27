@@ -13,7 +13,7 @@ import java.util.ArrayList;
  * @author Eldridge
  */
 public class pigment {
-    private int pigment_id;
+    private int pigment_no;
     private String pigment_name;
     private int tingi;
     private int stock;
@@ -21,15 +21,15 @@ public class pigment {
     /**
      * @return the pigment_id
      */
-    public int getPigment_id() {
-        return pigment_id;
+    public int getPigment_no() {
+        return pigment_no;
     }
 
     /**
      * @param pigment_id the pigment_id to set
      */
-    public void setPigment_id(int pigment_id) {
-        this.pigment_id = pigment_id;
+    public void setPigment_no(int pigment_id) {
+        this.pigment_no = pigment_no;
     }
 
     /**
@@ -77,7 +77,7 @@ public class pigment {
     public void get_id_pigment_from_name()
     {
         DB_Manager newDbManager = new DB_Manager();
-        pigment_id = newDbManager.get_id_pigment(this.pigment_name);
+        pigment_no = newDbManager.get_id_pigment(this.pigment_name);
     }
     
     public ArrayList<String> get_all_pigment_name()

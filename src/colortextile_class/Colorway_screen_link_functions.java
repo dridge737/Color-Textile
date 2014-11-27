@@ -5,11 +5,16 @@
  */
 package colortextile_class;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author Eldridge
  */
 public class Colorway_screen_link_functions {
     colorway this_colorway = new colorway();
+    List<screen_pigment> this_screens = new ArrayList<>();
+    
     
 }
