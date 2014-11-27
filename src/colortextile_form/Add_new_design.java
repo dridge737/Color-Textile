@@ -448,7 +448,7 @@ public class Add_new_design extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel1.setText("Design Color :");
+        jLabel1.setText("Design Code :");
         jPanel1.add(jLabel1);
         jLabel1.setBounds(20, 260, 153, 34);
 
@@ -504,7 +504,7 @@ public class Add_new_design extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jCheckBox1);
-        jCheckBox1.setBounds(380, 40, 59, 20);
+        jCheckBox1.setBounds(380, 40, 63, 20);
 
         text_name.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
         jPanel1.add(text_name);
@@ -591,7 +591,7 @@ public class Add_new_design extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jCheckBox2);
-        jCheckBox2.setBounds(660, 200, 63, 25);
+        jCheckBox2.setBounds(660, 200, 65, 25);
 
         jLabel11.setBackground(new java.awt.Color(255, 255, 255));
         jLabel11.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
@@ -1738,20 +1738,26 @@ public class Add_new_design extends javax.swing.JFrame {
                 System.out.println(spinnerValue);
                 
         purchase_order purchase = new purchase_order();
+
         purchase.setDate(spinnerValue);
         purchase.setDesign_code(this.design_code.getText());
         
-        purchase.add_new_purchase();
         
-        
-        
-        add_job(purchase.get_id_purchase_from_name());
+        Boolean test1 = purchase.add_new_purchase();
+        if (test1 == true){
+            JOptionPane.showMessageDialog(null,"purchase added");
+        } else {
+            JOptionPane.showMessageDialog(null,"purchase failed");
+        }
+        purchase.get_id_purchase_last();
+        add_job(purchase.getId_purchase());
         
        
         
     }
     private void add_job(int id_purchase){
          
+            JOptionPane.showMessageDialog(null,"doing job _add");
             
                 for (int i = 0; i < job_list.size(); i++) {
                        job_order job = new job_order();
@@ -1765,15 +1771,9 @@ public class Add_new_design extends javax.swing.JFrame {
                        job.setJob_id(this.job_list.get(i).toString());
                 job.add_new_job_order();
                     
+            JOptionPane.showMessageDialog(null,"job added" + i);
                 }
-                
-                
-                
-                    
-                
-            
-                
-                        
+                      
         }
     
     

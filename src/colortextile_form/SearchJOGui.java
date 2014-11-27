@@ -18,6 +18,7 @@ import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 //import net.proteanit.sql.DbUtils;
@@ -77,12 +78,22 @@ public class SearchJOGui extends javax.swing.JFrame {
         
         
         try {
+            if (rs.next()){
+                
             while(rs.next()) {
                 purchase_order info = new purchase_order();
                 ResultSet rs2 = info.get_purchase_info(rs.getInt("id_purchase"));
                 
-                String[] set1 = { rs.getString("job_order_id"), conn.get_customer_name(rs.getInt("customer_id")), rs.getString("quantity"), rs2.getString("date"), rs2.getString("design_code")};
+                String[] set1 = {   rs.getString("job_order_id"), 
+                                    conn.get_customer_name(rs.getInt("customer_id")), 
+                                    rs.getString("quantity"), 
+                                    rs2.getString("date"), 
+                                    rs2.getString("design_code")};
                 model.addRow(set1);
+            }
+            } else {
+                
+            JOptionPane.showMessageDialog(null,"No Record");
             }
         } catch (SQLException ex) {
             Logger.getLogger(SearchJOGui.class.getName()).log(Level.SEVERE, null, ex);
