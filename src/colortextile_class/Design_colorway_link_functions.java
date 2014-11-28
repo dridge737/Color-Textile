@@ -36,11 +36,7 @@ public class Design_colorway_link_functions extends design{
          
          for(int x = 0; x < all_colorways.size(); x++ )
          {
-             System.out.println("Colorway_name : " +all_colorways.get(x).getColorway_name());
-             
-             System.out.println("Binder : " +all_colorways.get(x).getBinder());
-             
-             System.out.println("Weight : " +all_colorways.get(x).getWeight_kg());
+             all_colorways.get(x).view_all_screen_pigment_details();
          }
      }
      

@@ -27,4 +27,19 @@ public class Colorway_screen_link_functions extends colorway{
         this_screens = new_conn.set_all_screen_pigment_from_colorway_id(this.getId_colorway());
     }
     
+    public void view_all_screen_pigment_details()
+    {
+        System.out.println("Colorway_name : " +getColorway_name());
+        System.out.println("Binder : " +getBinder());     
+        System.out.println("Weight : " +getWeight_kg());
+        
+        for (screen_pigment this_screen : this_screens) {
+            System.out.println("Screen_id : " + this_screen.getId_screen());
+            System.out.println("Pigment no :" + this_screen.getPigment_no());
+            System.out.println("Pigment name:" + this_screen.getPigment_no());
+            System.out.println("Pigment perentage  :" + this_screen.getPigment_percentage());
+        }
+               
+    }
+    
 }

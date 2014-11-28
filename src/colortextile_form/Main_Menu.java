@@ -23,6 +23,8 @@ public class Main_Menu extends javax.swing.JFrame {
         get_des_details.setDesign_details_from_des_code();
         get_des_details.add_all_colorway_from_design_code();
         get_des_details.view_all_colorway_details();
+        
+        
     }
 
     /**

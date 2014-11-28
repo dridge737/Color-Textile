@@ -363,21 +363,21 @@ public class DB_Manager {
             int item = 1;
             ps.setInt(item++, colorway_id);
             
-            ResultSet rs = ps.executeQuery();
+            ResultSet screen_rs = ps.executeQuery();
             
             List<screen_pigment> this_screen = new ArrayList<>();
             screen_pigment this_s_pigment = new screen_pigment();
             
-            while(rs.next())
+            while(screen_rs.next())
             {
-                this_s_pigment.setId_screen(rs.getInt("id_screen"));
-                this_s_pigment.setPigment_no(rs.getInt("pigment_no"));
-                this_s_pigment.setPigment_percentage(rs.getFloat("pigment_percentage"));
-                this_s_pigment.setPigment_name(rs.getString("pigment_name"));
+                this_s_pigment.setId_screen(screen_rs.getInt("id_screen"));
+                this_s_pigment.setPigment_no(screen_rs.getInt("pigment_no"));
+                this_s_pigment.setPigment_percentage(screen_rs.getFloat("pigment_percentage"));
+                this_s_pigment.setPigment_name(screen_rs.getString("pigment_name"));
                 this_screen.add(this_s_pigment);
             }
             
-            rs.close();
+            screen_rs.close();
             conn.close();
             
             return this_screen;
