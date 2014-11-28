@@ -311,7 +311,9 @@ public class SearchJO extends javax.swing.JFrame {
         // TODO add your handling code here:
         job_order set = new job_order();
         set.job_order_all();
-        fill_table(set.getJob_order_resultset());
+        
+        /////ERROR
+        //fill_table(set.getJob_order_resultset());
     }//GEN-LAST:event_button_resetActionPerformed
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
