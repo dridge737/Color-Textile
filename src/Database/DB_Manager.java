@@ -876,14 +876,14 @@ public class DB_Manager {
         return this_job;
     }
     
-    public List<job_order> get_job_order_info_from_purchase_id(colortextile_class.job_order this_job_order){
+    public List<job_order> get_job_order_info_from_purchase_id(int purchase_id){
         try
         {
             DBConnection db = new DBConnection();
             Connection conn = db.getConnection(); 
             PreparedStatement ps = conn.prepareStatement("SELECT * FROM job_order WHERE id_purchase = ?");
             int item = 1;
-            ps.setInt(item++, this_job_order.getId_purchase());
+            ps.setInt(item, purchase_id);
             
             ResultSet rs = ps.executeQuery();
             List<job_order> job_list = new ArrayList<job_order>();

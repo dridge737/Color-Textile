@@ -13,23 +13,26 @@ import java.util.List;
  *
  * @author Eldridge
  */
-public class Job_purchase_link_functions {
+public class Job_purchase_link_functions extends purchase_order{
     
-    job_order this_job = new job_order();
-    String customer_name;
+    List<job_order> jobs_for_this = new ArrayList<>();
+    Design_colorway_link_functions new_des_col_link = new Design_colorway_link_functions();
     
     //For job_order get job_order_list using purchase order
     
-    public List<job_order> get_job_order_list_using_purchase_order_id()
+    public void set_job_order_list_using_purchase_order_id()
     {
         
         Database.DB_Manager new_conn = new Database.DB_Manager();
         //return from query
         
-        List<job_order> job_list = new_conn.get_job_order_info_from_purchase_id(this_job);
+        jobs_for_this = new_conn.get_job_order_info_from_purchase_id(this.getId_purchase());
         //add job order
-       
-        return job_list;
+    }
+    
+    public void get_design_details_from_purchase_order_id()
+    {
+        
     }
     
     //
