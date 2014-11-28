@@ -6,6 +6,8 @@
 
 package colortextile_class;
 
+import java.sql.Blob;
+
 /**
  *
  * @author Eldridge
@@ -15,7 +17,9 @@ public class design {
     private String design_name;
     private String color_name;
     private String fabric_style;
+    private Blob design_image;
 
+    
     /**
      * @return the design_code
      */
@@ -103,6 +107,20 @@ public class design {
      */
     public void setFabric_style(String fabric_style) {
         this.fabric_style = fabric_style;
+    }
+
+    /**
+     * @return the design_image
+     */
+    public Blob getDesign_image() {
+        return design_image;
+    }
+
+    /**
+     * @param design_image the design_image to set
+     */
+    public void setDesign_image(Blob design_image) {
+        this.design_image = design_image;
     }
     
     
