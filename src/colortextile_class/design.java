@@ -68,17 +68,41 @@ public class design {
     }
 
     /**
-     * @return the colorway_name
+     * @return the color_name
      */
     public String getColor_name() {
         return color_name;
     }
 
     /**
-     * @param colorway_name the colorway_name to set
+     * @param colorway_name the color_name to set
      */
-    public void setColor_name(String colorway_name) {
-        this.color_name = colorway_name;
+    public void setColor_name(String this_color_name) {
+        this.color_name = this_color_name;
+    }
+    
+    public void addDesign_details_from_des_code(String design_code)
+    {
+        Database.DB_Manager new_conn = new Database.DB_Manager();
+        design new_design = new_conn.get_design_details_from_des_code(this.design_code);
+
+        this.color_name = new_design.color_name;
+        this.design_name = new_design.design_name;
+        this.fabric_style = new_design.fabric_style;
+    }
+
+    /**
+     * @return the fabric_style
+     */
+    public String getFabric_style() {
+        return fabric_style;
+    }
+
+    /**
+     * @param fabric_style the fabric_style to set
+     */
+    public void setFabric_style(String fabric_style) {
+        this.fabric_style = fabric_style;
     }
     
     

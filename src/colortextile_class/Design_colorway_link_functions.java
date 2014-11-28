@@ -26,6 +26,8 @@ public class Design_colorway_link_functions extends design{
          Database.DB_Manager new_conn = new Database.DB_Manager();
          all_colorways = new_conn.get_all_colorway_from_design_code(this.getDesign_code());
      }
+     
+     
     
     
 }

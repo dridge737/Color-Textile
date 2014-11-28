@@ -487,6 +487,36 @@ public class DB_Manager {
         return -1;
     }
     
+    public design get_design_details_from_des_code(String code_design)
+    {
+        try{
+            DBConnection db = new DBConnection();
+            Connection conn = db.getConnection();
+            
+            PreparedStatement ps = 
+            conn.prepareStatement("SELECT * FROM design WHERE design_code = ?");
+            int item = 1;
+            ps.setString(item++, code_design);
+            
+            ResultSet rs = ps.executeQuery();
+            
+            if(rs.first())
+            {
+                design this_design = new design();
+                this_design.setColor_name(rs.getString("color_name"));
+                this_design.setDesign_name(rs.getString("design_name"));
+                this_design.setFabric_style(rs.getString("fabric_style"));
+                return this_design;
+            }
+            
+        }
+        catch(SQLException ex){
+            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+    
+    
     public String get_design_code(colortextile_class.design new_design)
     {
         try{
