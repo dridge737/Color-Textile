@@ -29,7 +29,7 @@ public class pigment {
      * @param pigment_id the pigment_id to set
      */
     public void setPigment_no(int pigment_id) {
-        this.pigment_no = pigment_no;
+        this.pigment_no = pigment_id;
     }
 
     /**

@@ -25,6 +25,13 @@ public class Colorway_screen_link_functions extends colorway{
     {
         Database.DB_Manager new_conn = new Database.DB_Manager();
         this_screens = new_conn.set_all_screen_pigment_from_colorway_id(this.getId_colorway());
+        
+        for (screen_pigment this_screen : this_screens) {
+            System.out.println("Screen_id : " + this_screen.getId_screen());
+            System.out.println("Pigment no :" + this_screen.getPigment_no());
+            System.out.println("Pigment name:" + this_screen.getPigment_name());
+            System.out.println("Pigment perentage  :" + this_screen.getPigment_percentage());
+        }
     }
     
     public void view_all_screen_pigment_details()

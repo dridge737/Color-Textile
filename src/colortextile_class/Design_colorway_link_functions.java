@@ -25,6 +25,12 @@ public class Design_colorway_link_functions extends design{
      {
          Database.DB_Manager new_conn = new Database.DB_Manager();
          all_colorways = new_conn.set_all_colorway_from_design_code(this.getDesign_code());
+         
+         for(int x = 0; x < all_colorways.size(); x++ )
+         {
+             all_colorways.get(x).add_all_screens_from_colorway();
+         }
+         
      }
      
      public void view_all_colorway_details()

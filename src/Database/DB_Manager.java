@@ -330,7 +330,7 @@ public class DB_Manager {
                 current_colorway.setColorway_name(rs.getString("colorway_name"));
                 current_colorway.setWeight_kg(rs.getFloat("weight_kg"));
                 current_colorway.setId_colorway(rs.getInt("id_colorway"));
-                current_colorway.add_all_screens_from_colorway();
+                //current_colorway.add_all_screens_from_colorway();
                 all_color_screen.add(current_colorway);
             }
             rs.close();
@@ -351,9 +351,9 @@ public class DB_Manager {
         try{
             DBConnection db = new DBConnection();
             Connection conn = db.getConnection();
-            
+            System.out.println("Colorway_id = " +colorway_id);
             PreparedStatement ps = 
-            conn.prepareStatement("SELECT id_screen, p.pigment_no, pigment_percentage, pigment_name " 
+            conn.prepareStatement("SELECT id_screen, p.pigment_no, pigment_percentage, p.pigment_name " 
                                  + " FROM screen_pigment s_p, pigment p" 
                                  + " WHERE id_screen "
                                  + " IN (SELECT id_screen "
@@ -370,11 +370,25 @@ public class DB_Manager {
             
             while(screen_rs.next())
             {
+                /*
+                System.out.println("Screen id = "+screen_rs.getInt("id_screen"));
+                System.out.println("Pigment no = "+screen_rs.getInt("p.pigment_no"));
+                System.out.println("Pigment percentage = "+screen_rs.getFloat("pigment_percentage"));
+                System.out.println("Pigment name= "+screen_rs.getString("p.pigment_name"));
+                */
                 this_s_pigment.setId_screen(screen_rs.getInt("id_screen"));
-                this_s_pigment.setPigment_no(screen_rs.getInt("pigment_no"));
+                this_s_pigment.setPigment_no(screen_rs.getInt("p.pigment_no"));
                 this_s_pigment.setPigment_percentage(screen_rs.getFloat("pigment_percentage"));
-                this_s_pigment.setPigment_name(screen_rs.getString("pigment_name"));
+                this_s_pigment.setPigment_name(screen_rs.getString("p.pigment_name"));
                 this_screen.add(this_s_pigment);
+            }
+            
+            for(screen_pigment thisscreens : this_screen)
+            {
+                System.out.println("Screen id = "+thisscreens.getId_screen());
+                System.out.println("Pigment no = "+thisscreens.getPigment_no());
+                System.out.println("Pigment percentage = "+thisscreens.getPigment_percentage());
+                System.out.println("Pigment name= "+thisscreens.getPigment_name());
             }
             
             screen_rs.close();
