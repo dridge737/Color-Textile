@@ -45,8 +45,10 @@ public class DB_Manager {
                             +"\nPigment_percentage = " +new_screen_pigment.getPigment_percentage());
         */
         
-               try {
-             PreparedStatement ps = conn.prepareStatement("INSERT INTO screen_pigment (pigment_no, pigment_percentage) VALUES (?,?)");
+        try {
+             PreparedStatement ps = 
+                     conn.prepareStatement("INSERT INTO screen_pigment (pigment_no, pigment_percentage) "
+                                            + "VALUES (?,?)");
         
         int item = 1;
         
@@ -249,7 +251,10 @@ public class DB_Manager {
             DBConnection db = new DBConnection();
             Connection conn = db.getConnection();
     
-            PreparedStatement ps = conn.prepareStatement("SELECT pigment_no FROM pigment WHERE pigment_name = ?");
+            PreparedStatement ps = 
+                    conn.prepareStatement("SELECT pigment_no "
+                    + "FROM pigment "
+                    + "WHERE pigment_name = ?");
             int item = 1;
             ps.setString(item++, pigment_name);
             
@@ -297,7 +302,7 @@ public class DB_Manager {
         return -1;
     }
     
-    public List<Colorway_screen_link_functions> get_all_colorway_from_design_code(String this_design_code)
+    public List<Colorway_screen_link_functions> set_all_colorway_from_design_code(String this_design_code)
     {
         try{
             DBConnection db = new DBConnection();
@@ -308,11 +313,11 @@ public class DB_Manager {
                                 + "FROM colorway "
                                 + "WHERE id_colorway "
                                 + "IN (SELECT id_colorway "
-                                    + "FROM design_colorway_connect "
-                                    + "WHERE design_code = ? ");
+                                    + " FROM design_colorway_connect "
+                                    + " WHERE design_code = ?) ");
             
             int item = 1;
-            ps.setString(item, this_design_code);
+            ps.setString(item++, this_design_code);
             
             List<Colorway_screen_link_functions> all_color_screen = new ArrayList<>();
             Colorway_screen_link_functions current_colorway = new Colorway_screen_link_functions();
@@ -341,14 +346,14 @@ public class DB_Manager {
         return null;
     }
     
-    public List<screen_pigment> get_all_screen_pigment_from_colorway_id(int colorway_id)
+    public List<screen_pigment> set_all_screen_pigment_from_colorway_id(int colorway_id)
     {
         try{
             DBConnection db = new DBConnection();
             Connection conn = db.getConnection();
             
             PreparedStatement ps = 
-            conn.prepareStatement("SELECT id_screen, pigment_no, pigment_percentage, pigment_name " 
+            conn.prepareStatement("SELECT id_screen, p.pigment_no, pigment_percentage, pigment_name " 
                                  + " FROM screen_pigment s_p, pigment p" 
                                  + " WHERE id_screen "
                                  + " IN (SELECT id_screen "
@@ -356,7 +361,7 @@ public class DB_Manager {
                                      + " WHERE id_colorway = ?)"
                                  + " AND s_p.pigment_no = p.pigment_no");
             int item = 1;
-            ps.setInt(item, colorway_id);
+            ps.setInt(item++, colorway_id);
             
             ResultSet rs = ps.executeQuery();
             
@@ -397,7 +402,7 @@ public class DB_Manager {
                                 + "WHERE id_colorway = ?");
             int item = 1;
             
-            ps.setInt(item, id_colorway);
+            ps.setInt(item++, id_colorway);
             ResultSet rs = ps.executeQuery();
             
             
@@ -433,7 +438,7 @@ public class DB_Manager {
             int item = 1;
             
             ps.setInt(item++, id_screen);
-            ps.setInt(item, id_colorway);
+            ps.setInt(item++, id_colorway);
             
             ResultSet rs = ps.executeQuery();
             if(rs.first())
@@ -487,7 +492,7 @@ public class DB_Manager {
         return -1;
     }
     
-    public design get_design_details_from_des_code(String code_design)
+    public design set_design_details_from_des_code(String code_design)
     {
         try{
             DBConnection db = new DBConnection();
@@ -506,8 +511,12 @@ public class DB_Manager {
                 this_design.setColor_name(rs.getString("color_name"));
                 this_design.setDesign_name(rs.getString("design_name"));
                 this_design.setFabric_style(rs.getString("fabric_style"));
+                
+                conn.close();
+                rs.close();
                 return this_design;
             }
+            
             
         }
         catch(SQLException ex){
@@ -906,14 +915,14 @@ public class DB_Manager {
         return this_job;
     }
     
-    public List<job_order> get_job_order_info_from_purchase_id(int purchase_id){
+    public List<job_order> set_job_order_info_from_purchase_id(int purchase_id){
         try
         {
             DBConnection db = new DBConnection();
             Connection conn = db.getConnection(); 
             PreparedStatement ps = conn.prepareStatement("SELECT * FROM job_order WHERE id_purchase = ?");
             int item = 1;
-            ps.setInt(item, purchase_id);
+            ps.setInt(item++, purchase_id);
             
             ResultSet rs = ps.executeQuery();
             List<job_order> job_list = new ArrayList<job_order>();

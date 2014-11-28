@@ -24,7 +24,7 @@ public class Colorway_screen_link_functions extends colorway{
     public void add_all_screens_from_colorway()
     {
         Database.DB_Manager new_conn = new Database.DB_Manager();
-        this_screens = new_conn.get_all_screen_pigment_from_colorway_id(this.getId_colorway());
+        this_screens = new_conn.set_all_screen_pigment_from_colorway_id(this.getId_colorway());
     }
     
 }

@@ -80,7 +80,7 @@ public class EditRecipe2 extends javax.swing.JFrame {
     private void set_job_details(int purchase_order_id)
     {
         colortextile_class.Job_purchase_link_functions job_function = new colortextile_class.Job_purchase_link_functions();
-        List<String> jobList = job_function.get_job_order_list();
+        List<job_order> jobList = job_function.getJobs_for_this();
         
         //set_customer_name(new_job.getCustomer_id());
         //new_job.getJob_id();

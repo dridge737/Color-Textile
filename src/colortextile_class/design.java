@@ -85,10 +85,10 @@ public class design {
         this.color_name = this_color_name;
     }
     
-    public void addDesign_details_from_des_code(String design_code)
+    public void setDesign_details_from_des_code()
     {
         Database.DB_Manager new_conn = new Database.DB_Manager();
-        design new_design = new_conn.get_design_details_from_des_code(this.design_code);
+        design new_design = new_conn.set_design_details_from_des_code(this.design_code);
 
         this.color_name = new_design.color_name;
         this.design_name = new_design.design_name;

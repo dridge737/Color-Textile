@@ -5,6 +5,8 @@
  */
 package colortextile_form;
 
+import colortextile_class.Design_colorway_link_functions;
+
 /**
  *
  * @author Eldridge
@@ -16,6 +18,11 @@ public class Main_Menu extends javax.swing.JFrame {
      */
     public Main_Menu() {
         initComponents();
+        Design_colorway_link_functions get_des_details = new Design_colorway_link_functions();
+        get_des_details.setDesign_code("df343");
+        get_des_details.setDesign_details_from_des_code();
+        get_des_details.add_all_colorway_from_design_code();
+        get_des_details.view_all_colorway_details();
     }
 
     /**
