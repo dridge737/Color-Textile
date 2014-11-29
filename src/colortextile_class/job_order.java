@@ -15,11 +15,11 @@ import java.util.Date;
  *
  * @author Winston
  */
-public class job_order {
+public class job_order extends customer {
     private String job_id;
     //private String date;
     private int quantity;
-    private int customer_id;
+    //private int customer_id;
     private int id_purchase;
     private ResultSet job_order_resultset;
 
@@ -69,21 +69,23 @@ public class job_order {
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
-
+    
+   // Extending customer Class
+/*
     /**
      * @return the customer_id
-     */
+     
     public int getCustomer_id() {
         return customer_id;
     }
 
     /**
      * @param customer_id the customer_id to set
-     */
+     
     public void setCustomer_id(int customer_id) {
         this.customer_id = customer_id;
     }
-
+*/
     public void add_new_job_order()
     {
         DB_Manager new_conn = new DB_Manager();

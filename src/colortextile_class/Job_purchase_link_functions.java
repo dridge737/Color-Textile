@@ -37,6 +37,17 @@ public class Job_purchase_link_functions extends purchase_order{
         getNew_des_col_link().add_all_colorway_from_design_code();
     }
     
+    public void view_all_job_order_details()
+    {
+        for(job_order all_jobs : jobs_for_this)
+        {
+            System.out.println("Job Order ID : "+all_jobs.getJob_id());
+            System.out.println("Job Order ID : "+all_jobs.getCustomer_id());
+            System.out.println("Job Order ID : "+all_jobs.getJob_id());
+            System.out.println("Job Order ID : "+all_jobs.getJob_id());
+            
+        }
+    }
     
     
     //

@@ -14,7 +14,7 @@ import java.util.ArrayList;
  * @author Eldridge
  */
 public class customer {
-    private int Customer_id;
+    private int customer_id;
     private String Customer_name;
     private ArrayList<String> Customer_names = new ArrayList<String>();
 
@@ -22,14 +22,14 @@ public class customer {
      * @return the Customer_id
      */
     public int getCustomer_id() {
-        return Customer_id;
+        return customer_id;
     }
 
     /**
      * @param Customer_id the Customer_id to set
      */
-    public void setCustomer_id(int Customer_id) {
-        this.Customer_id = Customer_id;
+    public void setCustomer_id(int the_customer_id) {
+        this.customer_id = the_customer_id;
     }
 
     /**
