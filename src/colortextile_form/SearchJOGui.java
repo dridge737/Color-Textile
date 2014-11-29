@@ -129,8 +129,7 @@ public class SearchJOGui extends javax.swing.JFrame {
         try {
             while(rs3.next()) {
                 job_order info = new job_order();
-                ResultSet rs4 = info.getJob_info_from_purchase_id(rs3.getInt("id_purchase"));
-                //ResultSet rs4 = null;
+                ResultSet rs4 = info.get_job_info_from_purchase_id(rs3.getInt("id_purchase"));
                 while(rs4.next()) {
                     String[] set1 = { rs4.getString("job_order_id"), conn.get_customer_name(rs4.getInt("customer_id")), rs4.getString("quantity"), rs3.getString("date"), rs3.getString("design_code")};
                 model.addRow(set1);

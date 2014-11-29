@@ -928,6 +928,26 @@ public class DB_Manager {
         }
         return this_job;
     }
+    public ResultSet get_job_order_list_from_purchase_id(colortextile_class.job_order this_job){
+        
+        try
+        {
+            DBConnection db = new DBConnection();
+            Connection conn = db.getConnection(); 
+            PreparedStatement ps = conn.prepareStatement("SELECT * FROM job_order WHERE id_purchase = ?");
+            int item = 1;
+            ps.setInt(item++, this_job.getId_purchase());
+            ResultSet rs = ps.executeQuery();
+            return rs;
+            
+            
+        }
+        catch(SQLException ex)
+        {
+            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+    }
     
     public List<job_order> set_job_order_info_from_purchase_id(int purchase_id){
         try
