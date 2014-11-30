@@ -14,19 +14,19 @@ import java.util.List;
  */
 public class Colorway_screen_link_functions extends colorway{
     
-    List<screen_pigment> this_screens = new ArrayList<>();
+    private List<screen_pigment> this_screens = new ArrayList<>();
     
     public void add_screen(screen_pigment this_screen)
     {
-        this_screens.add(this_screen);
+        getThis_screens().add(this_screen);
     }
     
     public void add_all_screens_from_colorway()
     {
         Database.DB_Manager new_conn = new Database.DB_Manager();
-        this_screens = new_conn.set_all_screen_pigment_from_colorway_id(this.getId_colorway());
+        setThis_screens(new_conn.set_all_screen_pigment_from_colorway_id(this.getId_colorway()));
         
-        for (screen_pigment this_screen : this_screens) {
+        for (screen_pigment this_screen : getThis_screens()) {
             System.out.println("Screen_id : " + this_screen.getId_screen());
             System.out.println("Pigment no :" + this_screen.getPigment_no());
             System.out.println("Pigment name:" + this_screen.getPigment_name());
@@ -40,13 +40,27 @@ public class Colorway_screen_link_functions extends colorway{
         System.out.println("Binder : " +getBinder());     
         System.out.println("Weight : " +getWeight_kg());
         
-        for (screen_pigment this_screen : this_screens) {
+        for (screen_pigment this_screen : getThis_screens()) {
             System.out.println("Screen_id : " + this_screen.getId_screen());
             System.out.println("Pigment no :" + this_screen.getPigment_no());
             System.out.println("Pigment name:" + this_screen.getPigment_no());
             System.out.println("Pigment perentage  :" + this_screen.getPigment_percentage());
         }
                
+    }
+
+    /**
+     * @return the this_screens
+     */
+    public List<screen_pigment> getThis_screens() {
+        return this_screens;
+    }
+
+    /**
+     * @param this_screens the this_screens to set
+     */
+    public void setThis_screens(List<screen_pigment> this_screens) {
+        this.this_screens = this_screens;
     }
     
 }
