@@ -200,8 +200,9 @@ public class DB_Manager {
 
             PreparedStatement preparedStmt = conn.prepareStatement(query);
             preparedStmt.setString(1, new_job.getJob_id());
-            preparedStmt.setInt(2, new_job.getQuantity());         
-            preparedStmt.setInt(3, new_job.getCustomer_id());
+                     
+            preparedStmt.setInt(2, new_job.getCustomer_id());
+            preparedStmt.setInt(3, new_job.getQuantity());
             preparedStmt.setInt(4, new_job.getId_purchase());
 
             preparedStmt.execute();
@@ -885,7 +886,7 @@ public class DB_Manager {
         
     }
     
-    public ResultSet get_single_purchase_info(colortextile_class.purchase_order purchase_id){
+    public ResultSet get_single_purchase_info_from_id_purchase(colortextile_class.purchase_order purchase_id){
         try {
             DBConnection db = new DBConnection();
             Connection conn = db.getConnection();  

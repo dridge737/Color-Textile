@@ -74,10 +74,10 @@ public class purchase_order {
        return new_conn.get_id_purchase(this);
     }
     
-    public ResultSet get_purchase_info(int purchase_id){
+    public ResultSet get_purchase_info_from_id_purchase(int purchase_id){
         DB_Manager new_conn = new DB_Manager();
         this.setId_purchase(id_purchase);
-       return new_conn.get_single_purchase_info(this);
+       return new_conn.get_single_purchase_info_from_id_purchase(this);
     }
     
     public ResultSet Search_purchase_info(){

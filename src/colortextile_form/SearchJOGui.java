@@ -82,7 +82,7 @@ public class SearchJOGui extends javax.swing.JFrame {
                 
             while(rs.next()) {
                 purchase_order info = new purchase_order();
-                ResultSet rs2 = info.get_purchase_info(rs.getInt("id_purchase"));
+                ResultSet rs2 = info.get_purchase_info_from_id_purchase(rs.getInt("id_purchase"));
                 
                 String[] set1 = {   rs.getString("job_order_id"), 
                                     conn.get_customer_name(rs.getInt("customer_id")), 
@@ -116,9 +116,12 @@ public class SearchJOGui extends javax.swing.JFrame {
         try {
             while(rs.next()) {
                 purchase_order info = new purchase_order();
-                ResultSet rs2 = info.get_purchase_info(rs.getInt("id_purchase"));
+                ResultSet rs2 = info.get_purchase_info_from_id_purchase(rs.getInt("id_purchase"));
                 
-                String[] set1 = { rs.getString("job_order_id"), conn.get_customer_name(rs.getInt("customer_id")), rs.getString("quantity"), rs2.getString("date"), rs2.getString("design_code")};
+                String[] set1 = { rs.getString("job_order_id"), 
+                                    conn.get_customer_name(rs.getInt("customer_id")), 
+                                    rs.getString("quantity"), rs2.getString("date"), 
+                                    rs2.getString("design_code")};
                 model.addRow(set1);
             }
         } catch (SQLException ex) {
