@@ -68,11 +68,7 @@ public class purchase_order {
          return new_conn.add_purchase_order(this);
     }
     
-    public int get_id_purchase_last()
-    {
-        DB_Manager new_conn = new DB_Manager();
-       return new_conn.get_id_purchase(this);
-    }
+   
     
     public ResultSet get_purchase_info_from_id_purchase(int purchase_id){
         DB_Manager new_conn = new DB_Manager();
@@ -114,9 +110,9 @@ public class purchase_order {
         this.date_to = date_to;
     }
     
-    public void getPurchase_Id_Last(){
+    public int getPurchase_Id_Last(){
         DB_Manager new_conn = new DB_Manager();
-        new_conn.get_id_purchase_last(this);
+        return new_conn.get_id_purchase_last(this);
     }
     
 }

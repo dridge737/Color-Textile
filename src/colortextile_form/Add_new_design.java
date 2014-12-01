@@ -1796,29 +1796,28 @@ public class Add_new_design extends javax.swing.JFrame {
         } else {
             JOptionPane.showMessageDialog(null,"purchase failed");
         }
-        purchase.get_id_purchase_last();
-        add_job(purchase.getId_purchase());
+        
+        add_job(purchase.getPurchase_Id_Last());
+        
+            JOptionPane.showMessageDialog(null,purchase.getPurchase_Id_Last());
         
        
         
     }
     private void add_job(int id_purchase){
          
-            JOptionPane.showMessageDialog(null,"doing job _add");
             
                 for (int i = 0; i < job_list.size(); i++) {
                        job_order job = new job_order();
-                       customer id_cust = new customer();
+                       DB_Manager new_conn = new DB_Manager();
                        
-                       job.setId_purchase(id_purchase);
-                       id_cust.setCustomer_name(this.customer_list.get(i).toString());
-                       
-                       job.setCustomer_id(id_cust.get_customer_id_from_name());
+                       job.setCustomer_id(new_conn.get_id_customer(this.customer_list.get(i).toString()));
                        job.setQuantity(Integer.parseInt(this.quantity_list.get(i).toString()));
                        job.setJob_id(this.job_list.get(i).toString());
+                       job.setId_purchase(id_purchase);
+                       
                 job.add_new_job_order();
                     
-            JOptionPane.showMessageDialog(null,"job added" + i);
                 }
                       
         }

@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -753,14 +754,12 @@ public class DB_Manager {
                                  + "FROM customer "
                                  + "WHERE customer_name = ? ");
             
-            int item = 1;
-            ps.setString(item++, id_customer.getCustomer_name());
+            ps.setString(1, id_customer.getCustomer_name());
             
             ResultSet rs = ps.executeQuery();
-            if(rs.first())
+            if(rs.next())
             {
                 int id_cus = rs.getInt("id_customer");
-             //   System.out.println(id_colorway);
                 return id_cus;
             }
         }
@@ -999,22 +998,25 @@ public class DB_Manager {
 
         
     }
-    public void get_id_purchase_last(colortextile_class.purchase_order last_purchase){
+    public int get_id_purchase_last(colortextile_class.purchase_order last_purchase){
         try
         {
         DBConnection db = new DBConnection();
         Connection conn = db.getConnection();
         
-        PreparedStatement ps = conn.prepareStatement("SELECT id_purchase FROM purchase_order");
+        PreparedStatement ps = conn.prepareStatement("SELECT MAX(id_purchase) AS last FROM purchase_order");
         
         ResultSet rs = ps.executeQuery();
-        if (rs.last()) {
-            last_purchase.setId_purchase(rs.getInt("id_purchase"));
+        if (rs.next()) {
+           return rs.getInt("last");
+           
+           
+        
         }
         } catch(SQLException ex){
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
         }
-
+        return -1;
     }
     public int get_id_purchase(colortextile_class.purchase_order new_purchase){
        try{
