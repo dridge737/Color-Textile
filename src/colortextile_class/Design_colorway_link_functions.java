@@ -14,21 +14,21 @@ import java.util.List;
  */
 public class Design_colorway_link_functions extends design{
     
-     List<Colorway_screen_link_functions> all_colorways = new ArrayList<>();
+     private List<Colorway_screen_link_functions> all_colorways = new ArrayList<>();
      
      public void add_colorway(Colorway_screen_link_functions this_color_screen_link)
      {
-         all_colorways.add(this_color_screen_link);
+         getAll_colorways().add(this_color_screen_link);
      }
      
      public void add_all_colorway_from_design_code()
      {
          Database.DB_Manager new_conn = new Database.DB_Manager();
-         all_colorways = new_conn.set_all_colorway_from_design_code(this.getDesign_code());
+         setAll_colorways(new_conn.set_all_colorway_from_design_code(this.getDesign_code()));
          
-         for(int x = 0; x < all_colorways.size(); x++ )
+         for(int x = 0; x < getAll_colorways().size(); x++ )
          {
-             all_colorways.get(x).add_all_screens_from_colorway();
+             getAll_colorways().get(x).add_all_screens_from_colorway();
          }
          
      }
@@ -40,11 +40,25 @@ public class Design_colorway_link_functions extends design{
          System.out.println("Design_name : " +this.getDesign_name());
          System.out.println("Fabric Style : " +this.getFabric_style());
          
-         for(int x = 0; x < all_colorways.size(); x++ )
+         for(int x = 0; x < getAll_colorways().size(); x++ )
          {
-             all_colorways.get(x).view_all_screen_pigment_details();
+             getAll_colorways().get(x).view_all_screen_pigment_details();
          }
      }
+
+    /**
+     * @return the all_colorways
+     */
+    public List<Colorway_screen_link_functions> getAll_colorways() {
+        return all_colorways;
+    }
+
+    /**
+     * @param all_colorways the all_colorways to set
+     */
+    public void setAll_colorways(List<Colorway_screen_link_functions> all_colorways) {
+        this.all_colorways = all_colorways;
+    }
      
      
     

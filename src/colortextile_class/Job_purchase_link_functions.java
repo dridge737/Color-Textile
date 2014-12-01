@@ -45,13 +45,9 @@ public class Job_purchase_link_functions extends purchase_order{
             System.out.println("Job Order ID : "+all_jobs.getCustomer_id());
             System.out.println("Job Order ID : "+all_jobs.getJob_id());
             System.out.println("Job Order ID : "+all_jobs.getJob_id());
-            
         }
     }
-    
-    
-    //
-
+   
     /**
      * @return the jobs_for_this
      */

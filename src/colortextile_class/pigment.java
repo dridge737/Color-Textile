@@ -84,8 +84,16 @@ public class pigment {
     {
         DB_Manager new_conn = new DB_Manager();
         return new_conn.get_all_pigment_name();
+    }
+    
+    public void get_pigment_name_from_id()
+    {
+        DB_Manager newDbManager = new DB_Manager();
+        pigment_name = newDbManager.get_pigment_name(pigment_no);
         
     }
+            
+    
     
     
     
