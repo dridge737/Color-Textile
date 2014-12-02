@@ -81,16 +81,28 @@ public class SearchJOGui extends javax.swing.JFrame {
             if (rs.next()){
                 
             while(rs.next()) {
+
                 purchase_order info = new purchase_order();
                 ResultSet rs2 = info.get_purchase_info_from_id_purchase(rs.getInt("id_purchase"));
-                
-                String[] set1 = {   rs.getString("job_order_id"), 
+                if(rs2.next()){
+                   String[] set1 = {   rs.getString("job_order_id"), 
                                     conn.get_customer_name(rs.getInt("customer_id")), 
                                     rs.getString("quantity"), 
-                                    rs2.getString("date"), 
-                                    rs2.getString("design_code")};
-                model.addRow(set1);
-            }
+                                   rs2.getString("date"), 
+                                   rs2.getString("design_code")};
+               
+                               model.addRow(set1);
+            
+                } else {
+                   String[] set2 = {   rs.getString("job_order_id"), 
+                                    conn.get_customer_name(rs.getInt("customer_id")), 
+                                    rs.getString("quantity")};
+                                   
+               
+                               model.addRow(set2);
+             
+                }
+                }
             } else {
                 
             JOptionPane.showMessageDialog(null,"No Record");
@@ -117,13 +129,21 @@ public class SearchJOGui extends javax.swing.JFrame {
             while(rs.next()) {
                 purchase_order info = new purchase_order();
                 ResultSet rs2 = info.get_purchase_info_from_id_purchase(rs.getInt("id_purchase"));
-                
+                if (rs2.next()){
                 String[] set1 = { rs.getString("job_order_id"), 
                                     conn.get_customer_name(rs.getInt("customer_id")), 
                                     rs.getString("quantity"), rs2.getString("date"), 
                                     rs2.getString("design_code")};
                 model.addRow(set1);
-            }
+    
+                } else {
+                String[] set1 = { rs.getString("job_order_id"), 
+                                    conn.get_customer_name(rs.getInt("customer_id")), 
+                                    rs.getString("quantity")};
+                model.addRow(set1);
+        
+                }
+                            }
         } catch (SQLException ex) {
             Logger.getLogger(SearchJOGui.class.getName()).log(Level.SEVERE, null, ex);
         }
