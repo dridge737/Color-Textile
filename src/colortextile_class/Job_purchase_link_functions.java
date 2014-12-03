@@ -76,4 +76,9 @@ public class Job_purchase_link_functions extends purchase_order{
         this.new_des_col_link = new_des_col_link;
     }
     
+    public void print_this_job()
+    {
+        
+    }
+    
 }
