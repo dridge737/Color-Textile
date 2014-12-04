@@ -50,6 +50,7 @@ public class SearchJOGui extends javax.swing.JFrame {
         
         this.spinner_from.setEnabled(false);
         this.spinner_to.setEnabled(false);
+        
         job_order set = new job_order();
         fill_table(set.job_order_all());
         
@@ -68,7 +69,7 @@ public class SearchJOGui extends javax.swing.JFrame {
         
         
         DB_Manager conn= new DB_Manager();
-        
+        purchase_order info = new purchase_order();
         DefaultTableModel model = new DefaultTableModel();
         model.addColumn("Job Order");
         model.addColumn("Customer Name");
@@ -79,16 +80,17 @@ public class SearchJOGui extends javax.swing.JFrame {
         
         try {
             if (rs.next()){
-                
+             rs.previous();
             while(rs.next()) {
 
-                purchase_order info = new purchase_order();
+                
                 ResultSet rs2 = info.get_purchase_info_from_id_purchase(rs.getInt("id_purchase"));
-                if(rs2.next()){
+                
+                if(rs2.first()){
                    String[] set1 = {   rs.getString("job_order_id"), 
-                                    conn.get_customer_name(rs.getInt("customer_id")), 
-                                    rs.getString("quantity"), 
-                                   rs2.getString("date"), 
+                                    conn.get_customer_name(rs.getInt("customer_id")),
+                                    rs.getString("quantity"),
+                                   rs2.getString("date"),
                                    rs2.getString("design_code")};
                
                                model.addRow(set1);
@@ -96,7 +98,8 @@ public class SearchJOGui extends javax.swing.JFrame {
                 } else {
                    String[] set2 = {   rs.getString("job_order_id"), 
                                     conn.get_customer_name(rs.getInt("customer_id")), 
-                                    rs.getString("quantity")};
+                                    rs.getString("quantity")
+                   };
                                    
                
                                model.addRow(set2);
@@ -114,7 +117,7 @@ public class SearchJOGui extends javax.swing.JFrame {
         this.jTable1.setModel(model); 
     }
     
-    public void fill_table(ResultSet rs, ResultSet rs3){
+    public void fill_table2(ResultSet rs, ResultSet rs3){
         
         DB_Manager conn = new DB_Manager();
         
@@ -132,15 +135,16 @@ public class SearchJOGui extends javax.swing.JFrame {
                 if (rs2.next()){
                 String[] set1 = { rs.getString("job_order_id"), 
                                     conn.get_customer_name(rs.getInt("customer_id")), 
-                                    rs.getString("quantity"), rs2.getString("date"), 
+                                    rs.getString("quantity"), 
+                                    rs2.getString("date"), 
                                     rs2.getString("design_code")};
                 model.addRow(set1);
     
                 } else {
-                String[] set1 = { rs.getString("job_order_id"), 
+                String[] set2 = { rs.getString("job_order_id"), 
                                     conn.get_customer_name(rs.getInt("customer_id")), 
                                     rs.getString("quantity")};
-                model.addRow(set1);
+                model.addRow(set2);
         
                 }
                             }
@@ -154,7 +158,7 @@ public class SearchJOGui extends javax.swing.JFrame {
                 job_order info = new job_order();
                 ResultSet rs4 = info.get_job_info_from_purchase_id(rs3.getInt("id_purchase"));
                 while(rs4.next()) {
-                    String[] set1 = { rs4.getString("job_order_id"), conn.get_customer_name(rs4.getInt("customer_id")), rs4.getString("quantity"), rs3.getString("date"), rs3.getString("design_code")};
+                String[] set1 = { rs4.getString("job_order_id"), conn.get_customer_name(rs4.getInt("customer_id")), rs4.getString("quantity"), rs3.getString("date"), rs3.getString("design_code")};
                 model.addRow(set1);
                 }
                 
@@ -164,6 +168,7 @@ public class SearchJOGui extends javax.swing.JFrame {
         }
         
         this.jTable1.setModel(model); 
+        
     }
 
     /**
@@ -286,7 +291,7 @@ public class SearchJOGui extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jCheckBox1);
-        jCheckBox1.setBounds(585, 133, 65, 29);
+        jCheckBox1.setBounds(585, 133, 69, 29);
 
         jLabel6.setFont(new java.awt.Font("Century Gothic", 0, 34)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
@@ -343,7 +348,7 @@ public class SearchJOGui extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(33, 33, 33)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 583, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(64, Short.MAX_VALUE))
+                .addContainerGap(704, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -354,13 +359,14 @@ public class SearchJOGui extends javax.swing.JFrame {
         );
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 680, 480);
+        jPanel1.setBounds(0, 0, 1320, 480);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void button_searchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_searchActionPerformed
         // TODO add your handling code here:
+        boolean filltype = true;
         job_order jobsearch = new job_order();
         purchase_order purchasesearch = new purchase_order();
         DB_Manager id = new DB_Manager();
@@ -376,20 +382,34 @@ public class SearchJOGui extends javax.swing.JFrame {
         
         if (!(this.text_job_id.getText().trim().equals(""))){
             jobsearch.setJob_id(this.text_job_id.getText());
+            
+            JOptionPane.showMessageDialog(null,"Job order input=  " + this.text_job_id.getText());
         }
         
+        filltype = true;
         
         if (this.jCheckBox1.isSelected())
         {
             purchasesearch.setDate_from(spinnerValuefrom);
             purchasesearch.setDate_to(spinnerValueto);
+            filltype = false;
         }
         
         if (!(this.text_design_code.getText().trim().equals(""))){
             purchasesearch.setDesign_code(this.text_design_code.getText());
+            filltype = false;
         }
         
-        fill_table(jobsearch.Search_job_info(), purchasesearch.Search_purchase_info());
+        if (filltype = true){
+        fill_table(jobsearch.Search_job_info()); 
+           JOptionPane.showMessageDialog(null,"fill table 1  ");
+        
+        } else {
+        fill_table2(jobsearch.Search_job_info(), purchasesearch.Search_purchase_info());
+          JOptionPane.showMessageDialog(null, "fill table 2" );
+        
+        }
+        
     }//GEN-LAST:event_button_searchActionPerformed
 
     private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed

@@ -72,7 +72,7 @@ public class purchase_order {
     
     public ResultSet get_purchase_info_from_id_purchase(int purchase_id){
         DB_Manager new_conn = new DB_Manager();
-        this.setId_purchase(id_purchase);
+        this.setId_purchase(purchase_id);
        return new_conn.get_single_purchase_info_from_id_purchase(this);
     }
     
