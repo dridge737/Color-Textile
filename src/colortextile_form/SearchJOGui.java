@@ -8,6 +8,7 @@ package colortextile_form;
 
 import Database.DB_Manager;
 import colortextile_class.customer;
+import colortextile_class.design;
 import colortextile_class.job_order;
 import colortextile_class.purchase_order;
 import forms.*;
@@ -70,13 +71,16 @@ public class SearchJOGui extends javax.swing.JFrame {
         
         DB_Manager conn= new DB_Manager();
         purchase_order info = new purchase_order();
+        design design_conn = new design();
         DefaultTableModel model = new DefaultTableModel();
         model.addColumn("Job Order");
         model.addColumn("Customer Name");
         model.addColumn("Quantity");
         model.addColumn("date");
         model.addColumn("Design Code");
-        
+        model.addColumn("Design Name");
+        model.addColumn("Colorway Name");
+        model.addColumn("Fabric Style");
         
         try {
             if (rs.next()){
@@ -87,22 +91,52 @@ public class SearchJOGui extends javax.swing.JFrame {
                 ResultSet rs2 = info.get_purchase_info_from_id_purchase(rs.getInt("id_purchase"));
                 
                 if(rs2.first()){
+                             design_conn.setDesign_code(rs2.getString("design_code"));
+                            ResultSet rs3 = design_conn.search_design();
+                            
+                            if (rs3.first()){
+                                
+                                String[] set1 = {   rs.getString("job_order_id"), 
+                                    conn.get_customer_name(rs.getInt("customer_id")),
+                                    rs.getString("quantity"),
+                                   rs2.getString("date"),
+                                   rs2.getString("design_code"),
+                                rs3.getString("design_name"),
+                                rs3.getString("colorway_name"),
+                                rs3.getString("fabric_style")};
+                                model.addRow(set1);
+                                
+                            } else {
+                            
                    String[] set1 = {   rs.getString("job_order_id"), 
                                     conn.get_customer_name(rs.getInt("customer_id")),
                                     rs.getString("quantity"),
                                    rs2.getString("date"),
-                                   rs2.getString("design_code")};
-               
-                               model.addRow(set1);
+                                   rs2.getString("design_code"),
+                                   "hello","testing","hello"};
+                   
+                   
+                   
+                               
+                   model.addRow(set1);
+                            }
+                  
+                            
+                            
+                                  
+                           
+                                
+                            
+                               
             
                 } else {
-                   String[] set2 = {   rs.getString("job_order_id"), 
+                   String[] set1 = {   rs.getString("job_order_id"), 
                                     conn.get_customer_name(rs.getInt("customer_id")), 
                                     rs.getString("quantity")
                    };
                                    
                
-                               model.addRow(set2);
+                               model.addRow(set1);
              
                 }
                 }
@@ -347,8 +381,8 @@ public class SearchJOGui extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(33, 33, 33)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 583, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(704, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1217, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(70, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
