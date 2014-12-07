@@ -985,7 +985,7 @@ public class DB_Manager {
           DBConnection db = new DBConnection();
           Connection conn = db.getConnection();  
           
-            PreparedStatement ps = conn.prepareStatement("SELECT * FROM design ORDER BY design ASC ");
+            PreparedStatement ps = conn.prepareStatement("SELECT * FROM design ORDER BY design_code ASC ");
             ResultSet rs = ps.executeQuery();
             
             return rs;
@@ -1235,7 +1235,7 @@ public class DB_Manager {
               { sql = sql + " AND";
               }
               sql = sql + " job_order_id= '"+job.getJob_id()+"'";
-              increment++;
+              
           }
           
           System.out.println(sql);
@@ -1278,15 +1278,32 @@ public class DB_Manager {
               increment++;
           } 
           System.out.println(sql);
-          /*
-          if (design.getColorway_name() != null){
+          if (design.getDesign_code()!= null){
               if(increment > 0)
               { sql = sql + " AND";
               }
-              sql = sql + " colorway_name= '"+design.getColorway_name()+"'";
+              sql = sql + " design_code= '"+design.getDesign_code()+"'";
               increment++;
           }
-          */
+          
+          
+          if (design.getColor_name()!= null){
+              if(increment > 0)
+              { sql = sql + " AND";
+              }
+              sql = sql + " colorway_name= '"+design.getColor_name()+"'";
+              increment++;
+          }
+          
+          if (design.getFabric_style()!= null){
+              if(increment > 0)
+              { sql = sql + " AND";
+              }
+              sql = sql + " fabric_style= '"+design.getFabric_style()+"'";
+              increment++;
+          }
+          
+          
           
           System.out.println(sql);
           

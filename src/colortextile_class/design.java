@@ -7,6 +7,7 @@
 package colortextile_class;
 
 import java.sql.Blob;
+import java.sql.ResultSet;
 
 /**
  *
@@ -123,7 +124,15 @@ public class design {
         this.design_image = design_image;
     }
     
+    public ResultSet get_all_design_details(){
+        Database.DB_Manager new_conn = new Database.DB_Manager();
+        return new_conn.get_all_design();
+    }
     
+    public ResultSet search_design(){
+        Database.DB_Manager new_conn = new Database.DB_Manager();
+        return new_conn.Search_Design(this);
+    }
 
     
 }
