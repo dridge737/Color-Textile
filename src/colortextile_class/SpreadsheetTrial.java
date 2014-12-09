@@ -77,6 +77,8 @@ public class SpreadsheetTrial {
             final List<Map<String, String>> print = new ArrayList<Map<String, String>>();
             print.add(createMap("January", "-12", "3", "", "5", ""));
             print.add(createMap("February", "-8", "5", "", "65", ""));
+            print.add(createMap("February", "-8", "5", "", "65", ""));
+            print.add(createMap("February", "-8", "5", "", "65", ""));
 
             template.setField("print", print);
             
