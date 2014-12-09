@@ -34,6 +34,8 @@ public class Search_design extends javax.swing.JFrame {
         
         DB_Manager conn= new DB_Manager();
         DefaultTableModel model = new DefaultTableModel();
+        design design_conn = new design();
+        
         model.addColumn("Design Code");
         model.addColumn("Design Name");
         model.addColumn("Colorway Name");
@@ -42,15 +44,19 @@ public class Search_design extends javax.swing.JFrame {
         
         try {
             if (rs.next()){
+                
              rs.previous();
             while(rs.next()) {
-
                 
                 
-                   String[] set1 = {    rs.getString("design_code"), 
+                
+                   String[] set1 = {    
+                                        rs.getString("design_code"), 
                                         rs.getString("design_name"),
                                         rs.getString("colorway_name"),
-                                        rs.getString("fabric style")};
+                                        rs.getString("fabric_style")
+                                        
+                                    };
                
                                model.addRow(set1);
             
