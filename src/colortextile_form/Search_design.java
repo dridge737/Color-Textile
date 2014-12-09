@@ -34,6 +34,8 @@ public class Search_design extends javax.swing.JFrame {
         
         DB_Manager conn= new DB_Manager();
         DefaultTableModel model = new DefaultTableModel();
+        design design_conn = new design();
+        
         model.addColumn("Design Code");
         model.addColumn("Design Name");
         model.addColumn("Colorway Name");
@@ -42,15 +44,19 @@ public class Search_design extends javax.swing.JFrame {
         
         try {
             if (rs.next()){
+                
              rs.previous();
             while(rs.next()) {
-
                 
                 
-                   String[] set1 = {    rs.getString("design_code"), 
+                
+                   String[] set1 = {    
+                                        rs.getString("design_code"), 
                                         rs.getString("design_name"),
                                         rs.getString("colorway_name"),
-                                        rs.getString("fabric style")};
+                                        rs.getString("fabric_style")
+                                        
+                                    };
                
                                model.addRow(set1);
             
@@ -88,6 +94,7 @@ public class Search_design extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         button_search = new javax.swing.JButton();
         button_reset = new javax.swing.JButton();
+        button_details = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -154,6 +161,14 @@ public class Search_design extends javax.swing.JFrame {
             }
         });
 
+        button_details.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        button_details.setText("Details");
+        button_details.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_detailsActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -162,13 +177,16 @@ public class Search_design extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(33, 33, 33)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel6)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 583, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(button_search, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(button_reset, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(button_reset, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(button_details, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(12, 12, 12))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -209,7 +227,8 @@ public class Search_design extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(button_search, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(button_reset, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(button_reset, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(button_details, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20))
@@ -263,6 +282,17 @@ public class Search_design extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_text_design_colorActionPerformed
 
+    private void button_detailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_detailsActionPerformed
+        // TODO add your handling code here:
+        int row = jTable1.getSelectedRow();
+        int total_col = jTable1.getColumnCount();
+        for(int col = 0; col < total_col; col++)
+        {
+            System.out.println(jTable1.getValueAt(row, col));
+        }
+        String selcted_design_code = jTable1.getValueAt(row, 0).toString();
+    }//GEN-LAST:event_button_detailsActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -299,6 +329,7 @@ public class Search_design extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton button_details;
     private javax.swing.JButton button_reset;
     private javax.swing.JButton button_search;
     private javax.swing.JLabel jLabel5;

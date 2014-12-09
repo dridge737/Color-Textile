@@ -17,6 +17,7 @@ import java.awt.Toolkit;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -66,8 +67,9 @@ public class SearchJOGui extends javax.swing.JFrame {
         }
         
     }
+    ArrayList purchase_order_list = new ArrayList( );
     public void fill_table(ResultSet rs){
-        
+        this.purchase_order_list.clear();
         
         DB_Manager conn= new DB_Manager();
         purchase_order info = new purchase_order();
@@ -86,7 +88,7 @@ public class SearchJOGui extends javax.swing.JFrame {
             if (rs.next()){
              rs.previous();
             while(rs.next()) {
-
+                    this.purchase_order_list.add(rs.getInt("id_purchase"));
                 
                 ResultSet rs2 = info.get_purchase_info_from_id_purchase(rs.getInt("id_purchase"));
                 
@@ -112,8 +114,7 @@ public class SearchJOGui extends javax.swing.JFrame {
                                     conn.get_customer_name(rs.getInt("customer_id")),
                                     rs.getString("quantity"),
                                    rs2.getString("date"),
-                                   rs2.getString("design_code"),
-                                   "hello","testing","hello"};
+                                   rs2.getString("design_code")};
                    
                    
                    
@@ -130,6 +131,7 @@ public class SearchJOGui extends javax.swing.JFrame {
                                
             
                 } else {
+                    
                    String[] set1 = {   rs.getString("job_order_id"), 
                                     conn.get_customer_name(rs.getInt("customer_id")), 
                                     rs.getString("quantity")
@@ -152,7 +154,7 @@ public class SearchJOGui extends javax.swing.JFrame {
     }
     
     public void fill_table2(ResultSet rs, ResultSet rs3){
-        
+        this.purchase_order_list.clear();
         DB_Manager conn = new DB_Manager();
         
         DefaultTableModel model = new DefaultTableModel();
@@ -166,6 +168,7 @@ public class SearchJOGui extends javax.swing.JFrame {
             while(rs.next()) {
                 purchase_order info = new purchase_order();
                 ResultSet rs2 = info.get_purchase_info_from_id_purchase(rs.getInt("id_purchase"));
+                this.purchase_order_list.add(rs.getInt("id_purchase"));
                 if (rs2.next()){
                 String[] set1 = { rs.getString("job_order_id"), 
                                     conn.get_customer_name(rs.getInt("customer_id")), 
@@ -191,7 +194,9 @@ public class SearchJOGui extends javax.swing.JFrame {
             while(rs3.next()) {
                 job_order info = new job_order();
                 ResultSet rs4 = info.get_job_info_from_purchase_id(rs3.getInt("id_purchase"));
+                
                 while(rs4.next()) {
+                    this.purchase_order_list.add(rs3.getInt("id_purchase"));
                 String[] set1 = { rs4.getString("job_order_id"), conn.get_customer_name(rs4.getInt("customer_id")), rs4.getString("quantity"), rs3.getString("date"), rs3.getString("design_code")};
                 model.addRow(set1);
                 }
@@ -228,11 +233,10 @@ public class SearchJOGui extends javax.swing.JFrame {
         button_reset = new javax.swing.JButton();
         jCheckBox1 = new javax.swing.JCheckBox();
         jLabel6 = new javax.swing.JLabel();
-        button_update = new javax.swing.JButton();
-        button_details = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        button_details = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Search Job Order");
@@ -333,26 +337,6 @@ public class SearchJOGui extends javax.swing.JFrame {
         getContentPane().add(jLabel6);
         jLabel6.setBounds(40, 16, 289, 43);
 
-        button_update.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        button_update.setText("Update");
-        button_update.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                button_updateActionPerformed(evt);
-            }
-        });
-        getContentPane().add(button_update);
-        button_update.setBounds(482, 202, 134, 35);
-
-        button_details.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        button_details.setText("Details");
-        button_details.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                button_detailsActionPerformed(evt);
-            }
-        });
-        getContentPane().add(button_details);
-        button_details.setBounds(342, 202, 134, 35);
-
         jPanel1.setBackground(new java.awt.Color(51, 153, 255));
 
         jTable1.setAutoCreateRowSorter(true);
@@ -375,19 +359,34 @@ public class SearchJOGui extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTable1);
 
+        button_details.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        button_details.setText("Details");
+        button_details.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_detailsActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1217, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1217, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(450, 450, 450)
+                        .addComponent(button_details, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(70, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(247, Short.MAX_VALUE)
+                .addContainerGap(199, Short.MAX_VALUE)
+                .addComponent(button_details, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20))
         );
@@ -468,13 +467,6 @@ public class SearchJOGui extends javax.swing.JFrame {
         this.get_table_row_value();
     }//GEN-LAST:event_jTable1MouseClicked
 
-    private void button_updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_updateActionPerformed
-       
-       edit_job_form edit = new edit_job_form(this.get_table_row_value());
-        edit.setVisible(true);
-        
-    }//GEN-LAST:event_button_updateActionPerformed
-
     private void button_detailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_detailsActionPerformed
         // TODO add your handling code here:
         int row = jTable1.getSelectedRow();
@@ -483,6 +475,8 @@ public class SearchJOGui extends javax.swing.JFrame {
         {
             System.out.println(jTable1.getValueAt(row, col));
         }
+        int selected_purchase_order = (Integer) this.purchase_order_list.get(row);
+        JOptionPane.showMessageDialog(null, "Selected purchase order: " + this.purchase_order_list.get(row).toString() + " from row : " + row  );
     }//GEN-LAST:event_button_detailsActionPerformed
 
     /**
@@ -525,7 +519,6 @@ public class SearchJOGui extends javax.swing.JFrame {
     private javax.swing.JButton button_details;
     private javax.swing.JButton button_reset;
     private javax.swing.JButton button_search;
-    private javax.swing.JButton button_update;
     private javax.swing.JComboBox combo_customer;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JLabel jLabel1;
