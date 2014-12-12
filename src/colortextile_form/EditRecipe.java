@@ -1969,7 +1969,7 @@ public class EditRecipe extends javax.swing.JFrame {
         new_design.setColor_name(design_color.getText());
         if(jCheckBox2.isSelected())
         {
-            new_design.setFabric_style(fabric_style.getText());
+            new_design.setFabric_style(fabric_style.getText().toUpperCase());
             new_design.add_fabric_style();
         }
         else
@@ -2158,11 +2158,11 @@ public class EditRecipe extends javax.swing.JFrame {
     private void text_job_orderInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_text_job_orderInputMethodTextChanged
         // TODO add your handling code here:
     }//GEN-LAST:event_text_job_orderInputMethodTextChanged
-        
-    private void text_job_orderKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_text_job_orderKeyTyped
-        // TODO add your handling code here:
         int count = 0;
         String job_temp = "";
+    private void text_job_orderKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_text_job_orderKeyTyped
+        // TODO add your handling code here:
+        
        
         if (this.text_job_order.getText().length() > 10 ){
            // job_temp = job_temp.substring(job_temp.length() - 1);

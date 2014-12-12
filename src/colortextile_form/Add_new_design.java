@@ -1907,7 +1907,7 @@ public class Add_new_design extends javax.swing.JFrame {
         new_design.setColor_name(design_color.getText());
         if(jCheckBox2.isSelected())
         {
-            new_design.setFabric_style(fabric_style.getText());
+            new_design.setFabric_style(fabric_style.getText().toUpperCase());
             new_design.add_fabric_style();
         }
         else
@@ -1915,7 +1915,6 @@ public class Add_new_design extends javax.swing.JFrame {
             new_design.setFabric_style(fab_style_comb.getSelectedItem().toString());
         }
         
-        new_design.setFabric_style(null);
         if(!new_design.add_new_design())
             new_design.get_design_code_using_variables();
             
@@ -1930,6 +1929,7 @@ public class Add_new_design extends javax.swing.JFrame {
             colortextile_class.design_colorway new_dSign_cWay = new colortextile_class.design_colorway();
             new_dSign_cWay.setDesign_code(design_code);
             new_dSign_cWay.setId_colorway(color_id_temp);
+            
             new_dSign_cWay.add_new_design_and_colorway_using_variables();
         }
     }
@@ -1950,8 +1950,6 @@ public class Add_new_design extends javax.swing.JFrame {
         } else {
             
             add_purchase();
-            
-            
         }
         // Winston codes end
         
