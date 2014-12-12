@@ -19,11 +19,11 @@ public class Job_purchase_link_functions extends purchase_order{
     private Design_colorway_link_functions new_des_col_link = new Design_colorway_link_functions();
     
     //For job_order get job_order_list using purchase order
-    
+    //Using the purchase_order_id the job_order_list is taken
     public void set_job_order_list_using_purchase_order_id()
     {
         Database.DB_Manager new_conn = new Database.DB_Manager();
-        
+        //Get the List of job order from the purchase order id
         setJobs_for_this(new_conn.set_job_order_info_from_purchase_id(this.getId_purchase()));
         
     }
@@ -76,7 +76,39 @@ public class Job_purchase_link_functions extends purchase_order{
     
     public void print_this_job()
     {
+        String all_job_id = get_all_job_id();
         
+        
+        String all_customers = "";
+        
+    }
+    
+    public String get_all_customers()
+    {
+        String all_customers = "";
+        
+        for(int x = 0 ; x < jobs_for_this.size(); x++)
+        {
+            if(x == jobs_for_this.size()-1)
+                all_customers.concat(jobs_for_this.get(x).getCustomer_name());
+            else
+                all_customers.concat(jobs_for_this.get(x).getCustomer_name() + ", ");
+                
+        }
+        return all_customers;
+    }
+    
+    public String get_all_job_id()
+    {
+        String all_job_order_id = "";
+        for(int x = 0 ; x < jobs_for_this.size(); x++)
+        {
+            if(x == jobs_for_this.size()-1)
+                all_job_order_id.concat(jobs_for_this.get(x).getJob_id());
+            else
+                all_job_order_id.concat(jobs_for_this.get(x).getJob_id() + ", ");
+        }
+        return all_job_order_id;
     }
     
 }
