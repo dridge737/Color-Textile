@@ -72,6 +72,10 @@ public class EditRecipe extends javax.swing.JFrame {
 
     private void set_purchase_order_details(int purchase_order_id)
     {
+        colortextile_class.Job_purchase_link_functions this_purchase = new colortextile_class.Job_purchase_link_functions();
+        this_purchase.setId_purchase(purchase_order_id);
+        this_purchase.set_job_order_list_using_purchase_order_id();
+        this_purchase.set_design_details_from_purchase_order_id();
         
     }
     
@@ -456,11 +460,11 @@ public class EditRecipe extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel6.setText("Date :");
+        jLabel6.setText("Date Ordered :");
         jLabel6.setToolTipText("");
         jLabel6.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         jPanel14.add(jLabel6);
-        jLabel6.setBounds(510, 20, 100, 30);
+        jLabel6.setBounds(470, 20, 140, 30);
         jLabel6.getAccessibleContext().setAccessibleName("date");
 
         getContentPane().add(jPanel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 770, 60));

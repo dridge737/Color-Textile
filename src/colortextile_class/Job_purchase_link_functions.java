@@ -22,12 +22,10 @@ public class Job_purchase_link_functions extends purchase_order{
     
     public void set_job_order_list_using_purchase_order_id()
     {
-        
         Database.DB_Manager new_conn = new Database.DB_Manager();
-        //return from query
         
         setJobs_for_this(new_conn.set_job_order_info_from_purchase_id(this.getId_purchase()));
-        //add job order
+        
     }
     
     public void set_design_details_from_purchase_order_id()
