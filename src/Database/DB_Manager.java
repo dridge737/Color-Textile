@@ -29,10 +29,25 @@ public class DB_Manager {
     ///Add functions for sql
     ///Start function names with add_*
     
-    public boolean add_textile(String customer_name)
+    public boolean add_fabric_style(String fabric_name)
     {
         DBConnection dbc = new DBConnection();
         Connection conn = dbc.getConnection();
+        
+        try {
+             PreparedStatement ps = 
+                     conn.prepareStatement("INSERT INTO fabric_style (fabric_name) "
+                                            + "VALUES (?)");
+        
+        int item = 1;
+        
+        ps.setString(item++, fabric_name);
+        ps.executeUpdate();
+        
+        return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
         return false;
     }
@@ -41,11 +56,7 @@ public class DB_Manager {
     {
         DBConnection db = new DBConnection();
         Connection conn = db.getConnection();
-       /*
-        System.out.println("Pigment_no = "+new_screen_pigment.getPigment_no() 
-                            +"\nPigment_percentage = " +new_screen_pigment.getPigment_percentage());
-        */
-        
+       
         try {
              PreparedStatement ps = 
                      conn.prepareStatement("INSERT INTO screen_pigment (pigment_no, pigment_percentage) "
@@ -828,6 +839,57 @@ public class DB_Manager {
             
         } 
         catch (SQLException ex) 
+        {
+            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+    
+    public int get_fabric_style_id(String fabric_name)
+    {
+        try{
+            DBConnection db = new DBConnection();
+            Connection conn = db.getConnection();
+            
+            PreparedStatement ps = 
+            conn.prepareStatement("SELECT id_fabric FROM fabric_style WHERE fabric_name = ?");
+            
+            int item = 1;
+            ps.setString(item++, fabric_name);
+            
+            ResultSet rs = ps.executeQuery();
+            if(rs.first())
+            {
+                return rs.getInt("id_fabric");
+            }
+        }
+        catch(SQLException ex){
+            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return -1;
+    }
+    
+    public ArrayList<String> get_all_fabric_styles()
+    {
+        ArrayList<String> fabric_style = new ArrayList<>();
+        try
+        {
+            DBConnection db = new DBConnection();
+            Connection conn = db.getConnection(); 
+            
+            PreparedStatement ps = conn.prepareStatement("SELECT fabric_name FROM fabric_style ORDER BY fabric_style ASC ");
+            ResultSet rs = ps.executeQuery();
+            
+            while(rs.next())
+            {
+                fabric_style.add(rs.getString("fabric_name"));
+            }
+            
+            return fabric_style;
+            
+        }
+        catch (SQLException ex)
         {
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
         }

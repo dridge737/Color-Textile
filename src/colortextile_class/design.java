@@ -8,6 +8,7 @@ package colortextile_class;
 
 import java.sql.Blob;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
 /**
  *
@@ -58,6 +59,29 @@ public class design {
             return true;
         }
         return false;
+    }
+    
+    public boolean add_fabric_style()
+    {
+        if(get_fabric_style_id() == -1)
+        {
+            Database.DB_Manager new_conn = new Database.DB_Manager();
+            new_conn.add_fabric_style(fabric_style);
+            return true;
+        }
+        return false;
+    }
+    
+    public int get_fabric_style_id()
+    {
+        Database.DB_Manager new_conn = new Database.DB_Manager();
+        return new_conn.get_fabric_style_id(this.fabric_style);
+    }
+    
+    public ArrayList<String> get_all_fabric_styles()
+    {
+        Database.DB_Manager new_conn = new Database.DB_Manager();
+        return new_conn.get_all_fabric_styles();
     }
     
     public boolean get_design_code_using_variables()
