@@ -2096,27 +2096,31 @@ public class Add_new_design extends javax.swing.JFrame {
     private void text_job_orderInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_text_job_orderInputMethodTextChanged
         // TODO add your handling code here:
     }//GEN-LAST:event_text_job_orderInputMethodTextChanged
-        
+        String job_temp = "";
+        int count = 0;
     private void text_job_orderKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_text_job_orderKeyTyped
         // TODO add your handling code here:
-        int count = 0;
-        String job_temp = "";
+        
+        
        
-        if (this.text_job_order.getText().length() > 10 ){
+        if (this.text_job_order.getText().length() >= 11 ){
            // job_temp = job_temp.substring(job_temp.length() - 1);
              this.text_job_order.setText(job_temp);
              
         } else {
             
-            if (count < this.text_job_order.getText().length()){
-            if(this.text_job_order.getText().length() == 3){
+            if (count < this.text_job_order.getText().length())
+            {
+            if(this.text_job_order.getText().length() == 3)
+            {
             this.text_job_order.setText(this.text_job_order.getText() + "-");
             }
             if(this.text_job_order.getText().length() == 6){
+                
             this.text_job_order.setText(this.text_job_order.getText() + "-");
             }
             
-            }
+            } 
             
             job_temp = this.text_job_order.getText();
             
