@@ -27,7 +27,7 @@ import javax.swing.SpinnerDateModel;
  *
  * @author Eldridge
  */
-public class EditRecipe2 extends javax.swing.JFrame {
+public class EditRecipe extends javax.swing.JFrame {
 
     private int count_screen_1 = 0;
     
@@ -35,14 +35,14 @@ public class EditRecipe2 extends javax.swing.JFrame {
     /**
      * Creates new form Add_new_design
      */
-    public EditRecipe2() {
+    public EditRecipe() {
         initComponents();
         addListItems();
         
         //Center the form
         Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
         int x = (int) ((dimension.getWidth() - this.getWidth()) / 2);
-        //int y = (int) ((dimension.getHeight() - this.getHeight()) / 2);
+//        int y = (int) ((dimension.getHeight() - this.getHeight()) / 2);
         this.setLocation(x,0);
         //InputVerifier new_verifier = new Verifier();
         //this.pigment_percentage8.setInputVerifier(new_verifier);
@@ -51,7 +51,7 @@ public class EditRecipe2 extends javax.swing.JFrame {
         this.fabric_style.setVisible(false);
     }
     
-    public EditRecipe2(int purchase_order_id)
+    public EditRecipe(int purchase_order_id)
     {
         initComponents();
         addListItems();
@@ -69,8 +69,7 @@ public class EditRecipe2 extends javax.swing.JFrame {
         this.text_name.setVisible(false);
         this.fabric_style.setVisible(false);
     }
-    //Set the purchase order details
-    //which includes date, and design details
+
     private void set_purchase_order_details(int purchase_order_id)
     {
         
@@ -118,7 +117,6 @@ public class EditRecipe2 extends javax.swing.JFrame {
         
     }
     
-    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -136,7 +134,6 @@ public class EditRecipe2 extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         spinner_date = new javax.swing.JSpinner();
         jLabel6 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         design_name = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
@@ -147,10 +144,29 @@ public class EditRecipe2 extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jPanel10 = new javax.swing.JPanel();
-        colorway_name = new javax.swing.JTextField();
+        design_color = new javax.swing.JTextField();
         jCheckBox2 = new javax.swing.JCheckBox();
         jLabel11 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        jPanel16 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        quantity_total = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        quantity = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
+        combo_name = new javax.swing.JComboBox();
+        button_include_customer = new javax.swing.JButton();
+        button_remove_customer = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jList1 = new javax.swing.JList();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        text_job_order = new javax.swing.JTextField();
+        jCheckBox1 = new javax.swing.JCheckBox();
+        text_name = new javax.swing.JTextField();
+        jLabel14 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         jPanel11 = new javax.swing.JPanel();
         jTabbedPane2 = new javax.swing.JTabbedPane();
         jPanel9 = new javax.swing.JPanel();
@@ -375,23 +391,6 @@ public class EditRecipe2 extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         add_order1 = new javax.swing.JButton();
         add_order2 = new javax.swing.JButton();
-        jPanel16 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        quantity_total = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        quantity = new javax.swing.JTextField();
-        jLabel12 = new javax.swing.JLabel();
-        combo_name = new javax.swing.JComboBox();
-        button_include_customer = new javax.swing.JButton();
-        button_remove_customer = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        text_job_order = new javax.swing.JTextField();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        text_name = new javax.swing.JTextField();
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -403,7 +402,7 @@ public class EditRecipe2 extends javax.swing.JFrame {
         setForeground(java.awt.Color.white);
         setIconImages(null);
         setLocationByPlatform(true);
-        setMinimumSize(new java.awt.Dimension(790, 710));
+        setMinimumSize(new java.awt.Dimension(790, 732));
         setModalExclusionType(java.awt.Dialog.ModalExclusionType.APPLICATION_EXCLUDE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -413,14 +412,14 @@ public class EditRecipe2 extends javax.swing.JFrame {
         jPanel12.setLayout(jPanel12Layout);
         jPanel12Layout.setHorizontalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 20, Short.MAX_VALUE)
+            .addGap(0, 15, Short.MAX_VALUE)
         );
         jPanel12Layout.setVerticalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 770, Short.MAX_VALUE)
+            .addGap(0, 790, Short.MAX_VALUE)
         );
 
-        getContentPane().add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(-5, 0, 20, 770));
+        getContentPane().add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 15, 790));
 
         jPanel13.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -432,20 +431,26 @@ public class EditRecipe2 extends javax.swing.JFrame {
         );
         jPanel13Layout.setVerticalGroup(
             jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 770, Short.MAX_VALUE)
+            .addGap(0, 790, Short.MAX_VALUE)
         );
 
-        getContentPane().add(jPanel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(777, 0, 20, 770));
+        getContentPane().add(jPanel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(777, 0, 20, 790));
 
         jPanel14.setBackground(new java.awt.Color(51, 153, 255));
+        jPanel14.setLayout(null);
 
         jLabel7.setFont(new java.awt.Font("Century Gothic", 0, 36)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Edit Recipe");
+        jPanel14.add(jLabel7);
+        jLabel7.setBounds(53, 11, 196, 45);
 
         spinner_date.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
         spinner_date.setModel(new javax.swing.SpinnerDateModel());
         spinner_date.setToolTipText("Day, Month and Year");
+        jPanel14.add(spinner_date);
+        spinner_date.setBounds(616, 20, 130, 34);
+        spinner_date.setEditor(new JSpinner.DateEditor(spinner_date, "dd/MM/yyyy"));
 
         jLabel6.setBackground(new java.awt.Color(255, 255, 255));
         jLabel6.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
@@ -453,54 +458,19 @@ public class EditRecipe2 extends javax.swing.JFrame {
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel6.setText("Date :");
         jLabel6.setToolTipText("");
-        jLabel6.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         jLabel6.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        jPanel14.add(jLabel6);
+        jLabel6.setBounds(510, 20, 100, 30);
+        jLabel6.getAccessibleContext().setAccessibleName("date");
 
-        jLabel14.setText("INSERT PICTURE HERE");
-
-        javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
-        jPanel14.setLayout(jPanel14Layout);
-        jPanel14Layout.setHorizontalGroup(
-            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel14Layout.createSequentialGroup()
-                .addGap(53, 53, 53)
-                .addComponent(jLabel7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 157, Short.MAX_VALUE)
-                .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(spinner_date, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(21, 21, 21))
-        );
-        jPanel14Layout.setVerticalGroup(
-            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel14Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel14Layout.createSequentialGroup()
-                        .addGap(0, 3, Short.MAX_VALUE)
-                        .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel14Layout.createSequentialGroup()
-                                .addGap(4, 4, 4)
-                                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(spinner_date, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(jLabel7)))
-                    .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-
-        spinner_date.setEditor(new JSpinner.DateEditor(spinner_date, "dd/MM/yyyy"));
-
-        getContentPane().add(jPanel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 770, 70));
+        getContentPane().add(jPanel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 770, 60));
 
         jPanel1.setBackground(new java.awt.Color(51, 153, 255));
         jPanel1.setLayout(null);
 
         design_name.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jPanel1.add(design_name);
-        design_name.setBounds(210, 20, 210, 34);
+        design_name.setBounds(210, 220, 200, 34);
 
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
         jLabel2.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
@@ -508,11 +478,11 @@ public class EditRecipe2 extends javax.swing.JFrame {
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel2.setText("Design Name :");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(30, 20, 153, 34);
+        jLabel2.setBounds(40, 220, 153, 34);
 
         fabric_style.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jPanel1.add(fabric_style);
-        fabric_style.setBounds(580, 20, 150, 34);
+        fabric_style.setBounds(560, 220, 150, 34);
 
         design_code.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         design_code.addActionListener(new java.awt.event.ActionListener() {
@@ -521,7 +491,7 @@ public class EditRecipe2 extends javax.swing.JFrame {
             }
         });
         jPanel1.add(design_code);
-        design_code.setBounds(210, 60, 210, 34);
+        design_code.setBounds(210, 260, 200, 34);
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
@@ -529,12 +499,12 @@ public class EditRecipe2 extends javax.swing.JFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel1.setText("Design Code :");
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(30, 60, 153, 34);
+        jLabel1.setBounds(40, 260, 153, 34);
 
         fab_style_comb.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        fab_style_comb.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Pongee", "Cotton", "Katunia", "Micropeach", "TC", "Tropicana" }));
+        fab_style_comb.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "PONGEE", "COTTON", "KATUNIA", "MICROPEACH", "TC", "TROPICANA" }));
         jPanel1.add(fab_style_comb);
-        fab_style_comb.setBounds(580, 20, 150, 34);
+        fab_style_comb.setBounds(560, 220, 150, 34);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -580,9 +550,9 @@ public class EditRecipe2 extends javax.swing.JFrame {
         jPanel1.add(jPanel10);
         jPanel10.setBounds(370, -40, 100, 40);
 
-        colorway_name.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        jPanel1.add(colorway_name);
-        colorway_name.setBounds(580, 60, 150, 34);
+        design_color.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        jPanel1.add(design_color);
+        design_color.setBounds(560, 260, 150, 34);
 
         jCheckBox2.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         jCheckBox2.setForeground(new java.awt.Color(255, 255, 255));
@@ -594,7 +564,7 @@ public class EditRecipe2 extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jCheckBox2);
-        jCheckBox2.setBounds(670, 0, 63, 25);
+        jCheckBox2.setBounds(650, 200, 63, 25);
 
         jLabel11.setBackground(new java.awt.Color(255, 255, 255));
         jLabel11.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
@@ -602,7 +572,7 @@ public class EditRecipe2 extends javax.swing.JFrame {
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel11.setText("Fabric Style :");
         jPanel1.add(jLabel11);
-        jLabel11.setBounds(460, 20, 100, 34);
+        jLabel11.setBounds(440, 220, 100, 34);
 
         jLabel4.setBackground(new java.awt.Color(255, 255, 255));
         jLabel4.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
@@ -610,12 +580,166 @@ public class EditRecipe2 extends javax.swing.JFrame {
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel4.setText("Design Color :");
         jPanel1.add(jLabel4);
-        jLabel4.setBounds(440, 60, 120, 34);
+        jLabel4.setBounds(420, 260, 120, 34);
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, 770, 100));
+        jPanel16.setBackground(new java.awt.Color(51, 51, 51));
+        jPanel16.setOpaque(false);
+        jPanel16.setLayout(null);
+
+        jLabel3.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel3.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel3.setText("Total Quantity :");
+        jPanel16.add(jLabel3);
+        jLabel3.setBounds(320, 120, 130, 34);
+
+        quantity_total.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        quantity_total.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                quantity_totalFocusLost(evt);
+            }
+        });
+        jPanel16.add(quantity_total);
+        quantity_total.setBounds(460, 120, 90, 34);
+
+        jLabel5.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel5.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel5.setText("m");
+        jLabel5.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        jPanel16.add(jLabel5);
+        jLabel5.setBounds(555, 120, 13, 34);
+
+        jLabel13.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel13.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel13.setText("m");
+        jLabel13.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        jPanel16.add(jLabel13);
+        jLabel13.setBounds(295, 120, 13, 34);
+
+        quantity.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        quantity.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                quantityFocusLost(evt);
+            }
+        });
+        jPanel16.add(quantity);
+        quantity.setBounds(150, 120, 140, 34);
+
+        jLabel12.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel12.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel12.setText("Quantity :");
+        jPanel16.add(jLabel12);
+        jLabel12.setBounds(0, 120, 140, 34);
+
+        combo_name.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        combo_name.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel16.add(combo_name);
+        combo_name.setBounds(150, 70, 160, 34);
+
+        button_include_customer.setBackground(new java.awt.Color(255, 255, 255));
+        button_include_customer.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
+        button_include_customer.setText("Add ");
+        button_include_customer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_include_customerActionPerformed(evt);
+            }
+        });
+        jPanel16.add(button_include_customer);
+        button_include_customer.setBounds(20, 170, 280, 30);
+
+        button_remove_customer.setBackground(new java.awt.Color(255, 255, 255));
+        button_remove_customer.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
+        button_remove_customer.setText("Delete");
+        button_remove_customer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_remove_customerActionPerformed(evt);
+            }
+        });
+        jPanel16.add(button_remove_customer);
+        button_remove_customer.setBounds(310, 170, 260, 30);
+
+        jScrollPane1.setViewportView(jList1);
+
+        jPanel16.add(jScrollPane1);
+        jScrollPane1.setBounds(320, 20, 250, 90);
+
+        jLabel9.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel9.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel9.setText("Customer Name :");
+        jPanel16.add(jLabel9);
+        jLabel9.setBounds(0, 70, 140, 34);
+
+        jLabel10.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel10.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(247, 241, 241));
+        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel10.setText("Job Order :");
+        jPanel16.add(jLabel10);
+        jLabel10.setBounds(0, 20, 140, 34);
+
+        text_job_order.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                text_job_orderActionPerformed(evt);
+            }
+        });
+        text_job_order.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
+                text_job_orderInputMethodTextChanged(evt);
+            }
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+            }
+        });
+        text_job_order.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                text_job_orderKeyTyped(evt);
+            }
+        });
+        jPanel16.add(text_job_order);
+        text_job_order.setBounds(150, 20, 160, 34);
+
+        jCheckBox1.setBackground(new java.awt.Color(51, 153, 255));
+        jCheckBox1.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        jCheckBox1.setForeground(java.awt.SystemColor.controlLtHighlight);
+        jCheckBox1.setText("New?");
+        jCheckBox1.setOpaque(false);
+        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox1ActionPerformed(evt);
+            }
+        });
+        jPanel16.add(jCheckBox1);
+        jCheckBox1.setBounds(250, 50, 59, 20);
+
+        text_name.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
+        jPanel16.add(text_name);
+        text_name.setBounds(150, 70, 160, 34);
+
+        jPanel1.add(jPanel16);
+        jPanel16.setBounds(14, 0, 580, 210);
+
+        jLabel14.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
+        jLabel14.setText("INSERT PICTURE HERE");
+        jLabel14.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        jPanel1.add(jLabel14);
+        jLabel14.setBounds(610, 20, 140, 140);
+
+        jButton1.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
+        jButton1.setText("Add Picture");
+        jPanel1.add(jButton1);
+        jButton1.setBounds(610, 170, 140, 30);
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 770, 295));
 
         jPanel11.setBackground(new java.awt.Color(51, 153, 255));
-        jPanel11.setLayout(null);
 
         jTabbedPane2.setBackground(new java.awt.Color(255, 255, 255));
         jTabbedPane2.setTabPlacement(javax.swing.JTabbedPane.LEFT);
@@ -1633,191 +1757,77 @@ public class EditRecipe2 extends javax.swing.JFrame {
 
         jTabbedPane2.addTab("7", jPanel15);
 
-        jPanel11.add(jTabbedPane2);
-        jTabbedPane2.setBounds(10, 55, 750, 270);
-
         add_order.setBackground(new java.awt.Color(255, 255, 255));
         add_order.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        add_order.setText("Save");
+        add_order.setText("Add & Print");
+        add_order.setToolTipText("");
         add_order.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 add_orderActionPerformed(evt);
             }
         });
-        jPanel11.add(add_order);
-        add_order.setBounds(278, 336, 236, 53);
 
         jLabel8.setFont(new java.awt.Font("Century Gothic", 0, 30)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Screens");
-        jPanel11.add(jLabel8);
-        jLabel8.setBounds(62, 11, 150, 38);
 
         add_order1.setBackground(new java.awt.Color(255, 255, 255));
         add_order1.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        add_order1.setText("Save & Print");
+        add_order1.setText("Preview");
+        add_order1.setToolTipText("");
         add_order1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 add_order1ActionPerformed(evt);
             }
         });
-        jPanel11.add(add_order1);
-        add_order1.setBounds(32, 336, 236, 53);
 
         add_order2.setBackground(new java.awt.Color(255, 255, 255));
         add_order2.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         add_order2.setText("Cancel");
+        add_order2.setToolTipText("");
         add_order2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 add_order2ActionPerformed(evt);
             }
         });
-        jPanel11.add(add_order2);
-        add_order2.setBounds(524, 336, 236, 53);
 
-        getContentPane().add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, 770, 430));
+        javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
+        jPanel11.setLayout(jPanel11Layout);
+        jPanel11Layout.setHorizontalGroup(
+            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel11Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(add_order, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(add_order1, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(add_order2, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(14, 14, 14))
+            .addGroup(jPanel11Layout.createSequentialGroup()
+                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel11Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 748, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel11Layout.createSequentialGroup()
+                        .addGap(43, 43, 43)
+                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(12, Short.MAX_VALUE))
+        );
+        jPanel11Layout.setVerticalGroup(
+            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel11Layout.createSequentialGroup()
+                .addComponent(jLabel8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(add_order, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(add_order1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(add_order2, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(77, 77, 77))
+        );
 
-        jPanel16.setBackground(new java.awt.Color(51, 153, 255));
-        jPanel16.setLayout(null);
-
-        jLabel3.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel3.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel3.setText("Total Quantity :");
-        jPanel16.add(jLabel3);
-        jLabel3.setBounds(415, 120, 130, 34);
-
-        quantity_total.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        quantity_total.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                quantity_totalFocusLost(evt);
-            }
-        });
-        jPanel16.add(quantity_total);
-        quantity_total.setBounds(553, 120, 150, 34);
-
-        jLabel5.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel5.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel5.setText("m");
-        jLabel5.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        jPanel16.add(jLabel5);
-        jLabel5.setBounds(705, 120, 13, 34);
-
-        jLabel13.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel13.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel13.setText("m");
-        jLabel13.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        jPanel16.add(jLabel13);
-        jLabel13.setBounds(388, 120, 13, 34);
-
-        quantity.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        quantity.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                quantityFocusLost(evt);
-            }
-        });
-        jPanel16.add(quantity);
-        quantity.setBounds(190, 120, 195, 34);
-
-        jLabel12.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel12.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel12.setText("Quantity :");
-        jPanel16.add(jLabel12);
-        jLabel12.setBounds(20, 120, 153, 34);
-
-        combo_name.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        combo_name.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel16.add(combo_name);
-        combo_name.setBounds(190, 70, 210, 34);
-
-        button_include_customer.setBackground(new java.awt.Color(255, 255, 255));
-        button_include_customer.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
-        button_include_customer.setText("Add ");
-        button_include_customer.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                button_include_customerActionPerformed(evt);
-            }
-        });
-        jPanel16.add(button_include_customer);
-        button_include_customer.setBounds(20, 168, 390, 30);
-
-        button_remove_customer.setBackground(new java.awt.Color(255, 255, 255));
-        button_remove_customer.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
-        button_remove_customer.setText("Delete");
-        button_remove_customer.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                button_remove_customerActionPerformed(evt);
-            }
-        });
-        jPanel16.add(button_remove_customer);
-        button_remove_customer.setBounds(420, 168, 300, 30);
-
-        jScrollPane1.setViewportView(jList1);
-
-        jPanel16.add(jScrollPane1);
-        jScrollPane1.setBounds(420, 20, 300, 90);
-
-        jLabel9.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel9.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel9.setText("Customer Name :");
-        jPanel16.add(jLabel9);
-        jLabel9.setBounds(20, 70, 153, 34);
-
-        jLabel10.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel10.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(247, 241, 241));
-        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel10.setText("Job Order :");
-        jPanel16.add(jLabel10);
-        jLabel10.setBounds(20, 20, 153, 34);
-
-        text_job_order.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                text_job_orderActionPerformed(evt);
-            }
-        });
-        text_job_order.addInputMethodListener(new java.awt.event.InputMethodListener() {
-            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
-                text_job_orderInputMethodTextChanged(evt);
-            }
-            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
-            }
-        });
-        text_job_order.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                text_job_orderKeyTyped(evt);
-            }
-        });
-        jPanel16.add(text_job_order);
-        text_job_order.setBounds(190, 20, 210, 34);
-
-        jCheckBox1.setBackground(new java.awt.Color(51, 153, 255));
-        jCheckBox1.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        jCheckBox1.setForeground(java.awt.SystemColor.controlLtHighlight);
-        jCheckBox1.setText("New?");
-        jCheckBox1.setOpaque(false);
-        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox1ActionPerformed(evt);
-            }
-        });
-        jPanel16.add(jCheckBox1);
-        jCheckBox1.setBounds(340, 50, 59, 20);
-
-        text_name.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
-        jPanel16.add(text_name);
-        text_name.setBounds(190, 70, 210, 34);
-
-        getContentPane().add(jPanel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 770, 210));
+        getContentPane().add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 350, 770, 350));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -1826,32 +1836,50 @@ public class EditRecipe2 extends javax.swing.JFrame {
      * @param pigment_name -Declared pigment name
      * @param pigment_percent - percentage of pigment in variable float
      */
-    private void add_job(){
-         if (this.text_job_order.getText().trim().equals("") || this.fabric_style.getText().trim().equals("") || this.design_code.getText().trim().equals("") )
-        {
-            JOptionPane.showMessageDialog(null,"Please Compete all the Fields!");
-        } else {
-            
-                SimpleDateFormat formater = new SimpleDateFormat("yyyy/MM/dd");
+    private void add_purchase(){
+        
+        SimpleDateFormat formater = new SimpleDateFormat("yyyy/MM/dd");
                 String spinnerValue = formater.format(this.spinner_date.getValue());
                 System.out.println(spinnerValue);
                 
-                DB_Manager conn = new DB_Manager();
-               
-                job_order job = new job_order();
-                job.setJob_id(this.text_job_order.getText());
-                //job.setDate(spinnerValue);
-                job.setQuantity(Integer.parseInt(this.quantity.getText()));
-                if(this.jCheckBox1.isSelected()){
-                    job.setCustomer_id(conn.get_id_customer(text_name.getText()));
-                }else{
-                    job.setCustomer_id(conn.get_id_customer(this.combo_name.getSelectedItem().toString()));
-                }
-                
-                job.add_new_job_order();
-                        
+        purchase_order purchase = new purchase_order();
+
+        purchase.setDate(spinnerValue);
+        purchase.setDesign_code(this.design_code.getText());
+        
+        
+        Boolean test1 = purchase.add_new_purchase();
+        if (test1 == true){
+            JOptionPane.showMessageDialog(null,"purchase added");
+        } else {
+            JOptionPane.showMessageDialog(null,"purchase failed");
         }
+        
+        add_job(purchase.getPurchase_Id_Last());
+        
+            JOptionPane.showMessageDialog(null,purchase.getPurchase_Id_Last());
+        
+       
+        
     }
+    private void add_job(int id_purchase){
+         
+            
+                for (int i = 0; i < job_list.size(); i++) {
+                       job_order job = new job_order();
+                       DB_Manager new_conn = new DB_Manager();
+                       
+                       job.setCustomer_id(new_conn.get_id_customer(this.customer_list.get(i).toString()));
+                       job.setQuantity(Integer.parseInt(this.quantity_list.get(i).toString()));
+                       job.setJob_id(this.job_list.get(i).toString());
+                       job.setId_purchase(id_purchase);
+                       
+                job.add_new_job_order();
+                    
+                }
+                      
+        }
+    
     
     private void fill_customer_list()
     {
@@ -1871,6 +1899,7 @@ public class EditRecipe2 extends javax.swing.JFrame {
         {
             if(temp_pigment_percent.length() > 0)
             {
+                System.out.println("Help");
             float pigment_percent = Float.parseFloat(temp_pigment_percent);
             //declare pigment id
             // MFD_VIOLET --> 1(id)
@@ -1928,12 +1957,23 @@ public class EditRecipe2 extends javax.swing.JFrame {
         }
     }
     
-    private String add_this_design(String design_code, String design_name)
+    private String add_this_design()
     {
         colortextile_class.design new_design = new colortextile_class.design();
-        new_design.setDesign_code(design_code);
-        new_design.setDesign_name(design_name);
+        new_design.setDesign_code(design_code.getText());
+        new_design.setDesign_name(design_name.getText());
+        new_design.setColor_name(design_color.getText());
+        if(jCheckBox2.isSelected())
+        {
+            new_design.setFabric_style(fabric_style.getText());
+            new_design.add_fabric_style();
+        }
+        else
+        {
+            new_design.setFabric_style(fab_style_comb.getSelectedItem().toString());
+        }
         
+        new_design.setFabric_style(null);
         if(!new_design.add_new_design())
             new_design.get_design_code_using_variables();
             
@@ -1958,43 +1998,23 @@ public class EditRecipe2 extends javax.swing.JFrame {
         add_this_colorway_screen(screen_pig_id , color_id);
     }
     
-    private void delete_screen_colorway_connect_using_id_colorway(int id_colorway)
-    {
-        colortextile_class.colorway_and_screen new_c_and_s = new colortextile_class.colorway_and_screen();
-        new_c_and_s.setId_colorway(id_colorway);
-    }
-    
     private void add_orderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_orderActionPerformed
         // TODO add your handling code here:
         // Winston codes start
-       /*
-        if(this.jCheckBox1.isSelected()){
-            if (this.text_name.getText().trim().equals(""))
+       
+        if (this.jList1.getModel().getSize() == 0)
         {
-            
-            JOptionPane.showMessageDialog(null,"Please Type a Name!");
-            } else {
-                customer custom = new customer();
-                custom.setCustomer_name(this.text_name.getText());
-
-                custom.searchCustomer_name();
-     
-        
-                if(custom.getCustomer_names().isEmpty()){
-  
-                custom.add_new_customer();
-                add_job();
-            } else {
-                JOptionPane.showMessageDialog(null,"Customer already Exist!");
-            }    
-        }
+            JOptionPane.showMessageDialog(null,"PLease include a customer");
         } else {
-            add_job();
+            
+            add_purchase();
+            
+            
         }
-        */
         // Winston codes end
-        delete_screen_colorway_connect_using_id_colorway(1);
-        add_this_design(design_code.getText() , design_name.getText());
+        
+        
+        add_this_design();
         
         int colorway_id = add_this_colorway(colorway_name2.getText(), 
                              Float.parseFloat(binder8.getSelectedItem().toString()),
@@ -2049,28 +2069,28 @@ public class EditRecipe2 extends javax.swing.JFrame {
                                       percentage10.getText(), colorway_id );
             
             add_screen_and_color_screen(name11.getSelectedItem().toString(),
-                                      percentage11.getText(), colorway_id  );
+                                      percentage11.getText(), colorway_id );
             
             
             add_this_design_and_colorway(design_code.getText(), colorway_id);
   
         }
-        colorway_id = add_this_colorway(colorway_name5.getText(), 
+        colorway_id2 = add_this_colorway(colorway_name5.getText(), 
                              Float.parseFloat(binder5.getSelectedItem().toString()),
                              weigh_kg5.getText());
         
-        if(colorway_id != -1 )
+        if(colorway_id2 != -1 )
         {
             add_screen_and_color_screen(name13.getSelectedItem().toString(),
-                                      percentage13.getText(), colorway_id );
+                                      percentage13.getText(), colorway_id2 );
             
             add_screen_and_color_screen(name14.getSelectedItem().toString(),
-                                      percentage14.getText(), colorway_id );
+                                      percentage14.getText(), colorway_id2 );
             
             add_screen_and_color_screen(name15.getSelectedItem().toString(),
-                                      percentage15.getText(), colorway_id );
+                                      percentage15.getText(), colorway_id2 );
             
-            add_this_design_and_colorway(design_code.getText(), colorway_id);
+            add_this_design_and_colorway(design_code.getText(), colorway_id2);
         }
         
         colorway_id = add_this_colorway(colorway_name6.getText(), 
@@ -2094,29 +2114,75 @@ public class EditRecipe2 extends javax.swing.JFrame {
             add_this_design_and_colorway(design_code.getText(), colorway_id);
         }
         
-        colorway_id = add_this_colorway(colorway_name7.getText(), 
+        colorway_id2 = add_this_colorway(colorway_name7.getText(), 
                              Float.parseFloat(binder7.getSelectedItem().toString()),
                              weigh_kg7.getText());
         
-        if( colorway_id != -1 )
+        if( colorway_id2 != -1 )
         {
             add_screen_and_color_screen(name21.getSelectedItem().toString(),
-                                      percentage21.getText(), colorway_id );
+                                      percentage21.getText(), colorway_id2 );
             
             add_screen_and_color_screen(name22.getSelectedItem().toString(),
-                                      percentage22.getText(), colorway_id );
+                                      percentage22.getText(), colorway_id2 );
             
             add_screen_and_color_screen(name23.getSelectedItem().toString(),
-                                      percentage23.getText(), colorway_id );
+                                      percentage23.getText(), colorway_id2 );
                             
-            add_this_design_and_colorway(design_code.getText(), colorway_id);
+            add_this_design_and_colorway(design_code.getText(), colorway_id2);
         }
         
         JOptionPane.showMessageDialog(null,"Successfully Added this Recipe");
          
     }//GEN-LAST:event_add_orderActionPerformed
+    
+    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
+        if(this.jCheckBox1.isSelected()){
+            this.text_name.setVisible(true);
+            this.combo_name.setVisible(false);
+        } else {
+            this.text_name.setVisible(false);
+            this.combo_name.setVisible(true);
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBox1ActionPerformed
+
+    private void text_job_orderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_text_job_orderActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_text_job_orderActionPerformed
+     
+    private void text_job_orderInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_text_job_orderInputMethodTextChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_text_job_orderInputMethodTextChanged
+        
+    private void text_job_orderKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_text_job_orderKeyTyped
+        // TODO add your handling code here:
         int count = 0;
         String job_temp = "";
+       
+        if (this.text_job_order.getText().length() > 10 ){
+           // job_temp = job_temp.substring(job_temp.length() - 1);
+             this.text_job_order.setText(job_temp);
+             
+        } else {
+            
+            if (count < this.text_job_order.getText().length()){
+            if(this.text_job_order.getText().length() == 3){
+            this.text_job_order.setText(this.text_job_order.getText() + "-");
+            }
+            if(this.text_job_order.getText().length() == 6){
+            this.text_job_order.setText(this.text_job_order.getText() + "-");
+            }
+            
+            }
+            
+            job_temp = this.text_job_order.getText();
+            
+        }
+        
+        count = this.text_job_order.getText().length();
+    }//GEN-LAST:event_text_job_orderKeyTyped
+
     private void jCheckBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox2ActionPerformed
         // TODO add your handling code here:
         if(this.jCheckBox2.isSelected()){
@@ -2127,6 +2193,11 @@ public class EditRecipe2 extends javax.swing.JFrame {
             this.fabric_style.setVisible(false);
         }
     }//GEN-LAST:event_jCheckBox2ActionPerformed
+
+    private void quantityFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_quantityFocusLost
+        // TODO add your handling code here:
+        check_this_textbox(quantity);
+    }//GEN-LAST:event_quantityFocusLost
 
     private void coverage1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_coverage1KeyReleased
         // TODO add your handling code here:
@@ -2397,7 +2468,7 @@ public class EditRecipe2 extends javax.swing.JFrame {
     ArrayList quantity_list = new ArrayList( );
     ArrayList job_list = new ArrayList( );
     ArrayList customer_list = new ArrayList( );
-  
+    
     private void fill_list(){
         int x=0;
         int total =0;
@@ -2424,42 +2495,23 @@ public class EditRecipe2 extends javax.swing.JFrame {
         customer_list.add(customer_name);
         job_list.add(this.text_job_order.getText());
         quantity_list.add(this.quantity.getText());
-              //  this.customer_list[this.list_count] = customer_name;
-               // this.job_order_list[this.list_count] = this.text_job_order.getText();
-              //  this.quantity_list[this.list_count] = Integer.parseInt(this.quantity.getText());
-                
+        
+        
                 fill_list();
                 
         }
     }
     
-    private void add_order1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_order1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_add_order1ActionPerformed
-
-    private void add_order2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_order2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_add_order2ActionPerformed
-
-    private void quantity_totalFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_quantity_totalFocusLost
-        // TODO add your handling code here:
-    }//GEN-LAST:event_quantity_totalFocusLost
-
-    private void quantityFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_quantityFocusLost
-        // TODO add your handling code here:
-        check_this_textbox(quantity);
-    }//GEN-LAST:event_quantityFocusLost
-
     private void button_include_customerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_include_customerActionPerformed
         // TODO add your handling code here:
-
+       
         if (this.text_job_order.getText().trim().equals("")){
             JOptionPane.showMessageDialog(null,"Please Type a Name!");
         } else {
-
+            
             // check job order if existing
             job_order check_id = new job_order();
-
+            
             Boolean duplicate;
             duplicate = false;
             for (int j = 0; j < this.job_list.size(); j++ ){
@@ -2467,109 +2519,79 @@ public class EditRecipe2 extends javax.swing.JFrame {
                     duplicate = true;
                 }
             }
-
+            
             if(check_id.check_job_id(this.text_job_order.getText().toString()) == true || duplicate == true){
-
-                JOptionPane.showMessageDialog(null,"Job Order ID already Exists");
+                
+                  JOptionPane.showMessageDialog(null,"Job Order ID already Exists");
             } else {
                 if(this.jCheckBox1.isSelected()){
-                    if (this.text_name.getText().trim().equals("") )
-                    {
+            if (this.text_name.getText().trim().equals("") )
+            {
+            
+            JOptionPane.showMessageDialog(null,"Please Type a Name!");
+            } else {
+                
+            customer custom = new customer();
+            custom.setCustomer_name(this.text_name.getText());
 
-                        JOptionPane.showMessageDialog(null,"Please Type a Name!");
-                    } else {
-
-                        customer custom = new customer();
-                        custom.setCustomer_name(this.text_name.getText());
-
-                        custom.searchCustomer_name();
-
-                        if(!(custom.getCustomer_names().isEmpty())){
-
-                            JOptionPane.showMessageDialog(null,"Customer Name already Exists");
-                        } else {
-
-                            include(this.text_name.getText().toString());
-                            custom.add_new_customer();
-
-                        }
+            custom.searchCustomer_name();
+     
+        
+            if(!(custom.getCustomer_names().isEmpty())){
+                
+                  JOptionPane.showMessageDialog(null,"Customer Name already Exists");
+            } else {     
+                
+                
+                include(this.text_name.getText().toString());
+                custom.add_new_customer();
+            
+            }       
                     }
-                } else {
-                    if (this.combo_name.getSelectedItem().equals(""))
-                    {
-                        JOptionPane.showMessageDialog(null,"Please Select a Customer!");
-                    } else {
-
-                        include(this.combo_name.getSelectedItem().toString());
-                    }
-                }
+        } else {
+            if (this.combo_name.getSelectedItem().equals(""))
+            {
+                JOptionPane.showMessageDialog(null,"Please Select a Customer!");
+            } else {
+                
+                include(this.combo_name.getSelectedItem().toString());
             }
-
         }
-
+            }
+            
+            
+        }
+        
     }//GEN-LAST:event_button_include_customerActionPerformed
 
     private void button_remove_customerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_remove_customerActionPerformed
         // TODO add your handling code here:
-
+        
         String a = this.jList1.getSelectedValue().toString();
         int selected = this.jList1.getSelectedIndex();
         //JOptionPane.showMessageDialog(null,a);
         //JOptionPane.showMessageDialog(null,selected);
-
-        this.customer_list.remove(selected);
-        this.job_list.remove(selected);
-        this.quantity_list.remove(selected);
-        fill_list();
-
+        
+      this.customer_list.remove(selected);
+      this.job_list.remove(selected);
+      this.quantity_list.remove(selected);
+      fill_list();
+        
+       
+        
     }//GEN-LAST:event_button_remove_customerActionPerformed
 
-    private void text_job_orderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_text_job_orderActionPerformed
+    private void quantity_totalFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_quantity_totalFocusLost
         // TODO add your handling code here:
+    }//GEN-LAST:event_quantity_totalFocusLost
 
-    }//GEN-LAST:event_text_job_orderActionPerformed
-
-    private void text_job_orderInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_text_job_orderInputMethodTextChanged
+    private void add_order1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_order1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_text_job_orderInputMethodTextChanged
+    }//GEN-LAST:event_add_order1ActionPerformed
 
-    private void text_job_orderKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_text_job_orderKeyTyped
+    private void add_order2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_order2ActionPerformed
         // TODO add your handling code here:
-        int count = 0;
-        String job_temp = "";
-
-        if (this.text_job_order.getText().length() > 10 ){
-            // job_temp = job_temp.substring(job_temp.length() - 1);
-            this.text_job_order.setText(job_temp);
-
-        } else {
-
-            if (count < this.text_job_order.getText().length()){
-                if(this.text_job_order.getText().length() == 3){
-                    this.text_job_order.setText(this.text_job_order.getText() + "-");
-                }
-                if(this.text_job_order.getText().length() == 6){
-                    this.text_job_order.setText(this.text_job_order.getText() + "-");
-                }
-
-            }
-
-            job_temp = this.text_job_order.getText();
-
-        }
-
-        count = this.text_job_order.getText().length();
-    }//GEN-LAST:event_text_job_orderKeyTyped
-
-    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
-        if(this.jCheckBox1.isSelected()){
-            this.text_name.setVisible(true);
-            this.combo_name.setVisible(false);
-        } else {
-            this.text_name.setVisible(false);
-            this.combo_name.setVisible(true);
-        }        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox1ActionPerformed
+    }//GEN-LAST:event_add_order2ActionPerformed
 
     private void compute_kg(JTextField weigh_kg, float coverage)
     {
@@ -2751,13 +2773,13 @@ public class EditRecipe2 extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(EditRecipe2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EditRecipe.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(EditRecipe2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EditRecipe.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(EditRecipe2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EditRecipe.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(EditRecipe2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EditRecipe.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -2766,7 +2788,7 @@ public class EditRecipe2 extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
-                new EditRecipe2().setVisible(true);
+                new EditRecipe().setVisible(true);
             }
         });
     }
@@ -2784,7 +2806,6 @@ public class EditRecipe2 extends javax.swing.JFrame {
     private javax.swing.JComboBox binder9;
     private javax.swing.JButton button_include_customer;
     private javax.swing.JButton button_remove_customer;
-    private javax.swing.JTextField colorway_name;
     private javax.swing.JTextField colorway_name2;
     private javax.swing.JTextField colorway_name3;
     private javax.swing.JTextField colorway_name4;
@@ -2801,9 +2822,11 @@ public class EditRecipe2 extends javax.swing.JFrame {
     private javax.swing.JTextField coverage6;
     private javax.swing.JTextField coverage7;
     private javax.swing.JTextField design_code;
+    private javax.swing.JTextField design_color;
     private javax.swing.JTextField design_name;
     private javax.swing.JComboBox fab_style_comb;
     private javax.swing.JTextField fabric_style;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JCheckBox jCheckBox2;
