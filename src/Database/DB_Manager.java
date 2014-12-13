@@ -1356,7 +1356,7 @@ public class DB_Manager {
               if(increment > 0)
               { sql = sql + " AND";
               }
-              sql = sql + " colorway_name= '"+design.getColor_name()+"'";
+              sql = sql + " color_name= '"+design.getColor_name()+"'";
               increment++;
           }
           
