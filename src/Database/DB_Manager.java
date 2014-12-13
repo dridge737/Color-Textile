@@ -186,7 +186,7 @@ public class DB_Manager {
             DBConnection db = new DBConnection();
             Connection conn = db.getConnection();
             
-            PreparedStatement ps = conn.prepareStatement("INSERT INTO design (design_code, design_name, color_name, fabric_style) VALUES (?, ?, ?, ?);");
+            PreparedStatement ps = conn.prepareStatement("INSERT INTO design (design_code, design_name, color_name, fabric_style) VALUES (?, ?, ?, ?)");
             
             int item = 1;
             ps.setString(item++, new_design.getDesign_code());
