@@ -1939,7 +1939,7 @@ public class Add_new_design extends javax.swing.JFrame {
             new_dSign_cWay.add_new_design_and_colorway_using_variables();
         }
     }
-    
+                                            //COLORWAY NAME,  PERCENTAGE TEXT , COLORWAY ID
     private void add_screen_and_color_screen(String c_name, String perc_text, int color_id)
     {
         int screen_pig_id = add_new_screen_pigment(c_name, perc_text);
