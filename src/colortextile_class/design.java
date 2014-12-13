@@ -32,8 +32,8 @@ public class design {
     /**
      * @param design_code the design_code to set
      */
-    public void setDesign_code(String design_code) {
-        this.design_code = design_code;
+    public void setDesign_code(String the_design_code) {
+        this.design_code = the_design_code;
     }
 
     /**

@@ -73,14 +73,28 @@ public class Job_purchase_link_functions extends purchase_order{
     public void setNew_des_col_link(Design_colorway_link_functions new_des_col_link) {
         this.new_des_col_link = new_des_col_link;
     }
-    
-    public void print_this_job()
+   
+    public String get_all_quantity()
     {
-        String all_job_id = get_all_job_id();
-        
-        
-        String all_customers = "";
-        
+        String quantity_all = "";
+        for(int x = 0 ; x < jobs_for_this.size(); x++)
+        {
+            if(x == jobs_for_this.size()-1)
+                quantity_all.concat(Integer.toString(jobs_for_this.get(x).getQuantity()));
+            else
+                quantity_all.concat(Integer.toString(jobs_for_this.get(x).getQuantity()) + "+");
+                
+        }
+        return quantity_all;
+    }
+    public int get_quantity_sum()
+    {
+        int quantity_sum = 0;
+        for(int x = 0 ; x < jobs_for_this.size(); x++)
+        {
+            quantity_sum += jobs_for_this.get(x).getQuantity();
+        }
+        return quantity_sum;
     }
     
     public String get_all_customers()

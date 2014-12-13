@@ -2602,26 +2602,26 @@ public class EditRecipe extends javax.swing.JFrame {
         float computation;
         if(!quantity.getBackground().equals(Color.pink) && quantity.getText().length()>0)
         {
-            if(fabric_style.getText().equals("Pongee") || fab_style_comb.getSelectedItem().equals("Pongee"))
+            if(fabric_style.getText().equals("PONGEE") || fab_style_comb.getSelectedItem().equals("PONGEE"))
             {
-                float this_quant = Float.parseFloat(quantity.getText());
+                float this_quant = Float.parseFloat(quantity_total.getText());
                 computation = (80*coverage/100*this_quant)/1000;
                 weigh_kg.setText(String.format("%.2f", computation));
             }
-            if(fabric_style.getText().equals("Cotton") || fab_style_comb.getSelectedItem().equals("Cotton")
-            || fabric_style.getText().equals("Katunia") || fab_style_comb.getSelectedItem().equals("Katunia"))
+            if(fabric_style.getText().equals("COTTON") || fab_style_comb.getSelectedItem().equals("COTTON")
+            || fabric_style.getText().equals("KATUNIA") || fab_style_comb.getSelectedItem().equals("KATUNIA"))
             {
-                float this_quant = Float.parseFloat(quantity.getText());
+                float this_quant = Float.parseFloat(quantity_total.getText());
                 computation = (80*coverage/100*this_quant)/1000;
                 
                 weigh_kg.setText(String.format("%.2f", computation));
                // weigh_kg.setText(Float.toString(computation%.02f));
             }
-            if(fabric_style.getText().equals("MicroPeach") || fab_style_comb.getSelectedItem().equals("Micropeach")
+            if(fabric_style.getText().equals("MICROPEACH") || fab_style_comb.getSelectedItem().equals("MICROPEACH")
             || fabric_style.getText().equals("TC") || fab_style_comb.getSelectedItem().equals("TC")
-            || fabric_style.getText().equals("Tropicana") || fab_style_comb.getSelectedItem().equals("Tropicana"))
+            || fabric_style.getText().equals("TROPICANA") || fab_style_comb.getSelectedItem().equals("TROPICANA"))
             {
-                float this_quant = Float.parseFloat(quantity.getText());
+                float this_quant = Float.parseFloat(quantity_total.getText());
                 computation = (80*coverage/100*this_quant)/1000;
                 weigh_kg.setText(String.format("%.2f", computation));
             }

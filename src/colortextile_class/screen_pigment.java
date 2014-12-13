@@ -98,6 +98,12 @@ public class screen_pigment extends pigment {
         Database.DB_Manager new_conn = new Database.DB_Manager();
         this.setPigment_name( new_conn.get_pigment_name(this.getPigment_no()) );
     }
+    
+    public float compute_kg_prep(float weight_kg)
+    {
+        float weight_prep = weight_kg * pigment_percentage / 100;
+        return weight_prep;
+    }
 
     
 

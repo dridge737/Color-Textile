@@ -30,7 +30,7 @@ import javax.swing.SpinnerDateModel;
 public class Add_new_design extends javax.swing.JFrame {
 
     private int count_screen_1 = 0;
-    
+    private colortextile_class.Job_purchase_link_functions this_purchase = new colortextile_class.Job_purchase_link_functions();
     
     /**
      * Creates new form Add_new_design
@@ -1762,10 +1762,11 @@ public class Add_new_design extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(add_order, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(add_order1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(add_order2, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(add_order1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(add_order2, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(add_order, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(77, 77, 77))
         );
 
@@ -1789,6 +1790,10 @@ public class Add_new_design extends javax.swing.JFrame {
         purchase.setDate(spinnerValue);
         purchase.setDesign_code(this.design_code.getText());
         
+        this_purchase.setDesign_code(purchase.getDesign_code());
+        this_purchase.setDate(purchase.getDate());
+        
+        
         
         Boolean test1 = purchase.add_new_purchase();
         if (test1 == true){
@@ -1798,8 +1803,8 @@ public class Add_new_design extends javax.swing.JFrame {
         }
         
         add_job(purchase.getPurchase_Id_Last());
-        
-            JOptionPane.showMessageDialog(null,purchase.getPurchase_Id_Last());
+        //Commeting this out
+        //    JOptionPane.showMessageDialog(null,purchase.getPurchase_Id_Last());
         
        
         
@@ -1841,7 +1846,7 @@ public class Add_new_design extends javax.swing.JFrame {
         {
             if(temp_pigment_percent.length() > 0)
             {
-                System.out.println("Help");
+                //System.out.println("Help");
             float pigment_percent = Float.parseFloat(temp_pigment_percent);
             //declare pigment id
             // MFD_VIOLET --> 1(id)
@@ -1883,6 +1888,7 @@ public class Add_new_design extends javax.swing.JFrame {
                 return new_colorway.getId_colorway();
             }
         }
+       
         return -1;
     }
     
@@ -1943,7 +1949,7 @@ public class Add_new_design extends javax.swing.JFrame {
     private void add_orderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_orderActionPerformed
         // TODO add your handling code here:
         // Winston codes start
-       
+        
         if (this.jList1.getModel().getSize() == 0)
         {
             JOptionPane.showMessageDialog(null,"PLease include a customer");
@@ -1959,6 +1965,7 @@ public class Add_new_design extends javax.swing.JFrame {
         int colorway_id = add_this_colorway(colorway_name2.getText(), 
                              Float.parseFloat(binder8.getSelectedItem().toString()),
                              weigh_kg8.getText());
+        
         
         if(colorway_id != -1 )
         {   
@@ -2073,7 +2080,14 @@ public class Add_new_design extends javax.swing.JFrame {
         }
         
         JOptionPane.showMessageDialog(null,"Successfully Added this Recipe");
-         
+        
+        
+        this.this_purchase.setPurchase_Id_from_Date_and_code();
+        this.this_purchase.set_design_details_from_purchase_order_id();
+        this.this_purchase.set_job_order_list_using_purchase_order_id();
+        SpreadsheetTrial printFile = new SpreadsheetTrial();
+        printFile.print_this_job(this_purchase);
+        
     }//GEN-LAST:event_add_orderActionPerformed
     
     private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
@@ -2531,6 +2545,9 @@ public class Add_new_design extends javax.swing.JFrame {
 
     private void add_order1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_order1ActionPerformed
         // TODO add your handling code here:
+        Design_colorway_link_functions this_des;
+        Job_purchase_link_functions this_job;
+        
     }//GEN-LAST:event_add_order1ActionPerformed
 
     private void add_order2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_order2ActionPerformed
@@ -2542,26 +2559,26 @@ public class Add_new_design extends javax.swing.JFrame {
         float computation;
         if(!quantity.getBackground().equals(Color.pink) && quantity.getText().length()>0)
         {
-            if(fabric_style.getText().equals("Pongee") || fab_style_comb.getSelectedItem().equals("Pongee"))
+            if(fabric_style.getText().equals("PONGEE") || fab_style_comb.getSelectedItem().equals("PONGEE"))
             {
-                float this_quant = Float.parseFloat(quantity.getText());
+                float this_quant = Float.parseFloat(quantity_total.getText());
                 computation = (80*coverage/100*this_quant)/1000;
                 weigh_kg.setText(String.format("%.2f", computation));
             }
-            if(fabric_style.getText().equals("Cotton") || fab_style_comb.getSelectedItem().equals("Cotton")
-            || fabric_style.getText().equals("Katunia") || fab_style_comb.getSelectedItem().equals("Katunia"))
+            if(fabric_style.getText().equals("COTTON") || fab_style_comb.getSelectedItem().equals("COTTON")
+            || fabric_style.getText().equals("KATUNIA") || fab_style_comb.getSelectedItem().equals("KATUNIA"))
             {
-                float this_quant = Float.parseFloat(quantity.getText());
+                float this_quant = Float.parseFloat(quantity_total.getText());
                 computation = (80*coverage/100*this_quant)/1000;
                 
                 weigh_kg.setText(String.format("%.2f", computation));
                // weigh_kg.setText(Float.toString(computation%.02f));
             }
-            if(fabric_style.getText().equals("MicroPeach") || fab_style_comb.getSelectedItem().equals("Micropeach")
+            if(fabric_style.getText().equals("MICROPEACH") || fab_style_comb.getSelectedItem().equals("MICROPEACH")
             || fabric_style.getText().equals("TC") || fab_style_comb.getSelectedItem().equals("TC")
-            || fabric_style.getText().equals("Tropicana") || fab_style_comb.getSelectedItem().equals("Tropicana"))
+            || fabric_style.getText().equals("TROPICANA") || fab_style_comb.getSelectedItem().equals("TROPICANA"))
             {
-                float this_quant = Float.parseFloat(quantity.getText());
+                float this_quant = Float.parseFloat(quantity_total.getText());
                 computation = (80*coverage/100*this_quant)/1000;
                 weigh_kg.setText(String.format("%.2f", computation));
             }
@@ -2570,7 +2587,7 @@ public class Add_new_design extends javax.swing.JFrame {
     
     private void update_kg_prep(String percentage_text, String weight_kg , JTextField this_textfield)
     {
-        System.out.println(percentage_text+ " and " +weight_kg);
+        //System.out.println(percentage_text+ " and " +weight_kg);
         if(percentage_text.length()>0 && weight_kg.length()>0)
         {
             boolean text_check = checkText2(percentage_text);

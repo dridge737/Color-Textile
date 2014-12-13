@@ -25,8 +25,8 @@ public class design_colorway {
     /**
      * @param id_design_colorway the id_design_colorway to set
      */
-    public void setId_design_colorway(int id_design_colorway) {
-        this.id_design_colorway = id_design_colorway;
+    public void setId_design_colorway(int the_id_design_colorway) {
+        this.id_design_colorway = the_id_design_colorway;
     }
 
     /**

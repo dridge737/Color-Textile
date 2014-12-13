@@ -53,8 +53,8 @@ public class colorway_and_screen {
     /**
      * @param id_colorway the id_colorway to set
      */
-    public void setId_colorway(int id_colorway) {
-        this.id_colorway = id_colorway;
+    public void setId_colorway(int the_id_colorway) {
+        this.id_colorway = the_id_colorway;
     }
     
     public boolean add_colorway_and_screen()

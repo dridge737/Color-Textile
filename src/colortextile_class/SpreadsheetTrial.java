@@ -37,59 +37,70 @@ import org.jopendocument.dom.template.RhinoTemplate;
  */
 public class SpreadsheetTrial {
 
-   
-	//static Namespace ns = Namespace.getNamespace("xlink", "http://www.w3.org/1999/xlink");
-        
         static String in = "Printext.odt";
-
-	static final String out = "sample_out2.odt";
-        
+	static final String out = "print_out.odt";
         static Namespace ns = Namespace.getNamespace("xlink", "http://www.w3.org/1999/xlink");
+        
     /**
-     * @param args the command line arguments
+     * @param this_purchase
      */
-    public static void main(String[] args) throws Exception{
+    public void print_this_job(Job_purchase_link_functions this_purchase){
         // TODO code application logic here
          
         try {
            
             File templateFile = new File(in);
             File outFile = new File(out);
-            
-            // Load the template.
             RhinoTemplate template = new RhinoTemplate(templateFile);
-
+            
+            String all_job_id = this_purchase.get_all_job_id();
+            String all_customer = this_purchase.get_all_customers();
+            String quantity_all = this_purchase.get_all_quantity();
+            int quantity_sum = this_purchase.get_quantity_sum();
+            quantity_all.concat("="+Integer.toString(quantity_sum));
+            
+           //FOR DESIGN
+            Design_colorway_link_functions this_design = this_purchase.getNew_des_col_link();
+            
             // Fill with sample values.
-            template.setField("customer", "CustomerName");
-            template.setField("job", "JobId");
-            template.setField("desCode", "");
-            template.setField("desName", "Design Name");
-            template.setField("date", "Date");
-            template.setField("fabStyle", "Fabric Style");
-            template.setField("quant", "2");
-            template.setField("speed", "");
+            template.setField("customer", all_customer);
+            template.setField("job", all_job_id);
+            template.setField("desCode", this_purchase.getDesign_code());
+            template.setField("desName", this_design.getDesign_name());
+            template.setField("date", this_purchase.getDate());
+            template.setField("fabStyle", this_design.getFabric_style());
+            template.setField("quant", quantity_all);
+            template.setField("color", this_design.getColor_name());
             
-             template.showSection("sec1");
-             template.setField("screen1", "Temp");
-            template.setField("kilo1", "12");
-            template.setField("bind1", "Helo");
-            //template.hideSection("sec1");
+            // FOR COLORWAY
+            List<Colorway_screen_link_functions> this_colorway = this_design.getAll_colorways();
+            
+            Colorway_screen_link_functions first_colorway = this_colorway.get(0);
+            
+            template.setField("screen1", first_colorway.getColorway_name());
+            template.setField("kilo1", first_colorway.getWeight_kg());
+            template.setField("bind1", first_colorway.getBinder());
+            //FOR COLORWAY SCREEN
+            List<screen_pigment> the_screens = first_colorway.getThis_screens();
+            
+            for(int x=1; x<=the_screens.size(); x++)
+            {
+                template.setField("screen1_"+x, the_screens.get(x-1).getPigment_name() );
+                template.setField("per1_"+x, the_screens.get(x-1).getPigment_percentage() );
+                template.setField("kg1_"+x, the_screens.get(x-1).compute_kg_prep(first_colorway.getWeight_kg()));
+            }
+            
+            this_colorway.remove(0);
+            
             final List<Map<String, String>> print = new ArrayList<Map<String, String>>();
-            print.add(createMap("January", "-12", "3", "", "5", ""));
-            print.add(createMap("February", "-8", "5", "", "65", ""));
-            print.add(createMap("February", "-8", "5", "", "65", ""));
-            print.add(createMap("February", "-8", "5", "", "65", ""));
-
+            for(Colorway_screen_link_functions current_colorway : this_colorway)
+            {
+                print.add(createMap2(current_colorway));
+            }
+            
             template.setField("print", print);
-            
-            
            
-            template.hideSection("sec1");
-            template.hideSection("sec3");
-            template.hideSection("sec4");
-            template.hideSection("sec5");
-            template.hideSection("sec6");
-            template.hideSection("sec7");
+            
             // Save to file.
             final String bcfile = "Book3d.jpg";
             
@@ -112,9 +123,25 @@ public class SpreadsheetTrial {
         
         
     }
-    private static Map<String, String> createMap(String n, String min, String max, String screen, String kilo, String bind) {
+    private static Map<String, String> createMap2(Colorway_screen_link_functions this_color_screen)
+    {
+         final Map<String, String> res = new HashMap<String, String>();
+         res.put("screen2", this_color_screen.getColorway_name());
+         res.put("kil2"   , Float.toString(this_color_screen.getWeight_kg()));
+         res.put("bind2"  , Float.toString(this_color_screen.getBinder()));
+         
+         List<screen_pigment> the_screens = this_color_screen.getThis_screens();
+         for(int x=1; x<=the_screens.size(); x++)
+            {
+                res.put("name"+x, the_screens.get(x-1).getPigment_name() );
+                res.put("per"+x, Float.toString(the_screens.get(x-1).getPigment_percentage() ));
+                res.put("kilo"+x, Float.toString(the_screens.get(x-1).compute_kg_prep(this_color_screen.getWeight_kg())));
+            }
+        return res;
+    }
+    private static Map<String, String> createMap(String screen_name, String prep_kilo, String max, String screen, String kilo, String bind) {
         final Map<String, String> res = new HashMap<String, String>();
-        res.put("name", n);
+        res.put("name", screen_name);
         res.put("name2", "Hello");
         res.put("name3", "Hello2");
         res.put("kilo1", kilo);
@@ -126,7 +153,7 @@ public class SpreadsheetTrial {
                 
         //res.put("min", min);
         //res.put("max", max);
-        res.put("screen2", min);
+        res.put("screen2", prep_kilo);
         res.put("kil2", max);
         res.put("bind2", max);
         return res;

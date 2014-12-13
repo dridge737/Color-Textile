@@ -30,8 +30,8 @@ public class colorway {
     /**
      * @param id_colorway the id_colorway to set
      */
-    public void setId_colorway(int id_colorway) {
-        this.id_colorway = id_colorway;
+    public void setId_colorway(int colorway_id) {
+        this.id_colorway = colorway_id;
     }
 
     /**
@@ -91,6 +91,7 @@ public class colorway {
     {
         Database.DB_Manager new_conn = new Database.DB_Manager();
         int temp_colorway_id = new_conn.get_id_colorway(this);
+        System.out.println(temp_colorway_id);
         if(temp_colorway_id != -1)
         {
             this.id_colorway = temp_colorway_id;

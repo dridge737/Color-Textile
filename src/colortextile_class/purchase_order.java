@@ -115,4 +115,11 @@ public class purchase_order {
         return new_conn.get_id_purchase_last(this);
     }
     
+    public void setPurchase_Id_from_Date_and_code()
+    {
+        DB_Manager new_conn = new DB_Manager();
+        id_purchase = new_conn.get_id_purchase(this);
+        
+    }
+    
 }
