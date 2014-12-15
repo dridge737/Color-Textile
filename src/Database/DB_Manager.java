@@ -7,9 +7,10 @@
 package Database;
 
 import colortextile_class.*;
+import java.awt.Image;
 import java.sql.Array;
+import java.sql.Blob;
 import java.sql.Connection;
-
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -186,7 +187,7 @@ public class DB_Manager {
             DBConnection db = new DBConnection();
             Connection conn = db.getConnection();
             
-            PreparedStatement ps = conn.prepareStatement("INSERT INTO design (design_code, design_name, color_name, fabric_style) VALUES (?, ?, ?, ?);");
+            PreparedStatement ps = conn.prepareStatement("INSERT INTO design (design_code, design_name, color_name, fabric_style) VALUES (?, ?, ?, ?)");
             
             int item = 1;
             ps.setString(item++, new_design.getDesign_code());
@@ -1059,6 +1060,29 @@ public class DB_Manager {
             return null;
         }
     }
+    public Blob get_picture_from_design_id(colortextile_class.design this_picture){
+        try
+        {
+          DBConnection db = new DBConnection();
+          Connection conn = db.getConnection();  
+          
+            PreparedStatement ps = conn.prepareStatement("SELECT * FROM design_picture WHERE design_code = '"+ this_picture.getDesign_code()+"' ");
+            ResultSet rs = ps.executeQuery();
+            while(rs.first())
+            {
+                this_picture.setDesign_image(rs.getBlob("design_picture"));
+                return rs.getBlob("design_picture");
+            }
+           
+        }
+        catch (SQLException ex)
+        {
+            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
+            
+        }
+        return null;
+    }
+    
     
     public ResultSet get_all_design(){
         try
@@ -1411,7 +1435,7 @@ public class DB_Manager {
               if(increment > 0)
               { sql = sql + " AND";
               }
-              sql = sql + " colorway_name= '"+design.getColor_name()+"'";
+              sql = sql + " color_name= '"+design.getColor_name()+"'";
               increment++;
           }
           

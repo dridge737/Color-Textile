@@ -157,6 +157,11 @@ public class design {
         Database.DB_Manager new_conn = new Database.DB_Manager();
         return new_conn.Search_Design(this);
     }
+    
+   public void get_picture_from_design_code(){
+       Database.DB_Manager new_conn = new Database.DB_Manager();       
+       this.design_image = new_conn.get_picture_from_design_id(this);
+   }
 
     
 }

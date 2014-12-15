@@ -53,7 +53,7 @@ public class Search_design extends javax.swing.JFrame {
                    String[] set1 = {    
                                         rs.getString("design_code"), 
                                         rs.getString("design_name"),
-                                        rs.getString("colorway_name"),
+                                        rs.getString("color_name"),
                                         rs.getString("fabric_style")
                                         
                                     };

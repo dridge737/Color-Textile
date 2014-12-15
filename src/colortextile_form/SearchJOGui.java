@@ -14,15 +14,22 @@ import colortextile_class.purchase_order;
 import forms.*;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.io.IOException;
+import java.sql.Blob;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
+
 //import net.proteanit.sql.DbUtils;
 
 /**
@@ -57,13 +64,13 @@ public class SearchJOGui extends javax.swing.JFrame {
         fill_table(set.job_order_all());
         
     }
-    public String get_table_row_value(){
+    public int get_table_row_value(){
         try{
             int row = this.jTable1.getSelectedRow();
-            String id =(this.jTable1.getModel().getValueAt(row, 0).toString());
-            return id;
+            
+            return row;
         }catch(Exception e){
-            return null;
+            return -1;
         }
         
     }
@@ -104,7 +111,7 @@ public class SearchJOGui extends javax.swing.JFrame {
                                    rs2.getString("date"),
                                    rs2.getString("design_code"),
                                 rs3.getString("design_name"),
-                                rs3.getString("colorway_name"),
+                                rs3.getString("color_name"),
                                 rs3.getString("fabric_style")};
                                 model.addRow(set1);
                                 
@@ -237,7 +244,7 @@ public class SearchJOGui extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         button_details = new javax.swing.JButton();
-        label_pic = new java.awt.Label();
+        label_pic = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Search Job Order");
@@ -358,6 +365,11 @@ public class SearchJOGui extends javax.swing.JFrame {
                 jTable1MouseClicked(evt);
             }
         });
+        jTable1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTable1KeyPressed(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         button_details.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
@@ -367,8 +379,6 @@ public class SearchJOGui extends javax.swing.JFrame {
                 button_detailsActionPerformed(evt);
             }
         });
-
-        label_pic.setText("picture");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -385,15 +395,15 @@ public class SearchJOGui extends javax.swing.JFrame {
                 .addContainerGap(70, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(label_pic, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(387, 387, 387))
+                .addComponent(label_pic, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(481, 481, 481))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(69, 69, 69)
-                .addComponent(label_pic, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
+                .addGap(74, 74, 74)
+                .addComponent(label_pic, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(button_details, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -472,8 +482,15 @@ public class SearchJOGui extends javax.swing.JFrame {
         fill_table(set.job_order_all());
     }//GEN-LAST:event_button_resetActionPerformed
 
+    
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
-        this.get_table_row_value();
+        JOptionPane.showMessageDialog(null, "mouse clicked");
+        
+        try {
+            insert_pic();
+        } catch (SQLException ex) {
+            Logger.getLogger(SearchJOGui.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jTable1MouseClicked
 
     private void button_detailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_detailsActionPerformed
@@ -488,6 +505,41 @@ public class SearchJOGui extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, "Selected purchase order: " + this.purchase_order_list.get(row).toString() + " from row : " + row  );
     }//GEN-LAST:event_button_detailsActionPerformed
 
+    private void jTable1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTable1KeyPressed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, "key pressed");
+   
+        try {
+            insert_pic();
+        } catch (SQLException ex) {
+            Logger.getLogger(SearchJOGui.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jTable1KeyPressed
+    private String get_design_code_from_table_selected(){
+        
+        int row = this.get_table_row_value();
+        String id =(this.jTable1.getModel().getValueAt(row, 4).toString());
+        JOptionPane.showMessageDialog(null, "id= " + id);
+        
+        return id;
+    }
+    private void insert_pic() throws SQLException{
+        
+        
+        design design_conn = new design();
+        design_conn.setDesign_code(get_design_code_from_table_selected());
+        design_conn.get_picture_from_design_code();
+        Blob blob = design_conn.getDesign_image();
+        
+        int blobLength = (int) blob.length();
+        byte[] image1 = blob.getBytes(1, blobLength);
+        ImageIcon image = new ImageIcon(image1);
+        
+        
+        label_pic.setIcon(image);
+        getContentPane().add(label_pic);
+        setVisible(true);
+    }
     /**
      * @param args the command line arguments
      */
@@ -539,7 +591,7 @@ public class SearchJOGui extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private java.awt.Label label_pic;
+    private javax.swing.JLabel label_pic;
     private javax.swing.JSpinner spinner_from;
     private javax.swing.JSpinner spinner_to;
     private javax.swing.JTextField text_design_code;

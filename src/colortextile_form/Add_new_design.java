@@ -517,7 +517,7 @@ public class Add_new_design extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jCheckBox2);
-        jCheckBox2.setBounds(650, 200, 63, 25);
+        jCheckBox2.setBounds(650, 200, 65, 25);
 
         jLabel11.setBackground(new java.awt.Color(255, 255, 255));
         jLabel11.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
@@ -673,7 +673,7 @@ public class Add_new_design extends javax.swing.JFrame {
             }
         });
         jPanel16.add(jCheckBox1);
-        jCheckBox1.setBounds(340, 50, 59, 20);
+        jCheckBox1.setBounds(340, 50, 63, 20);
 
         text_name.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
         jPanel16.add(text_name);
@@ -1756,7 +1756,7 @@ public class Add_new_design extends javax.swing.JFrame {
                     .addGroup(jPanel11Layout.createSequentialGroup()
                         .addGap(43, 43, 43)
                         .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel11Layout.setVerticalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2088,8 +2088,8 @@ public class Add_new_design extends javax.swing.JFrame {
         this.this_purchase.setPurchase_Id_from_Date_and_code();
         //this.this_purchase.set_design_details_from_purchase_order_id();
         this.this_purchase.set_job_order_list_using_purchase_order_id();
-        SpreadsheetTrial printFile = new SpreadsheetTrial();
-        printFile.print_this_job(this_purchase);
+       // SpreadsheetTrial printFile = new SpreadsheetTrial();
+     //   printFile.print_this_job(this_purchase);
         
     }//GEN-LAST:event_add_orderActionPerformed
     
