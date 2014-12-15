@@ -100,9 +100,10 @@ public class Job_purchase_link_functions extends purchase_order{
     public String get_all_customers()
     {
         String all_customers = "";
-        
+        System.out.println("Number of customers is = "+jobs_for_this.size());
         for(int x = 0 ; x < jobs_for_this.size(); x++)
         {
+            System.out.println("Customer name = " +jobs_for_this.get(x).getCustomer_name());
             if(x == jobs_for_this.size()-1)
                 all_customers.concat(jobs_for_this.get(x).getCustomer_name());
             else

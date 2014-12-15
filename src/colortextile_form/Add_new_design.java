@@ -548,6 +548,9 @@ public class Add_new_design extends javax.swing.JFrame {
         jLabel3.setBounds(415, 120, 130, 34);
 
         quantity_total.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        quantity_total.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        quantity_total.setEnabled(false);
+        quantity_total.setSelectionColor(new java.awt.Color(153, 153, 153));
         quantity_total.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 quantity_totalFocusLost(evt);
@@ -575,9 +578,9 @@ public class Add_new_design extends javax.swing.JFrame {
         jLabel13.setBounds(388, 120, 13, 34);
 
         quantity.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        quantity.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                quantityFocusLost(evt);
+        quantity.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                quantityKeyReleased(evt);
             }
         });
         jPanel16.add(quantity);
@@ -2152,11 +2155,6 @@ public class Add_new_design extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jCheckBox2ActionPerformed
 
-    private void quantityFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_quantityFocusLost
-        // TODO add your handling code here:
-        check_this_textbox(quantity);
-    }//GEN-LAST:event_quantityFocusLost
-
     private void coverage1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_coverage1KeyReleased
         // TODO add your handling code here:
         if(coverage1.getText().length()>0)
@@ -2252,19 +2250,19 @@ public class Add_new_design extends javax.swing.JFrame {
     private void percentage5KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage5KeyReleased
         // TODO add your handling code here:
         check_this_textbox(percentage5);
-        update_kg_prep(percentage5.getText(), weigh_kg8.getText(), kg_5);
+        update_kg_prep(percentage5.getText(), weigh_kg3.getText(), kg_5);
     }//GEN-LAST:event_percentage5KeyReleased
 
     private void percentage6KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage6KeyReleased
         // TODO add your handling code here:
         check_this_textbox(percentage6);
-        update_kg_prep(percentage6.getText(), weigh_kg8.getText(), kg_6);
+        update_kg_prep(percentage6.getText(), weigh_kg3.getText(), kg_6);
     }//GEN-LAST:event_percentage6KeyReleased
 
     private void percentage7KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage7KeyReleased
         // TODO add your handling code here:
         check_this_textbox(percentage7);
-        update_kg_prep(percentage7.getText(), weigh_kg8.getText(), kg_7);
+        update_kg_prep(percentage7.getText(), weigh_kg3.getText(), kg_7);
     }//GEN-LAST:event_percentage7KeyReleased
 
     private void weigh_kg3KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_weigh_kg3KeyReleased
@@ -2411,7 +2409,7 @@ public class Add_new_design extends javax.swing.JFrame {
         {
             if(!checkText2(coverage7.getText()))
             {
-                compute_kg(weigh_kg6, Float.parseFloat(coverage7.getText()));
+                compute_kg(weigh_kg9, Float.parseFloat(coverage7.getText()));
             }
         }
     }//GEN-LAST:event_coverage7KeyReleased
@@ -2553,6 +2551,13 @@ public class Add_new_design extends javax.swing.JFrame {
     private void add_order2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_order2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_add_order2ActionPerformed
+
+    private void quantityKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_quantityKeyReleased
+        // TODO add your handling code here:
+          
+        this.button_include_customer.setEnabled(check_this_textbox(quantity));
+        
+    }//GEN-LAST:event_quantityKeyReleased
 
     private void compute_kg(JTextField weigh_kg, float coverage)
     {
