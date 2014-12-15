@@ -15,18 +15,21 @@ import forms.*;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.io.IOException;
+import java.sql.Blob;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
+
 //import net.proteanit.sql.DbUtils;
 
 /**
@@ -241,7 +244,7 @@ public class SearchJOGui extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         button_details = new javax.swing.JButton();
-        label_pic = new java.awt.Label();
+        label_pic = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Search Job Order");
@@ -377,8 +380,6 @@ public class SearchJOGui extends javax.swing.JFrame {
             }
         });
 
-        label_pic.setText("picture");
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -394,15 +395,15 @@ public class SearchJOGui extends javax.swing.JFrame {
                 .addContainerGap(70, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(label_pic, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(387, 387, 387))
+                .addComponent(label_pic, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(481, 481, 481))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(69, 69, 69)
-                .addComponent(label_pic, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
+                .addGap(74, 74, 74)
+                .addComponent(label_pic, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(button_details, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -512,16 +513,22 @@ public class SearchJOGui extends javax.swing.JFrame {
         
         return null;
     }
-    private void insert_pic(){
+    private void insert_pic() throws SQLException{
         
         
         design design_conn = new design();
         design_conn.setDesign_code(get_design_code_from_table_selected());
         design_conn.get_picture_from_design_code();
-        design_conn.getDesign_image();
-        //picture.setIcon()
+        Blob blob = design_conn.getDesign_image();
         
-        //label_pic.setIcon(design_conn.getDesign_image());
+        int blobLength = (int) blob.length();
+        byte[] image1 = blob.getBytes(1, blobLength);
+        ImageIcon image = new ImageIcon(image1);
+        
+        
+        label_pic.setIcon(image);
+        getContentPane().add(label_pic);
+        setVisible(true);
     }
     /**
      * @param args the command line arguments
@@ -574,7 +581,7 @@ public class SearchJOGui extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private java.awt.Label label_pic;
+    private javax.swing.JLabel label_pic;
     private javax.swing.JSpinner spinner_from;
     private javax.swing.JSpinner spinner_to;
     private javax.swing.JTextField text_design_code;
