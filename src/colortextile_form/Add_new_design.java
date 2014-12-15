@@ -2086,7 +2086,7 @@ public class Add_new_design extends javax.swing.JFrame {
         
         
         this.this_purchase.setPurchase_Id_from_Date_and_code();
-        this.this_purchase.set_design_details_from_purchase_order_id();
+        //this.this_purchase.set_design_details_from_purchase_order_id();
         this.this_purchase.set_job_order_list_using_purchase_order_id();
         SpreadsheetTrial printFile = new SpreadsheetTrial();
         printFile.print_this_job(this_purchase);

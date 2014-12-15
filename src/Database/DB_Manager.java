@@ -336,12 +336,13 @@ public class DB_Manager {
             ps.setString(item++, this_design_code);
             
             List<Colorway_screen_link_functions> all_color_screen = new ArrayList<>();
-            Colorway_screen_link_functions current_colorway = new Colorway_screen_link_functions();
+            
             
             ResultSet rs = ps.executeQuery();
             
             while(rs.next())
             {
+                Colorway_screen_link_functions current_colorway = new Colorway_screen_link_functions();
                 current_colorway.setBinder(rs.getFloat("binder"));
                 current_colorway.setColorway_name(rs.getString("colorway_name"));
                 current_colorway.setWeight_kg(rs.getFloat("weight_kg"));
@@ -382,10 +383,11 @@ public class DB_Manager {
             ResultSet screen_rs = ps.executeQuery();
             
             List<screen_pigment> this_screen = new ArrayList<>();
-            screen_pigment this_s_pigment = new screen_pigment();
+           
             
             while(screen_rs.next())
             {
+                screen_pigment this_s_pigment = new screen_pigment();
                 /*
                 System.out.println("Screen id = "+screen_rs.getInt("id_screen"));
                 System.out.println("Pigment no = "+screen_rs.getInt("p.pigment_no"));
@@ -398,7 +400,7 @@ public class DB_Manager {
                 this_s_pigment.setPigment_name(screen_rs.getString("p.pigment_name"));
                 this_screen.add(this_s_pigment);
             }
-            
+            /*
             for(screen_pigment thisscreens : this_screen)
             {
                 System.out.println("Screen id = "+thisscreens.getId_screen());
@@ -406,7 +408,7 @@ public class DB_Manager {
                 System.out.println("Pigment percentage = "+thisscreens.getPigment_percentage());
                 System.out.println("Pigment name= "+thisscreens.getPigment_name());
             }
-            
+            */
             screen_rs.close();
             conn.close();
             
@@ -1025,15 +1027,29 @@ public class DB_Manager {
             
             ResultSet rs = ps.executeQuery();
             List<job_order> job_list = new ArrayList<job_order>();
-            job_order this_job = new job_order();
+            
             while(rs.next())
             {
-                this_job.setCustomer_id(rs.getInt("customer_id"));
+                job_order this_job = new job_order();
+                //System.out.println("Customer id = "+ rs.getInt("customer_id"));
+                //System.out.println("Job Order = "+ rs.getString("job_order_id"));
+                //System.out.println("Quantity = " +rs.getInt("quantity"));
+                this_job.setCustomer_id(rs.getInt("customer_id"));                
                 this_job.setJob_id(rs.getString("job_order_id"));
                 this_job.setQuantity(rs.getInt("quantity"));
                 
                 job_list.add(this_job);
             }
+            /*
+            for(job_order all_jobs : job_list)
+            {
+            System.out.println("Job Order ID  : "+all_jobs.getJob_id());
+            System.out.println("Customer ID   : "+all_jobs.getCustomer_id());
+            System.out.println("Customer Name : "+all_jobs.getCustomer_name());
+            System.out.println("Quantity      : "+all_jobs.getQuantity());
+            }
+            */
+            
             return job_list;
             
         }
@@ -1114,6 +1130,45 @@ public class DB_Manager {
         }
         return -1;
     }
+    
+    public purchase_order get_purchase_details(int purchase_id)
+    {
+        purchase_order current_purchase = new purchase_order();
+         try
+         {
+            DBConnection db = new DBConnection();
+            Connection conn = db.getConnection();
+         
+            PreparedStatement ps = 
+            conn.prepareStatement("SELECT date, design_code "
+                                 + "FROM purchase_order "
+                                 + "WHERE id_purchase = ? ");
+            
+            int item = 1;
+            ps.setInt(item++, purchase_id);
+            /* 
+            System.out.println("Date :" +new_purchase.getDate());
+            System.out.println("Colorway Id :"  new_purchase.getDesign_code);
+            */
+            ResultSet rs = ps.executeQuery();
+            if(rs.first())
+            {
+                current_purchase.setDate(rs.getString("date"));
+                current_purchase.setDesign_code(rs.getString("design_code"));
+             //   System.out.println(id_colorway);
+                return current_purchase;
+            }
+            
+            
+        }
+        catch(SQLException ex){
+            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         
+         return current_purchase;
+         
+    }
+    
             
     
     //GET END

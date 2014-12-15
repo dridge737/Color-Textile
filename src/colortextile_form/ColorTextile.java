@@ -6,6 +6,9 @@
 
 package colortextile_form;
 
+import colortextile_class.Design_colorway_link_functions;
+import colortextile_class.Job_purchase_link_functions;
+
 /**
  *
  * @author Eldridge
@@ -27,6 +30,21 @@ public class ColorTextile {
         //Edit_Existing_Design_form edit_form = new Edit_Existing_Design_form();
         //edit_form.setVisible(true);
        // System.out.println(trial_get_pigment_id);
+        
+        Design_colorway_link_functions get_des_details = new Design_colorway_link_functions();
+        Job_purchase_link_functions this_purchase = new Job_purchase_link_functions();
+        this_purchase.setId_purchase(13);
+        this_purchase.set_this_Purchase_details_from_purchase_id();
+        this_purchase.set_design_details_from_purchase_order_id();
+        //this_purchase.setPurchase_Id_from_Date_and_code();
+        //this_purchase.set_design_details_from_purchase_order_id();
+        this_purchase.set_job_order_list_using_purchase_order_id();
+        this_purchase.view_all_job_order_details();
+        //get_des_details.setDesign_code("df343");
+       // get_des_details.setDesign_details_from_des_code();
+        //get_des_details.add_all_colorway_from_design_code();
+       // get_des_details.view_all_colorway_details();
+        
  
     }
     

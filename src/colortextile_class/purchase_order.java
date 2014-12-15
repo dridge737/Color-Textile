@@ -122,4 +122,12 @@ public class purchase_order {
         
     }
     
+    public void set_this_Purchase_details_from_purchase_id()
+    {
+        Database.DB_Manager new_conn = new Database.DB_Manager();
+        purchase_order temp_purchase = new_conn.get_purchase_details(id_purchase);
+        this.date = temp_purchase.getDate();
+        this.design_code = temp_purchase.getDesign_code();
+    }
+    
 }

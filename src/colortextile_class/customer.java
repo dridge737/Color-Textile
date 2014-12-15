@@ -79,8 +79,15 @@ public class customer {
 
     public int get_customer_id_from_name() {
         DB_Manager new_conn = new DB_Manager();
-        return new_conn.get_id_customer_name(this);
+        this.customer_id = new_conn.get_id_customer_name(this);
+        return customer_id;
         
+    }
+    
+    public void set_customer_name_from_id()
+    {
+        DB_Manager new_conn = new DB_Manager();
+        this.Customer_name = new_conn.get_customer_name(customer_id);
     }
     
     

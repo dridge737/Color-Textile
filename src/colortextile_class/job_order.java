@@ -54,8 +54,6 @@ public class job_order extends customer {
         this.job_id = job_id;
     }
 
-    
-
     /**
      * @return the quantity
      */
@@ -143,6 +141,7 @@ public class job_order extends customer {
     public ResultSet get_job_info_from_purchase_id(int purchase_id){
         DB_Manager new_conn = new DB_Manager();
         return new_conn.get_job_order_list_from_purchase_id(this);
+        
     }
         
 }
