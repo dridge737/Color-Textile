@@ -485,7 +485,12 @@ public class SearchJOGui extends javax.swing.JFrame {
     
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         JOptionPane.showMessageDialog(null, "mouse clicked");
-        get_design_code_from_table_selected();
+        
+        try {
+            insert_pic();
+        } catch (SQLException ex) {
+            Logger.getLogger(SearchJOGui.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jTable1MouseClicked
 
     private void button_detailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_detailsActionPerformed
@@ -503,7 +508,12 @@ public class SearchJOGui extends javax.swing.JFrame {
     private void jTable1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTable1KeyPressed
         // TODO add your handling code here:
         JOptionPane.showMessageDialog(null, "key pressed");
-        get_design_code_from_table_selected();
+   
+        try {
+            insert_pic();
+        } catch (SQLException ex) {
+            Logger.getLogger(SearchJOGui.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jTable1KeyPressed
     private String get_design_code_from_table_selected(){
         
@@ -511,7 +521,7 @@ public class SearchJOGui extends javax.swing.JFrame {
         String id =(this.jTable1.getModel().getValueAt(row, 4).toString());
         JOptionPane.showMessageDialog(null, "id= " + id);
         
-        return null;
+        return id;
     }
     private void insert_pic() throws SQLException{
         
