@@ -645,10 +645,10 @@ public class Add_new_design extends javax.swing.JFrame {
             }
         });
         text_job_order.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+            }
             public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
                 text_job_orderInputMethodTextChanged(evt);
-            }
-            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
             }
         });
         text_job_order.addKeyListener(new java.awt.event.KeyAdapter() {

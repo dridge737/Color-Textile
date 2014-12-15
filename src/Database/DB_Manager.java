@@ -119,7 +119,7 @@ public class DB_Manager {
             Connection conn = db.getConnection();
             
             PreparedStatement ps = conn.prepareStatement("INSERT INTO colorway (colorway_name, binder, weight_kg)"
-                                                       + "VALUES (?, ?, ?);");
+                                                       + "VALUES (?, ?, ?)");
             int item =1;
             ps.setString(item++, new_colorway.getColorway_name());
             ps.setFloat(item++, new_colorway.getBinder());
@@ -500,13 +500,13 @@ public class DB_Manager {
             int item = 1;
             ps.setString(item++, existing_colorway.getColorway_name());
             ps.setFloat(item++, existing_colorway.getBinder());
-            ps.setFloat(item++, existing_colorway.getWeight_kg());
-            ps.setFloat(item++, existing_colorway.getWeight_kg());
-            /* 
+            ps.setFloat(item++, existing_colorway.getWeight_kg()- (float) 0.01);
+            ps.setFloat(item++, existing_colorway.getWeight_kg()+ (float) 0.01);
+            
             System.out.println("Colorway name :" +existing_colorway.getColorway_name());
             System.out.println("Binder :" +existing_colorway.getBinder());
             System.out.println("Weight Kg :" +existing_colorway.getWeight_kg());
-            */
+            
             ResultSet rs = ps.executeQuery();
             if(rs.first())
             {
