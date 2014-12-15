@@ -7,9 +7,10 @@
 package Database;
 
 import colortextile_class.*;
+import java.awt.Image;
 import java.sql.Array;
+import java.sql.Blob;
 import java.sql.Connection;
-
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -1042,6 +1043,28 @@ public class DB_Manager {
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }
+    }
+    public Blob get_picture_from_design_id(colortextile_class.design this_picture){
+        try
+        {
+          DBConnection db = new DBConnection();
+          Connection conn = db.getConnection();  
+          
+            PreparedStatement ps = conn.prepareStatement("SELECT * FROM design_picture WHERE design_code = '"+ this_picture.getDesign_code()+"' ");
+            ResultSet rs = ps.executeQuery();
+            while(rs.first())
+            {
+                this_picture.setDesign_image(rs.getBlob("design_picture"));
+                return rs.getBlob("design_picture");
+            }
+           
+        }
+        catch (SQLException ex)
+        {
+            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
+            
+        }
+        return null;
     }
     
     public ResultSet get_all_design(){

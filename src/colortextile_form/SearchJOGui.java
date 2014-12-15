@@ -14,12 +14,16 @@ import colortextile_class.purchase_order;
 import forms.*;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
@@ -57,13 +61,13 @@ public class SearchJOGui extends javax.swing.JFrame {
         fill_table(set.job_order_all());
         
     }
-    public String get_table_row_value(){
+    public int get_table_row_value(){
         try{
             int row = this.jTable1.getSelectedRow();
-            String id =(this.jTable1.getModel().getValueAt(row, 0).toString());
-            return id;
+            
+            return row;
         }catch(Exception e){
-            return null;
+            return -1;
         }
         
     }
@@ -104,7 +108,7 @@ public class SearchJOGui extends javax.swing.JFrame {
                                    rs2.getString("date"),
                                    rs2.getString("design_code"),
                                 rs3.getString("design_name"),
-                                rs3.getString("colorway_name"),
+                                rs3.getString("color_name"),
                                 rs3.getString("fabric_style")};
                                 model.addRow(set1);
                                 
@@ -358,6 +362,11 @@ public class SearchJOGui extends javax.swing.JFrame {
                 jTable1MouseClicked(evt);
             }
         });
+        jTable1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTable1KeyPressed(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         button_details.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
@@ -472,8 +481,10 @@ public class SearchJOGui extends javax.swing.JFrame {
         fill_table(set.job_order_all());
     }//GEN-LAST:event_button_resetActionPerformed
 
+    
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
-        this.get_table_row_value();
+        JOptionPane.showMessageDialog(null, "mouse clicked");
+        get_design_code_from_table_selected();
     }//GEN-LAST:event_jTable1MouseClicked
 
     private void button_detailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_detailsActionPerformed
@@ -488,6 +499,30 @@ public class SearchJOGui extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, "Selected purchase order: " + this.purchase_order_list.get(row).toString() + " from row : " + row  );
     }//GEN-LAST:event_button_detailsActionPerformed
 
+    private void jTable1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTable1KeyPressed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, "key pressed");
+        get_design_code_from_table_selected();
+    }//GEN-LAST:event_jTable1KeyPressed
+    private String get_design_code_from_table_selected(){
+        
+        int row = this.get_table_row_value();
+        String id =(this.jTable1.getModel().getValueAt(row, 4).toString());
+        JOptionPane.showMessageDialog(null, "id= " + id);
+        
+        return null;
+    }
+    private void insert_pic(){
+        
+        
+        design design_conn = new design();
+        design_conn.setDesign_code(get_design_code_from_table_selected());
+        design_conn.get_picture_from_design_code();
+        design_conn.getDesign_image();
+        picture.setIcon()
+        
+        label_pic.setIcon(design_conn.getDesign_image());
+    }
     /**
      * @param args the command line arguments
      */
