@@ -519,9 +519,9 @@ public class SearchJOGui extends javax.swing.JFrame {
         design_conn.setDesign_code(get_design_code_from_table_selected());
         design_conn.get_picture_from_design_code();
         design_conn.getDesign_image();
-        picture.setIcon()
+        //picture.setIcon()
         
-        label_pic.setIcon(design_conn.getDesign_image());
+        //label_pic.setIcon(design_conn.getDesign_image());
     }
     /**
      * @param args the command line arguments
