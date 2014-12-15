@@ -37,9 +37,10 @@ import org.jopendocument.dom.template.RhinoTemplate;
  */
 public class SpreadsheetTrial {
 
-        static String in = "Printext.odt";
+        static String in = "Printext_2.odt";
 	static final String out = "print_out.odt";
         static Namespace ns = Namespace.getNamespace("xlink", "http://www.w3.org/1999/xlink");
+        static int screen_count =2;
         
     /**
      * @param this_purchase
@@ -54,10 +55,11 @@ public class SpreadsheetTrial {
             RhinoTemplate template = new RhinoTemplate(templateFile);
             
             String all_job_id = this_purchase.get_all_job_id();
+            //System.out.println(all_job_id);
             String all_customer = this_purchase.get_all_customers();
             String quantity_all = this_purchase.get_all_quantity();
             int quantity_sum = this_purchase.get_quantity_sum();
-            quantity_all.concat("="+Integer.toString(quantity_sum));
+            quantity_all = quantity_all +"="+Integer.toString(quantity_sum);
             
            //FOR DESIGN
             Design_colorway_link_functions this_design = this_purchase.getNew_des_col_link();
@@ -72,7 +74,7 @@ public class SpreadsheetTrial {
             template.setField("quant", quantity_all);
             template.setField("color", this_design.getColor_name());
             
-            // FOR COLORWAY
+// FOR COLORWAY
             List<Colorway_screen_link_functions> this_colorway = this_design.getAll_colorways();
             
             Colorway_screen_link_functions first_colorway = this_colorway.get(0);
@@ -82,14 +84,21 @@ public class SpreadsheetTrial {
             template.setField("bind1", first_colorway.getBinder());
             //FOR COLORWAY SCREEN
             List<screen_pigment> the_screens = first_colorway.getThis_screens();
-            
-            for(int x=1; x<=the_screens.size(); x++)
+            int x = 1;
+            while( x<=the_screens.size())
             {
                 template.setField("screen1_"+x, the_screens.get(x-1).getPigment_name() );
                 template.setField("per1_"+x, the_screens.get(x-1).getPigment_percentage() );
-                template.setField("kg1_"+x, the_screens.get(x-1).compute_kg_prep(first_colorway.getWeight_kg()));
+                template.setField("kg1_"+x, Float.toString(the_screens.get(x-1).compute_kg_prep(first_colorway.getWeight_kg())));
+                x++;
             }
-            
+            while(x<=3)
+            {
+                template.setField("screen1_"+x, "");
+                template.setField("per1_"+x, "");
+                template.setField("kg1_"+x, "");
+                x++;
+            }
             this_colorway.remove(0);
             
             final List<Map<String, String>> print = new ArrayList<Map<String, String>>();
@@ -126,17 +135,29 @@ public class SpreadsheetTrial {
     private static Map<String, String> createMap2(Colorway_screen_link_functions this_color_screen)
     {
          final Map<String, String> res = new HashMap<String, String>();
+         res.put("no", Integer.toString(screen_count++));
          res.put("screen2", this_color_screen.getColorway_name());
          res.put("kil2"   , Float.toString(this_color_screen.getWeight_kg()));
          res.put("bind2"  , Float.toString(this_color_screen.getBinder()));
          
          List<screen_pigment> the_screens = this_color_screen.getThis_screens();
-         for(int x=1; x<=the_screens.size(); x++)
+         int x = 1;
+         while(x<=the_screens.size())
             {
                 res.put("name"+x, the_screens.get(x-1).getPigment_name() );
                 res.put("per"+x, Float.toString(the_screens.get(x-1).getPigment_percentage() ));
                 res.put("kilo"+x, Float.toString(the_screens.get(x-1).compute_kg_prep(this_color_screen.getWeight_kg())));
+                x++;
             }
+         
+         while(x<=3)
+            {
+                res.put("name"+x, "");
+                res.put("per"+x, "");
+                res.put("kilo"+x, "");
+                x++;
+            }
+         
         return res;
     }
     private static Map<String, String> createMap(String screen_name, String prep_kilo, String max, String screen, String kilo, String bind) {

@@ -10,11 +10,15 @@ import colortextile_class.*;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.regex.Pattern;
 import javax.swing.DefaultListModel;
 import javax.swing.InputVerifier;
@@ -55,7 +59,6 @@ public class EditRecipe extends javax.swing.JFrame {
     {
         initComponents();
         addListItems();
-        set_purchase_order_details(purchase_order_id);
         set_job_details(purchase_order_id);
         
         //Center the form
@@ -70,56 +73,186 @@ public class EditRecipe extends javax.swing.JFrame {
         this.fabric_style.setVisible(false);
     }
 
-    private void set_purchase_order_details(int purchase_order_id)
-    {
-        colortextile_class.Job_purchase_link_functions this_purchase = new colortextile_class.Job_purchase_link_functions();
-        this_purchase.setId_purchase(purchase_order_id);
-        this_purchase.set_job_order_list_using_purchase_order_id();
-        this_purchase.set_design_details_from_purchase_order_id();
-        
-    }
-    
     
     private void set_job_details(int purchase_order_id)
     {
-        colortextile_class.Job_purchase_link_functions job_function = new colortextile_class.Job_purchase_link_functions();
-        List<job_order> jobList = job_function.getJobs_for_this();
+        Job_purchase_link_functions this_purchase = new Job_purchase_link_functions();
+        
+        //Set Details
+        this_purchase.setId_purchase(purchase_order_id);
+        this_purchase.set_this_Purchase_details_from_purchase_id();
+        this_purchase.set_design_details_from_purchase_order_id();
+        this_purchase.set_job_order_list_using_purchase_order_id();
+        
+        //Fetch Details
+        Design_colorway_link_functions get_des_details = this_purchase.getNew_des_col_link();
+        List<job_order> all_jobs = this_purchase.getJobs_for_this();
+        set_job_list(all_jobs);
+        set_all_colorways(get_des_details.getAll_colorways());
+        
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        
+        try {
+            spinner_date.setValue(sdf.parse(this_purchase.getDate()));
+        } catch (ParseException ex) {
+            Logger.getLogger(EditRecipe.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        design_name.setText(get_des_details.getDesign_name());
+        design_code.setText(get_des_details.getDesign_code());
+        fabric_style.setText(get_des_details.getFabric_style());
+        design_color.setText(get_des_details.getColor_name());
         
         //set_customer_name(new_job.getCustomer_id());
         //new_job.getJob_id();
         
     }
     
-    private void set_customer_name(int customer_id)
+    private void set_job_list(List<job_order> all_jobs)
     {
-        
+        for(job_order set_the_job : all_jobs)
+        {
+            customer_list.add(set_the_job.getCustomer_name());
+            job_list.add(set_the_job.getJob_id());
+            quantity_list.add(set_the_job.getQuantity());
+            fill_list();
+        }
     }
     
-    private void set_purchase_details()
+    private void set_all_colorways(List<Colorway_screen_link_functions> this_color_and_screen)
     {
-        
+        System.out.println(this_color_and_screen.size());
+        for(int x = 0 ; x<this_color_and_screen.size();x++)
+        {
+            
+            List<screen_pigment> current_screen = this_color_and_screen.get(x).getThis_screens();
+            
+            if(x == 0)
+            {
+                setTextValues_colorway(colorway_name2,weigh_kg8, binder8, this_color_and_screen.get(x));
+                
+                for(int temp_loop2 = 0; temp_loop2 < current_screen.size(); temp_loop2++ )
+                {
+                    if(temp_loop2 == 0)
+                    {
+                            setTextValues_screens(name1, percentage1, current_screen.get(temp_loop2));
+                    }
+                    else if(temp_loop2 == 1)
+                    {
+                            setTextValues_screens(name2, percentage2, current_screen.get(temp_loop2));
+                    }
+                    else if(temp_loop2 == 2)
+                    {
+                            setTextValues_screens(name3, percentage3, current_screen.get(temp_loop2));
+                    }
+                }
+            }
+            else if( x == 1)
+            {
+                setTextValues_colorway(colorway_name3,weigh_kg3, binder3, this_color_and_screen.get(x));
+                
+                for(int temp_loop2 = 0; temp_loop2 < current_screen.size(); temp_loop2++ )
+                {
+                    if(temp_loop2 == 0)
+                    {
+                            setTextValues_screens(name5, percentage5, current_screen.get(temp_loop2));
+                    }
+                    else if(temp_loop2 == 1)
+                    {
+                            setTextValues_screens(name6, percentage6, current_screen.get(temp_loop2));
+                    }
+                    else if(temp_loop2 == 2)
+                    {
+                            setTextValues_screens(name7, percentage7, current_screen.get(temp_loop2));
+                    }
+                }
+            }
+            else if( x == 3)
+            {
+                setTextValues_colorway(colorway_name4,weigh_kg4, binder4, this_color_and_screen.get(x));
+                
+                for(int temp_loop2 = 0; temp_loop2 < current_screen.size(); temp_loop2++ )
+                {
+                    if(temp_loop2 == 0)
+                            setTextValues_screens(name9, percentage9, current_screen.get(temp_loop2));
+                    else if(temp_loop2 == 1)
+                            setTextValues_screens(name10, percentage10, current_screen.get(temp_loop2));
+                    else if(temp_loop2 == 2)
+                            setTextValues_screens(name11, percentage11, current_screen.get(temp_loop2));
+                }
+            }
+            else if( x == 4)
+            {
+                setTextValues_colorway(colorway_name5,weigh_kg5, binder5, this_color_and_screen.get(x));
+                
+                for(int temp_loop2 = 0; temp_loop2 < current_screen.size(); temp_loop2++ )
+                {
+                    if(temp_loop2 == 0)
+                            setTextValues_screens(name13, percentage13, current_screen.get(temp_loop2));
+                    else if(temp_loop2 == 1)
+                            setTextValues_screens(name14, percentage14, current_screen.get(temp_loop2));
+                    else if(temp_loop2 == 2)
+                            setTextValues_screens(name15, percentage15, current_screen.get(temp_loop2));
+                }
+            }
+            else if( x == 5)
+            {
+                setTextValues_colorway(colorway_name6,weigh_kg6, binder6, this_color_and_screen.get(x));
+                
+                for(int temp_loop2 = 0; temp_loop2 < current_screen.size(); temp_loop2++ )
+                {
+                    if(temp_loop2 == 0)
+                            setTextValues_screens(name17, percentage17, current_screen.get(temp_loop2));
+                    else if(temp_loop2 == 1)
+                            setTextValues_screens(name18, percentage18, current_screen.get(temp_loop2));
+                    else if(temp_loop2 == 2)
+                            setTextValues_screens(name19, percentage19, current_screen.get(temp_loop2));
+                }
+            }
+            
+            else if( x == 6)
+            {
+                setTextValues_colorway(colorway_name7,weigh_kg7, binder7, this_color_and_screen.get(x));
+                
+                for(int temp_loop2 = 0; temp_loop2 < current_screen.size(); temp_loop2++ )
+                {
+                    if(temp_loop2 == 0)
+                            setTextValues_screens(name21, percentage21, current_screen.get(temp_loop2));
+                    else if(temp_loop2 == 1)
+                            setTextValues_screens(name22, percentage22, current_screen.get(temp_loop2));
+                    else if(temp_loop2 == 2)
+                            setTextValues_screens(name23, percentage23, current_screen.get(temp_loop2));
+                }
+            }
+            else if( x == 7)
+            {
+                setTextValues_colorway(colorway_name8,weigh_kg9, binder9, this_color_and_screen.get(x));
+                
+                for(int temp_loop2 = 0; temp_loop2 < current_screen.size(); temp_loop2++ )
+                {
+                    if(temp_loop2 == 0)
+                            setTextValues_screens(name24, percentage24, current_screen.get(temp_loop2));
+                    else if(temp_loop2 == 1)
+                            setTextValues_screens(name25, percentage25, current_screen.get(temp_loop2));
+                    else if(temp_loop2 == 2)
+                            setTextValues_screens(name26, percentage26, current_screen.get(temp_loop2));
+                }
+            }
+            
+        }
     }
     
-    private void set_design_details()
+    private void setTextValues_screens(JComboBox pigment_name, JTextField percentage, screen_pigment screen_p)
     {
-        
+        pigment_name.setSelectedItem(screen_p.getPigment_name());
+        percentage.setText(Float.toString(screen_p.getPigment_percentage()));
+    }
+    private void setTextValues_colorway(JTextField colorway, JTextField weight, JComboBox binder, Colorway_screen_link_functions this_c_and_s)
+    {
+        colorway.setText(this_c_and_s.getColorway_name());
+        weight.setText(Float.toString(this_c_and_s.getWeight_kg()));
+        binder.setSelectedItem(this_c_and_s.getBinder());
     }
     
-    private void set_design_picture()
-    {
-        
-    }
-    
-    //Screens
-    private void get_all_colorway()
-    {
-        
-    }
-    
-    private void get_all_screen_pigment()
-    {
-        
-    }
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -489,6 +622,7 @@ public class EditRecipe extends javax.swing.JFrame {
         fabric_style.setBounds(560, 220, 150, 34);
 
         design_code.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        design_code.setEnabled(false);
         design_code.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 design_codeActionPerformed(evt);
@@ -696,10 +830,10 @@ public class EditRecipe extends javax.swing.JFrame {
             }
         });
         text_job_order.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+            }
             public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
                 text_job_orderInputMethodTextChanged(evt);
-            }
-            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
             }
         });
         text_job_order.addKeyListener(new java.awt.event.KeyAdapter() {

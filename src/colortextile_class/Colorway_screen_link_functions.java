@@ -6,13 +6,15 @@
 package colortextile_class;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 /**
  *
  * @author Eldridge
  */
-public class Colorway_screen_link_functions extends colorway{
+public class Colorway_screen_link_functions extends colorway implements Comparable<Colorway_screen_link_functions>{
     
     private List<screen_pigment> this_screens = new ArrayList<>();
     
@@ -25,13 +27,17 @@ public class Colorway_screen_link_functions extends colorway{
     {
         Database.DB_Manager new_conn = new Database.DB_Manager();
         setThis_screens(new_conn.set_all_screen_pigment_from_colorway_id(this.getId_colorway()));
-        
+        Collections.sort(this_screens);
+        /*
         for (screen_pigment this_screen : getThis_screens()) {
             System.out.println("Screen_id : " + this_screen.getId_screen());
             System.out.println("Pigment no :" + this_screen.getPigment_no());
             System.out.println("Pigment name:" + this_screen.getPigment_name());
             System.out.println("Pigment perentage  :" + this_screen.getPigment_percentage());
+            System.out.println("END");
         }
+        */
+        
     }
     
     public void view_all_screen_pigment_details()
@@ -62,5 +68,14 @@ public class Colorway_screen_link_functions extends colorway{
     public void setThis_screens(List<screen_pigment> this_screens) {
         this.this_screens = this_screens;
     }
+
+    @Override
+    public int compareTo(Colorway_screen_link_functions o) {
+        int compareTo = this.getColorway_name().compareTo(o.getColorway_name());
+        return compareTo;
+    }
+
+
+
     
 }

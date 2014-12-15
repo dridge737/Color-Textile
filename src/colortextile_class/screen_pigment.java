@@ -10,7 +10,7 @@ import Database.DB_Manager;
  *
  * @author Eldridge
  */
-public class screen_pigment extends pigment {
+public class screen_pigment extends pigment implements Comparable<screen_pigment> {
     private int id_screen;
     //private int pigment_no;
     private float pigment_percentage;
@@ -103,6 +103,15 @@ public class screen_pigment extends pigment {
     {
         float weight_prep = weight_kg * pigment_percentage / 100;
         return weight_prep;
+    }
+    
+
+
+    @Override
+    public int compareTo(screen_pigment o) {
+        int compareTo = this.getPigment_name().compareTo(o.getPigment_name());
+        return compareTo;
+        
     }
 
     

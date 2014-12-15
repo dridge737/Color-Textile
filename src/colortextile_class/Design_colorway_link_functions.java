@@ -6,13 +6,14 @@
 package colortextile_class;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
  *
  * @author Eldridge
  */
-public class Design_colorway_link_functions extends design{
+public class Design_colorway_link_functions extends design {
     
      private List<Colorway_screen_link_functions> all_colorways = new ArrayList<>();
      
@@ -30,6 +31,7 @@ public class Design_colorway_link_functions extends design{
          {
              getAll_colorways().get(x).add_all_screens_from_colorway();
          }
+         Collections.sort(all_colorways);
          
      }
      

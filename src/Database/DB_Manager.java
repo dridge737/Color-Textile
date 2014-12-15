@@ -986,6 +986,7 @@ public class DB_Manager {
             this_job.setCustomer_id(rs.getInt("customer_id"));
             this_job.setQuantity(rs.getInt("quantity"));
             this_job.setId_purchase(rs.getInt("id_purchase"));
+            this_job.setJob_id(job_order_id);
 //            this_job.set
             
         }
@@ -1038,6 +1039,7 @@ public class DB_Manager {
                 this_job.setCustomer_id(rs.getInt("customer_id"));                
                 this_job.setJob_id(rs.getString("job_order_id"));
                 this_job.setQuantity(rs.getInt("quantity"));
+                this_job.setId_purchase(purchase_id);
                 
                 job_list.add(this_job);
             }

@@ -8,6 +8,11 @@ package colortextile_form;
 
 import colortextile_class.Design_colorway_link_functions;
 import colortextile_class.Job_purchase_link_functions;
+import colortextile_class.SpreadsheetTrial;
+import javax.swing.JFrame;
+import org.jopendocument.model.OpenDocument;
+import org.jopendocument.panel.ODSViewerPanel;
+import org.jopendocument.print.DefaultDocumentPrinter;
 
 /**
  *
@@ -33,13 +38,18 @@ public class ColorTextile {
         
         Design_colorway_link_functions get_des_details = new Design_colorway_link_functions();
         Job_purchase_link_functions this_purchase = new Job_purchase_link_functions();
-        this_purchase.setId_purchase(13);
+        this_purchase.setId_purchase(14);
         this_purchase.set_this_Purchase_details_from_purchase_id();
         this_purchase.set_design_details_from_purchase_order_id();
         //this_purchase.setPurchase_Id_from_Date_and_code();
         //this_purchase.set_design_details_from_purchase_order_id();
         this_purchase.set_job_order_list_using_purchase_order_id();
         this_purchase.view_all_job_order_details();
+        SpreadsheetTrial newTrial = new SpreadsheetTrial();
+        newTrial.print_this_job(this_purchase);
+        
+        EditRecipe EditRecipeForm = new EditRecipe(14);
+        EditRecipeForm.setVisible(true);
         //get_des_details.setDesign_code("df343");
        // get_des_details.setDesign_details_from_des_code();
         //get_des_details.add_all_colorway_from_design_code();
