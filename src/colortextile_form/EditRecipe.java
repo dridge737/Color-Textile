@@ -2145,8 +2145,7 @@ public class EditRecipe extends javax.swing.JFrame {
         }
         
         new_design.setFabric_style(null);
-        if(!new_design.update_design())
-            new_design.get_design_code_using_variables();
+        new_design.update_design();
             
         return new_design.getDesign_code();
     }
