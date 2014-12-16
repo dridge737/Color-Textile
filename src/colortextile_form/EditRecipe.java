@@ -2738,13 +2738,23 @@ public class EditRecipe extends javax.swing.JFrame {
         
         String a = this.jList1.getSelectedValue().toString();
         int selected = this.jList1.getSelectedIndex();
+        
+         int reply = JOptionPane.showConfirmDialog(null, 
+                            "Delete job order :"+this.job_list.get(selected).toString() + "from this design?", 
+                            "DELETE?", JOptionPane.YES_NO_OPTION);
         //JOptionPane.showMessageDialog(null,a);
         //JOptionPane.showMessageDialog(null,selected);
-        
-      this.customer_list.remove(selected);
-      this.job_list.remove(selected);
-      this.quantity_list.remove(selected);
-      fill_list();
+         if(reply == JOptionPane.YES_OPTION)
+         {
+              job_order current_job = new job_order();
+              current_job.setJob_id(this.job_list.get(selected).toString());
+              current_job.delete_job_order_from_job_id();
+              this.customer_list.remove(selected);
+              this.job_list.remove(selected);
+              this.quantity_list.remove(selected);
+              fill_list();
+         }
+     
         
        
         

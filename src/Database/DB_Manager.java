@@ -208,24 +208,29 @@ public class DB_Manager {
     
     public boolean add_job_order(colortextile_class.job_order new_job)
     {
-        try {
-            DBConnection db = new DBConnection();
-            Connection conn = db.getConnection();
+        
+        if(get_job_order_details(new_job.getJob_id()).getJob_id().compareTo("-1") == 0)
+        {
+            try {
+                DBConnection db = new DBConnection();
+                Connection conn = db.getConnection();
+            
+                String query = "INSERT INTO job_order (job_order_id, customer_id, quantity, id_purchase) VALUES (?, ?, ?, ?)";
 
-            String query = "INSERT INTO job_order (job_order_id, customer_id, quantity, id_purchase) VALUES (?, ?, ?, ?)";
-
-            PreparedStatement preparedStmt = conn.prepareStatement(query);
-            preparedStmt.setString(1, new_job.getJob_id());
+                PreparedStatement preparedStmt = conn.prepareStatement(query);
+                preparedStmt.setString(1, new_job.getJob_id());
                      
-            preparedStmt.setInt(2, new_job.getCustomer_id());
-            preparedStmt.setInt(3, new_job.getQuantity());
-            preparedStmt.setInt(4, new_job.getId_purchase());
+                preparedStmt.setInt(2, new_job.getCustomer_id());
+                preparedStmt.setInt(3, new_job.getQuantity());
+                preparedStmt.setInt(4, new_job.getId_purchase());
 
-            preparedStmt.execute();
-            return true;
-        } catch (SQLException ex) {
-            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
+                preparedStmt.execute();
+                return true;
+            } catch (SQLException ex) {
+                Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+        
         return false;
     }
     
@@ -973,6 +978,7 @@ public class DB_Manager {
     public colortextile_class.job_order get_job_order_details(String job_order_id)
     {
         colortextile_class.job_order this_job = new colortextile_class.job_order();
+        this_job.setJob_id("-1");
         try
         {
             DBConnection db = new DBConnection();
@@ -981,19 +987,20 @@ public class DB_Manager {
             int item = 1;
             ps.setString(item++, job_order_id);
             ResultSet rs = ps.executeQuery();
-            rs.first();
+            if(rs.first())
+            {
             this_job.setJob_id(job_order_id);
             this_job.setCustomer_id(rs.getInt("customer_id"));
             this_job.setQuantity(rs.getInt("quantity"));
             this_job.setId_purchase(rs.getInt("id_purchase"));
             this_job.setJob_id(job_order_id);
-//            this_job.set
+            }
             
         }
         catch(SQLException ex)
         {
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
-            return null;
+            return this_job;
         }
         return this_job;
     }
