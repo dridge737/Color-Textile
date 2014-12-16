@@ -54,6 +54,12 @@ public class Colorway_screen_link_functions extends colorway implements Comparab
         }
                
     }
+    
+    public void delete_all_screen_and_colorway_link()
+    {
+        Database.DB_Manager new_conn = new Database.DB_Manager();
+        //new_conn.delete_colorway_screen_connect(null);
+    }
 
     /**
      * @return the this_screens

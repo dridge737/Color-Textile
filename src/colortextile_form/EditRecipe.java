@@ -39,7 +39,7 @@ import javax.swing.SpinnerDateModel;
 public class EditRecipe extends javax.swing.JFrame {
 
     private int count_screen_1 = 0;
-    
+    Job_purchase_link_functions this_purchase = new Job_purchase_link_functions();
     
     /**
      * Creates new form Add_new_design
@@ -81,9 +81,7 @@ public class EditRecipe extends javax.swing.JFrame {
         {
             web_cams.addItem(all_web.getName());
         }
-        
     }
-
     
     private void set_job_details(int purchase_order_id)
     {
@@ -2174,7 +2172,7 @@ public class EditRecipe extends javax.swing.JFrame {
        
         if (this.jList1.getModel().getSize() == 0)
         {
-            JOptionPane.showMessageDialog(null,"PLease include a customer");
+            JOptionPane.showMessageDialog(null,"Please include a customer");
         } else {
             
             add_purchase();
@@ -2184,12 +2182,17 @@ public class EditRecipe extends javax.swing.JFrame {
         // Winston codes end
         
         update_this_design();
+        List<Colorway_screen_link_functions> all_col_scr = this_purchase.getNew_des_col_link().getAll_colorways();
+        for(int x = 0; x<all_col_scr.size(); x++)
+        {
+            //all_col_scr.get(x).getId_colorway()
+        }
         
         int colorway_id = add_this_colorway(colorway_name2.getText(), 
                              Float.parseFloat(binder8.getSelectedItem().toString()),
                              weigh_kg8.getText());
         
-        if(colorway_id != -1 )
+        if(colorway_id != -1)
         {   
             add_screen_and_color_screen(name1.getSelectedItem().toString(),
                                       percentage1.getText(), colorway_id );
