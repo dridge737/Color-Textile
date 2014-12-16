@@ -1062,6 +1062,9 @@ public class DB_Manager {
             return null;
         }
     }
+    
+    
+    
     public Blob get_picture_from_design_id(colortextile_class.design this_picture){
         try
         {
@@ -1479,4 +1482,130 @@ public class DB_Manager {
     
     
     //SEARCH END
+    
+    public void update_design(design this_design)
+    {
+        try
+        {
+          DBConnection db = new DBConnection();
+          Connection conn = db.getConnection();  
+          
+          PreparedStatement ps = conn.prepareStatement("UPDATE design "
+                                            + "SET design_name = ?, "
+                                            + "color_name = ?, "
+                                            + "fabric_style = ? "
+                                            + "WHERE design_code = ?");
+           int item = 1;
+           ps.setString(item++, this_design.getDesign_name());
+           ps.setString(item++, this_design.getColor_name());
+           ps.setString(item++, this_design.getFabric_style());
+           ps.setString(item++, this_design.getDesign_code());
+          
+          ps.executeUpdate();
+          
+        }
+        catch (SQLException ex)
+        {
+            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
+            
+        }
+    }
+    
+    public void update_colorway(colorway this_colorway)
+    {
+        try
+        {
+          DBConnection db = new DBConnection();
+          Connection conn = db.getConnection(); 
+          
+          PreparedStatement ps = conn.prepareStatement("UPDATE colorway "
+                                                        + "SET colorway_name = ?, binder = ?, weight_kg = ?"
+                                                        + "WHERE id_colorway = ?");
+          int item = 1;
+          ps.setString(item++, this_colorway.getColorway_name());
+          ps.setFloat(item++, this_colorway.getBinder());
+          ps.setFloat(item++, this_colorway.getWeight_kg());
+          ps.setInt(item++, this_colorway.getId_colorway());
+          
+          ps.executeUpdate();
+          
+        }
+        catch (SQLException ex)
+        {
+            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
+            
+        }
+    }
+    
+    public void delete_colorway_screen_connect(colorway_and_screen connection_del)
+    {
+         try
+        {
+          DBConnection db = new DBConnection();
+          Connection conn = db.getConnection(); 
+          
+          PreparedStatement ps = conn.prepareStatement("DELETE FROM colorway_screen_connect "
+                                                        + "WHERE id_colorway = ? AND id_screen = ?");
+          int item = 1;
+          ps.setInt(item++, connection_del.getId_colorway());
+          ps.setInt(item++, connection_del.getId_screen());
+          
+          
+          ps.executeUpdate();
+          
+        }
+        catch (SQLException ex)
+        {
+            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
+            
+        }
+        
+    }
+    public void delete_design_colorway_connect(design_colorway connection_Del)
+    {
+         try
+        {
+          DBConnection db = new DBConnection();
+          Connection conn = db.getConnection(); 
+          
+          PreparedStatement ps = conn.prepareStatement("DELETE FROM design_colorway_connect "
+                                                        +" WHERE id_colorway = ? AND design_code = ?");
+          int item = 1;
+          ps.setInt(item++, connection_Del.getId_colorway());
+          ps.setString(item++, connection_Del.getDesign_code());
+          
+          ps.executeUpdate();
+          
+        }
+        catch (SQLException ex)
+        {
+            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
+            
+        }
+    }
+    
+    public void delete_job_order(job_order this_job)
+    {
+        try
+        {
+          DBConnection db = new DBConnection();
+          Connection conn = db.getConnection(); 
+          
+          PreparedStatement ps = conn.prepareStatement("DELETE FROM job_order "
+                                                        +" WHERE job_order_id = ?");
+          int item = 1;
+          ps.setString(item++, this_job.getJob_id());
+          
+          ps.executeUpdate();
+          
+        }
+        catch (SQLException ex)
+        {
+            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
+            
+        }
+    }
 }
+    
+   
+

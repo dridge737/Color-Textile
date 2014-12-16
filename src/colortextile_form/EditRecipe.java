@@ -2128,7 +2128,7 @@ public class EditRecipe extends javax.swing.JFrame {
         }
     }
     
-    private String add_this_design()
+    private String update_this_design()
     {
         colortextile_class.design new_design = new colortextile_class.design();
         new_design.setDesign_code(design_code.getText());
@@ -2145,7 +2145,7 @@ public class EditRecipe extends javax.swing.JFrame {
         }
         
         new_design.setFabric_style(null);
-        if(!new_design.add_new_design())
+        if(!new_design.update_design())
             new_design.get_design_code_using_variables();
             
         return new_design.getDesign_code();
@@ -2184,8 +2184,7 @@ public class EditRecipe extends javax.swing.JFrame {
         }
         // Winston codes end
         
-        
-        add_this_design();
+        update_this_design();
         
         int colorway_id = add_this_colorway(colorway_name2.getText(), 
                              Float.parseFloat(binder8.getSelectedItem().toString()),
