@@ -2692,6 +2692,9 @@ public class Add_new_design extends javax.swing.JFrame {
             name21.addItem("");   
             name22.addItem("");   
             name23.addItem("");   
+            name24.addItem("");   
+            name25.addItem("");   
+            name26.addItem("");   
    
     }
     public void addListItems()
@@ -2720,6 +2723,9 @@ public class Add_new_design extends javax.swing.JFrame {
             name21.addItem(pigment_list.get(temp_i));
             name22.addItem(pigment_list.get(temp_i));
             name23.addItem(pigment_list.get(temp_i));
+            name24.addItem(pigment_list.get(temp_i));
+            name25.addItem(pigment_list.get(temp_i));
+            name26.addItem(pigment_list.get(temp_i));
         }
     }
     /**
