@@ -111,19 +111,18 @@ public class SpreadsheetTrial {
            
             
             // Save to file.
-            final String bcfile = "Book3d.jpg";
+            final String bcfile = "New.jpg";
             
             File image = new File(bcfile);
-
+            if (image.exists() && image.canRead()) {
             final ODSingleXMLDocument ddoc = template.createDocument();
             File tmp = copyFileToTmp(image);
             
-            
             ddoc.getDescendantByName("draw:frame", "graphics1").setAttribute("href", tmp.toURI().toURL().toString(), ns); 
-            
-                
             ddoc.saveToPackageAs(outFile); 
-            
+            }
+            else
+                template.saveAs(outFile);
 
            
         } catch (Exception e) {

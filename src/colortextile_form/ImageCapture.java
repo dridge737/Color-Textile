@@ -22,6 +22,7 @@ import javax.imageio.ImageIO;
 import javax.swing.AbstractAction;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.SwingUtilities;
 
 /**
  *
@@ -39,6 +40,7 @@ public class ImageCapture extends JFrame{
 		public void actionPerformed(ActionEvent e) {
 			try {
 				File file = new File(String.format(picType + ".jpg"));
+                                file.deleteOnExit();
                                 if(file.exists()){
                                     file.delete();}
                                 ImageIO.write(webcam.getImage(), "JPG", file);
@@ -52,7 +54,6 @@ public class ImageCapture extends JFrame{
                        webcam.close();
                     
                         executor.shutdownNow();
-                      
 		}
 	}
 
@@ -79,6 +80,7 @@ public class ImageCapture extends JFrame{
 		@Override
 		public void run() {
 			panel.start();
+                        
 		}
 	}
 
@@ -89,25 +91,27 @@ public class ImageCapture extends JFrame{
 
 	private Webcam webcam = Webcam.getDefault();
         
-	private WebcamPanel panel = new WebcamPanel(webcam, displaySize, false);
+	private WebcamPanel panel;
         
 	private JButton btSnapMe = new JButton(new SnapMeAction());
 	private JButton btStart = new JButton(new StartAction());
         
         private String picType; 
 
-	public ImageCapture(String type) {
+	public ImageCapture(String type, int webcamno) {
 
 		super("Image Capture");
 
-		webcam.setViewSize(captureSize);
-
+		webcam = Webcam.getWebcams().get(webcamno);
+                webcam.setViewSize(captureSize);
+                
+                panel = new WebcamPanel(webcam, displaySize, false);
 		picType = type;
 		panel.setFillArea(true);
                 System.out.println(picType);
 		// start application with disable snapshot button - we enable it when
 		// webcam is started
-
+                
 		btSnapMe.setEnabled(false);
 
 		setLayout(new FlowLayout());
@@ -123,6 +127,7 @@ public class ImageCapture extends JFrame{
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
 	}
+        
 
 	public static void main(String[] args) {
 

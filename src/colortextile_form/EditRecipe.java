@@ -7,9 +7,12 @@
 package colortextile_form;
 import Database.DB_Manager;
 import colortextile_class.*;
+import com.github.sarxos.webcam.Webcam;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.io.File;
+import java.io.IOException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -20,7 +23,9 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.regex.Pattern;
+import javax.imageio.ImageIO;
 import javax.swing.DefaultListModel;
+import javax.swing.ImageIcon;
 import javax.swing.InputVerifier;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
@@ -71,6 +76,12 @@ public class EditRecipe extends javax.swing.JFrame {
         fill_customer_list();
         this.text_name.setVisible(false);
         this.fabric_style.setVisible(false);
+        List<Webcam> webcam = Webcam.getWebcams();
+        for(Webcam all_web : webcam)
+        {
+            web_cams.addItem(all_web.getName());
+        }
+        
     }
 
     
@@ -304,6 +315,7 @@ public class EditRecipe extends javax.swing.JFrame {
         text_name = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        web_cams = new javax.swing.JComboBox();
         jPanel11 = new javax.swing.JPanel();
         jTabbedPane2 = new javax.swing.JTabbedPane();
         jPanel9 = new javax.swing.JPanel();
@@ -541,6 +553,18 @@ public class EditRecipe extends javax.swing.JFrame {
         setLocationByPlatform(true);
         setMinimumSize(new java.awt.Dimension(790, 732));
         setModalExclusionType(java.awt.Dialog.ModalExclusionType.APPLICATION_EXCLUDE);
+        addWindowFocusListener(new java.awt.event.WindowFocusListener() {
+            public void windowGainedFocus(java.awt.event.WindowEvent evt) {
+                formWindowGainedFocus(evt);
+            }
+            public void windowLostFocus(java.awt.event.WindowEvent evt) {
+            }
+        });
+        addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                formFocusGained(evt);
+            }
+        });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel12.setBackground(new java.awt.Color(255, 255, 255));
@@ -868,12 +892,21 @@ public class EditRecipe extends javax.swing.JFrame {
         jLabel14.setText("INSERT PICTURE HERE");
         jLabel14.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         jPanel1.add(jLabel14);
-        jLabel14.setBounds(610, 20, 140, 140);
+        jLabel14.setBounds(610, 0, 140, 130);
 
         jButton1.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         jButton1.setText("Add Picture");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton1);
         jButton1.setBounds(610, 170, 140, 30);
+
+        web_cams.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        jPanel1.add(web_cams);
+        web_cams.setBounds(610, 137, 140, 25);
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 770, 295));
 
@@ -1897,7 +1930,7 @@ public class EditRecipe extends javax.swing.JFrame {
 
         add_order.setBackground(new java.awt.Color(255, 255, 255));
         add_order.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        add_order.setText("Add & Print");
+        add_order.setText("Save & Print");
         add_order.setToolTipText("");
         add_order.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1962,7 +1995,7 @@ public class EditRecipe extends javax.swing.JFrame {
                     .addComponent(add_order, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(add_order1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(add_order2, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(77, 77, 77))
+                .addGap(41, 41, 41))
         );
 
         getContentPane().add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 350, 770, 350));
@@ -2729,7 +2762,41 @@ public class EditRecipe extends javax.swing.JFrame {
 
     private void add_order2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_order2ActionPerformed
         // TODO add your handling code here:
+        this.dispose();
+        
+        //newUser.setProf_pic(fil.getAbsolutePath());
     }//GEN-LAST:event_add_order2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        new ImageCapture("New", web_cams.getSelectedIndex()).setVisible(true);
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void formFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_formFocusGained
+        // TODO add your handling code here:
+        File f = new File("New.jpg");
+        if (f.exists() && f.canRead()) {
+        try {
+            jLabel14.setIcon( new ImageIcon(ImageIO.read(f).getScaledInstance(140, 140, java.awt.Image.SCALE_SMOOTH) ) );
+        }  catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }//GEN-LAST:event_formFocusGained
+
+    private void formWindowGainedFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowGainedFocus
+        // TODO add your handling code here:
+        File f = new File("New.jpg");
+        System.out.println(f.exists());
+        if (f.exists() && f.canRead()) {
+        try {
+            jLabel14.setIcon( new ImageIcon(ImageIO.read(f).getScaledInstance(140, 140, java.awt.Image.SCALE_SMOOTH) ) );
+        }  catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }//GEN-LAST:event_formWindowGainedFocus
 
     private void compute_kg(JTextField weigh_kg, float coverage)
     {
@@ -3190,6 +3257,7 @@ public class EditRecipe extends javax.swing.JFrame {
     private javax.swing.JSpinner spinner_date;
     private javax.swing.JTextField text_job_order;
     private javax.swing.JTextField text_name;
+    private javax.swing.JComboBox web_cams;
     private javax.swing.JTextField weigh_kg3;
     private javax.swing.JTextField weigh_kg4;
     private javax.swing.JTextField weigh_kg5;
