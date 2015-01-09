@@ -38,7 +38,7 @@ public class ColorTextile {
         
         Design_colorway_link_functions get_des_details = new Design_colorway_link_functions();
         Job_purchase_link_functions this_purchase = new Job_purchase_link_functions();
-        this_purchase.setId_purchase(14);
+        this_purchase.setId_purchase(25);
         this_purchase.set_this_Purchase_details_from_purchase_id();
         this_purchase.set_design_details_from_purchase_order_id();
         //this_purchase.setPurchase_Id_from_Date_and_code();

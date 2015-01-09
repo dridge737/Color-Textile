@@ -163,5 +163,10 @@ public class design {
        this.design_image = new_conn.get_picture_from_design_id(this);
    }
 
+   public void update_design()
+   {
+       Database.DB_Manager new_conn = new Database.DB_Manager();
+       new_conn.update_design(this);
+   }
     
 }

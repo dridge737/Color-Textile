@@ -143,5 +143,11 @@ public class job_order extends customer {
         return new_conn.get_job_order_list_from_purchase_id(this);
         
     }
+    
+    public void delete_job_order_from_job_id()
+    {
+        DB_Manager new_conn = new DB_Manager();
+        new_conn.delete_job_order(this);
+    }
         
 }
