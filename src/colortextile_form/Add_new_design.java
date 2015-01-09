@@ -517,7 +517,7 @@ public class Add_new_design extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jCheckBox2);
-        jCheckBox2.setBounds(650, 200, 63, 25);
+        jCheckBox2.setBounds(650, 200, 65, 25);
 
         jLabel11.setBackground(new java.awt.Color(255, 255, 255));
         jLabel11.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
@@ -673,7 +673,7 @@ public class Add_new_design extends javax.swing.JFrame {
             }
         });
         jPanel16.add(jCheckBox1);
-        jCheckBox1.setBounds(340, 50, 59, 20);
+        jCheckBox1.setBounds(340, 50, 63, 20);
 
         text_name.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
         jPanel16.add(text_name);
@@ -2466,7 +2466,7 @@ public class Add_new_design extends javax.swing.JFrame {
         } else {
             
             // check job order if existing
-            job_order check_id = new job_order();
+            //job_order check_id = new job_order();
             
             Boolean duplicate;
             duplicate = false;
@@ -2476,7 +2476,7 @@ public class Add_new_design extends javax.swing.JFrame {
                 }
             }
             
-            if(check_id.check_job_id(this.text_job_order.getText().toString()) == true || duplicate == true){
+            if( duplicate == true){
                 
                   JOptionPane.showMessageDialog(null,"Job Order ID already Exists");
             } else {
