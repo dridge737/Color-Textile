@@ -10,6 +10,7 @@ import colortextile_class.*;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -99,6 +100,7 @@ public class Add_new_design extends javax.swing.JFrame {
         text_job_order = new javax.swing.JTextField();
         jCheckBox1 = new javax.swing.JCheckBox();
         text_name = new javax.swing.JTextField();
+        jLabel14 = new javax.swing.JLabel();
         jPanel11 = new javax.swing.JPanel();
         jTabbedPane2 = new javax.swing.JTabbedPane();
         jPanel9 = new javax.swing.JPanel();
@@ -642,6 +644,7 @@ public class Add_new_design extends javax.swing.JFrame {
         jPanel16.add(jLabel10);
         jLabel10.setBounds(20, 20, 153, 34);
 
+        text_job_order.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         text_job_order.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 text_job_orderActionPerformed(evt);
@@ -660,7 +663,7 @@ public class Add_new_design extends javax.swing.JFrame {
             }
         });
         jPanel16.add(text_job_order);
-        text_job_order.setBounds(190, 20, 210, 34);
+        text_job_order.setBounds(258, 20, 140, 34);
 
         jCheckBox1.setBackground(new java.awt.Color(51, 153, 255));
         jCheckBox1.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
@@ -678,6 +681,14 @@ public class Add_new_design extends javax.swing.JFrame {
         text_name.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
         jPanel16.add(text_name);
         text_name.setBounds(190, 70, 210, 34);
+
+        jLabel14.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel14.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel14.setText("15P-10-");
+        jPanel16.add(jLabel14);
+        jLabel14.setBounds(176, 20, 80, 30);
 
         jPanel1.add(jPanel16);
         jPanel16.setBounds(10, 0, 750, 210);
@@ -1907,6 +1918,21 @@ public class Add_new_design extends javax.swing.JFrame {
         new_c_and_s.add_colorway_and_screen();
         }
     }
+    private String getFabricStyle()
+    {
+        if(jCheckBox2.isSelected())
+        {
+            colortextile_class.fabric_style new_fabric = new colortextile_class.fabric_style();
+            new_fabric.setFabric_style(fabric_style.getText().toUpperCase());
+            new_fabric.add_fabric_style();
+            
+            return new_fabric.getFabric_style();
+        }
+        else
+        {
+            return fab_style_comb.getSelectedItem().toString();
+        }
+    }
     
     private String add_this_design()
     {
@@ -1914,15 +1940,8 @@ public class Add_new_design extends javax.swing.JFrame {
         new_design.setDesign_code(design_code.getText());
         new_design.setDesign_name(design_name.getText());
         new_design.setColor_name(design_color.getText());
-        if(jCheckBox2.isSelected())
-        {
-            new_design.setFabric_style(fabric_style.getText().toUpperCase());
-            new_design.add_fabric_style();
-        }
-        else
-        {
-            new_design.setFabric_style(fab_style_comb.getSelectedItem().toString());
-        }
+        new_design.setFabric_style(getFabricStyle());
+        
         
         if(!new_design.add_new_design())
             new_design.get_design_code_using_variables();
@@ -2727,6 +2746,17 @@ public class Add_new_design extends javax.swing.JFrame {
             name25.addItem(pigment_list.get(temp_i));
             name26.addItem(pigment_list.get(temp_i));
         }
+        setJobid();
+    }
+    
+    public void setJobid()
+    {
+        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        Calendar cal = Calendar.getInstance();
+        int Year = cal.get(Calendar.YEAR);
+        int Month = cal.get(Calendar.MONTH);
+        //String Fabric = 
+        
     }
     /**
      * @param args the command line arguments
@@ -2840,6 +2870,7 @@ public class Add_new_design extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel137;
     private javax.swing.JLabel jLabel138;
     private javax.swing.JLabel jLabel139;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel140;
     private javax.swing.JLabel jLabel141;
     private javax.swing.JLabel jLabel142;

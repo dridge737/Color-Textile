@@ -14,11 +14,11 @@ import java.util.ArrayList;
  *
  * @author Eldridge
  */
-public class design {
+public class design extends fabric_style{
     private String design_code;
     private String design_name;
     private String color_name;
-    private String fabric_style;
+    //private String fabric_style;
     private Blob design_image;
 
     
@@ -60,7 +60,7 @@ public class design {
         }
         return false;
     }
-    
+   /* 
     public boolean add_fabric_style()
     {
         if(get_fabric_style_id() == -1)
@@ -83,6 +83,7 @@ public class design {
         Database.DB_Manager new_conn = new Database.DB_Manager();
         return new_conn.get_all_fabric_styles();
     }
+    */
     
     public boolean get_design_code_using_variables()
     {
@@ -117,23 +118,23 @@ public class design {
 
         this.color_name = new_design.color_name;
         this.design_name = new_design.design_name;
-        this.fabric_style = new_design.fabric_style;
+        this.setFabric_style( new_design.getFabric_style() );
     }
 
     /**
      * @return the fabric_style
-     */
+     
     public String getFabric_style() {
         return fabric_style;
     }
 
     /**
      * @param fabric_style the fabric_style to set
-     */
+     
     public void setFabric_style(String fabric_style) {
         this.fabric_style = fabric_style;
     }
-
+*/
     /**
      * @return the design_image
      */
