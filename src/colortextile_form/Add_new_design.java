@@ -100,7 +100,7 @@ public class Add_new_design extends javax.swing.JFrame {
         text_job_order = new javax.swing.JTextField();
         jCheckBox1 = new javax.swing.JCheckBox();
         text_name = new javax.swing.JTextField();
-        jLabel14 = new javax.swing.JLabel();
+        job_ord = new javax.swing.JLabel();
         jPanel11 = new javax.swing.JPanel();
         jTabbedPane2 = new javax.swing.JTabbedPane();
         jPanel9 = new javax.swing.JPanel();
@@ -682,13 +682,13 @@ public class Add_new_design extends javax.swing.JFrame {
         jPanel16.add(text_name);
         text_name.setBounds(190, 70, 210, 34);
 
-        jLabel14.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel14.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel14.setText("15P-10-");
-        jPanel16.add(jLabel14);
-        jLabel14.setBounds(176, 20, 80, 30);
+        job_ord.setBackground(new java.awt.Color(255, 255, 255));
+        job_ord.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        job_ord.setForeground(new java.awt.Color(255, 255, 255));
+        job_ord.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        job_ord.setText("15P-10-");
+        jPanel16.add(job_ord);
+        job_ord.setBounds(186, 20, 70, 30);
 
         jPanel1.add(jPanel16);
         jPanel16.setBounds(10, 0, 750, 210);
@@ -1807,8 +1807,6 @@ public class Add_new_design extends javax.swing.JFrame {
         this_purchase.setDesign_code(purchase.getDesign_code());
         this_purchase.setDate(purchase.getDate());
         
-        
-        
         Boolean test1 = purchase.add_new_purchase();
         if (test1 == true){
             JOptionPane.showMessageDialog(null,"purchase added");
@@ -1817,15 +1815,12 @@ public class Add_new_design extends javax.swing.JFrame {
         }
         
         add_job(purchase.getPurchase_Id_Last());
-        //Commeting this out
+        //Commenting this out
         //    JOptionPane.showMessageDialog(null,purchase.getPurchase_Id_Last());
-        
-       
         
     }
     private void add_job(int id_purchase){
          
-            
                 for (int i = 0; i < job_list.size(); i++) {
                        job_order job = new job_order();
                        DB_Manager new_conn = new DB_Manager();
@@ -1836,9 +1831,7 @@ public class Add_new_design extends javax.swing.JFrame {
                        job.setId_purchase(id_purchase);
                        
                 job.add_new_job_order();
-                    
-                }
-                      
+                }     
         }
     
     
@@ -1902,7 +1895,6 @@ public class Add_new_design extends javax.swing.JFrame {
                 return new_colorway.getId_colorway();
             }
         }
-       
         return -1;
     }
     
@@ -2753,10 +2745,11 @@ public class Add_new_design extends javax.swing.JFrame {
     {
         DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
         Calendar cal = Calendar.getInstance();
-        int Year = cal.get(Calendar.YEAR);
-        int Month = cal.get(Calendar.MONTH);
-        //String Fabric = 
+        String Year = Integer.toString(cal.get(Calendar.YEAR));
         
+        int Month = cal.get(Calendar.MONTH);
+        String Fabric = this.getFabricStyle();
+        job_ord.setText(Year.substring(2, 4) +""+ Fabric.charAt(0) +"-" + Month +"-");
     }
     /**
      * @param args the command line arguments
@@ -2870,7 +2863,6 @@ public class Add_new_design extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel137;
     private javax.swing.JLabel jLabel138;
     private javax.swing.JLabel jLabel139;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel140;
     private javax.swing.JLabel jLabel141;
     private javax.swing.JLabel jLabel142;
@@ -2984,6 +2976,7 @@ public class Add_new_design extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator9;
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JLabel job_ord;
     private javax.swing.JTextField kg_1;
     private javax.swing.JTextField kg_10;
     private javax.swing.JTextField kg_11;
