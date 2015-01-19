@@ -73,8 +73,6 @@ public class Add_new_design extends javax.swing.JFrame {
         design_name = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         fabric_style = new javax.swing.JTextField();
-        design_code = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
         fab_style_comb = new javax.swing.JComboBox();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
@@ -425,7 +423,7 @@ public class Add_new_design extends javax.swing.JFrame {
 
         design_name.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jPanel1.add(design_name);
-        design_name.setBounds(210, 220, 200, 34);
+        design_name.setBounds(210, 220, 180, 34);
 
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
         jLabel2.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
@@ -438,23 +436,6 @@ public class Add_new_design extends javax.swing.JFrame {
         fabric_style.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jPanel1.add(fabric_style);
         fabric_style.setBounds(560, 220, 150, 34);
-
-        design_code.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        design_code.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                design_codeActionPerformed(evt);
-            }
-        });
-        jPanel1.add(design_code);
-        design_code.setBounds(210, 260, 200, 34);
-
-        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel1.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel1.setText("Design Code :");
-        jPanel1.add(jLabel1);
-        jLabel1.setBounds(40, 260, 153, 34);
 
         fab_style_comb.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         fab_style_comb.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "PONGEE", "COTTON", "KATUNIA", "MICROPEACH", "TC", "TROPICANA" }));
@@ -527,15 +508,15 @@ public class Add_new_design extends javax.swing.JFrame {
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel11.setText("Fabric Style :");
         jPanel1.add(jLabel11);
-        jLabel11.setBounds(440, 220, 100, 34);
+        jLabel11.setBounds(410, 220, 140, 34);
 
         jLabel4.setBackground(new java.awt.Color(255, 255, 255));
         jLabel4.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel4.setText("Design Color :");
+        jLabel4.setText("Design Colorway :");
         jPanel1.add(jLabel4);
-        jLabel4.setBounds(420, 260, 120, 34);
+        jLabel4.setBounds(412, 260, 138, 34);
 
         jPanel16.setBackground(new java.awt.Color(51, 51, 51));
         jPanel16.setOpaque(false);
@@ -1802,7 +1783,7 @@ public class Add_new_design extends javax.swing.JFrame {
         purchase_order purchase = new purchase_order();
 
         purchase.setDate(spinnerValue);
-        purchase.setDesign_code(this.design_code.getText());
+        //purchase.setDesign_code(this.design_code.getText());
         
         this_purchase.setDesign_code(purchase.getDesign_code());
         this_purchase.setDate(purchase.getDate());
@@ -1929,7 +1910,7 @@ public class Add_new_design extends javax.swing.JFrame {
     private String add_this_design()
     {
         colortextile_class.design new_design = new colortextile_class.design();
-        new_design.setDesign_code(design_code.getText());
+        //new_design.setDesign_code(design_code.getText());
         new_design.setDesign_name(design_name.getText());
         new_design.setColor_name(design_color.getText());
         new_design.setFabric_style(getFabricStyle());
@@ -1992,7 +1973,7 @@ public class Add_new_design extends javax.swing.JFrame {
             add_screen_and_color_screen(name3.getSelectedItem().toString(),
                                       percentage3.getText(), colorway_id );
             
-             add_this_design_and_colorway(design_code.getText(), colorway_id);
+            //add_this_design_and_colorway(design_code.getText(), colorway_id);
             
         }
         
@@ -2014,7 +1995,7 @@ public class Add_new_design extends javax.swing.JFrame {
                                       percentage7.getText(), colorway_id2 );
             
             
-            add_this_design_and_colorway(design_code.getText(), colorway_id2);
+            //add_this_design_and_colorway(design_code.getText(), colorway_id2);
             
         }
         colorway_id = add_this_colorway(colorway_name4.getText(), 
@@ -2033,7 +2014,7 @@ public class Add_new_design extends javax.swing.JFrame {
                                       percentage11.getText(), colorway_id );
             
             
-            add_this_design_and_colorway(design_code.getText(), colorway_id);
+            //add_this_design_and_colorway(design_code.getText(), colorway_id);
   
         }
         colorway_id2 = add_this_colorway(colorway_name5.getText(), 
@@ -2051,14 +2032,14 @@ public class Add_new_design extends javax.swing.JFrame {
             add_screen_and_color_screen(name15.getSelectedItem().toString(),
                                       percentage15.getText(), colorway_id2 );
             
-            add_this_design_and_colorway(design_code.getText(), colorway_id2);
+            //add_this_design_and_colorway(design_code.getText(), colorway_id2);
         }
         
         colorway_id = add_this_colorway(colorway_name6.getText(), 
                              Float.parseFloat(binder6.getSelectedItem().toString()),
                              weigh_kg6.getText());
         
-        add_this_design_and_colorway(design_code.getText(), colorway_id);
+        //add_this_design_and_colorway(design_code.getText(), colorway_id);
         
         if(colorway_id != -1 )
         {
@@ -2072,7 +2053,7 @@ public class Add_new_design extends javax.swing.JFrame {
                                       percentage19.getText(), colorway_id );
     
             
-            add_this_design_and_colorway(design_code.getText(), colorway_id);
+            //add_this_design_and_colorway(design_code.getText(), colorway_id);
         }
         
         colorway_id2 = add_this_colorway(colorway_name7.getText(), 
@@ -2090,7 +2071,7 @@ public class Add_new_design extends javax.swing.JFrame {
             add_screen_and_color_screen(name23.getSelectedItem().toString(),
                                       percentage23.getText(), colorway_id2 );
                             
-            add_this_design_and_colorway(design_code.getText(), colorway_id2);
+            //add_this_design_and_colorway(design_code.getText(), colorway_id2);
         }
         
         JOptionPane.showMessageDialog(null,"Successfully Added this Recipe");
@@ -2099,7 +2080,7 @@ public class Add_new_design extends javax.swing.JFrame {
         this.this_purchase.setPurchase_Id_from_Date_and_code();
         //this.this_purchase.set_design_details_from_purchase_order_id();
         this.this_purchase.set_job_order_list_using_purchase_order_id();
-       SpreadsheetTrial printFile = new SpreadsheetTrial();
+        SpreadsheetTrial printFile = new SpreadsheetTrial();
         printFile.print_this_job(this_purchase);
         
     }//GEN-LAST:event_add_orderActionPerformed
@@ -2424,10 +2405,6 @@ public class Add_new_design extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_coverage7KeyReleased
-
-    private void design_codeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_design_codeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_design_codeActionPerformed
    
     DefaultListModel list = new DefaultListModel();
  
@@ -2749,7 +2726,7 @@ public class Add_new_design extends javax.swing.JFrame {
         
         int Month = cal.get(Calendar.MONTH);
         String Fabric = this.getFabricStyle();
-        job_ord.setText(Year.substring(2, 4) +""+ Fabric.charAt(0) +"-" + Month +"-");
+        job_ord.setText(Year.substring(2, 4) +"P-" + Month +"-");
     }
     /**
      * @param args the command line arguments
@@ -2815,7 +2792,6 @@ public class Add_new_design extends javax.swing.JFrame {
     private javax.swing.JTextField coverage5;
     private javax.swing.JTextField coverage6;
     private javax.swing.JTextField coverage7;
-    private javax.swing.JTextField design_code;
     private javax.swing.JTextField design_color;
     private javax.swing.JTextField design_name;
     private javax.swing.JComboBox fab_style_comb;
@@ -2823,7 +2799,6 @@ public class Add_new_design extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JCheckBox jCheckBox2;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel100;
     private javax.swing.JLabel jLabel102;
