@@ -17,10 +17,9 @@ import java.util.Date;
  */
 public class job_order extends customer {
     private String job_id;
-    //private String date;
-    private int quantity;
-    //private int customer_id;
-    private int id_purchase;
+    private String date;
+    private int customer_id;
+    
     private ResultSet job_order_resultset;
 
     public void job_order(String job_order_id)
@@ -53,21 +52,34 @@ public class job_order extends customer {
     public void setJob_id(String job_id) {
         this.job_id = job_id;
     }
-
-    /**
-     * @return the quantity
+ 
+     /**
+     * @return the date
      */
-    public int getQuantity() {
-        return quantity;
+    public String getDate() {
+        return date;
     }
 
     /**
-     * @param quantity the quantity to set
+     * @param date the date to set
      */
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
+    public void setDate(String date) {
+        this.date = date;
     }
-    
+
+    /**
+     * @return the customer_id
+     */
+    public int getCustomer_id() {
+        return customer_id;
+    }
+
+    /**
+     * @param customer_id the customer_id to set
+     */
+    public void setCustomer_id(int customer_id) {
+        this.customer_id = customer_id;
+    }
    // Extending customer Class
 /*
     /**
@@ -110,25 +122,12 @@ public class job_order extends customer {
         // = new_conn.get_job_order_details(job_id); 
     }
 
-    /**
-     * @return the id_purchase
-     */
-    public int getId_purchase() {
-        return id_purchase;
-    }
-
-    /**
-     * @param id_purchase the id_purchase to set
-     */
-    public void setId_purchase(int id_purchase) {
-        this.id_purchase = id_purchase;
-    }
+    
     
     public boolean check_job_id(String JobId){
         this.setJob_id(JobId);
         DB_Manager new_conn = new DB_Manager();
         return new_conn.Search_job_id(this);
-        
         
     }
     
@@ -138,16 +137,14 @@ public class job_order extends customer {
         return new_conn.Search_Job_Order(this);
     }
     
-    public ResultSet get_job_info_from_purchase_id(int purchase_id){
-        DB_Manager new_conn = new DB_Manager();
-        return new_conn.get_job_order_list_from_purchase_id(this);
-        
-    }
+   
     
     public void delete_job_order_from_job_id()
     {
         DB_Manager new_conn = new DB_Manager();
         new_conn.delete_job_order(this);
     }
+
+   
         
 }

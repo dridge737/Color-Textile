@@ -98,11 +98,12 @@ public class DB_Manager {
             DBConnection db = new DBConnection();
             Connection conn = db.getConnection();
         
-            String query = "INSERT INTO purchase_order (date, design_code) VALUES (?, ?)";
+            String query = "INSERT INTO purchase_order (quantity, design_code, job_order_id) VALUES (?, ?, ?)";
             
             PreparedStatement preparedStmt = conn.prepareStatement(query);
-            preparedStmt.setString(1, new_purchase.getDate());
+            preparedStmt.setInt(1, new_purchase.getQuantity());
             preparedStmt.setString(2, new_purchase.getDesign_code());
+            preparedStmt.setString(3, new_purchase.getJob_order_id());
             
             preparedStmt.execute();
             return true;
@@ -209,27 +210,27 @@ public class DB_Manager {
     public boolean add_job_order(colortextile_class.job_order new_job)
     {
         
-        if(get_job_order_details(new_job.getJob_id()).getJob_id().compareTo("-1") == 0)
-        {
+        //if(get_job_order_details(new_job.getJob_id()).getJob_id().compareTo("-1") == 0)
+        //{
             try {
                 DBConnection db = new DBConnection();
                 Connection conn = db.getConnection();
             
-                String query = "INSERT INTO job_order (job_order_id, customer_id, quantity, id_purchase) VALUES (?, ?, ?, ?)";
+                String query = "INSERT INTO job_order (job_order_id, date, customer_id) VALUES (?, ?, ?)";
 
                 PreparedStatement preparedStmt = conn.prepareStatement(query);
                 preparedStmt.setString(1, new_job.getJob_id());
-                     
-                preparedStmt.setInt(2, new_job.getCustomer_id());
-                preparedStmt.setInt(3, new_job.getQuantity());
-                preparedStmt.setInt(4, new_job.getId_purchase());
+                preparedStmt.setString(2, new_job.getDate());
+                preparedStmt.setInt(3, new_job.getCustomer_id());
+                
+                
 
                 preparedStmt.execute();
                 return true;
             } catch (SQLException ex) {
                 Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
             }
-        }
+        //}
         
         return false;
     }
@@ -1377,15 +1378,15 @@ public class DB_Manager {
               }
               sql = sql + " date BETWEEN '"+job.getDate_from()+"' AND '" + job.getDate_to()+"'";
               increment++;
-          }
-          if (job.getDesign_code() != null){
+          } */
+          if (job.getDate() != null){
               if(increment > 0)
               { sql = sql + " AND";
               }
-              sql = sql + " design_code= '"+job.getDesign_code()+"'";
+              sql = sql + " date= '"+job.getDate()+"'";
               increment++;
           }
-                  */
+                  
           if (job.getJob_id() != null){
               if(increment > 0)
               { sql = sql + " AND";
@@ -1404,8 +1405,6 @@ public class DB_Manager {
           
             PreparedStatement ps = conn.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
-            
-            job_order results = new job_order();
             return rs;
            
             

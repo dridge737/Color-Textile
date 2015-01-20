@@ -14,11 +14,9 @@ import java.sql.ResultSet;
  */
 public class purchase_order {
     private int id_purchase;
-    private String date;
     private String design_code;
-    
-    private String date_from;
-    private String date_to;
+    private String job_order_id;
+    private int quantity;
     
     /**
      * @return the id_purchase
@@ -33,21 +31,7 @@ public class purchase_order {
     public void setId_purchase(int id_purchase) {
         this.id_purchase = id_purchase;
     }
-
-    /**
-     * @return the date
-     */
-    public String getDate() {
-        return date;
-    }
-
-    /**
-     * @param date the date to set
-     */
-    public void setDate(String date) {
-        this.date = date;
-    }
-
+    
     /**
      * @return the design_code
      */
@@ -61,6 +45,36 @@ public class purchase_order {
     public void setDesign_code(String design_code) {
         this.design_code = design_code;
     }
+
+    
+    /**
+     * @return the job_order_id
+     */
+    public String getJob_order_id() {
+        return job_order_id;
+    }
+
+    /**
+     * @param job_order_id the job_order_id to set
+     */
+    public void setJob_order_id(String job_order_id) {
+        this.job_order_id = job_order_id;
+    }
+
+    /**
+     * @return the quantity
+     */
+    public int getQuantity() {
+        return quantity;
+    }
+
+    /**
+     * @param quantity the quantity to set
+     */
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+    
     
     public boolean add_new_purchase()
     {
@@ -82,34 +96,6 @@ public class purchase_order {
        return new_conn.Search_id_purchase(this);
     }
 
-    /**
-     * @return the date_from
-     */
-    public String getDate_from() {
-        return date_from;
-    }
-
-    /**
-     * @param date_from the date_from to set
-     */
-    public void setDate_from(String date_from) {
-        this.date_from = date_from;
-    }
-
-    /**
-     * @return the date_to
-     */
-    public String getDate_to() {
-        return date_to;
-    }
-
-    /**
-     * @param date_to the date_to to set
-     */
-    public void setDate_to(String date_to) {
-        this.date_to = date_to;
-    }
-    
     public int getPurchase_Id_Last(){
         DB_Manager new_conn = new DB_Manager();
         return new_conn.get_id_purchase_last(this);
@@ -126,8 +112,7 @@ public class purchase_order {
     {
         Database.DB_Manager new_conn = new Database.DB_Manager();
         purchase_order temp_purchase = new_conn.get_purchase_details(id_purchase);
-        this.date = temp_purchase.getDate();
         this.design_code = temp_purchase.getDesign_code();
     }
-    
+
 }

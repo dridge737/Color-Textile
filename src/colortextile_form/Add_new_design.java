@@ -1784,48 +1784,54 @@ public class Add_new_design extends javax.swing.JFrame {
      */
     private void add_purchase(){
         
-        SimpleDateFormat formater = new SimpleDateFormat("yyyy/MM/dd");
-                String spinnerValue = formater.format(this.spinner_date.getValue());
-                System.out.println(spinnerValue);
-                
+        
         purchase_order purchase = new purchase_order();
 
-        purchase.setDate(spinnerValue);
+        
+        for (int i = 0; 1 < job_list.size(); i++) {
+            
+        //purchase.setDate(spinnerValue);
         purchase.setDesign_code(this.design_code.getText());
+        purchase.setJob_order_id(this.job_list.get(i).toString()); 
+        purchase.setQuantity(Integer.parseInt(this.job_list.get(i).toString()));
         
-        this_purchase.setDesign_code(purchase.getDesign_code());
-        this_purchase.setDate(purchase.getDate());
-        
-        
-        
-        Boolean test1 = purchase.add_new_purchase();
-        if (test1 == true){
-            JOptionPane.showMessageDialog(null,"purchase added");
-        } else {
-            JOptionPane.showMessageDialog(null,"purchase failed");
+        purchase.add_new_purchase();
         }
+                
+       
         
-        add_job(purchase.getPurchase_Id_Last());
+        // this_purchase.setDesign_code(purchase.getDesign_code());
+        // this_purchase.setDate(purchase.getDate());
+        
         //Commeting this out
         //    JOptionPane.showMessageDialog(null,purchase.getPurchase_Id_Last());
         
        
         
     }
-    private void add_job(int id_purchase){
-         
+    private void add_job(){
+        
+        SimpleDateFormat formater = new SimpleDateFormat("yyyy/MM/dd");
+                String spinnerValue = formater.format(this.spinner_date.getValue());
             
+        
                 for (int i = 0; i < job_list.size(); i++) {
                        job_order job = new job_order();
                        DB_Manager new_conn = new DB_Manager();
                        
-                       job.setCustomer_id(new_conn.get_id_customer(this.customer_list.get(i).toString()));
-                       job.setQuantity(Integer.parseInt(this.quantity_list.get(i).toString()));
-                       job.setJob_id(this.job_list.get(i).toString());
-                       job.setId_purchase(id_purchase);
+                            job.setJob_id(this.job_list.get(i).toString());
                        
-                job.add_new_job_order();
-                    
+                       if(job.Search_job_info() != null){
+                            job.setCustomer_id(new_conn.get_id_customer(this.customer_list.get(i).toString())); 
+                            job.setDate(spinnerValue);
+                           
+                            job.add_new_job_order();
+                       }
+                       
+                       
+                       //job.setQuantity(Integer.parseInt(this.quantity_list.get(i).toString()));
+                       //job.setId_purchase(id_purchase);
+                                 
                 }
                       
         }
@@ -1959,6 +1965,7 @@ public class Add_new_design extends javax.swing.JFrame {
         } else {
             
             add_purchase();
+            add_job();
         }
         // Winston codes end
         
