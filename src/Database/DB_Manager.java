@@ -1328,14 +1328,45 @@ public class DB_Manager {
           } 
           System.out.println(sql);
           
-          if (purchase.getDate_from() != null){
+          /*if (purchase.getDate_from() != null){
               
               if(increment > 0)
               { sql = sql + " AND";
               }
               sql = sql + " date BETWEEN '"+purchase.getDate_from()+"' AND '" + purchase.getDate_to()+"'";
               increment++;
+          }*/
+          
+          if (purchase.getQuantity() != 0){
+              
+              if(increment > 0)
+              { sql = sql + " AND";
+              }
+              
+              sql = sql + " quantity = '"+purchase.getQuantity()+"' ";
+              increment++;
           }
+          
+          if (purchase.getDesign_code()!= null){
+              
+              if(increment > 0)
+              { sql = sql + " AND";
+              }
+              
+              sql = sql + " design_code = '"+purchase.getDesign_code()+"' ";
+              increment++;
+          }
+          
+          if (purchase.getJob_order_id() != null){
+              
+              if(increment > 0)
+              { sql = sql + " AND";
+              }
+              
+              sql = sql + " job_order_id = '"+purchase.getJob_order_id()+"' ";
+              increment++;
+          }
+          
           System.out.println(sql);
           
           if (sql == "SELECT * FROM purchase_order WHERE")
