@@ -1782,10 +1782,10 @@ public class Add_new_design extends javax.swing.JFrame {
         
         for (int i = 0; 1 < job_list.size(); i++) {
             
-        //purchase.setDate(spinnerValue);
-        purchase.setDesign_code(this.design_code.getText());
+        
+        purchase.setDesign_code(this.add_this_design());
         purchase.setJob_order_id(this.job_list.get(i).toString()); 
-        purchase.setQuantity(Integer.parseInt(this.job_list.get(i).toString()));
+        purchase.setQuantity(Integer.parseInt(this.quantity_list.get(i).toString()));
         
         purchase.add_new_purchase();
         }
@@ -1954,6 +1954,9 @@ public class Add_new_design extends javax.swing.JFrame {
     
     private void add_orderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_orderActionPerformed
         // TODO add your handling code here:
+ 
+        add_this_design();
+
         // Winston codes start
         
         if (this.jList1.getModel().getSize() == 0)
@@ -1967,7 +1970,7 @@ public class Add_new_design extends javax.swing.JFrame {
         // Winston codes end
         
         
-        add_this_design();
+        
         
         int colorway_id = add_this_colorway(colorway_name2.getText(), 
                              Float.parseFloat(binder8.getSelectedItem().toString()),

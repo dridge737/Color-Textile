@@ -992,9 +992,8 @@ public class DB_Manager {
             {
             this_job.setJob_id(job_order_id);
             this_job.setCustomer_id(rs.getInt("customer_id"));
-            this_job.setQuantity(rs.getInt("quantity"));
-            this_job.setId_purchase(rs.getInt("id_purchase"));
-            this_job.setJob_id(job_order_id);
+            this_job.setDate(rs.getString("date"));
+            
             }
             
         }
@@ -1005,6 +1004,7 @@ public class DB_Manager {
         }
         return this_job;
     }
+    /*
     public ResultSet get_job_order_list_from_purchase_id(colortextile_class.job_order this_job){
         
         try
@@ -1025,7 +1025,8 @@ public class DB_Manager {
             return null;
         }
     }
-    
+    */
+    /*
     public List<job_order> set_job_order_info_from_purchase_id(int purchase_id){
         try
         {
@@ -1051,7 +1052,7 @@ public class DB_Manager {
                 
                 job_list.add(this_job);
             }
-            /*
+            
             for(job_order all_jobs : job_list)
             {
             System.out.println("Job Order ID  : "+all_jobs.getJob_id());
@@ -1059,7 +1060,7 @@ public class DB_Manager {
             System.out.println("Customer Name : "+all_jobs.getCustomer_name());
             System.out.println("Quantity      : "+all_jobs.getQuantity());
             }
-            */
+            
             
             return job_list;
             
@@ -1070,7 +1071,7 @@ public class DB_Manager {
             return null;
         }
     }
-    
+    */
     
     
     public Blob get_picture_from_design_id(colortextile_class.design this_picture){
@@ -1144,12 +1145,14 @@ public class DB_Manager {
             PreparedStatement ps = 
             conn.prepareStatement("SELECT id_purchase "
                                  + "FROM purchase_order "
-                                 + "WHERE date = ? "
-                                 + "AND design_code = ? ");
+                                 + "WHERE quantity = ? "
+                                 + "AND design_code = ? "
+                                 + "AND job_order_id = ? ");
             
             int item = 1;
-            ps.setString(item++, new_purchase.getDate());
+            ps.setInt(item++, new_purchase.getQuantity());
             ps.setString(item++, new_purchase.getDesign_code());
+            ps.setString(item++, new_purchase.getJob_order_id());
             /* 
             System.out.println("Date :" +new_purchase.getDate());
             System.out.println("Colorway Id :"  new_purchase.getDesign_code);
@@ -1190,8 +1193,9 @@ public class DB_Manager {
             ResultSet rs = ps.executeQuery();
             if(rs.first())
             {
-                current_purchase.setDate(rs.getString("date"));
+                current_purchase.setQuantity(rs.getInt("quantity"));
                 current_purchase.setDesign_code(rs.getString("design_code"));
+                current_purchase.setJob_order_id(rs.getString("job_order_id"));
              //   System.out.println(id_colorway);
                 return current_purchase;
             }
