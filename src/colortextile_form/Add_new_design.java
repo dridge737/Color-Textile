@@ -500,7 +500,7 @@ public class Add_new_design extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jCheckBox2);
-        jCheckBox2.setBounds(650, 200, 63, 25);
+        jCheckBox2.setBounds(650, 200, 65, 25);
 
         jLabel11.setBackground(new java.awt.Color(255, 255, 255));
         jLabel11.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
@@ -657,7 +657,7 @@ public class Add_new_design extends javax.swing.JFrame {
             }
         });
         jPanel16.add(jCheckBox1);
-        jCheckBox1.setBounds(340, 50, 59, 20);
+        jCheckBox1.setBounds(340, 50, 63, 20);
 
         text_name.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
         jPanel16.add(text_name);
@@ -1776,43 +1776,54 @@ public class Add_new_design extends javax.swing.JFrame {
      */
     private void add_purchase(){
         
-        SimpleDateFormat formater = new SimpleDateFormat("yyyy/MM/dd");
-                String spinnerValue = formater.format(this.spinner_date.getValue());
-                System.out.println(spinnerValue);
-                
+        
         purchase_order purchase = new purchase_order();
 
-        purchase.setDate(spinnerValue);
-        //purchase.setDesign_code(this.design_code.getText());
         
-        this_purchase.setDesign_code(purchase.getDesign_code());
-        this_purchase.setDate(purchase.getDate());
+        for (int i = 0; 1 < job_list.size(); i++) {
+            
         
-        Boolean test1 = purchase.add_new_purchase();
-        if (test1 == true){
-            JOptionPane.showMessageDialog(null,"purchase added");
-        } else {
-            JOptionPane.showMessageDialog(null,"purchase failed");
+        purchase.setDesign_code(this.add_this_design());
+        purchase.setJob_order_id(this.job_list.get(i).toString()); 
+        purchase.setQuantity(Integer.parseInt(this.quantity_list.get(i).toString()));
+        
+        purchase.add_new_purchase();
         }
+                
+       
         
-        add_job(purchase.getPurchase_Id_Last());
-        //Commenting this out
+        // this_purchase.setDesign_code(purchase.getDesign_code());
+        // this_purchase.setDate(purchase.getDate());
+        
+        //Commeting this out
         //    JOptionPane.showMessageDialog(null,purchase.getPurchase_Id_Last());
         
     }
-    private void add_job(int id_purchase){
-         
+    private void add_job(){
+        
+        SimpleDateFormat formater = new SimpleDateFormat("yyyy/MM/dd");
+                String spinnerValue = formater.format(this.spinner_date.getValue());
+            
+        
                 for (int i = 0; i < job_list.size(); i++) {
                        job_order job = new job_order();
                        DB_Manager new_conn = new DB_Manager();
                        
-                       job.setCustomer_id(new_conn.get_id_customer(this.customer_list.get(i).toString()));
-                       job.setQuantity(Integer.parseInt(this.quantity_list.get(i).toString()));
-                       job.setJob_id(this.job_list.get(i).toString());
-                       job.setId_purchase(id_purchase);
+                            job.setJob_id(this.job_list.get(i).toString());
                        
-                job.add_new_job_order();
-                }     
+                       if(job.Search_job_info() != null){
+                            job.setCustomer_id(new_conn.get_id_customer(this.customer_list.get(i).toString())); 
+                            job.setDate(spinnerValue);
+                           
+                            job.add_new_job_order();
+                       }
+                       
+                       
+                       //job.setQuantity(Integer.parseInt(this.quantity_list.get(i).toString()));
+                       //job.setId_purchase(id_purchase);
+                                 
+                }
+                      
         }
     
     
@@ -1943,6 +1954,9 @@ public class Add_new_design extends javax.swing.JFrame {
     
     private void add_orderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_orderActionPerformed
         // TODO add your handling code here:
+ 
+        add_this_design();
+
         // Winston codes start
         
         if (this.jList1.getModel().getSize() == 0)
@@ -1951,11 +1965,12 @@ public class Add_new_design extends javax.swing.JFrame {
         } else {
             
             add_purchase();
+            add_job();
         }
         // Winston codes end
         
         
-        add_this_design();
+        
         
         int colorway_id = add_this_colorway(colorway_name2.getText(), 
                              Float.parseFloat(binder8.getSelectedItem().toString()),
@@ -2454,7 +2469,7 @@ public class Add_new_design extends javax.swing.JFrame {
         } else {
             
             // check job order if existing
-            job_order check_id = new job_order();
+            //job_order check_id = new job_order();
             
             Boolean duplicate;
             duplicate = false;
@@ -2464,7 +2479,7 @@ public class Add_new_design extends javax.swing.JFrame {
                 }
             }
             
-            if(check_id.check_job_id(this.text_job_order.getText().toString()) == true || duplicate == true){
+            if( duplicate == true){
                 
                   JOptionPane.showMessageDialog(null,"Job Order ID already Exists");
             } else {
