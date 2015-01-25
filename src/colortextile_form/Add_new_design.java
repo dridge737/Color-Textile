@@ -488,7 +488,7 @@ public class Add_new_design extends javax.swing.JFrame {
 
         design_color.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jPanel1.add(design_color);
-        design_color.setBounds(560, 260, 150, 34);
+        design_color.setBounds(210, 260, 180, 34);
 
         jCheckBox2.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         jCheckBox2.setForeground(new java.awt.Color(255, 255, 255));
@@ -516,7 +516,7 @@ public class Add_new_design extends javax.swing.JFrame {
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel4.setText("Design Colorway :");
         jPanel1.add(jLabel4);
-        jLabel4.setBounds(412, 260, 138, 34);
+        jLabel4.setBounds(56, 260, 138, 34);
 
         jPanel16.setBackground(new java.awt.Color(51, 51, 51));
         jPanel16.setOpaque(false);
@@ -632,10 +632,10 @@ public class Add_new_design extends javax.swing.JFrame {
             }
         });
         text_job_order.addInputMethodListener(new java.awt.event.InputMethodListener() {
-            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
-            }
             public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
                 text_job_orderInputMethodTextChanged(evt);
+            }
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
             }
         });
         text_job_order.addKeyListener(new java.awt.event.KeyAdapter() {
