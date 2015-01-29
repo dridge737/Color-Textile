@@ -10,6 +10,7 @@ import Database.DB_Manager;
  *
  * @author Eldridge
  */
+///Comparable is used to compare and organize the pigment name
 public class screen_pigment extends pigment implements Comparable<screen_pigment> {
     private int id_screen;
     //private int pigment_no;
@@ -31,20 +32,7 @@ public class screen_pigment extends pigment implements Comparable<screen_pigment
     }
 
     //DELETED as this class extends pigment.java class
-    /**
-     * @return the pigment_no
-     
-    public int getPigment_no() {
-        return pigment_no;
-    }
 
-    /**
-     * @param pigment_no the pigment_no to set
-     
-    public void setPigment_no(int pigment_no) {
-        this.pigment_no = pigment_no;
-    }
-*/
     /**
      * @return the pigment_percentage
      */
@@ -105,8 +93,6 @@ public class screen_pigment extends pigment implements Comparable<screen_pigment
         return weight_prep;
     }
     
-
-
     @Override
     public int compareTo(screen_pigment o) {
         int compareTo = this.getPigment_name().compareTo(o.getPigment_name());

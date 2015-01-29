@@ -16,9 +16,11 @@ import java.util.Date;
  * @author Winston
  */
 public class job_order extends customer {
+    //Table Elements
     private String job_id;
     private String date;
     private int customer_id;
+    private int quantity;
     
     private ResultSet job_order_resultset;
 
@@ -30,7 +32,6 @@ public class job_order extends customer {
         //this.date = details.date;
         //this.design_code = details.design_code;
         //this.fabric_style = details.fabric_style;
-        
     }
     
     public job_order get_details(String job_order_id)
@@ -80,29 +81,26 @@ public class job_order extends customer {
     public void setCustomer_id(int customer_id) {
         this.customer_id = customer_id;
     }
-   // Extending customer Class
-/*
-    /**
-     * @return the customer_id
-     
-    public int getCustomer_id() {
-        return customer_id;
+
+     /**
+     * @return the quantity
+     */
+    public int getQuantity() {
+        return quantity;
     }
 
     /**
-     * @param customer_id the customer_id to set
-     
-    public void setCustomer_id(int customer_id) {
-        this.customer_id = customer_id;
+     * @param quantity the quantity to set
+     */
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
-*/
+    
     public void add_new_job_order()
     {
         DB_Manager new_conn = new DB_Manager();
         new_conn.add_job_order(this);
     }
-    
-    
     
     public ResultSet job_order_all()
     {
@@ -110,7 +108,6 @@ public class job_order extends customer {
         return new_conn.get_all_job_order(this);
     }
 
-    
     public void get_job_order_list()
     {
         Database.DB_Manager new_conn = new Database.DB_Manager();
@@ -122,8 +119,6 @@ public class job_order extends customer {
         // = new_conn.get_job_order_details(job_id); 
     }
 
-    
-    
     public boolean check_job_id(String JobId){
         this.setJob_id(JobId);
         DB_Manager new_conn = new DB_Manager();
@@ -137,14 +132,20 @@ public class job_order extends customer {
         return new_conn.Search_Job_Order(this);
     }
     
-   
-    
     public void delete_job_order_from_job_id()
     {
         DB_Manager new_conn = new DB_Manager();
         new_conn.delete_job_order(this);
     }
-
-   
+    
+    public void display_details()
+    {
+        System.out.println("Job Order ID  : "+this.getJob_id());
+        System.out.println("Customer ID   : "+this.getCustomer_id());
+        System.out.println("Customer Name : "+this.getCustomer_name());
+        System.out.println("Quantity      : "+this.getQuantity());
+        System.out.println("Date          : "+this.getDate());
+            
+    }
         
 }

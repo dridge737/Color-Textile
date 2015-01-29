@@ -16,7 +16,6 @@ public class purchase_order {
     private int id_purchase;
     private String design_code;
     private String job_order_id;
-    private int quantity;
     
     /**
      * @return the id_purchase
@@ -61,19 +60,7 @@ public class purchase_order {
         this.job_order_id = job_order_id;
     }
 
-    /**
-     * @return the quantity
-     */
-    public int getQuantity() {
-        return quantity;
-    }
 
-    /**
-     * @param quantity the quantity to set
-     */
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
     
     
     public boolean add_new_purchase()
