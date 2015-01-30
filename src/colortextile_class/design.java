@@ -18,7 +18,7 @@ public class design extends fabric_style{
     private String design_code;
     private String design_name;
     private String color_name;
-    //private String fabric_style;
+    private String fabric_style;
     private Blob design_image;
 
     

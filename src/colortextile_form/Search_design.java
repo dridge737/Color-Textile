@@ -38,14 +38,14 @@ public class Search_design extends javax.swing.JFrame {
         DefaultTableModel model = new DefaultTableModel();
         design design_conn = new design();
         
-        model.addColumn("Design Code");
+        model.addColumn("#");
         model.addColumn("Design Name");
         model.addColumn("Colorway Name");
         model.addColumn("fabric_style");
         
         
         try {
-            if (rs.next()){
+            if (rs.first()){
                 
              rs.previous();
             while(rs.next()) {
@@ -53,7 +53,7 @@ public class Search_design extends javax.swing.JFrame {
                 
                 
                    String[] set1 = {    
-                                        rs.getString("design_code"), 
+                                        rs.getString("design_code"),
                                         rs.getString("design_name"),
                                         rs.getString("color_name"),
                                         rs.getString("fabric_style")
@@ -88,10 +88,8 @@ public class Search_design extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jLabel6 = new javax.swing.JLabel();
-        text_design_code = new javax.swing.JTextField();
         text_design_name = new javax.swing.JTextField();
         text_design_color = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         button_search = new javax.swing.JButton();
@@ -137,11 +135,6 @@ public class Search_design extends javax.swing.JFrame {
                 text_design_colorActionPerformed(evt);
             }
         });
-
-        jLabel5.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel5.setText("Design Code  :");
 
         jLabel7.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
@@ -205,16 +198,9 @@ public class Search_design extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(text_design_name, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(26, 26, 26)
-                                        .addComponent(text_design_code, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(text_design_color, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
+                                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(26, 26, 26)
+                                .addComponent(text_design_color, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(30, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -224,11 +210,7 @@ public class Search_design extends javax.swing.JFrame {
                 .addComponent(jLabel6)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(text_design_code, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(49, 49, 49)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(text_design_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel7))
@@ -285,9 +267,15 @@ public class Search_design extends javax.swing.JFrame {
     private void button_searchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_searchActionPerformed
         // TODO add your handling code here:
         design design_conn = new design();
-        design_conn.setColor_name(this.text_design_color.getText());
-        design_conn.setDesign_code(this.text_design_code.getText());
-        design_conn.setDesign_name(this.text_design_name.getText());
+        if (!(this.text_design_color.getText().equals(""))){
+            design_conn.setColor_name(this.text_design_color.getText());
+        }
+        
+        //design_conn.setDesign_code(this.text_design_code.getText());
+        if (!(this.text_design_name.getText().equals(""))){
+            design_conn.setDesign_name(this.text_design_name.getText());
+        }
+        
         
         fill_table(design_conn.search_design());
     }//GEN-LAST:event_button_searchActionPerformed
@@ -397,7 +385,6 @@ public class Search_design extends javax.swing.JFrame {
     private javax.swing.JButton button_details;
     private javax.swing.JButton button_reset;
     private javax.swing.JButton button_search;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -405,7 +392,6 @@ public class Search_design extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JLabel label_pic;
-    private javax.swing.JTextField text_design_code;
     private javax.swing.JTextField text_design_color;
     private javax.swing.JTextField text_design_name;
     // End of variables declaration//GEN-END:variables

@@ -1814,6 +1814,7 @@ public class Add_new_design extends javax.swing.JFrame {
                        if(job.Search_job_info() != null){
                             job.setCustomer_id(new_conn.get_id_customer(this.customer_list.get(i).toString())); 
                             job.setDate(spinnerValue);
+                            
                            
                             job.add_new_job_order();
                        }

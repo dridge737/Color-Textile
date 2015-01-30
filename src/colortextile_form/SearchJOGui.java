@@ -229,12 +229,9 @@ public class SearchJOGui extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         combo_customer = new javax.swing.JComboBox();
         text_job_id = new javax.swing.JTextField();
-        spinner_from = new javax.swing.JSpinner();
-        spinner_to = new javax.swing.JSpinner();
         text_design_code = new javax.swing.JTextField();
         button_search = new javax.swing.JButton();
         button_reset = new javax.swing.JButton();
@@ -245,6 +242,7 @@ public class SearchJOGui extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         button_details = new javax.swing.JButton();
         label_pic = new javax.swing.JLabel();
+        spinner_from = new javax.swing.JSpinner();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Search Job Order");
@@ -271,13 +269,6 @@ public class SearchJOGui extends javax.swing.JFrame {
         getContentPane().add(jLabel3);
         jLabel3.setBounds(20, 137, 140, 21);
 
-        jLabel4.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel4.setText("Date To :");
-        getContentPane().add(jLabel4);
-        jLabel4.setBounds(329, 137, 90, 21);
-
         jLabel5.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -292,16 +283,6 @@ public class SearchJOGui extends javax.swing.JFrame {
         text_job_id.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
         getContentPane().add(text_job_id);
         text_job_id.setBounds(170, 102, 414, 27);
-
-        spinner_from.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
-        spinner_from.setModel(new javax.swing.SpinnerDateModel(new java.util.Date(1410306137651L), null, null, java.util.Calendar.DAY_OF_MONTH));
-        getContentPane().add(spinner_from);
-        spinner_from.setBounds(170, 134, 149, 28);
-
-        spinner_to.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
-        spinner_to.setModel(new javax.swing.SpinnerDateModel());
-        getContentPane().add(spinner_to);
-        spinner_to.setBounds(432, 134, 150, 28);
 
         text_design_code.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
         getContentPane().add(text_design_code);
@@ -380,6 +361,9 @@ public class SearchJOGui extends javax.swing.JFrame {
             }
         });
 
+        spinner_from.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
+        spinner_from.setModel(new javax.swing.SpinnerDateModel(new java.util.Date(1410306137651L), null, null, java.util.Calendar.DAY_OF_MONTH));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -390,20 +374,30 @@ public class SearchJOGui extends javax.swing.JFrame {
                         .addGap(33, 33, 33)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1217, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(450, 450, 450)
-                        .addComponent(button_details, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(172, 172, 172)
+                                .addComponent(spinner_from, javax.swing.GroupLayout.PREFERRED_SIZE, 412, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                .addGap(450, 450, 450)
+                                .addComponent(button_details, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(label_pic, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(411, 411, 411)))
                 .addContainerGap(70, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(label_pic, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(481, 481, 481))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(74, 74, 74)
-                .addComponent(label_pic, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(74, 74, 74)
+                        .addComponent(label_pic, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(spinner_from, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(39, 39, 39)))
                 .addComponent(button_details, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -442,8 +436,8 @@ public class SearchJOGui extends javax.swing.JFrame {
         
         if (this.jCheckBox1.isSelected())
         {
-            purchasesearch.setDate_from(spinnerValuefrom);
-            purchasesearch.setDate_to(spinnerValueto);
+            jobsearch.setDate(spinnerValuefrom);
+          //  purchasesearch.setDate_to(spinnerValueto);
             filltype = false;
         }
         
@@ -585,7 +579,6 @@ public class SearchJOGui extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
@@ -593,7 +586,6 @@ public class SearchJOGui extends javax.swing.JFrame {
     private javax.swing.JTable jTable1;
     private javax.swing.JLabel label_pic;
     private javax.swing.JSpinner spinner_from;
-    private javax.swing.JSpinner spinner_to;
     private javax.swing.JTextField text_design_code;
     private javax.swing.JTextField text_job_id;
     // End of variables declaration//GEN-END:variables
