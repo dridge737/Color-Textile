@@ -17,55 +17,11 @@ public class Job_purchase_link_functions extends job_order{
     
     private List<purchase_order> all_purchase = new ArrayList<>();
     
-    
     //For job_order get job_order_list using purchase order
     //Using the purchase_order_id the job_order_list is taken
-    public void set_job_order_list_using_purchase_order_id()
-    {
-        Database.DB_Manager new_conn = new Database.DB_Manager();
-        //Get the List of job order from the purchase order id
-        setJobs_for_this(new_conn.set_job_order_info_from_purchase_id(this.getId_purchase()));
-        
-    }
     
-    
-    
-    public void view_all_job_order_details()
-    {
-        System.out.println("Size of this job is = "+jobs_for_this.size());
-        for(job_order all_jobs : jobs_for_this)
-        {
-            System.out.println("Job Order ID  : "+all_jobs.getJob_id());
-            System.out.println("Customer ID   : "+all_jobs.getCustomer_id());
-            System.out.println("Customer Name : "+all_jobs.getCustomer_name());
-            //System.out.println("Quantity      : "+all_jobs.getQuantity());
-        }
-    }
    
-    /**
-     * @return the jobs_for_this
-     */
-    public List<job_order> getJobs_for_this() {
-        return jobs_for_this;
-    }
-
-    /**
-     * @param jobs_for_this the jobs_for_this to set
-     */
-    public void setJobs_for_this(List<job_order> jobs_for_this) {
-        this.jobs_for_this = jobs_for_this;
-        set_customer_name_for_jobs();
-
-        
-    }
     
-    public void set_customer_name_for_jobs()
-    {
-        for(int x = 0; x < jobs_for_this.size(); x++ )
-        {
-             jobs_for_this.get(x).set_customer_name_from_id();
-        }
-    }
 
     /**
      * @return the new_des_col_link
@@ -84,12 +40,12 @@ public class Job_purchase_link_functions extends job_order{
     public String get_all_quantity()
     {
         String quantity_all = "";
-        for(int x = 0 ; x < jobs_for_this.size(); x++)
+        for(int x = 0 ; x < all_purchase.size(); x++)
         {
-            if(x == jobs_for_this.size()-1)
-                quantity_all += Integer.toString(jobs_for_this.get(x).getQuantity());
+            if(x == all_purchase.size()-1)
+                quantity_all += Integer.toString(all_purchase.get(x).getQuantity());
             else
-                quantity_all += Integer.toString(jobs_for_this.get(x).getQuantity()) + "+";
+                quantity_all += Integer.toString(all_purchase.get(x).getQuantity()) + "+";
                 
         }
         return quantity_all;
@@ -97,13 +53,14 @@ public class Job_purchase_link_functions extends job_order{
     public int get_quantity_sum()
     {
         int quantity_sum = 0;
-        for(int x = 0 ; x < jobs_for_this.size(); x++)
+        for(int x = 0 ; x < all_purchase.size(); x++)
         {
-            quantity_sum += jobs_for_this.get(x).getQuantity();
+            quantity_sum += all_purchase.get(x).getQuantity();
         }
         //System.out.println(quantity_sum);
         return quantity_sum;
     }
+    
     
     public String get_all_customers()
     {
