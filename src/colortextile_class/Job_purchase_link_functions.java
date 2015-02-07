@@ -13,10 +13,10 @@ import java.util.List;
  *
  * @author Eldridge
  */
-public class Job_purchase_link_functions extends purchase_order{
+public class Job_purchase_link_functions extends job_order{
     
-    private List<job_order> jobs_for_this = new ArrayList<>();
-    private Design_colorway_link_functions new_des_col_link = new Design_colorway_link_functions();
+    private List<purchase_order> all_purchase = new ArrayList<>();
+    
     
     //For job_order get job_order_list using purchase order
     //Using the purchase_order_id the job_order_list is taken
@@ -25,15 +25,10 @@ public class Job_purchase_link_functions extends purchase_order{
         Database.DB_Manager new_conn = new Database.DB_Manager();
         //Get the List of job order from the purchase order id
         setJobs_for_this(new_conn.set_job_order_info_from_purchase_id(this.getId_purchase()));
-
+        
     }
     
-    public void set_design_details_from_purchase_order_id()
-    {
-        getNew_des_col_link().setDesign_code(this.getDesign_code());
-        getNew_des_col_link().setDesign_details_from_des_code();
-        getNew_des_col_link().add_all_colorway_from_design_code();
-    }
+    
     
     public void view_all_job_order_details()
     {
@@ -43,7 +38,7 @@ public class Job_purchase_link_functions extends purchase_order{
             System.out.println("Job Order ID  : "+all_jobs.getJob_id());
             System.out.println("Customer ID   : "+all_jobs.getCustomer_id());
             System.out.println("Customer Name : "+all_jobs.getCustomer_name());
-            System.out.println("Quantity      : "+all_jobs.getQuantity());
+            //System.out.println("Quantity      : "+all_jobs.getQuantity());
         }
     }
    

@@ -20,7 +20,7 @@ public class job_order extends customer {
     private String job_id;
     private String date;
     private int customer_id;
-    private int quantity;
+    
     
     private ResultSet job_order_resultset;
 
@@ -82,19 +82,6 @@ public class job_order extends customer {
         this.customer_id = customer_id;
     }
 
-     /**
-     * @return the quantity
-     */
-    public int getQuantity() {
-        return quantity;
-    }
-
-    /**
-     * @param quantity the quantity to set
-     */
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
     
     public void add_new_job_order()
     {
@@ -143,7 +130,7 @@ public class job_order extends customer {
         System.out.println("Job Order ID  : "+this.getJob_id());
         System.out.println("Customer ID   : "+this.getCustomer_id());
         System.out.println("Customer Name : "+this.getCustomer_name());
-        System.out.println("Quantity      : "+this.getQuantity());
+        //System.out.println("Quantity      : "+this.getQuantity());
         System.out.println("Date          : "+this.getDate());
             
     }

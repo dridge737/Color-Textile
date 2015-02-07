@@ -16,7 +16,8 @@ import java.util.List;
 public class Design_colorway_link_functions extends design {
     
      private List<Colorway_screen_link_functions> all_colorways = new ArrayList<>();
-     
+
+     //Manual add
      public void add_colorway(Colorway_screen_link_functions this_color_screen_link)
      {
          getAll_colorways().add(this_color_screen_link);

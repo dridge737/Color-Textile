@@ -16,7 +16,8 @@ public class purchase_order {
     private int id_purchase;
     private String design_code;
     private String job_order_id;
-    
+    private int quantity;
+    private Design_colorway_link_functions new_des_col_link = new Design_colorway_link_functions();
     /**
      * @return the id_purchase
      */
@@ -69,7 +70,19 @@ public class purchase_order {
          return new_conn.add_purchase_order(this);
     }
     
-   
+    /**
+     * @return the quantity
+     */
+    public int getQuantity() {
+        return quantity;
+    }
+
+    /**
+     * @param quantity the quantity to set
+     */
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
     
     public ResultSet get_purchase_info_from_id_purchase(int purchase_id){
         DB_Manager new_conn = new DB_Manager();
@@ -100,6 +113,13 @@ public class purchase_order {
         Database.DB_Manager new_conn = new Database.DB_Manager();
         purchase_order temp_purchase = new_conn.get_purchase_details(id_purchase);
         this.design_code = temp_purchase.getDesign_code();
+    }
+    
+    public void set_design_details_from_design_code()
+    {
+        new_des_col_link.setDesign_code(design_code);
+        new_des_col_link.setDesign_details_from_des_code();
+        new_des_col_link.add_all_colorway_from_design_code();
     }
 
 }

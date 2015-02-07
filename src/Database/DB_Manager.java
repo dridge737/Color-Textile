@@ -98,10 +98,10 @@ public class DB_Manager {
             DBConnection db = new DBConnection();
             Connection conn = db.getConnection();
         
-            String query = "INSERT INTO purchase_order (design_code, job_order_id) VALUES (?, ?)";
+            String query = "INSERT INTO purchase_order (design_code, job_order_id, quantity) VALUES (?, ?, ?)";
             
             PreparedStatement preparedStmt = conn.prepareStatement(query);
-            //preparedStmt.setInt(1, new_purchase.getQuantity());
+            preparedStmt.setInt(1, new_purchase.getQuantity());
             preparedStmt.setString(2, new_purchase.getDesign_code());
             preparedStmt.setString(3, new_purchase.getJob_order_id());
             
@@ -188,10 +188,10 @@ public class DB_Manager {
             DBConnection db = new DBConnection();
             Connection conn = db.getConnection();
             
-            PreparedStatement ps = conn.prepareStatement("INSERT INTO design (design_code, design_name, color_name, fabric_style) VALUES (?, ?, ?, ?)");
+            PreparedStatement ps = conn.prepareStatement("INSERT INTO design (design_name, color_name, fabric_style) VALUES (?, ?, ?)");
             
             int item = 1;
-            ps.setString(item++, new_design.getDesign_code());
+            //ps.setString(item++, new_design.getDesign_code());
             ps.setString(item++, new_design.getDesign_name()); 
             ps.setString(item++, new_design.getColor_name());
             ps.setString(item++, new_design.getFabric_style());
@@ -223,8 +223,6 @@ public class DB_Manager {
                 preparedStmt.setString(2, new_job.getDate());
                 preparedStmt.setInt(3, new_job.getCustomer_id());
                 
-                
-
                 preparedStmt.execute();
                 return true;
             } catch (SQLException ex) {
@@ -964,7 +962,11 @@ public class DB_Manager {
             DBConnection db = new DBConnection();
             Connection conn = db.getConnection();  
           
-            PreparedStatement ps = conn.prepareStatement("SELECT * FROM purchase_order WHERE id_purchase = '"+purchase_id.getId_purchase()+"'");
+            PreparedStatement ps = conn.prepareStatement("SELECT * FROM purchase_order WHERE id_purchase = ?");
+            
+            int item = 1;
+            ps.setInt(item++, purchase_id.getId_purchase());
+            
             ResultSet rs = ps.executeQuery();
             
             return rs;
@@ -1033,6 +1035,7 @@ public class DB_Manager {
             DBConnection db = new DBConnection();
             Connection conn = db.getConnection(); 
             PreparedStatement ps = conn.prepareStatement("SELECT * FROM job_order WHERE id_purchase = ?");
+            
             int item = 1;
             ps.setInt(item++, purchase_id);
             
@@ -1051,8 +1054,7 @@ public class DB_Manager {
                 this_job.setCustomer_id(rs.getInt("customer_id"));                
                 this_job.setJob_id(rs.getString("job_order_id"));
                 this_job.setDate(rs.getString("date"));
-                this_job.setQuantity(rs.getInt("quantity"));
-                
+                //this_job.setQuantity(rs.getInt("quantity"));
                 
                 job_list.add(this_job);
             }
@@ -1063,7 +1065,6 @@ public class DB_Manager {
             }
             
             return job_list;
-            
         }
         catch(SQLException ex)
         {
