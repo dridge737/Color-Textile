@@ -57,4 +57,34 @@ public class production_recipe {
              jobs_for_this.get(x).set_customer_name_from_id();
         }
     }
+    
+    public String get_all_customers()
+    {
+        String all_customers = "";
+        //System.out.println("Number of customers is = "+jobs_for_this.size());
+        for(int x = 0 ; x < jobs_for_this.size(); x++)
+        {
+            //System.out.println("Customer name = " +jobs_for_this.get(x).getCustomer_name());
+            if(x == (jobs_for_this.size()-1))
+                all_customers += jobs_for_this.get(x).getCustomer_name();
+            else
+                all_customers += jobs_for_this.get(x).getCustomer_name() + ", ";
+                
+        }
+        return all_customers;
+    }
+    
+    public String get_all_job_id()
+    {
+        String all_job_order_id = "";
+        for(int x = 0 ; x < jobs_for_this.size(); x++)
+        {
+            if(x == (jobs_for_this.size()-1))
+                all_job_order_id += jobs_for_this.get(x).getJob_id();
+            else
+                all_job_order_id += jobs_for_this.get(x).getJob_id() + ", ";
+        }
+        //System.out.println(all_job_order_id);
+        return all_job_order_id;
+    }
 }

@@ -19,23 +19,6 @@ public class Job_purchase_link_functions extends job_order{
     
     //For job_order get job_order_list using purchase order
     //Using the purchase_order_id the job_order_list is taken
-    
-   
-    
-
-    /**
-     * @return the new_des_col_link
-     */
-    public Design_colorway_link_functions getNew_des_col_link() {
-        return new_des_col_link;
-    }
-
-    /**
-     * @param new_des_col_link the new_des_col_link to set
-     */
-    public void setNew_des_col_link(Design_colorway_link_functions new_des_col_link) {
-        this.new_des_col_link = new_des_col_link;
-    }
    
     public String get_all_quantity()
     {
@@ -50,6 +33,7 @@ public class Job_purchase_link_functions extends job_order{
         }
         return quantity_all;
     }
+    
     public int get_quantity_sum()
     {
         int quantity_sum = 0;
@@ -62,34 +46,5 @@ public class Job_purchase_link_functions extends job_order{
     }
     
     
-    public String get_all_customers()
-    {
-        String all_customers = "";
-        //System.out.println("Number of customers is = "+jobs_for_this.size());
-        for(int x = 0 ; x < jobs_for_this.size(); x++)
-        {
-            //System.out.println("Customer name = " +jobs_for_this.get(x).getCustomer_name());
-            if(x == (jobs_for_this.size()-1))
-                all_customers += jobs_for_this.get(x).getCustomer_name();
-            else
-                all_customers += jobs_for_this.get(x).getCustomer_name() + ", ";
-                
-        }
-        return all_customers;
-    }
-    
-    public String get_all_job_id()
-    {
-        String all_job_order_id = "";
-        for(int x = 0 ; x < jobs_for_this.size(); x++)
-        {
-            if(x == (jobs_for_this.size()-1))
-                all_job_order_id += jobs_for_this.get(x).getJob_id();
-            else
-                all_job_order_id += jobs_for_this.get(x).getJob_id() + ", ";
-        }
-        //System.out.println(all_job_order_id);
-        return all_job_order_id;
-    }
     
 }
