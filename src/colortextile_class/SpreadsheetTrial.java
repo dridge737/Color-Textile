@@ -45,8 +45,9 @@ public class SpreadsheetTrial {
     /**
      * @param this_purchase
      */
-    public void print_this_job(Job_purchase_link_functions this_purchase){
+    public void print_this_job(Job_purchase_link_functions this_purchase, production_recipe for_production){
         // TODO code application logic here
+        
          
         try {
            
