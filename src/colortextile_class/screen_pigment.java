@@ -58,6 +58,12 @@ public class screen_pigment extends pigment implements Comparable<screen_pigment
         return false;
     }
     
+    public int check_screen_pigment_exists()
+    {
+        DB_Manager new_conn = new DB_Manager();
+        return new_conn.check_if_id_screen_exists(this.getPigment_no(), pigment_percentage);
+    }
+    
     public boolean get_screen_pigment_id_from_pigment_no_and_pigment_percentage()
     {
         DB_Manager new_conn = new DB_Manager();

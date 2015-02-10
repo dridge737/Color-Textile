@@ -61,13 +61,20 @@ public class DB_Manager {
         try {
              PreparedStatement ps = 
                      conn.prepareStatement("INSERT INTO screen_pigment (pigment_no, pigment_percentage) "
-                                            + "VALUES (?,?)");
+                                            + "SELECT ?, ? FROM DUAL"
+                                            + "WHERE NOT EXISTS "
+                                            + "(SELECT 1 FROM screen_pigment "
+                                            + " WHERE pigment_no = ? AND pigment_percentage = ?");
         
         int item = 1;
         
         ps.setInt(item++, new_screen_pigment.getPigment_no());
         ps.setFloat(item++, new_screen_pigment.getPigment_percentage());
+        ps.setInt(item++, new_screen_pigment.getPigment_no());
+        ps.setFloat(item++, new_screen_pigment.getPigment_percentage());
         ps.executeUpdate();
+        
+        ps.ex
         return true;
         } catch (SQLException ex) {
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
@@ -292,6 +299,37 @@ public class DB_Manager {
         }
     
         return -1;
+    }
+    
+    public int check_if_id_screen_exists(int pigment_no, float pigment_percentage)
+    {
+         try{
+            DBConnection db = new DBConnection();
+            Connection conn = db.getConnection();
+            
+            PreparedStatement ps = 
+            conn.prepareStatement("SELECT EXISTS (SELECT id_screen "
+                                + "FROM screen_pigment "
+                                + "WHERE pigment_no = ? "
+                                + "AND pigment_percentage BETWEEN ? AND ?) "
+                                + " AS CheckTest");
+                    
+                    
+            int item = 1;
+            ps.setInt(item++, pigment_no);
+            ps.setFloat(item++, pigment_percentage);
+            ps.setFloat(item++, pigment_percentage);
+            ResultSet rs = ps.executeQuery();
+            
+            rs.first();
+            return rs.getInt("CheckTest");
+            
+        }
+        catch(SQLException ex){
+            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return 0;
     }
     
     public int get_id_screen(int pigment_no, float pigment_percentage)

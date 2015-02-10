@@ -16,12 +16,15 @@ public class production_recipe{
     
      private String Date;
      private int design_code;
-     private List<Job_purchase_link_functions> jobs_for_this = new ArrayList<>();
+     private List<job_order> jobs_for_this = new ArrayList<>();
+     private List<purchase_order> all_purchase = new ArrayList<>();
      
      public void set_job_order_list_using_date_and_design_code()
     {
         Database.DB_Manager new_conn = new Database.DB_Manager();
         //GET all the job_order_id from the Date and design_code
+        purchase_order = new_conn.get_all_purchase_details_from_date_and_design(Date, design_code);
+        
         //new_conn.get_all_job_order_from_date_and_design(Date, design_code);
         //Get the List of job order from the purchase order id
         //setJobs_for_this(new_conn.set_job_order_info_from_purchase_id(this.getId_purchase()));
@@ -42,14 +45,14 @@ public class production_recipe{
     /**
      * @return the jobs_for_this
      */
-    public List<Job_purchase_link_functions> getJobs_for_this() {
+    public List<job_order> getJobs_for_this() {
         return jobs_for_this;
     }
 
     /**
      * @param jobs_for_this the jobs_for_this to set
      */
-    public void setJobs_for_this(List<Job_purchase_link_functions> jobs_for_this) {
+    public void setJobs_for_this(List<job_order> jobs_for_this) {
         this.jobs_for_this = jobs_for_this;
         set_customer_name_for_jobs();
     }
@@ -90,5 +93,33 @@ public class production_recipe{
         }
         //System.out.println(all_job_order_id);
         return all_job_order_id;
+    }
+
+    /**
+     * @return the Date
+     */
+    public String getDate() {
+        return Date;
+    }
+
+    /**
+     * @param Date the Date to set
+     */
+    public void setDate(String Date) {
+        this.Date = Date;
+    }
+
+    /**
+     * @return the design_code
+     */
+    public int getDesign_code() {
+        return design_code;
+    }
+
+    /**
+     * @param design_code the design_code to set
+     */
+    public void setDesign_code(int design_code) {
+        this.design_code = design_code;
     }
 }
