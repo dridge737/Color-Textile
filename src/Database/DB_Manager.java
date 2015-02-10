@@ -936,6 +936,57 @@ public class DB_Manager {
         
     }
     
+    public ArrayList<purchase_order> get_all_purchase_details_from_date_and_design(String date, int des_code)
+    {
+        try
+        {
+            DBConnection db = new DBConnection();
+            Connection conn = db.getConnection(); 
+            
+            PreparedStatement ps = 
+                    conn.prepareStatement("SELECT jo.job_order_id, date, customer_id, id_purchase, quantity, design_code "
+                    + " FROM puchase_order AS po, "
+                    + "     job_order jo "
+                    + " WHERE jo.job_order_id = po.job_order_id"
+                    + " AND date = ? "
+                    + " AND design_code = ?");
+            
+            int item = 1;
+            ps.setString(item++, date);
+            ps.setInt(item++, des_code);
+            
+            ResultSet rs = ps.executeQuery();
+            
+            List<purchase_order> all_purchase_this_job = new ArrayList<purchase_order>();
+            
+             while(rs.next())
+            {
+                purchase_order this_purchase = new purchase_order();
+                
+                //FOR Debugging this all the purchase order
+                //System.out.println("Purchase id = "+ rs.getInt("id_purchase"));
+                //System.out.println("Job Order = "+ rs.getString("job_order_id"));
+                //System.out.println("Design code= "+ rs.getInt("design_code"));
+                //System.out.println("Quantity = " +rs.getInt("quantity"));
+                
+                this_purchase.setQuantity(rs.getInt("quantity"));
+                this_purchase.setDesign_code(rs.getInt("design_code"));
+                this_purchase.setJob_order_id(rs.getString("job_order_id"));
+                this_purchase.setId_purchase(rs.getInt("id_purchase"));
+                
+                all_purchase_this_job.add(this_purchase);
+            }
+            
+        }
+        catch(SQLException ex)
+        {
+            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return null;
+    }
+    
+    
     public ArrayList<purchase_order> get_all_purchase_for_this_job_order(colortextile_class.job_order this_job_order)
     {
         try{

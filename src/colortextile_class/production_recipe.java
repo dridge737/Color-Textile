@@ -12,13 +12,17 @@ import java.util.List;
  *
  * @author Eldridge
  */
-public class production_recipe {
+public class production_recipe{
+    
+     private String Date;
+     private int design_code;
      private List<Job_purchase_link_functions> jobs_for_this = new ArrayList<>();
      
-     
-     public void set_job_order_list_using_job_order_and_design_code()
+     public void set_job_order_list_using_date_and_design_code()
     {
         Database.DB_Manager new_conn = new Database.DB_Manager();
+        //GET all the job_order_id from the Date and design_code
+        //new_conn.get_all_job_order_from_date_and_design(Date, design_code);
         //Get the List of job order from the purchase order id
         //setJobs_for_this(new_conn.set_job_order_info_from_purchase_id(this.getId_purchase()));
     }

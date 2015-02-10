@@ -30,13 +30,11 @@ public class Job_purchase_link_functions extends job_order{
     public void view_all_puchase_order()
      {
          
-        for(int x = 0; x < all_purchase.size(); x++ )
-        {
-            System.out.println("Purchase id = "+ all_purchase.get(x).getId_purchase());
-            System.out.println("Job Order = "+ all_purchase.get(x).getJob_order_id());
-            System.out.println("Design code= "+ all_purchase.get(x).getDesign_code());
-            System.out.println("Quantity = " +all_purchase.get(x).getQuantity());
-        
+        for (purchase_order all_purchase1 : all_purchase) {
+            System.out.println("Purchase id = " + all_purchase1.getId_purchase());
+            System.out.println("Job Order = " + all_purchase1.getJob_order_id());
+            System.out.println("Design code= " + all_purchase1.getDesign_code());
+            System.out.println("Quantity = " + all_purchase1.getQuantity());
         }
      }
     
