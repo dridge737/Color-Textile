@@ -102,7 +102,7 @@ public class DB_Manager {
             
             PreparedStatement preparedStmt = conn.prepareStatement(query);
             preparedStmt.setInt(1, new_purchase.getQuantity());
-            preparedStmt.setString(2, new_purchase.getDesign_code());
+            preparedStmt.setInt(2, new_purchase.getDesign_code());
             preparedStmt.setString(3, new_purchase.getJob_order_id());
             
             preparedStmt.execute();
@@ -323,7 +323,7 @@ public class DB_Manager {
         return -1;
     }
     
-    public List<Colorway_screen_link_functions> set_all_colorway_from_design_code(String this_design_code)
+    public List<Colorway_screen_link_functions> set_all_colorway_from_design_code(int this_design_code)
     {
         try{
             DBConnection db = new DBConnection();
@@ -338,7 +338,7 @@ public class DB_Manager {
                                     + " WHERE design_code = ?) ");
             
             int item = 1;
-            ps.setString(item++, this_design_code);
+            ps.setInt(item++, this_design_code);
             
             List<Colorway_screen_link_functions> all_color_screen = new ArrayList<>();
             
@@ -529,7 +529,7 @@ public class DB_Manager {
         return -1;
     }
     
-    public design set_design_details_from_des_code(String code_design)
+    public design set_design_details_from_des_code(int code_design)
     {
         try{
             DBConnection db = new DBConnection();
@@ -538,7 +538,7 @@ public class DB_Manager {
             PreparedStatement ps = 
             conn.prepareStatement("SELECT * FROM design WHERE design_code = ?");
             int item = 1;
-            ps.setString(item++, code_design);
+            ps.setInt(item++, code_design);
             
             ResultSet rs = ps.executeQuery();
             
@@ -563,7 +563,7 @@ public class DB_Manager {
     }
     
     
-    public String get_design_code(colortextile_class.design new_design)
+    public int get_design_code(colortextile_class.design new_design)
     {
         try{
             DBConnection db = new DBConnection();
@@ -576,7 +576,7 @@ public class DB_Manager {
             ResultSet rs = ps.executeQuery();
             if(rs.first())
             {
-                String design_code = rs.getString("design_code");
+                int design_code = rs.getInt("design_code");
                 return design_code;
             }
             
@@ -585,7 +585,7 @@ public class DB_Manager {
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        return null;
+        return -1;
     }
     
     public int get_id_design_colorway(colortextile_class.design_colorway new_des_color)
@@ -936,8 +936,51 @@ public class DB_Manager {
         
     }
     
-    public ResultSet get_all_job_order(colortextile_class.job_order job_order){
+    public ArrayList<purchase_order> get_all_purchase_for_this_job_order(colortextile_class.job_order this_job_order)
+    {
+        try{
+            DBConnection db = new DBConnection();
+            Connection conn = db.getConnection(); 
+            
+            PreparedStatement ps = conn.prepareStatement("SELECT * FROM puchase_order WHERE job_order_id = ?");
+            
+            int item = 1;
+            ps.setString(item++, this_job_order.getJob_id());
+            
+            ResultSet rs = ps.executeQuery();
+            
+            List<purchase_order> all_purchase_this_job = new ArrayList<purchase_order>();
+            
+            while(rs.next())
+            {
+                purchase_order this_purchase = new purchase_order();
+                
+                //FOR Debugging this all the purchase order
+                //System.out.println("Purchase id = "+ rs.getInt("id_purchase"));
+                //System.out.println("Job Order = "+ rs.getString("job_order_id"));
+                //System.out.println("Design code= "+ rs.getInt("design_code"));
+                //System.out.println("Quantity = " +rs.getInt("quantity"));
+                
+                this_purchase.setQuantity(rs.getInt("quantity"));
+                this_purchase.setDesign_code(rs.getInt("design_code"));
+                this_purchase.setJob_order_id(this_job_order.getJob_id());
+                this_purchase.setId_purchase(rs.getInt("id_purchase"));
+                
+                all_purchase_this_job.add(this_purchase);
+            }
+            
+        }
+        catch(SQLException ex)
+        {
+            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
+        return null;
+    }
+    
+    
+    public ResultSet get_all_job_order(colortextile_class.job_order job_order)
+    {
         try
         {
           DBConnection db = new DBConnection();
@@ -990,11 +1033,12 @@ public class DB_Manager {
             int item = 1;
             ps.setString(item++, job_order_id);
             ResultSet rs = ps.executeQuery();
+            
             if(rs.first())
             {
-            this_job.setJob_id(job_order_id);
-            this_job.setCustomer_id(rs.getInt("customer_id"));
-            this_job.setDate(rs.getString("date"));
+                this_job.setJob_id(job_order_id);
+                this_job.setCustomer_id(rs.getInt("customer_id"));
+                this_job.setDate(rs.getString("date"));
             
             }
             
@@ -1045,12 +1089,12 @@ public class DB_Manager {
             while(rs.next())
             {
                 job_order this_job = new job_order();
-                
+                /*
                 //FOR Debugging this job
                 //System.out.println("Customer id = "+ rs.getInt("customer_id"));
                 //System.out.println("Job Order = "+ rs.getString("job_order_id"));
                 //System.out.println("Quantity = " +rs.getInt("quantity"));
-                
+                */
                 this_job.setCustomer_id(rs.getInt("customer_id"));                
                 this_job.setJob_id(rs.getString("job_order_id"));
                 this_job.setDate(rs.getString("date"));
@@ -1151,7 +1195,7 @@ public class DB_Manager {
             
             int item = 1;
             //ps.setInt(item++, new_purchase.getQuantity());
-            ps.setString(item++, new_purchase.getDesign_code());
+            ps.setInt(item++, new_purchase.getDesign_code());
             ps.setString(item++, new_purchase.getJob_order_id());
             /* 
             System.out.println("Date :" +new_purchase.getDate());
@@ -1194,7 +1238,7 @@ public class DB_Manager {
             if(rs.first())
             {
                 //current_purchase.setQuantity(rs.getInt("quantity"));
-                current_purchase.setDesign_code(rs.getString("design_code"));
+                current_purchase.setDesign_code(rs.getInt("design_code"));
                 current_purchase.setJob_order_id(rs.getString("job_order_id"));
             
                 return current_purchase;
@@ -1319,10 +1363,10 @@ public class DB_Manager {
           DBConnection db = new DBConnection();
           Connection conn = db.getConnection();  
           
-          String sql ="SELECT * FROM purchase_order WHERE";
+          String sql = "SELECT * FROM purchase_order WHERE";
           int increment = 0;
           
-          if (purchase.getDesign_code() != null){
+          if (purchase.getDesign_code() != -1){
               sql = sql + " design_code = '"+purchase.getId_purchase()+"'";
               increment++;
           } 
@@ -1347,7 +1391,7 @@ public class DB_Manager {
               increment++;
           }
           */
-          if (purchase.getDesign_code()!= null){
+          if (purchase.getDesign_code()!= -1){
               
               if(increment > 0)
               { sql = sql + " AND";
@@ -1468,7 +1512,7 @@ public class DB_Manager {
               increment++;
           } 
           System.out.println(sql);
-          if (design.getDesign_code()!= null){
+          if (design.getDesign_code()!= -1){
               if(increment > 0)
               { sql = sql + " AND";
               }
@@ -1540,7 +1584,7 @@ public class DB_Manager {
            ps.setString(item++, this_design.getDesign_name());
            ps.setString(item++, this_design.getColor_name());
            ps.setString(item++, this_design.getFabric_style());
-           ps.setString(item++, this_design.getDesign_code());
+           ps.setInt(item++, this_design.getDesign_code());
           
           ps.executeUpdate();
           

@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package colortextile_form;
+package forms;
 import Database.DB_Manager;
 import colortextile_class.*;
 import java.awt.Color;
@@ -594,7 +594,7 @@ public class EditRecipe2 extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jCheckBox2);
-        jCheckBox2.setBounds(670, 0, 63, 25);
+        jCheckBox2.setBounds(670, 0, 61, 25);
 
         jLabel11.setBackground(new java.awt.Color(255, 255, 255));
         jLabel11.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
@@ -1651,7 +1651,7 @@ public class EditRecipe2 extends javax.swing.JFrame {
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Screens");
         jPanel11.add(jLabel8);
-        jLabel8.setBounds(62, 11, 150, 38);
+        jLabel8.setBounds(62, 11, 150, 39);
 
         add_order1.setBackground(new java.awt.Color(255, 255, 255));
         add_order1.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
@@ -1704,7 +1704,7 @@ public class EditRecipe2 extends javax.swing.JFrame {
         jLabel5.setText("m");
         jLabel5.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         jPanel16.add(jLabel5);
-        jLabel5.setBounds(705, 120, 13, 34);
+        jLabel5.setBounds(705, 120, 11, 34);
 
         jLabel13.setBackground(new java.awt.Color(255, 255, 255));
         jLabel13.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
@@ -1713,7 +1713,7 @@ public class EditRecipe2 extends javax.swing.JFrame {
         jLabel13.setText("m");
         jLabel13.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         jPanel16.add(jLabel13);
-        jLabel13.setBounds(388, 120, 13, 34);
+        jLabel13.setBounds(388, 120, 11, 34);
 
         quantity.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         quantity.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -1786,10 +1786,10 @@ public class EditRecipe2 extends javax.swing.JFrame {
             }
         });
         text_job_order.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+            }
             public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
                 text_job_orderInputMethodTextChanged(evt);
-            }
-            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
             }
         });
         text_job_order.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -1811,7 +1811,7 @@ public class EditRecipe2 extends javax.swing.JFrame {
             }
         });
         jPanel16.add(jCheckBox1);
-        jCheckBox1.setBounds(340, 50, 59, 20);
+        jCheckBox1.setBounds(340, 50, 57, 20);
 
         text_name.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
         jPanel16.add(text_name);

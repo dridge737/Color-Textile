@@ -15,7 +15,7 @@ import java.util.ArrayList;
  * @author Eldridge
  */
 public class design extends fabric_style{
-    private String design_code;
+    private int design_code;
     private String design_name;
     private String color_name;
     private String fabric_style;
@@ -25,14 +25,14 @@ public class design extends fabric_style{
     /**
      * @return the design_code
      */
-    public String getDesign_code() {
+    public int getDesign_code() {
         return design_code;
     }
 
     /**
      * @param design_code the design_code to set
      */
-    public void setDesign_code(String the_design_code) {
+    public void setDesign_code(int the_design_code) {
         this.design_code = the_design_code;
     }
 
@@ -88,8 +88,8 @@ public class design extends fabric_style{
     public boolean get_design_code_using_variables()
     {
         Database.DB_Manager new_conn = new Database.DB_Manager();
-        String temp_design_code = new_conn.get_design_code(this);
-        if(temp_design_code != null)
+        int temp_design_code = new_conn.get_design_code(this);
+        if(temp_design_code != -1)
         {
             this.design_code = temp_design_code;
             return true;

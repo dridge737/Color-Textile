@@ -14,7 +14,7 @@ import java.sql.ResultSet;
  */
 public class purchase_order {
     private int id_purchase;
-    private String design_code;
+    private int design_code;
     private String job_order_id;
     private int quantity;
     private Design_colorway_link_functions new_des_col_link = new Design_colorway_link_functions();
@@ -35,14 +35,14 @@ public class purchase_order {
     /**
      * @return the design_code
      */
-    public String getDesign_code() {
+    public int getDesign_code() {
         return design_code;
     }
 
     /**
      * @param design_code the design_code to set
      */
-    public void setDesign_code(String design_code) {
+    public void setDesign_code(int design_code) {
         this.design_code = design_code;
     }
 

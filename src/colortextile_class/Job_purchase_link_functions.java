@@ -20,6 +20,26 @@ public class Job_purchase_link_functions extends job_order{
     //For job_order get job_order_list using purchase order
     //Using the purchase_order_id the job_order_list is taken
    
+    //Add all designs purchased from this job order
+    public void add_all_purchase_order()
+    {
+        Database.DB_Manager new_conn = new Database.DB_Manager();
+        all_purchase = new_conn.get_all_purchase_for_this_job_order(this);
+    }
+    
+    public void view_all_puchase_order()
+     {
+         
+        for(int x = 0; x < all_purchase.size(); x++ )
+        {
+            System.out.println("Purchase id = "+ all_purchase.get(x).getId_purchase());
+            System.out.println("Job Order = "+ all_purchase.get(x).getJob_order_id());
+            System.out.println("Design code= "+ all_purchase.get(x).getDesign_code());
+            System.out.println("Quantity = " +all_purchase.get(x).getQuantity());
+        
+        }
+     }
+    
     public String get_all_quantity()
     {
         String quantity_all = "";

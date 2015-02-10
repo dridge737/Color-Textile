@@ -500,7 +500,7 @@ public class Add_new_design extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jCheckBox2);
-        jCheckBox2.setBounds(650, 200, 63, 25);
+        jCheckBox2.setBounds(650, 200, 61, 25);
 
         jLabel11.setBackground(new java.awt.Color(255, 255, 255));
         jLabel11.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
@@ -516,7 +516,7 @@ public class Add_new_design extends javax.swing.JFrame {
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel4.setText("Design Colorway :");
         jPanel1.add(jLabel4);
-        jLabel4.setBounds(56, 260, 138, 34);
+        jLabel4.setBounds(56, 260, 127, 34);
 
         jPanel16.setBackground(new java.awt.Color(51, 51, 51));
         jPanel16.setOpaque(false);
@@ -549,7 +549,7 @@ public class Add_new_design extends javax.swing.JFrame {
         jLabel5.setText("m");
         jLabel5.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         jPanel16.add(jLabel5);
-        jLabel5.setBounds(705, 120, 13, 34);
+        jLabel5.setBounds(705, 120, 11, 34);
 
         jLabel13.setBackground(new java.awt.Color(255, 255, 255));
         jLabel13.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
@@ -558,7 +558,7 @@ public class Add_new_design extends javax.swing.JFrame {
         jLabel13.setText("m");
         jLabel13.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         jPanel16.add(jLabel13);
-        jLabel13.setBounds(388, 120, 13, 34);
+        jLabel13.setBounds(388, 120, 11, 34);
 
         quantity.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         quantity.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -657,7 +657,7 @@ public class Add_new_design extends javax.swing.JFrame {
             }
         });
         jPanel16.add(jCheckBox1);
-        jCheckBox1.setBounds(340, 50, 59, 20);
+        jCheckBox1.setBounds(340, 50, 57, 20);
 
         text_name.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
         jPanel16.add(text_name);
@@ -2093,11 +2093,11 @@ public class Add_new_design extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null,"Successfully Added this Recipe");
         
         
-        this.this_purchase.setPurchase_Id_from_Date_and_code();
+        //this.this_purchase.setPurchase_Id_from_Date_and_code();
         //this.this_purchase.set_design_details_from_purchase_order_id();
-        this.this_purchase.set_job_order_list_using_purchase_order_id();
+        //this.this_purchase.set_job_order_list_using_purchase_order_id();
         SpreadsheetTrial printFile = new SpreadsheetTrial();
-        printFile.print_this_job(this_purchase);
+        //printFile.print_this_job(this_purchase);
         
     }//GEN-LAST:event_add_orderActionPerformed
     

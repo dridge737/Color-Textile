@@ -20,17 +20,19 @@ public class Design_colorway_link_functions extends design {
      //Manual add
      public void add_colorway(Colorway_screen_link_functions this_color_screen_link)
      {
-         getAll_colorways().add(this_color_screen_link);
+         this.getAll_colorways().add(this_color_screen_link);
      }
      
      public void add_all_colorway_from_design_code()
      {
          Database.DB_Manager new_conn = new Database.DB_Manager();
-         setAll_colorways(new_conn.set_all_colorway_from_design_code(this.getDesign_code()));
+         //Subclass
+         this.setAll_colorways(new_conn.set_all_colorway_from_design_code(this.getDesign_code()));
          
          for(int x = 0; x < getAll_colorways().size(); x++ )
          {
-             getAll_colorways().get(x).add_all_screens_from_colorway();
+             //Subclass
+             this.getAll_colorways().get(x).add_all_screens_from_colorway();
          }
          Collections.sort(all_colorways);
          
@@ -45,7 +47,7 @@ public class Design_colorway_link_functions extends design {
          
          for(int x = 0; x < getAll_colorways().size(); x++ )
          {
-             getAll_colorways().get(x).view_all_screen_pigment_details();
+             this.getAll_colorways().get(x).view_all_screen_pigment_details();
          }
      }
 
