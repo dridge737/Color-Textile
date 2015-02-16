@@ -100,7 +100,7 @@ public class SearchJOGui extends javax.swing.JFrame {
                 ResultSet rs2 = info.get_purchase_info_from_id_purchase(rs.getInt("id_purchase"));
                 
                 if(rs2.first()){
-                             design_conn.setDesign_code(rs2.getString("design_code"));
+                            // design_conn.setDesign_code(rs2.getString("design_code"));
                             ResultSet rs3 = design_conn.search_design();
                             
                             if (rs3.first()){
@@ -419,7 +419,7 @@ public class SearchJOGui extends javax.swing.JFrame {
         
         SimpleDateFormat formater = new SimpleDateFormat("yyyy/MM/dd");
                 String spinnerValuefrom = formater.format(this.spinner_from.getValue());
-                String spinnerValueto = formater.format(this.spinner_to.getValue());
+                //String spinnerValueto = formater.format(this.spinner_to.getValue());
                
         
        jobsearch.setCustomer_id(id.get_id_customer(this.combo_customer.getSelectedItem().toString()));
@@ -442,7 +442,7 @@ public class SearchJOGui extends javax.swing.JFrame {
         }
         
         if (!(this.text_design_code.getText().trim().equals(""))){
-            purchasesearch.setDesign_code(this.text_design_code.getText());
+            //purchasesearch.setDesign_code(this.text_design_code.getText());
             filltype = false;
         }
         
