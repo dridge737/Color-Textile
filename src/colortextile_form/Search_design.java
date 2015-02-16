@@ -294,7 +294,7 @@ public class Search_design extends javax.swing.JFrame {
         
         
         design design_conn = new design();
-        design_conn.setDesign_code(get_design_code_from_table_selected());
+     //   design_conn.setDesign_code(get_design_code_from_table_selected());
         design_conn.get_picture_from_design_code();
         Blob blob = design_conn.getDesign_image();
         

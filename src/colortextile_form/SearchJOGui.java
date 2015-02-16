@@ -58,7 +58,7 @@ public class SearchJOGui extends javax.swing.JFrame {
         }
         
         this.spinner_from.setEnabled(false);
-        this.spinner_to.setEnabled(false);
+        //this.spinner_to.setEnabled(false);
         
         job_order set = new job_order();
         fill_table(set.job_order_all());
@@ -80,13 +80,16 @@ public class SearchJOGui extends javax.swing.JFrame {
         
         DB_Manager conn= new DB_Manager();
         purchase_order info = new purchase_order();
+        
         design design_conn = new design();
         DefaultTableModel model = new DefaultTableModel();
+        
+        
         model.addColumn("Job Order");
         model.addColumn("Customer Name");
-        model.addColumn("Quantity");
         model.addColumn("date");
-        model.addColumn("Design Code");
+        model.addColumn("Quantity");
+        //model.addColumn("Design Code");
         model.addColumn("Design Name");
         model.addColumn("Colorway Name");
         model.addColumn("Fabric Style");
@@ -100,43 +103,36 @@ public class SearchJOGui extends javax.swing.JFrame {
                 ResultSet rs2 = info.get_purchase_info_from_id_purchase(rs.getInt("id_purchase"));
                 
                 if(rs2.first()){
-                            // design_conn.setDesign_code(rs2.getString("design_code"));
+                             design_conn.setDesign_code(rs2.getInt("design_code"));
                             ResultSet rs3 = design_conn.search_design();
                             
                             if (rs3.first()){
                                 
-                                String[] set1 = {   rs.getString("job_order_id"), 
+                    String[] set1 = {   
+                                    rs.getString("job_order_id"), 
                                     conn.get_customer_name(rs.getInt("customer_id")),
+                                    rs2.getString("date"),
                                     rs.getString("quantity"),
-                                   rs2.getString("date"),
-                                   rs2.getString("design_code"),
-                                rs3.getString("design_name"),
-                                rs3.getString("color_name"),
-                                rs3.getString("fabric_style")};
-                                model.addRow(set1);
+                                   
+                                  // rs2.getString("design_code"),
+                                    rs3.getString("design_name"),
+                                    rs3.getString("color_name"),
+                                    rs3.getString("fabric_style")};
+                                
+                                    model.addRow(set1);
                                 
                             } else {
                             
-                   String[] set1 = {   rs.getString("job_order_id"), 
+                    String[] set1 = {   
+                                    rs.getString("job_order_id"), 
                                     conn.get_customer_name(rs.getInt("customer_id")),
+                                    rs2.getString("date"),
                                     rs.getString("quantity"),
-                                   rs2.getString("date"),
-                                   rs2.getString("design_code")};
+                                    rs2.getString("design_code")};
                    
-                   
-                   
-                               
-                   model.addRow(set1);
+                                    model.addRow(set1);
                             }
-                  
-                            
-                            
-                                  
-                           
-                                
-                            
-                               
-            
+                
                 } else {
                     
                    String[] set1 = {   rs.getString("job_order_id"), 
@@ -145,7 +141,7 @@ public class SearchJOGui extends javax.swing.JFrame {
                    };
                                    
                
-                               model.addRow(set1);
+                                    model.addRow(set1);
              
                 }
                 }
@@ -265,7 +261,7 @@ public class SearchJOGui extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel3.setText("Date From :");
+        jLabel3.setText("Date :");
         getContentPane().add(jLabel3);
         jLabel3.setBounds(20, 137, 140, 21);
 
@@ -419,7 +415,6 @@ public class SearchJOGui extends javax.swing.JFrame {
         
         SimpleDateFormat formater = new SimpleDateFormat("yyyy/MM/dd");
                 String spinnerValuefrom = formater.format(this.spinner_from.getValue());
-                //String spinnerValueto = formater.format(this.spinner_to.getValue());
                
         
        jobsearch.setCustomer_id(id.get_id_customer(this.combo_customer.getSelectedItem().toString()));
@@ -462,10 +457,10 @@ public class SearchJOGui extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(this.jCheckBox1.isSelected()){
             this.spinner_from.setEnabled(true);
-            this.spinner_to.setEnabled(true);
+            
         } else {
             this.spinner_from.setEnabled(false);
-            this.spinner_to.setEnabled(false);
+            
         }
         
     }//GEN-LAST:event_jCheckBox1ActionPerformed

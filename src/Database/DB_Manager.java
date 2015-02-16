@@ -74,7 +74,7 @@ public class DB_Manager {
         ps.setFloat(item++, new_screen_pigment.getPigment_percentage());
         ps.executeUpdate();
         
-        
+
         return true;
         } catch (SQLException ex) {
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
