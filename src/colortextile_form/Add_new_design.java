@@ -516,7 +516,7 @@ public class Add_new_design extends javax.swing.JFrame {
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel4.setText("Design Colorway :");
         jPanel1.add(jLabel4);
-        jLabel4.setBounds(56, 260, 127, 34);
+        jLabel4.setBounds(40, 258, 153, 34);
 
         jPanel16.setBackground(new java.awt.Color(51, 51, 51));
         jPanel16.setOpaque(false);
