@@ -47,7 +47,7 @@ public class SpreadsheetTrial {
      */
     public void print_this_job(Job_purchase_link_functions this_purchase, production_recipe for_production){
         // TODO code application logic here
-        
+        /*
          
         try {
            
@@ -130,7 +130,7 @@ public class SpreadsheetTrial {
             e.printStackTrace();
         }
         
-        
+        */
     }
     private static Map<String, String> createMap2(Colorway_screen_link_functions this_color_screen)
     {

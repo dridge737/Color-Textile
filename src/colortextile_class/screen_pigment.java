@@ -50,7 +50,7 @@ public class screen_pigment extends pigment implements Comparable<screen_pigment
     public boolean add_new_screen_pigment()
     {
         DB_Manager new_conn = new DB_Manager();
-        if(!get_screen_pigment_id_from_pigment_no_and_pigment_percentage())
+        if(!check_screen_pigment_exists())
         {
             new_conn.add_screen_pigment(this);
             return true;
@@ -58,10 +58,13 @@ public class screen_pigment extends pigment implements Comparable<screen_pigment
         return false;
     }
     
-    public int check_screen_pigment_exists()
+    public boolean check_screen_pigment_exists()
     {
         DB_Manager new_conn = new DB_Manager();
-        return new_conn.check_if_id_screen_exists(this.getPigment_no(), pigment_percentage);
+        if(new_conn.check_if_id_screen_exists(this) == 0)
+            return false;
+        
+        return true;
     }
     
     public boolean get_screen_pigment_id_from_pigment_no_and_pigment_percentage()

@@ -89,7 +89,26 @@ public class pigment {
     public void get_pigment_name_from_id()
     {
         DB_Manager newDbManager = new DB_Manager();
-        pigment_name = newDbManager.get_pigment_name(pigment_no);
+        pigment_name = newDbManager.get_pigment_name(pigment_no); 
+    }
+    
+    public boolean add_pigment()
+    {
+        DB_Manager new_conn = new DB_Manager();
+        if(!check_pigment_exists())
+            return new_conn.add_pigment(this);
+        
+        return false;
+        
+    }
+    
+    public boolean check_pigment_exists()
+    {
+        DB_Manager new_conn = new DB_Manager();
+        if(new_conn.check_if_pigment_exists(this) == 0)
+            return false;
+        
+        return true;
         
     }
             

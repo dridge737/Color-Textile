@@ -74,12 +74,58 @@ public class DB_Manager {
         ps.setFloat(item++, new_screen_pigment.getPigment_percentage());
         ps.executeUpdate();
         
-        ps.ex
+        
         return true;
         } catch (SQLException ex) {
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
         }
         return false;
+    }
+    
+    public boolean add_pigment(colortextile_class.pigment this_pigment)
+    {
+        try {
+            DBConnection db = new DBConnection();
+            Connection conn = db.getConnection();
+
+            PreparedStatement ps = conn.prepareStatement("INSERT INTO pigment(pigment_name) VALUES (?)");
+
+            int item = 1;
+            ps.setString(item++, this_pigment.getPigment_name());
+
+            ps.executeUpdate();
+            
+            return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
+    
+    public int check_if_pigment_exists(colortextile_class.pigment this_pigment)
+    {
+        try {
+            DBConnection db = new DBConnection();
+            Connection conn = db.getConnection();
+
+            PreparedStatement ps = conn.prepareStatement("SELECT EXISTS "
+                    + " (SELECT pigment_no "
+                    + " FROM pigment WHERE "
+                    + " pigment_name = ?) "
+                    + " AS 'CheckTest'");
+
+            int item = 1;
+            ps.setString(item++, this_pigment.getPigment_name());
+
+            ResultSet rs = ps.executeQuery();
+            
+            rs.first();
+            return rs.getInt("CheckTest");
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return 0;
     }
     
     public boolean add_customer(colortextile_class.customer new_customer) {
@@ -301,7 +347,7 @@ public class DB_Manager {
         return -1;
     }
     
-    public int check_if_id_screen_exists(int pigment_no, float pigment_percentage)
+    public int check_if_id_screen_exists(screen_pigment this_screen)
     {
          try{
             DBConnection db = new DBConnection();
@@ -316,9 +362,10 @@ public class DB_Manager {
                     
                     
             int item = 1;
-            ps.setInt(item++, pigment_no);
-            ps.setFloat(item++, pigment_percentage);
-            ps.setFloat(item++, pigment_percentage);
+            ps.setInt(item++, this_screen.getPigment_no());
+            ps.setFloat(item++, this_screen.getPigment_percentage() -(float) 0.01);
+            ps.setFloat(item++, this_screen.getPigment_percentage() +(float) 0.01);
+            //System.out.println(ps);
             ResultSet rs = ps.executeQuery();
             
             rs.first();

@@ -86,7 +86,7 @@ public class EditRecipe extends javax.swing.JFrame {
     private void set_job_details(int purchase_order_id)
     {
         Job_purchase_link_functions this_purchase = new Job_purchase_link_functions();
-        
+        /*
         //Set Details
         this_purchase.setId_purchase(purchase_order_id);
         this_purchase.set_this_Purchase_details_from_purchase_id();
@@ -113,7 +113,7 @@ public class EditRecipe extends javax.swing.JFrame {
         
         //set_customer_name(new_job.getCustomer_id());
         //new_job.getJob_id();
-        
+        */
     }
     
     private void set_job_list(List<job_order> all_jobs)
@@ -122,7 +122,7 @@ public class EditRecipe extends javax.swing.JFrame {
         {
             customer_list.add(set_the_job.getCustomer_name());
             job_list.add(set_the_job.getJob_id());
-            quantity_list.add(set_the_job.getQuantity());
+            //quantity_list.add(set_the_job.getQuantity());
             fill_list();
         }
     }
@@ -1993,7 +1993,7 @@ public class EditRecipe extends javax.swing.JFrame {
                 
         purchase_order purchase = new purchase_order();
 
-        purchase.setDate(spinnerValue);
+        //purchase.setDate(spinnerValue);
         //purchase.setDesign_code(this.design_code.getText());
         
         
@@ -2004,7 +2004,7 @@ public class EditRecipe extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,"purchase failed");
         }
         
-        add_job(purchase.getPurchase_Id_Last());
+        //add_job(purchase.getPurchase_Id_Last());
         
             JOptionPane.showMessageDialog(null,purchase.getPurchase_Id_Last());
         
@@ -2019,9 +2019,9 @@ public class EditRecipe extends javax.swing.JFrame {
                        DB_Manager new_conn = new DB_Manager();
                        
                        job.setCustomer_id(new_conn.get_id_customer(this.customer_list.get(i).toString()));
-                       job.setQuantity(Integer.parseInt(this.quantity_list.get(i).toString()));
+                       //job.setQuantity(Integer.parseInt(this.quantity_list.get(i).toString()));
                        job.setJob_id(this.job_list.get(i).toString());
-                       job.setId_purchase(id_purchase);
+                       //job.setId_purchase(id_purchase);
                        
                 job.add_new_job_order();
                     
@@ -2106,7 +2106,7 @@ public class EditRecipe extends javax.swing.JFrame {
         }
     }
     
-    private String update_this_design()
+    private int update_this_design()
     {
         colortextile_class.design new_design = new colortextile_class.design();
         //new_design.setDesign_code(design_code.getText());
@@ -2124,7 +2124,7 @@ public class EditRecipe extends javax.swing.JFrame {
         
         new_design.setFabric_style(null);
         new_design.update_design();
-            
+           
         return new_design.getDesign_code();
     }
     
@@ -2162,12 +2162,12 @@ public class EditRecipe extends javax.swing.JFrame {
         // Winston codes end
         
         update_this_design();
-        List<Colorway_screen_link_functions> all_col_scr = this_purchase.getNew_des_col_link().getAll_colorways();
+/*        List<Colorway_screen_link_functions> all_col_scr = this_purchase.getNew_des_col_link().getAll_colorways();
         for(int x = 0; x<all_col_scr.size(); x++)
         {
             //all_col_scr.get(x).getId_colorway()
         }
-        
+*/        
         int colorway_id = add_this_colorway(colorway_name2.getText(), 
                              Float.parseFloat(binder8.getSelectedItem().toString()),
                              weigh_kg8.getText());

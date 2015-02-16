@@ -1919,7 +1919,7 @@ public class Add_new_design extends javax.swing.JFrame {
         }
     }
     
-    private String add_this_design()
+    private int add_this_design()
     {
         colortextile_class.design new_design = new colortextile_class.design();
         //new_design.setDesign_code(design_code.getText());

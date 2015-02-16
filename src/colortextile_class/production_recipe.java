@@ -23,7 +23,7 @@ public class production_recipe{
     {
         Database.DB_Manager new_conn = new Database.DB_Manager();
         //GET all the job_order_id from the Date and design_code
-        purchase_order = new_conn.get_all_purchase_details_from_date_and_design(Date, design_code);
+        //purchase_order = new_conn.get_all_purchase_details_from_date_and_design(Date, design_code);
         
         //new_conn.get_all_job_order_from_date_and_design(Date, design_code);
         //Get the List of job order from the purchase order id

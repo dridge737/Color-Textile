@@ -25,9 +25,16 @@ public class ColorTextile {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        //Database.DB_Manager newManager = new Database.DB_Manager();
-        //int trial_get_pigment_id =  newManager.get_id_pigment("VIOLET_MFB");
-        //int trial_get_id_screen = newManager.get_id_screen(1, 1);
+        
+        Database.DB_Manager newManager = new Database.DB_Manager();
+        colortextile_class.screen_pigment this_screen = new colortextile_class.screen_pigment();
+        this_screen.setPigment_no(2);
+        this_screen.setPigment_percentage((float)56.7);
+        int trial_get_pigment_id =  newManager.check_if_id_screen_exists(this_screen);
+        System.out.println("Result = :" +trial_get_pigment_id);
+        
+        /*
+        
         Main_Menu new_menu = new Main_Menu();
         new_menu.setVisible(true);
         Add_new_design newDesign = new Add_new_design();
@@ -54,7 +61,7 @@ public class ColorTextile {
        // get_des_details.setDesign_details_from_des_code();
         //get_des_details.add_all_colorway_from_design_code();
        // get_des_details.view_all_colorway_details();
-        
+        */
  
     }
     
