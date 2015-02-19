@@ -69,7 +69,19 @@ public class customer {
     public void searchCustomer_name() {
         DB_Manager new_conn = new DB_Manager();
         new_conn.Search_Customer_Name(this);
-        
+    }
+    
+    public boolean check_if_this_customer_exists()
+    {
+        DB_Manager new_conn = new DB_Manager();
+        //Returns 1 if it exists 0 if it does not
+        if(new_conn.check_if_customer_exists(Customer_name) == 0)
+        {
+            //it does not exists
+            return false;
+        }
+        //it exists
+        return true;
     }
     
     public void get_customer_list() {

@@ -91,7 +91,7 @@ public class colorway {
     {
         Database.DB_Manager new_conn = new Database.DB_Manager();
         int temp_colorway_id = new_conn.get_id_colorway(this);
-        System.out.println(temp_colorway_id);
+        //System.out.println(temp_colorway_id);
         if(temp_colorway_id != -1)
         {
             this.id_colorway = temp_colorway_id;
@@ -109,7 +109,5 @@ public class colorway {
         this.setBinder(temp_colorway.getBinder());
         this.setColorway_name(temp_colorway.getColorway_name());
         this.setWeight_kg(temp_colorway.getWeight_kg());
-        
-        
     }
 }

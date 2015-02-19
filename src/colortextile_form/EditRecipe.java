@@ -5,6 +5,7 @@
  */
 
 package colortextile_form;
+import colortextile_class.deletedClass.screen_pigment;
 import Database.DB_Manager;
 import colortextile_class.*;
 import com.github.sarxos.webcam.Webcam;

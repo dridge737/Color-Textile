@@ -12,7 +12,7 @@ import java.util.ArrayList;
  *
  * @author Eldridge
  */
-public class pigment {
+public class pigment implements Comparable<pigment>{
     private int pigment_no;
     private String pigment_name;
     private int tingi;
@@ -109,9 +109,14 @@ public class pigment {
             return false;
         
         return true;
+    }
+    
+    @Override
+    public int compareTo(pigment o) {
+        int compareTo = this.getPigment_name().compareTo(o.getPigment_name());
+        return compareTo;
         
     }
-            
     
     
     

@@ -4,33 +4,20 @@
  * and open the template in the editor.
  */
 
-package colortextile_class;
+package colortextile_class.deletedClass;
 import Database.DB_Manager;
+import colortextile_class.pigment;
 /**
  *
  * @author Eldridge
  */
 ///Comparable is used to compare and organize the pigment name
-public class screen_pigment extends pigment implements Comparable<screen_pigment> {
-    private int id_screen;
+public class screen_pigment extends pigment /*implements Comparable<screen_pigment>*/ {
+    
     //private int pigment_no;
     private float pigment_percentage;
-    //private pigment pigment_content;
-
-    /**
-     * @return the id_screen
-     */
-    public int getId_screen() {
-        return id_screen;
-    }
-
-    /**
-     * @param id_screen the id_screen to set
-     */
-    public void setId_screen(int id_screen) {
-        this.id_screen = id_screen;
-    }
-
+    private int id_screen;
+    
     //DELETED as this class extends pigment.java class
 
     /**
@@ -87,7 +74,6 @@ public class screen_pigment extends pigment implements Comparable<screen_pigment
         this.id_screen = this_screen.id_screen;
         this.pigment_percentage = this_screen.pigment_percentage;
         this.setPigment_no( this_screen.getPigment_no() );
-        
     }
 
     public void setThis_pigment_name()
@@ -101,14 +87,14 @@ public class screen_pigment extends pigment implements Comparable<screen_pigment
         float weight_prep = weight_kg * pigment_percentage / 100;
         return weight_prep;
     }
-    
+    /*
     @Override
     public int compareTo(screen_pigment o) {
         int compareTo = this.getPigment_name().compareTo(o.getPigment_name());
         return compareTo;
         
     }
-
     
+    */
 
 }

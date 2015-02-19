@@ -10,10 +10,10 @@ package colortextile_class;
  *
  * @author Eldridge
  */
-public class colorway_and_screen {
+public class colorway_and_screen extends pigment{
     private int id_color_screen;
-    private int id_screen;
     private int id_colorway;
+    private float pigment_percentage;
 
     /**
      * @return the id_color_screen
@@ -28,21 +28,7 @@ public class colorway_and_screen {
     public void setId_color_screen(int id_color_screen) {
         this.id_color_screen = id_color_screen;
     }
-
-    /**
-     * @return the id_screen
-     */
-    public int getId_screen() {
-        return id_screen;
-    }
-
-    /**
-     * @param id_screen the id_screen to set
-     */
-    public void setId_screen(int id_screen) {
-        this.id_screen = id_screen;
-    }
-
+    
     /**
      * @return the id_colorway
      */
@@ -60,17 +46,15 @@ public class colorway_and_screen {
     public boolean add_colorway_and_screen()
     {
         Database.DB_Manager new_conn = new Database.DB_Manager();
-        if(set_id_colorway_and_screen_from_variables())
-            return true;
-        
-        return new_conn.add_colorway_and_screen_connect(this.id_screen, this.id_colorway);
-        
+        //if(set_id_colorway_and_screen_from_variables())
+        //return true;
+        return new_conn.add_colorway_and_screen_connect(this.getPigment_no(), this.id_colorway, this.getPigment_percentage());
     }
     
     public boolean set_id_colorway_and_screen_from_variables()
     {
         Database.DB_Manager new_conn = new Database.DB_Manager();
-        int temp_id_colorway_screen = new_conn.get_id_color_screen(this.id_screen, this.id_colorway);
+        int temp_id_colorway_screen = new_conn.get_id_color_screen(this.getPigment_no(), this.id_colorway, this.getPigment_percentage());
         if(temp_id_colorway_screen != -1)
         {
             this.id_color_screen = temp_id_colorway_screen;
@@ -83,6 +67,27 @@ public class colorway_and_screen {
     {
         Database.DB_Manager new_conn = new Database.DB_Manager();
         return new_conn.delete_design_and_colorway_con_from_id_colorway(id_colorway);
+    }
+
+    
+    public float compute_kg_prep(float weight_kg)
+    {
+        float weight_prep = weight_kg * getPigment_percentage() / 100;
+        return weight_prep;
+    }
+
+    /**
+     * @return the pigment_percentage
+     */
+    public float getPigment_percentage() {
+        return pigment_percentage;
+    }
+
+    /**
+     * @param pigment_percentage the pigment_percentage to set
+     */
+    public void setPigment_percentage(float pigment_percentage) {
+        this.pigment_percentage = pigment_percentage;
     }
     
 }

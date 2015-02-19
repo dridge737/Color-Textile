@@ -6,6 +6,7 @@
 
 package Database;
 
+import colortextile_class.deletedClass.screen_pigment;
 import colortextile_class.*;
 import java.awt.Image;
 import java.sql.Array;
@@ -53,7 +54,7 @@ public class DB_Manager {
         return false;
     }
     
-    public boolean add_screen_pigment(colortextile_class.screen_pigment new_screen_pigment)
+    public boolean add_screen_pigment(colortextile_class.deletedClass.screen_pigment new_screen_pigment)
     {
         DBConnection db = new DBConnection();
         Connection conn = db.getConnection();
@@ -100,6 +101,32 @@ public class DB_Manager {
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
         }
         return false;
+    }
+    
+    public int check_if_customer_exists(String customer_name)
+    {
+        try {
+            DBConnection db = new DBConnection();
+            Connection conn = db.getConnection();
+
+            PreparedStatement ps = conn.prepareStatement("SELECT EXISTS "
+                    + " (SELECT id_customer "
+                    + " FROM customer WHERE "
+                    + " customer_name = ?) "
+                    + " AS 'CheckTest'");
+
+            int item = 1;
+            ps.setString(item++, customer_name);
+
+            ResultSet rs = ps.executeQuery();
+            
+            rs.first();
+            return rs.getInt("CheckTest");
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return 0;
     }
     
     public int check_if_pigment_exists(colortextile_class.pigment this_pigment)
@@ -190,18 +217,19 @@ public class DB_Manager {
         return false;
     }
     
-    public boolean add_colorway_and_screen_connect(int id_screen, int id_colorway)
+    public boolean add_colorway_and_screen_connect(int id_pigment, int id_colorway, float pigment_percentage)
     {
         try{
         
             DBConnection db = new DBConnection();
             Connection conn = db.getConnection();
             
-            PreparedStatement ps = conn.prepareStatement("INSERT INTO colorway_screen_connect (id_screen, id_colorway)"
-                                                       + "VALUES (?, ?);");
+            PreparedStatement ps = conn.prepareStatement("INSERT INTO colorway_screen_connect (id_pigment, id_colorway, pigment_percentage)"
+                                                       + "VALUES (?, ?, ?);");
             int item =1;
-            ps.setInt(item++, id_screen);
+            ps.setInt(item++, id_pigment);
             ps.setInt(item++, id_colorway);
+            ps.setFloat(item++, pigment_percentage);
             ps.executeUpdate();
             return true;
         }
@@ -241,16 +269,18 @@ public class DB_Manager {
             DBConnection db = new DBConnection();
             Connection conn = db.getConnection();
             
-            PreparedStatement ps = conn.prepareStatement("INSERT INTO design (design_name, color_name, fabric_style) VALUES (?, ?, ?)");
+            PreparedStatement ps = conn.prepareStatement("INSERT INTO design (design_name, color_name, fabric_style, total_quantity) "
+                                                        + "VALUES ( ? , ? , ? , ?)");
             
             int item = 1;
             //ps.setString(item++, new_design.getDesign_code());
             ps.setString(item++, new_design.getDesign_name()); 
             ps.setString(item++, new_design.getColor_name());
             ps.setString(item++, new_design.getFabric_style());
+            ps.setFloat(item++,  new_design.getTotal_quantity());
             
-            
-            ps.executeUpdate();
+            int hello = ps.executeUpdate();
+            System.out.println("Another Result = " +hello);
             return true;
         }
         catch(SQLException ex)
@@ -453,6 +483,48 @@ public class DB_Manager {
         return null;
     }
     
+    public List<colorway_and_screen> set_all_colorway_and_screen_from_colorway_id(int colorway_id)
+    {
+        try{
+            DBConnection db = new DBConnection();
+            Connection conn = db.getConnection();
+            
+            PreparedStatement ps = 
+            conn.prepareStatement("SELECT p.pigment_no, pigment_percentage, p.pigment_name " 
+                                 + " FROM colorway_screen_connect s_p, pigment p" 
+                                 + " WHERE id_colorway = ? "
+                                 + " AND s_p.pigment_no = p.pigment_no");
+            int item = 1;
+            ps.setInt(item++, colorway_id);
+            
+            ResultSet screen_rs = ps.executeQuery();
+            
+            List<colorway_and_screen> this_screen = new ArrayList<>();
+           
+            
+            while(screen_rs.next())
+            {
+                colorway_and_screen this_s_pigment = new colorway_and_screen();
+                
+                this_s_pigment.setId_colorway(colorway_id);
+                this_s_pigment.setPigment_no(screen_rs.getInt("p.pigment_no"));
+                this_s_pigment.setPigment_percentage(screen_rs.getFloat("pigment_percentage"));
+                this_s_pigment.setPigment_name(screen_rs.getString("p.pigment_name"));
+                this_screen.add(this_s_pigment);
+            }
+            
+            screen_rs.close();
+            conn.close();
+            
+            return this_screen;
+            
+        }
+        catch(SQLException ex){
+            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+    //DELETED **NEVER USE!
     public List<screen_pigment> set_all_screen_pigment_from_colorway_id(int colorway_id)
     {
         try{
@@ -484,7 +556,7 @@ public class DB_Manager {
                 System.out.println("Pigment percentage = "+screen_rs.getFloat("pigment_percentage"));
                 System.out.println("Pigment name= "+screen_rs.getString("p.pigment_name"));
                 */
-                this_s_pigment.setId_screen(screen_rs.getInt("id_screen"));
+                //this_s_pigment.setId_screen(screen_rs.getInt("id_screen"));
                 this_s_pigment.setPigment_no(screen_rs.getInt("p.pigment_no"));
                 this_s_pigment.setPigment_percentage(screen_rs.getFloat("pigment_percentage"));
                 this_s_pigment.setPigment_name(screen_rs.getString("p.pigment_name"));
@@ -536,6 +608,8 @@ public class DB_Manager {
                 this_colorway.setBinder(rs.getFloat("binder"));
                 this_colorway.setWeight_kg(rs.getFloat("weight_kg"));
             }
+            rs.close();
+            conn.close();
             return this_colorway;
         }
         catch(SQLException ex){
@@ -546,34 +620,41 @@ public class DB_Manager {
         
     }
     
-    public int get_id_color_screen(int id_screen, int id_colorway)
+    public int get_id_color_screen(int id_screen, int id_colorway , float pigment_percentage)
     {
+        int id_color_screen = -1;
         try{
             DBConnection db = new DBConnection();
             Connection conn = db.getConnection();
             
             PreparedStatement ps = 
             conn.prepareStatement("SELECT id_color_screen "
-                                + "FROM colorway_screen_connect "
-                                + "WHERE id_screen = ? "
-                                + "AND id_colorway = ?");
+                                + " FROM colorway_screen_connect "
+                                + " WHERE id_screen = ? "
+                                + " AND id_colorway = ?"
+                                + " AND pigment_percentage = ?");
             int item = 1;
             
             ps.setInt(item++, id_screen);
             ps.setInt(item++, id_colorway);
+            ps.setFloat(item++, pigment_percentage);
             
             ResultSet rs = ps.executeQuery();
+            
             if(rs.first())
             {
-                int id_color_screen = rs.getInt("id_color_screen");
-                return id_color_screen;
+                id_color_screen = rs.getInt("id_color_screen");
             }
+            
+            rs.close();
+                conn.close();
+                return id_color_screen;
         }
         catch(SQLException ex){
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        return -1;
+        return id_color_screen;
     }
     
     public int get_id_colorway(colortextile_class.colorway existing_colorway)
@@ -1769,7 +1850,7 @@ public class DB_Manager {
                                                         + "WHERE id_colorway = ? AND id_screen = ?");
           int item = 1;
           ps.setInt(item++, connection_del.getId_colorway());
-          ps.setInt(item++, connection_del.getId_screen());
+          ps.setInt(item++, connection_del.getPigment_no());
           
           
           ps.executeUpdate();

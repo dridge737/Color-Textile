@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package colortextile_class;
+import colortextile_class.deletedClass.screen_pigment;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -140,7 +141,7 @@ public class SpreadsheetTrial {
          res.put("kil2"   , Float.toString(this_color_screen.getWeight_kg()));
          res.put("bind2"  , Float.toString(this_color_screen.getBinder()));
          
-         List<screen_pigment> the_screens = this_color_screen.getThis_screens();
+         List<colorway_and_screen> the_screens = this_color_screen.getThis_screens();
          int x = 1;
          while(x<=the_screens.size())
             {
