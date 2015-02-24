@@ -66,7 +66,7 @@ public class ColorTextile {
         this_design.setColor_name("GREEN");
         this_design.setDesign_name("MICRTG");
         this_design.setFabric_style("KATUNIA");
-        this_design.setTotal_quantity((float)50660);
+        this_design.setTotal_quantity((int)50660);
         this_design.add_new_design();
  
     }

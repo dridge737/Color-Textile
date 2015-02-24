@@ -20,7 +20,7 @@ public class design extends fabric_style{
     private String color_name;
     private String fabric_style;
     private Blob design_image;
-    private float total_quantity;
+    private int total_quantity;
 
     
     /**
@@ -56,8 +56,7 @@ public class design extends fabric_style{
         Database.DB_Manager new_conn = new Database.DB_Manager();
         //if(!get_design_code_using_variables())
         //{
-            new_conn.add_design(this);
-            return true;
+            return new_conn.add_design(this);
         //}
         //return false;
     }
@@ -86,7 +85,7 @@ public class design extends fabric_style{
     }
     */
     
-    public boolean get_design_code_using_variables()
+    public boolean set_design_code_using_variables()
     {
         Database.DB_Manager new_conn = new Database.DB_Manager();
         int temp_design_code = new_conn.get_design_code(this);
@@ -124,18 +123,18 @@ public class design extends fabric_style{
 
     /**
      * @return the fabric_style
-     
+     */
     public String getFabric_style() {
         return fabric_style;
     }
 
     /**
      * @param fabric_style the fabric_style to set
-     
+     */
     public void setFabric_style(String fabric_style) {
         this.fabric_style = fabric_style;
     }
-*/
+    
     /**
      * @return the design_image
      */
@@ -174,14 +173,14 @@ public class design extends fabric_style{
     /**
      * @return the total_quantity
      */
-    public float getTotal_quantity() {
+    public int getTotal_quantity() {
         return total_quantity;
     }
 
     /**
      * @param total_quantity the total_quantity to set
      */
-    public void setTotal_quantity(float total_quantity) {
+    public void setTotal_quantity(int total_quantity) {
         this.total_quantity = total_quantity;
     }
     

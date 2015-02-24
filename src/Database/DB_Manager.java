@@ -178,7 +178,7 @@ public class DB_Manager {
             DBConnection db = new DBConnection();
             Connection conn = db.getConnection();
         
-            String query = "INSERT INTO purchase_order (design_code, job_order_id, quantity) VALUES (?, ?, ?)";
+            String query = "INSERT INTO purchase_order (quantity, design_code, job_order_id) VALUES (?, ?, ?)";
             
             PreparedStatement preparedStmt = conn.prepareStatement(query);
             preparedStmt.setInt(1, new_purchase.getQuantity());
@@ -224,7 +224,7 @@ public class DB_Manager {
             DBConnection db = new DBConnection();
             Connection conn = db.getConnection();
             
-            PreparedStatement ps = conn.prepareStatement("INSERT INTO colorway_screen_connect (id_pigment, id_colorway, pigment_percentage)"
+            PreparedStatement ps = conn.prepareStatement("INSERT INTO colorway_screen_connect (pigment_no, id_colorway, pigment_percentage)"
                                                        + "VALUES (?, ?, ?);");
             int item =1;
             ps.setInt(item++, id_pigment);
@@ -269,18 +269,15 @@ public class DB_Manager {
             DBConnection db = new DBConnection();
             Connection conn = db.getConnection();
             
-            PreparedStatement ps = conn.prepareStatement("INSERT INTO design (design_name, color_name, fabric_style, total_quantity) "
-                                                        + "VALUES ( ? , ? , ? , ?)");
-            
+            PreparedStatement ps = conn.prepareStatement("INSERT INTO design (design_name, color_name, fabric_style) "
+                                                        + "VALUES ( ? , ? , ? )");
             int item = 1;
-            //ps.setString(item++, new_design.getDesign_code());
             ps.setString(item++, new_design.getDesign_name()); 
             ps.setString(item++, new_design.getColor_name());
             ps.setString(item++, new_design.getFabric_style());
-            ps.setFloat(item++,  new_design.getTotal_quantity());
-            
-            int hello = ps.executeUpdate();
-            System.out.println("Another Result = " +hello);
+          
+            ps.executeUpdate();
+            //System.out.println("Another Result = " +hello);
             return true;
         }
         catch(SQLException ex)
@@ -292,10 +289,8 @@ public class DB_Manager {
     
     public boolean add_job_order(colortextile_class.job_order new_job)
     {
-        
-        //if(get_job_order_details(new_job.getJob_id()).getJob_id().compareTo("-1") == 0)
-        //{
-            try {
+            try 
+            {
                 DBConnection db = new DBConnection();
                 Connection conn = db.getConnection();
             
@@ -308,10 +303,10 @@ public class DB_Manager {
                 
                 preparedStmt.execute();
                 return true;
-            } catch (SQLException ex) {
+            } 
+            catch (SQLException ex) {
                 Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
             }
-        //}
         
         return false;
     }
@@ -1839,7 +1834,7 @@ public class DB_Manager {
         }
     }
     
-    public void delete_colorway_screen_connect(colorway_and_screen connection_del)
+    public void delete_colorway_screen_connect(int id_colorway)
     {
          try
         {
@@ -1847,19 +1842,15 @@ public class DB_Manager {
           Connection conn = db.getConnection(); 
           
           PreparedStatement ps = conn.prepareStatement("DELETE FROM colorway_screen_connect "
-                                                        + "WHERE id_colorway = ? AND id_screen = ?");
+                                                        + "WHERE id_colorway = ?");
           int item = 1;
-          ps.setInt(item++, connection_del.getId_colorway());
-          ps.setInt(item++, connection_del.getPigment_no());
-          
-          
+          ps.setInt(item++, id_colorway);
+          //ps.setInt(item++, connection_del.getPigment_no());
           ps.executeUpdate();
           
         }
-        catch (SQLException ex)
-        {
+        catch (SQLException ex){
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
-            
         }
         
     }

@@ -83,10 +83,10 @@ public class job_order extends customer {
     }
 
     
-    public void add_new_job_order()
+    public boolean add_new_job_order()
     {
         DB_Manager new_conn = new DB_Manager();
-        new_conn.add_job_order(this);
+        return new_conn.add_job_order(this);
     }
     
     public ResultSet job_order_all()

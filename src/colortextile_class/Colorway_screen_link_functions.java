@@ -28,7 +28,8 @@ public class Colorway_screen_link_functions extends colorway implements Comparab
         Database.DB_Manager new_conn = new Database.DB_Manager();
         setThis_screens(new_conn.set_all_colorway_and_screen_from_colorway_id(this.getId_colorway()));
         Collections.sort(getThis_screens());
-        /*
+        //FOR DEBUGGING
+        /* 
         for (screen_pigment this_screen : getThis_screens()) {
             System.out.println("Screen_id : " + this_screen.getId_screen());
             System.out.println("Pigment no :" + this_screen.getPigment_no());
@@ -48,8 +49,9 @@ public class Colorway_screen_link_functions extends colorway implements Comparab
         
         for (colorway_and_screen this_screen : getThis_screens()) {
             //System.out.println("Screen_id : " + this_screen.getId_screen());
+            System.out.println("Colorway ID : " + this_screen.getId_colorway());
             System.out.println("Pigment no :" + this_screen.getPigment_no());
-            System.out.println("Pigment name:" + this_screen.getPigment_no());
+            System.out.println("Pigment name:" + this_screen.getPigment_name());
             System.out.println("Pigment perentage  :" + this_screen.getPigment_percentage());
         }
                
@@ -58,6 +60,7 @@ public class Colorway_screen_link_functions extends colorway implements Comparab
     public void delete_all_screen_and_colorway_link()
     {
         Database.DB_Manager new_conn = new Database.DB_Manager();
+        new_conn.delete_colorway_screen_connect(this.getId_colorway());
         //new_conn.delete_colorway_screen_connect(null);
     }
 
