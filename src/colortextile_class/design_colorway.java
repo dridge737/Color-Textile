@@ -12,7 +12,7 @@ package colortextile_class;
  */
 public class design_colorway {
     private int id_design_colorway;
-    private String design_code;
+    private int design_code;
     private int id_colorway;
 
     /**
@@ -32,14 +32,14 @@ public class design_colorway {
     /**
      * @return the design_code
      */
-    public String getDesign_code() {
+    public int getDesign_code() {
         return design_code;
     }
 
     /**
      * @param design_code the design_code to set
      */
-    public void setDesign_code(String design_code) {
+    public void setDesign_code(int design_code) {
         this.design_code = design_code;
     }
 

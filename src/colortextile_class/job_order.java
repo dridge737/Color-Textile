@@ -113,6 +113,15 @@ public class job_order extends customer {
         
     }
     
+    public boolean check_if_job_exists()
+    {
+        DB_Manager new_conn = new DB_Manager();
+        if(new_conn.check_if_job_order_exists(this)== 1)
+        return true;
+        
+        return false;
+    }
+    
     public ResultSet Search_job_info(){
        
         DB_Manager new_conn = new DB_Manager();

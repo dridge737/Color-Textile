@@ -129,6 +129,32 @@ public class DB_Manager {
         return 0;
     }
     
+    public int check_if_job_order_exists(colortextile_class.job_order this_job)
+    {
+        try {
+            DBConnection db = new DBConnection();
+            Connection conn = db.getConnection();
+
+            PreparedStatement ps = conn.prepareStatement("SELECT EXISTS "
+                    + " (SELECT job_order_id "
+                    + " FROM job_order WHERE "
+                    + " job_order_id = ?) "
+                    + " AS 'CheckTest'");
+
+            int item = 1;
+            ps.setString(item++, this_job.getJob_id());
+
+            ResultSet rs = ps.executeQuery();
+            
+            rs.first();
+            return rs.getInt("CheckTest");
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return 0;
+    }
+    
     public int check_if_pigment_exists(colortextile_class.pigment this_pigment)
     {
         try {
@@ -240,7 +266,7 @@ public class DB_Manager {
         return false;
     }
     
-    public boolean add_design_colorway_connect(String design_code, int id_colorway)
+    public boolean add_design_colorway_connect(int design_code, int id_colorway)
     {
         try{
         
@@ -250,7 +276,7 @@ public class DB_Manager {
             PreparedStatement ps = conn.prepareStatement("INSERT INTO design_colorway_connect(design_code, id_colorway)"
                                                        + "VALUES (?, ?);");
             int item = 1;
-            ps.setString(item++, design_code);
+            ps.setInt(item++, design_code);
             ps.setInt(item++, id_colorway);
             ps.executeUpdate();
             return true;
@@ -762,7 +788,7 @@ public class DB_Manager {
                                  + "AND id_colorway = ? ");
             
             int item = 1;
-            ps.setString(item++, new_des_color.getDesign_code());
+            ps.setInt(item++, new_des_color.getDesign_code());
             ps.setFloat(item++, new_des_color.getId_colorway());
             /* 
             System.out.println("Design Code :" +new_des_color.getDesign_code());
@@ -1865,7 +1891,7 @@ public class DB_Manager {
                                                         +" WHERE id_colorway = ? AND design_code = ?");
           int item = 1;
           ps.setInt(item++, connection_Del.getId_colorway());
-          ps.setString(item++, connection_Del.getDesign_code());
+          ps.setInt(item++, connection_Del.getDesign_code());
           
           ps.executeUpdate();
           

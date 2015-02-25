@@ -571,6 +571,11 @@ public class Add_new_design extends javax.swing.JFrame {
         jLabel13.setBounds(388, 120, 13, 34);
 
         quantity.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        quantity.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                quantityKeyReleased(evt);
+            }
+        });
         jPanel16.add(quantity);
         quantity.setBounds(190, 120, 195, 34);
 
@@ -1767,13 +1772,13 @@ public class Add_new_design extends javax.swing.JFrame {
      * @param pigment_name -Declared pigment name
      * @param pigment_percent - percentage of pigment in variable float
      */
-    private void add_purchase()
+    private void add_purchase(int design_code)
     {
         purchase_order purchase = new purchase_order();
 
         for (int i = 0; i < job_list.size(); i++) 
         {
-            purchase.setDesign_code(this.add_this_design());
+            purchase.setDesign_code(design_code);
             purchase.setJob_order_id(this.job_list.get(i).toString()); 
             purchase.setQuantity(Integer.parseInt(this.quantity_list.get(i).toString()));
         
@@ -1897,16 +1902,17 @@ public class Add_new_design extends javax.swing.JFrame {
         new_design.setFabric_style(getFabricStyle());
         //new_design.setTotal_quantity(Integer.parseInt(quantity_total.getText()));
         
-        if(!new_design.add_new_design())
+        if(new_design.add_new_design())
         {
             new_design.set_design_code_using_variables();
             return new_design.getDesign_code();
         }
         
+        System.out.println("There is a problem in adding this design");
         return -1;
     }
     
-    private void add_this_design_and_colorway(String design_code, int color_id_temp)
+    private void add_this_design_and_colorway(int design_code, int color_id_temp)
     {
         System.out.println("Design Code = " +design_code+ " Colorway Id = "+color_id_temp );
         if(color_id_temp != -1)
@@ -1918,23 +1924,9 @@ public class Add_new_design extends javax.swing.JFrame {
             new_dSign_cWay.add_new_design_and_colorway_using_variables();
         }
     }
-                                            
-    private void add_orderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_orderActionPerformed
-        // TODO add your handling code here:
-        
-        // Winston codes start
-        if (this.jList1.getModel().getSize() == 0)
-        {
-            JOptionPane.showMessageDialog(null,"Please include a customer");
-        } else 
-        {
-            //Adds purchase order and design
-            int des_code = this.add_this_design();
-            add_purchase(des_code);
-            add_job();
-        }
-        // Winston codes end
-        
+              
+    private void add_all_this_colorways(int design_code)
+    {
         int colorway_id = add_this_colorway(colorway_name2.getText(), 
                              Float.parseFloat(binder8.getSelectedItem().toString()),
                              weigh_kg8.getText());
@@ -1948,7 +1940,7 @@ public class Add_new_design extends javax.swing.JFrame {
             
             add_this_colorway_screen(name3.getSelectedItem().toString(),
                                       percentage3.getText(), colorway_id );
-            //add_this_design_and_colorway(design_code.getText(), colorway_id);   
+            add_this_design_and_colorway(design_code, colorway_id);   
         }
         int colorway_id2 = add_this_colorway(colorway_name3.getText(), 
                              Float.parseFloat(binder3.getSelectedItem().toString()),
@@ -2040,14 +2032,30 @@ public class Add_new_design extends javax.swing.JFrame {
                             
             //add_this_design_and_colorway(design_code.getText(), colorway_id2);
         }
+    }
+    private void add_orderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_orderActionPerformed
+        // TODO add your handling code here:
         
-        JOptionPane.showMessageDialog(null,"Successfully Added this Recipe");
-        
-        //this.this_purchase.setPurchase_Id_from_Date_and_code();
-        //this.this_purchase.set_design_details_from_purchase_order_id();
-        //this.this_purchase.set_job_order_list_using_purchase_order_id();
-        SpreadsheetTrial printFile = new SpreadsheetTrial();
-        //printFile.print_this_job(this_purchase);
+        // Winston codes start
+        if (this.jList1.getModel().getSize() == 0)
+        {
+            JOptionPane.showMessageDialog(null,"Please add a customer and a job order");
+        }
+        else 
+        {
+            //Adds purchase order and design
+            int des_code = this.add_this_design();
+            this.add_purchase(des_code);
+            this.add_job();
+            this.add_all_this_colorways(des_code);
+            
+            JOptionPane.showMessageDialog(null,"Successfully Added this Recipe");
+            //this.this_purchase.setPurchase_Id_from_Date_and_code();
+            //this.this_purchase.set_design_details_from_purchase_order_id();
+            //this.this_purchase.set_job_order_list_using_purchase_order_id();
+            //SpreadsheetTrial printFile = new SpreadsheetTrial();
+            //printFile.print_this_job(this_purchase);
+        }
         
     }//GEN-LAST:event_add_orderActionPerformed
     
@@ -2406,20 +2414,33 @@ public class Add_new_design extends javax.swing.JFrame {
     private boolean check_if_this_job_order_is_good()
     {
         boolean duplicate = false;
+        
         String job_order_text = this.job_ord_label.getText() + this.text_job_order.getText();
-        if (this.text_job_order.getText().length() == 0)
+        
+        job_order this_job_order = new job_order();
+        this_job_order.setJob_id(job_order_text);
+        
+        if(this_job_order.check_if_job_exists())
         {
-            JOptionPane.showMessageDialog(null,"Please input a job order number!");
+            JOptionPane.showMessageDialog(null,"Job order number has been already added before!");
             duplicate = true;
-        } 
-        else {
-            // check job order if existing
-            for (int j = 0; j < this.job_list.size(); j++ ){
-                if (this.job_list.get(j).toString().trim().equals(job_order_text))
-                    duplicate = true;
-            }
-            if( duplicate == true){
-                  JOptionPane.showMessageDialog(null,"Job Order ID already Exists");
+        }
+        else
+        {
+            if (this.text_job_order.getText().length() == 0)
+            {
+                JOptionPane.showMessageDialog(null,"Please input a job order number!");
+                duplicate = true;
+            } 
+            else {
+                // check job order if existing
+                for (int j = 0; j < this.job_list.size(); j++ ){
+                    if (this.job_list.get(j).toString().trim().equals(job_order_text))
+                        duplicate = true;
+                }
+                if( duplicate == true){
+                    JOptionPane.showMessageDialog(null,"Job Order ID already Exists");
+                }
             }
         }
         return !duplicate;
@@ -2535,6 +2556,18 @@ public class Add_new_design extends javax.swing.JFrame {
         change_job_order_prefix();
     }//GEN-LAST:event_spinner_dateKeyTyped
 
+    private void quantityKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_quantityKeyReleased
+        // TODO add your handling code here:
+        boolean text_check = checkText2(quantity.getText());
+        this.button_include_customer.setEnabled(!text_check);
+        if(text_check)
+        {
+            quantity.setBackground(Color.pink);
+        }
+        else
+            quantity.setBackground(Color.WHITE);
+    }//GEN-LAST:event_quantityKeyReleased
+
     private void compute_kg(JTextField weigh_kg, float coverage)
     {
         float computation;
@@ -2600,16 +2633,10 @@ public class Add_new_design extends javax.swing.JFrame {
     }
     private boolean checkText2(String this_text)
     {
-        
         String regex = "[^0-9]";
         Pattern p = Pattern.compile(regex);
         this_text = this_text.replaceFirst("[.]", "");
-        /*
-        String subregex = "[.]" ;
-        Pattern g = Pattern.compile(subregex);
-        this_text = g.matcher(this_text).replaceFirst(this_text);
         
-        */
         return p.matcher(this_text).find();
     
     }
