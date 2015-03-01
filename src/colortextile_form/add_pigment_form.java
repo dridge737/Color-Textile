@@ -179,8 +179,10 @@ public class add_pigment_form extends javax.swing.JFrame {
             add_this_pig.setPigment_name(pig_name.getText().toUpperCase());
             if(!add_this_pig.check_pigment_exists())
             {
-                if(add_this_pig.add_pigment())
+                if(add_this_pig.add_pigment()){
+                    this.fill_table();
                     JOptionPane.showMessageDialog(null,"Successfully Added Pigment");
+                }
                 else
                     JOptionPane.showMessageDialog(null,"Something must be wrong.. pigment has not been added.");
             }
