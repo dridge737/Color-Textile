@@ -43,7 +43,7 @@ public class customer {
      * @param Customer_name the Customer_name to set
      */
     public void setCustomer_name(String Customer_name) {
-        this.Customer_name = Customer_name;
+        this.Customer_name = Customer_name.toUpperCase();
     }
     
     public void add_new_customer()

@@ -815,7 +815,7 @@ public class DB_Manager {
             DBConnection db = new DBConnection();
             Connection conn = db.getConnection();
 
-            PreparedStatement ps = conn.prepareStatement("SELECT pigment_name FROM pigment");
+            PreparedStatement ps = conn.prepareStatement("SELECT pigment_name FROM pigment ORDER BY pigment_name asc");
             ResultSet rs = ps.executeQuery();
             ArrayList<String> pigment_list = new ArrayList<String>();
             while(rs.next())
