@@ -369,6 +369,13 @@ public class Add_new_design extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(790, 732));
         setModalExclusionType(java.awt.Dialog.ModalExclusionType.APPLICATION_EXCLUDE);
         setPreferredSize(new java.awt.Dimension(805, 715));
+        addWindowFocusListener(new java.awt.event.WindowFocusListener() {
+            public void windowGainedFocus(java.awt.event.WindowEvent evt) {
+                formWindowGainedFocus(evt);
+            }
+            public void windowLostFocus(java.awt.event.WindowEvent evt) {
+            }
+        });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel12.setBackground(new java.awt.Color(255, 255, 255));
@@ -858,6 +865,11 @@ public class Add_new_design extends javax.swing.JFrame {
         pig13.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         pig13.setText("+");
         pig13.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        pig13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pig13ActionPerformed(evt);
+            }
+        });
         jPanel9.add(pig13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 148, 25, 25));
 
         bind_add.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
@@ -868,11 +880,21 @@ public class Add_new_design extends javax.swing.JFrame {
         pig11.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         pig11.setText("+");
         pig11.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        pig11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pig11ActionPerformed(evt);
+            }
+        });
         jPanel9.add(pig11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 74, 25, 25));
 
         pig12.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         pig12.setText("+");
         pig12.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        pig12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pig12ActionPerformed(evt);
+            }
+        });
         jPanel9.add(pig12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 25, 25));
 
         jTabbedPane2.addTab("1", jPanel9);
@@ -1024,16 +1046,31 @@ public class Add_new_design extends javax.swing.JFrame {
         pig21.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         pig21.setText("+");
         pig21.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        pig21.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pig21ActionPerformed(evt);
+            }
+        });
         jPanel4.add(pig21, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 74, 25, 25));
 
         pig22.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         pig22.setText("+");
         pig22.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        pig22.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pig22ActionPerformed(evt);
+            }
+        });
         jPanel4.add(pig22, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 25, 25));
 
         pig23.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         pig23.setText("+");
         pig23.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        pig23.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pig23ActionPerformed(evt);
+            }
+        });
         jPanel4.add(pig23, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 148, 25, 25));
 
         bind_add2.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
@@ -1187,16 +1224,31 @@ public class Add_new_design extends javax.swing.JFrame {
         pig31.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         pig31.setText("+");
         pig31.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        pig31.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pig31ActionPerformed(evt);
+            }
+        });
         jPanel5.add(pig31, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 74, 25, 25));
 
         pig32.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         pig32.setText("+");
         pig32.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        pig32.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pig32ActionPerformed(evt);
+            }
+        });
         jPanel5.add(pig32, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 25, 25));
 
         pig33.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         pig33.setText("+");
         pig33.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        pig33.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pig33ActionPerformed(evt);
+            }
+        });
         jPanel5.add(pig33, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 148, 25, 25));
 
         bind_add3.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
@@ -1349,16 +1401,31 @@ public class Add_new_design extends javax.swing.JFrame {
         pig41.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         pig41.setText("+");
         pig41.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        pig41.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pig41ActionPerformed(evt);
+            }
+        });
         jPanel6.add(pig41, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 74, 25, 25));
 
         pig42.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         pig42.setText("+");
         pig42.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        pig42.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pig42ActionPerformed(evt);
+            }
+        });
         jPanel6.add(pig42, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 25, 25));
 
         pig43.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         pig43.setText("+");
         pig43.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        pig43.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pig43ActionPerformed(evt);
+            }
+        });
         jPanel6.add(pig43, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 148, 25, 25));
 
         bind_add4.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
@@ -1511,16 +1578,31 @@ public class Add_new_design extends javax.swing.JFrame {
         pig51.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         pig51.setText("+");
         pig51.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        pig51.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pig51ActionPerformed(evt);
+            }
+        });
         jPanel7.add(pig51, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 74, 25, 25));
 
         pig52.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         pig52.setText("+");
         pig52.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        pig52.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pig52ActionPerformed(evt);
+            }
+        });
         jPanel7.add(pig52, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 25, 25));
 
         pig53.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         pig53.setText("+");
         pig53.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        pig53.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pig53ActionPerformed(evt);
+            }
+        });
         jPanel7.add(pig53, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 148, 25, 25));
 
         bind_add5.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
@@ -1673,16 +1755,31 @@ public class Add_new_design extends javax.swing.JFrame {
         pig61.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         pig61.setText("+");
         pig61.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        pig61.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pig61ActionPerformed(evt);
+            }
+        });
         jPanel8.add(pig61, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 74, 25, 25));
 
         pig62.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         pig62.setText("+");
         pig62.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        pig62.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pig62ActionPerformed(evt);
+            }
+        });
         jPanel8.add(pig62, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 25, 25));
 
         pig63.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         pig63.setText("+");
         pig63.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        pig63.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pig63ActionPerformed(evt);
+            }
+        });
         jPanel8.add(pig63, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 148, 25, 25));
 
         bind_add6.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
@@ -1835,16 +1932,31 @@ public class Add_new_design extends javax.swing.JFrame {
         pig71.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         pig71.setText("+");
         pig71.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        pig71.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pig71ActionPerformed(evt);
+            }
+        });
         jPanel15.add(pig71, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 74, 25, 25));
 
         pig72.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         pig72.setText("+");
         pig72.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        pig72.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pig72ActionPerformed(evt);
+            }
+        });
         jPanel15.add(pig72, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 25, 25));
 
         pig_73.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         pig_73.setText("+");
         pig_73.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        pig_73.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pig_73ActionPerformed(evt);
+            }
+        });
         jPanel15.add(pig_73, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 148, 25, 25));
 
         bind_add7.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
@@ -2691,6 +2803,7 @@ public class Add_new_design extends javax.swing.JFrame {
 
     private void add_order2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_order2ActionPerformed
         // TODO add your handling code here:
+        this.dispose();
     }//GEN-LAST:event_add_order2ActionPerformed
 
     private void change_job_order_prefix()
@@ -2729,6 +2842,123 @@ public class Add_new_design extends javax.swing.JFrame {
         else
             quantity.setBackground(Color.WHITE);
     }//GEN-LAST:event_quantityKeyReleased
+
+    private void show_add_pigment()
+    {
+        add_pigment_form add_pigment = new add_pigment_form();
+        add_pigment.setVisible(true);
+    }
+    
+    private void pig11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pig11ActionPerformed
+        // TODO add your handling code here:
+        show_add_pigment();
+    }//GEN-LAST:event_pig11ActionPerformed
+
+    private void pig12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pig12ActionPerformed
+        // TODO add your handling code here:
+        show_add_pigment();
+    }//GEN-LAST:event_pig12ActionPerformed
+
+    private void pig13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pig13ActionPerformed
+        // TODO add your handling code here:
+        show_add_pigment();
+    }//GEN-LAST:event_pig13ActionPerformed
+
+    private void pig21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pig21ActionPerformed
+        // TODO add your handling code here:
+        show_add_pigment();
+    }//GEN-LAST:event_pig21ActionPerformed
+
+    private void pig22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pig22ActionPerformed
+        // TODO add your handling code here:
+        show_add_pigment();
+    }//GEN-LAST:event_pig22ActionPerformed
+
+    private void pig23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pig23ActionPerformed
+        // TODO add your handling code here:
+        show_add_pigment();
+    }//GEN-LAST:event_pig23ActionPerformed
+
+    private void pig31ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pig31ActionPerformed
+        // TODO add your handling code here:
+        show_add_pigment();
+    }//GEN-LAST:event_pig31ActionPerformed
+
+    private void pig32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pig32ActionPerformed
+        // TODO add your handling code here:
+        show_add_pigment();
+    }//GEN-LAST:event_pig32ActionPerformed
+
+    private void pig33ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pig33ActionPerformed
+        // TODO add your handling code here:
+        show_add_pigment();
+    }//GEN-LAST:event_pig33ActionPerformed
+
+    private void pig41ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pig41ActionPerformed
+        // TODO add your handling code here:
+        show_add_pigment();
+    }//GEN-LAST:event_pig41ActionPerformed
+
+    private void pig42ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pig42ActionPerformed
+        // TODO add your handling code here:
+        show_add_pigment();
+    }//GEN-LAST:event_pig42ActionPerformed
+
+    private void pig43ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pig43ActionPerformed
+        // TODO add your handling code here:
+        show_add_pigment();
+    }//GEN-LAST:event_pig43ActionPerformed
+
+    private void pig51ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pig51ActionPerformed
+        // TODO add your handling code here:
+        show_add_pigment();
+    }//GEN-LAST:event_pig51ActionPerformed
+
+    private void pig52ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pig52ActionPerformed
+        // TODO add your handling code here:
+        show_add_pigment();
+    }//GEN-LAST:event_pig52ActionPerformed
+
+    private void pig53ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pig53ActionPerformed
+        // TODO add your handling code here:
+        show_add_pigment();
+    }//GEN-LAST:event_pig53ActionPerformed
+
+    private void pig63ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pig63ActionPerformed
+        // TODO add your handling code here:
+        show_add_pigment();
+    }//GEN-LAST:event_pig63ActionPerformed
+
+    private void pig61ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pig61ActionPerformed
+        // TODO add your handling code here:
+        show_add_pigment();
+    }//GEN-LAST:event_pig61ActionPerformed
+
+    private void pig62ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pig62ActionPerformed
+        // TODO add your handling code here:
+        show_add_pigment();
+    }//GEN-LAST:event_pig62ActionPerformed
+
+    private void pig_73ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pig_73ActionPerformed
+        // TODO add your handling code here:
+        show_add_pigment();
+    }//GEN-LAST:event_pig_73ActionPerformed
+
+    private void pig72ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pig72ActionPerformed
+        // TODO add your handling code here:
+        show_add_pigment();
+    }//GEN-LAST:event_pig72ActionPerformed
+
+    private void pig71ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pig71ActionPerformed
+        // TODO add your handling code here:
+        show_add_pigment();
+    }//GEN-LAST:event_pig71ActionPerformed
+
+    private void formWindowGainedFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowGainedFocus
+        // TODO add your handling code here:
+        this.clearItem();
+        addListItems();
+    }//GEN-LAST:event_formWindowGainedFocus
 
     private void compute_kg(JTextField weigh_kg, float coverage)
     {
@@ -2859,6 +3089,30 @@ public class Add_new_design extends javax.swing.JFrame {
             name25.addItem("");   
             name26.addItem("");   
    
+    }
+    public void clearItem()
+    {
+            name1.removeAllItems();
+            name2.removeAllItems();
+            name3.removeAllItems();
+            name5.removeAllItems();
+            name6.removeAllItems();
+            name7.removeAllItems();
+            name9.removeAllItems();
+            name10.removeAllItems();
+            name11.removeAllItems();
+            name13.removeAllItems();
+            name14.removeAllItems();
+            name15.removeAllItems();
+            name17.removeAllItems();   
+            name18.removeAllItems();   
+            name19.removeAllItems();  
+            name21.removeAllItems();
+            name22.removeAllItems();
+            name23.removeAllItems();
+            name24.removeAllItems();
+            name25.removeAllItems();
+            name26.removeAllItems();
     }
     public void addListItems()
     {

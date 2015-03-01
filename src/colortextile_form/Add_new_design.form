@@ -45,6 +45,9 @@
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
     <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
   </SyntheticProperties>
+  <Events>
+    <EventHandler event="windowGainedFocus" listener="java.awt.event.WindowFocusListener" parameters="java.awt.event.WindowEvent" handler="formWindowGainedFocus"/>
+  </Events>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
@@ -1279,6 +1282,9 @@
                       <Insets value="[0, 0, 0, 0]"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pig13ActionPerformed"/>
+                  </Events>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                       <AbsoluteConstraints x="20" y="148" width="25" height="25"/>
@@ -1311,6 +1317,9 @@
                       <Insets value="[0, 0, 0, 0]"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pig11ActionPerformed"/>
+                  </Events>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                       <AbsoluteConstraints x="20" y="74" width="25" height="25"/>
@@ -1327,6 +1336,9 @@
                       <Insets value="[0, 0, 0, 0]"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pig12ActionPerformed"/>
+                  </Events>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                       <AbsoluteConstraints x="20" y="110" width="25" height="25"/>
@@ -1782,6 +1794,9 @@
                       <Insets value="[0, 0, 0, 0]"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pig21ActionPerformed"/>
+                  </Events>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                       <AbsoluteConstraints x="20" y="74" width="25" height="25"/>
@@ -1798,6 +1813,9 @@
                       <Insets value="[0, 0, 0, 0]"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pig22ActionPerformed"/>
+                  </Events>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                       <AbsoluteConstraints x="20" y="110" width="25" height="25"/>
@@ -1814,6 +1832,9 @@
                       <Insets value="[0, 0, 0, 0]"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pig23ActionPerformed"/>
+                  </Events>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                       <AbsoluteConstraints x="20" y="148" width="25" height="25"/>
@@ -2282,6 +2303,9 @@
                       <Insets value="[0, 0, 0, 0]"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pig31ActionPerformed"/>
+                  </Events>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                       <AbsoluteConstraints x="20" y="74" width="25" height="25"/>
@@ -2298,6 +2322,9 @@
                       <Insets value="[0, 0, 0, 0]"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pig32ActionPerformed"/>
+                  </Events>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                       <AbsoluteConstraints x="20" y="110" width="25" height="25"/>
@@ -2314,6 +2341,9 @@
                       <Insets value="[0, 0, 0, 0]"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pig33ActionPerformed"/>
+                  </Events>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                       <AbsoluteConstraints x="20" y="148" width="25" height="25"/>
@@ -2779,6 +2809,9 @@
                       <Insets value="[0, 0, 0, 0]"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pig41ActionPerformed"/>
+                  </Events>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                       <AbsoluteConstraints x="20" y="74" width="25" height="25"/>
@@ -2795,6 +2828,9 @@
                       <Insets value="[0, 0, 0, 0]"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pig42ActionPerformed"/>
+                  </Events>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                       <AbsoluteConstraints x="20" y="110" width="25" height="25"/>
@@ -2811,6 +2847,9 @@
                       <Insets value="[0, 0, 0, 0]"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pig43ActionPerformed"/>
+                  </Events>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                       <AbsoluteConstraints x="20" y="148" width="25" height="25"/>
@@ -3276,6 +3315,9 @@
                       <Insets value="[0, 0, 0, 0]"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pig51ActionPerformed"/>
+                  </Events>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                       <AbsoluteConstraints x="20" y="74" width="25" height="25"/>
@@ -3292,6 +3334,9 @@
                       <Insets value="[0, 0, 0, 0]"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pig52ActionPerformed"/>
+                  </Events>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                       <AbsoluteConstraints x="20" y="110" width="25" height="25"/>
@@ -3308,6 +3353,9 @@
                       <Insets value="[0, 0, 0, 0]"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pig53ActionPerformed"/>
+                  </Events>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                       <AbsoluteConstraints x="20" y="148" width="25" height="25"/>
@@ -3773,6 +3821,9 @@
                       <Insets value="[0, 0, 0, 0]"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pig61ActionPerformed"/>
+                  </Events>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                       <AbsoluteConstraints x="20" y="74" width="25" height="25"/>
@@ -3789,6 +3840,9 @@
                       <Insets value="[0, 0, 0, 0]"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pig62ActionPerformed"/>
+                  </Events>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                       <AbsoluteConstraints x="20" y="110" width="25" height="25"/>
@@ -3805,6 +3859,9 @@
                       <Insets value="[0, 0, 0, 0]"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pig63ActionPerformed"/>
+                  </Events>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                       <AbsoluteConstraints x="20" y="148" width="25" height="25"/>
@@ -4270,6 +4327,9 @@
                       <Insets value="[0, 0, 0, 0]"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pig71ActionPerformed"/>
+                  </Events>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                       <AbsoluteConstraints x="20" y="74" width="25" height="25"/>
@@ -4286,6 +4346,9 @@
                       <Insets value="[0, 0, 0, 0]"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pig72ActionPerformed"/>
+                  </Events>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                       <AbsoluteConstraints x="20" y="110" width="25" height="25"/>
@@ -4302,6 +4365,9 @@
                       <Insets value="[0, 0, 0, 0]"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pig_73ActionPerformed"/>
+                  </Events>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                       <AbsoluteConstraints x="20" y="148" width="25" height="25"/>
