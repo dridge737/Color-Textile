@@ -2968,16 +2968,18 @@ public class Add_new_design extends javax.swing.JFrame {
             if(fabric_style.getText().equals("PONGEE") || fab_style_comb.getSelectedItem().equals("PONGEE"))
             {
                 float this_quant = Float.parseFloat(quantity_total.getText());
-                computation = (80*coverage/100*this_quant)/1000;
-                weigh_kg.setText(String.format("%.2f", computation));
+                computation = Math.round((80*coverage/100*this_quant)/1000);
+                
+                weigh_kg.setText(String.format("%.0f", computation));
+                
             }
             if(fabric_style.getText().equals("COTTON") || fab_style_comb.getSelectedItem().equals("COTTON")
             || fabric_style.getText().equals("KATUNIA") || fab_style_comb.getSelectedItem().equals("KATUNIA"))
             {
                 float this_quant = Float.parseFloat(quantity_total.getText());
-                computation = (80*coverage/100*this_quant)/1000;
+                computation = Math.round((80*coverage/100*this_quant)/1000);
                 
-                weigh_kg.setText(String.format("%.2f", computation));
+                weigh_kg.setText(String.format("%.0f", computation));
                // weigh_kg.setText(Float.toString(computation%.02f));
             }
             if(fabric_style.getText().equals("MICROPEACH") || fab_style_comb.getSelectedItem().equals("MICROPEACH")
@@ -2985,8 +2987,8 @@ public class Add_new_design extends javax.swing.JFrame {
             || fabric_style.getText().equals("TROPICANA") || fab_style_comb.getSelectedItem().equals("TROPICANA"))
             {
                 float this_quant = Float.parseFloat(quantity_total.getText());
-                computation = (80*coverage/100*this_quant)/1000;
-                weigh_kg.setText(String.format("%.2f", computation));
+                computation = Math.round((80*coverage/100*this_quant)/1000);
+                weigh_kg.setText(String.format("%.0f", computation));
             }
         }
     }
