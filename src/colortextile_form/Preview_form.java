@@ -1601,7 +1601,7 @@ public class Preview_form extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jPanel3);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(-1, 172, 809, 470);
+        jScrollPane1.setBounds(-1, 172, 809, 480);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
