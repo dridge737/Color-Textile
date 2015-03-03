@@ -351,7 +351,6 @@ public class Add_new_design extends javax.swing.JFrame {
         pig72 = new javax.swing.JButton();
         pig_73 = new javax.swing.JButton();
         bind_add7 = new javax.swing.JButton();
-        jTextField13 = new javax.swing.JTextField();
         add_order = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         add_order1 = new javax.swing.JButton();
@@ -1964,7 +1963,6 @@ public class Add_new_design extends javax.swing.JFrame {
         bind_add7.setText("+");
         bind_add7.setMargin(new java.awt.Insets(2, 0, 2, 0));
         jPanel15.add(bind_add7, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 203, 25, 25));
-        jPanel15.add(jTextField13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         jTabbedPane2.addTab("7", jPanel15);
 
@@ -3390,7 +3388,6 @@ public class Add_new_design extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator9;
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField13;
     private javax.swing.JLabel job_ord_label;
     private javax.swing.JTextField kg_1;
     private javax.swing.JTextField kg_10;
