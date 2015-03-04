@@ -1553,8 +1553,8 @@ public class DB_Manager {
           String sql = "SELECT * FROM purchase_order WHERE";
           int increment = 0;
           
-          if (purchase.getDesign_code() != -1){
-              sql = sql + " design_code = '"+purchase.getId_purchase()+"'";
+          if (purchase.getId_purchase() != -1){
+              sql = sql + " id_purchase = '"+purchase.getId_purchase()+"'";
               increment++;
           } 
           System.out.println(sql);
@@ -1619,8 +1619,9 @@ public class DB_Manager {
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
         return null;
         }
-        
     }
+        
+    
     public ResultSet Search_Job_Order(colortextile_class.job_order job ){
         
          try
