@@ -449,16 +449,16 @@ public class DB_Manager {
             PreparedStatement ps = 
             conn.prepareStatement("SELECT * " 
                                 + "FROM colorway "
-                                + "WHERE id_colorway "
-                                + "IN (SELECT id_colorway "
+                                + "WHERE design_code = ? ");
+                    
+/*                                + "IN (SELECT id_colorway "
                                     + " FROM design_colorway_connect "
                                     + " WHERE design_code = ?) ");
-            
+  */          
             int item = 1;
             ps.setInt(item++, this_design_code);
             
             List<Colorway_screen_link_functions> all_color_screen = new ArrayList<>();
-            
             
             ResultSet rs = ps.executeQuery();
             
@@ -469,14 +469,13 @@ public class DB_Manager {
                 current_colorway.setColorway_name(rs.getString("colorway_name"));
                 current_colorway.setWeight_kg(rs.getFloat("weight_kg"));
                 current_colorway.setId_colorway(rs.getInt("id_colorway"));
-                //current_colorway.add_all_screens_from_colorway();
+                current_colorway.setDesign_code(this_design_code);
                 all_color_screen.add(current_colorway);
             }
             rs.close();
             conn.close();
             
             return all_color_screen;
-            
             
         }
         catch(SQLException ex){
