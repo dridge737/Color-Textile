@@ -2134,7 +2134,7 @@ public class Add_new_design extends javax.swing.JFrame {
         return -1;
             
     }
-                                          //COLORWAY NAME,      PERCENTAGE TEXT ,           COLORWAY ID
+                                          //COLORWAY NAME,      PERCENTAGE TEXT ,           COLORWAY ID , 
     private void add_this_colorway_screen(String pigment_name, String pigment_percentage, int id_colorway)
     {
         int id_pigment = get_pigment_id(pigment_name);
@@ -2155,7 +2155,7 @@ public class Add_new_design extends javax.swing.JFrame {
     {
         if(jCheckBox2.isSelected())
         {
-            colortextile_class.fabric_style new_fabric = new colortextile_class.fabric_style();
+            Unused.fabric_style new_fabric = new Unused.fabric_style();
             new_fabric.setFabric_style(fabric_style.getText().toUpperCase());
             new_fabric.add_fabric_style();
             
@@ -2191,7 +2191,7 @@ public class Add_new_design extends javax.swing.JFrame {
         System.out.println("Design Code = " +design_code+ " Colorway Id = "+color_id_temp );
         if(color_id_temp != -1)
         {
-            colortextile_class.design_colorway new_dSign_cWay = new colortextile_class.design_colorway();
+            Unused.design_colorway new_dSign_cWay = new Unused.design_colorway();
             new_dSign_cWay.setDesign_code(design_code);
             new_dSign_cWay.setId_colorway(color_id_temp);
             

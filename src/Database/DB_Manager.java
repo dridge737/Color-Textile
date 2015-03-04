@@ -226,12 +226,13 @@ public class DB_Manager {
             DBConnection db = new DBConnection();
             Connection conn = db.getConnection();
             
-            PreparedStatement ps = conn.prepareStatement("INSERT INTO colorway (colorway_name, binder, weight_kg)"
-                                                       + "VALUES (?, ?, ?)");
+            PreparedStatement ps = conn.prepareStatement("INSERT INTO colorway (colorway_name, binder, weight_kg, design_code)"
+                                                       + "VALUES (? , ? , ? , ?)");
             int item =1;
             ps.setString(item++, new_colorway.getColorway_name());
             ps.setFloat(item++, new_colorway.getBinder());
             ps.setFloat(item++, new_colorway.getWeight_kg());
+            ps.setInt(item++, new_colorway.getDesign_code());
             
             ps.executeUpdate(); 
             return true;
@@ -266,27 +267,7 @@ public class DB_Manager {
         return false;
     }
     
-    public boolean add_design_colorway_connect(int design_code, int id_colorway)
-    {
-        try{
-        
-            DBConnection db = new DBConnection();
-            Connection conn = db.getConnection();
-            
-            PreparedStatement ps = conn.prepareStatement("INSERT INTO design_colorway_connect(design_code, id_colorway)"
-                                                       + "VALUES (?, ?);");
-            int item = 1;
-            ps.setInt(item++, design_code);
-            ps.setInt(item++, id_colorway);
-            ps.executeUpdate();
-            return true;
-        }
-        catch(SQLException ex)
-        {
-            System.out.println(ex);
-        }
-        return false;
-    }
+    
 
     public boolean add_design(colortextile_class.design new_design)
     {
@@ -775,38 +756,6 @@ public class DB_Manager {
         return -1;
     }
     
-    public int get_id_design_colorway(colortextile_class.design_colorway new_des_color)
-    {
-        try{
-            DBConnection db = new DBConnection();
-            Connection conn = db.getConnection();
-            
-            PreparedStatement ps = 
-            conn.prepareStatement("SELECT id_design_colorway "
-                                 + "FROM design_colorway_connect "
-                                 + "WHERE design_code = ? "
-                                 + "AND id_colorway = ? ");
-            
-            int item = 1;
-            ps.setInt(item++, new_des_color.getDesign_code());
-            ps.setFloat(item++, new_des_color.getId_colorway());
-            /* 
-            System.out.println("Design Code :" +new_des_color.getDesign_code());
-            System.out.println("Colorway Id :"  new_des_color.getId_colorway());
-            */
-            ResultSet rs = ps.executeQuery();
-            if(rs.first())
-            {
-                int id_design_colorway = rs.getInt("id_design_colorway");
-             //   System.out.println(id_colorway);
-                return id_design_colorway;
-            }
-        }
-        catch(SQLException ex){
-            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return -1;
-    }
     
     public ArrayList<String> get_all_pigment_name()
     {
@@ -1880,28 +1829,7 @@ public class DB_Manager {
         }
         
     }
-    public void delete_design_colorway_connect(design_colorway connection_Del)
-    {
-         try
-        {
-          DBConnection db = new DBConnection();
-          Connection conn = db.getConnection(); 
-          
-          PreparedStatement ps = conn.prepareStatement("DELETE FROM design_colorway_connect "
-                                                        +" WHERE id_colorway = ? AND design_code = ?");
-          int item = 1;
-          ps.setInt(item++, connection_Del.getId_colorway());
-          ps.setInt(item++, connection_Del.getDesign_code());
-          
-          ps.executeUpdate();
-          
-        }
-        catch (SQLException ex)
-        {
-            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
-            
-        }
-    }
+    
     
     public void delete_job_order(job_order this_job)
     {

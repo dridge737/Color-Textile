@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package colortextile_class;
+package Unused;
 
 /**
  *
@@ -59,7 +59,7 @@ public class design_colorway {
     
     public boolean add_new_design_and_colorway_using_variables()
     {
-        Database.DB_Manager new_conn = new Database.DB_Manager();
+        UnusedCodes new_conn = new UnusedCodes();
         if(!get_this_design_and_colorway_id_using_variables())
         {
             return new_conn.add_design_colorway_connect(this.design_code, this.id_colorway);
@@ -71,7 +71,7 @@ public class design_colorway {
     
     public boolean get_this_design_and_colorway_id_using_variables()
     {
-        Database.DB_Manager new_conn = new Database.DB_Manager();
+        UnusedCodes new_conn = new UnusedCodes();
         int temp_design_id = new_conn.get_id_design_colorway(this);
         if(temp_design_id == -1)
         {

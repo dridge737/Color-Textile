@@ -2134,7 +2134,7 @@ public class EditRecipe extends javax.swing.JFrame {
         System.out.println("Design Code = " +design_code+ " Colorway Id = "+color_id_temp );
         if(color_id_temp != -1)
         {
-            colortextile_class.design_colorway new_dSign_cWay = new colortextile_class.design_colorway();
+            Unused.design_colorway new_dSign_cWay = new Unused.design_colorway();
             new_dSign_cWay.setDesign_code(design_code);
             new_dSign_cWay.setId_colorway(color_id_temp);
             new_dSign_cWay.add_new_design_and_colorway_using_variables();

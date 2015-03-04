@@ -14,7 +14,7 @@ import java.util.ArrayList;
  *
  * @author Eldridge
  */
-public class design extends fabric_style{
+public class design{
     private int design_code;
     private String design_name;
     private String color_name;
@@ -182,6 +182,29 @@ public class design extends fabric_style{
      */
     public void setTotal_quantity(int total_quantity) {
         this.total_quantity = total_quantity;
+    }
+    
+    public boolean add_fabric_style()
+    {
+        if(get_fabric_style_id() == -1)
+        {
+            Database.DB_Manager new_conn = new Database.DB_Manager();
+            new_conn.add_fabric_style(fabric_style);
+            return true;
+        }
+        return false;
+    }
+    
+    public int get_fabric_style_id()
+    {
+        Database.DB_Manager new_conn = new Database.DB_Manager();
+        return new_conn.get_fabric_style_id(this.fabric_style);
+    }
+    
+    public ArrayList<String> get_all_fabric_styles()
+    {
+        Database.DB_Manager new_conn = new Database.DB_Manager();
+        return new_conn.get_all_fabric_styles();
     }
     
 }
