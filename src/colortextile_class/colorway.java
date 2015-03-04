@@ -110,6 +110,7 @@ public class colorway {
         this.setBinder(temp_colorway.getBinder());
         this.setColorway_name(temp_colorway.getColorway_name());
         this.setWeight_kg(temp_colorway.getWeight_kg());
+        this.setDesign_code(temp_colorway.getDesign_code());
     }
 
     /**

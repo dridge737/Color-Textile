@@ -593,7 +593,7 @@ public class DB_Manager {
             Connection conn = db.getConnection();
             
             PreparedStatement ps = 
-            conn.prepareStatement("SELECT colorway_name,  binder, weight_kg "
+            conn.prepareStatement("SELECT colorway_name,  binder, weight_kg, design_code "
                                 + "FROM colorway "
                                 + "WHERE id_colorway = ?");
             int item = 1;
@@ -606,6 +606,7 @@ public class DB_Manager {
             if(rs.first())
             {
                 this_colorway.setId_colorway(id_colorway);
+                this_colorway.setDesign_code(rs.getInt("design_code"));
                 this_colorway.setColorway_name(rs.getString("colorway_name"));
                 this_colorway.setBinder(rs.getFloat("binder"));
                 this_colorway.setWeight_kg(rs.getFloat("weight_kg"));
