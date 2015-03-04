@@ -2101,7 +2101,7 @@ public class Add_new_design extends javax.swing.JFrame {
         }
     }
     
-    private int add_this_colorway(String colorway_name, float binder_percent, String temp_weight_kg)
+    private int add_this_colorway(String colorway_name, float binder_percent, String temp_weight_kg, int design_code)
     {
         if(colorway_name.length()>0)
         {
@@ -2112,6 +2112,7 @@ public class Add_new_design extends javax.swing.JFrame {
                 new_colorway.setColorway_name(colorway_name);
                 new_colorway.setBinder(binder_percent);
                 new_colorway.setWeight_kg(weight_kg);
+                new_colorway.setDesign_code(design_code);
                 new_colorway.add_new_colorway();
                 new_colorway.set_id_colorway_from_variables();
                 
@@ -2203,7 +2204,7 @@ public class Add_new_design extends javax.swing.JFrame {
     {
         int colorway_id = add_this_colorway(colorway_name2.getText(), 
                              Float.parseFloat(binder8.getSelectedItem().toString()),
-                             weigh_kg8.getText());
+                             weigh_kg8.getText(), design_code);
         if(colorway_id != -1 )
         {   
             add_this_colorway_screen(name1.getSelectedItem().toString(),
@@ -2218,7 +2219,7 @@ public class Add_new_design extends javax.swing.JFrame {
         }
         int colorway_id2 = add_this_colorway(colorway_name3.getText(), 
                              Float.parseFloat(binder3.getSelectedItem().toString()),
-                             weigh_kg3.getText());
+                             weigh_kg3.getText(), design_code);
         
         if(colorway_id2 != -1 )
         {
@@ -2235,7 +2236,7 @@ public class Add_new_design extends javax.swing.JFrame {
         }
         colorway_id = add_this_colorway(colorway_name4.getText(), 
                              Float.parseFloat(binder4.getSelectedItem().toString()),
-                             weigh_kg4.getText());
+                             weigh_kg4.getText() , design_code);
         
         if(colorway_id != -1 )
         {
@@ -2252,7 +2253,7 @@ public class Add_new_design extends javax.swing.JFrame {
         }
         colorway_id2 = add_this_colorway(colorway_name5.getText(), 
                              Float.parseFloat(binder5.getSelectedItem().toString()),
-                             weigh_kg5.getText());
+                             weigh_kg5.getText(), design_code);
         
         if(colorway_id2 != -1 )
         {
@@ -2270,7 +2271,7 @@ public class Add_new_design extends javax.swing.JFrame {
         
         colorway_id = add_this_colorway(colorway_name6.getText(), 
                              Float.parseFloat(binder6.getSelectedItem().toString()),
-                             weigh_kg6.getText());
+                             weigh_kg6.getText() , design_code);
         
         //add_this_design_and_colorway(design_code.getText(), colorway_id);
         
@@ -2291,7 +2292,7 @@ public class Add_new_design extends javax.swing.JFrame {
         
         colorway_id2 = add_this_colorway(colorway_name7.getText(), 
                              Float.parseFloat(binder7.getSelectedItem().toString()),
-                             weigh_kg7.getText());
+                             weigh_kg7.getText(), design_code);
         
         if( colorway_id2 != -1 )
         {
