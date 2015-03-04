@@ -61,9 +61,6 @@ public class purchase_order {
         this.job_order_id = job_order_id;
     }
 
-
-    
-    
     public boolean add_new_purchase()
     {
         DB_Manager new_conn = new DB_Manager();

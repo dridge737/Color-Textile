@@ -2048,7 +2048,7 @@ public class Add_new_design extends javax.swing.JFrame {
      */
     private void add_purchase(int design_code)
     {
-        purchase_order purchase = new purchase_order();
+        /*purchase_order purchase = new purchase_order();
 
         for (int i = 0; i < job_list.size(); i++) 
         {
@@ -2060,13 +2060,31 @@ public class Add_new_design extends javax.swing.JFrame {
         }
         // this_purchase.setDesign_code(purchase.getDesign_code());
         // this_purchase.setDate(purchase.getDate());
+        */
+        List<purchase_order> all_purchase = this.get_all_purchase_details(design_code);
+        for(int x=0; x<all_purchase.size(); x++)
+        {
+            all_purchase.get(x).add_new_purchase();
+        }
+    }
+    
+    private List<purchase_order> get_all_purchase_details(int design_code)
+    {
+        List<purchase_order> all_purchase = new ArrayList<>();
         
-        //Commeting this out
-        //    JOptionPane.showMessageDialog(null,purchase.getPurchase_Id_Last());
+        for (int i = 0; i < job_list.size(); i++) 
+        {
+            purchase_order purchase = new purchase_order();
+            purchase.setDesign_code(design_code);
+            purchase.setJob_order_id(this.job_list.get(i).toString()); 
+            purchase.setQuantity(Integer.parseInt(this.quantity_list.get(i).toString()));
         
+            all_purchase.add(purchase);
+        }
+        return all_purchase;
     }
     private void add_job()
-    {    
+    {   /* 
         SimpleDateFormat formater = new SimpleDateFormat("yyyy/MM/dd");
         String spinnerValue = formater.format(this.spinner_date.getValue());
         
@@ -2085,7 +2103,35 @@ public class Add_new_design extends javax.swing.JFrame {
                        }
                        //job.setQuantity(Integer.parseInt(this.quantity_list.get(i).toString()));
                        //job.setId_purchase(id_purchase);
-                }    
+                }   
+        */
+        List<job_order> all_jobs = get_job_details();
+        for(int x = 0; x < all_jobs.size() ; x++ )
+        {
+            all_jobs.get(x).add_new_job_order();
+        }
+    }
+    
+    private List<job_order> get_job_details()
+    {
+        SimpleDateFormat formater = new SimpleDateFormat("yyyy/MM/dd");
+        String spinnerValue = formater.format(this.spinner_date.getValue());
+        
+        List<job_order> all_job_orders = new ArrayList<>();
+        for (int i = 0; i < job_list.size(); i++) 
+        {
+            job_order job = new job_order();
+            DB_Manager new_conn = new DB_Manager();
+            job.setJob_id(this.job_list.get(i).toString());
+            
+            job.setCustomer_id(new_conn.get_id_customer(this.customer_list.get(i).toString()));
+            job.setDate(spinnerValue);
+            all_job_orders.add(job);
+            
+            //job.setQuantity(Integer.parseInt(this.quantity_list.get(i).toString()));
+            //job.setId_purchase(id_purchase);
+        }
+        return all_job_orders;
     }
     
     
@@ -2170,13 +2216,16 @@ public class Add_new_design extends javax.swing.JFrame {
     
     private int add_this_design()
     {
+        /*
         colortextile_class.design new_design = new colortextile_class.design();
         //new_design.setDesign_code(design_code.getText());
         new_design.setDesign_name(design_name.getText());
         new_design.setColor_name(design_color.getText());
         new_design.setFabric_style(getFabricStyle());
         //new_design.setTotal_quantity(Integer.parseInt(quantity_total.getText()));
+        */
         
+        colortextile_class.design new_design = get_design_details();
         if(new_design.add_new_design())
         {
             new_design.set_design_code_using_variables();
@@ -2187,6 +2236,20 @@ public class Add_new_design extends javax.swing.JFrame {
         return -1;
     }
     
+    private design get_design_details()
+    {
+        colortextile_class.design new_design = new colortextile_class.design();
+        //new_design.setDesign_code(design_code.getText());
+        new_design.setDesign_name(design_name.getText());
+        new_design.setColor_name(design_color.getText());
+        new_design.setFabric_style(getFabricStyle());
+        //new_design.setTotal_quantity(Integer.parseInt(quantity_total.getText()));
+        
+        return new_design;
+        
+        
+    }
+    /*
     private void add_this_design_and_colorway(int design_code, int color_id_temp)
     {
         System.out.println("Design Code = " +design_code+ " Colorway Id = "+color_id_temp );
@@ -2199,7 +2262,7 @@ public class Add_new_design extends javax.swing.JFrame {
             new_dSign_cWay.add_new_design_and_colorway_using_variables();
         }
     }
-              
+       */       
     private void add_all_this_colorways(int design_code)
     {
         int colorway_id = add_this_colorway(colorway_name2.getText(), 
@@ -2215,7 +2278,6 @@ public class Add_new_design extends javax.swing.JFrame {
             
             add_this_colorway_screen(name3.getSelectedItem().toString(),
                                       percentage3.getText(), colorway_id );
-            add_this_design_and_colorway(design_code, colorway_id);   
         }
         int colorway_id2 = add_this_colorway(colorway_name3.getText(), 
                              Float.parseFloat(binder3.getSelectedItem().toString()),
@@ -2248,8 +2310,7 @@ public class Add_new_design extends javax.swing.JFrame {
             
             add_this_colorway_screen(name11.getSelectedItem().toString(),
                                       percentage11.getText(), colorway_id );
-            //add_this_design_and_colorway(design_code.getText(), colorway_id);
-  
+           
         }
         colorway_id2 = add_this_colorway(colorway_name5.getText(), 
                              Float.parseFloat(binder5.getSelectedItem().toString()),
@@ -2266,14 +2327,11 @@ public class Add_new_design extends javax.swing.JFrame {
             add_this_colorway_screen(name15.getSelectedItem().toString(),
                                       percentage15.getText(), colorway_id2 );
             
-            //add_this_design_and_colorway(design_code.getText(), colorway_id2);
         }
         
         colorway_id = add_this_colorway(colorway_name6.getText(), 
                              Float.parseFloat(binder6.getSelectedItem().toString()),
                              weigh_kg6.getText() , design_code);
-        
-        //add_this_design_and_colorway(design_code.getText(), colorway_id);
         
         if(colorway_id != -1 )
         {
@@ -2285,9 +2343,6 @@ public class Add_new_design extends javax.swing.JFrame {
             
             add_this_colorway_screen(name19.getSelectedItem().toString(),
                                       percentage19.getText(), colorway_id );
-    
-            
-            //add_this_design_and_colorway(design_code.getText(), colorway_id);
         }
         
         colorway_id2 = add_this_colorway(colorway_name7.getText(), 
@@ -2305,7 +2360,6 @@ public class Add_new_design extends javax.swing.JFrame {
             add_this_colorway_screen(name23.getSelectedItem().toString(),
                                       percentage23.getText(), colorway_id2 );
                             
-            //add_this_design_and_colorway(design_code.getText(), colorway_id2);
         }
     }
     private void add_orderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_orderActionPerformed
@@ -2692,16 +2746,16 @@ public class Add_new_design extends javax.swing.JFrame {
         
         String job_order_text = this.job_ord_label.getText() + this.text_job_order.getText();
         
-        job_order this_job_order = new job_order();
-        this_job_order.setJob_id(job_order_text);
-        
+        //job_order this_job_order = new job_order();
+        //this_job_order.setJob_id(job_order_text);
+        /*
         if(this_job_order.check_if_job_exists())
         {
             JOptionPane.showMessageDialog(null,"Job order number has been already added before!");
             duplicate = true;
         }
         else
-        {
+        {*/
             if (this.text_job_order.getText().length() == 0)
             {
                 JOptionPane.showMessageDialog(null,"Please input a job order number!");
@@ -2717,7 +2771,7 @@ public class Add_new_design extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null,"Job Order ID already Exists");
                 }
             }
-        }
+        
         return !duplicate;
         
     }
@@ -2797,8 +2851,7 @@ public class Add_new_design extends javax.swing.JFrame {
 
     private void add_order1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_order1ActionPerformed
         // TODO add your handling code here:
-        Design_colorway_link_functions this_des;
-        Job_purchase_link_functions this_job;
+        
         
     }//GEN-LAST:event_add_order1ActionPerformed
 
@@ -2814,11 +2867,6 @@ public class Add_new_design extends javax.swing.JFrame {
         
         String Year = spinnerValue.substring(2, 4);
         String Month = spinnerValue.substring(5,7);
-        /* Month= "";
-        if(spinnerValue.substring(5, 6).compareTo("0") == 0)
-        Month = spinnerValue.substring(6,7);
-        else*/
-        
         
         job_ord_label.setText(Year+ "P-" + Month + "-");
     }
@@ -2853,6 +2901,7 @@ public class Add_new_design extends javax.swing.JFrame {
     private void pig11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pig11ActionPerformed
         // TODO add your handling code here:
         show_add_pigment();
+        
     }//GEN-LAST:event_pig11ActionPerformed
 
     private void pig12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pig12ActionPerformed
@@ -2957,8 +3006,9 @@ public class Add_new_design extends javax.swing.JFrame {
 
     private void formWindowGainedFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowGainedFocus
         // TODO add your handling code here:
-        this.clearItem();
-        addListItems();
+        this.registerSelectedItem();
+        //this.clearItem();
+       // addListItems();
     }//GEN-LAST:event_formWindowGainedFocus
 
     private void compute_kg(JTextField weigh_kg, float coverage)
@@ -3068,7 +3118,7 @@ public class Add_new_design extends javax.swing.JFrame {
         return true;
     }
     
-    public void addBlankSpace()
+    private void addBlankSpace()
     {
             name1.addItem("");
             name2.addItem("");
@@ -3093,7 +3143,66 @@ public class Add_new_design extends javax.swing.JFrame {
             name26.addItem("");   
    
     }
-    public void clearItem()
+    
+    private void registerSelectedItem()
+    {
+        String[] allitems = new String[21];
+        allitems[0] = name1.getSelectedItem().toString();
+        allitems[1] = name2.getSelectedItem().toString();
+        allitems[2] = name3.getSelectedItem().toString();
+        allitems[3] = name5.getSelectedItem().toString();
+        allitems[4] = name6.getSelectedItem().toString();
+        allitems[5] = name7.getSelectedItem().toString();
+
+        allitems[6] = name9.getSelectedItem().toString();
+        allitems[7] = name10.getSelectedItem().toString();
+        allitems[8] = name11.getSelectedItem().toString();
+
+        allitems[9] = name13.getSelectedItem().toString();
+        allitems[10] = name14.getSelectedItem().toString();
+        allitems[11] = name15.getSelectedItem().toString();
+
+        allitems[12] = name17.getSelectedItem().toString();
+        allitems[13] = name18.getSelectedItem().toString();
+        allitems[14] = name19.getSelectedItem().toString();
+
+        allitems[15] = name21.getSelectedItem().toString();
+        allitems[16] = name22.getSelectedItem().toString();
+        allitems[17] = name23.getSelectedItem().toString();
+        allitems[18] = name24.getSelectedItem().toString();
+        allitems[19] = name25.getSelectedItem().toString();
+        allitems[20] = name26.getSelectedItem().toString();
+        
+        this.clearItem();
+        this.addListItems();
+        
+        name1.setSelectedItem(allitems[0]);
+        name2.setSelectedItem(allitems[1]);
+        name3.setSelectedItem(allitems[2]);
+        
+        name5.setSelectedItem(allitems[3]);
+        name6.setSelectedItem(allitems[4]);
+        name7.setSelectedItem(allitems[5]);
+        
+        name9.setSelectedItem(allitems[6]);
+        name10.setSelectedItem(allitems[7]);
+        name11.setSelectedItem(allitems[8]);
+        name13.setSelectedItem(allitems[9]);
+        name14.setSelectedItem(allitems[10]);
+        name15.setSelectedItem(allitems[11]);
+        name17.setSelectedItem(allitems[12]);
+        name18.setSelectedItem(allitems[13]);
+        name19.setSelectedItem(allitems[14]);
+        name21.setSelectedItem(allitems[15]);
+        name22.setSelectedItem(allitems[16]);
+        name23.setSelectedItem(allitems[17]);
+        name24.setSelectedItem(allitems[18]);
+        name25.setSelectedItem(allitems[19]);
+        name26.setSelectedItem(allitems[20]);
+        
+    }
+    
+    private void clearItem()
     {
             name1.removeAllItems();
             name2.removeAllItems();
