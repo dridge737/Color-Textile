@@ -74,9 +74,9 @@ public class SearchJOGui extends javax.swing.JFrame {
         }
         
     }
-    ArrayList purchase_order_list = new ArrayList( );
+    ArrayList order_list = new ArrayList( );
     public void fill_table(ResultSet rs){
-        this.purchase_order_list.clear();
+        this.order_list.clear();
         
         DB_Manager conn= new DB_Manager();
         purchase_order info = new purchase_order();
@@ -95,26 +95,34 @@ public class SearchJOGui extends javax.swing.JFrame {
         model.addColumn("Fabric Style");
         
         try {
-            if (rs.next()){
-             rs.previous();
-            while(rs.next()) {
-                    this.purchase_order_list.add(rs.getInt("id_purchase"));
+            if (rs.first()){
+                rs.previous();
+                while (rs.next()){
+                    
+                    // insert here loop
+                    
+                }
+            
+                    
+                info.setId_purchase(rs.getInt("id_purchase"));
+                ResultSet rs2 = info.Search_purchase_info();
                 
-                ResultSet rs2 = info.get_purchase_info_from_id_purchase(rs.getInt("id_purchase"));
-                
+                this.order_list.add(rs2.getInt("id_purchase"));
                 if(rs2.first()){
-                             design_conn.setDesign_code(rs2.getInt("design_code"));
+                    rs2.previous();
+                    while(rs2.next()) {
+                    
+                    design_conn.setDesign_code(rs2.getInt("design_code"));
                             ResultSet rs3 = design_conn.search_design();
                             
                             if (rs3.first()){
                                 
                     String[] set1 = {   
-                                    rs.getString("job_order_id"), 
+                                    rs2.getString("job_order_id"), 
                                     conn.get_customer_name(rs.getInt("customer_id")),
-                                    rs2.getString("date"),
-                                    rs.getString("quantity"),
-                                   
-                                  // rs2.getString("design_code"),
+                                    rs.getString("date"),
+                                    rs2.getString("quantity"),
+                             
                                     rs3.getString("design_name"),
                                     rs3.getString("color_name"),
                                     rs3.getString("fabric_style")};
@@ -132,6 +140,9 @@ public class SearchJOGui extends javax.swing.JFrame {
                    
                                     model.addRow(set1);
                             }
+                    
+                    }
+                             
                 
                 } else {
                     
@@ -144,7 +155,7 @@ public class SearchJOGui extends javax.swing.JFrame {
                                     model.addRow(set1);
              
                 }
-                }
+                
             } else {
                 
             JOptionPane.showMessageDialog(null,"No Record");
@@ -157,7 +168,7 @@ public class SearchJOGui extends javax.swing.JFrame {
     }
     
     public void fill_table2(ResultSet rs, ResultSet rs3){
-        this.purchase_order_list.clear();
+        this.order_list.clear();
         DB_Manager conn = new DB_Manager();
         
         DefaultTableModel model = new DefaultTableModel();
@@ -171,7 +182,7 @@ public class SearchJOGui extends javax.swing.JFrame {
             while(rs.next()) {
                 purchase_order info = new purchase_order();
                 ResultSet rs2 = info.get_purchase_info_from_id_purchase(rs.getInt("id_purchase"));
-                this.purchase_order_list.add(rs.getInt("id_purchase"));
+                this.order_list.add(rs.getInt("id_purchase"));
                 if (rs2.next()){
                 String[] set1 = { rs.getString("job_order_id"), 
                                     conn.get_customer_name(rs.getInt("customer_id")), 
@@ -199,7 +210,7 @@ public class SearchJOGui extends javax.swing.JFrame {
                 ResultSet rs4 = info.get_job_info_from_purchase_id(rs3.getInt("id_purchase"));
                 
                 while(rs4.next()) {
-                    this.purchase_order_list.add(rs3.getInt("id_purchase"));
+                    this.order_list.add(rs3.getInt("id_purchase"));
                 String[] set1 = { rs4.getString("job_order_id"), conn.get_customer_name(rs4.getInt("customer_id")), rs4.getString("quantity"), rs3.getString("date"), rs3.getString("design_code")};
                 model.addRow(set1);
                 }
@@ -490,8 +501,8 @@ public class SearchJOGui extends javax.swing.JFrame {
         {
             System.out.println(jTable1.getValueAt(row, col));
         }
-        int selected_purchase_order = (Integer) this.purchase_order_list.get(row);
-        JOptionPane.showMessageDialog(null, "Selected purchase order: " + this.purchase_order_list.get(row).toString() + " from row : " + row  );
+        int selected_purchase_order = (Integer) this.order_list.get(row);
+        JOptionPane.showMessageDialog(null, "Selected purchase order: " + this.order_list.get(row).toString() + " from row : " + row  );
     }//GEN-LAST:event_button_detailsActionPerformed
 
     private void jTable1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTable1KeyPressed
@@ -516,7 +527,7 @@ public class SearchJOGui extends javax.swing.JFrame {
         
         
         design design_conn = new design();
-        design_conn.setDesign_code(get_design_code_from_table_selected());
+      //  design_conn.setDesign_code(get_design_code_from_table_selected());
         design_conn.get_picture_from_design_code();
         Blob blob = design_conn.getDesign_image();
         

@@ -87,6 +87,8 @@ public class purchase_order {
        return new_conn.get_single_purchase_info_from_id_purchase(this);
     }
     
+    
+    
     public ResultSet Search_purchase_info(){
         DB_Manager new_conn = new DB_Manager();
         
