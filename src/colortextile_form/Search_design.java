@@ -269,14 +269,18 @@ public class Search_design extends javax.swing.JFrame {
         design design_conn = new design();
         if (!(this.text_design_color.getText().equals(""))){
             design_conn.setColor_name(this.text_design_color.getText());
+        } else {
+            design_conn.setColor_name(null);
         }
         
         //design_conn.setDesign_code(this.text_design_code.getText());
         if (!(this.text_design_name.getText().equals(""))){
             design_conn.setDesign_name(this.text_design_name.getText());
+        } else {
+            design_conn.setDesign_name(null);
         }
         
-        
+        design_conn.setDesign_code(-1);
         fill_table(design_conn.search_design());
     }//GEN-LAST:event_button_searchActionPerformed
 
