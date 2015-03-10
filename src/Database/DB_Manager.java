@@ -1553,7 +1553,7 @@ public class DB_Manager {
           String sql = "SELECT * FROM purchase_order WHERE";
           int increment = 0;
           
-          if (purchase.getId_purchase() != -1){
+          if (purchase.getId_purchase() != -1 && purchase.getId_purchase() != 0 ) {
               sql = sql + " id_purchase = '"+purchase.getId_purchase()+"'";
               increment++;
           } 

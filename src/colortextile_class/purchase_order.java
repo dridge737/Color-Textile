@@ -88,7 +88,6 @@ public class purchase_order {
     
     public ResultSet Search_purchase_info(){
         DB_Manager new_conn = new DB_Manager();
-        
        return new_conn.Search_id_purchase(this);
     }
 

@@ -44,10 +44,13 @@ public class Search_design extends javax.swing.JFrame {
         model.addColumn("fabric_style");
         
         
+        
+        
         try {
             if (rs.first()){
                 
              rs.previous();
+             
             while(rs.next()) {
                 
                 

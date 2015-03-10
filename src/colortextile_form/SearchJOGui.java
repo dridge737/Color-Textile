@@ -81,38 +81,46 @@ public class SearchJOGui extends javax.swing.JFrame {
         this.order_list.clear();
         
         DB_Manager conn= new DB_Manager();
-        purchase_order info = new purchase_order();
         
-        design design_conn = new design();
+        
+        
         DefaultTableModel model = new DefaultTableModel();
         
-        
+        model.addColumn("#"); // purchaseorder
         model.addColumn("Job Order");       // job_order
         model.addColumn("Customer Name");   //job_order
         model.addColumn("date");            //job_order
         model.addColumn("Quantity");        //purchase order
-        //model.addColumn("Design Code");
         model.addColumn("Design Name");     //design
         model.addColumn("Colorway Name");   //design
         model.addColumn("Fabric Style");    //desing
         
         try {
+            
             if (rs.first()){
-                rs.previous();
+                
+                
+               rs.previous();
+              
+                
                 while (rs.next()){
                     
-                    // insert here loop
+                    purchase_order info = new purchase_order();
+                   info.setJob_order_id(rs.getString("job_order_id"));
+                   info.setId_purchase(-1);
+                   info.setDesign_code(-1);
+                    ResultSet rs2 = info.Search_purchase_info();
+                JOptionPane.showMessageDialog(null,"-1");
+                  // this.order_list.add(rs2.getInt("id_purchase"));
                     
-                }
-            
-                    
-                info.setId_purchase(rs.getInt("id_purchase"));
-                ResultSet rs2 = info.Search_purchase_info();
-                
-                this.order_list.add(rs2.getInt("id_purchase"));
+                  
                 if(rs2.first()){
                     rs2.previous();
                     while(rs2.next()) {
+                        
+                        
+                       design design_conn = new design(); 
+                        
                     
                     design_conn.setDesign_code(rs2.getInt("design_code"));
                             ResultSet rs3 = design_conn.search_design();
@@ -120,6 +128,7 @@ public class SearchJOGui extends javax.swing.JFrame {
                             if (rs3.first()){
                                 
                     String[] set1 = {   
+                                    rs2.getString("id_purchase"),
                                     rs2.getString("job_order_id"), 
                                     conn.get_customer_name(rs.getInt("customer_id")),
                                     rs.getString("date"),
@@ -134,11 +143,12 @@ public class SearchJOGui extends javax.swing.JFrame {
                             } else {
                             
                     String[] set1 = {   
+                                    rs2.getString("purchase_order"),
                                     rs.getString("job_order_id"), 
                                     conn.get_customer_name(rs.getInt("customer_id")),
                                     rs2.getString("date"),
-                                    rs.getString("quantity"),
-                                    rs2.getString("design_code")};
+                                    rs.getString("quantity")
+                                    };
                    
                                     model.addRow(set1);
                             }
@@ -150,13 +160,19 @@ public class SearchJOGui extends javax.swing.JFrame {
                     
                    String[] set1 = {   rs.getString("job_order_id"), 
                                     conn.get_customer_name(rs.getInt("customer_id")), 
-                                    rs.getString("quantity")
+                                    rs.getString("date")
                    };
                                    
                
                                     model.addRow(set1);
              
                 }
+                    
+                   
+                }
+           
+                    
+                
                 
             } else {
                 
@@ -439,7 +455,7 @@ public class SearchJOGui extends javax.swing.JFrame {
         {
             System.out.println(jTable1.getValueAt(row, col));
         }
-        int selected_purchase_order = (Integer) this.order_list.get(row);
+        String selected_purchase_order = jTable1.getValueAt(row, 0).toString();
         JOptionPane.showMessageDialog(null, "Selected purchase order: " + this.order_list.get(row).toString() + " from row : " + row  );
     }//GEN-LAST:event_button_detailsActionPerformed
 
