@@ -45,7 +45,6 @@ public class purchase_order {
     public void setDesign_code(int design_code) {
         this.design_code = design_code;
     }
-
     
     /**
      * @return the job_order_id
@@ -86,8 +85,6 @@ public class purchase_order {
         this.setId_purchase(purchase_id);
        return new_conn.get_single_purchase_info_from_id_purchase(this);
     }
-    
-    
     
     public ResultSet Search_purchase_info(){
         DB_Manager new_conn = new DB_Manager();

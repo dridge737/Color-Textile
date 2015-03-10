@@ -2851,7 +2851,11 @@ public class Add_new_design extends javax.swing.JFrame {
 
     private void add_order1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_order1ActionPerformed
         // TODO add your handling code here:
+        get_design_details();
+        get_job_details();
+        List<purchase_order> purch_prev = get_all_purchase_details(1);
         
+                
         
     }//GEN-LAST:event_add_order1ActionPerformed
 
