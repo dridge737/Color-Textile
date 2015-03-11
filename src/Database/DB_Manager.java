@@ -1632,11 +1632,11 @@ public class DB_Manager {
           String sql ="SELECT * FROM job_order WHERE";
           int increment = 0;
           
-          if (job.getCustomer_id() != 0){
+          if (job.getCustomer_id() != -1){
               sql = sql + " customer_id = '"+job.getCustomer_id()+"'";
               increment++;
           } 
-          System.out.println(sql);
+          
           /*
           if (job.getDate_from() != null){
               
