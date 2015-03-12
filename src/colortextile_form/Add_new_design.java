@@ -33,7 +33,7 @@ public class Add_new_design extends javax.swing.JFrame {
     private int count_screen_1 = 0;
     private colortextile_class.Job_purchase_link_functions this_purchase = new colortextile_class.Job_purchase_link_functions();
     private DefaultListModel list = new DefaultListModel();
- 
+    
     private ArrayList quantity_list = new ArrayList( );
     private ArrayList job_list = new ArrayList( );
     private ArrayList customer_list = new ArrayList( );
@@ -3010,7 +3010,10 @@ public class Add_new_design extends javax.swing.JFrame {
 
     private void formWindowGainedFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowGainedFocus
         // TODO add your handling code here:
-        this.registerSelectedItem();
+        pigment this_pigment = new pigment();
+        if(this_pigment.count_all_pigment() != (name1.getItemCount()-1))
+            this.registerSelectedItem();
+        
         //this.clearItem();
        // addListItems();
     }//GEN-LAST:event_formWindowGainedFocus
