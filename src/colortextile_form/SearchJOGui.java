@@ -110,7 +110,7 @@ public class SearchJOGui extends javax.swing.JFrame {
                    info.setId_purchase(-1);
                    info.setDesign_code(-1);
                     ResultSet rs2 = info.Search_purchase_info();
-                JOptionPane.showMessageDialog(null,"-1");
+               
                   // this.order_list.add(rs2.getInt("id_purchase"));
                     
                   
@@ -438,7 +438,7 @@ public class SearchJOGui extends javax.swing.JFrame {
 
     
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
-        JOptionPane.showMessageDialog(null, "mouse clicked");
+       // JOptionPane.showMessageDialog(null, "mouse clicked");
         
         try {
             insert_pic();
@@ -456,12 +456,12 @@ public class SearchJOGui extends javax.swing.JFrame {
             System.out.println(jTable1.getValueAt(row, col));
         }
         String selected_purchase_order = jTable1.getValueAt(row, 0).toString();
-        JOptionPane.showMessageDialog(null, "Selected purchase order: " + this.order_list.get(row).toString() + " from row : " + row  );
+        JOptionPane.showMessageDialog(null, "Selected purchase order: " + selected_purchase_order + " from row : " + row  );
     }//GEN-LAST:event_button_detailsActionPerformed
 
     private void jTable1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTable1KeyPressed
         // TODO add your handling code here:
-        JOptionPane.showMessageDialog(null, "key pressed");
+       // JOptionPane.showMessageDialog(null, "key pressed");
    
         try {
             insert_pic();
@@ -472,7 +472,7 @@ public class SearchJOGui extends javax.swing.JFrame {
     private String get_design_code_from_table_selected(){
         
         int row = this.get_table_row_value();
-        String id =(this.jTable1.getModel().getValueAt(row, 4).toString());
+        String id =(this.jTable1.getModel().getValueAt(row, 0).toString());
         JOptionPane.showMessageDialog(null, "id= " + id);
         
         return id;
