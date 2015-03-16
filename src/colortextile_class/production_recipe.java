@@ -15,7 +15,7 @@ import java.util.List;
 public class production_recipe extends Design_colorway_link_functions{
     
      private String Date;
-     private design production_design;
+     //private design production_design;
      private List<job_order> jobs_for_this = new ArrayList<>();
      private List<purchase_order> all_purchase = new ArrayList<>();
      
@@ -156,18 +156,18 @@ public class production_recipe extends Design_colorway_link_functions{
 
     /**
      * @return the production_design
-     */
+     
     public design getProduction_design() {
         return production_design;
     }
 
     /**
      * @param production_design the production_design to set
-     */
+     
     public void setProduction_design(design production_design) {
         this.production_design = production_design;
     }
-
+*/
     /**
      * @return the all_purchase
      */

@@ -2233,15 +2233,24 @@ public class Add_new_design extends javax.swing.JFrame {
         return -1;
     }
     
-    private design get_design_details()
+    private production_recipe get_design_details()
     {
-        colortextile_class.design new_design = new colortextile_class.design();
+        colortextile_class.production_recipe new_design = new colortextile_class.production_recipe();
         //new_design.setDesign_code(design_code.getText());
         new_design.setDesign_name(design_name.getText());
         new_design.setColor_name(design_color.getText());
         new_design.setFabric_style(getFabricStyle());
-        //new_design.setTotal_quantity(Integer.parseInt(quantity_total.getText()));
         
+        List<Colorway_screen_link_functions> all_color_screen = this.get_all_colorway_inputs();
+        new_design.setAll_colorways(all_color_screen);
+        
+        
+        if (this.jList1.getModel().getSize() != 0)
+        {
+            new_design.setJobs_for_this(this.get_job_details());
+            new_design.setAll_purchase(get_all_purchase_details(1));
+            //Adds purchase order and design
+         }
         return new_design;
         
         
@@ -2960,23 +2969,9 @@ public class Add_new_design extends javax.swing.JFrame {
     private void preview_butActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_preview_butActionPerformed
         // TODO add your handling code here:
         
-        production_recipe prod_recipe = new production_recipe();
-        prod_recipe.setProduction_design(this.get_design_details());
+        production_recipe prod_recipe = this.get_design_details();
         
-        if (this.jList1.getModel().getSize() != 0)
-        {
-            prod_recipe.setJobs_for_this(this.get_job_details());
-            prod_recipe.setAll_purchase(get_all_purchase_details(1));
-            //Adds purchase order and design
-            this.add_all_this_colorways(1);
-            
-            JOptionPane.showMessageDialog(null,"Successfully Added this Recipe");
-            //this.this_purchase.setPurchase_Id_from_Date_and_code();
-            //this.this_purchase.set_design_details_from_purchase_order_id();
-            //this.this_purchase.set_job_order_list_using_purchase_order_id();
-            //SpreadsheetTrial printFile = new SpreadsheetTrial();
-            //printFile.print_this_job(this_purchase);
-        }
+        Preview_form this_preview = new Preview_form(prod_recipe);
                 
         
     }//GEN-LAST:event_preview_butActionPerformed
