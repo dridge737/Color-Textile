@@ -774,7 +774,7 @@
                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   <Component id="add_order" min="-2" pref="240" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="add_order1" min="-2" pref="240" max="-2" attributes="0"/>
+                  <Component id="preview_but" min="-2" pref="240" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="add_order2" min="-2" pref="240" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
@@ -803,7 +803,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="add_order1" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
+                          <Component id="preview_but" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
                           <Component id="add_order2" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
                       </Group>
                       <Component id="add_order" min="-2" pref="42" max="-2" attributes="0"/>
@@ -4420,7 +4420,7 @@
             <Property name="text" type="java.lang.String" value="Screens"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="add_order1">
+        <Component class="javax.swing.JButton" name="preview_but">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -4432,7 +4432,7 @@
             <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="add_order1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="preview_butActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="add_order2">

@@ -353,7 +353,7 @@ public class Add_new_design extends javax.swing.JFrame {
         bind_add7 = new javax.swing.JButton();
         add_order = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
-        add_order1 = new javax.swing.JButton();
+        preview_but = new javax.swing.JButton();
         add_order2 = new javax.swing.JButton();
 
         jTextArea1.setColumns(20);
@@ -1980,13 +1980,13 @@ public class Add_new_design extends javax.swing.JFrame {
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Screens");
 
-        add_order1.setBackground(new java.awt.Color(255, 255, 255));
-        add_order1.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        add_order1.setText("Preview");
-        add_order1.setToolTipText("");
-        add_order1.addActionListener(new java.awt.event.ActionListener() {
+        preview_but.setBackground(new java.awt.Color(255, 255, 255));
+        preview_but.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        preview_but.setText("Preview");
+        preview_but.setToolTipText("");
+        preview_but.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                add_order1ActionPerformed(evt);
+                preview_butActionPerformed(evt);
             }
         });
 
@@ -2008,7 +2008,7 @@ public class Add_new_design extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(add_order, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(add_order1, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(preview_but, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(add_order2, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(14, 14, 14))
@@ -2031,7 +2031,7 @@ public class Add_new_design extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(add_order1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(preview_but, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(add_order2, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(add_order, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(77, 77, 77))
@@ -2143,7 +2143,7 @@ public class Add_new_design extends javax.swing.JFrame {
         list.get_customer_list();
         for ( String name : list.getCustomer_names() )
         {
-        this.combo_name.addItem(name);
+            this.combo_name.addItem(name);
         }
     }
     
@@ -2154,11 +2154,7 @@ public class Add_new_design extends javax.swing.JFrame {
             if(temp_weight_kg.length()>0)
             {
                 float weight_kg = Float.parseFloat(temp_weight_kg);
-                colortextile_class.colorway new_colorway = new colortextile_class.colorway();
-                new_colorway.setColorway_name(colorway_name);
-                new_colorway.setBinder(binder_percent);
-                new_colorway.setWeight_kg(weight_kg);
-                new_colorway.setDesign_code(design_code);
+                colortextile_class.colorway new_colorway = new colortextile_class.colorway(colorway_name, binder_percent, weight_kg, design_code);
                 new_colorway.add_new_colorway();
                 new_colorway.set_id_colorway_from_variables();
                 
@@ -2181,6 +2177,7 @@ public class Add_new_design extends javax.swing.JFrame {
         return -1;
             
     }
+    
                                           //COLORWAY NAME,      PERCENTAGE TEXT ,           COLORWAY ID , 
     private void add_this_colorway_screen(String pigment_name, String pigment_percentage, int id_colorway)
     {
@@ -2263,6 +2260,117 @@ public class Add_new_design extends javax.swing.JFrame {
         }
     }
        */       
+    
+    private List<Colorway_screen_link_functions> get_all_colorway_inputs()
+    {
+        List<Colorway_screen_link_functions> all_colorway = new ArrayList<>();
+        
+        for(int interval = 0 ; interval<7; interval++)
+        {
+            Colorway_screen_link_functions this_colorway_screen;
+
+            if(interval==0)
+            {
+                this_colorway_screen = new Colorway_screen_link_functions(colorway_name2.getText(), 
+                             Float.parseFloat(binder8.getSelectedItem().toString()),
+                             Float.parseFloat(weigh_kg8.getText()));
+        
+                this_colorway_screen.add_screen(get_colorway_details_from_input(name1, percentage1));
+                this_colorway_screen.add_screen(get_colorway_details_from_input(name2, percentage2));
+                this_colorway_screen.add_screen(get_colorway_details_from_input(name3, percentage3));
+        
+                all_colorway.add(this_colorway_screen);
+            }
+            else if(interval==1)
+            {
+                this_colorway_screen = new Colorway_screen_link_functions(colorway_name3.getText(), 
+                             Float.parseFloat(binder3.getSelectedItem().toString()),
+                             Float.parseFloat(weigh_kg3.getText()));
+                
+                this_colorway_screen.add_screen(get_colorway_details_from_input(name5, percentage5));
+                this_colorway_screen.add_screen(get_colorway_details_from_input(name6, percentage6));
+                this_colorway_screen.add_screen(get_colorway_details_from_input(name7, percentage7));
+        
+                all_colorway.add(this_colorway_screen);
+            }
+            else if(interval == 2)
+            {
+                this_colorway_screen = new Colorway_screen_link_functions(colorway_name4.getText(), 
+                             Float.parseFloat(binder4.getSelectedItem().toString()),
+                             Float.parseFloat(weigh_kg4.getText()));
+                
+                this_colorway_screen.add_screen(get_colorway_details_from_input(name9, percentage9));
+                this_colorway_screen.add_screen(get_colorway_details_from_input(name10, percentage10));
+                this_colorway_screen.add_screen(get_colorway_details_from_input(name11, percentage11));
+        
+                all_colorway.add(this_colorway_screen);
+            }
+            else if(interval == 3)
+            {
+                this_colorway_screen = new Colorway_screen_link_functions(colorway_name5.getText(), 
+                             Float.parseFloat(binder5.getSelectedItem().toString()),
+                             Float.parseFloat(weigh_kg5.getText()));
+                
+                this_colorway_screen.add_screen(get_colorway_details_from_input(name13, percentage13));
+                this_colorway_screen.add_screen(get_colorway_details_from_input(name14, percentage14));
+                this_colorway_screen.add_screen(get_colorway_details_from_input(name15, percentage15));
+        
+                all_colorway.add(this_colorway_screen);
+            }
+            else if(interval == 4)
+            {
+                this_colorway_screen = new Colorway_screen_link_functions(colorway_name6.getText(), 
+                             Float.parseFloat(binder6.getSelectedItem().toString()),
+                             Float.parseFloat(weigh_kg6.getText()));
+                
+                this_colorway_screen.add_screen(get_colorway_details_from_input(name17, percentage17));
+                this_colorway_screen.add_screen(get_colorway_details_from_input(name18, percentage18));
+                this_colorway_screen.add_screen(get_colorway_details_from_input(name19, percentage19));
+        
+                all_colorway.add(this_colorway_screen);
+            }
+            else if(interval == 5)
+            {
+             this_colorway_screen = new Colorway_screen_link_functions(colorway_name7.getText(), 
+                             Float.parseFloat(binder7.getSelectedItem().toString()),
+                             Float.parseFloat(weigh_kg7.getText()));
+                
+                this_colorway_screen.add_screen(get_colorway_details_from_input(name21, percentage21));
+                this_colorway_screen.add_screen(get_colorway_details_from_input(name22, percentage22));
+                this_colorway_screen.add_screen(get_colorway_details_from_input(name23, percentage23));
+        
+                all_colorway.add(this_colorway_screen);   
+            }
+            else if(interval == 6)
+            {
+                this_colorway_screen = new Colorway_screen_link_functions(colorway_name8.getText(), 
+                             Float.parseFloat(binder9.getSelectedItem().toString()),
+                             Float.parseFloat(weigh_kg9.getText()));
+                
+                this_colorway_screen.add_screen(get_colorway_details_from_input(name24, percentage21));
+                this_colorway_screen.add_screen(get_colorway_details_from_input(name25, percentage22));
+                this_colorway_screen.add_screen(get_colorway_details_from_input(name26, percentage23));
+        
+                all_colorway.add(this_colorway_screen); 
+            }
+        
+        }
+        
+        return all_colorway;
+        
+    }
+    
+    private colorway_and_screen get_colorway_details_from_input(JComboBox pigment_text, JTextField percentageText )
+    {
+        colorway_and_screen this_colorway;
+        if(this.checkText2(percentageText.getText()) == false)
+        this_colorway = new colorway_and_screen(pigment_text.getSelectedItem().toString(), Float.parseFloat(percentageText.getText()));
+        else
+        this_colorway = new colorway_and_screen(pigment_text.getSelectedItem().toString());
+        
+        return this_colorway;
+    }
+    
     private void add_all_this_colorways(int design_code)
     {
         int colorway_id = add_this_colorway(colorway_name2.getText(), 
@@ -2849,15 +2957,29 @@ public class Add_new_design extends javax.swing.JFrame {
         
     }//GEN-LAST:event_button_remove_customerActionPerformed
 
-    private void add_order1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_order1ActionPerformed
+    private void preview_butActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_preview_butActionPerformed
         // TODO add your handling code here:
-        get_design_details();
-        get_job_details();
-        List<purchase_order> purch_prev = get_all_purchase_details(1);
         
+        production_recipe prod_recipe = new production_recipe();
+        prod_recipe.setProduction_design(this.get_design_details());
+        
+        if (this.jList1.getModel().getSize() != 0)
+        {
+            prod_recipe.setJobs_for_this(this.get_job_details());
+            prod_recipe.setAll_purchase(get_all_purchase_details(1));
+            //Adds purchase order and design
+            this.add_all_this_colorways(1);
+            
+            JOptionPane.showMessageDialog(null,"Successfully Added this Recipe");
+            //this.this_purchase.setPurchase_Id_from_Date_and_code();
+            //this.this_purchase.set_design_details_from_purchase_order_id();
+            //this.this_purchase.set_job_order_list_using_purchase_order_id();
+            //SpreadsheetTrial printFile = new SpreadsheetTrial();
+            //printFile.print_this_job(this_purchase);
+        }
                 
         
-    }//GEN-LAST:event_add_order1ActionPerformed
+    }//GEN-LAST:event_preview_butActionPerformed
 
     private void add_order2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_order2ActionPerformed
         // TODO add your handling code here:
@@ -3058,7 +3180,7 @@ public class Add_new_design extends javax.swing.JFrame {
         {
             boolean text_check = checkText2(percentage_text);
             boolean text_check2 = checkText2(weight_kg);
-            System.out.println(text_check+ " and " +text_check2);
+            //System.out.println(text_check+ " and " +text_check2);
             if(!text_check && !text_check2)
             {
                 try
@@ -3083,6 +3205,11 @@ public class Add_new_design extends javax.swing.JFrame {
         }
         
     }
+    /**
+     * 
+     * @param this_text
+     * @return true if text contains any character not 0-9
+     */
     private boolean checkText2(String this_text)
     {
         String regex = "[^0-9]";
@@ -3090,7 +3217,6 @@ public class Add_new_design extends javax.swing.JFrame {
         this_text = this_text.replaceFirst("[.]", "");
         
         return p.matcher(this_text).find();
-    
     }
     
     private boolean check_this_textbox(JTextField the_textfield)
@@ -3314,7 +3440,6 @@ public class Add_new_design extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton add_order;
-    private javax.swing.JButton add_order1;
     private javax.swing.JButton add_order2;
     private javax.swing.JButton bind_add;
     private javax.swing.JButton bind_add2;
@@ -3590,6 +3715,7 @@ public class Add_new_design extends javax.swing.JFrame {
     private javax.swing.JButton pig71;
     private javax.swing.JButton pig72;
     private javax.swing.JButton pig_73;
+    private javax.swing.JButton preview_but;
     private javax.swing.JTextField quantity;
     private javax.swing.JTextField quantity_total;
     private javax.swing.JSpinner spinner_date;

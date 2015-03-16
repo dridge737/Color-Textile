@@ -24,6 +24,7 @@ public class Job_purchase_link_functions extends job_order{
     public void add_all_purchase_order()
     {
         Database.DB_Manager new_conn = new Database.DB_Manager();
+
         all_purchase = new_conn.get_all_purchase_for_this_job_order(this);
     }
     

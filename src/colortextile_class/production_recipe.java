@@ -15,7 +15,7 @@ import java.util.List;
 public class production_recipe{
     
      private String Date;
-     private int design_code;
+     private design production_design;
      private List<job_order> jobs_for_this = new ArrayList<>();
      private List<purchase_order> all_purchase = new ArrayList<>();
      
@@ -108,18 +108,74 @@ public class production_recipe{
     public void setDate(String Date) {
         this.Date = Date;
     }
-
-    /**
-     * @return the design_code
-     */
-    public int getDesign_code() {
-        return design_code;
+    
+    public void add_all_purchase_order()
+    {
+        Database.DB_Manager new_conn = new Database.DB_Manager();
+        setAll_purchase(new_conn.get_all_purchase_for_this_job_order(this.jobs_for_this.get(0)));
+    }
+    
+    public void view_all_puchase_order()
+     {
+         
+        for (purchase_order all_purchase1 : getAll_purchase()) {
+            System.out.println("Purchase id = " + all_purchase1.getId_purchase());
+            System.out.println("Job Order = " + all_purchase1.getJob_order_id());
+            System.out.println("Design code= " + all_purchase1.getDesign_code());
+            System.out.println("Quantity = " + all_purchase1.getQuantity());
+        }
+     }
+    
+    public String get_all_quantity()
+    {
+        String quantity_all = "";
+        for(int x = 0 ; x < getAll_purchase().size(); x++)
+        {
+            if(x == getAll_purchase().size()-1)
+                quantity_all += Integer.toString(getAll_purchase().get(x).getQuantity());
+            else
+                quantity_all += Integer.toString(getAll_purchase().get(x).getQuantity()) + "+";
+                
+        }
+        return quantity_all;
+    }
+    
+    public int get_quantity_sum()
+    {
+        int quantity_sum = 0;
+        for(int x = 0 ; x < getAll_purchase().size(); x++)
+        {
+            quantity_sum += getAll_purchase().get(x).getQuantity();
+        }
+        //System.out.println(quantity_sum);
+        return quantity_sum;
     }
 
     /**
-     * @param design_code the design_code to set
+     * @return the production_design
      */
-    public void setDesign_code(int design_code) {
-        this.design_code = design_code;
+    public design getProduction_design() {
+        return production_design;
+    }
+
+    /**
+     * @param production_design the production_design to set
+     */
+    public void setProduction_design(design production_design) {
+        this.production_design = production_design;
+    }
+
+    /**
+     * @return the all_purchase
+     */
+    public List<purchase_order> getAll_purchase() {
+        return all_purchase;
+    }
+
+    /**
+     * @param all_purchase the all_purchase to set
+     */
+    public void setAll_purchase(List<purchase_order> all_purchase) {
+        this.all_purchase = all_purchase;
     }
 }

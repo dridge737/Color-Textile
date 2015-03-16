@@ -20,6 +20,19 @@ public class colorway {
     public colorway(){
         id_colorway = 0;
     }
+    
+    public colorway(String name, float set_binder , float set_weight_kg){
+        this.colorway_name = name;
+        this.binder = set_binder;
+        this.weight_kg = set_weight_kg;
+    }
+    
+    public colorway(String name, float set_binder , float set_weight_kg, int set_design_code){
+        this.colorway_name = name;
+        this.binder = set_binder;
+        this.weight_kg = set_weight_kg;
+        this.design_code = set_design_code;
+    }
 
     /**
      * @return the id_colorway
