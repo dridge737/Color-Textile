@@ -12,12 +12,15 @@ import java.util.List;
  *
  * @author Eldridge
  */
-public class production_recipe{
+public class production_recipe extends Design_colorway_link_functions{
     
      private String Date;
      private design production_design;
      private List<job_order> jobs_for_this = new ArrayList<>();
      private List<purchase_order> all_purchase = new ArrayList<>();
+     
+     //private Design_colorway_link_functions new_des_col_link = new Design_colorway_link_functions();
+    
      
      public void set_job_order_list_using_date_and_design_code()
     {
@@ -178,4 +181,19 @@ public class production_recipe{
     public void setAll_purchase(List<purchase_order> all_purchase) {
         this.all_purchase = all_purchase;
     }
+    
+    public void set_design_details_from_design_code()
+    {
+        this.setDesign_details_from_des_code();
+        this.add_all_colorway_from_design_code();
+    }
+    
+    /**
+     * @return the new_des_col_link
+     */
+
+    /**
+     * @param new_des_col_link the new_des_col_link to set
+     */
+    
 }

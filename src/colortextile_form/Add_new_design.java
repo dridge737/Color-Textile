@@ -2265,7 +2265,7 @@ public class Add_new_design extends javax.swing.JFrame {
     {
         List<Colorway_screen_link_functions> all_colorway = new ArrayList<>();
         
-        for(int interval = 0 ; interval<7; interval++)
+        for(int interval = 0 ; interval < 7; interval++ )
         {
             Colorway_screen_link_functions this_colorway_screen;
 
