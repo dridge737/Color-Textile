@@ -118,6 +118,14 @@ public class pigment implements Comparable<pigment>{
         
     }
     
+    public int count_all_pigment()
+    {
+        DB_Manager new_conn = new DB_Manager();
+        int total = new_conn.count_number_of_pigment();
+        return total;
+    }
+    
+    
     
     
     

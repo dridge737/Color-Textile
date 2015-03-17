@@ -112,7 +112,10 @@ public class job_order extends customer {
         return new_conn.Search_job_id(this);
         
     }
-    
+    /**
+     * Checks if the Job_order_Id has already been added in the database (NOT USED)
+     * @return 
+     */
     public boolean check_if_job_exists()
     {
         DB_Manager new_conn = new DB_Manager();

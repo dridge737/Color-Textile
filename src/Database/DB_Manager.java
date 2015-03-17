@@ -83,6 +83,25 @@ public class DB_Manager {
         return false;
     }
     
+    public int count_number_of_pigment()
+    {
+        try {
+            DBConnection db = new DBConnection();
+            Connection conn = db.getConnection();
+
+            PreparedStatement ps = conn.prepareStatement("SELECT COUNT(pigment_no) AS 'Total' FROM pigment");
+           
+            ResultSet rs = ps.executeQuery();
+            
+            rs.first();
+            return rs.getInt("Total");
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return -1;
+    }
+    
     public boolean add_pigment(colortextile_class.pigment this_pigment)
     {
         try {

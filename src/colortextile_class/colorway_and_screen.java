@@ -15,6 +15,17 @@ public class colorway_and_screen extends pigment{
     private int id_colorway;
     private float pigment_percentage;
 
+    public colorway_and_screen(){}
+    
+    public colorway_and_screen(String pig_name){
+        this.setPigment_name(pig_name);
+    }
+    
+    public colorway_and_screen(String pig_name, float pigment_percentage)
+    {
+        this.setPigment_name(pig_name);
+        this.setPigment_percentage(pigment_percentage);
+    }
     /**
      * @return the id_color_screen
      */

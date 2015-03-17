@@ -17,6 +17,15 @@ public class Preview_form extends javax.swing.JFrame {
     public Preview_form() {
         initComponents();
     }
+    
+    public Preview_form(colortextile_class.production_recipe this_prod)
+    {
+        initComponents();
+        this.des_colorway.setText(this_prod.getColor_name());
+        this.des_name.setText(this_prod.getDesign_name());
+        this.fab_style.setText(this_prod.getFabric_style());
+        //this_prod
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -30,7 +39,7 @@ public class Preview_form extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        date = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -38,12 +47,12 @@ public class Preview_form extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
-        jTextField7 = new javax.swing.JTextField();
+        cust_text = new javax.swing.JTextField();
+        job_text = new javax.swing.JTextField();
+        quantity = new javax.swing.JTextField();
+        fab_style = new javax.swing.JTextField();
+        des_name = new javax.swing.JTextField();
+        des_colorway = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
@@ -290,7 +299,7 @@ public class Preview_form extends javax.swing.JFrame {
         setName("Print Preview\n"); // NOI18N
         getContentPane().setLayout(null);
 
-        jPanel1.setBackground(new java.awt.Color(51, 51, 51));
+        jPanel1.setBackground(new java.awt.Color(77, 76, 76));
         jPanel1.setLayout(null);
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -309,14 +318,14 @@ public class Preview_form extends javax.swing.JFrame {
         jPanel1.add(jLabel6);
         jLabel6.setBounds(530, 10, 125, 32);
 
-        jTextField5.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        jPanel1.add(jTextField5);
-        jTextField5.setBounds(660, 9, 120, 32);
+        date.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        jPanel1.add(date);
+        date.setBounds(660, 9, 120, 32);
 
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 810, 50);
 
-        jPanel2.setBackground(new java.awt.Color(51, 51, 51));
+        jPanel2.setBackground(new java.awt.Color(77, 76, 76));
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         jPanel2.setForeground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -357,36 +366,37 @@ public class Preview_form extends javax.swing.JFrame {
         jLabel8.setText("Quantity :");
         jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 82, 90, 32));
 
-        jTextField1.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        jPanel2.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(108, 8, 380, 32));
+        cust_text.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        jPanel2.add(cust_text, new org.netbeans.lib.awtextra.AbsoluteConstraints(108, 8, 380, 32));
 
-        jTextField2.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        jPanel2.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(108, 45, 380, 32));
+        job_text.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        jPanel2.add(job_text, new org.netbeans.lib.awtextra.AbsoluteConstraints(108, 45, 380, 32));
 
-        jTextField3.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        jPanel2.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(108, 82, 380, 32));
+        quantity.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        jPanel2.add(quantity, new org.netbeans.lib.awtextra.AbsoluteConstraints(108, 82, 380, 32));
 
-        jTextField4.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        jPanel2.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 8, 150, 32));
+        fab_style.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        jPanel2.add(fab_style, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 8, 150, 32));
 
-        jTextField6.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        jPanel2.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 45, 150, 32));
+        des_name.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        jPanel2.add(des_name, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 45, 150, 32));
 
-        jTextField7.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        jPanel2.add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 82, 150, 32));
+        des_colorway.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        jPanel2.add(des_colorway, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 82, 150, 32));
 
         getContentPane().add(jPanel2);
         jPanel2.setBounds(0, 50, 809, 124);
 
-        jScrollPane1.setBackground(new java.awt.Color(0, 0, 0));
+        jScrollPane1.setBackground(new java.awt.Color(77, 76, 76));
         jScrollPane1.setForeground(new java.awt.Color(255, 255, 255));
         jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
         jScrollPane1.setOpaque(false);
 
-        jPanel3.setBackground(new java.awt.Color(51, 51, 51));
+        jPanel3.setBackground(new java.awt.Color(77, 76, 76));
         jPanel3.setForeground(new java.awt.Color(255, 255, 255));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jPanel4.setBackground(new java.awt.Color(153, 153, 153));
         jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         jPanel4.setOpaque(false);
         jPanel4.setLayout(null);
@@ -1649,6 +1659,11 @@ public class Preview_form extends javax.swing.JFrame {
     private javax.swing.JTextField bind_per5;
     private javax.swing.JTextField bind_per6;
     private javax.swing.JTextField bind_per7;
+    private javax.swing.JTextField cust_text;
+    private javax.swing.JTextField date;
+    private javax.swing.JTextField des_colorway;
+    private javax.swing.JTextField des_name;
+    private javax.swing.JTextField fab_style;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel100;
     private javax.swing.JLabel jLabel101;
@@ -1815,13 +1830,7 @@ public class Preview_form extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JSeparator jSeparator8;
     private javax.swing.JSeparator jSeparator9;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
+    private javax.swing.JTextField job_text;
     private javax.swing.JTextField kg1;
     private javax.swing.JTextField kg2;
     private javax.swing.JTextField kg3;
@@ -1892,6 +1901,7 @@ public class Preview_form extends javax.swing.JFrame {
     private javax.swing.JTextField pig_name7;
     private javax.swing.JTextField pig_name8;
     private javax.swing.JTextField pig_name9;
+    private javax.swing.JTextField quantity;
     private javax.swing.JTextField screen1;
     private javax.swing.JTextField screen2;
     private javax.swing.JTextField screen3;

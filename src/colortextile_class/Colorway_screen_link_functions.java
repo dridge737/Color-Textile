@@ -18,6 +18,13 @@ public class Colorway_screen_link_functions extends colorway implements Comparab
     
     private List<colorway_and_screen> this_screens = new ArrayList<>();
     
+    public Colorway_screen_link_functions(){}
+    
+    public Colorway_screen_link_functions(String name, float bind, float weight)
+    {
+        super(name,bind,weight);
+    }
+    
     public void add_screen(colorway_and_screen this_screen)
     {
         getThis_screens().add(this_screen);
