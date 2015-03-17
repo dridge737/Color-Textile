@@ -549,7 +549,7 @@ public class Add_new_design extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jCheckBox2);
-        jCheckBox2.setBounds(650, 210, 63, 25);
+        jCheckBox2.setBounds(650, 210, 65, 25);
 
         jLabel11.setBackground(new java.awt.Color(255, 255, 255));
         jLabel11.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
@@ -689,7 +689,7 @@ public class Add_new_design extends javax.swing.JFrame {
             }
         });
         jPanel16.add(jCheckBox1);
-        jCheckBox1.setBounds(340, 50, 59, 20);
+        jCheckBox1.setBounds(340, 50, 63, 20);
 
         text_name.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
         jPanel16.add(text_name);
@@ -2066,6 +2066,30 @@ public class Add_new_design extends javax.swing.JFrame {
         {
             all_purchase.get(x).add_new_purchase();
         }
+    }
+    
+    public void shout(int purchase_order){
+          System.out.println("Shouting ");
+          
+          //fill textboxes  +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+          
+          //design name
+          this.design_name.setText("");
+          //design colorway
+          this.design_color.setText("");
+          //fabric style
+          this.fabric_style.setText("");
+          
+          //Screen Name
+          this.colorway_name2.setText(null);
+          //Kilograms/KGS
+          this.weigh_kg8.setText("");
+          //Coverage
+          this.coverage1.setText("");
+          //
+          //Pigment Name    Percentage     KG/Prep
+          this.name1.addItem(""); this.name1.setSelectedItem(""); 
+        
     }
     
     private List<purchase_order> get_all_purchase_details(int design_code)
