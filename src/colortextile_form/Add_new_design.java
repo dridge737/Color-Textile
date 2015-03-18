@@ -549,7 +549,7 @@ public class Add_new_design extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jCheckBox2);
-        jCheckBox2.setBounds(650, 210, 63, 25);
+        jCheckBox2.setBounds(650, 210, 65, 25);
 
         jLabel11.setBackground(new java.awt.Color(255, 255, 255));
         jLabel11.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
@@ -689,7 +689,7 @@ public class Add_new_design extends javax.swing.JFrame {
             }
         });
         jPanel16.add(jCheckBox1);
-        jCheckBox1.setBounds(340, 50, 59, 20);
+        jCheckBox1.setBounds(340, 50, 63, 20);
 
         text_name.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
         jPanel16.add(text_name);
@@ -2066,6 +2066,132 @@ public class Add_new_design extends javax.swing.JFrame {
         {
             all_purchase.get(x).add_new_purchase();
         }
+    }
+    
+    public void fill_info(int purchase_order){
+          System.out.println("Shouting ");
+          
+          //fill textboxes  +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+          
+          //design name
+          this.design_name.setText("");
+          //design colorway
+          this.design_color.setText("");
+          //fabric style
+          this.fabric_style.setText("");
+          
+          // 11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111
+          
+          //Screen Name
+          this.colorway_name2.setText(null);
+          //Kilograms/KGS
+          this.weigh_kg8.setText("");
+          //Coverage
+          this.coverage1.setText("");
+          //
+          //Pigment Name    Percentage     KG/Prep
+          this.name1.addItem(""); this.name1.setSelectedItem("");      this.percentage1.setText(null);   
+          this.name2.addItem(""); this.name2.setSelectedItem("");      this.percentage2.setText(null);   
+          this.name3.addItem(""); this.name3.setSelectedItem("");      this.percentage3.setText(null);   
+          
+          this.binder8.addItem(""); this.binder8.setSelectedItem("");
+          
+          //222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222
+          
+          //Screen Name
+          this.colorway_name3.setText(null);
+          //Kilograms/KGS
+          this.weigh_kg3.setText("");
+          //Coverage
+          this.coverage3.setText("");
+          //
+          //Pigment Name    Percentage     KG/Prep
+          this.name5.addItem(""); this.name5.setSelectedItem("");      this.percentage5.setText(null);   
+          this.name6.addItem(""); this.name6.setSelectedItem("");      this.percentage6.setText(null);   
+          this.name7.addItem(""); this.name7.setSelectedItem("");      this.percentage7.setText(null);   
+          
+          this.binder3.addItem(""); this.binder3.setSelectedItem("");
+          
+          //333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333
+          
+          //Screen Name
+          this.colorway_name4.setText(null);
+          //Kilograms/KGS
+          this.weigh_kg4.setText("");
+          //Coverage
+          this.coverage4.setText("");
+          //
+          //Pigment Name    Percentage     KG/Prep
+          this.name9.addItem(""); this.name9.setSelectedItem("");      this.percentage9.setText(null);   
+          this.name10.addItem(""); this.name10.setSelectedItem("");      this.percentage10.setText(null);   
+          this.name11.addItem(""); this.name11.setSelectedItem("");      this.percentage11.setText(null);   
+          
+          this.binder3.addItem(""); this.binder3.setSelectedItem("");
+          
+          //444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444
+          
+          //Screen Name
+          this.colorway_name5.setText(null);
+          //Kilograms/KGS
+          this.weigh_kg5.setText("");
+          //Coverage
+          this.coverage5.setText("");
+          //
+          //Pigment Name    Percentage     KG/Prep
+          this.name13.addItem(""); this.name13.setSelectedItem("");      this.percentage13.setText(null);   
+          this.name14.addItem(""); this.name14.setSelectedItem("");      this.percentage14.setText(null);   
+          this.name15.addItem(""); this.name15.setSelectedItem("");      this.percentage15.setText(null);   
+          
+          this.binder5.addItem(""); this.binder5.setSelectedItem("");
+          
+          //5555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555
+          
+          //Screen Name
+          this.colorway_name6.setText(null);
+          //Kilograms/KGS
+          this.weigh_kg6.setText("");
+          //Coverage
+          this.coverage6.setText("");
+          //
+          //Pigment Name    Percentage     KG/Prep
+          this.name17.addItem(""); this.name17.setSelectedItem("");      this.percentage17.setText(null);   
+          this.name18.addItem(""); this.name18.setSelectedItem("");      this.percentage18.setText(null);   
+          this.name19.addItem(""); this.name19.setSelectedItem("");      this.percentage19.setText(null);   
+          
+          this.binder6.addItem(""); this.binder6.setSelectedItem("");
+          
+          //66666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666
+          
+          //Screen Name
+          this.colorway_name7.setText(null);
+          //Kilograms/KGS
+          this.weigh_kg7.setText("");
+          //Coverage
+          this.coverage2.setText("");
+          //
+          //Pigment Name    Percentage     KG/Prep
+          this.name21.addItem(""); this.name21.setSelectedItem("");      this.percentage21.setText(null);   
+          this.name22.addItem(""); this.name22.setSelectedItem("");      this.percentage22.setText(null);   
+          this.name23.addItem(""); this.name23.setSelectedItem("");      this.percentage23.setText(null);   
+          
+          this.binder7.addItem(""); this.binder7.setSelectedItem("");
+          
+          //77777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777
+          
+          //Screen Name
+          this.colorway_name8.setText(null);
+          //Kilograms/KGS
+          this.weigh_kg9.setText("");
+          //Coverage
+          this.coverage7.setText("");
+          //
+          //Pigment Name    Percentage     KG/Prep
+          this.name24.addItem(""); this.name24.setSelectedItem("");      this.percentage24.setText(null);   
+          this.name25.addItem(""); this.name25.setSelectedItem("");      this.percentage25.setText(null);   
+          this.name26.addItem(""); this.name26.setSelectedItem("");      this.percentage26.setText(null);   
+          
+          this.binder8.addItem(""); this.binder9.setSelectedItem("");
+        
     }
     
     private List<purchase_order> get_all_purchase_details(int design_code)
