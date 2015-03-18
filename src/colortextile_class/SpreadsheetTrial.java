@@ -48,10 +48,8 @@ public class SpreadsheetTrial {
      */
     public void print_this_job(Job_purchase_link_functions this_purchase, production_recipe for_production){
         // TODO code application logic here
-        /*
          
         try {
-           
             File templateFile = new File(in);
             File outFile = new File(out);
             RhinoTemplate template = new RhinoTemplate(templateFile);
@@ -131,7 +129,7 @@ public class SpreadsheetTrial {
             e.printStackTrace();
         }
         
-        */
+        
     }
     private static Map<String, String> createMap2(Colorway_screen_link_functions this_color_screen)
     {
@@ -161,6 +159,7 @@ public class SpreadsheetTrial {
          
         return res;
     }
+    /*
     private static Map<String, String> createMap(String screen_name, String prep_kilo, String max, String screen, String kilo, String bind) {
         final Map<String, String> res = new HashMap<String, String>();
         res.put("name", screen_name);
@@ -180,6 +179,7 @@ public class SpreadsheetTrial {
         res.put("bind2", max);
         return res;
     }
+    */
     
 
     static File copyFileToTmp(File in) throws IOException {

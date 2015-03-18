@@ -549,7 +549,7 @@ public class Add_new_design extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jCheckBox2);
-        jCheckBox2.setBounds(650, 210, 65, 25);
+        jCheckBox2.setBounds(650, 210, 63, 25);
 
         jLabel11.setBackground(new java.awt.Color(255, 255, 255));
         jLabel11.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
@@ -689,7 +689,7 @@ public class Add_new_design extends javax.swing.JFrame {
             }
         });
         jPanel16.add(jCheckBox1);
-        jCheckBox1.setBounds(340, 50, 63, 20);
+        jCheckBox1.setBounds(340, 50, 59, 20);
 
         text_name.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
         jPanel16.add(text_name);
@@ -2209,6 +2209,7 @@ public class Add_new_design extends javax.swing.JFrame {
         }
         return all_purchase;
     }
+    
     private void add_job()
     {   /* 
         SimpleDateFormat formater = new SimpleDateFormat("yyyy/MM/dd");
@@ -2256,7 +2257,6 @@ public class Add_new_design extends javax.swing.JFrame {
         }
         return all_job_orders;
     }
-    
     
     private void fill_customer_list()
     {
@@ -2385,20 +2385,6 @@ public class Add_new_design extends javax.swing.JFrame {
         String spinnerValue = formater.format(this.spinner_date.getValue());
         return spinnerValue;
     }
-    /*
-    private void add_this_design_and_colorway(int design_code, int color_id_temp)
-    {
-        System.out.println("Design Code = " +design_code+ " Colorway Id = "+color_id_temp );
-        if(color_id_temp != -1)
-        {
-            Unused.design_colorway new_dSign_cWay = new Unused.design_colorway();
-            new_dSign_cWay.setDesign_code(design_code);
-            new_dSign_cWay.setId_colorway(color_id_temp);
-            
-            new_dSign_cWay.add_new_design_and_colorway_using_variables();
-        }
-    }
-       */       
     
     private List<Colorway_screen_link_functions> get_all_colorway_inputs()
     {
@@ -2609,24 +2595,148 @@ public class Add_new_design extends javax.swing.JFrame {
                             
         }
     }
+    
+    private void fill_list()
+    {
+        int x = 0;
+        int total = 0;
+        list.removeAllElements();
+        
+        while(x <= job_list.size() - 1)
+            {
+        String combine = x +  "    " + this.job_list.get(x) + "    " + this.customer_list.get(x) + "    " +  this.quantity_list.get(x);
+                list.addElement(combine);
+                
+                total = total + Integer.parseInt(this.quantity_list.get(x).toString());
+                x++;
+            }
+        
+        this.jList1.setModel(list);
+        this.quantity_total.setText(null);
+        this.quantity_total.setText(total + "");
+    }
+
+    private void include()
+    {
+        String customer_name;
+        if(this.jCheckBox1.isSelected())
+        {
+            customer custom = new customer();       
+            custom.setCustomer_name(this.text_name.getText());
+            custom.add_new_customer();
+            customer_name = this.text_name.getText();
+        }
+        else
+        {
+            customer_name = this.combo_name.getSelectedItem().toString();
+        }
+        customer_list.add(customer_name);
+        job_list.add(this.job_ord_label.getText() + this.text_job_order.getText());
+        quantity_list.add(this.quantity.getText());
+        //refresh Textbox to add items
+        fill_list();
+    }
+    
+    private boolean check_if_this_job_order_is_good()
+    {
+        boolean duplicate = false;
+        
+        String job_order_text = this.job_ord_label.getText() + this.text_job_order.getText();
+        
+        //job_order this_job_order = new job_order();
+        //this_job_order.setJob_id(job_order_text);
+        /*
+        if(this_job_order.check_if_job_exists())
+        {
+            JOptionPane.showMessageDialog(null,"Job order number has been already added before!");
+            duplicate = true;
+        }
+        else
+        {*/
+            if (this.text_job_order.getText().length() == 0)
+            {
+                JOptionPane.showMessageDialog(null,"Please input a job order number!");
+                duplicate = true;
+            } 
+            else {
+                // check job order if existing
+                for (int j = 0; j < this.job_list.size(); j++ ){
+                    if (this.job_list.get(j).toString().trim().equals(job_order_text))
+                        duplicate = true;
+                }
+                if( duplicate == true){
+                    JOptionPane.showMessageDialog(null,"Job Order ID already Exists");
+                }
+            }
+        
+        return !duplicate;
+        
+    }
+    
+    private boolean check_if_this_customer_is_good()
+    {
+        boolean good_customer = true;
+        if(this.jCheckBox1.isSelected())
+        {
+            if (this.text_name.getText().trim().length() == 0)
+            {
+                JOptionPane.showMessageDialog(null,"Please Type a Name!");
+                good_customer = false;
+            }
+            else
+            {
+                customer custom = new customer();       
+                custom.setCustomer_name(this.text_name.getText());
+                
+                if(custom.check_if_this_customer_exists())
+                {
+                    JOptionPane.showMessageDialog(null,"Customer Name already Exists");
+                    good_customer = false;
+                }
+            }
+        }
+        else
+        {
+            if (this.combo_name.getSelectedItem().equals(""))
+            {
+                JOptionPane.showMessageDialog(null,"Please Select a Customer!");
+                good_customer = false;
+            }
+        }
+        
+        return good_customer;
+    }
+    
+    private boolean check_if_quantity_is_good()
+    {   boolean quantity_check = true;
+        if (this.quantity.getText().trim().equals(""))
+        {
+                JOptionPane.showMessageDialog(null,"Please Enter a quantity!");
+                quantity_check = false;
+        }
+        return quantity_check;    
+    }
+    
+    private void show_add_pigment()
+    {
+        add_pigment_form add_pigment = new add_pigment_form();
+        add_pigment.setVisible(true);
+    }
     private void add_orderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_orderActionPerformed
         // TODO add your handling code here:
         
-        // Winston codes start
-        if (this.jList1.getModel().getSize() == 0)
-        {
+        if (this.jList1.getModel().getSize() == 0){
             JOptionPane.showMessageDialog(null,"Please add a customer and a job order");
         }
         else 
-        {
-            //Adds purchase order and design
+        {   //Adds purchase order and design
             int des_code = this.add_this_design();
             this.add_purchase(des_code);
             this.add_job();
             this.add_all_this_colorways(des_code);
             
             JOptionPane.showMessageDialog(null,"Successfully Added this Recipe");
-            //this.this_purchase.setPurchase_Id_from_Date_and_code();
+            this.this_purchase.setPurchase_Id_from_Date_and_code();
             //this.this_purchase.set_design_details_from_purchase_order_id();
             //this.this_purchase.set_job_order_list_using_purchase_order_id();
             //SpreadsheetTrial printFile = new SpreadsheetTrial();
@@ -2644,8 +2754,7 @@ public class Add_new_design extends javax.swing.JFrame {
             this.combo_name.setVisible(true);
         }        // TODO add your handling code here:
     }//GEN-LAST:event_jCheckBox1ActionPerformed
-            
-        //int count = 0;
+
     private void text_job_orderKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_text_job_orderKeyTyped
         // TODO add your handling code here:
         
@@ -2932,127 +3041,6 @@ public class Add_new_design extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_coverage7KeyReleased
-   
-    private void fill_list()
-    {
-        int x = 0;
-        int total = 0;
-        list.removeAllElements();
-        
-        while(x <= job_list.size() - 1)
-            {
-        String combine = x +  "    " + this.job_list.get(x) + "    " + this.customer_list.get(x) + "    " +  this.quantity_list.get(x);
-                list.addElement(combine);
-                
-                total = total + Integer.parseInt(this.quantity_list.get(x).toString());
-                x++;
-            }
-        
-        this.jList1.setModel(list);
-        this.quantity_total.setText(null);
-        this.quantity_total.setText(total + "");
-    }
-
-    private void include()
-    {
-        String customer_name;
-        if(this.jCheckBox1.isSelected())
-        {
-            customer custom = new customer();       
-            custom.setCustomer_name(this.text_name.getText());
-            custom.add_new_customer();
-            customer_name = this.text_name.getText();
-        }
-        else
-        {
-            customer_name = this.combo_name.getSelectedItem().toString();
-        }
-        customer_list.add(customer_name);
-        job_list.add(this.job_ord_label.getText() + this.text_job_order.getText());
-        quantity_list.add(this.quantity.getText());
-        //refresh Textbox to add items
-        fill_list();
-    }
-    
-    private boolean check_if_this_job_order_is_good()
-    {
-        boolean duplicate = false;
-        
-        String job_order_text = this.job_ord_label.getText() + this.text_job_order.getText();
-        
-        //job_order this_job_order = new job_order();
-        //this_job_order.setJob_id(job_order_text);
-        /*
-        if(this_job_order.check_if_job_exists())
-        {
-            JOptionPane.showMessageDialog(null,"Job order number has been already added before!");
-            duplicate = true;
-        }
-        else
-        {*/
-            if (this.text_job_order.getText().length() == 0)
-            {
-                JOptionPane.showMessageDialog(null,"Please input a job order number!");
-                duplicate = true;
-            } 
-            else {
-                // check job order if existing
-                for (int j = 0; j < this.job_list.size(); j++ ){
-                    if (this.job_list.get(j).toString().trim().equals(job_order_text))
-                        duplicate = true;
-                }
-                if( duplicate == true){
-                    JOptionPane.showMessageDialog(null,"Job Order ID already Exists");
-                }
-            }
-        
-        return !duplicate;
-        
-    }
-    
-    private boolean check_if_this_customer_is_good()
-    {
-        boolean good_customer = true;
-        if(this.jCheckBox1.isSelected())
-        {
-            if (this.text_name.getText().trim().length() == 0)
-            {
-                JOptionPane.showMessageDialog(null,"Please Type a Name!");
-                good_customer = false;
-            }
-            else
-            {
-                customer custom = new customer();       
-                custom.setCustomer_name(this.text_name.getText());
-                
-                if(custom.check_if_this_customer_exists())
-                {
-                    JOptionPane.showMessageDialog(null,"Customer Name already Exists");
-                    good_customer = false;
-                }
-            }
-        }
-        else
-        {
-            if (this.combo_name.getSelectedItem().equals(""))
-            {
-                JOptionPane.showMessageDialog(null,"Please Select a Customer!");
-                good_customer = false;
-            }
-        }
-        
-        return good_customer;
-    }
-    
-    private boolean check_if_quantity_is_good()
-    {   boolean quantity_check = true;
-        if (this.quantity.getText().trim().equals(""))
-        {
-                JOptionPane.showMessageDialog(null,"Please Enter a quantity!");
-                quantity_check = false;
-        }
-        return quantity_check;    
-    }
     
     private void button_include_customerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_include_customerActionPerformed
         // TODO add your handling code here:
@@ -3129,12 +3117,6 @@ public class Add_new_design extends javax.swing.JFrame {
             quantity.setBackground(Color.WHITE);
     }//GEN-LAST:event_quantityKeyReleased
 
-    private void show_add_pigment()
-    {
-        add_pigment_form add_pigment = new add_pigment_form();
-        add_pigment.setVisible(true);
-    }
-    
     private void pig11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pig11ActionPerformed
         // TODO add your handling code here:
         show_add_pigment();
