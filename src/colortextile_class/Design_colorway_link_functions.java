@@ -8,6 +8,7 @@ package colortextile_class;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import javax.swing.JTextField;
 
 /**
  *
@@ -64,6 +65,8 @@ public class Design_colorway_link_functions extends design {
     public void setAll_colorways(List<Colorway_screen_link_functions> all_colorways) {
         this.all_colorways = all_colorways;
     }
+    
+    
      
      
     

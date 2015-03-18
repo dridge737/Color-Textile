@@ -81,10 +81,11 @@ public class colorway_and_screen extends pigment{
     }
 
     
-    public float compute_kg_prep(float weight_kg)
+    public String compute_kg_prep(float weight_kg)
     {
         float weight_prep = weight_kg * getPigment_percentage() / 100;
-        return weight_prep;
+        return String.format("%.2f", weight_prep);
+        //return weight_prep;
     }
 
     /**

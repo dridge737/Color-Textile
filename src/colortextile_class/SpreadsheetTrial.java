@@ -147,7 +147,7 @@ public class SpreadsheetTrial {
             {
                 res.put("name"+x, the_screens.get(x-1).getPigment_name() );
                 res.put("per"+x, Float.toString(the_screens.get(x-1).getPigment_percentage() ));
-                res.put("kilo"+x, Float.toString(the_screens.get(x-1).compute_kg_prep(this_color_screen.getWeight_kg())));
+                res.put("kilo"+x, the_screens.get(x-1).compute_kg_prep(this_color_screen.getWeight_kg()));
                 x++;
             }
          

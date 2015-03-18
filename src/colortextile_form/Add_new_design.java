@@ -2123,13 +2123,10 @@ public class Add_new_design extends javax.swing.JFrame {
             job_order job = new job_order();
             DB_Manager new_conn = new DB_Manager();
             job.setJob_id(this.job_list.get(i).toString());
-            
+            job.setCustomer_name(this.customer_list.get(i).toString());
             job.setCustomer_id(new_conn.get_id_customer(this.customer_list.get(i).toString()));
             job.setDate(spinnerValue);
             all_job_orders.add(job);
-            
-            //job.setQuantity(Integer.parseInt(this.quantity_list.get(i).toString()));
-            //job.setId_purchase(id_purchase);
         }
         return all_job_orders;
     }
@@ -2149,9 +2146,9 @@ public class Add_new_design extends javax.swing.JFrame {
     
     private int add_this_colorway(String colorway_name, float binder_percent, String temp_weight_kg, int design_code)
     {
-        if(colorway_name.length()>0)
+        if(!colorway_name.isEmpty())
         {
-            if(temp_weight_kg.length()>0)
+            if(!temp_weight_kg.isEmpty())
             {
                 float weight_kg = Float.parseFloat(temp_weight_kg);
                 colortextile_class.colorway new_colorway = new colortextile_class.colorway(colorway_name, binder_percent, weight_kg, design_code);
@@ -2166,7 +2163,7 @@ public class Add_new_design extends javax.swing.JFrame {
     
     private int get_pigment_id(String pigment_name)
     {   
-        if(pigment_name.length()> 0)
+        if(!pigment_name.isEmpty())
         {
             pigment new_pigment = new pigment();
             //get pigment id from the pigment name
@@ -2184,7 +2181,7 @@ public class Add_new_design extends javax.swing.JFrame {
         int id_pigment = get_pigment_id(pigment_name);
         
         //System.out.println("Pigment_id = "+ pigment_name + " Colorway_id= "+id_colorway+ "Pigment_percentage =" +pigment_percentage);
-        if(id_pigment != -1 && id_colorway != -1 && pigment_percentage.length() > 0)
+        if(id_pigment != -1 && id_colorway != -1 && !pigment_percentage.isEmpty())
         {
             float pigment_percent = Float.parseFloat(pigment_percentage);
             colortextile_class.colorway_and_screen new_c_and_s = new colortextile_class.colorway_and_screen();
@@ -2236,24 +2233,31 @@ public class Add_new_design extends javax.swing.JFrame {
     private production_recipe get_design_details()
     {
         colortextile_class.production_recipe new_design = new colortextile_class.production_recipe();
-        //new_design.setDesign_code(design_code.getText());
         new_design.setDesign_name(design_name.getText());
         new_design.setColor_name(design_color.getText());
         new_design.setFabric_style(getFabricStyle());
+        new_design.setDate(this.get_date_from_spinner());
         
         List<Colorway_screen_link_functions> all_color_screen = this.get_all_colorway_inputs();
         new_design.setAll_colorways(all_color_screen);
-        
-        
+        new_design.view_all_colorway_details();
         if (this.jList1.getModel().getSize() != 0)
         {
             new_design.setJobs_for_this(this.get_job_details());
-            new_design.setAll_purchase(get_all_purchase_details(1));
             //Adds purchase order and design
-         }
+            new_design.setAll_purchase(get_all_purchase_details(1));
+            
+        }
+        new_design.view_all_job_order_details();
         return new_design;
         
-        
+    }
+    
+    private String get_date_from_spinner()
+    {
+        SimpleDateFormat formater = new SimpleDateFormat("yyyy/MM/dd");
+        String spinnerValue = formater.format(this.spinner_date.getValue());
+        return spinnerValue;
     }
     /*
     private void add_this_design_and_colorway(int design_code, int color_id_temp)
@@ -2282,7 +2286,7 @@ public class Add_new_design extends javax.swing.JFrame {
             {
                 this_colorway_screen = new Colorway_screen_link_functions(colorway_name2.getText(), 
                              Float.parseFloat(binder8.getSelectedItem().toString()),
-                             Float.parseFloat(weigh_kg8.getText()));
+                             weigh_kg8.getText());
         
                 this_colorway_screen.add_screen(get_colorway_details_from_input(name1, percentage1));
                 this_colorway_screen.add_screen(get_colorway_details_from_input(name2, percentage2));
@@ -2294,7 +2298,7 @@ public class Add_new_design extends javax.swing.JFrame {
             {
                 this_colorway_screen = new Colorway_screen_link_functions(colorway_name3.getText(), 
                              Float.parseFloat(binder3.getSelectedItem().toString()),
-                             Float.parseFloat(weigh_kg3.getText()));
+                             weigh_kg3.getText());
                 
                 this_colorway_screen.add_screen(get_colorway_details_from_input(name5, percentage5));
                 this_colorway_screen.add_screen(get_colorway_details_from_input(name6, percentage6));
@@ -2306,7 +2310,7 @@ public class Add_new_design extends javax.swing.JFrame {
             {
                 this_colorway_screen = new Colorway_screen_link_functions(colorway_name4.getText(), 
                              Float.parseFloat(binder4.getSelectedItem().toString()),
-                             Float.parseFloat(weigh_kg4.getText()));
+                             weigh_kg4.getText());
                 
                 this_colorway_screen.add_screen(get_colorway_details_from_input(name9, percentage9));
                 this_colorway_screen.add_screen(get_colorway_details_from_input(name10, percentage10));
@@ -2318,7 +2322,7 @@ public class Add_new_design extends javax.swing.JFrame {
             {
                 this_colorway_screen = new Colorway_screen_link_functions(colorway_name5.getText(), 
                              Float.parseFloat(binder5.getSelectedItem().toString()),
-                             Float.parseFloat(weigh_kg5.getText()));
+                             weigh_kg5.getText());
                 
                 this_colorway_screen.add_screen(get_colorway_details_from_input(name13, percentage13));
                 this_colorway_screen.add_screen(get_colorway_details_from_input(name14, percentage14));
@@ -2330,7 +2334,7 @@ public class Add_new_design extends javax.swing.JFrame {
             {
                 this_colorway_screen = new Colorway_screen_link_functions(colorway_name6.getText(), 
                              Float.parseFloat(binder6.getSelectedItem().toString()),
-                             Float.parseFloat(weigh_kg6.getText()));
+                             weigh_kg6.getText());
                 
                 this_colorway_screen.add_screen(get_colorway_details_from_input(name17, percentage17));
                 this_colorway_screen.add_screen(get_colorway_details_from_input(name18, percentage18));
@@ -2342,7 +2346,7 @@ public class Add_new_design extends javax.swing.JFrame {
             {
              this_colorway_screen = new Colorway_screen_link_functions(colorway_name7.getText(), 
                              Float.parseFloat(binder7.getSelectedItem().toString()),
-                             Float.parseFloat(weigh_kg7.getText()));
+                             weigh_kg7.getText());
                 
                 this_colorway_screen.add_screen(get_colorway_details_from_input(name21, percentage21));
                 this_colorway_screen.add_screen(get_colorway_details_from_input(name22, percentage22));
@@ -2354,11 +2358,11 @@ public class Add_new_design extends javax.swing.JFrame {
             {
                 this_colorway_screen = new Colorway_screen_link_functions(colorway_name8.getText(), 
                              Float.parseFloat(binder9.getSelectedItem().toString()),
-                             Float.parseFloat(weigh_kg9.getText()));
+                             weigh_kg9.getText());
                 
-                this_colorway_screen.add_screen(get_colorway_details_from_input(name24, percentage21));
-                this_colorway_screen.add_screen(get_colorway_details_from_input(name25, percentage22));
-                this_colorway_screen.add_screen(get_colorway_details_from_input(name26, percentage23));
+                this_colorway_screen.add_screen(get_colorway_details_from_input(name24, percentage24));
+                this_colorway_screen.add_screen(get_colorway_details_from_input(name25, percentage25));
+                this_colorway_screen.add_screen(get_colorway_details_from_input(name26, percentage26));
         
                 all_colorway.add(this_colorway_screen); 
             }
@@ -2372,7 +2376,7 @@ public class Add_new_design extends javax.swing.JFrame {
     private colorway_and_screen get_colorway_details_from_input(JComboBox pigment_text, JTextField percentageText )
     {
         colorway_and_screen this_colorway;
-        if(this.checkText2(percentageText.getText()) == false)
+        if(!this.checkText2(percentageText.getText()))
         this_colorway = new colorway_and_screen(pigment_text.getSelectedItem().toString(), Float.parseFloat(percentageText.getText()));
         else
         this_colorway = new colorway_and_screen(pigment_text.getSelectedItem().toString());
@@ -2559,67 +2563,54 @@ public class Add_new_design extends javax.swing.JFrame {
 
     private void coverage1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_coverage1KeyReleased
         // TODO add your handling code here:
-        if(coverage1.getText().length()>0)
+    
+        if(!checkText2(coverage1.getText()))
         {
-            if(!checkText2(coverage1.getText()))
-            {
-                compute_kg(weigh_kg8, Float.parseFloat(coverage1.getText()));
-            }
+            compute_kg(weigh_kg8, Float.parseFloat(coverage1.getText()));
         }
+        
     }//GEN-LAST:event_coverage1KeyReleased
 
     private void coverage2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_coverage2KeyReleased
         // TODO add your handling code here:
-        if(coverage2.getText().length()>0)
+        if(!checkText2(coverage2.getText()))
         {
-            if(!checkText2(coverage2.getText()))
-            {
-                compute_kg(weigh_kg7, Float.parseFloat(coverage2.getText()));
-            }
+            compute_kg(weigh_kg7, Float.parseFloat(coverage2.getText()));
         }
     }//GEN-LAST:event_coverage2KeyReleased
 
     private void coverage3KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_coverage3KeyReleased
         // TODO add your handling code here:
-        if(coverage3.getText().length()>0)
-        {
-            if(!checkText2(coverage3.getText()))
-            {
-                compute_kg(weigh_kg3, Float.parseFloat(coverage3.getText()));
-            }
+        
+        if(!checkText2(coverage3.getText()))
+        {   
+            compute_kg(weigh_kg3, Float.parseFloat(coverage3.getText()));
         }
     }//GEN-LAST:event_coverage3KeyReleased
 
     private void coverage4KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_coverage4KeyReleased
         // TODO add your handling code here:
-        if(coverage4.getText().length()>0)
+        if(!checkText2(coverage4.getText()))
         {
-            if(!checkText2(coverage4.getText()))
-            {
-                compute_kg(weigh_kg4, Float.parseFloat(coverage4.getText()));
-            }
+            compute_kg(weigh_kg4, Float.parseFloat(coverage4.getText()));
         }
+        
     }//GEN-LAST:event_coverage4KeyReleased
 
     private void coverage5KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_coverage5KeyReleased
         // TODO add your handling code here:
-        if(coverage4.getText().length()>0)
+        if(!checkText2(coverage5.getText()))
         {
-            if(!checkText2(coverage5.getText()))
-            {
-                compute_kg(weigh_kg5, Float.parseFloat(coverage5.getText()));
-            }
+            compute_kg(weigh_kg5, Float.parseFloat(coverage5.getText()));
         }
+        
     }//GEN-LAST:event_coverage5KeyReleased
 
     private void coverage6KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_coverage6KeyReleased
         // TODO add your handling code here:
-        if(coverage6.getText().length()>0)
+        if(!checkText2(coverage6.getText()))
         {
-            if(!checkText2(coverage6.getText()))
-            {
-                compute_kg(weigh_kg6, Float.parseFloat(coverage6.getText()));
-            }
+            compute_kg(weigh_kg6, Float.parseFloat(coverage6.getText()));
         }
     }//GEN-LAST:event_coverage6KeyReleased
 
@@ -2972,7 +2963,7 @@ public class Add_new_design extends javax.swing.JFrame {
         production_recipe prod_recipe = this.get_design_details();
         
         Preview_form this_preview = new Preview_form(prod_recipe);
-                
+        this_preview.setVisible(true);
         
     }//GEN-LAST:event_preview_butActionPerformed
 
@@ -2983,8 +2974,7 @@ public class Add_new_design extends javax.swing.JFrame {
 
     private void change_job_order_prefix()
     {
-        SimpleDateFormat formater = new SimpleDateFormat("yyyy/MM/dd");
-        String spinnerValue = formater.format(this.spinner_date.getValue());
+        String spinnerValue = this.get_date_from_spinner();
         
         String Year = spinnerValue.substring(2, 4);
         String Month = spinnerValue.substring(5,7);
@@ -3186,7 +3176,6 @@ public class Add_new_design extends javax.swing.JFrame {
                     //System.out.println(Float.toString(weight_prep));
                     //Make this 2 Decimal digits
                     this_textfield.setText(String.format("%.2f", weight_prep));
-            
                 }
                 catch(NumberFormatException ex)
                 {
@@ -3201,12 +3190,14 @@ public class Add_new_design extends javax.swing.JFrame {
         
     }
     /**
-     * 
+     * Checks if text can be parsed to float or int
      * @param this_text
      * @return true if text contains any character not 0-9
      */
     private boolean checkText2(String this_text)
     {
+        if(this_text.isEmpty())
+            return true;
         String regex = "[^0-9]";
         Pattern p = Pattern.compile(regex);
         this_text = this_text.replaceFirst("[.]", "");
@@ -3216,8 +3207,7 @@ public class Add_new_design extends javax.swing.JFrame {
     
     private boolean check_this_textbox(JTextField the_textfield)
     {
-        boolean text_check = checkText2(the_textfield.getText());
-        if(text_check)
+        if(checkText2(the_textfield.getText()))
         {
             //System.out.println(the_textfield.getBackground().equals(Color.red));
             if(!the_textfield.getBackground().equals(Color.pink) )
@@ -3225,7 +3215,6 @@ public class Add_new_design extends javax.swing.JFrame {
                 the_textfield.setBackground(Color.pink);
                 count_screen_1++;
             }
-            
         }
         else
         {

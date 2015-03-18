@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.regex.Pattern;
 
 /**
  *
@@ -25,9 +26,34 @@ public class Colorway_screen_link_functions extends colorway implements Comparab
         super(name,bind,weight);
     }
     
+    public Colorway_screen_link_functions(String name, float bind, String weight)
+    {
+            this.setBinder(bind);
+            this.setColorway_name(name);
+            if(!checkText2(weight))
+            this.setWeight_kg(Float.parseFloat(weight));
+    }
+    
+    public String update_kg_prep(float percentage_text)
+    {
+            float weight_prep = this.getWeight_kg() * percentage_text / 100;
+            return String.format("%.2f", weight_prep);
+    }
+    
+    private boolean checkText2(String this_text)
+    {
+        if(this_text.isEmpty())
+            return true;
+        String regex = "[^0-9]";
+        Pattern p = Pattern.compile(regex);
+        this_text = this_text.replaceFirst("[.]", "");
+        
+        return p.matcher(this_text).find();
+    }
+     
     public void add_screen(colorway_and_screen this_screen)
     {
-        getThis_screens().add(this_screen);
+        this.this_screens.add(this_screen);
     }
     
     public void add_all_screens_from_colorway()

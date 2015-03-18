@@ -57,7 +57,7 @@ public class production_recipe extends Design_colorway_link_functions{
      */
     public void setJobs_for_this(List<job_order> jobs_for_this) {
         this.jobs_for_this = jobs_for_this;
-        set_customer_name_for_jobs();
+        //set_customer_name_for_jobs();
     }
     
     public void set_customer_name_for_jobs()
@@ -129,6 +129,10 @@ public class production_recipe extends Design_colorway_link_functions{
         }
      }
     
+    /***
+     * Gets all the quantity in a string ex: 143 +153 +245 =
+     * @return 
+     */
     public String get_all_quantity()
     {
         String quantity_all = "";
@@ -137,9 +141,10 @@ public class production_recipe extends Design_colorway_link_functions{
             if(x == getAll_purchase().size()-1)
                 quantity_all += Integer.toString(getAll_purchase().get(x).getQuantity());
             else
-                quantity_all += Integer.toString(getAll_purchase().get(x).getQuantity()) + "+";
+                quantity_all += Integer.toString(getAll_purchase().get(x).getQuantity()) + " +";
                 
         }
+        quantity_all += "= ";
         return quantity_all;
     }
     
