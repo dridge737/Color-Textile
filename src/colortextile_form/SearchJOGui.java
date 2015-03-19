@@ -455,11 +455,13 @@ public class SearchJOGui extends javax.swing.JFrame {
         {
             System.out.println(jTable1.getValueAt(row, col));
         }
+        System.out.println("end");
         String selected_purchase_order = jTable1.getValueAt(row, 0).toString();
         
         Add_new_design design_form = new Add_new_design();
         design_form.setVisible(true);
         design_form.fill_info_from_purchase_id(Integer.parseInt(selected_purchase_order));
+        
         JOptionPane.showMessageDialog(null, "Selected purchase order: " + selected_purchase_order + " from row : " + row  );
     }//GEN-LAST:event_button_detailsActionPerformed
 

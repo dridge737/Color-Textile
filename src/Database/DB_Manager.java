@@ -1216,8 +1216,11 @@ public class DB_Manager {
             int item = 1;
             ps.setInt(item++, purchase_id.getId_purchase());
             
-            ResultSet rs = ps.executeQuery();
             
+            
+            
+            ResultSet rs = ps.executeQuery();
+            System.out.println(ps + "found");
             return rs;
         }
         catch (SQLException ex)
