@@ -326,7 +326,7 @@ public class Search_design extends javax.swing.JFrame {
         String selcted_design_code = jTable1.getValueAt(row, 0).toString();
         Add_new_design design_form = new Add_new_design();
         design_form.setVisible(true);
-        design_form.shout(Integer.parseInt(selcted_design_code));
+        design_form.fill_info(Integer.parseInt(selcted_design_code));
     }//GEN-LAST:event_button_detailsActionPerformed
 
     private void jTable1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTable1KeyPressed

@@ -10,12 +10,16 @@ import colortextile_class.*;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.regex.Pattern;
 import javax.swing.DefaultListModel;
 import javax.swing.InputVerifier;
@@ -2067,9 +2071,27 @@ public class Add_new_design extends javax.swing.JFrame {
             all_purchase.get(x).add_new_purchase();
         }
     }
+    public void fill_info_from_purchase_id(int purchase_order){
+        
+        try {
+            purchase_order purchase = new purchase_order();
+            ResultSet rs = purchase.get_purchase_info_from_id_purchase(purchase_order);
+            int code = rs.getInt("design_code");
+             System.out.println(code);
+        } catch (SQLException ex) {
+            Logger.getLogger(Add_new_design.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+       
+        
+    }
     
-    public void fill_info(int purchase_order){
+    
+    public void fill_info(int design_id){
           System.out.println("Shouting ");
+          
+          
+          
           
           //fill textboxes  +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
           
@@ -2190,7 +2212,7 @@ public class Add_new_design extends javax.swing.JFrame {
           this.name25.addItem(""); this.name25.setSelectedItem("");      this.percentage25.setText(null);   
           this.name26.addItem(""); this.name26.setSelectedItem("");      this.percentage26.setText(null);   
           
-          this.binder8.addItem(""); this.binder9.setSelectedItem("");
+          this.binder9.addItem(""); this.binder9.setSelectedItem("");
         
     }
     
