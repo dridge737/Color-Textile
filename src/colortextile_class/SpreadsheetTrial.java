@@ -42,18 +42,14 @@ public class SpreadsheetTrial {
 	static final String out = "print_out.odt";
         static Namespace ns = Namespace.getNamespace("xlink", "http://www.w3.org/1999/xlink");
         static int screen_count =2;
-        
-    /**
-     * @param this_purchase
-     */
-    public void print_this_job(Job_purchase_link_functions this_purchase, production_recipe for_production){
-        // TODO code application logic here
-         
-        try {
+       
+    public void print_this_job2(colortextile_class.production_recipe this_purchase)
+    {
+         try {
             File templateFile = new File(in);
             File outFile = new File(out);
             RhinoTemplate template = new RhinoTemplate(templateFile);
-            
+        
             String all_job_id = this_purchase.get_all_job_id();
             //System.out.println(all_job_id);
             String all_customer = this_purchase.get_all_customers();
@@ -61,21 +57,16 @@ public class SpreadsheetTrial {
             int quantity_sum = this_purchase.get_quantity_sum();
             quantity_all = quantity_all +"="+Integer.toString(quantity_sum);
             
-           //FOR DESIGN
-            Design_colorway_link_functions this_design = this_purchase.getNew_des_col_link();
-            
             // Fill with sample values.
             template.setField("customer", all_customer);
             template.setField("job", all_job_id);
-            template.setField("desCode", this_purchase.getDesign_code());
-            template.setField("desName", this_design.getDesign_name());
+            template.setField("desName", this_purchase.getDesign_name());
             template.setField("date", this_purchase.getDate());
-            template.setField("fabStyle", this_design.getFabric_style());
+            template.setField("fabStyle", this_purchase.getFabric_style());
             template.setField("quant", quantity_all);
-            template.setField("color", this_design.getColor_name());
+            template.setField("color", this_purchase.getColor_name());
             
-// FOR COLORWAY
-            List<Colorway_screen_link_functions> this_colorway = this_design.getAll_colorways();
+            List<Colorway_screen_link_functions> this_colorway = this_purchase.getAll_colorways();
             
             Colorway_screen_link_functions first_colorway = this_colorway.get(0);
             
@@ -83,13 +74,13 @@ public class SpreadsheetTrial {
             template.setField("kilo1", first_colorway.getWeight_kg());
             template.setField("bind1", first_colorway.getBinder());
             //FOR COLORWAY SCREEN
-            List<screen_pigment> the_screens = first_colorway.getThis_screens();
+            List<colorway_and_screen> the_screens = first_colorway.getThis_screens();
             int x = 1;
             while( x<=the_screens.size())
             {
                 template.setField("screen1_"+x, the_screens.get(x-1).getPigment_name() );
                 template.setField("per1_"+x, the_screens.get(x-1).getPigment_percentage() );
-                template.setField("kg1_"+x, Float.toString(the_screens.get(x-1).compute_kg_prep(first_colorway.getWeight_kg())));
+                template.setField("kg1_"+x, the_screens.get(x-1).compute_kg_prep(first_colorway.getWeight_kg()));
                 x++;
             }
             while(x<=3)
@@ -108,8 +99,6 @@ public class SpreadsheetTrial {
             }
             
             template.setField("print", print);
-           
-            
             // Save to file.
             final String bcfile = "New.jpg";
             
@@ -123,14 +112,54 @@ public class SpreadsheetTrial {
             }
             else
                 template.saveAs(outFile);
-
-           
-        } catch (Exception e) {
+         }
+         catch (Exception e) {
             e.printStackTrace();
         }
+         
+    }
+        
+    /**
+     * @param this_purchase
+     */
+    /*
+    public void print_this_job(Job_purchase_link_functions this_purchase, production_recipe for_production){
+        // TODO code application logic here
+         
+        try {
+            File templateFile = new File(in);
+            File outFile = new File(out);
+            RhinoTemplate template = new RhinoTemplate(templateFile);
+            
+            String all_job_id = this_purchase.get_all_job_id();
+            //System.out.println(all_job_id);
+            String all_customer = this_purchase.get_all_customers();
+            String quantity_all = this_purchase.get_all_quantity();
+            int quantity_sum = this_purchase.get_quantity_sum();
+            quantity_all = quantity_all +"="+Integer.toString(quantity_sum);
+            
+           //FOR DESIGN
+            //Design_colorway_link_functions this_design = this_purchase.getNew_des_col_link();
+            
+            // Fill with sample values.
+            template.setField("customer", all_customer);
+            template.setField("job", all_job_id);
+            template.setField("desCode", this_purchase.getDesign_code());
+            //template.setField("desName", this_design.getDesign_name());
+            template.setField("date", this_purchase.getDate());
+            //template.setField("fabStyle", this_design.getFabric_style());
+            template.setField("quant", quantity_all);
+            //template.setField("color", this_design.getColor_name());
+            
+// FOR COLORWAY
+            
+
+           
+        } 
         
         
     }
+    */
     private static Map<String, String> createMap2(Colorway_screen_link_functions this_color_screen)
     {
          final Map<String, String> res = new HashMap<String, String>();

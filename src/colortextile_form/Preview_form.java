@@ -31,7 +31,7 @@ public class Preview_form extends javax.swing.JFrame {
         
         this.cust_text.setText(this_prod.get_all_customers());
         this.job_text.setText(this_prod.get_all_job_id());
-        this.quantity.setText(this_prod.get_all_quantity() +""+ this_prod.getTotal_quantity());
+        this.quantity.setText(this_prod.get_all_quantity() +""+ this_prod.get_quantity_sum());
         this.date.setText(this_prod.getDate());
         
         List<Colorway_screen_link_functions> all_colorway = this_prod.getAll_colorways();
