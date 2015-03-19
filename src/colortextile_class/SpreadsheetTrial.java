@@ -38,7 +38,7 @@ import org.jopendocument.dom.template.RhinoTemplate;
  */
 public class SpreadsheetTrial {
 
-        static String in = "Printext_2.odt";
+        static String in = "Printext_change.odt";
 	static final String out = "print_out.odt";
         static Namespace ns = Namespace.getNamespace("xlink", "http://www.w3.org/1999/xlink");
         static int screen_count =2;
@@ -150,14 +150,9 @@ public class SpreadsheetTrial {
             //template.setField("fabStyle", this_design.getFabric_style());
             template.setField("quant", quantity_all);
             //template.setField("color", this_design.getColor_name());
-            
 // FOR COLORWAY
             
-
-           
-        } 
-        
-        
+        }  
     }
     */
     private static Map<String, String> createMap2(Colorway_screen_link_functions this_color_screen)

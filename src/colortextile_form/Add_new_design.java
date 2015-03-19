@@ -2735,12 +2735,14 @@ public class Add_new_design extends javax.swing.JFrame {
             this.add_job();
             this.add_all_this_colorways(des_code);
             
-            JOptionPane.showMessageDialog(null,"Successfully Added this Recipe");
-            this.this_purchase.setPurchase_Id_from_Date_and_code();
-            //this.this_purchase.set_design_details_from_purchase_order_id();
+            
+            production_recipe prod_recipe = this.get_design_details();
+            //this.this_purchase.setPurchase_Id_from_Date_and_code();
+            prod_recipe.set_design_details_from_purchase_order_id();
             //this.this_purchase.set_job_order_list_using_purchase_order_id();
-            //SpreadsheetTrial printFile = new SpreadsheetTrial();
-            //printFile.print_this_job(this_purchase);
+            SpreadsheetTrial printFile = new SpreadsheetTrial();
+            printFile.print_this_job2(prod_recipe);
+            JOptionPane.showMessageDialog(null,"Successfully Added this Recipe");
         }
         
     }//GEN-LAST:event_add_orderActionPerformed

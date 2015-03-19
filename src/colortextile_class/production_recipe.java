@@ -41,7 +41,6 @@ public class production_recipe extends Design_colorway_link_functions{
             System.out.println("Job Order ID  : "+all_jobs.getJob_id());
             System.out.println("Customer ID   : "+all_jobs.getCustomer_id());
             System.out.println("Customer Name : "+all_jobs.getCustomer_name());
-            //System.out.println("Quantity      : "+all_jobs.getQuantity());
         }
     }
     
@@ -179,5 +178,7 @@ public class production_recipe extends Design_colorway_link_functions{
         this.setDesign_details_from_des_code();
         this.add_all_colorway_from_design_code();
     }
+    
+    
     
 }

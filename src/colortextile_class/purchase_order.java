@@ -100,7 +100,6 @@ public class purchase_order {
     {
         DB_Manager new_conn = new DB_Manager();
         id_purchase = new_conn.get_id_purchase(this);
-        
     }
     
     public void set_this_Purchase_details_from_purchase_id()
@@ -108,13 +107,6 @@ public class purchase_order {
         Database.DB_Manager new_conn = new Database.DB_Manager();
         purchase_order temp_purchase = new_conn.get_purchase_details(id_purchase);
         this.design_code = temp_purchase.getDesign_code();
-    }
-    /*
-    public void set_design_details_from_design_code()
-    {
-        new_des_col_link.setDesign_code(design_code);
-        new_des_col_link.setDesign_details_from_des_code();
-        new_des_col_link.add_all_colorway_from_design_code();
     }
     
     /**
