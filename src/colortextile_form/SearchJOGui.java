@@ -440,11 +440,11 @@ public class SearchJOGui extends javax.swing.JFrame {
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
        // JOptionPane.showMessageDialog(null, "mouse clicked");
         
-        try {
+     /*   try {
             insert_pic();
         } catch (SQLException ex) {
             Logger.getLogger(SearchJOGui.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        } */
     }//GEN-LAST:event_jTable1MouseClicked
 
     private void button_detailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_detailsActionPerformed
@@ -455,7 +455,13 @@ public class SearchJOGui extends javax.swing.JFrame {
         {
             System.out.println(jTable1.getValueAt(row, col));
         }
+        System.out.println("end");
         String selected_purchase_order = jTable1.getValueAt(row, 0).toString();
+        
+        Add_new_design design_form = new Add_new_design();
+        design_form.setVisible(true);
+        design_form.fill_info_from_purchase_id(Integer.parseInt(selected_purchase_order));
+        
         JOptionPane.showMessageDialog(null, "Selected purchase order: " + selected_purchase_order + " from row : " + row  );
     }//GEN-LAST:event_button_detailsActionPerformed
 
@@ -463,11 +469,11 @@ public class SearchJOGui extends javax.swing.JFrame {
         // TODO add your handling code here:
        // JOptionPane.showMessageDialog(null, "key pressed");
    
-        try {
+    /*    try {
             insert_pic();
         } catch (SQLException ex) {
             Logger.getLogger(SearchJOGui.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }*/
     }//GEN-LAST:event_jTable1KeyPressed
     private String get_design_code_from_table_selected(){
         
