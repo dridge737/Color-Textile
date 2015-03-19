@@ -28,9 +28,7 @@ public class Job_purchase_link_functions extends job_order{
         all_purchase = new_conn.get_all_purchase_for_this_job_order(this);
     }
     
-    public void view_all_puchase_order()
-     {
-         
+    public void view_all_puchase_order(){
         for (purchase_order all_purchase1 : all_purchase) {
             System.out.println("Purchase id = " + all_purchase1.getId_purchase());
             System.out.println("Job Order = " + all_purchase1.getJob_order_id());
@@ -39,8 +37,7 @@ public class Job_purchase_link_functions extends job_order{
         }
      }
     
-    public String get_all_quantity()
-    {
+    public String get_all_quantity(){
         String quantity_all = "";
         for(int x = 0 ; x < all_purchase.size(); x++)
         {
@@ -48,19 +45,16 @@ public class Job_purchase_link_functions extends job_order{
                 quantity_all += Integer.toString(all_purchase.get(x).getQuantity());
             else
                 quantity_all += Integer.toString(all_purchase.get(x).getQuantity()) + "+";
-                
         }
         return quantity_all;
     }
     
-    public int get_quantity_sum()
-    {
+    public int get_quantity_sum(){
         int quantity_sum = 0;
         for(int x = 0 ; x < all_purchase.size(); x++)
         {
             quantity_sum += all_purchase.get(x).getQuantity();
         }
-        //System.out.println(quantity_sum);
         return quantity_sum;
     }
     

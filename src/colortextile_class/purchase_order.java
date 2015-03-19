@@ -108,19 +108,5 @@ public class purchase_order {
         purchase_order temp_purchase = new_conn.get_purchase_details(id_purchase);
         this.design_code = temp_purchase.getDesign_code();
     }
-    
-    /**
-     * @return the new_des_col_link
-     
-    public Design_colorway_link_functions getNew_des_col_link() {
-        return new_des_col_link;
-    }
 
-    /**
-     * @param new_des_col_link the new_des_col_link to set
-     
-    public void setNew_des_col_link(Design_colorway_link_functions new_des_col_link) {
-        this.new_des_col_link = new_des_col_link;
-    }
-    */
 }

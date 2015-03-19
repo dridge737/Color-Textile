@@ -15,12 +15,8 @@ import java.util.List;
 public class production_recipe extends Design_colorway_link_functions{
     
      private String Date;
-     //private design production_design;
      private List<job_order> jobs_for_this = new ArrayList<>();
      private List<purchase_order> all_purchase = new ArrayList<>();
-     
-     //private Design_colorway_link_functions new_des_col_link = new Design_colorway_link_functions();
-    
      
      public void set_job_order_list_using_date_and_design_code()
     {
@@ -33,8 +29,7 @@ public class production_recipe extends Design_colorway_link_functions{
         //setJobs_for_this(new_conn.set_job_order_info_from_purchase_id(this.getId_purchase()));
     }
     
-    public void view_all_job_order_details()
-    {
+    public void view_all_job_order_details(){
         System.out.println("Size of this job is = "+jobs_for_this.size());
         for(job_order all_jobs : jobs_for_this)
         {
@@ -59,18 +54,14 @@ public class production_recipe extends Design_colorway_link_functions{
         //set_customer_name_for_jobs();
     }
     
-    public void set_customer_name_for_jobs()
-    {
+    public void set_customer_name_for_jobs(){
         for(int x = 0; x < jobs_for_this.size(); x++ )
-        {
              jobs_for_this.get(x).set_customer_name_from_id();
-        }
     }
     
     public String get_all_customers()
     {
         String all_customers = "";
-        //System.out.println("Number of customers is = "+jobs_for_this.size());
         for(int x = 0 ; x < jobs_for_this.size(); x++)
         {
             //System.out.println("Customer name = " +jobs_for_this.get(x).getCustomer_name());
