@@ -57,7 +57,7 @@ public class production_recipe extends Design_colorway_link_functions{
      */
     public void setJobs_for_this(List<job_order> jobs_for_this) {
         this.jobs_for_this = jobs_for_this;
-        set_customer_name_for_jobs();
+        //set_customer_name_for_jobs();
     }
     
     public void set_customer_name_for_jobs()
@@ -78,8 +78,7 @@ public class production_recipe extends Design_colorway_link_functions{
             if(x == (jobs_for_this.size()-1))
                 all_customers += jobs_for_this.get(x).getCustomer_name();
             else
-                all_customers += jobs_for_this.get(x).getCustomer_name() + ", ";
-                
+                all_customers += jobs_for_this.get(x).getCustomer_name() + ", ";                
         }
         return all_customers;
     }
@@ -120,7 +119,6 @@ public class production_recipe extends Design_colorway_link_functions{
     
     public void view_all_puchase_order()
      {
-         
         for (purchase_order all_purchase1 : getAll_purchase()) {
             System.out.println("Purchase id = " + all_purchase1.getId_purchase());
             System.out.println("Job Order = " + all_purchase1.getJob_order_id());
@@ -129,6 +127,10 @@ public class production_recipe extends Design_colorway_link_functions{
         }
      }
     
+    /***
+     * Gets all the quantity in a string ex: 143 +153 +245 =
+     * @return 
+     */
     public String get_all_quantity()
     {
         String quantity_all = "";
@@ -137,9 +139,10 @@ public class production_recipe extends Design_colorway_link_functions{
             if(x == getAll_purchase().size()-1)
                 quantity_all += Integer.toString(getAll_purchase().get(x).getQuantity());
             else
-                quantity_all += Integer.toString(getAll_purchase().get(x).getQuantity()) + "+";
+                quantity_all += Integer.toString(getAll_purchase().get(x).getQuantity()) + " +";
                 
         }
+        quantity_all += "= ";
         return quantity_all;
     }
     
@@ -155,20 +158,6 @@ public class production_recipe extends Design_colorway_link_functions{
     }
 
     /**
-     * @return the production_design
-     
-    public design getProduction_design() {
-        return production_design;
-    }
-
-    /**
-     * @param production_design the production_design to set
-     
-    public void setProduction_design(design production_design) {
-        this.production_design = production_design;
-    }
-*/
-    /**
      * @return the all_purchase
      */
     public List<purchase_order> getAll_purchase() {
@@ -182,18 +171,13 @@ public class production_recipe extends Design_colorway_link_functions{
         this.all_purchase = all_purchase;
     }
     
+    /**
+     * Set 
+     */
     public void set_design_details_from_design_code()
     {
         this.setDesign_details_from_des_code();
         this.add_all_colorway_from_design_code();
     }
-    
-    /**
-     * @return the new_des_col_link
-     */
-
-    /**
-     * @param new_des_col_link the new_des_col_link to set
-     */
     
 }
