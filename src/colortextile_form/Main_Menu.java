@@ -37,7 +37,8 @@ public class Main_Menu extends javax.swing.JFrame {
         search_jo = new javax.swing.JButton();
         pigments = new javax.swing.JButton();
         Close_but = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
+        add_new_recipe1 = new javax.swing.JButton();
+        add_new_recipe2 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
 
@@ -54,7 +55,7 @@ public class Main_Menu extends javax.swing.JFrame {
 
         add_new_recipe.setBackground(new java.awt.Color(255, 255, 255));
         add_new_recipe.setFont(new java.awt.Font("Century Gothic", 0, 20)); // NOI18N
-        add_new_recipe.setText("Add New Recipe");
+        add_new_recipe.setText("Edit Existing Order");
         add_new_recipe.setBorder(null);
         add_new_recipe.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -74,7 +75,7 @@ public class Main_Menu extends javax.swing.JFrame {
 
         pigments.setBackground(new java.awt.Color(255, 255, 255));
         pigments.setFont(new java.awt.Font("Century Gothic", 0, 20)); // NOI18N
-        pigments.setText("Pigments");
+        pigments.setText("Search Pigments");
         pigments.setBorder(null);
         pigments.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -84,11 +85,31 @@ public class Main_Menu extends javax.swing.JFrame {
 
         Close_but.setBackground(new java.awt.Color(255, 255, 255));
         Close_but.setFont(new java.awt.Font("Century Gothic", 0, 20)); // NOI18N
-        Close_but.setText("Close");
+        Close_but.setText("Exit");
         Close_but.setBorder(null);
         Close_but.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Close_butActionPerformed(evt);
+            }
+        });
+
+        add_new_recipe1.setBackground(new java.awt.Color(255, 255, 255));
+        add_new_recipe1.setFont(new java.awt.Font("Century Gothic", 0, 20)); // NOI18N
+        add_new_recipe1.setText("Add New Production Recipe");
+        add_new_recipe1.setBorder(null);
+        add_new_recipe1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                add_new_recipe1ActionPerformed(evt);
+            }
+        });
+
+        add_new_recipe2.setBackground(new java.awt.Color(255, 255, 255));
+        add_new_recipe2.setFont(new java.awt.Font("Century Gothic", 0, 20)); // NOI18N
+        add_new_recipe2.setText("Add Order from Existing Design");
+        add_new_recipe2.setBorder(null);
+        add_new_recipe2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                add_new_recipe2ActionPerformed(evt);
             }
         });
 
@@ -97,18 +118,23 @@ public class Main_Menu extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(Close_but, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pigments, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(search_jo, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(jLabel1))
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGap(74, 74, 74)
-                            .addComponent(add_new_recipe, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(86, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addGap(200, 200, 200))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(add_new_recipe, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(add_new_recipe1, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(add_new_recipe2, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(49, 49, 49)))
+                        .addComponent(search_jo, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(pigments, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(113, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -116,34 +142,22 @@ public class Main_Menu extends javax.swing.JFrame {
                 .addGap(19, 19, 19)
                 .addComponent(jLabel1)
                 .addGap(33, 33, 33)
-                .addComponent(add_new_recipe, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(search_jo, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(pigments, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(Close_but, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(search_jo, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(add_new_recipe1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(38, 38, 38)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(pigments, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(add_new_recipe2, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Close_but, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(add_new_recipe, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(37, 37, 37))
         );
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(10, 0, 380, 370);
-
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 26, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 330, Short.MAX_VALUE)
-        );
-
-        getContentPane().add(jPanel2);
-        jPanel2.setBounds(523, 0, 26, 330);
+        jPanel1.setBounds(10, 0, 740, 370);
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -175,7 +189,7 @@ public class Main_Menu extends javax.swing.JFrame {
         );
 
         getContentPane().add(jPanel3);
-        jPanel3.setBounds(380, 0, 26, 370);
+        jPanel3.setBounds(750, 0, 26, 370);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -202,6 +216,14 @@ public class Main_Menu extends javax.swing.JFrame {
         SearchJOGui new_jo = new SearchJOGui();
         new_jo.setVisible(true);
     }//GEN-LAST:event_search_joActionPerformed
+
+    private void add_new_recipe1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_new_recipe1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_add_new_recipe1ActionPerformed
+
+    private void add_new_recipe2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_new_recipe2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_add_new_recipe2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -241,9 +263,10 @@ public class Main_Menu extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Close_but;
     private javax.swing.JButton add_new_recipe;
+    private javax.swing.JButton add_new_recipe1;
+    private javax.swing.JButton add_new_recipe2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JButton pigments;

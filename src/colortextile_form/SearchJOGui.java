@@ -118,10 +118,8 @@ public class SearchJOGui extends javax.swing.JFrame {
                     rs2.previous();
                     while(rs2.next()) {
                         
-                        
                        design design_conn = new design(); 
                         
-                    
                     design_conn.setDesign_code(rs2.getInt("design_code"));
                             ResultSet rs3 = design_conn.search_design();
                             
