@@ -36,12 +36,12 @@ import javax.swing.table.TableColumn;
  *
  * @author asakanaboy_00
  */
-public class SearchJOGui extends javax.swing.JFrame {
+public class SearchJOGui1 extends javax.swing.JFrame {
 
     /**
      * Creates new form SearchJO
      */
-    public SearchJOGui() {
+    public SearchJOGui1() {
         initComponents();
         
         Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
@@ -118,8 +118,10 @@ public class SearchJOGui extends javax.swing.JFrame {
                     rs2.previous();
                     while(rs2.next()) {
                         
+                        
                        design design_conn = new design(); 
                         
+                    
                     design_conn.setDesign_code(rs2.getInt("design_code"));
                             ResultSet rs3 = design_conn.search_design();
                             
@@ -177,7 +179,7 @@ public class SearchJOGui extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,"No Record");
             }
         } catch (SQLException ex) {
-            Logger.getLogger(SearchJOGui.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SearchJOGui1.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         this.jTable1.setModel(model); 
@@ -514,13 +516,13 @@ public class SearchJOGui extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(SearchJOGui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SearchJOGui1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(SearchJOGui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SearchJOGui1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(SearchJOGui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SearchJOGui1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(SearchJOGui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SearchJOGui1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -528,7 +530,7 @@ public class SearchJOGui extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new SearchJOGui().setVisible(true);
+                new SearchJOGui1().setVisible(true);
             }
         });
     }
