@@ -1566,6 +1566,106 @@ public class DB_Manager {
         }
         return false;
     }
+    
+    public ResultSet Search_colorway(colortextile_class.colorway color){
+            try
+        {
+          DBConnection db = new DBConnection();
+          Connection conn = db.getConnection();  
+          
+          String sql ="SELECT * FROM colorway WHERE";
+          int increment = 0;
+          
+          if (color.getDesign_code() != -1){
+              sql = sql + " design_code = '"+color.getDesign_code()+"'";
+              increment++;
+          } 
+          
+          if (color.getId_colorway() != -1){
+              if(increment > 0)
+              { sql = sql + " AND";
+              }
+              sql = sql + " id_colorway= '"+color.getId_colorway()+"'";
+              increment++;
+          }
+                  
+          if (color.getColorway_name() != null){
+              if(increment > 0)
+              { sql = sql + " AND";
+              }
+              sql = sql + " colorway_name= '"+color.getColorway_name()+"'";
+              
+          }
+          
+          System.out.println(sql);
+          
+          if (sql == "SELECT * FROM colorway WHERE")
+          {
+              System.out.print("nothing to be searched");
+              return null;
+          } else {
+          
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            return rs;
+           
+            
+          }
+        }
+        catch (Exception ex)
+        {
+            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
+        return null;
+        }
+    }
+    
+    public ResultSet Search_colorway_screen_connect(colortextile_class.colorway_and_screen connect){
+        try
+        {
+          DBConnection db = new DBConnection();
+          Connection conn = db.getConnection();  
+          
+          String sql ="SELECT * FROM colorway_screen_connect WHERE";
+          int increment = 0;
+          
+          if (connect.getId_color_screen() != -1){
+              sql = sql + " id_color_screen = '"+connect.getId_color_screen()+"'";
+              increment++;
+          } 
+          
+          if (connect.getId_colorway() != -1){
+              if(increment > 0)
+              { sql = sql + " AND";
+              }
+              sql = sql + " id_colorway= '"+connect.getId_colorway()+"'";
+              increment++;
+          }
+                  
+         
+          
+          System.out.println(sql);
+          
+          if (sql == "SELECT * FROM colorway_screen_connect WHERE")
+          {
+              System.out.print("nothing to be searched");
+              return null;
+          } else {
+          
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            return rs;
+           
+            
+          }
+        }
+        catch (Exception ex)
+        {
+            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
+        return null;
+        }
+        
+    }
+    
     public ResultSet Search_id_purchase(colortextile_class.purchase_order purchase){
         try
         {
