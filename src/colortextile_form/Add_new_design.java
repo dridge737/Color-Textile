@@ -22,7 +22,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.regex.Pattern;
 import javax.swing.DefaultListModel;
-import javax.swing.InputVerifier;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JSpinner;
@@ -51,7 +50,7 @@ public class Add_new_design extends javax.swing.JFrame {
         //Center the form
         Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
         int x = (int) ((dimension.getWidth() - this.getWidth()) / 2);
-//        int y = (int) ((dimension.getHeight() - this.getHeight()) / 2);
+        //int y = (int) ((dimension.getHeight() - this.getHeight()) / 2);
         this.setLocation(x,0);
         //InputVerifier new_verifier = new Verifier();
         //this.pigment_percentage8.setInputVerifier(new_verifier);
@@ -87,7 +86,7 @@ public class Add_new_design extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jPanel10 = new javax.swing.JPanel();
         design_color = new javax.swing.JTextField();
-        jCheckBox2 = new javax.swing.JCheckBox();
+        fabric_check_box = new javax.swing.JCheckBox();
         jLabel11 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jPanel16 = new javax.swing.JPanel();
@@ -543,17 +542,17 @@ public class Add_new_design extends javax.swing.JFrame {
         jPanel1.add(design_color);
         design_color.setBounds(190, 250, 210, 34);
 
-        jCheckBox2.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        jCheckBox2.setForeground(new java.awt.Color(255, 255, 255));
-        jCheckBox2.setText("New ?");
-        jCheckBox2.setOpaque(false);
-        jCheckBox2.addActionListener(new java.awt.event.ActionListener() {
+        fabric_check_box.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        fabric_check_box.setForeground(new java.awt.Color(255, 255, 255));
+        fabric_check_box.setText("New ?");
+        fabric_check_box.setOpaque(false);
+        fabric_check_box.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox2ActionPerformed(evt);
+                fabric_check_boxActionPerformed(evt);
             }
         });
-        jPanel1.add(jCheckBox2);
-        jCheckBox2.setBounds(650, 210, 65, 25);
+        jPanel1.add(fabric_check_box);
+        fabric_check_box.setBounds(650, 210, 63, 25);
 
         jLabel11.setBackground(new java.awt.Color(255, 255, 255));
         jLabel11.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
@@ -693,7 +692,7 @@ public class Add_new_design extends javax.swing.JFrame {
             }
         });
         jPanel16.add(jCheckBox1);
-        jCheckBox1.setBounds(340, 50, 63, 20);
+        jCheckBox1.setBounds(340, 50, 59, 20);
 
         text_name.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
         jPanel16.add(text_name);
@@ -2072,7 +2071,6 @@ public class Add_new_design extends javax.swing.JFrame {
         }
     }
     public void fill_info_from_purchase_id(int purchase_order){
-        
         try {
             purchase_order purchase = new purchase_order();
             
@@ -2081,16 +2079,13 @@ public class Add_new_design extends javax.swing.JFrame {
                 System.out.println("first");
             }
             String code1 = rs.getString("design_code");
+            System.out.println(code1);
             
-             System.out.println(code1);
-             
-             this.fill_info(Integer.parseInt(code1));
-        } catch (SQLException ex) {
+            this.fill_info(Integer.parseInt(code1));
+        } 
+        catch (SQLException ex) {
             Logger.getLogger(Add_new_design.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-       
-        
     }
     
     public String get_pigment_name(int pigment_no){
@@ -2120,9 +2115,6 @@ public class Add_new_design extends javax.swing.JFrame {
             ResultSet rs_colorway = color.Search_colorway();
             
             colorway_and_screen screen = new colorway_and_screen();
-            
-          
-            
             
             //fill textboxes  +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
             
@@ -2390,7 +2382,7 @@ public class Add_new_design extends javax.swing.JFrame {
     }
     private String getFabricStyle()
     {
-        if(jCheckBox2.isSelected())
+        if(fabric_check_box.isSelected())
         {
             Unused.fabric_style new_fabric = new Unused.fabric_style();
             new_fabric.setFabric_style(fabric_style.getText().toUpperCase());
@@ -2406,23 +2398,12 @@ public class Add_new_design extends javax.swing.JFrame {
     
     private int add_this_design()
     {
-        /*
-        colortextile_class.design new_design = new colortextile_class.design();
-        //new_design.setDesign_code(design_code.getText());
-        new_design.setDesign_name(design_name.getText());
-        new_design.setColor_name(design_color.getText());
-        new_design.setFabric_style(getFabricStyle());
-        //new_design.setTotal_quantity(Integer.parseInt(quantity_total.getText()));
-        */
-        
         colortextile_class.design new_design = get_design_details();
         if(new_design.add_new_design())
         {
             new_design.set_design_code_using_variables();
             return new_design.getDesign_code();
         }
-        
-        System.out.println("There is a problem in adding this design");
         return -1;
     }
     
@@ -2442,7 +2423,6 @@ public class Add_new_design extends javax.swing.JFrame {
             new_design.setJobs_for_this(this.get_job_details());
             //Adds purchase order and design
             new_design.setAll_purchase(get_all_purchase_details(1));
-            
         }
         new_design.view_all_job_order_details();
         return new_design;
@@ -2463,7 +2443,7 @@ public class Add_new_design extends javax.swing.JFrame {
         for(int interval = 0 ; interval < 7; interval++ )
         {
             Colorway_screen_link_functions this_colorway_screen;
-
+            
             if(interval==0)
             {
                 this_colorway_screen = new Colorway_screen_link_functions(colorway_name2.getText(), 
@@ -2548,11 +2528,8 @@ public class Add_new_design extends javax.swing.JFrame {
         
                 all_colorway.add(this_colorway_screen); 
             }
-        
         }
-        
         return all_colorway;
-        
     }
     
     private colorway_and_screen get_colorway_details_from_input(JComboBox pigment_text, JTextField percentageText )
@@ -2596,8 +2573,6 @@ public class Add_new_design extends javax.swing.JFrame {
             
             add_this_colorway_screen(name7.getSelectedItem().toString(),
                                       percentage7.getText(), colorway_id2 );
-            //add_this_design_and_colorway(design_code.getText(), colorway_id2);
-            
         }
         colorway_id = add_this_colorway(colorway_name4.getText(), 
                              Float.parseFloat(binder4.getSelectedItem().toString()),
@@ -2629,13 +2604,11 @@ public class Add_new_design extends javax.swing.JFrame {
             
             add_this_colorway_screen(name15.getSelectedItem().toString(),
                                       percentage15.getText(), colorway_id2 );
-            
         }
         
         colorway_id = add_this_colorway(colorway_name6.getText(), 
                              Float.parseFloat(binder6.getSelectedItem().toString()),
                              weigh_kg6.getText() , design_code);
-        
         if(colorway_id != -1 )
         {
             add_this_colorway_screen(name17.getSelectedItem().toString(),
@@ -2651,7 +2624,6 @@ public class Add_new_design extends javax.swing.JFrame {
         colorway_id2 = add_this_colorway(colorway_name7.getText(), 
                              Float.parseFloat(binder7.getSelectedItem().toString()),
                              weigh_kg7.getText(), design_code);
-        
         if( colorway_id2 != -1 )
         {
             add_this_colorway_screen(name21.getSelectedItem().toString(),
@@ -2662,7 +2634,6 @@ public class Add_new_design extends javax.swing.JFrame {
             
             add_this_colorway_screen(name23.getSelectedItem().toString(),
                                       percentage23.getText(), colorway_id2 );
-                            
         }
     }
     
@@ -2673,14 +2644,17 @@ public class Add_new_design extends javax.swing.JFrame {
         list.removeAllElements();
         
         while(x <= job_list.size() - 1)
-            {
-        String combine = x +  "    " + this.job_list.get(x) + "    " + this.customer_list.get(x) + "    " +  this.quantity_list.get(x);
-                list.addElement(combine);
-                
-                total = total + Integer.parseInt(this.quantity_list.get(x).toString());
-                x++;
-            }
+        {
         
+            String combine = (x+1) +  "    " + 
+                this.job_list.get(x) + "    " + 
+                this.customer_list.get(x) + "    " +  
+                this.quantity_list.get(x);
+            
+            list.addElement(combine);
+            total = total + Integer.parseInt(this.quantity_list.get(x).toString());
+            x++;
+        }
         this.jList1.setModel(list);
         this.quantity_total.setText(null);
         this.quantity_total.setText(total + "");
@@ -2792,6 +2766,7 @@ public class Add_new_design extends javax.swing.JFrame {
         add_pigment_form add_pigment = new add_pigment_form();
         add_pigment.setVisible(true);
     }
+    
     private void add_orderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_orderActionPerformed
         // TODO add your handling code here:
         
@@ -2829,48 +2804,24 @@ public class Add_new_design extends javax.swing.JFrame {
 
     private void text_job_orderKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_text_job_orderKeyTyped
         // TODO add your handling code here:
-        
-        if (this.text_job_order.getText().length() >= 4 ){
-            //String job_temp = "";
-            //job_temp = text_job_order.getText().substring(job_temp.length() - 1);
+        if (this.text_job_order.getText().length() >= 4 )
             this.text_job_order.setText(text_job_order.getText().substring(0, 3));
-        } 
-        /*
-        else {
-            
-            if (count < this.text_job_order.getText().length())
-            {
-                if(this.text_job_order.getText().length() == 3)
-                {
-                    this.text_job_order.setText(this.text_job_order.getText() + "-");
-                }
         
-                if(this.text_job_order.getText().length() == 6){
-                    this.text_job_order.setText(this.text_job_order.getText() + "-");
-                }
-            
-            }   
-            job_temp = this.text_job_order.getText();
-            
-        }
-        count = this.text_job_order.getText().length();
-        */
     }//GEN-LAST:event_text_job_orderKeyTyped
 
-    private void jCheckBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox2ActionPerformed
+    private void fabric_check_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fabric_check_boxActionPerformed
         // TODO add your handling code here:
-        if(this.jCheckBox2.isSelected()){
+        if(this.fabric_check_box.isSelected()){
             this.fab_style_comb.setVisible(false);
             this.fabric_style.setVisible(true);
         } else {
             this.fab_style_comb.setVisible(true);
             this.fabric_style.setVisible(false);
         }
-    }//GEN-LAST:event_jCheckBox2ActionPerformed
+    }//GEN-LAST:event_fabric_check_boxActionPerformed
 
     private void coverage1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_coverage1KeyReleased
         // TODO add your handling code here:
-    
         if(!checkText2(coverage1.getText()))
         {
             compute_kg(weigh_kg8, Float.parseFloat(coverage1.getText()));
@@ -2888,7 +2839,6 @@ public class Add_new_design extends javax.swing.JFrame {
 
     private void coverage3KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_coverage3KeyReleased
         // TODO add your handling code here:
-        
         if(!checkText2(coverage3.getText()))
         {   
             compute_kg(weigh_kg3, Float.parseFloat(coverage3.getText()));
@@ -3133,8 +3083,6 @@ public class Add_new_design extends javax.swing.JFrame {
         // TODO add your handling code here:
         String a = this.jList1.getSelectedValue().toString();
         int selected = this.jList1.getSelectedIndex();
-        //JOptionPane.showMessageDialog(null,a);
-        //JOptionPane.showMessageDialog(null,selected);
         
         this.customer_list.remove(selected);
         this.job_list.remove(selected);
@@ -3145,12 +3093,10 @@ public class Add_new_design extends javax.swing.JFrame {
 
     private void preview_butActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_preview_butActionPerformed
         // TODO add your handling code here:
-        
         production_recipe prod_recipe = this.get_design_details();
         
         Preview_form this_preview = new Preview_form(prod_recipe);
         this_preview.setVisible(true);
-        
     }//GEN-LAST:event_preview_butActionPerformed
 
     private void add_order2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_order2ActionPerformed
@@ -3300,75 +3246,41 @@ public class Add_new_design extends javax.swing.JFrame {
         pigment this_pigment = new pigment();
         if(this_pigment.count_all_pigment() != (name1.getItemCount()-1))
             this.registerSelectedItem();
-        
-        //this.clearItem();
-       // addListItems();
     }//GEN-LAST:event_formWindowGainedFocus
 
     private void compute_kg(JTextField weigh_kg, float coverage)
     {
-        float computation;
-        if(!quantity.getBackground().equals(Color.pink) && quantity.getText().length()>0)
+        if(!quantity_total.getBackground().equals(Color.pink) && quantity_total.getText().length()>0)
         {
-            if(fabric_style.getText().equals("PONGEE") || fab_style_comb.getSelectedItem().equals("PONGEE"))
-            {
-                float this_quant = Float.parseFloat(quantity_total.getText());
-                computation = Math.round((80*coverage/100*this_quant)/1000);
-                
-                weigh_kg.setText(String.format("%.0f", computation));
-                
+            Recipe_functions use_func = new Recipe_functions();
+            float this_computation;
+            if(this.fabric_check_box.isSelected())
+            {//For New Fabric Style
+               this_computation = use_func.compute_this_kg(coverage, fabric_style.getText(), quantity_total.getText());
             }
-            if(fabric_style.getText().equals("COTTON") || fab_style_comb.getSelectedItem().equals("COTTON")
-            || fabric_style.getText().equals("KATUNIA") || fab_style_comb.getSelectedItem().equals("KATUNIA"))
-            {
-                float this_quant = Float.parseFloat(quantity_total.getText());
-                computation = Math.round((80*coverage/100*this_quant)/1000);
-                
-                weigh_kg.setText(String.format("%.0f", computation));
-               // weigh_kg.setText(Float.toString(computation%.02f));
+            else
+            {//For Existing Fabric Style
+               this_computation = use_func.compute_this_kg(coverage, fab_style_comb.getSelectedItem().toString(),quantity_total.getText());
             }
-            if(fabric_style.getText().equals("MICROPEACH") || fab_style_comb.getSelectedItem().equals("MICROPEACH")
-            || fabric_style.getText().equals("TC") || fab_style_comb.getSelectedItem().equals("TC")
-            || fabric_style.getText().equals("TROPICANA") || fab_style_comb.getSelectedItem().equals("TROPICANA"))
-            {
-                float this_quant = Float.parseFloat(quantity_total.getText());
-                computation = Math.round((80*coverage/100*this_quant)/1000);
-                weigh_kg.setText(String.format("%.0f", computation));
-            }
+            weigh_kg.setText(String.format("%.0f", this_computation));
         }
     }
     
     private void update_kg_prep(String percentage_text, String weight_kg , JTextField this_textfield)
     {
-        //System.out.println(percentage_text+ " and " +weight_kg);
         if(percentage_text.length()>0 && weight_kg.length()>0)
-        {
-            boolean text_check = checkText2(percentage_text);
-            boolean text_check2 = checkText2(weight_kg);
-            //System.out.println(text_check+ " and " +text_check2);
-            if(!text_check && !text_check2)
+        {   
+            if(!checkText2(percentage_text) && !checkText2(weight_kg))
             {
-                try
-                {            
-                    float temp_percentage = Float.parseFloat(percentage_text);
-                    float temp_weight = Float.parseFloat(weight_kg);
-                    
-                    float weight_prep = temp_weight * temp_percentage / 100;
-                    //System.out.println(Float.toString(weight_prep));
-                    //Make this 2 Decimal digits
-                    this_textfield.setText(String.format("%.2f", weight_prep));
-                }
-                catch(NumberFormatException ex)
-                {
-                    this_textfield.setText("Error!");
-                }
-                }
+                Recipe_functions use_func = new Recipe_functions();
+                float weight_preparation = use_func.update_kg_and_prep(percentage_text, weight_kg);
+                this_textfield.setText(String.format("%.2f", weight_preparation));
+            }
             else
             {
                 this_textfield.setText("Error!");
             }
         }
-        
     }
     /**
      * Checks if text can be parsed to float or int
@@ -3390,7 +3302,6 @@ public class Add_new_design extends javax.swing.JFrame {
     {
         if(checkText2(the_textfield.getText()))
         {
-            //System.out.println(the_textfield.getBackground().equals(Color.red));
             if(!the_textfield.getBackground().equals(Color.pink) )
             {
                 the_textfield.setBackground(Color.pink);
@@ -3405,7 +3316,6 @@ public class Add_new_design extends javax.swing.JFrame {
                 count_screen_1--;
             }
         }
-            
         if(count_screen_1 > 0)
         {
             add_order.setEnabled(false);
@@ -3451,19 +3361,15 @@ public class Add_new_design extends javax.swing.JFrame {
         allitems[3] = name5.getSelectedItem().toString();
         allitems[4] = name6.getSelectedItem().toString();
         allitems[5] = name7.getSelectedItem().toString();
-
         allitems[6] = name9.getSelectedItem().toString();
         allitems[7] = name10.getSelectedItem().toString();
         allitems[8] = name11.getSelectedItem().toString();
-
         allitems[9] = name13.getSelectedItem().toString();
         allitems[10] = name14.getSelectedItem().toString();
         allitems[11] = name15.getSelectedItem().toString();
-
         allitems[12] = name17.getSelectedItem().toString();
         allitems[13] = name18.getSelectedItem().toString();
         allitems[14] = name19.getSelectedItem().toString();
-
         allitems[15] = name21.getSelectedItem().toString();
         allitems[16] = name22.getSelectedItem().toString();
         allitems[17] = name23.getSelectedItem().toString();
@@ -3477,11 +3383,9 @@ public class Add_new_design extends javax.swing.JFrame {
         name1.setSelectedItem(allitems[0]);
         name2.setSelectedItem(allitems[1]);
         name3.setSelectedItem(allitems[2]);
-        
         name5.setSelectedItem(allitems[3]);
         name6.setSelectedItem(allitems[4]);
         name7.setSelectedItem(allitems[5]);
-        
         name9.setSelectedItem(allitems[6]);
         name10.setSelectedItem(allitems[7]);
         name11.setSelectedItem(allitems[8]);
@@ -3526,7 +3430,6 @@ public class Add_new_design extends javax.swing.JFrame {
     }
     public void addListItems()
     {
-        
         colortextile_class.pigment list_pigment = new colortextile_class.pigment();
         ArrayList<String> pigment_list = list_pigment.get_all_pigment_name();
         addBlankSpace();
@@ -3640,9 +3543,9 @@ public class Add_new_design extends javax.swing.JFrame {
     private javax.swing.JTextField design_color;
     private javax.swing.JTextField design_name;
     private javax.swing.JComboBox fab_style_comb;
+    private javax.swing.JCheckBox fabric_check_box;
     private javax.swing.JTextField fabric_style;
     private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JCheckBox jCheckBox2;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel100;
     private javax.swing.JLabel jLabel102;

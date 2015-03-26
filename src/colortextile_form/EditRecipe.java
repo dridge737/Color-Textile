@@ -77,6 +77,7 @@ public class EditRecipe extends javax.swing.JFrame {
         fill_customer_list();
         this.text_name.setVisible(false);
         this.fabric_style.setVisible(false);
+        
         List<Webcam> webcam = Webcam.getWebcams();
         for(Webcam all_web : webcam)
         {
@@ -134,7 +135,7 @@ public class EditRecipe extends javax.swing.JFrame {
         for(int x = 0 ; x<this_color_and_screen.size();x++)
         {
             
-            List<screen_pigment> current_screen = this_color_and_screen.get(x).getThis_screens();
+            List<colorway_and_screen> current_screen = this_color_and_screen.get(x).getThis_screens();
             
             if(x == 0)
             {
@@ -251,7 +252,7 @@ public class EditRecipe extends javax.swing.JFrame {
         }
     }
     
-    private void setTextValues_screens(JComboBox pigment_name, JTextField percentage, screen_pigment screen_p)
+    private void setTextValues_screens(JComboBox pigment_name, JTextField percentage, colorway_and_screen screen_p)
     {
         pigment_name.setSelectedItem(screen_p.getPigment_name());
         percentage.setText(Float.toString(screen_p.getPigment_percentage()));
@@ -290,7 +291,7 @@ public class EditRecipe extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jPanel10 = new javax.swing.JPanel();
         design_color = new javax.swing.JTextField();
-        jCheckBox2 = new javax.swing.JCheckBox();
+        fabric_check_box = new javax.swing.JCheckBox();
         jLabel11 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jPanel16 = new javax.swing.JPanel();
@@ -310,6 +311,7 @@ public class EditRecipe extends javax.swing.JFrame {
         text_job_order = new javax.swing.JTextField();
         jCheckBox1 = new javax.swing.JCheckBox();
         text_name = new javax.swing.JTextField();
+        job_ord_label = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         web_cams = new javax.swing.JComboBox();
@@ -548,13 +550,14 @@ public class EditRecipe extends javax.swing.JFrame {
         setForeground(java.awt.Color.white);
         setIconImages(null);
         setLocationByPlatform(true);
+        setMaximumSize(new java.awt.Dimension(790, 732));
         setMinimumSize(new java.awt.Dimension(790, 732));
         setModalExclusionType(java.awt.Dialog.ModalExclusionType.APPLICATION_EXCLUDE);
         addWindowFocusListener(new java.awt.event.WindowFocusListener() {
-            public void windowLostFocus(java.awt.event.WindowEvent evt) {
-            }
             public void windowGainedFocus(java.awt.event.WindowEvent evt) {
                 formWindowGainedFocus(evt);
+            }
+            public void windowLostFocus(java.awt.event.WindowEvent evt) {
             }
         });
         addFocusListener(new java.awt.event.FocusAdapter() {
@@ -628,7 +631,7 @@ public class EditRecipe extends javax.swing.JFrame {
 
         design_name.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jPanel1.add(design_name);
-        design_name.setBounds(210, 220, 200, 34);
+        design_name.setBounds(172, 212, 200, 32);
 
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
         jLabel2.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
@@ -636,16 +639,16 @@ public class EditRecipe extends javax.swing.JFrame {
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel2.setText("Design Name :");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(40, 220, 153, 34);
+        jLabel2.setBounds(10, 210, 150, 34);
 
         fabric_style.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jPanel1.add(fabric_style);
-        fabric_style.setBounds(560, 220, 150, 34);
+        fabric_style.setBounds(520, 230, 150, 34);
 
         fab_style_comb.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         fab_style_comb.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "PONGEE", "COTTON", "KATUNIA", "MICROPEACH", "TC", "TROPICANA" }));
         jPanel1.add(fab_style_comb);
-        fab_style_comb.setBounds(560, 220, 150, 34);
+        fab_style_comb.setBounds(520, 230, 150, 34);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -693,19 +696,19 @@ public class EditRecipe extends javax.swing.JFrame {
 
         design_color.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jPanel1.add(design_color);
-        design_color.setBounds(560, 260, 150, 34);
+        design_color.setBounds(172, 253, 200, 32);
 
-        jCheckBox2.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        jCheckBox2.setForeground(new java.awt.Color(255, 255, 255));
-        jCheckBox2.setText("New ?");
-        jCheckBox2.setOpaque(false);
-        jCheckBox2.addActionListener(new java.awt.event.ActionListener() {
+        fabric_check_box.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        fabric_check_box.setForeground(new java.awt.Color(255, 255, 255));
+        fabric_check_box.setText("New ?");
+        fabric_check_box.setOpaque(false);
+        fabric_check_box.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox2ActionPerformed(evt);
+                fabric_check_boxActionPerformed(evt);
             }
         });
-        jPanel1.add(jCheckBox2);
-        jCheckBox2.setBounds(650, 200, 63, 25);
+        jPanel1.add(fabric_check_box);
+        fabric_check_box.setBounds(610, 210, 63, 25);
 
         jLabel11.setBackground(new java.awt.Color(255, 255, 255));
         jLabel11.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
@@ -713,15 +716,15 @@ public class EditRecipe extends javax.swing.JFrame {
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel11.setText("Fabric Style :");
         jPanel1.add(jLabel11);
-        jLabel11.setBounds(440, 220, 100, 34);
+        jLabel11.setBounds(410, 230, 100, 34);
 
         jLabel4.setBackground(new java.awt.Color(255, 255, 255));
         jLabel4.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel4.setText("Design Color :");
+        jLabel4.setText("Design Colorway :");
         jPanel1.add(jLabel4);
-        jLabel4.setBounds(420, 260, 120, 34);
+        jLabel4.setBounds(10, 250, 150, 34);
 
         jPanel16.setBackground(new java.awt.Color(51, 51, 51));
         jPanel16.setOpaque(false);
@@ -736,13 +739,14 @@ public class EditRecipe extends javax.swing.JFrame {
         jLabel3.setBounds(320, 120, 130, 34);
 
         quantity_total.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        quantity_total.setEnabled(false);
         quantity_total.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 quantity_totalFocusLost(evt);
             }
         });
         jPanel16.add(quantity_total);
-        quantity_total.setBounds(460, 120, 90, 34);
+        quantity_total.setBounds(460, 120, 100, 34);
 
         jLabel5.setBackground(new java.awt.Color(255, 255, 255));
         jLabel5.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
@@ -751,7 +755,7 @@ public class EditRecipe extends javax.swing.JFrame {
         jLabel5.setText("m");
         jLabel5.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         jPanel16.add(jLabel5);
-        jLabel5.setBounds(555, 120, 13, 34);
+        jLabel5.setBounds(560, 120, 13, 34);
 
         jLabel13.setBackground(new java.awt.Color(255, 255, 255));
         jLabel13.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
@@ -769,7 +773,7 @@ public class EditRecipe extends javax.swing.JFrame {
             }
         });
         jPanel16.add(quantity);
-        quantity.setBounds(150, 120, 140, 34);
+        quantity.setBounds(150, 120, 143, 34);
 
         jLabel12.setBackground(new java.awt.Color(255, 255, 255));
         jLabel12.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
@@ -793,7 +797,7 @@ public class EditRecipe extends javax.swing.JFrame {
             }
         });
         jPanel16.add(button_include_customer);
-        button_include_customer.setBounds(20, 170, 280, 30);
+        button_include_customer.setBounds(10, 170, 290, 30);
 
         button_remove_customer.setBackground(new java.awt.Color(255, 255, 255));
         button_remove_customer.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
@@ -804,12 +808,12 @@ public class EditRecipe extends javax.swing.JFrame {
             }
         });
         jPanel16.add(button_remove_customer);
-        button_remove_customer.setBounds(310, 170, 260, 30);
+        button_remove_customer.setBounds(310, 170, 270, 30);
 
         jScrollPane1.setViewportView(jList1);
 
         jPanel16.add(jScrollPane1);
-        jScrollPane1.setBounds(320, 20, 250, 90);
+        jScrollPane1.setBounds(320, 20, 260, 90);
 
         jLabel9.setBackground(new java.awt.Color(255, 255, 255));
         jLabel9.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
@@ -825,27 +829,15 @@ public class EditRecipe extends javax.swing.JFrame {
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel10.setText("Job Order :");
         jPanel16.add(jLabel10);
-        jLabel10.setBounds(0, 20, 140, 34);
+        jLabel10.setBounds(0, 18, 140, 34);
 
-        text_job_order.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                text_job_orderActionPerformed(evt);
-            }
-        });
-        text_job_order.addInputMethodListener(new java.awt.event.InputMethodListener() {
-            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
-            }
-            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
-                text_job_orderInputMethodTextChanged(evt);
-            }
-        });
         text_job_order.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 text_job_orderKeyTyped(evt);
             }
         });
         jPanel16.add(text_job_order);
-        text_job_order.setBounds(150, 20, 160, 34);
+        text_job_order.setBounds(220, 20, 90, 30);
 
         jCheckBox1.setBackground(new java.awt.Color(51, 153, 255));
         jCheckBox1.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
@@ -864,8 +856,16 @@ public class EditRecipe extends javax.swing.JFrame {
         jPanel16.add(text_name);
         text_name.setBounds(150, 70, 160, 34);
 
+        job_ord_label.setBackground(new java.awt.Color(255, 255, 255));
+        job_ord_label.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        job_ord_label.setForeground(new java.awt.Color(255, 255, 255));
+        job_ord_label.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        job_ord_label.setText("15P-10-");
+        jPanel16.add(job_ord_label);
+        job_ord_label.setBounds(150, 20, 70, 30);
+
         jPanel1.add(jPanel16);
-        jPanel16.setBounds(14, 0, 580, 210);
+        jPanel16.setBounds(14, 0, 590, 210);
 
         jLabel14.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
         jLabel14.setText("INSERT PICTURE HERE");
@@ -2059,7 +2059,7 @@ public class EditRecipe extends javax.swing.JFrame {
             System.out.println(pigment_name);
             new_pigment.get_id_pigment_from_name();
             
-            //declare screen_pigment to add in screen_pigment table
+            //declare screen_pigment to add in screen_pigment table     
             screen_pigment new_screen_pigment = new screen_pigment();
             //set pigment no into the screen pigment
             new_screen_pigment.setPigment_no(new_pigment.getPigment_no());
@@ -2067,7 +2067,7 @@ public class EditRecipe extends javax.swing.JFrame {
             new_screen_pigment.add_new_screen_pigment();
             new_screen_pigment.get_screen_pigment_id_from_pigment_no_and_pigment_percentage();
             
-            return new_screen_pigment.getId_screen();
+            //return new_screen_pigment.getId_screen();
             }
             
         }
@@ -2101,7 +2101,7 @@ public class EditRecipe extends javax.swing.JFrame {
         {
         colortextile_class.colorway_and_screen new_c_and_s = new colortextile_class.colorway_and_screen();
         new_c_and_s.setId_colorway(id_colorway);
-        new_c_and_s.setId_screen(id_screen);
+        //new_c_and_s.setId_screen(id_screen);
         
         new_c_and_s.add_colorway_and_screen();
         }
@@ -2110,10 +2110,9 @@ public class EditRecipe extends javax.swing.JFrame {
     private int update_this_design()
     {
         colortextile_class.design new_design = new colortextile_class.design();
-        //new_design.setDesign_code(design_code.getText());
         new_design.setDesign_name(design_name.getText());
         new_design.setColor_name(design_color.getText());
-        if(jCheckBox2.isSelected())
+        if(fabric_check_box.isSelected())
         {
             new_design.setFabric_style(fabric_style.getText().toUpperCase());
             new_design.add_fabric_style();
@@ -2135,7 +2134,6 @@ public class EditRecipe extends javax.swing.JFrame {
         if(color_id_temp != -1)
         {
             Unused.design_colorway new_dSign_cWay = new Unused.design_colorway();
-            new_dSign_cWay.setDesign_code(design_code);
             new_dSign_cWay.setId_colorway(color_id_temp);
             new_dSign_cWay.add_new_design_and_colorway_using_variables();
         }
@@ -2298,54 +2296,23 @@ public class EditRecipe extends javax.swing.JFrame {
             this.combo_name.setVisible(true);
         }        // TODO add your handling code here:
     }//GEN-LAST:event_jCheckBox1ActionPerformed
-
-    private void text_job_orderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_text_job_orderActionPerformed
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_text_job_orderActionPerformed
-     
-    private void text_job_orderInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_text_job_orderInputMethodTextChanged
-        // TODO add your handling code here:
-    }//GEN-LAST:event_text_job_orderInputMethodTextChanged
-        int count = 0;
-        String job_temp = "";
+             
     private void text_job_orderKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_text_job_orderKeyTyped
         // TODO add your handling code here:
-        
-       
-        if (this.text_job_order.getText().length() > 10 ){
-           // job_temp = job_temp.substring(job_temp.length() - 1);
-             this.text_job_order.setText(job_temp);
-             
-        } else {
-            
-            if (count < this.text_job_order.getText().length()){
-            if(this.text_job_order.getText().length() == 3){
-            this.text_job_order.setText(this.text_job_order.getText() + "-");
-            }
-            if(this.text_job_order.getText().length() == 6){
-            this.text_job_order.setText(this.text_job_order.getText() + "-");
-            }
-            
-            }
-            
-            job_temp = this.text_job_order.getText();
-            
-        }
-        
-        count = this.text_job_order.getText().length();
+        if (this.text_job_order.getText().length() >= 4 )
+            this.text_job_order.setText(text_job_order.getText().substring(0, 3));
     }//GEN-LAST:event_text_job_orderKeyTyped
 
-    private void jCheckBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox2ActionPerformed
+    private void fabric_check_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fabric_check_boxActionPerformed
         // TODO add your handling code here:
-        if(this.jCheckBox2.isSelected()){
+        if(this.fabric_check_box.isSelected()){
             this.fab_style_comb.setVisible(false);
             this.fabric_style.setVisible(true);
         } else {
             this.fab_style_comb.setVisible(true);
             this.fabric_style.setVisible(false);
         }
-    }//GEN-LAST:event_jCheckBox2ActionPerformed
+    }//GEN-LAST:event_fabric_check_boxActionPerformed
 
     private void quantityFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_quantityFocusLost
         // TODO add your handling code here:
@@ -2612,8 +2579,6 @@ public class EditRecipe extends javax.swing.JFrame {
     }//GEN-LAST:event_coverage7KeyReleased
    
     DefaultListModel list = new DefaultListModel();
- 
-   
     ArrayList quantity_list = new ArrayList( );
     ArrayList job_list = new ArrayList( );
     ArrayList customer_list = new ArrayList( );
@@ -2644,10 +2609,8 @@ public class EditRecipe extends javax.swing.JFrame {
         customer_list.add(customer_name);
         job_list.add(this.text_job_order.getText());
         quantity_list.add(this.quantity.getText());
-        
-        
-                fill_list();
                 
+        fill_list();
         }
     }
     
@@ -2746,19 +2709,20 @@ public class EditRecipe extends javax.swing.JFrame {
 
     private void add_order1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_order1ActionPerformed
         // TODO add your handling code here:
+        //production_recipe prod_recipe = this.get_design_details();
+        
+        //Preview_form this_preview = new Preview_form(prod_recipe);
+        //this_preview.setVisible(true);
     }//GEN-LAST:event_add_order1ActionPerformed
 
     private void add_order2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_order2ActionPerformed
         // TODO add your handling code here:
         this.dispose();
-        
-        //newUser.setProf_pic(fil.getAbsolutePath());
     }//GEN-LAST:event_add_order2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        new ImageCapture("New", web_cams.getSelectedIndex()).setVisible(true);
-        
+        new ImageCapture("New", web_cams.getSelectedIndex()).setVisible(true);    
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void formFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_formFocusGained
@@ -2788,97 +2752,64 @@ public class EditRecipe extends javax.swing.JFrame {
 
     private void compute_kg(JTextField weigh_kg, float coverage)
     {
-        float computation;
-        if(!quantity.getBackground().equals(Color.pink) && quantity.getText().length()>0)
+        if(!quantity_total.getBackground().equals(Color.pink) && quantity_total.getText().length()>0)
         {
-            if(fabric_style.getText().equals("PONGEE") || fab_style_comb.getSelectedItem().equals("PONGEE"))
+            Recipe_functions use_func = new Recipe_functions();
+            float this_computation;
+            if(this.fabric_check_box.isSelected())
             {
-                float this_quant = Float.parseFloat(quantity_total.getText());
-                computation = (80*coverage/100*this_quant)/1000;
-                weigh_kg.setText(String.format("%.2f", computation));
+               this_computation = use_func.compute_this_kg(coverage, fabric_style.getText(), quantity_total.getText());
             }
-            if(fabric_style.getText().equals("COTTON") || fab_style_comb.getSelectedItem().equals("COTTON")
-            || fabric_style.getText().equals("KATUNIA") || fab_style_comb.getSelectedItem().equals("KATUNIA"))
-            {
-                float this_quant = Float.parseFloat(quantity_total.getText());
-                computation = (80*coverage/100*this_quant)/1000;
-                
-                weigh_kg.setText(String.format("%.2f", computation));
-               // weigh_kg.setText(Float.toString(computation%.02f));
+            else{
+               this_computation = use_func.compute_this_kg(coverage, fab_style_comb.getSelectedItem().toString(),quantity_total.getText());
             }
-            if(fabric_style.getText().equals("MICROPEACH") || fab_style_comb.getSelectedItem().equals("MICROPEACH")
-            || fabric_style.getText().equals("TC") || fab_style_comb.getSelectedItem().equals("TC")
-            || fabric_style.getText().equals("TROPICANA") || fab_style_comb.getSelectedItem().equals("TROPICANA"))
-            {
-                float this_quant = Float.parseFloat(quantity_total.getText());
-                computation = (80*coverage/100*this_quant)/1000;
-                weigh_kg.setText(String.format("%.2f", computation));
-            }
+                weigh_kg.setText(String.format("%.0f", this_computation));
         }
     }
     
     private void update_kg_prep(String percentage_text, String weight_kg , JTextField this_textfield)
     {
-        System.out.println(percentage_text+ " and " +weight_kg);
         if(percentage_text.length()>0 && weight_kg.length()>0)
         {
-            boolean text_check = checkText2(percentage_text);
-            boolean text_check2 = checkText2(weight_kg);
-            System.out.println(text_check+ " and " +text_check2);
-            if(!text_check && !text_check2)
+            if(!checkText2(weight_kg) && !checkText2(percentage_text))
             {
                 try
                 {            
                     float temp_percentage = Float.parseFloat(percentage_text);
                     float temp_weight = Float.parseFloat(weight_kg);
                     float weight_prep = temp_weight * temp_percentage / 100;
-                    //System.out.println(Float.toString(weight_prep));
                     //Make this 2 Decimal digits
                     this_textfield.setText(String.format("%.2f", weight_prep));
-            
                 }
                 catch(NumberFormatException ex)
                 {
-                    System.out.println(ex);
                     this_textfield.setText("Error!");
                 }
-                }
+            }
             else
             {
-                //System.out.println("WHYYY!");
                 this_textfield.setText("Error!");
             }
         }
-        
     }
     private boolean checkText2(String this_text)
     {
-        
         String regex = "[^0-9]";
         Pattern p = Pattern.compile(regex);
         this_text = this_text.replaceFirst("[.]", "");
-        /*
-        String subregex = "[.]" ;
-        Pattern g = Pattern.compile(subregex);
-        this_text = g.matcher(this_text).replaceFirst(this_text);
         
-        */
-        return p.matcher(this_text).find();
-    
-    }
+        return p.matcher(this_text).find();}
     
     private boolean check_this_textbox(JTextField the_textfield)
     {
         boolean text_check = checkText2(the_textfield.getText());
         if(text_check)
         {
-            //System.out.println(the_textfield.getBackground().equals(Color.red));
             if(!the_textfield.getBackground().equals(Color.pink) )
             {
                 the_textfield.setBackground(Color.pink);
                 count_screen_1++;
             }
-            
         }
         else
         {
@@ -2923,7 +2854,6 @@ public class EditRecipe extends javax.swing.JFrame {
     }
     public void addListItems()
     {
-        
         colortextile_class.pigment list_pigment = new colortextile_class.pigment();
         ArrayList<String> pigment_list = list_pigment.get_all_pigment_name();
         addBlankSpace();
@@ -3017,11 +2947,11 @@ public class EditRecipe extends javax.swing.JFrame {
     private javax.swing.JTextField design_color;
     private javax.swing.JTextField design_name;
     private javax.swing.JComboBox fab_style_comb;
+    private javax.swing.JCheckBox fabric_check_box;
     private javax.swing.JTextField fabric_style;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JCheckBox jCheckBox2;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel100;
     private javax.swing.JLabel jLabel102;
@@ -3175,6 +3105,7 @@ public class EditRecipe extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator9;
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JLabel job_ord_label;
     private javax.swing.JTextField kg_1;
     private javax.swing.JTextField kg_10;
     private javax.swing.JTextField kg_11;

@@ -44,6 +44,7 @@ public class SearchJOGui extends javax.swing.JFrame {
     public SearchJOGui() {
         initComponents();
         
+        //Place Into Center
         Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
         int x = (int) ((dimension.getWidth() - this.getWidth()) / 2);
         //int y = (int) ((dimension.getHeight() - this.getHeight()) / 2);
@@ -57,9 +58,8 @@ public class SearchJOGui extends javax.swing.JFrame {
         this.combo_customer.addItem(name);
         }
         
-        this.spinner_from.setEnabled(false);
-        //this.spinner_to.setEnabled(false);
-        
+        //this.spinner_from.setEnabled(false);
+       
         job_order set = new job_order();
         fill_table(set.job_order_all());
         
@@ -82,8 +82,6 @@ public class SearchJOGui extends javax.swing.JFrame {
         
         DB_Manager conn= new DB_Manager();
         
-        
-        
         DefaultTableModel model = new DefaultTableModel();
         
         model.addColumn("#"); // purchaseorder
@@ -96,92 +94,71 @@ public class SearchJOGui extends javax.swing.JFrame {
         model.addColumn("Fabric Style");    //desing
         
         try {
-            
             if (rs.first()){
                 
-                
                rs.previous();
-              
-                
-                while (rs.next()){
-                    
+                while (rs.next())
+                {    
                     purchase_order info = new purchase_order();
-                   info.setJob_order_id(rs.getString("job_order_id"));
-                   info.setId_purchase(-1);
-                   info.setDesign_code(-1);
+                    info.setJob_order_id(rs.getString("job_order_id"));
+                    info.setId_purchase(-1);
+                    info.setDesign_code(-1);
                     ResultSet rs2 = info.Search_purchase_info();
                
-                  // this.order_list.add(rs2.getInt("id_purchase"));
-                    
-                  
-                if(rs2.first()){
-                    rs2.previous();
-                    while(rs2.next()) {
-                        
-                        
-                       design design_conn = new design(); 
-                        
-                    
-                    design_conn.setDesign_code(rs2.getInt("design_code"));
+                    if(rs2.first())
+                    {
+                        rs2.previous();
+                        while(rs2.next()) 
+                        {
+                            design design_conn = new design();
+                            design_conn.setDesign_code(rs2.getInt("design_code"));
                             ResultSet rs3 = design_conn.search_design();
                             
                             if (rs3.first()){
-                                
-                    String[] set1 = {   
+                                String[] set1 = 
+                                {
                                     rs2.getString("id_purchase"),
                                     rs2.getString("job_order_id"), 
                                     conn.get_customer_name(rs.getInt("customer_id")),
                                     rs.getString("date"),
                                     rs2.getString("quantity"),
-                             
                                     rs3.getString("design_name"),
                                     rs3.getString("color_name"),
-                                    rs3.getString("fabric_style")};
-                                
-                                    model.addRow(set1);
+                                    rs3.getString("fabric_style")
+                                };
+                                model.addRow(set1);
                                 
                             } else {
-                            
-                    String[] set1 = {   
+                                String[] set1 = {
                                     rs2.getString("purchase_order"),
                                     rs.getString("job_order_id"), 
                                     conn.get_customer_name(rs.getInt("customer_id")),
                                     rs2.getString("date"),
                                     rs.getString("quantity")
                                     };
-                   
-                                    model.addRow(set1);
+                                model.addRow(set1);
                             }
-                    
-                    }
-                             
-                
-                } else {
-                    
-                   String[] set1 = {   rs.getString("job_order_id"), 
+                        }
+                    } 
+                    else 
+                    {
+                        String[] set1 = {   rs.getString("job_order_id"), 
                                     conn.get_customer_name(rs.getInt("customer_id")), 
                                     rs.getString("date")
-                   };
-                                   
-               
-                                    model.addRow(set1);
-             
+                        };
+                        model.addRow(set1);
+                    }
                 }
-                    
-                   
-                }
-           
-                    
-                
-                
-            } else {
-                
+            } 
+            else 
+            {
             JOptionPane.showMessageDialog(null,"No Record");
             }
-        } catch (SQLException ex) {
+        } 
+        catch (SQLException ex) 
+        {
             Logger.getLogger(SearchJOGui.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
         this.jTable1.setModel(model); 
     }
     
@@ -195,6 +172,22 @@ public class SearchJOGui extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jFrame1 = new javax.swing.JFrame();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        combo_customer1 = new javax.swing.JComboBox();
+        text_job_id1 = new javax.swing.JTextField();
+        button_search1 = new javax.swing.JButton();
+        button_reset1 = new javax.swing.JButton();
+        jCheckBox2 = new javax.swing.JCheckBox();
+        jLabel8 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
+        button_details1 = new javax.swing.JButton();
+        label_pic1 = new javax.swing.JLabel();
+        spinner_from1 = new javax.swing.JSpinner();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -211,8 +204,161 @@ public class SearchJOGui extends javax.swing.JFrame {
         label_pic = new javax.swing.JLabel();
         spinner_from = new javax.swing.JSpinner();
 
+        jFrame1.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jFrame1.setTitle("Search Job Order");
+        jFrame1.getContentPane().setLayout(null);
+
+        jLabel4.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel4.setText("Customer Name :");
+        jFrame1.getContentPane().add(jLabel4);
+        jLabel4.setBounds(20, 73, 140, 21);
+
+        jLabel5.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel5.setText("Job Order ID :");
+        jFrame1.getContentPane().add(jLabel5);
+        jLabel5.setBounds(20, 105, 140, 21);
+
+        jLabel7.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel7.setText("Date :");
+        jFrame1.getContentPane().add(jLabel7);
+        jLabel7.setBounds(20, 137, 140, 21);
+
+        combo_customer1.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
+        jFrame1.getContentPane().add(combo_customer1);
+        combo_customer1.setBounds(170, 70, 414, 27);
+
+        text_job_id1.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
+        jFrame1.getContentPane().add(text_job_id1);
+        text_job_id1.setBounds(170, 102, 414, 27);
+
+        button_search1.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        button_search1.setText("Search");
+        button_search1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_search1ActionPerformed(evt);
+            }
+        });
+        jFrame1.getContentPane().add(button_search1);
+        button_search1.setBounds(36, 202, 123, 35);
+
+        button_reset1.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        button_reset1.setText("Reset");
+        button_reset1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_reset1ActionPerformed(evt);
+            }
+        });
+        jFrame1.getContentPane().add(button_reset1);
+        button_reset1.setBounds(165, 202, 134, 35);
+
+        jCheckBox2.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
+        jCheckBox2.setForeground(new java.awt.Color(255, 255, 255));
+        jCheckBox2.setText("Date");
+        jCheckBox2.setOpaque(false);
+        jCheckBox2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox2ActionPerformed(evt);
+            }
+        });
+        jFrame1.getContentPane().add(jCheckBox2);
+        jCheckBox2.setBounds(585, 133, 65, 29);
+
+        jLabel8.setFont(new java.awt.Font("Century Gothic", 0, 34)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("Search Job Order");
+        jFrame1.getContentPane().add(jLabel8);
+        jLabel8.setBounds(40, 16, 289, 43);
+
+        jPanel2.setBackground(new java.awt.Color(51, 153, 255));
+
+        jTable2.setAutoCreateRowSorter(true);
+        jTable2.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jTable2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable2MouseClicked(evt);
+            }
+        });
+        jTable2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTable2KeyPressed(evt);
+            }
+        });
+        jScrollPane2.setViewportView(jTable2);
+
+        button_details1.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        button_details1.setText("Details");
+        button_details1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_details1ActionPerformed(evt);
+            }
+        });
+
+        spinner_from1.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
+        spinner_from1.setModel(new javax.swing.SpinnerDateModel(new java.util.Date(1410306137651L), null, null, java.util.Calendar.DAY_OF_MONTH));
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 1217, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(172, 172, 172)
+                                .addComponent(spinner_from1, javax.swing.GroupLayout.PREFERRED_SIZE, 412, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                                .addGap(450, 450, 450)
+                                .addComponent(button_details1, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(label_pic1, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(411, 411, 411)))
+                .addContainerGap(70, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(74, 74, 74)
+                        .addComponent(label_pic1, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(spinner_from1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(39, 39, 39)))
+                .addComponent(button_details1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20))
+        );
+
+        jFrame1.getContentPane().add(jPanel2);
+        jPanel2.setBounds(0, 0, 1320, 480);
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Search Job Order");
+        setMinimumSize(new java.awt.Dimension(1488, 482));
         getContentPane().setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
@@ -274,7 +420,7 @@ public class SearchJOGui extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jCheckBox1);
-        jCheckBox1.setBounds(585, 133, 69, 29);
+        jCheckBox1.setBounds(585, 133, 65, 29);
 
         jLabel6.setFont(new java.awt.Font("Century Gothic", 0, 34)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
@@ -474,6 +620,30 @@ public class SearchJOGui extends javax.swing.JFrame {
             Logger.getLogger(SearchJOGui.class.getName()).log(Level.SEVERE, null, ex);
         }*/
     }//GEN-LAST:event_jTable1KeyPressed
+
+    private void button_search1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_search1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_button_search1ActionPerformed
+
+    private void button_reset1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_reset1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_button_reset1ActionPerformed
+
+    private void jCheckBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBox2ActionPerformed
+
+    private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTable2MouseClicked
+
+    private void jTable2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTable2KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTable2KeyPressed
+
+    private void button_details1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_details1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_button_details1ActionPerformed
     private String get_design_code_from_table_selected(){
         
         int row = this.get_table_row_value();
@@ -537,19 +707,35 @@ public class SearchJOGui extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton button_details;
+    private javax.swing.JButton button_details1;
     private javax.swing.JButton button_reset;
+    private javax.swing.JButton button_reset1;
     private javax.swing.JButton button_search;
+    private javax.swing.JButton button_search1;
     private javax.swing.JComboBox combo_customer;
+    private javax.swing.JComboBox combo_customer1;
     private javax.swing.JCheckBox jCheckBox1;
+    private javax.swing.JCheckBox jCheckBox2;
+    private javax.swing.JFrame jFrame1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTable2;
     private javax.swing.JLabel label_pic;
+    private javax.swing.JLabel label_pic1;
     private javax.swing.JSpinner spinner_from;
+    private javax.swing.JSpinner spinner_from1;
     private javax.swing.JTextField text_job_id;
+    private javax.swing.JTextField text_job_id1;
     // End of variables declaration//GEN-END:variables
 }
