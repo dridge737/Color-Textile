@@ -6,6 +6,8 @@
 
 package colortextile_class;
 
+import java.sql.ResultSet;
+
 /**
  *
  * @author Eldridge
@@ -102,4 +104,8 @@ public class colorway_and_screen extends pigment{
         this.pigment_percentage = pigment_percentage;
     }
     
+    public ResultSet Search_colorway_screen_connect(){
+        Database.DB_Manager new_conn = new Database.DB_Manager();
+        return new_conn.Search_colorway_screen_connect(this);
+    }
 }

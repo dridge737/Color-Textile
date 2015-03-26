@@ -6,6 +6,8 @@
 
 package colortextile_class;
 
+import java.sql.ResultSet;
+
 /**
  *
  * @author Eldridge
@@ -138,5 +140,10 @@ public class colorway {
      */
     public void setDesign_code(int design_code) {
         this.design_code = design_code;
+    }
+    
+    public ResultSet Search_colorway(){
+        Database.DB_Manager new_conn = new Database.DB_Manager();
+        return new_conn.Search_colorway(this);
     }
 }
