@@ -87,7 +87,7 @@ public class Add_new_design extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jPanel10 = new javax.swing.JPanel();
         design_color = new javax.swing.JTextField();
-        jCheckBox2 = new javax.swing.JCheckBox();
+        fabric_check_box = new javax.swing.JCheckBox();
         jLabel11 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jPanel16 = new javax.swing.JPanel();
@@ -543,17 +543,17 @@ public class Add_new_design extends javax.swing.JFrame {
         jPanel1.add(design_color);
         design_color.setBounds(190, 250, 210, 34);
 
-        jCheckBox2.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        jCheckBox2.setForeground(new java.awt.Color(255, 255, 255));
-        jCheckBox2.setText("New ?");
-        jCheckBox2.setOpaque(false);
-        jCheckBox2.addActionListener(new java.awt.event.ActionListener() {
+        fabric_check_box.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        fabric_check_box.setForeground(new java.awt.Color(255, 255, 255));
+        fabric_check_box.setText("New ?");
+        fabric_check_box.setOpaque(false);
+        fabric_check_box.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox2ActionPerformed(evt);
+                fabric_check_boxActionPerformed(evt);
             }
         });
-        jPanel1.add(jCheckBox2);
-        jCheckBox2.setBounds(650, 210, 63, 25);
+        jPanel1.add(fabric_check_box);
+        fabric_check_box.setBounds(650, 210, 63, 25);
 
         jLabel11.setBackground(new java.awt.Color(255, 255, 255));
         jLabel11.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
@@ -2362,7 +2362,7 @@ public class Add_new_design extends javax.swing.JFrame {
     }
     private String getFabricStyle()
     {
-        if(jCheckBox2.isSelected())
+        if(fabric_check_box.isSelected())
         {
             Unused.fabric_style new_fabric = new Unused.fabric_style();
             new_fabric.setFabric_style(fabric_style.getText().toUpperCase());
@@ -2829,16 +2829,16 @@ public class Add_new_design extends javax.swing.JFrame {
         */
     }//GEN-LAST:event_text_job_orderKeyTyped
 
-    private void jCheckBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox2ActionPerformed
+    private void fabric_check_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fabric_check_boxActionPerformed
         // TODO add your handling code here:
-        if(this.jCheckBox2.isSelected()){
+        if(this.fabric_check_box.isSelected()){
             this.fab_style_comb.setVisible(false);
             this.fabric_style.setVisible(true);
         } else {
             this.fab_style_comb.setVisible(true);
             this.fabric_style.setVisible(false);
         }
-    }//GEN-LAST:event_jCheckBox2ActionPerformed
+    }//GEN-LAST:event_fabric_check_boxActionPerformed
 
     private void coverage1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_coverage1KeyReleased
         // TODO add your handling code here:
@@ -3279,67 +3279,36 @@ public class Add_new_design extends javax.swing.JFrame {
 
     private void compute_kg(JTextField weigh_kg, float coverage)
     {
-        float computation;
-        if(!quantity.getBackground().equals(Color.pink) && quantity.getText().length()>0)
+        if(!quantity_total.getBackground().equals(Color.pink) && quantity_total.getText().length()>0)
         {
-            if(fabric_style.getText().equals("PONGEE") || fab_style_comb.getSelectedItem().equals("PONGEE"))
+            Recipe_functions use_func = new Recipe_functions();
+            float this_computation;
+            if(this.fabric_check_box.isSelected())
             {
-                float this_quant = Float.parseFloat(quantity_total.getText());
-                computation = Math.round((80*coverage/100*this_quant)/1000);
-                
-                weigh_kg.setText(String.format("%.0f", computation));
-                
+               this_computation = use_func.compute_this_kg(coverage, fabric_style.getText(), quantity_total.getText());
             }
-            if(fabric_style.getText().equals("COTTON") || fab_style_comb.getSelectedItem().equals("COTTON")
-            || fabric_style.getText().equals("KATUNIA") || fab_style_comb.getSelectedItem().equals("KATUNIA"))
-            {
-                float this_quant = Float.parseFloat(quantity_total.getText());
-                computation = Math.round((80*coverage/100*this_quant)/1000);
-                
-                weigh_kg.setText(String.format("%.0f", computation));
-               // weigh_kg.setText(Float.toString(computation%.02f));
+            else{
+               this_computation = use_func.compute_this_kg(coverage, fab_style_comb.getSelectedItem().toString(),quantity_total.getText());
             }
-            if(fabric_style.getText().equals("MICROPEACH") || fab_style_comb.getSelectedItem().equals("MICROPEACH")
-            || fabric_style.getText().equals("TC") || fab_style_comb.getSelectedItem().equals("TC")
-            || fabric_style.getText().equals("TROPICANA") || fab_style_comb.getSelectedItem().equals("TROPICANA"))
-            {
-                float this_quant = Float.parseFloat(quantity_total.getText());
-                computation = Math.round((80*coverage/100*this_quant)/1000);
-                weigh_kg.setText(String.format("%.0f", computation));
-            }
+                weigh_kg.setText(String.format("%.0f", this_computation));
         }
     }
     
     private void update_kg_prep(String percentage_text, String weight_kg , JTextField this_textfield)
     {
-        //System.out.println(percentage_text+ " and " +weight_kg);
         if(percentage_text.length()>0 && weight_kg.length()>0)
-        {
-            boolean text_check = checkText2(percentage_text);
-            boolean text_check2 = checkText2(weight_kg);
-            //System.out.println(text_check+ " and " +text_check2);
-            if(!text_check && !text_check2)
+        {   
+            if(!checkText2(percentage_text) && !checkText2(weight_kg))
             {
-                try
-                {            
-                    float temp_percentage = Float.parseFloat(percentage_text);
-                    float temp_weight = Float.parseFloat(weight_kg);
-                    float weight_prep = temp_weight * temp_percentage / 100;
-                    //System.out.println(Float.toString(weight_prep));
-                    //Make this 2 Decimal digits
-                    this_textfield.setText(String.format("%.2f", weight_prep));
-                }
-                catch(NumberFormatException ex)
-                {
-                    this_textfield.setText("Error!");
-                }
-                }
+                Recipe_functions use_func = new Recipe_functions();
+                float weight_preparation = use_func.update_kg_and_prep(percentage_text, weight_kg);
+                this_textfield.setText(String.format("%.2f", weight_preparation));
+            }
             else
             {
                 this_textfield.setText("Error!");
             }
         }
-        
     }
     /**
      * Checks if text can be parsed to float or int
@@ -3611,9 +3580,9 @@ public class Add_new_design extends javax.swing.JFrame {
     private javax.swing.JTextField design_color;
     private javax.swing.JTextField design_name;
     private javax.swing.JComboBox fab_style_comb;
+    private javax.swing.JCheckBox fabric_check_box;
     private javax.swing.JTextField fabric_style;
     private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JCheckBox jCheckBox2;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel100;
     private javax.swing.JLabel jLabel102;
