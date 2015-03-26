@@ -5,6 +5,7 @@
  */
 package colortextile_class;
 
+import colortextile_form.add_pigment_form;
 import java.awt.Color;
 import javax.swing.JTextField;
 
@@ -48,9 +49,12 @@ public class Recipe_functions {
         catch(NumberFormatException ex)
         {
             return -1;
-        }
-        
-        
+        }   
+    }
+    public void show_add_pigment()
+    {
+        add_pigment_form add_pigment = new add_pigment_form();
+        add_pigment.setVisible(true);
     }
     
 }

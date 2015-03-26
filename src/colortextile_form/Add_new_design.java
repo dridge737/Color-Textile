@@ -22,7 +22,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.regex.Pattern;
 import javax.swing.DefaultListModel;
-import javax.swing.InputVerifier;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JSpinner;
@@ -51,7 +50,7 @@ public class Add_new_design extends javax.swing.JFrame {
         //Center the form
         Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
         int x = (int) ((dimension.getWidth() - this.getWidth()) / 2);
-//        int y = (int) ((dimension.getHeight() - this.getHeight()) / 2);
+        //int y = (int) ((dimension.getHeight() - this.getHeight()) / 2);
         this.setLocation(x,0);
         //InputVerifier new_verifier = new Verifier();
         //this.pigment_percentage8.setInputVerifier(new_verifier);
@@ -2072,7 +2071,6 @@ public class Add_new_design extends javax.swing.JFrame {
         }
     }
     public void fill_info_from_purchase_id(int purchase_order){
-        
         try {
             purchase_order purchase = new purchase_order();
             
@@ -2081,16 +2079,13 @@ public class Add_new_design extends javax.swing.JFrame {
                 System.out.println("first");
             }
             String code1 = rs.getString("design_code");
+            System.out.println(code1);
             
-             System.out.println(code1);
-             
-             this.fill_info(Integer.parseInt(code1));
-        } catch (SQLException ex) {
+            this.fill_info(Integer.parseInt(code1));
+        } 
+        catch (SQLException ex) {
             Logger.getLogger(Add_new_design.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-       
-        
     }
     
     public String get_pigment_name(int pigment_no){
@@ -2119,9 +2114,6 @@ public class Add_new_design extends javax.swing.JFrame {
             ResultSet rs_colorway = color.Search_colorway();
             
             colorway_and_screen screen = new colorway_and_screen();
-            
-          
-            
             
             //fill textboxes  +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
             
@@ -2791,6 +2783,7 @@ public class Add_new_design extends javax.swing.JFrame {
         add_pigment_form add_pigment = new add_pigment_form();
         add_pigment.setVisible(true);
     }
+    
     private void add_orderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_orderActionPerformed
         // TODO add your handling code here:
         
@@ -2828,32 +2821,9 @@ public class Add_new_design extends javax.swing.JFrame {
 
     private void text_job_orderKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_text_job_orderKeyTyped
         // TODO add your handling code here:
-        
-        if (this.text_job_order.getText().length() >= 4 ){
-            //String job_temp = "";
-            //job_temp = text_job_order.getText().substring(job_temp.length() - 1);
+        if (this.text_job_order.getText().length() >= 4 )
             this.text_job_order.setText(text_job_order.getText().substring(0, 3));
-        } 
-        /*
-        else {
-            
-            if (count < this.text_job_order.getText().length())
-            {
-                if(this.text_job_order.getText().length() == 3)
-                {
-                    this.text_job_order.setText(this.text_job_order.getText() + "-");
-                }
         
-                if(this.text_job_order.getText().length() == 6){
-                    this.text_job_order.setText(this.text_job_order.getText() + "-");
-                }
-            
-            }   
-            job_temp = this.text_job_order.getText();
-            
-        }
-        count = this.text_job_order.getText().length();
-        */
     }//GEN-LAST:event_text_job_orderKeyTyped
 
     private void fabric_check_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fabric_check_boxActionPerformed
@@ -2869,7 +2839,6 @@ public class Add_new_design extends javax.swing.JFrame {
 
     private void coverage1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_coverage1KeyReleased
         // TODO add your handling code here:
-    
         if(!checkText2(coverage1.getText()))
         {
             compute_kg(weigh_kg8, Float.parseFloat(coverage1.getText()));
@@ -2887,7 +2856,6 @@ public class Add_new_design extends javax.swing.JFrame {
 
     private void coverage3KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_coverage3KeyReleased
         // TODO add your handling code here:
-        
         if(!checkText2(coverage3.getText()))
         {   
             compute_kg(weigh_kg3, Float.parseFloat(coverage3.getText()));
@@ -3132,8 +3100,6 @@ public class Add_new_design extends javax.swing.JFrame {
         // TODO add your handling code here:
         String a = this.jList1.getSelectedValue().toString();
         int selected = this.jList1.getSelectedIndex();
-        //JOptionPane.showMessageDialog(null,a);
-        //JOptionPane.showMessageDialog(null,selected);
         
         this.customer_list.remove(selected);
         this.job_list.remove(selected);
@@ -3299,9 +3265,6 @@ public class Add_new_design extends javax.swing.JFrame {
         pigment this_pigment = new pigment();
         if(this_pigment.count_all_pigment() != (name1.getItemCount()-1))
             this.registerSelectedItem();
-        
-        //this.clearItem();
-       // addListItems();
     }//GEN-LAST:event_formWindowGainedFocus
 
     private void compute_kg(JTextField weigh_kg, float coverage)
@@ -3372,7 +3335,6 @@ public class Add_new_design extends javax.swing.JFrame {
                 count_screen_1--;
             }
         }
-            
         if(count_screen_1 > 0)
         {
             add_order.setEnabled(false);
@@ -3418,19 +3380,15 @@ public class Add_new_design extends javax.swing.JFrame {
         allitems[3] = name5.getSelectedItem().toString();
         allitems[4] = name6.getSelectedItem().toString();
         allitems[5] = name7.getSelectedItem().toString();
-
         allitems[6] = name9.getSelectedItem().toString();
         allitems[7] = name10.getSelectedItem().toString();
         allitems[8] = name11.getSelectedItem().toString();
-
         allitems[9] = name13.getSelectedItem().toString();
         allitems[10] = name14.getSelectedItem().toString();
         allitems[11] = name15.getSelectedItem().toString();
-
         allitems[12] = name17.getSelectedItem().toString();
         allitems[13] = name18.getSelectedItem().toString();
         allitems[14] = name19.getSelectedItem().toString();
-
         allitems[15] = name21.getSelectedItem().toString();
         allitems[16] = name22.getSelectedItem().toString();
         allitems[17] = name23.getSelectedItem().toString();
@@ -3444,11 +3402,9 @@ public class Add_new_design extends javax.swing.JFrame {
         name1.setSelectedItem(allitems[0]);
         name2.setSelectedItem(allitems[1]);
         name3.setSelectedItem(allitems[2]);
-        
         name5.setSelectedItem(allitems[3]);
         name6.setSelectedItem(allitems[4]);
         name7.setSelectedItem(allitems[5]);
-        
         name9.setSelectedItem(allitems[6]);
         name10.setSelectedItem(allitems[7]);
         name11.setSelectedItem(allitems[8]);
@@ -3493,7 +3449,6 @@ public class Add_new_design extends javax.swing.JFrame {
     }
     public void addListItems()
     {
-        
         colortextile_class.pigment list_pigment = new colortextile_class.pigment();
         ArrayList<String> pigment_list = list_pigment.get_all_pigment_name();
         addBlankSpace();
