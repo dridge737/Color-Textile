@@ -2095,7 +2095,6 @@ public class Add_new_design extends javax.swing.JFrame {
         
         return pigment.getPigment_name();
     }
-    
     public void fill_info(int design_id){
         try {
             System.out.println("Shouting ");
@@ -2106,7 +2105,6 @@ public class Add_new_design extends javax.swing.JFrame {
             ResultSet rs_design = design_info.search_design();
             
             rs_design.first();
-            
             
             colorway color = new colorway();
             color.setDesign_code(design_id);
@@ -2424,8 +2422,7 @@ public class Add_new_design extends javax.swing.JFrame {
             new_design.setAll_purchase(get_all_purchase_details(1));
         }
         new_design.view_all_job_order_details();
-        return new_design;
-        
+        return new_design; 
     }
     
     private String get_date_from_spinner()

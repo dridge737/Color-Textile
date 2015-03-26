@@ -72,8 +72,7 @@ public class EditRecipe extends javax.swing.JFrame {
         int x = (int) ((dimension.getWidth() - this.getWidth()) / 2);
         //int y = (int) ((dimension.getHeight() - this.getHeight()) / 2);
         this.setLocation(x,0);
-        //InputVerifier new_verifier = new Verifier();
-        //this.pigment_percentage8.setInputVerifier(new_verifier);
+        
         fill_customer_list();
         this.text_name.setVisible(false);
         this.fabric_style.setVisible(false);
