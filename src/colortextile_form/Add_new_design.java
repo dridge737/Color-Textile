@@ -2103,19 +2103,20 @@ public class Add_new_design extends javax.swing.JFrame {
     
     public void fill_info(int design_id){
         try {
-            System.out.println("Shouting ");
+            System.out.println("filling the textboxes ");
+            //design DB
             design design_info = new design();
-            
             design_info.setDesign_code(design_id);
-            
+            // get design result set from design code
             ResultSet rs_design = design_info.search_design();
-            
+            //design result set move to first
             rs_design.first();
             
-            
+            //colorway DB
             colorway color = new colorway();
             color.setDesign_code(design_id);
-            
+            color.setId_colorway(-1);
+            // get colorway result set form design code
             ResultSet rs_colorway = color.Search_colorway();
             
             colorway_and_screen screen = new colorway_and_screen();
@@ -2144,8 +2145,8 @@ public class Add_new_design extends javax.swing.JFrame {
             this.weigh_kg8.setText(rs_colorway.getString("weight_kg"));
             //Coverage
             //this.coverage1.setText("");
-            //
-            
+            //binder
+            this.binder8.addItem(rs_colorway.getString("binder")); this.binder8.setSelectedItem(rs_colorway.getString("binder"));
             //Pigment Name                     Percentage                        KG/Prep
             rs_colorway_screen.first();
             this.name1.addItem(this.get_pigment_name(rs_colorway_screen.getInt("pigment_no"))); this.name1.setSelectedItem(this.get_pigment_name(rs_colorway_screen.getInt("pigment_no")));      this.percentage1.setText(rs_colorway_screen.getString("pigment_percentage"));
@@ -2156,7 +2157,7 @@ public class Add_new_design extends javax.swing.JFrame {
             if(rs_colorway_screen.next()){
             this.name3.addItem(this.get_pigment_name(rs_colorway_screen.getInt("pigment_no"))); this.name3.setSelectedItem(this.get_pigment_name(rs_colorway_screen.getInt("pigment_no")));      this.percentage3.setText(rs_colorway_screen.getString("pigment_percentage"));
             }
-            this.binder8.addItem(rs_colorway.getString("binder")); this.binder8.setSelectedItem(rs_colorway.getString("binder"));
+            
             
             //222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222
             if(rs_colorway.next()){
