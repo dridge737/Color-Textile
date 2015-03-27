@@ -37,6 +37,7 @@ public class Add_new_design extends javax.swing.JFrame {
     private colortextile_class.Job_purchase_link_functions this_purchase = new colortextile_class.Job_purchase_link_functions();
     private DefaultListModel list = new DefaultListModel();
     
+    private job_customer_quantity_list this_list = new job_customer_quantity_list();
     private ArrayList quantity_list = new ArrayList( );
     private ArrayList job_list = new ArrayList( );
     private ArrayList customer_list = new ArrayList( );
@@ -56,7 +57,7 @@ public class Add_new_design extends javax.swing.JFrame {
         //this.pigment_percentage8.setInputVerifier(new_verifier);
         fill_customer_list();
         this.change_job_order_prefix();
-        this.text_name.setVisible(false);
+        this.customer_name_text.setVisible(false);
         this.fabric_style.setVisible(false);
     }
 
@@ -96,7 +97,7 @@ public class Add_new_design extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         quantity = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
-        combo_name = new javax.swing.JComboBox();
+        customer_combo_list = new javax.swing.JComboBox();
         button_include_customer = new javax.swing.JButton();
         button_remove_customer = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -104,8 +105,8 @@ public class Add_new_design extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         text_job_order = new javax.swing.JTextField();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        text_name = new javax.swing.JTextField();
+        customer_check_box = new javax.swing.JCheckBox();
+        customer_name_text = new javax.swing.JTextField();
         job_ord_label = new javax.swing.JLabel();
         jPanel11 = new javax.swing.JPanel();
         jTabbedPane2 = new javax.swing.JTabbedPane();
@@ -624,10 +625,10 @@ public class Add_new_design extends javax.swing.JFrame {
         jPanel16.add(jLabel12);
         jLabel12.setBounds(20, 120, 153, 34);
 
-        combo_name.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        combo_name.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel16.add(combo_name);
-        combo_name.setBounds(190, 70, 210, 34);
+        customer_combo_list.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        customer_combo_list.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel16.add(customer_combo_list);
+        customer_combo_list.setBounds(190, 70, 210, 34);
 
         button_include_customer.setBackground(new java.awt.Color(255, 255, 255));
         button_include_customer.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
@@ -681,22 +682,22 @@ public class Add_new_design extends javax.swing.JFrame {
         jPanel16.add(text_job_order);
         text_job_order.setBounds(258, 20, 140, 34);
 
-        jCheckBox1.setBackground(new java.awt.Color(51, 153, 255));
-        jCheckBox1.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        jCheckBox1.setForeground(java.awt.SystemColor.controlLtHighlight);
-        jCheckBox1.setText("New?");
-        jCheckBox1.setOpaque(false);
-        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+        customer_check_box.setBackground(new java.awt.Color(51, 153, 255));
+        customer_check_box.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        customer_check_box.setForeground(java.awt.SystemColor.controlLtHighlight);
+        customer_check_box.setText("New?");
+        customer_check_box.setOpaque(false);
+        customer_check_box.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox1ActionPerformed(evt);
+                customer_check_boxActionPerformed(evt);
             }
         });
-        jPanel16.add(jCheckBox1);
-        jCheckBox1.setBounds(340, 50, 59, 20);
+        jPanel16.add(customer_check_box);
+        customer_check_box.setBounds(340, 50, 59, 20);
 
-        text_name.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
-        jPanel16.add(text_name);
-        text_name.setBounds(190, 70, 210, 34);
+        customer_name_text.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
+        jPanel16.add(customer_name_text);
+        customer_name_text.setBounds(190, 70, 210, 34);
 
         job_ord_label.setBackground(new java.awt.Color(255, 255, 255));
         job_ord_label.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
@@ -2321,13 +2322,13 @@ public class Add_new_design extends javax.swing.JFrame {
     
     private void fill_customer_list()
     {
-        this.combo_name.removeAllItems();
-        this.combo_name.addItem(" ");
+        this.customer_combo_list.removeAllItems();
+        this.customer_combo_list.addItem(" ");
         customer list = new customer();
         list.get_customer_list();
         for ( String name : list.getCustomer_names() )
         {
-            this.combo_name.addItem(name);
+            this.customer_combo_list.addItem(name);
         }
     }
     
@@ -2641,16 +2642,15 @@ public class Add_new_design extends javax.swing.JFrame {
         int total = 0;
         list.removeAllElements();
         
-        while(x <= job_list.size() - 1)
+        while(x <= this.this_list.getJob_list().size() - 1)
         {
-        
             String combine = (x+1) +  "    " + 
                 this.job_list.get(x) + "    " + 
                 this.customer_list.get(x) + "    " +  
                 this.quantity_list.get(x);
             
             list.addElement(combine);
-            total = total + Integer.parseInt(this.quantity_list.get(x).toString());
+            
             x++;
         }
         this.jList1.setModel(list);
@@ -2659,104 +2659,28 @@ public class Add_new_design extends javax.swing.JFrame {
     }
 
     private void include()
-    {
-        String customer_name;
-        if(this.jCheckBox1.isSelected())
+    {   
+        String job_order = this.job_ord_label.getText() + this.text_job_order.getText();
+        if(this.customer_check_box.isSelected())
         {
             customer custom = new customer();       
-            custom.setCustomer_name(this.text_name.getText());
+            custom.setCustomer_name(this.customer_name_text.getText());
             custom.add_new_customer();
-            customer_name = this.text_name.getText();
+            this_list.add_customer_job_quantity_in_list(customer_name_text.getText(), 
+                                                        job_order, 
+                                                        quantity.getText());
+            //customer_list.add(this.customer_name_text.getText());
         }
         else
         {
-            customer_name = this.combo_name.getSelectedItem().toString();
+            this_list.add_customer_job_quantity_in_list(customer_combo_list.getSelectedItem().toString(), 
+                    job_order, 
+                    quantity.getText());
         }
-        customer_list.add(customer_name);
-        job_list.add(this.job_ord_label.getText() + this.text_job_order.getText());
-        quantity_list.add(this.quantity.getText());
+        //job_list.add(this.job_ord_label.getText() + this.text_job_order.getText());
+        //quantity_list.add(this.quantity.getText());
         //refresh Textbox to add items
         fill_list();
-    }
-    
-    private boolean check_if_this_job_order_is_good()
-    {
-        boolean duplicate = false;
-        
-        String job_order_text = this.job_ord_label.getText() + this.text_job_order.getText();
-        
-        //job_order this_job_order = new job_order();
-        //this_job_order.setJob_id(job_order_text);
-        /*
-        if(this_job_order.check_if_job_exists())
-        {
-            JOptionPane.showMessageDialog(null,"Job order number has been already added before!");
-            duplicate = true;
-        }
-        else
-        {*/
-            if (this.text_job_order.getText().length() == 0)
-            {
-                JOptionPane.showMessageDialog(null,"Please input a job order number!");
-                duplicate = true;
-            } 
-            else {
-                // check job order if existing
-                for (int j = 0; j < this.job_list.size(); j++ ){
-                    if (this.job_list.get(j).toString().trim().equals(job_order_text))
-                        duplicate = true;
-                }
-                if( duplicate == true){
-                    JOptionPane.showMessageDialog(null,"Job Order ID already Exists");
-                }
-            }
-        
-        return !duplicate;
-        
-    }
-    
-    private boolean check_if_this_customer_is_good()
-    {
-        boolean good_customer = true;
-        if(this.jCheckBox1.isSelected())
-        {
-            if (this.text_name.getText().trim().length() == 0)
-            {
-                JOptionPane.showMessageDialog(null,"Please Type a Name!");
-                good_customer = false;
-            }
-            else
-            {
-                customer custom = new customer();       
-                custom.setCustomer_name(this.text_name.getText());
-                
-                if(custom.check_if_this_customer_exists())
-                {
-                    JOptionPane.showMessageDialog(null,"Customer Name already Exists");
-                    good_customer = false;
-                }
-            }
-        }
-        else
-        {
-            if (this.combo_name.getSelectedItem().equals(""))
-            {
-                JOptionPane.showMessageDialog(null,"Please Select a Customer!");
-                good_customer = false;
-            }
-        }
-        
-        return good_customer;
-    }
-    
-    private boolean check_if_quantity_is_good()
-    {   boolean quantity_check = true;
-        if (this.quantity.getText().trim().equals(""))
-        {
-                JOptionPane.showMessageDialog(null,"Please Enter a quantity!");
-                quantity_check = false;
-        }
-        return quantity_check;    
     }
     
     private void show_add_pigment()
@@ -2790,15 +2714,15 @@ public class Add_new_design extends javax.swing.JFrame {
         
     }//GEN-LAST:event_add_orderActionPerformed
     
-    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
-        if(this.jCheckBox1.isSelected()){
-            this.text_name.setVisible(true);
-            this.combo_name.setVisible(false);
+    private void customer_check_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_customer_check_boxActionPerformed
+        if(this.customer_check_box.isSelected()){
+            this.customer_name_text.setVisible(true);
+            this.customer_combo_list.setVisible(false);
         } else {
-            this.text_name.setVisible(false);
-            this.combo_name.setVisible(true);
+            this.customer_name_text.setVisible(false);
+            this.customer_combo_list.setVisible(true);
         }        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox1ActionPerformed
+    }//GEN-LAST:event_customer_check_boxActionPerformed
 
     private void text_job_orderKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_text_job_orderKeyTyped
         // TODO add your handling code here:
@@ -3064,16 +2988,19 @@ public class Add_new_design extends javax.swing.JFrame {
     
     private void button_include_customerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_include_customerActionPerformed
         // TODO add your handling code here:
-       if(this.check_if_this_job_order_is_good())
-       {
-           if(this.check_if_this_customer_is_good())
-           {
-               if (check_if_quantity_is_good())
-               {
-                   include();
-               }    
-           }
-       }
+        String job_order_text = this.job_ord_label.getText() + this.text_job_order.getText();
+        Recipe_functions checker_recipe = new Recipe_functions();
+        
+        if(checker_recipe.check_if_job_is_good(job_order_text, job_list))
+        {
+            if(checker_recipe.check_this_customer(customer_check_box, customer_combo_list, customer_name_text))
+            {
+                if (checker_recipe.check_if_quantity_is_good(quantity.getText()))
+                {
+                    include();
+                }
+            }
+        }
         
     }//GEN-LAST:event_button_include_customerActionPerformed
 
@@ -3530,7 +3457,6 @@ public class Add_new_design extends javax.swing.JFrame {
     private javax.swing.JTextField colorway_name6;
     private javax.swing.JTextField colorway_name7;
     private javax.swing.JTextField colorway_name8;
-    private javax.swing.JComboBox combo_name;
     private javax.swing.JTextField coverage1;
     private javax.swing.JTextField coverage2;
     private javax.swing.JTextField coverage3;
@@ -3538,12 +3464,14 @@ public class Add_new_design extends javax.swing.JFrame {
     private javax.swing.JTextField coverage5;
     private javax.swing.JTextField coverage6;
     private javax.swing.JTextField coverage7;
+    private javax.swing.JCheckBox customer_check_box;
+    private javax.swing.JComboBox customer_combo_list;
+    private javax.swing.JTextField customer_name_text;
     private javax.swing.JTextField design_color;
     private javax.swing.JTextField design_name;
     private javax.swing.JComboBox fab_style_comb;
     private javax.swing.JCheckBox fabric_check_box;
     private javax.swing.JTextField fabric_style;
-    private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel100;
     private javax.swing.JLabel jLabel102;
@@ -3786,7 +3714,6 @@ public class Add_new_design extends javax.swing.JFrame {
     private javax.swing.JTextField quantity_total;
     private javax.swing.JSpinner spinner_date;
     private javax.swing.JTextField text_job_order;
-    private javax.swing.JTextField text_name;
     private javax.swing.JTextField weigh_kg3;
     private javax.swing.JTextField weigh_kg4;
     private javax.swing.JTextField weigh_kg5;

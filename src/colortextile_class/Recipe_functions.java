@@ -7,6 +7,10 @@ package colortextile_class;
 
 import colortextile_form.add_pigment_form;
 import java.awt.Color;
+import java.util.ArrayList;
+import javax.swing.JCheckBox;
+import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 /**
@@ -57,4 +61,87 @@ public class Recipe_functions {
         add_pigment.setVisible(true);
     }
     
+    public boolean check_if_job_is_good(String job_order_text, ArrayList job_list)
+    {
+        boolean duplicate = false;
+        
+        //job_order this_job_order = new job_order();
+        //this_job_order.setJob_id(job_order_text);
+        /*
+        if(this_job_order.check_if_job_exists())
+        {
+            JOptionPane.showMessageDialog(null,"Job order number has been already added before!");
+            duplicate = true;
+        }
+        else
+        {*/
+            if (job_order_text.length() != 11)
+            {
+                JOptionPane.showMessageDialog(null,"Please input 4 job order number!");
+                duplicate = true;
+            } 
+            else {
+                // check job order if existing
+                for (int j = 0; j < job_list.size(); j++ ){
+                    if (job_list.get(j).toString().trim().equals(job_order_text))
+                        duplicate = true;
+                }
+                if( duplicate == true){
+                    JOptionPane.showMessageDialog(null,"Job Order ID already Exists");
+                }
+            }
+        
+        return !duplicate;
+    }
+    
+    public boolean check_customer_if_is_in_database_and_has_text(String text_name)
+    {
+        boolean good_customer = true;
+        
+            if (text_name.trim().length() == 0)
+            {
+                JOptionPane.showMessageDialog(null,"Please Type a Name!");
+                good_customer = false;
+            }
+            else
+            {
+                customer custom = new customer();       
+                custom.setCustomer_name(text_name);
+                
+                if(custom.check_if_this_customer_exists())
+                {
+                    JOptionPane.showMessageDialog(null,"Customer Name already Exists");
+                    good_customer = false;
+                }
+            }
+        
+        return good_customer;
+    }
+    
+    public boolean check_this_customer(JCheckBox jCheckBox1, JComboBox combo_name, JTextField customer_name_text)
+    {
+        if(jCheckBox1.isSelected())
+        {
+            return this.check_customer_if_is_in_database_and_has_text(customer_name_text.getText());
+        }
+        else
+        {
+            if (combo_name.getSelectedItem().equals(""))
+            {
+                JOptionPane.showMessageDialog(null,"Please Select a Customer!");
+                return false;
+            }
+        }
+        return false;
+    }
+ 
+    public boolean check_if_quantity_is_good(String quantity)
+    {   boolean quantity_check = true;
+        if (quantity.trim().equals(""))
+        {
+                JOptionPane.showMessageDialog(null,"Please Enter a quantity!");
+                quantity_check = false;
+        }
+        return quantity_check;    
+    }
 }
