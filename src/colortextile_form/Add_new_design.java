@@ -35,6 +35,7 @@ public class Add_new_design extends javax.swing.JFrame {
 
     private int count_screen_1 = 0;
     private colortextile_class.Job_purchase_link_functions this_purchase = new colortextile_class.Job_purchase_link_functions();
+    private Recipe_functions use_func = new Recipe_functions();
     
     private job_customer_quantity_list this_list = new job_customer_quantity_list();
     //private ArrayList quantity_list = new ArrayList( );
@@ -2967,20 +2968,17 @@ public class Add_new_design extends javax.swing.JFrame {
     private void button_include_customerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_include_customerActionPerformed
         // TODO add your handling code here:
         String job_order_text = this.job_ord_label.getText() + this.text_job_order.getText();
-        Recipe_functions checker_recipe = new Recipe_functions();
         
-        if(checker_recipe.check_if_job_is_good(job_order_text, this_list.getJob_list()))
+        if(this_list.check_if_job_is_good(job_order_text))
         {
-            if(checker_recipe.check_this_customer(customer_check_box, customer_combo_list, customer_name_text))
+            if(this_list.check_this_customer(customer_check_box, customer_combo_list, customer_name_text))
             {
-                if (checker_recipe.check_if_quantity_is_good(quantity.getText()))
+                if (this_list.check_if_quantity_is_good(quantity.getText()))
                 {
-                    //System.out.println("hello");
                     include();
                 }
             }
         }
-        
     }//GEN-LAST:event_button_include_customerActionPerformed
 
     private void button_remove_customerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_remove_customerActionPerformed
@@ -3045,7 +3043,6 @@ public class Add_new_design extends javax.swing.JFrame {
     private void pig11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pig11ActionPerformed
         // TODO add your handling code here:
         show_add_pigment();
-        
     }//GEN-LAST:event_pig11ActionPerformed
 
     private void pig12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pig12ActionPerformed
@@ -3159,7 +3156,7 @@ public class Add_new_design extends javax.swing.JFrame {
     {
         if(!quantity_total.getBackground().equals(Color.pink) && quantity_total.getText().length()>0)
         {
-            Recipe_functions use_func = new Recipe_functions();
+            //Recipe_functions use_func = new Recipe_functions();
             float this_computation;
             if(this.fabric_check_box.isSelected())
             {//For New Fabric Style
@@ -3179,7 +3176,7 @@ public class Add_new_design extends javax.swing.JFrame {
         {   
             if(!checkText2(percentage_text) && !checkText2(weight_kg))
             {
-                Recipe_functions use_func = new Recipe_functions();
+                //Recipe_functions use_func = new Recipe_functions();
                 float weight_preparation = use_func.update_kg_and_prep(percentage_text, weight_kg);
                 this_textfield.setText(String.format("%.2f", weight_preparation));
             }
@@ -3256,7 +3253,6 @@ public class Add_new_design extends javax.swing.JFrame {
             name24.addItem("");   
             name25.addItem("");   
             name26.addItem("");   
-   
     }
     
     private void registerSelectedItem()
@@ -3308,7 +3304,6 @@ public class Add_new_design extends javax.swing.JFrame {
         name24.setSelectedItem(allitems[18]);
         name25.setSelectedItem(allitems[19]);
         name26.setSelectedItem(allitems[20]);
-        
     }
     
     private void clearItem()
@@ -3335,6 +3330,7 @@ public class Add_new_design extends javax.swing.JFrame {
             name25.removeAllItems();
             name26.removeAllItems();
     }
+    
     public void addListItems()
     {
         colortextile_class.pigment list_pigment = new colortextile_class.pigment();

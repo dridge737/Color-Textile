@@ -33,6 +33,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JSpinner;
 import javax.swing.JTextField;
 import javax.swing.SpinnerDateModel;
+import com.github.sarxos.webcam.Webcam;
 /**
  *
  * @author Eldridge
@@ -40,6 +41,7 @@ import javax.swing.SpinnerDateModel;
 public class EditRecipe extends javax.swing.JFrame {
 
     private int count_screen_1 = 0;
+    boolean web_cam_opened = false;
     Job_purchase_link_functions this_purchase = new Job_purchase_link_functions();
     
     private job_customer_quantity_list this_list = new job_customer_quantity_list();
@@ -2618,13 +2620,12 @@ public class EditRecipe extends javax.swing.JFrame {
     private void button_include_customerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_include_customerActionPerformed
         // TODO add your handling code here:
        String job_order_text = this.job_ord_label.getText() + this.text_job_order.getText();
-       Recipe_functions checker_recipe = new Recipe_functions();
         
-       if(checker_recipe.check_if_job_is_good(job_order_text, job_list))
+       if(this_list.check_if_job_is_good(job_order_text))
        {
-           if(checker_recipe.check_this_customer(customer_check_box, customer_combo_list, this.customer_name_text))
+           if(this_list.check_this_customer(customer_check_box, customer_combo_list, this.customer_name_text))
            {
-               if (checker_recipe.check_if_quantity_is_good(job_order_text))
+               if (this_list.check_if_quantity_is_good(job_order_text))
                {
                    include();
                }    
@@ -2701,17 +2702,26 @@ public class EditRecipe extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        new ImageCapture("New", web_cams.getSelectedIndex()).setVisible(true);    
+        new ImageCapture("New", web_cams.getSelectedIndex()).setVisible(true); 
+        this.web_cam_opened = true;
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void formFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_formFocusGained
         // TODO add your handling code here:
-        File f = new File("New.jpg");
-        if (f.exists() && f.canRead()) {
-        try {
-            jLabel14.setIcon( new ImageIcon(ImageIO.read(f).getScaledInstance(140, 140, java.awt.Image.SCALE_SMOOTH) ) );
-        }  catch (IOException e) {
-                e.printStackTrace();
+        
+        if(this.web_cam_opened)
+        {
+            //Webcam webcam = Webcam.getWebcams().get(this.web_cams.getSelectedIndex());
+            //webcam.close();
+            File f = new File("New.jpg");
+            if (this.web_cam_opened && f.exists() && f.canRead())
+            {
+                
+                try {
+                    jLabel14.setIcon( new ImageIcon(ImageIO.read(f).getScaledInstance(140, 140, java.awt.Image.SCALE_SMOOTH) ) );
+                }  catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         }
     }//GEN-LAST:event_formFocusGained

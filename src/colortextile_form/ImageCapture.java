@@ -11,6 +11,9 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 import java.io.File;
 import java.io.IOException;
 import java.util.concurrent.Executor;
@@ -22,6 +25,7 @@ import javax.imageio.ImageIO;
 import javax.swing.AbstractAction;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 
 /**
@@ -124,10 +128,19 @@ public class ImageCapture extends JFrame{
                 this.setLocation(x,y);
 		pack();
 		setVisible(true);
-		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+                this.addWindowListener(new WindowAdapter() {
+                    public void windowClosing(WindowEvent evt) {
+                        onExit();
+                    }
+                });
 
 	}
         
+        public void onExit() {
+            this.webcam.close();
+            this.dispose();
+        }   
 
 	public static void main(String[] args) {
 
