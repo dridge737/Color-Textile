@@ -42,6 +42,8 @@ public class EditRecipe extends javax.swing.JFrame {
     private int count_screen_1 = 0;
     Job_purchase_link_functions this_purchase = new Job_purchase_link_functions();
     
+    private job_customer_quantity_list this_list = new job_customer_quantity_list();
+    
     /**
      * Creates new form Add_new_design
      */
@@ -57,7 +59,7 @@ public class EditRecipe extends javax.swing.JFrame {
         //InputVerifier new_verifier = new Verifier();
         //this.pigment_percentage8.setInputVerifier(new_verifier);
         fill_customer_list();
-        this.customer_text_field.setVisible(false);
+        this.customer_name_text.setVisible(false);
         this.fabric_style.setVisible(false);
         List<Webcam> webcam = Webcam.getWebcams();
         for(Webcam all_web : webcam)
@@ -79,7 +81,7 @@ public class EditRecipe extends javax.swing.JFrame {
         this.setLocation(x,0);
         
         fill_customer_list();
-        this.customer_text_field.setVisible(false);
+        this.customer_name_text.setVisible(false);
         this.fabric_style.setVisible(false);
         
         List<Webcam> webcam = Webcam.getWebcams();
@@ -314,7 +316,7 @@ public class EditRecipe extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         text_job_order = new javax.swing.JTextField();
         customer_check_box = new javax.swing.JCheckBox();
-        customer_text_field = new javax.swing.JTextField();
+        customer_name_text = new javax.swing.JTextField();
         job_ord_label = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
@@ -851,9 +853,9 @@ public class EditRecipe extends javax.swing.JFrame {
         jPanel16.add(customer_check_box);
         customer_check_box.setBounds(250, 50, 59, 20);
 
-        customer_text_field.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
-        jPanel16.add(customer_text_field);
-        customer_text_field.setBounds(150, 70, 160, 34);
+        customer_name_text.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
+        jPanel16.add(customer_name_text);
+        customer_name_text.setBounds(150, 70, 160, 34);
 
         job_ord_label.setBackground(new java.awt.Color(255, 255, 255));
         job_ord_label.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
@@ -2288,10 +2290,10 @@ public class EditRecipe extends javax.swing.JFrame {
     
     private void customer_check_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_customer_check_boxActionPerformed
         if(this.customer_check_box.isSelected()){
-            this.customer_text_field.setVisible(true);
+            this.customer_name_text.setVisible(true);
             this.customer_combo_list.setVisible(false);
         } else {
-            this.customer_text_field.setVisible(false);
+            this.customer_name_text.setVisible(false);
             this.customer_combo_list.setVisible(true);
         }        // TODO add your handling code here:
     }//GEN-LAST:event_customer_check_boxActionPerformed
@@ -2620,7 +2622,7 @@ public class EditRecipe extends javax.swing.JFrame {
         
        if(checker_recipe.check_if_job_is_good(job_order_text, job_list))
        {
-           if(checker_recipe.check_this_customer(customer_check_box, customer_combo_list, this.customer_text_field))
+           if(checker_recipe.check_this_customer(customer_check_box, customer_combo_list, this.customer_name_text))
            {
                if (checker_recipe.check_if_quantity_is_good(job_order_text))
                {
@@ -2631,6 +2633,32 @@ public class EditRecipe extends javax.swing.JFrame {
        
     }//GEN-LAST:event_button_include_customerActionPerformed
 
+    private void include()
+    {   
+        String job_order = this.job_ord_label.getText() + this.text_job_order.getText();
+        if(this.customer_check_box.isSelected())
+        {
+            customer custom = new customer();       
+            custom.setCustomer_name(customer_name_text.getText());
+            custom.add_new_customer();
+            this_list.add_customer_job_quantity_in_list(customer_name_text.getText(), 
+                                                        job_order, 
+                                                        quantity.getText());
+            //customer_list.add(this.customer_name_text.getText());
+        }
+        else
+        {
+            this_list.add_customer_job_quantity_in_list(customer_combo_list.getSelectedItem().toString(), 
+                    job_order, 
+                    quantity.getText());
+        }
+        //job_list.add(this.job_ord_label.getText() + this.text_job_order.getText());
+        //quantity_list.add(this.quantity.getText());
+        //refresh Textbox to add items
+        this.jList1.setModel(this_list.get_items_in_list());
+        this.quantity_total.setText(Integer.toString(this_list.get_quantity_total()));
+    }
+    
     private void button_remove_customerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_remove_customerActionPerformed
         // TODO add your handling code here:
         
@@ -2896,7 +2924,7 @@ public class EditRecipe extends javax.swing.JFrame {
     private javax.swing.JTextField coverage7;
     private javax.swing.JCheckBox customer_check_box;
     private javax.swing.JComboBox customer_combo_list;
-    private javax.swing.JTextField customer_text_field;
+    private javax.swing.JTextField customer_name_text;
     private javax.swing.JTextField design_color;
     private javax.swing.JTextField design_name;
     private javax.swing.JComboBox fab_style_comb;

@@ -132,7 +132,7 @@ public class Recipe_functions {
                 return false;
             }
         }
-        return false;
+        return true;
     }
  
     public boolean check_if_quantity_is_good(String quantity)

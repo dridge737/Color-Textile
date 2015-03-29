@@ -35,12 +35,11 @@ public class Add_new_design extends javax.swing.JFrame {
 
     private int count_screen_1 = 0;
     private colortextile_class.Job_purchase_link_functions this_purchase = new colortextile_class.Job_purchase_link_functions();
-    private DefaultListModel list = new DefaultListModel();
     
     private job_customer_quantity_list this_list = new job_customer_quantity_list();
-    private ArrayList quantity_list = new ArrayList( );
-    private ArrayList job_list = new ArrayList( );
-    private ArrayList customer_list = new ArrayList( );
+    //private ArrayList quantity_list = new ArrayList( );
+    //private ArrayList job_list = new ArrayList( );
+    //private ArrayList customer_list = new ArrayList( );
     /**
      * Creates new form Add_new_design
      */
@@ -2260,12 +2259,12 @@ public class Add_new_design extends javax.swing.JFrame {
     {
         List<purchase_order> all_purchase = new ArrayList<>();
         
-        for (int i = 0; i < job_list.size(); i++) 
+        for (int i = 0; i < this_list.getJob_list().size(); i++) 
         {
             purchase_order purchase = new purchase_order();
             purchase.setDesign_code(design_code);
-            purchase.setJob_order_id(this.job_list.get(i).toString()); 
-            purchase.setQuantity(Integer.parseInt(this.quantity_list.get(i).toString()));
+            purchase.setJob_order_id(this_list.getJob_list().get(i).toString()); 
+            purchase.setQuantity(Integer.parseInt(this_list.getQuantity_list().get(i).toString()));
         
             all_purchase.add(purchase);
         }
@@ -2307,13 +2306,13 @@ public class Add_new_design extends javax.swing.JFrame {
         String spinnerValue = formater.format(this.spinner_date.getValue());
         
         List<job_order> all_job_orders = new ArrayList<>();
-        for (int i = 0; i < job_list.size(); i++) 
+        for (int i = 0; i < this_list.getJob_list().size(); i++) 
         {
             job_order job = new job_order();
             DB_Manager new_conn = new DB_Manager();
-            job.setJob_id(this.job_list.get(i).toString());
-            job.setCustomer_name(this.customer_list.get(i).toString());
-            job.setCustomer_id(new_conn.get_id_customer(this.customer_list.get(i).toString()));
+            job.setJob_id(this_list.getJob_list().get(i).toString());
+            job.setCustomer_name(this_list.getCustomer_list().get(i).toString());
+            job.setCustomer_id(new_conn.get_id_customer(this_list.getCustomer_list().get(i).toString()));
             job.setDate(spinnerValue);
             all_job_orders.add(job);
         }
@@ -2635,28 +2634,6 @@ public class Add_new_design extends javax.swing.JFrame {
                                       percentage23.getText(), colorway_id2 );
         }
     }
-    
-    private void fill_list()
-    {
-        int x = 0;
-        int total = 0;
-        list.removeAllElements();
-        
-        while(x <= this.this_list.getJob_list().size() - 1)
-        {
-            String combine = (x+1) +  "    " + 
-                this.job_list.get(x) + "    " + 
-                this.customer_list.get(x) + "    " +  
-                this.quantity_list.get(x);
-            
-            list.addElement(combine);
-            
-            x++;
-        }
-        this.jList1.setModel(list);
-        this.quantity_total.setText(null);
-        this.quantity_total.setText(total + "");
-    }
 
     private void include()
     {   
@@ -2680,7 +2657,8 @@ public class Add_new_design extends javax.swing.JFrame {
         //job_list.add(this.job_ord_label.getText() + this.text_job_order.getText());
         //quantity_list.add(this.quantity.getText());
         //refresh Textbox to add items
-        fill_list();
+        this.jList1.setModel(this_list.get_items_in_list());
+        this.quantity_total.setText(Integer.toString(this_list.get_quantity_total()));
     }
     
     private void show_add_pigment()
@@ -2991,12 +2969,13 @@ public class Add_new_design extends javax.swing.JFrame {
         String job_order_text = this.job_ord_label.getText() + this.text_job_order.getText();
         Recipe_functions checker_recipe = new Recipe_functions();
         
-        if(checker_recipe.check_if_job_is_good(job_order_text, job_list))
+        if(checker_recipe.check_if_job_is_good(job_order_text, this_list.getJob_list()))
         {
             if(checker_recipe.check_this_customer(customer_check_box, customer_combo_list, customer_name_text))
             {
                 if (checker_recipe.check_if_quantity_is_good(quantity.getText()))
                 {
+                    //System.out.println("hello");
                     include();
                 }
             }
@@ -3006,13 +2985,16 @@ public class Add_new_design extends javax.swing.JFrame {
 
     private void button_remove_customerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_remove_customerActionPerformed
         // TODO add your handling code here:
-        String a = this.jList1.getSelectedValue().toString();
+        if(jList1.getSelectedIndex() != -1)
+        {
         int selected = this.jList1.getSelectedIndex();
-        
-        this.customer_list.remove(selected);
-        this.job_list.remove(selected);
-        this.quantity_list.remove(selected);
-        fill_list();
+        jList1.setModel(this_list.remove_this_item(selected));
+        quantity_total.setText(Integer.toString(this_list.get_quantity_total()));
+        }
+        //this.customer_list.remove(selected);
+        //this.job_list.remove(selected);
+        //this.quantity_list.remove(selected);
+        //fill_list();
         
     }//GEN-LAST:event_button_remove_customerActionPerformed
 
