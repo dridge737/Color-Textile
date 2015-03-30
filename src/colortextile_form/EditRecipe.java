@@ -357,6 +357,9 @@ public class EditRecipe extends javax.swing.JFrame {
         jLabel140 = new javax.swing.JLabel();
         jLabel153 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
+        pig11 = new javax.swing.JButton();
+        pig12 = new javax.swing.JButton();
+        pig13 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         colorway_name3 = new javax.swing.JTextField();
         name5 = new javax.swing.JComboBox();
@@ -388,6 +391,9 @@ public class EditRecipe extends javax.swing.JFrame {
         coverage3 = new javax.swing.JTextField();
         jLabel157 = new javax.swing.JLabel();
         jLabel164 = new javax.swing.JLabel();
+        pig14 = new javax.swing.JButton();
+        pig15 = new javax.swing.JButton();
+        pig16 = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         colorway_name4 = new javax.swing.JTextField();
         name9 = new javax.swing.JComboBox();
@@ -419,6 +425,9 @@ public class EditRecipe extends javax.swing.JFrame {
         coverage4 = new javax.swing.JTextField();
         jLabel159 = new javax.swing.JLabel();
         jLabel165 = new javax.swing.JLabel();
+        pig17 = new javax.swing.JButton();
+        pig18 = new javax.swing.JButton();
+        pig19 = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         colorway_name5 = new javax.swing.JTextField();
         name13 = new javax.swing.JComboBox();
@@ -450,6 +459,9 @@ public class EditRecipe extends javax.swing.JFrame {
         coverage5 = new javax.swing.JTextField();
         jLabel161 = new javax.swing.JLabel();
         jLabel166 = new javax.swing.JLabel();
+        pig20 = new javax.swing.JButton();
+        pig21 = new javax.swing.JButton();
+        pig22 = new javax.swing.JButton();
         jPanel7 = new javax.swing.JPanel();
         colorway_name6 = new javax.swing.JTextField();
         name17 = new javax.swing.JComboBox();
@@ -481,6 +493,9 @@ public class EditRecipe extends javax.swing.JFrame {
         coverage6 = new javax.swing.JTextField();
         jLabel163 = new javax.swing.JLabel();
         jLabel167 = new javax.swing.JLabel();
+        pig23 = new javax.swing.JButton();
+        pig24 = new javax.swing.JButton();
+        pig25 = new javax.swing.JButton();
         jPanel8 = new javax.swing.JPanel();
         colorway_name7 = new javax.swing.JTextField();
         name21 = new javax.swing.JComboBox();
@@ -512,6 +527,9 @@ public class EditRecipe extends javax.swing.JFrame {
         coverage2 = new javax.swing.JTextField();
         jLabel155 = new javax.swing.JLabel();
         jLabel168 = new javax.swing.JLabel();
+        pig26 = new javax.swing.JButton();
+        pig27 = new javax.swing.JButton();
+        pig28 = new javax.swing.JButton();
         jPanel15 = new javax.swing.JPanel();
         colorway_name8 = new javax.swing.JTextField();
         name24 = new javax.swing.JComboBox();
@@ -543,6 +561,9 @@ public class EditRecipe extends javax.swing.JFrame {
         coverage7 = new javax.swing.JTextField();
         jLabel173 = new javax.swing.JLabel();
         jLabel174 = new javax.swing.JLabel();
+        pig29 = new javax.swing.JButton();
+        pig30 = new javax.swing.JButton();
+        pig31 = new javax.swing.JButton();
         add_order = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         add_order1 = new javax.swing.JButton();
@@ -1051,6 +1072,36 @@ public class EditRecipe extends javax.swing.JFrame {
         jButton2.setMargin(new java.awt.Insets(2, 0, 2, 0));
         jPanel9.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 200, 30, 34));
 
+        pig11.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        pig11.setText("+");
+        pig11.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        pig11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pig11ActionPerformed(evt);
+            }
+        });
+        jPanel9.add(pig11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 148, 25, 25));
+
+        pig12.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        pig12.setText("+");
+        pig12.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        pig12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pig12ActionPerformed(evt);
+            }
+        });
+        jPanel9.add(pig12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 74, 25, 25));
+
+        pig13.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        pig13.setText("+");
+        pig13.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        pig13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pig13ActionPerformed(evt);
+            }
+        });
+        jPanel9.add(pig13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 25, 25));
+
         jTabbedPane2.addTab("1", jPanel9);
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
@@ -1197,6 +1248,36 @@ public class EditRecipe extends javax.swing.JFrame {
         jLabel164.setText("Kilograms / KGS :");
         jPanel4.add(jLabel164, new org.netbeans.lib.awtextra.AbsoluteConstraints(325, 10, -1, 34));
 
+        pig14.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        pig14.setText("+");
+        pig14.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        pig14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pig14ActionPerformed(evt);
+            }
+        });
+        jPanel4.add(pig14, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 74, 25, 25));
+
+        pig15.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        pig15.setText("+");
+        pig15.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        pig15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pig15ActionPerformed(evt);
+            }
+        });
+        jPanel4.add(pig15, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 25, 25));
+
+        pig16.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        pig16.setText("+");
+        pig16.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        pig16.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pig16ActionPerformed(evt);
+            }
+        });
+        jPanel4.add(pig16, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 148, 25, 25));
+
         jTabbedPane2.addTab("2", jPanel4);
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
@@ -1340,6 +1421,36 @@ public class EditRecipe extends javax.swing.JFrame {
         jLabel165.setText("Kilograms / KGS :");
         jPanel5.add(jLabel165, new org.netbeans.lib.awtextra.AbsoluteConstraints(325, 10, -1, 34));
 
+        pig17.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        pig17.setText("+");
+        pig17.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        pig17.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pig17ActionPerformed(evt);
+            }
+        });
+        jPanel5.add(pig17, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 74, 25, 25));
+
+        pig18.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        pig18.setText("+");
+        pig18.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        pig18.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pig18ActionPerformed(evt);
+            }
+        });
+        jPanel5.add(pig18, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 25, 25));
+
+        pig19.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        pig19.setText("+");
+        pig19.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        pig19.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pig19ActionPerformed(evt);
+            }
+        });
+        jPanel5.add(pig19, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 148, 25, 25));
+
         jTabbedPane2.addTab("3", jPanel5);
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
@@ -1481,6 +1592,36 @@ public class EditRecipe extends javax.swing.JFrame {
         jLabel166.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         jLabel166.setText("Kilograms / KGS :");
         jPanel6.add(jLabel166, new org.netbeans.lib.awtextra.AbsoluteConstraints(325, 10, -1, 34));
+
+        pig20.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        pig20.setText("+");
+        pig20.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        pig20.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pig20ActionPerformed(evt);
+            }
+        });
+        jPanel6.add(pig20, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 74, 25, 25));
+
+        pig21.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        pig21.setText("+");
+        pig21.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        pig21.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pig21ActionPerformed(evt);
+            }
+        });
+        jPanel6.add(pig21, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 25, 25));
+
+        pig22.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        pig22.setText("+");
+        pig22.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        pig22.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pig22ActionPerformed(evt);
+            }
+        });
+        jPanel6.add(pig22, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 148, 25, 25));
 
         jTabbedPane2.addTab("4", jPanel6);
 
@@ -1624,6 +1765,36 @@ public class EditRecipe extends javax.swing.JFrame {
         jLabel167.setText("Kilograms / KGS :");
         jPanel7.add(jLabel167, new org.netbeans.lib.awtextra.AbsoluteConstraints(325, 10, -1, 34));
 
+        pig23.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        pig23.setText("+");
+        pig23.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        pig23.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pig23ActionPerformed(evt);
+            }
+        });
+        jPanel7.add(pig23, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 74, 25, 25));
+
+        pig24.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        pig24.setText("+");
+        pig24.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        pig24.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pig24ActionPerformed(evt);
+            }
+        });
+        jPanel7.add(pig24, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 25, 25));
+
+        pig25.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        pig25.setText("+");
+        pig25.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        pig25.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pig25ActionPerformed(evt);
+            }
+        });
+        jPanel7.add(pig25, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 148, 25, 25));
+
         jTabbedPane2.addTab("5", jPanel7);
 
         jPanel8.setBackground(new java.awt.Color(255, 255, 255));
@@ -1766,6 +1937,36 @@ public class EditRecipe extends javax.swing.JFrame {
         jLabel168.setText("Kilograms / KGS :");
         jPanel8.add(jLabel168, new org.netbeans.lib.awtextra.AbsoluteConstraints(325, 10, -1, 34));
 
+        pig26.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        pig26.setText("+");
+        pig26.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        pig26.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pig26ActionPerformed(evt);
+            }
+        });
+        jPanel8.add(pig26, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 74, 25, 25));
+
+        pig27.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        pig27.setText("+");
+        pig27.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        pig27.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pig27ActionPerformed(evt);
+            }
+        });
+        jPanel8.add(pig27, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 25, 25));
+
+        pig28.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        pig28.setText("+");
+        pig28.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        pig28.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pig28ActionPerformed(evt);
+            }
+        });
+        jPanel8.add(pig28, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 148, 25, 25));
+
         jTabbedPane2.addTab("6", jPanel8);
 
         jPanel15.setBackground(new java.awt.Color(255, 255, 255));
@@ -1907,6 +2108,36 @@ public class EditRecipe extends javax.swing.JFrame {
         jLabel174.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         jLabel174.setText("Kilograms / KGS :");
         jPanel15.add(jLabel174, new org.netbeans.lib.awtextra.AbsoluteConstraints(325, 10, -1, 34));
+
+        pig29.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        pig29.setText("+");
+        pig29.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        pig29.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pig29ActionPerformed(evt);
+            }
+        });
+        jPanel15.add(pig29, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 74, 25, 25));
+
+        pig30.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        pig30.setText("+");
+        pig30.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        pig30.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pig30ActionPerformed(evt);
+            }
+        });
+        jPanel15.add(pig30, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 25, 25));
+
+        pig31.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        pig31.setText("+");
+        pig31.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        pig31.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pig31ActionPerformed(evt);
+            }
+        });
+        jPanel15.add(pig31, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 148, 25, 25));
 
         jTabbedPane2.addTab("7", jPanel15);
 
@@ -2739,6 +2970,117 @@ public class EditRecipe extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_formWindowGainedFocus
 
+    private void pig11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pig11ActionPerformed
+        // TODO add your handling code here:
+        show_add_pigment();
+    }//GEN-LAST:event_pig11ActionPerformed
+
+    private void pig12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pig12ActionPerformed
+        // TODO add your handling code here:
+        show_add_pigment();
+    }//GEN-LAST:event_pig12ActionPerformed
+
+    private void pig13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pig13ActionPerformed
+        // TODO add your handling code here:
+        show_add_pigment();
+    }//GEN-LAST:event_pig13ActionPerformed
+
+    private void pig14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pig14ActionPerformed
+        // TODO add your handling code here:
+        show_add_pigment();
+    }//GEN-LAST:event_pig14ActionPerformed
+
+    private void pig15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pig15ActionPerformed
+        // TODO add your handling code here:
+        show_add_pigment();
+    }//GEN-LAST:event_pig15ActionPerformed
+
+    private void pig16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pig16ActionPerformed
+        // TODO add your handling code here:
+        show_add_pigment();
+    }//GEN-LAST:event_pig16ActionPerformed
+
+    private void pig17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pig17ActionPerformed
+        // TODO add your handling code here:
+        show_add_pigment();
+    }//GEN-LAST:event_pig17ActionPerformed
+
+    private void pig18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pig18ActionPerformed
+        // TODO add your handling code here:
+        show_add_pigment();
+    }//GEN-LAST:event_pig18ActionPerformed
+
+    private void pig19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pig19ActionPerformed
+        // TODO add your handling code here:
+        show_add_pigment();
+    }//GEN-LAST:event_pig19ActionPerformed
+
+    private void pig20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pig20ActionPerformed
+        // TODO add your handling code here:
+        show_add_pigment();
+    }//GEN-LAST:event_pig20ActionPerformed
+
+    private void pig21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pig21ActionPerformed
+        // TODO add your handling code here:
+        show_add_pigment();
+    }//GEN-LAST:event_pig21ActionPerformed
+
+    private void pig22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pig22ActionPerformed
+        // TODO add your handling code here:
+        show_add_pigment();
+    }//GEN-LAST:event_pig22ActionPerformed
+
+    private void pig23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pig23ActionPerformed
+        // TODO add your handling code here:
+        show_add_pigment();
+    }//GEN-LAST:event_pig23ActionPerformed
+
+    private void pig24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pig24ActionPerformed
+        // TODO add your handling code here:
+        show_add_pigment();
+    }//GEN-LAST:event_pig24ActionPerformed
+
+    private void pig25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pig25ActionPerformed
+        // TODO add your handling code here:
+        show_add_pigment();
+    }//GEN-LAST:event_pig25ActionPerformed
+
+    private void pig26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pig26ActionPerformed
+        // TODO add your handling code here:
+        show_add_pigment();
+    }//GEN-LAST:event_pig26ActionPerformed
+
+    private void pig27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pig27ActionPerformed
+        // TODO add your handling code here:
+        show_add_pigment();
+    }//GEN-LAST:event_pig27ActionPerformed
+
+    private void pig28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pig28ActionPerformed
+        // TODO add your handling code here:
+        show_add_pigment();
+    }//GEN-LAST:event_pig28ActionPerformed
+
+    private void pig29ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pig29ActionPerformed
+        // TODO add your handling code here:
+        show_add_pigment();
+    }//GEN-LAST:event_pig29ActionPerformed
+
+    private void pig30ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pig30ActionPerformed
+        // TODO add your handling code here:
+        show_add_pigment();
+    }//GEN-LAST:event_pig30ActionPerformed
+
+    private void pig31ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pig31ActionPerformed
+        // TODO add your handling code here:
+        show_add_pigment();
+    }//GEN-LAST:event_pig31ActionPerformed
+
+    private void show_add_pigment()
+    {
+        add_pigment_form add_pigment = new add_pigment_form();
+        add_pigment.setVisible(true);
+    }
+    
     private void compute_kg(JTextField weigh_kg, float coverage)
     {
         if(!quantity_total.getBackground().equals(Color.pink) && quantity_total.getText().length()>0)
@@ -3159,6 +3501,27 @@ public class EditRecipe extends javax.swing.JFrame {
     private javax.swing.JTextField percentage6;
     private javax.swing.JTextField percentage7;
     private javax.swing.JTextField percentage9;
+    private javax.swing.JButton pig11;
+    private javax.swing.JButton pig12;
+    private javax.swing.JButton pig13;
+    private javax.swing.JButton pig14;
+    private javax.swing.JButton pig15;
+    private javax.swing.JButton pig16;
+    private javax.swing.JButton pig17;
+    private javax.swing.JButton pig18;
+    private javax.swing.JButton pig19;
+    private javax.swing.JButton pig20;
+    private javax.swing.JButton pig21;
+    private javax.swing.JButton pig22;
+    private javax.swing.JButton pig23;
+    private javax.swing.JButton pig24;
+    private javax.swing.JButton pig25;
+    private javax.swing.JButton pig26;
+    private javax.swing.JButton pig27;
+    private javax.swing.JButton pig28;
+    private javax.swing.JButton pig29;
+    private javax.swing.JButton pig30;
+    private javax.swing.JButton pig31;
     private javax.swing.JTextField quantity;
     private javax.swing.JTextField quantity_total;
     private javax.swing.JSpinner spinner_date;
