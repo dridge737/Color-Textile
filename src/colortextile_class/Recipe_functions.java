@@ -7,10 +7,12 @@ package colortextile_class;
 
 import colortextile_form.add_pigment_form;
 import java.awt.Color;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
+import javax.swing.JSpinner;
 import javax.swing.JTextField;
 
 /**
@@ -61,5 +63,18 @@ public class Recipe_functions {
         add_pigment.setVisible(true);
     }
     
+    public String get_date_from_spinner(JSpinner this_spinner)
+    {
+        SimpleDateFormat formater = new SimpleDateFormat("yyyy/MM/dd");
+        return formater.format(this_spinner.getValue());
+    }
     
+    /*
+    private String get_date_from_spinner()
+    {
+        SimpleDateFormat formater = new SimpleDateFormat("yyyy/MM/dd");
+        String spinnerValue = formater.format(this.spinner_date.getValue());
+        return spinnerValue;
+    }
+    */
 }

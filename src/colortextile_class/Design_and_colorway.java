@@ -18,6 +18,7 @@ public class Design_and_colorway extends design {
     
      private List<Colorway_screen_link_functions> all_colorways = new ArrayList<>();
 
+     public Design_and_colorway(){}
      public Design_and_colorway(String design, String color, String fabric)
      {
          super(design, color, fabric);

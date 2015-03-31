@@ -44,6 +44,7 @@ public class EditRecipe extends javax.swing.JFrame {
     boolean web_cam_opened = false;
     Job_purchase_link_functions this_purchase = new Job_purchase_link_functions();
     
+    private Recipe_functions use_func = new Recipe_functions();
     private job_customer_quantity_list this_list = new job_customer_quantity_list();
     
     /**
@@ -2912,12 +2913,187 @@ public class EditRecipe extends javax.swing.JFrame {
               this.quantity_list.remove(selected);
               fill_list();
          }
-     
-        
-       
-        
+      
     }//GEN-LAST:event_button_remove_customerActionPerformed
 
+    private String getFabricStyle()
+    {
+        if(fabric_check_box.isSelected())
+        {
+            Unused.fabric_style new_fabric = new Unused.fabric_style();
+            new_fabric.setFabric_style(fabric_style.getText().toUpperCase());
+            new_fabric.add_fabric_style();
+            
+            return new_fabric.getFabric_style();
+        }
+        else
+        {
+            return fab_style_comb.getSelectedItem().toString();
+        }
+    }
+    
+     private production_recipe get_design_details()
+    {
+        colortextile_class.production_recipe new_design = new colortextile_class.production_recipe(design_name.getText(),
+                design_color.getText(),
+                getFabricStyle(), 
+                use_func.get_date_from_spinner(spinner_date));
+        //new_design.setDesign_name(design_name.getText());
+        //new_design.setColor_name(design_color.getText());
+        //new_design.setFabric_style(getFabricStyle());
+        //new_design.setDate(this.get_date_from_spinner());
+        
+        List<Colorway_screen_link_functions> all_color_screen = this.get_all_colorway_inputs();
+        new_design.setAll_colorways(all_color_screen);
+        new_design.view_all_colorway_details();
+        if (this.jList1.getModel().getSize() != 0)
+        {
+            new_design.setJobs_for_this(this.get_job_details());
+            //Adds purchase order and design
+            new_design.setAll_purchase(get_all_purchase_details(1));
+        }
+        new_design.view_all_job_order_details();
+        return new_design; 
+    }
+    
+    private List<Colorway_screen_link_functions> get_all_colorway_inputs()
+    {
+        List<Colorway_screen_link_functions> all_colorway = new ArrayList<>();
+        
+        for(int interval = 0 ; interval < 7; interval++ )
+        {
+            Colorway_screen_link_functions this_colorway_screen;
+            
+            if(interval==0)
+            {
+                this_colorway_screen = new Colorway_screen_link_functions(colorway_name2.getText(), 
+                             Float.parseFloat(binder8.getSelectedItem().toString()),
+                             weigh_kg8.getText());
+        
+                this_colorway_screen.add_screen(get_colorway_details_from_input(name1, percentage1));
+                this_colorway_screen.add_screen(get_colorway_details_from_input(name2, percentage2));
+                this_colorway_screen.add_screen(get_colorway_details_from_input(name3, percentage3));
+        
+                all_colorway.add(this_colorway_screen);
+            }
+            else if(interval==1)
+            {
+                this_colorway_screen = new Colorway_screen_link_functions(colorway_name3.getText(), 
+                             Float.parseFloat(binder3.getSelectedItem().toString()),
+                             weigh_kg3.getText());
+                
+                this_colorway_screen.add_screen(get_colorway_details_from_input(name5, percentage5));
+                this_colorway_screen.add_screen(get_colorway_details_from_input(name6, percentage6));
+                this_colorway_screen.add_screen(get_colorway_details_from_input(name7, percentage7));
+        
+                all_colorway.add(this_colorway_screen);
+            }
+            else if(interval == 2)
+            {
+                this_colorway_screen = new Colorway_screen_link_functions(colorway_name4.getText(), 
+                             Float.parseFloat(binder4.getSelectedItem().toString()),
+                             weigh_kg4.getText());
+                
+                this_colorway_screen.add_screen(get_colorway_details_from_input(name9, percentage9));
+                this_colorway_screen.add_screen(get_colorway_details_from_input(name10, percentage10));
+                this_colorway_screen.add_screen(get_colorway_details_from_input(name11, percentage11));
+        
+                all_colorway.add(this_colorway_screen);
+            }
+            else if(interval == 3)
+            {
+                this_colorway_screen = new Colorway_screen_link_functions(colorway_name5.getText(), 
+                             Float.parseFloat(binder5.getSelectedItem().toString()),
+                             weigh_kg5.getText());
+                
+                this_colorway_screen.add_screen(get_colorway_details_from_input(name13, percentage13));
+                this_colorway_screen.add_screen(get_colorway_details_from_input(name14, percentage14));
+                this_colorway_screen.add_screen(get_colorway_details_from_input(name15, percentage15));
+        
+                all_colorway.add(this_colorway_screen);
+            }
+            else if(interval == 4)
+            {
+                this_colorway_screen = new Colorway_screen_link_functions(colorway_name6.getText(), 
+                             Float.parseFloat(binder6.getSelectedItem().toString()),
+                             weigh_kg6.getText());
+                
+                this_colorway_screen.add_screen(get_colorway_details_from_input(name17, percentage17));
+                this_colorway_screen.add_screen(get_colorway_details_from_input(name18, percentage18));
+                this_colorway_screen.add_screen(get_colorway_details_from_input(name19, percentage19));
+        
+                all_colorway.add(this_colorway_screen);
+            }
+            else if(interval == 5)
+            {
+             this_colorway_screen = new Colorway_screen_link_functions(colorway_name7.getText(), 
+                             Float.parseFloat(binder7.getSelectedItem().toString()),
+                             weigh_kg7.getText());
+                
+                this_colorway_screen.add_screen(get_colorway_details_from_input(name21, percentage21));
+                this_colorway_screen.add_screen(get_colorway_details_from_input(name22, percentage22));
+                this_colorway_screen.add_screen(get_colorway_details_from_input(name23, percentage23));
+        
+                all_colorway.add(this_colorway_screen);   
+            }
+            else if(interval == 6)
+            {
+                this_colorway_screen = new Colorway_screen_link_functions(colorway_name8.getText(), 
+                             Float.parseFloat(binder9.getSelectedItem().toString()),
+                             weigh_kg9.getText());
+                
+                this_colorway_screen.add_screen(get_colorway_details_from_input(name24, percentage24));
+                this_colorway_screen.add_screen(get_colorway_details_from_input(name25, percentage25));
+                this_colorway_screen.add_screen(get_colorway_details_from_input(name26, percentage26));
+        
+                all_colorway.add(this_colorway_screen); 
+            }
+        }
+        return all_colorway;
+    }
+    
+    private List<job_order> get_job_details()
+    {    
+        List<job_order> all_job_orders = new ArrayList<>();
+        for (int i = 0; i < this_list.getJob_list().size(); i++) 
+        {
+            job_order job = new job_order();
+            DB_Manager new_conn = new DB_Manager();
+            job.setJob_id(this_list.getJob_list().get(i).toString());
+            job.setCustomer_name(this_list.getCustomer_list().get(i).toString());
+            job.setCustomer_id(new_conn.get_id_customer(this_list.getCustomer_list().get(i).toString()));
+            job.setDate(use_func.get_date_from_spinner(spinner_date));
+            all_job_orders.add(job);
+        }
+        return all_job_orders;
+    }
+    
+    private List<purchase_order> get_all_purchase_details(int design_code)
+    {
+        List<purchase_order> all_purchase = new ArrayList<>();
+        
+        for (int i = 0; i < this_list.getJob_list().size(); i++) 
+        {
+            purchase_order purchase = new purchase_order();
+            purchase.setDesign_code(design_code);
+            purchase.setJob_order_id(this_list.getJob_list().get(i).toString()); 
+            purchase.setQuantity(Integer.parseInt(this_list.getQuantity_list().get(i).toString()));
+        
+            all_purchase.add(purchase);
+        }
+        return all_purchase;
+    }
+    
+    private colorway_and_screen get_colorway_details_from_input(JComboBox pigment_text, JTextField percentageText )
+    {
+        colorway_and_screen this_colorway;
+        if(!this.checkText2(percentageText.getText()))
+        this_colorway = new colorway_and_screen(pigment_text.getSelectedItem().toString(), Float.parseFloat(percentageText.getText()));
+        else
+        this_colorway = new colorway_and_screen(pigment_text.getSelectedItem().toString());
+        
+        return this_colorway;
+    }
     private void add_order1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_order1ActionPerformed
         // TODO add your handling code here:
         //production_recipe prod_recipe = this.get_design_details();
@@ -2939,7 +3115,6 @@ public class EditRecipe extends javax.swing.JFrame {
 
     private void formFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_formFocusGained
         // TODO add your handling code here:
-        
         if(this.web_cam_opened)
         {
             //Webcam webcam = Webcam.getWebcams().get(this.web_cams.getSelectedIndex());
@@ -2947,13 +3122,13 @@ public class EditRecipe extends javax.swing.JFrame {
             File f = new File("New.jpg");
             if (this.web_cam_opened && f.exists() && f.canRead())
             {
-                
                 try {
                     jLabel14.setIcon( new ImageIcon(ImageIO.read(f).getScaledInstance(140, 140, java.awt.Image.SCALE_SMOOTH) ) );
                 }  catch (IOException e) {
                     e.printStackTrace();
                 }
             }
+            this.web_cam_opened = false;
         }
     }//GEN-LAST:event_formFocusGained
 

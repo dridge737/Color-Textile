@@ -36,7 +36,7 @@ public class Add_new_design extends javax.swing.JFrame {
     private int count_screen_1 = 0;
     private colortextile_class.Job_purchase_link_functions this_purchase = new colortextile_class.Job_purchase_link_functions();
     private Recipe_functions use_func = new Recipe_functions();
-    
+    private boolean pigment_screen_showed = false;
     private job_customer_quantity_list this_list = new job_customer_quantity_list();
     //private ArrayList quantity_list = new ArrayList( );
     //private ArrayList job_list = new ArrayList( );
@@ -2302,10 +2302,7 @@ public class Add_new_design extends javax.swing.JFrame {
     }
     
     private List<job_order> get_job_details()
-    {
-        SimpleDateFormat formater = new SimpleDateFormat("yyyy/MM/dd");
-        String spinnerValue = formater.format(this.spinner_date.getValue());
-        
+    {    
         List<job_order> all_job_orders = new ArrayList<>();
         for (int i = 0; i < this_list.getJob_list().size(); i++) 
         {
@@ -2314,7 +2311,7 @@ public class Add_new_design extends javax.swing.JFrame {
             job.setJob_id(this_list.getJob_list().get(i).toString());
             job.setCustomer_name(this_list.getCustomer_list().get(i).toString());
             job.setCustomer_id(new_conn.get_id_customer(this_list.getCustomer_list().get(i).toString()));
-            job.setDate(spinnerValue);
+            job.setDate(use_func.get_date_from_spinner(spinner_date));
             all_job_orders.add(job);
         }
         return all_job_orders;
@@ -2362,7 +2359,6 @@ public class Add_new_design extends javax.swing.JFrame {
         return -1;
             
     }
-    
                                           //COLORWAY NAME,      PERCENTAGE TEXT ,           COLORWAY ID , 
     private void add_this_colorway_screen(String pigment_name, String pigment_percentage, int id_colorway)
     {
@@ -2412,7 +2408,7 @@ public class Add_new_design extends javax.swing.JFrame {
         colortextile_class.production_recipe new_design = new colortextile_class.production_recipe(design_name.getText(),
                 design_color.getText(),
                 getFabricStyle(), 
-                this.get_date_from_spinner());
+                use_func.get_date_from_spinner(spinner_date));
         //new_design.setDesign_name(design_name.getText());
         //new_design.setColor_name(design_color.getText());
         //new_design.setFabric_style(getFabricStyle());
@@ -2429,13 +2425,6 @@ public class Add_new_design extends javax.swing.JFrame {
         }
         new_design.view_all_job_order_details();
         return new_design; 
-    }
-    
-    private String get_date_from_spinner()
-    {
-        SimpleDateFormat formater = new SimpleDateFormat("yyyy/MM/dd");
-        String spinnerValue = formater.format(this.spinner_date.getValue());
-        return spinnerValue;
     }
     
     private List<Colorway_screen_link_functions> get_all_colorway_inputs()
@@ -2669,6 +2658,7 @@ public class Add_new_design extends javax.swing.JFrame {
     {
         add_pigment_form add_pigment = new add_pigment_form();
         add_pigment.setVisible(true);
+        this.pigment_screen_showed = true;
     }
     
     private void add_orderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_orderActionPerformed
@@ -3014,7 +3004,7 @@ public class Add_new_design extends javax.swing.JFrame {
 
     private void change_job_order_prefix()
     {
-        String spinnerValue = this.get_date_from_spinner();
+        String spinnerValue = use_func.get_date_from_spinner(spinner_date);
         
         String Year = spinnerValue.substring(2, 4);
         String Month = spinnerValue.substring(5,7);
@@ -3150,9 +3140,13 @@ public class Add_new_design extends javax.swing.JFrame {
 
     private void formWindowGainedFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowGainedFocus
         // TODO add your handling code here:
+        if(this.pigment_screen_showed)
+        {
         pigment this_pigment = new pigment();
         if(this_pigment.count_all_pigment() != (name1.getItemCount()-1))
             this.registerSelectedItem();
+        pigment_screen_showed = false;
+        }
     }//GEN-LAST:event_formWindowGainedFocus
 
     private void compute_kg(JTextField weigh_kg, float coverage)
