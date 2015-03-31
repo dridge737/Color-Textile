@@ -22,7 +22,16 @@ public class design{
     private Blob design_image;
     private int total_quantity;
 
-    
+    public design()
+    {
+        
+    }
+    public design(String design, String color, String fabric )
+    {
+        this.design_name = design;
+        this.color_name = color;
+        this.fabric_style = fabric;
+    }
     /**
      * @return the design_code
      */

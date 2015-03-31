@@ -2409,11 +2409,14 @@ public class Add_new_design extends javax.swing.JFrame {
     
     private production_recipe get_design_details()
     {
-        colortextile_class.production_recipe new_design = new colortextile_class.production_recipe();
-        new_design.setDesign_name(design_name.getText());
-        new_design.setColor_name(design_color.getText());
-        new_design.setFabric_style(getFabricStyle());
-        new_design.setDate(this.get_date_from_spinner());
+        colortextile_class.production_recipe new_design = new colortextile_class.production_recipe(design_name.getText(),
+                design_color.getText(),
+                getFabricStyle(), 
+                this.get_date_from_spinner());
+        //new_design.setDesign_name(design_name.getText());
+        //new_design.setColor_name(design_color.getText());
+        //new_design.setFabric_style(getFabricStyle());
+        //new_design.setDate(this.get_date_from_spinner());
         
         List<Colorway_screen_link_functions> all_color_screen = this.get_all_colorway_inputs();
         new_design.setAll_colorways(all_color_screen);

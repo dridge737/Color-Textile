@@ -14,10 +14,14 @@ import javax.swing.JTextField;
  *
  * @author Eldridge
  */
-public class Design_colorway_link_functions extends design {
+public class Design_and_colorway extends design {
     
      private List<Colorway_screen_link_functions> all_colorways = new ArrayList<>();
 
+     public Design_and_colorway(String design, String color, String fabric)
+     {
+         super(design, color, fabric);
+     }
      //Manual add
      public void add_colorway(Colorway_screen_link_functions this_color_screen_link)
      {

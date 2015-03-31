@@ -6,7 +6,7 @@
 
 package colortextile_form;
 
-import colortextile_class.Design_colorway_link_functions;
+import colortextile_class.Design_and_colorway;
 import colortextile_class.Job_purchase_link_functions;
 import colortextile_class.SpreadsheetTrial;
 import javax.swing.JFrame;

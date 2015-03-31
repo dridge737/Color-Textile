@@ -12,12 +12,19 @@ import java.util.List;
  *
  * @author Eldridge
  */
-public class production_recipe extends Design_colorway_link_functions{
+public class production_recipe extends Design_and_colorway{
     
      private String Date;
      private List<job_order> jobs_for_this = new ArrayList<>();
      private List<purchase_order> all_purchase = new ArrayList<>();
      
+     public production_recipe(){}
+     
+     public production_recipe(String design, String color, String fabric, String set_date)
+     {
+         super(design,color,fabric);
+         this.Date = set_date;
+     }
      public void set_job_order_list_using_date_and_design_code()
     {
         Database.DB_Manager new_conn = new Database.DB_Manager();
