@@ -41,8 +41,9 @@ import com.github.sarxos.webcam.Webcam;
 public class EditRecipe extends javax.swing.JFrame {
 
     private int count_screen_1 = 0;
-    boolean web_cam_opened = false;
-    Job_purchase_link_functions this_purchase = new Job_purchase_link_functions();
+    private boolean web_cam_opened = false;
+    private boolean pigment_screen_showed = false;
+    private Job_purchase_link_functions this_purchase = new Job_purchase_link_functions();
     
     private Recipe_functions use_func = new Recipe_functions();
     private job_customer_quantity_list this_list = new job_customer_quantity_list();
@@ -588,11 +589,6 @@ public class EditRecipe extends javax.swing.JFrame {
                 formWindowGainedFocus(evt);
             }
             public void windowLostFocus(java.awt.event.WindowEvent evt) {
-            }
-        });
-        addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                formFocusGained(evt);
             }
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -3094,6 +3090,7 @@ public class EditRecipe extends javax.swing.JFrame {
         
         return this_colorway;
     }
+    
     private void add_order1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_order1ActionPerformed
         // TODO add your handling code here:
         //production_recipe prod_recipe = this.get_design_details();
@@ -3113,15 +3110,15 @@ public class EditRecipe extends javax.swing.JFrame {
         this.web_cam_opened = true;
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void formFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_formFocusGained
+    private void formWindowGainedFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowGainedFocus
         // TODO add your handling code here:
         if(this.web_cam_opened)
         {
             //Webcam webcam = Webcam.getWebcams().get(this.web_cams.getSelectedIndex());
-            //webcam.close();
+            //webcam.close()
             File f = new File("New.jpg");
-            if (this.web_cam_opened && f.exists() && f.canRead())
-            {
+            System.out.println(f.exists());
+            if (f.exists() && f.canRead()) {
                 try {
                     jLabel14.setIcon( new ImageIcon(ImageIO.read(f).getScaledInstance(140, 140, java.awt.Image.SCALE_SMOOTH) ) );
                 }  catch (IOException e) {
@@ -3130,21 +3127,18 @@ public class EditRecipe extends javax.swing.JFrame {
             }
             this.web_cam_opened = false;
         }
-    }//GEN-LAST:event_formFocusGained
-
-    private void formWindowGainedFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowGainedFocus
-        // TODO add your handling code here:
-        File f = new File("New.jpg");
-        System.out.println(f.exists());
-        if (f.exists() && f.canRead()) {
-        try {
-            jLabel14.setIcon( new ImageIcon(ImageIO.read(f).getScaledInstance(140, 140, java.awt.Image.SCALE_SMOOTH) ) );
-        }  catch (IOException e) {
-                e.printStackTrace();
-            }
+        
+        if(this.pigment_screen_showed)
+        {
+        pigment this_pigment = new pigment();
+        if(this_pigment.count_all_pigment() != (name1.getItemCount()-1))
+            this.registerSelectedItem();
+        pigment_screen_showed = false;
         }
     }//GEN-LAST:event_formWindowGainedFocus
 
+    
+    
     private void pig11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pig11ActionPerformed
         // TODO add your handling code here:
         show_add_pigment();
@@ -3254,6 +3248,7 @@ public class EditRecipe extends javax.swing.JFrame {
     {
         add_pigment_form add_pigment = new add_pigment_form();
         add_pigment.setVisible(true);
+        this.pigment_screen_showed = true;
     }
     
     private void compute_kg(JTextField weigh_kg, float coverage)
@@ -3385,6 +3380,83 @@ public class EditRecipe extends javax.swing.JFrame {
             name23.addItem(pigment_list.get(temp_i));
         }
     }
+    
+    private void registerSelectedItem()
+    {
+        String[] allitems = new String[21];
+        allitems[0] = name1.getSelectedItem().toString();
+        allitems[1] = name2.getSelectedItem().toString();
+        allitems[2] = name3.getSelectedItem().toString();
+        allitems[3] = name5.getSelectedItem().toString();
+        allitems[4] = name6.getSelectedItem().toString();
+        allitems[5] = name7.getSelectedItem().toString();
+        allitems[6] = name9.getSelectedItem().toString();
+        allitems[7] = name10.getSelectedItem().toString();
+        allitems[8] = name11.getSelectedItem().toString();
+        allitems[9] = name13.getSelectedItem().toString();
+        allitems[10] = name14.getSelectedItem().toString();
+        allitems[11] = name15.getSelectedItem().toString();
+        allitems[12] = name17.getSelectedItem().toString();
+        allitems[13] = name18.getSelectedItem().toString();
+        allitems[14] = name19.getSelectedItem().toString();
+        allitems[15] = name21.getSelectedItem().toString();
+        allitems[16] = name22.getSelectedItem().toString();
+        allitems[17] = name23.getSelectedItem().toString();
+        allitems[18] = name24.getSelectedItem().toString();
+        allitems[19] = name25.getSelectedItem().toString();
+        allitems[20] = name26.getSelectedItem().toString();
+        
+        this.clearItem();
+        this.addListItems();
+        
+        name1.setSelectedItem(allitems[0]);
+        name2.setSelectedItem(allitems[1]);
+        name3.setSelectedItem(allitems[2]);
+        name5.setSelectedItem(allitems[3]);
+        name6.setSelectedItem(allitems[4]);
+        name7.setSelectedItem(allitems[5]);
+        name9.setSelectedItem(allitems[6]);
+        name10.setSelectedItem(allitems[7]);
+        name11.setSelectedItem(allitems[8]);
+        name13.setSelectedItem(allitems[9]);
+        name14.setSelectedItem(allitems[10]);
+        name15.setSelectedItem(allitems[11]);
+        name17.setSelectedItem(allitems[12]);
+        name18.setSelectedItem(allitems[13]);
+        name19.setSelectedItem(allitems[14]);
+        name21.setSelectedItem(allitems[15]);
+        name22.setSelectedItem(allitems[16]);
+        name23.setSelectedItem(allitems[17]);
+        name24.setSelectedItem(allitems[18]);
+        name25.setSelectedItem(allitems[19]);
+        name26.setSelectedItem(allitems[20]);
+    }
+    
+    private void clearItem()
+    {
+            name1.removeAllItems();
+            name2.removeAllItems();
+            name3.removeAllItems();
+            name5.removeAllItems();
+            name6.removeAllItems();
+            name7.removeAllItems();
+            name9.removeAllItems();
+            name10.removeAllItems();
+            name11.removeAllItems();
+            name13.removeAllItems();
+            name14.removeAllItems();
+            name15.removeAllItems();
+            name17.removeAllItems();   
+            name18.removeAllItems();   
+            name19.removeAllItems();  
+            name21.removeAllItems();
+            name22.removeAllItems();
+            name23.removeAllItems();
+            name24.removeAllItems();
+            name25.removeAllItems();
+            name26.removeAllItems();
+    }
+    
     /**
      * @param args the command line arguments
      */
