@@ -2526,7 +2526,7 @@ public class Add_new_design extends javax.swing.JFrame {
     private colorway_and_screen get_colorway_details_from_input(JComboBox pigment_text, JTextField percentageText )
     {
         colorway_and_screen this_colorway;
-        if(!this.checkText2(percentageText.getText()))
+        if(!use_func.checkText2(percentageText.getText()))
         this_colorway = new colorway_and_screen(pigment_text.getSelectedItem().toString(), Float.parseFloat(percentageText.getText()));
         else
         this_colorway = new colorway_and_screen(pigment_text.getSelectedItem().toString());
@@ -2715,7 +2715,7 @@ public class Add_new_design extends javax.swing.JFrame {
 
     private void coverage1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_coverage1KeyReleased
         // TODO add your handling code here:
-        if(!checkText2(coverage1.getText()))
+        if(!use_func.checkText2(coverage1.getText()))
         {
             compute_kg(weigh_kg8, Float.parseFloat(coverage1.getText()));
         }
@@ -2724,7 +2724,7 @@ public class Add_new_design extends javax.swing.JFrame {
 
     private void coverage2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_coverage2KeyReleased
         // TODO add your handling code here:
-        if(!checkText2(coverage2.getText()))
+        if(!use_func.checkText2(coverage2.getText()))
         {
             compute_kg(weigh_kg7, Float.parseFloat(coverage2.getText()));
         }
@@ -2732,7 +2732,7 @@ public class Add_new_design extends javax.swing.JFrame {
 
     private void coverage3KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_coverage3KeyReleased
         // TODO add your handling code here:
-        if(!checkText2(coverage3.getText()))
+        if(!use_func.checkText2(coverage3.getText()))
         {   
             compute_kg(weigh_kg3, Float.parseFloat(coverage3.getText()));
         }
@@ -2740,7 +2740,7 @@ public class Add_new_design extends javax.swing.JFrame {
 
     private void coverage4KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_coverage4KeyReleased
         // TODO add your handling code here:
-        if(!checkText2(coverage4.getText()))
+        if(!use_func.checkText2(coverage4.getText()))
         {
             compute_kg(weigh_kg4, Float.parseFloat(coverage4.getText()));
         }
@@ -2749,7 +2749,7 @@ public class Add_new_design extends javax.swing.JFrame {
 
     private void coverage5KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_coverage5KeyReleased
         // TODO add your handling code here:
-        if(!checkText2(coverage5.getText()))
+        if(!use_func.checkText2(coverage5.getText()))
         {
             compute_kg(weigh_kg5, Float.parseFloat(coverage5.getText()));
         }
@@ -2758,7 +2758,7 @@ public class Add_new_design extends javax.swing.JFrame {
 
     private void coverage6KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_coverage6KeyReleased
         // TODO add your handling code here:
-        if(!checkText2(coverage6.getText()))
+        if(!use_func.checkText2(coverage6.getText()))
         {
             compute_kg(weigh_kg6, Float.parseFloat(coverage6.getText()));
         }
@@ -2950,7 +2950,7 @@ public class Add_new_design extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(coverage7.getText().length()>0)
         {
-            if(!checkText2(coverage7.getText()))
+            if(!use_func.checkText2(coverage7.getText()))
             {
                 compute_kg(weigh_kg9, Float.parseFloat(coverage7.getText()));
             }
@@ -3022,7 +3022,7 @@ public class Add_new_design extends javax.swing.JFrame {
 
     private void quantityKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_quantityKeyReleased
         // TODO add your handling code here:
-        boolean text_check = checkText2(quantity.getText());
+        boolean text_check = use_func.checkText2(quantity.getText());
         this.button_include_customer.setEnabled(!text_check);
         if(text_check)
         {
@@ -3170,7 +3170,7 @@ public class Add_new_design extends javax.swing.JFrame {
     {
         if(percentage_text.length()>0 && weight_kg.length()>0)
         {   
-            if(!checkText2(percentage_text) && !checkText2(weight_kg))
+            if(!use_func.checkText2(percentage_text) && !use_func.checkText2(weight_kg))
             {
                 //Recipe_functions use_func = new Recipe_functions();
                 float weight_preparation = use_func.update_kg_and_prep(percentage_text, weight_kg);
@@ -3187,20 +3187,10 @@ public class Add_new_design extends javax.swing.JFrame {
      * @param this_text
      * @return true if text contains any character not 0-9
      */
-    private boolean checkText2(String this_text)
-    {
-        if(this_text.isEmpty())
-            return true;
-        String regex = "[^0-9]";
-        Pattern p = Pattern.compile(regex);
-        this_text = this_text.replaceFirst("[.]", "");
-        
-        return p.matcher(this_text).find();
-    }
     
     private boolean check_this_textbox(JTextField the_textfield)
     {
-        if(checkText2(the_textfield.getText()))
+        if(use_func.checkText2(the_textfield.getText()))
         {
             if(!the_textfield.getBackground().equals(Color.pink) )
             {

@@ -404,7 +404,7 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="4"/>
-            <Property name="text" type="java.lang.String" value="Design Colorway :"/>
+            <Property name="text" type="java.lang.String" value="Design Color :"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -795,11 +795,11 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  <Component id="add_order" min="-2" pref="240" max="-2" attributes="0"/>
+                  <Component id="save_edit_but" min="-2" pref="240" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="add_order1" min="-2" pref="240" max="-2" attributes="0"/>
+                  <Component id="preview_but" min="-2" pref="240" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="add_order2" min="-2" pref="240" max="-2" attributes="0"/>
+                  <Component id="cancel_but" min="-2" pref="240" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
               </Group>
               <Group type="102" attributes="0">
@@ -825,9 +825,9 @@
                   <Component id="jTabbedPane2" min="-2" pref="246" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="add_order" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
-                      <Component id="add_order1" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
-                      <Component id="add_order2" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
+                      <Component id="save_edit_but" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
+                      <Component id="preview_but" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
+                      <Component id="cancel_but" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
               </Group>
@@ -4319,7 +4319,7 @@
             </Container>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JButton" name="add_order">
+        <Component class="javax.swing.JButton" name="save_edit_but">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -4331,7 +4331,7 @@
             <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="add_orderActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="save_edit_butActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel8">
@@ -4345,7 +4345,7 @@
             <Property name="text" type="java.lang.String" value="Screens"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="add_order1">
+        <Component class="javax.swing.JButton" name="preview_but">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -4357,10 +4357,10 @@
             <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="add_order1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="preview_butActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="add_order2">
+        <Component class="javax.swing.JButton" name="cancel_but">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -4372,7 +4372,7 @@
             <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="add_order2ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cancel_butActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

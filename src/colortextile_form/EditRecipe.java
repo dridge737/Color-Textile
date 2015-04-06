@@ -568,10 +568,10 @@ public class EditRecipe extends javax.swing.JFrame {
         pig29 = new javax.swing.JButton();
         pig30 = new javax.swing.JButton();
         pig31 = new javax.swing.JButton();
-        add_order = new javax.swing.JButton();
+        save_edit_but = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
-        add_order1 = new javax.swing.JButton();
-        add_order2 = new javax.swing.JButton();
+        preview_but = new javax.swing.JButton();
+        cancel_but = new javax.swing.JButton();
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -750,7 +750,7 @@ public class EditRecipe extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel4.setText("Design Colorway :");
+        jLabel4.setText("Design Color :");
         jPanel1.add(jLabel4);
         jLabel4.setBounds(10, 250, 150, 34);
 
@@ -2140,13 +2140,13 @@ public class EditRecipe extends javax.swing.JFrame {
 
         jTabbedPane2.addTab("7", jPanel15);
 
-        add_order.setBackground(new java.awt.Color(255, 255, 255));
-        add_order.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        add_order.setText("Save & Print");
-        add_order.setToolTipText("");
-        add_order.addActionListener(new java.awt.event.ActionListener() {
+        save_edit_but.setBackground(new java.awt.Color(255, 255, 255));
+        save_edit_but.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        save_edit_but.setText("Save & Print");
+        save_edit_but.setToolTipText("");
+        save_edit_but.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                add_orderActionPerformed(evt);
+                save_edit_butActionPerformed(evt);
             }
         });
 
@@ -2154,23 +2154,23 @@ public class EditRecipe extends javax.swing.JFrame {
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Screens");
 
-        add_order1.setBackground(new java.awt.Color(255, 255, 255));
-        add_order1.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        add_order1.setText("Preview");
-        add_order1.setToolTipText("");
-        add_order1.addActionListener(new java.awt.event.ActionListener() {
+        preview_but.setBackground(new java.awt.Color(255, 255, 255));
+        preview_but.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        preview_but.setText("Preview");
+        preview_but.setToolTipText("");
+        preview_but.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                add_order1ActionPerformed(evt);
+                preview_butActionPerformed(evt);
             }
         });
 
-        add_order2.setBackground(new java.awt.Color(255, 255, 255));
-        add_order2.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        add_order2.setText("Cancel");
-        add_order2.setToolTipText("");
-        add_order2.addActionListener(new java.awt.event.ActionListener() {
+        cancel_but.setBackground(new java.awt.Color(255, 255, 255));
+        cancel_but.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        cancel_but.setText("Cancel");
+        cancel_but.setToolTipText("");
+        cancel_but.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                add_order2ActionPerformed(evt);
+                cancel_butActionPerformed(evt);
             }
         });
 
@@ -2180,11 +2180,11 @@ public class EditRecipe extends javax.swing.JFrame {
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel11Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(add_order, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(save_edit_but, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(add_order1, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(preview_but, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(add_order2, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cancel_but, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(14, 14, 14))
             .addGroup(jPanel11Layout.createSequentialGroup()
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2204,9 +2204,9 @@ public class EditRecipe extends javax.swing.JFrame {
                 .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(add_order, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(add_order1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(add_order2, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(save_edit_but, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(preview_but, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cancel_but, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(41, 41, 41))
         );
 
@@ -2378,7 +2378,7 @@ public class EditRecipe extends javax.swing.JFrame {
         add_this_colorway_screen(screen_pig_id , color_id);
     }
     
-    private void add_orderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_orderActionPerformed
+    private void save_edit_butActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_save_edit_butActionPerformed
         // TODO add your handling code here:
         // Winston codes start
        
@@ -2518,7 +2518,7 @@ public class EditRecipe extends javax.swing.JFrame {
         
         JOptionPane.showMessageDialog(null,"Successfully Added this Recipe");
          
-    }//GEN-LAST:event_add_orderActionPerformed
+    }//GEN-LAST:event_save_edit_butActionPerformed
     
     private void customer_check_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_customer_check_boxActionPerformed
         if(this.customer_check_box.isSelected()){
@@ -2556,7 +2556,7 @@ public class EditRecipe extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(coverage1.getText().length()>0)
         {
-            if(!checkText2(coverage1.getText()))
+            if(!use_func.checkText2(coverage1.getText()))
             {
                 compute_kg(weigh_kg8, Float.parseFloat(coverage1.getText()));
             }
@@ -2567,7 +2567,7 @@ public class EditRecipe extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(coverage2.getText().length()>0)
         {
-            if(!checkText2(coverage2.getText()))
+            if(!use_func.checkText2(coverage2.getText()))
             {
                 compute_kg(weigh_kg7, Float.parseFloat(coverage2.getText()));
             }
@@ -2578,7 +2578,7 @@ public class EditRecipe extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(coverage3.getText().length()>0)
         {
-            if(!checkText2(coverage3.getText()))
+            if(!use_func.checkText2(coverage3.getText()))
             {
                 compute_kg(weigh_kg3, Float.parseFloat(coverage3.getText()));
             }
@@ -2589,7 +2589,7 @@ public class EditRecipe extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(coverage4.getText().length()>0)
         {
-            if(!checkText2(coverage4.getText()))
+            if(!use_func.checkText2(coverage4.getText()))
             {
                 compute_kg(weigh_kg4, Float.parseFloat(coverage4.getText()));
             }
@@ -2600,7 +2600,7 @@ public class EditRecipe extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(coverage4.getText().length()>0)
         {
-            if(!checkText2(coverage5.getText()))
+            if(!use_func.checkText2(coverage5.getText()))
             {
                 compute_kg(weigh_kg5, Float.parseFloat(coverage5.getText()));
             }
@@ -2611,7 +2611,7 @@ public class EditRecipe extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(coverage6.getText().length()>0)
         {
-            if(!checkText2(coverage6.getText()))
+            if(!use_func.checkText2(coverage6.getText()))
             {
                 compute_kg(weigh_kg6, Float.parseFloat(coverage6.getText()));
             }
@@ -2804,7 +2804,7 @@ public class EditRecipe extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(coverage7.getText().length()>0)
         {
-            if(!checkText2(coverage7.getText()))
+            if(!use_func.checkText2(coverage7.getText()))
             {
                 compute_kg(weigh_kg6, Float.parseFloat(coverage7.getText()));
             }
@@ -2942,15 +2942,15 @@ public class EditRecipe extends javax.swing.JFrame {
         //new_design.setDate(this.get_date_from_spinner());
         
         List<Colorway_screen_link_functions> all_color_screen = this.get_all_colorway_inputs();
-        new_design.setAll_colorways(all_color_screen);
-        new_design.view_all_colorway_details();
+        //new_design.setAll_colorways(all_color_screen);
+        //new_design.view_all_colorway_details();
         if (this.jList1.getModel().getSize() != 0)
         {
             new_design.setJobs_for_this(this.get_job_details());
             //Adds purchase order and design
             new_design.setAll_purchase(get_all_purchase_details(1));
+            new_design.view_all_job_order_details();
         }
-        new_design.view_all_job_order_details();
         return new_design; 
     }
     
@@ -3085,7 +3085,7 @@ public class EditRecipe extends javax.swing.JFrame {
     private colorway_and_screen get_colorway_details_from_input(JComboBox pigment_text, JTextField percentageText )
     {
         colorway_and_screen this_colorway;
-        if(!this.checkText2(percentageText.getText()))
+        if(!use_func.checkText2(percentageText.getText()))
         this_colorway = new colorway_and_screen(pigment_text.getSelectedItem().toString(), Float.parseFloat(percentageText.getText()));
         else
         this_colorway = new colorway_and_screen(pigment_text.getSelectedItem().toString());
@@ -3093,18 +3093,18 @@ public class EditRecipe extends javax.swing.JFrame {
         return this_colorway;
     }
     
-    private void add_order1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_order1ActionPerformed
+    private void preview_butActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_preview_butActionPerformed
         // TODO add your handling code here:
-        //production_recipe prod_recipe = this.get_design_details();
+        production_recipe prod_recipe = this.get_design_details();
         
-        //Preview_form this_preview = new Preview_form(prod_recipe);
-        //this_preview.setVisible(true);
-    }//GEN-LAST:event_add_order1ActionPerformed
+        Preview_form this_preview = new Preview_form(prod_recipe);
+        this_preview.setVisible(true);
+    }//GEN-LAST:event_preview_butActionPerformed
 
-    private void add_order2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_order2ActionPerformed
+    private void cancel_butActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancel_butActionPerformed
         // TODO add your handling code here:
         this.dispose();
-    }//GEN-LAST:event_add_order2ActionPerformed
+    }//GEN-LAST:event_cancel_butActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
@@ -3274,7 +3274,7 @@ public class EditRecipe extends javax.swing.JFrame {
     {
         if(percentage_text.length()>0 && weight_kg.length()>0)
         {
-            if(!checkText2(weight_kg) && !checkText2(percentage_text))
+            if(!use_func.checkText2(weight_kg) && !use_func.checkText2(percentage_text))
             {
                 try
                 {            
@@ -3295,17 +3295,10 @@ public class EditRecipe extends javax.swing.JFrame {
             }
         }
     }
-    private boolean checkText2(String this_text)
-    {
-        String regex = "[^0-9]";
-        Pattern p = Pattern.compile(regex);
-        this_text = this_text.replaceFirst("[.]", "");
-        
-        return p.matcher(this_text).find();}
     
     private boolean check_this_textbox(JTextField the_textfield)
     {
-        boolean text_check = checkText2(the_textfield.getText());
+        boolean text_check = use_func.checkText2(the_textfield.getText());
         if(text_check)
         {
             if(!the_textfield.getBackground().equals(Color.pink) )
@@ -3325,11 +3318,11 @@ public class EditRecipe extends javax.swing.JFrame {
             
         if(count_screen_1 > 0)
         {
-            add_order.setEnabled(false);
+            save_edit_but.setEnabled(false);
             return false;
         }
         else
-            add_order.setEnabled(true);
+            save_edit_but.setEnabled(true);
         return true;
     }
     
@@ -3497,9 +3490,6 @@ public class EditRecipe extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton add_order;
-    private javax.swing.JButton add_order1;
-    private javax.swing.JButton add_order2;
     private javax.swing.JComboBox binder3;
     private javax.swing.JComboBox binder4;
     private javax.swing.JComboBox binder5;
@@ -3509,6 +3499,7 @@ public class EditRecipe extends javax.swing.JFrame {
     private javax.swing.JComboBox binder9;
     private javax.swing.JButton button_include_customer;
     private javax.swing.JButton button_remove_customer;
+    private javax.swing.JButton cancel_but;
     private javax.swing.JTextField colorway_name2;
     private javax.swing.JTextField colorway_name3;
     private javax.swing.JTextField colorway_name4;
@@ -3771,8 +3762,10 @@ public class EditRecipe extends javax.swing.JFrame {
     private javax.swing.JButton pig29;
     private javax.swing.JButton pig30;
     private javax.swing.JButton pig31;
+    private javax.swing.JButton preview_but;
     private javax.swing.JTextField quantity;
     private javax.swing.JTextField quantity_total;
+    private javax.swing.JButton save_edit_but;
     private javax.swing.JSpinner spinner_date;
     private javax.swing.JTextField text_job_order;
     private javax.swing.JComboBox web_cams;
