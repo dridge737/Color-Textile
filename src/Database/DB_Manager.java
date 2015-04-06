@@ -1821,7 +1821,9 @@ public class DB_Manager {
               sql = sql + " design_name = '"+design.getDesign_name()+"'";
               increment++;
           } 
+          
           System.out.println(sql);
+          
           if (design.getDesign_code()!= -1){
               if(increment > 0)
               { sql = sql + " AND";
