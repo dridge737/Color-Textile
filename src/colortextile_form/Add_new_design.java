@@ -2674,7 +2674,6 @@ public class Add_new_design extends javax.swing.JFrame {
             this.add_job();
             this.add_all_this_colorways(des_code);
             
-            
             production_recipe prod_recipe = this.get_design_details();
             //this.this_purchase.setPurchase_Id_from_Date_and_code();
             //prod_recipe.set_design_details_from_purchase_order_id();

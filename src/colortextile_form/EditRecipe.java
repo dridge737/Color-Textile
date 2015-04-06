@@ -43,7 +43,7 @@ public class EditRecipe extends javax.swing.JFrame {
     private int count_screen_1 = 0;
     private boolean web_cam_opened = false;
     private boolean pigment_screen_showed = false;
-    private Job_purchase_link_functions this_purchase = new Job_purchase_link_functions();
+    private production_recipe prod_recip  = new production_recipe();
     
     private Recipe_functions use_func = new Recipe_functions();
     private job_customer_quantity_list this_list = new job_customer_quantity_list();
@@ -97,7 +97,9 @@ public class EditRecipe extends javax.swing.JFrame {
     
     private void set_job_details(int purchase_order_id)
     {
-        Job_purchase_link_functions this_purchase = new Job_purchase_link_functions();
+        // USING GLOBAL VARIABLE
+        //production_recipe this_purchase = new production_recipe();
+        
         /*
         //Set Details
         this_purchase.setId_purchase(purchase_order_id);
