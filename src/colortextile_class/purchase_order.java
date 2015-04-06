@@ -107,6 +107,8 @@ public class purchase_order {
         Database.DB_Manager new_conn = new Database.DB_Manager();
         purchase_order temp_purchase = new_conn.get_purchase_details(id_purchase);
         this.design_code = temp_purchase.getDesign_code();
+        this.job_order_id = temp_purchase.getJob_order_id();
+        this.quantity = temp_purchase.getQuantity();
     }
 
 }

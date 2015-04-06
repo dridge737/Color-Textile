@@ -1433,7 +1433,7 @@ public class DB_Manager {
             Connection conn = db.getConnection();
          
             PreparedStatement ps = 
-            conn.prepareStatement("SELECT date, design_code "
+            conn.prepareStatement("SELECT design_code, job_order_id, quantity "
                                  + "FROM purchase_order "
                                  + "WHERE id_purchase = ? ");
             
@@ -1446,7 +1446,7 @@ public class DB_Manager {
             ResultSet rs = ps.executeQuery();
             if(rs.first())
             {
-                //current_purchase.setQuantity(rs.getInt("quantity"));
+                current_purchase.setQuantity(rs.getInt("quantity"));
                 current_purchase.setDesign_code(rs.getInt("design_code"));
                 current_purchase.setJob_order_id(rs.getString("job_order_id"));
             
@@ -1851,7 +1851,7 @@ public class DB_Manager {
           
           System.out.println(sql);
           
-          if (sql == "SELECT * FROM design WHERE")
+          if (increment == 0)
           {
               System.out.print("nothing to be searched");
               return null;

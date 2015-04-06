@@ -33,7 +33,7 @@ public class ColorTextile {
         //int trial_get_pigment_id =  newManager.check_if_id_screen_exists(this_screen);
         //System.out.println("Result = :" +trial_get_pigment_id);
         
-        EditRecipe edit_form = new EditRecipe(11);
+        EditRecipe edit_form = new EditRecipe(13);
         edit_form.setVisible(true);
         
         /*

@@ -124,10 +124,12 @@ public class design{
     {
         Database.DB_Manager new_conn = new Database.DB_Manager();
         design new_design = new_conn.set_design_details_from_des_code(this.design_code);
-
-        this.color_name = new_design.color_name;
-        this.design_name = new_design.design_name;
-        this.setFabric_style( new_design.getFabric_style() );
+        if(new_design != null)
+        {
+            this.color_name = new_design.getColor_name();
+            this.design_name = new_design.getDesign_name();
+            this.setFabric_style(new_design.getFabric_style());
+        }
     }
 
     /**
