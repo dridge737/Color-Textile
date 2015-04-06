@@ -43,7 +43,7 @@ public class EditRecipe extends javax.swing.JFrame {
     private int count_screen_1 = 0;
     private boolean web_cam_opened = false;
     private boolean pigment_screen_showed = false;
-    private production_recipe prod_recip  = new production_recipe();
+    private production_recipe prod_recipe  = new production_recipe();
     
     private Recipe_functions use_func = new Recipe_functions();
     private job_customer_quantity_list this_list = new job_customer_quantity_list();
@@ -53,31 +53,20 @@ public class EditRecipe extends javax.swing.JFrame {
      */
     public EditRecipe() {
         initComponents();
-        addListItems();
-        
-        //Center the form
-        Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
-        int x = (int) ((dimension.getWidth() - this.getWidth()) / 2);
-//        int y = (int) ((dimension.getHeight() - this.getHeight()) / 2);
-        this.setLocation(x,0);
-        //InputVerifier new_verifier = new Verifier();
-        //this.pigment_percentage8.setInputVerifier(new_verifier);
-        fill_customer_list();
-        this.customer_name_text.setVisible(false);
-        this.fabric_style.setVisible(false);
-        List<Webcam> webcam = Webcam.getWebcams();
-        for(Webcam all_web : webcam)
-        {
-            web_cams.addItem(all_web.getName());
-        }
+        initialize();
     }
     
     public EditRecipe(int purchase_order_id)
     {
         initComponents();
-        addListItems();
+        initialize();
         set_job_details(purchase_order_id);
         
+    }
+    
+    private void initialize()
+    {
+        addListItems();
         //Center the form
         Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
         int x = (int) ((dimension.getWidth() - this.getWidth()) / 2);
@@ -100,12 +89,11 @@ public class EditRecipe extends javax.swing.JFrame {
         // USING GLOBAL VARIABLE
         //production_recipe this_purchase = new production_recipe();
         
-        /*
         //Set Details
-        this_purchase.setId_purchase(purchase_order_id);
-        this_purchase.set_this_Purchase_details_from_purchase_id();
-        this_purchase.set_design_details_from_purchase_order_id();
-        this_purchase.set_job_order_list_using_purchase_order_id();
+        prod_recipe.setId_purchase(purchase_order_id);
+        prod_recipe.set_this_Purchase_details_from_purchase_id();
+        prod_recipe.set_design_details_from_purchase_order_id();
+        prod_recipe.set_job_order_list_using_purchase_order_id();
         
         //Fetch Details
         Design_colorway_link_functions get_des_details = this_purchase.getNew_des_col_link();
@@ -127,7 +115,7 @@ public class EditRecipe extends javax.swing.JFrame {
         
         //set_customer_name(new_job.getCustomer_id());
         //new_job.getJob_id();
-        */
+        
     }
     
     private void set_job_list(List<job_order> all_jobs)
@@ -578,7 +566,7 @@ public class EditRecipe extends javax.swing.JFrame {
         jScrollPane2.setViewportView(jTextArea1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Add New Design");
+        setTitle("Edit this design");
         setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         setForeground(java.awt.Color.white);
         setIconImages(null);
@@ -2942,7 +2930,7 @@ public class EditRecipe extends javax.swing.JFrame {
         //new_design.setDate(this.get_date_from_spinner());
         
         List<Colorway_screen_link_functions> all_color_screen = this.get_all_colorway_inputs();
-        //new_design.setAll_colorways(all_color_screen);
+        new_design.setAll_colorways(all_color_screen);
         //new_design.view_all_colorway_details();
         if (this.jList1.getModel().getSize() != 0)
         {
@@ -3346,6 +3334,9 @@ public class EditRecipe extends javax.swing.JFrame {
             name21.addItem("");   
             name22.addItem("");   
             name23.addItem("");   
+            name24.addItem("");   
+            name25.addItem("");   
+            name26.addItem("");   
    
     }
     public void addListItems()
@@ -3373,6 +3364,9 @@ public class EditRecipe extends javax.swing.JFrame {
             name21.addItem(pigment_list.get(temp_i));
             name22.addItem(pigment_list.get(temp_i));
             name23.addItem(pigment_list.get(temp_i));
+            name24.addItem(pigment_list.get(temp_i));
+            name25.addItem(pigment_list.get(temp_i));
+            name26.addItem(pigment_list.get(temp_i));
         }
     }
     

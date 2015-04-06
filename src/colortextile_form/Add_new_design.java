@@ -2416,14 +2416,15 @@ public class Add_new_design extends javax.swing.JFrame {
         
         List<Colorway_screen_link_functions> all_color_screen = this.get_all_colorway_inputs();
         new_design.setAll_colorways(all_color_screen);
-        new_design.view_all_colorway_details();
+        //new_design.view_all_colorway_details();
         if (this.jList1.getModel().getSize() != 0)
         {
             new_design.setJobs_for_this(this.get_job_details());
             //Adds purchase order and design
             new_design.setAll_purchase(get_all_purchase_details(1));
+            new_design.view_all_job_order_details();
         }
-        new_design.view_all_job_order_details();
+        
         return new_design; 
     }
     

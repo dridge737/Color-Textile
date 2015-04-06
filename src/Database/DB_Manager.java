@@ -1847,8 +1847,6 @@ public class DB_Manager {
               increment++;
           }
           
-          
-          
           System.out.println(sql);
           
           if (sql == "SELECT * FROM design WHERE")

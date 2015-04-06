@@ -117,7 +117,7 @@ public class SearchJOGui extends javax.swing.JFrame {
                             if (rs3.first()){
                                 String[] set1 = 
                                 {
-                                    rs2.getString("id_purchase"),
+                                    Integer.toString(rs2.getInt("id_purchase")),
                                     rs2.getString("job_order_id"), 
                                     conn.get_customer_name(rs.getInt("customer_id")),
                                     rs.getString("date"),
@@ -130,7 +130,7 @@ public class SearchJOGui extends javax.swing.JFrame {
                                 
                             } else {
                                 String[] set1 = {
-                                    rs2.getString("purchase_order"),
+                                    Integer.toString(rs2.getInt("id_purchase")),
                                     rs.getString("job_order_id"), 
                                     conn.get_customer_name(rs.getInt("customer_id")),
                                     rs2.getString("date"),

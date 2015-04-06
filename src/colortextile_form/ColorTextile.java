@@ -26,12 +26,15 @@ public class ColorTextile {
     public static void main(String[] args) {
         // TODO code application logic here
         
-        Database.DB_Manager newManager = new Database.DB_Manager();
-        colortextile_class.deletedClass.screen_pigment this_screen = new colortextile_class.deletedClass.screen_pigment();
-        this_screen.setPigment_no(2);
-        this_screen.setPigment_percentage((float)56.7);
-        int trial_get_pigment_id =  newManager.check_if_id_screen_exists(this_screen);
+        //Database.DB_Manager newManager = new Database.DB_Manager();
+        //colortextile_class.deletedClass.screen_pigment this_screen = new colortextile_class.deletedClass.screen_pigment();
+        //this_screen.setPigment_no(2);
+        //this_screen.setPigment_percentage((float)56.7);
+        //int trial_get_pigment_id =  newManager.check_if_id_screen_exists(this_screen);
         //System.out.println("Result = :" +trial_get_pigment_id);
+        
+        EditRecipe edit_form = new EditRecipe(11);
+        edit_form.setVisible(true);
         
         /*
         
@@ -39,8 +42,7 @@ public class ColorTextile {
         new_menu.setVisible(true);
         Add_new_design newDesign = new Add_new_design();
         newDesign.setVisible(true);
-        //Edit_Existing_Design_form edit_form = new Edit_Existing_Design_form();
-        //edit_form.setVisible(true);
+        
        // System.out.println(trial_get_pigment_id);
         
         Design_colorway_link_functions get_des_details = new Design_colorway_link_functions();
