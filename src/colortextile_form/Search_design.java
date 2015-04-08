@@ -43,9 +43,6 @@ public class Search_design extends javax.swing.JFrame {
         model.addColumn("Colorway Name");
         model.addColumn("fabric_style");
         
-        
-        
-        
         try {
             if (rs.first()){
                 
