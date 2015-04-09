@@ -553,7 +553,7 @@ public class Add_new_design extends javax.swing.JFrame {
             }
         });
         jPanel1.add(fabric_check_box);
-        fabric_check_box.setBounds(650, 210, 63, 25);
+        fabric_check_box.setBounds(650, 210, 65, 25);
 
         jLabel11.setBackground(new java.awt.Color(255, 255, 255));
         jLabel11.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
@@ -693,7 +693,7 @@ public class Add_new_design extends javax.swing.JFrame {
             }
         });
         jPanel16.add(customer_check_box);
-        customer_check_box.setBounds(340, 50, 59, 20);
+        customer_check_box.setBounds(340, 50, 63, 20);
 
         customer_name_text.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
         jPanel16.add(customer_name_text);
@@ -2103,9 +2103,9 @@ public class Add_new_design extends javax.swing.JFrame {
             design design_info = new design();
             design_info.setDesign_code(design_id);
             // get design result set from design code
-            ResultSet rs_design = design_info.search_design();
+            ResultSet rs_design = design_info.search_design();  
             //design result set move to first
-            rs_design.first();
+            rs_design.first(); 
             
             //colorway DB
             colorway color = new colorway();
@@ -2128,6 +2128,7 @@ public class Add_new_design extends javax.swing.JFrame {
             // 11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111
             rs_colorway.first();
             screen.setId_colorway(rs_colorway.getInt("id_colorway"));
+            screen.setId_color_screen(-1);
             ResultSet rs_colorway_screen = screen.Search_colorway_screen_connect();
             
             
@@ -2140,9 +2141,9 @@ public class Add_new_design extends javax.swing.JFrame {
             //binder
             this.binder8.addItem(rs_colorway.getString("binder")); this.binder8.setSelectedItem(rs_colorway.getString("binder"));
             //Pigment Name                     Percentage                        KG/Prep
-            rs_colorway_screen.first();
+            if(rs_colorway_screen.first()){
             this.name1.addItem(this.get_pigment_name(rs_colorway_screen.getInt("pigment_no"))); this.name1.setSelectedItem(this.get_pigment_name(rs_colorway_screen.getInt("pigment_no")));      this.percentage1.setText(rs_colorway_screen.getString("pigment_percentage"));
-            
+            }
             if(rs_colorway_screen.next()){
             this.name2.addItem(this.get_pigment_name(rs_colorway_screen.getInt("pigment_no"))); this.name2.setSelectedItem(this.get_pigment_name(rs_colorway_screen.getInt("pigment_no")));      this.percentage2.setText(rs_colorway_screen.getString("pigment_percentage"));
             }
@@ -2153,37 +2154,50 @@ public class Add_new_design extends javax.swing.JFrame {
             
             //222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222
             if(rs_colorway.next()){
+                screen.setId_colorway(rs_colorway.getInt("id_colorway"));
+            screen.setId_color_screen(-1);
+            rs_colorway_screen = screen.Search_colorway_screen_connect();
+            
             //Screen Name
             this.colorway_name3.setText(rs_colorway.getString("colorway_name"));
             //Kilograms/KGS
             this.weigh_kg3.setText(rs_colorway.getString("weight_kg"));
             //Coverage
-            this.coverage3.setText("");
-            
+            //this.coverage3.setText("");
+            this.binder3.addItem(rs_colorway.getString("binder")); this.binder3.setSelectedItem(rs_colorway.getString("binder"));
             //
             //Pigment Name    Percentage     KG/Prep
-            this.name5.addItem(""); this.name5.setSelectedItem("");      this.percentage5.setText(null);
-            this.name6.addItem(""); this.name6.setSelectedItem("");      this.percentage6.setText(null);
-            this.name7.addItem(""); this.name7.setSelectedItem("");      this.percentage7.setText(null);
+            if(rs_colorway_screen.first()){
+            this.name5.addItem(this.get_pigment_name(rs_colorway_screen.getInt("pigment_no"))); this.name5.setSelectedItem(this.get_pigment_name(rs_colorway_screen.getInt("pigment_no")));      this.percentage5.setText(rs_colorway_screen.getString("pigment_percentage"));
+            }
+            if(rs_colorway_screen.next()){
+            this.name6.addItem(this.get_pigment_name(rs_colorway_screen.getInt("pigment_no"))); this.name6.setSelectedItem(this.get_pigment_name(rs_colorway_screen.getInt("pigment_no")));      this.percentage6.setText(rs_colorway_screen.getString("pigment_percentage"));
+            }
+            if(rs_colorway_screen.next()){
+            this.name7.addItem(this.get_pigment_name(rs_colorway_screen.getInt("pigment_no"))); this.name7.setSelectedItem(this.get_pigment_name(rs_colorway_screen.getInt("pigment_no")));      this.percentage7.setText(rs_colorway_screen.getString("pigment_percentage"));
+            }
             
-            this.binder3.addItem(""); this.binder3.setSelectedItem("");
+            
             }
             //333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333
             if(rs_colorway.next()){
+                screen.setId_colorway(rs_colorway.getInt("id_colorway"));
+            screen.setId_color_screen(-1);
+            rs_colorway_screen = screen.Search_colorway_screen_connect();
             //Screen Name
             this.colorway_name4.setText(rs_colorway.getString("colorway_name"));
             //Kilograms/KGS
             this.weigh_kg4.setText(rs_colorway.getString("weight_kg"));
             //Coverage
-            this.coverage4.setText("");
-            
+            //this.coverage4.setText("");
+            this.binder3.addItem(rs_colorway.getString("binder")); this.binder3.setSelectedItem(rs_colorway.getString("binder"));
             //
             //Pigment Name    Percentage     KG/Prep
             this.name9.addItem(""); this.name9.setSelectedItem("");      this.percentage9.setText(null);
             this.name10.addItem(""); this.name10.setSelectedItem("");      this.percentage10.setText(null);
             this.name11.addItem(""); this.name11.setSelectedItem("");      this.percentage11.setText(null);
             
-            this.binder3.addItem(""); this.binder3.setSelectedItem("");
+            
             }
             
             //444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444
@@ -2200,7 +2214,7 @@ public class Add_new_design extends javax.swing.JFrame {
             this.name14.addItem(""); this.name14.setSelectedItem("");      this.percentage14.setText(null);
             this.name15.addItem(""); this.name15.setSelectedItem("");      this.percentage15.setText(null);
             
-            this.binder5.addItem(""); this.binder5.setSelectedItem("");
+            this.binder5.addItem(rs_colorway.getString("binder")); this.binder5.setSelectedItem(rs_colorway.getString("binder"));
             }
             //5555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555
             if(rs_colorway.next()){
@@ -2216,7 +2230,7 @@ public class Add_new_design extends javax.swing.JFrame {
             this.name18.addItem(""); this.name18.setSelectedItem("");      this.percentage18.setText(null);
             this.name19.addItem(""); this.name19.setSelectedItem("");      this.percentage19.setText(null);
             
-            this.binder6.addItem(""); this.binder6.setSelectedItem("");
+            this.binder6.addItem(rs_colorway.getString("binder")); this.binder6.setSelectedItem(rs_colorway.getString("binder"));
             }
             //66666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666
             if(rs_colorway.next()){
@@ -2232,7 +2246,7 @@ public class Add_new_design extends javax.swing.JFrame {
             this.name22.addItem(""); this.name22.setSelectedItem("");      this.percentage22.setText(null);
             this.name23.addItem(""); this.name23.setSelectedItem("");      this.percentage23.setText(null);
             
-            this.binder7.addItem(""); this.binder7.setSelectedItem("");
+            this.binder7.addItem(rs_colorway.getString("binder")); this.binder7.setSelectedItem(rs_colorway.getString("binder"));
             }
             //77777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777
             if(rs_colorway.next()){
@@ -2248,7 +2262,7 @@ public class Add_new_design extends javax.swing.JFrame {
             this.name25.addItem(""); this.name25.setSelectedItem("");      this.percentage25.setText(null);
             this.name26.addItem(""); this.name26.setSelectedItem("");      this.percentage26.setText(null);
             
-            this.binder9.addItem(""); this.binder9.setSelectedItem("");
+            this.binder9.addItem(rs_colorway.getString("binder")); this.binder9.setSelectedItem(rs_colorway.getString("binder"));
             }
         } catch (SQLException ex) {
             Logger.getLogger(Add_new_design.class.getName()).log(Level.SEVERE, null, ex);
