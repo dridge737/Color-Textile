@@ -133,8 +133,8 @@ public class SearchJOGui extends javax.swing.JFrame {
                                     Integer.toString(rs2.getInt("id_purchase")),
                                     rs.getString("job_order_id"), 
                                     conn.get_customer_name(rs.getInt("customer_id")),
-                                    rs2.getString("date"),
-                                    rs.getString("quantity")
+                                    rs.getString("date"),
+                                    rs2.getString("quantity")
                                     };
                                 model.addRow(set1);
                             }
