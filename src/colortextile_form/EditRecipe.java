@@ -118,7 +118,7 @@ public class EditRecipe extends javax.swing.JFrame {
         
         set_all_colorways(prod_recipe.getAll_colorways());
         
-        
+        //Set details to Text boxes
         design_name.setText(prod_recipe.getDesign_name());
         //design_code.setText(get_des_details.getDesign_code());
         fabric_style.setText(prod_recipe.getFabric_style());
