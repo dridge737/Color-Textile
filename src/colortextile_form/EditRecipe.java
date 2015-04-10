@@ -60,7 +60,7 @@ public class EditRecipe extends javax.swing.JFrame {
     {
         initComponents();
         initialize();
-        set_job_details(purchase_order_id);
+        set_design_details_from_purchase_order(purchase_order_id);
         
     }
     
@@ -84,25 +84,8 @@ public class EditRecipe extends javax.swing.JFrame {
         }
     }
     
-    private void set_job_details(int purchase_order_id)
+    private void set_purchase_details(int purchase_order_id)
     {
-        // USING GLOBAL VARIABLE
-        //production_recipe this_purchase = new production_recipe();
-        purchase_order this_purchase = new purchase_order();
-        //Set Details
-        this_purchase.setId_purchase(purchase_order_id);
-        this_purchase.set_this_Purchase_details_from_purchase_id();
-        prod_recipe.setDesign_code(this_purchase.getDesign_code());
-        prod_recipe.setDesign_details_from_des_code();
-        //Design_colorway_link_functions get_des_details = this_purchase.getNew_des_col_link();
-        prod_recipe.add_all_colorway_from_design_code();
-        //prod_recipe.set_job_order_list_using_purchase_order_id();
-        
-        //Fetch Details
-        //List<job_order> all_jobs = this_purchase.getJobs_for_this();
-        //set_job_list(all_jobs);
-        set_all_colorways(prod_recipe.getAll_colorways());
-        
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         /*
         try {
@@ -111,6 +94,31 @@ public class EditRecipe extends javax.swing.JFrame {
             Logger.getLogger(EditRecipe.class.getName()).log(Level.SEVERE, null, ex);
         }
         */
+        
+        //List<job_order> all_jobs = this_purchase.getJobs_for_this();
+        //set_job_list(all_jobs);
+    }
+    
+    private void set_design_details_from_purchase_order(int purchase_order_id)
+    {
+        // USING GLOBAL VARIABLE
+        //production_recipe this_purchase = new production_recipe();
+        purchase_order this_purchase = new purchase_order();
+        //Set Details
+        this_purchase.setId_purchase(purchase_order_id);
+        this_purchase.set_this_Purchase_details_from_purchase_id();
+        prod_recipe.add_purchase(this_purchase);
+        prod_recipe.setDesign_code(this_purchase.getDesign_code());
+        prod_recipe.setDesign_details_from_des_code();
+        //Design_colorway_link_functions get_des_details = this_purchase.getNew_des_col_link();
+        prod_recipe.add_all_colorway_from_design_code();
+        //prod_recipe.set_job_order_list_using_purchase_order_id();
+        
+        //Fetch Details
+        
+        set_all_colorways(prod_recipe.getAll_colorways());
+        
+        
         design_name.setText(prod_recipe.getDesign_name());
         //design_code.setText(get_des_details.getDesign_code());
         fabric_style.setText(prod_recipe.getFabric_style());

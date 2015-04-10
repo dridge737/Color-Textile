@@ -169,6 +169,10 @@ public class production_recipe extends Design_and_colorway{
         this.all_purchase = all_purchase;
     }
     
+    public void add_purchase(purchase_order this_purchase)
+    {
+        all_purchase.add(this_purchase);
+    }
     /**
      * Set 
      */
