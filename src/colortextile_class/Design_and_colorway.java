@@ -29,7 +29,10 @@ public class Design_and_colorway extends design {
          this.getAll_colorways().add(this_color_screen_link);
      }
      
-     public void add_all_colorway_from_design_code()
+     /**
+      * sets all colorway details using the design code
+      */
+     public void set_all_colorway_from_design_code()
      {
          Database.DB_Manager new_conn = new Database.DB_Manager();
          //Subclass

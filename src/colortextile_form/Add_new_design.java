@@ -2072,21 +2072,22 @@ public class Add_new_design extends javax.swing.JFrame {
         }
     }
     public void fill_info_from_purchase_id(int purchase_order){
-        try {
+        //try {
             purchase_order purchase = new purchase_order();
+            purchase.setId_purchase(purchase_order);
+            //ResultSet rs = purchase.get_purchase_info_from_id_purchase(purchase_order);
+            //if(rs.first()){
+            //    System.out.println("first");
+            //}
+            //String code1 = rs.getString("design_code");
+            //System.out.println(code1);
             
-            ResultSet rs = purchase.get_purchase_info_from_id_purchase(purchase_order);
-            if(rs.first()){
-                System.out.println("first");
-            }
-            String code1 = rs.getString("design_code");
-            System.out.println(code1);
-            
-            this.fill_info(Integer.parseInt(code1));
-        } 
-        catch (SQLException ex) {
-            Logger.getLogger(Add_new_design.class.getName()).log(Level.SEVERE, null, ex);
-        }
+            purchase.set_this_Purchase_details_from_purchase_id();
+            this.fill_info(purchase.getDesign_code());
+        //} 
+        //catch (SQLException ex) {
+        //    Logger.getLogger(Add_new_design.class.getName()).log(Level.SEVERE, null, ex);
+        //}
     }
     
     public String get_pigment_name(int pigment_no){
@@ -2097,59 +2098,63 @@ public class Add_new_design extends javax.swing.JFrame {
         return pigment.getPigment_name();
     }
     public void fill_info(int design_id){
-        try {
+        //try {
             System.out.println("filling the textboxes ");
             //design DB
-            design design_info = new design();
+            Design_and_colorway design_info = new Design_and_colorway();
             design_info.setDesign_code(design_id);
-            // get design result set from design code
-            ResultSet rs_design = design_info.search_design();  
+            design_info.setDesign_details_from_des_code();
+            design_info.set_all_colorway_from_design_code();
+            
+/*
+// get design result set from design code
+            //ResultSet rs_design = design_info.search_design();  
             //design result set move to first
-            rs_design.first(); 
+            //rs_design.first(); 
             
             //colorway DB
-            colorway color = new colorway();
-            color.setDesign_code(design_id);
-            color.setId_colorway(-1);
+            //colorway color = new colorway();
+            //color.setDesign_code(design_id);
+            //color.setId_colorway(-1);
             // get colorway result set form design code
-            ResultSet rs_colorway = color.Search_colorway();
+            //ResultSet rs_colorway = color.Search_colorway();
             
-            colorway_and_screen screen = new colorway_and_screen();
+            //colorway_and_screen screen = new colorway_and_screen();
             
             //fill textboxes  +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
             
             //design name
-            this.design_name.setText(rs_design.getString("design_name"));
+            //this.design_name.setText(rs_design.getString("design_name"));
             //design colorway
-            this.design_color.setText(rs_design.getString("color_name"));
+            //this.design_color.setText(rs_design.getString("color_name"));
             //fabric style
-            this.fab_style_comb.addItem(rs_design.getString("fabric_style"));  this.fab_style_comb.setSelectedItem(rs_design.getString("fabric_style"));
+            //this.fab_style_comb.addItem(rs_design.getString("fabric_style"));  this.fab_style_comb.setSelectedItem(rs_design.getString("fabric_style"));
             
             // 11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111
-            rs_colorway.first();
-            screen.setId_colorway(rs_colorway.getInt("id_colorway"));
-            screen.setId_color_screen(-1);
-            ResultSet rs_colorway_screen = screen.Search_colorway_screen_connect();
+            //rs_colorway.first();
+            //screen.setId_colorway(rs_colorway.getInt("id_colorway"));
+            //screen.setId_color_screen(-1);
+            //ResultSet rs_colorway_screen = screen.Search_colorway_screen_connect();
             
             
             //Screen Name
-            this.colorway_name2.setText(rs_colorway.getString("colorway_name"));
+            //this.colorway_name2.setText(rs_colorway.getString("colorway_name"));
             //Kilograms/KGS
-            this.weigh_kg8.setText(rs_colorway.getString("weight_kg"));
+            //this.weigh_kg8.setText(rs_colorway.getString("weight_kg"));
             //Coverage
             //this.coverage1.setText("");
             //binder
-            this.binder8.addItem(rs_colorway.getString("binder")); this.binder8.setSelectedItem(rs_colorway.getString("binder"));
+            //this.binder8.addItem(rs_colorway.getString("binder")); this.binder8.setSelectedItem(rs_colorway.getString("binder"));
             //Pigment Name                     Percentage                        KG/Prep
-            if(rs_colorway_screen.first()){
-            this.name1.addItem(this.get_pigment_name(rs_colorway_screen.getInt("pigment_no"))); this.name1.setSelectedItem(this.get_pigment_name(rs_colorway_screen.getInt("pigment_no")));      this.percentage1.setText(rs_colorway_screen.getString("pigment_percentage"));
-            }
-            if(rs_colorway_screen.next()){
-            this.name2.addItem(this.get_pigment_name(rs_colorway_screen.getInt("pigment_no"))); this.name2.setSelectedItem(this.get_pigment_name(rs_colorway_screen.getInt("pigment_no")));      this.percentage2.setText(rs_colorway_screen.getString("pigment_percentage"));
-            }
-            if(rs_colorway_screen.next()){
-            this.name3.addItem(this.get_pigment_name(rs_colorway_screen.getInt("pigment_no"))); this.name3.setSelectedItem(this.get_pigment_name(rs_colorway_screen.getInt("pigment_no")));      this.percentage3.setText(rs_colorway_screen.getString("pigment_percentage"));
-            }
+            //if(rs_colorway_screen.first()){
+            //this.name1.addItem(this.get_pigment_name(rs_colorway_screen.getInt("pigment_no"))); this.name1.setSelectedItem(this.get_pigment_name(rs_colorway_screen.getInt("pigment_no")));      this.percentage1.setText(rs_colorway_screen.getString("pigment_percentage"));
+            //}
+           // if(rs_colorway_screen.next()){
+            //this.name2.addItem(this.get_pigment_name(rs_colorway_screen.getInt("pigment_no"))); this.name2.setSelectedItem(this.get_pigment_name(rs_colorway_screen.getInt("pigment_no")));      this.percentage2.setText(rs_colorway_screen.getString("pigment_percentage"));
+            //}
+            //if(rs_colorway_screen.next()){
+            //this.name3.addItem(this.get_pigment_name(rs_colorway_screen.getInt("pigment_no"))); this.name3.setSelectedItem(this.get_pigment_name(rs_colorway_screen.getInt("pigment_no")));      this.percentage3.setText(rs_colorway_screen.getString("pigment_percentage"));
+            //}
             
             
             //222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222
@@ -2267,7 +2272,7 @@ public class Add_new_design extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(Add_new_design.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+        */
     }
     
     private List<purchase_order> get_all_purchase_details(int design_code)

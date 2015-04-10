@@ -111,7 +111,7 @@ public class EditRecipe extends javax.swing.JFrame {
         prod_recipe.setDesign_code(this_purchase.getDesign_code());
         prod_recipe.setDesign_details_from_des_code();
         //Design_colorway_link_functions get_des_details = this_purchase.getNew_des_col_link();
-        prod_recipe.add_all_colorway_from_design_code();
+        prod_recipe.set_all_colorway_from_design_code();
         //prod_recipe.set_job_order_list_using_purchase_order_id();
         
         //Fetch Details
@@ -124,10 +124,10 @@ public class EditRecipe extends javax.swing.JFrame {
         fabric_style.setText(prod_recipe.getFabric_style());
         design_color.setText(prod_recipe.getColor_name());
         
-        //set_customer_name(new_job.getCustomer_id());
         //new_job.getJob_id();
         
     }
+    
     
     private void set_job_list(List<job_order> all_jobs)
     {
