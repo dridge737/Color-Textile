@@ -27,6 +27,27 @@ import javax.swing.JOptionPane;
  */
 public class DB_Manager {
    
+   //Close Connection; 
+    private void closeConn(Connection conn, PreparedStatement ps)
+    {
+        try {
+            conn.close();
+            ps.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
+        }   
+    }
+    
+    private void closeConn(Connection conn, PreparedStatement ps, ResultSet rs)
+    {
+        try {
+            conn.close();
+            ps.close();
+            rs.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     //ADD START
     ///Add functions for sql
     ///Start function names with add_*
@@ -46,13 +67,12 @@ public class DB_Manager {
         ps.setString(item++, fabric_name);
         ps.executeUpdate();
         
-        conn.close();
-        ps.close();
+        this.closeConn(conn, ps);
+        
         return true;
         } catch (SQLException ex) {
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
         return false;
     }
     
@@ -77,7 +97,7 @@ public class DB_Manager {
         ps.setFloat(item++, new_screen_pigment.getPigment_percentage());
         ps.executeUpdate();
         
-        conn.close();
+        this.closeConn(conn, ps);
         return true;
         } catch (SQLException ex) {
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
@@ -87,6 +107,7 @@ public class DB_Manager {
     
     public int count_number_of_pigment()
     {
+        int total = -1;
         try {
             DBConnection db = new DBConnection();
             Connection conn = db.getConnection();
@@ -96,15 +117,12 @@ public class DB_Manager {
             ResultSet rs = ps.executeQuery();
             
             rs.first();
-            int total = rs.getInt("Total");
-            rs.close();
-            ps.close();
-            return total;
-            
+            total = rs.getInt("Total");
+            this.closeConn(conn, ps, rs);
         } catch (SQLException ex) {
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return -1;
+        return total;
     }
     
     public boolean add_pigment(colortextile_class.pigment this_pigment)
@@ -127,28 +145,7 @@ public class DB_Manager {
         return false;
     }
     
-    private void closeConn(Connection conn, PreparedStatement ps)
-    {
-        try {
-            conn.close();
-            ps.close();
-        } catch (SQLException ex) {
-            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-    }
     
-    private void closeConn(Connection conn, PreparedStatement ps, ResultSet rs)
-    {
-        try {
-            conn.close();
-            ps.close();
-            rs.close();
-        } catch (SQLException ex) {
-            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-    }
     public int check_if_customer_exists(String customer_name)
     {
         try {
@@ -1137,56 +1134,6 @@ public class DB_Manager {
         
     }
     
-    public List<purchase_order> get_all_purchase_details_from_date_and_design(String date, int des_code)
-    {
-        try
-        {
-            DBConnection db = new DBConnection();
-            Connection conn = db.getConnection(); 
-            
-            PreparedStatement ps = 
-                    conn.prepareStatement("SELECT jo.job_order_id, date, customer_id, id_purchase, quantity, design_code "
-                    + " FROM puchase_order AS po, "
-                    + "     job_order jo "
-                    + " WHERE jo.job_order_id = po.job_order_id"
-                    + " AND date = ? "
-                    + " AND design_code = ?");
-            
-            int item = 1;
-            ps.setString(item++, date);
-            ps.setInt(item++, des_code);
-            
-            ResultSet rs = ps.executeQuery();
-            
-            List<purchase_order> all_purchase_this_job = new ArrayList<purchase_order>();
-            
-            while(rs.next())
-            {
-                purchase_order this_purchase = new purchase_order();
-                
-                //FOR Debugging this all the purchase order
-                //System.out.println("Purchase id = "+ rs.getInt("id_purchase"));
-                //System.out.println("Job Order = "+ rs.getString("job_order_id"));
-                //System.out.println("Design code= "+ rs.getInt("design_code"));
-                //System.out.println("Quantity = " +rs.getInt("quantity"));
-                
-                this_purchase.setQuantity(rs.getInt("quantity"));
-                this_purchase.setDesign_code(rs.getInt("design_code"));
-                this_purchase.setJob_order_id(rs.getString("job_order_id"));
-                this_purchase.setId_purchase(rs.getInt("id_purchase"));
-                
-                all_purchase_this_job.add(this_purchase);
-            }
-            
-            return all_purchase_this_job;
-            
-        }
-        catch(SQLException ex)
-        {
-            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return null;
-    }
     
     
     public List<purchase_order> get_all_purchase_for_this_job_order(colortextile_class.job_order this_job_order)
@@ -1207,12 +1154,6 @@ public class DB_Manager {
             while(rs.next())
             {
                 purchase_order this_purchase = new purchase_order();
-                
-                //FOR Debugging this all the purchase order
-                //System.out.println("Purchase id = "+ rs.getInt("id_purchase"));
-                //System.out.println("Job Order = "+ rs.getString("job_order_id"));
-                //System.out.println("Design code= "+ rs.getInt("design_code"));
-                //System.out.println("Quantity = " +rs.getInt("quantity"));
                 
                 this_purchase.setQuantity(rs.getInt("quantity"));
                 this_purchase.setDesign_code(rs.getInt("design_code"));
@@ -1372,7 +1313,58 @@ public class DB_Manager {
         return null;
     }
     
-    public List<job_order> get_all_job_order_and_details_from_purchase_order(int design_code, int purchase_id)
+    public List<purchase_order> get_all_purchase_details_from_date_and_design(String date, int des_code)
+    {
+        try
+        {
+            DBConnection db = new DBConnection();
+            Connection conn = db.getConnection(); 
+            
+            PreparedStatement ps = 
+                    conn.prepareStatement("SELECT jo.job_order_id, date, customer_id, id_purchase, quantity, design_code "
+                    + " FROM puchase_order AS po, "
+                    + "     job_order jo "
+                    + " WHERE jo.job_order_id = po.job_order_id"
+                    + " AND date = ? "
+                    + " AND design_code = ?");
+            
+            int item = 1;
+            ps.setString(item++, date);
+            ps.setInt(item++, des_code);
+            
+            ResultSet rs = ps.executeQuery();
+            
+            List<purchase_order> all_purchase_this_job = new ArrayList<purchase_order>();
+            
+            while(rs.next())
+            {
+                purchase_order this_purchase = new purchase_order();
+                
+                //FOR Debugging this all the purchase order
+                //System.out.println("Purchase id = "+ rs.getInt("id_purchase"));
+                //System.out.println("Job Order = "+ rs.getString("job_order_id"));
+                //System.out.println("Design code= "+ rs.getInt("design_code"));
+                //System.out.println("Quantity = " +rs.getInt("quantity"));
+                
+                this_purchase.setQuantity(rs.getInt("quantity"));
+                this_purchase.setDesign_code(rs.getInt("design_code"));
+                this_purchase.setJob_order_id(rs.getString("job_order_id"));
+                this_purchase.setId_purchase(rs.getInt("id_purchase"));
+                
+                all_purchase_this_job.add(this_purchase);
+            }
+            
+            return all_purchase_this_job;
+            
+        }
+        catch(SQLException ex)
+        {
+            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+    
+    public List<job_order> get_all_job_order_and_details_from_design_and_purchase_id(int design_code, int purchase_id)
     {
         try
         {   
@@ -1380,10 +1372,10 @@ public class DB_Manager {
           Connection conn = db.getConnection();  
           
           List<job_order> all_job_this_purchase = new ArrayList<job_order>();
-            PreparedStatement ps = conn.prepareStatement("SELECT p.job_order_id, c.customer_id, date , customer_name "
+            PreparedStatement ps = conn.prepareStatement("SELECT p.job_order_id, customer_id, date , customer_name "
                                                         + "FROM color_textile.purchase_order p , job_order j, customer c "
                     + "WHERE j.job_order_id = p.job_order_id "
-                    + "AND c.customer_id = j.customer_id"
+                    + "AND c.id_customer = j.customer_id"
                     + "AND design_code = ? "
                     + "AND date = "
                             + "(SELECT date "
@@ -1399,8 +1391,8 @@ public class DB_Manager {
             while(rs.next())
             {
                 job_order this_order = new job_order();
-                this_order.setJob_id(rs.getString("p.job_order_id"));
-                this_order.setCustomer_id(rs.getInt("c.customer_id"));
+                this_order.setJob_id(rs.getString("job_order_id"));
+                this_order.setCustomer_id(rs.getInt("customer_id"));
                 this_order.setDate(rs.getString("date"));
                 this_order.setCustomer_name(rs.getString("customer_name"));
                 all_job_this_purchase.add(this_order);

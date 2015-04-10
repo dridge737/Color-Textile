@@ -25,8 +25,9 @@ public class production_recipe extends Design_and_colorway{
          super(design,color,fabric);
          this.Date = set_date;
      }
-     public void set_job_order_list_using_date_and_design_code()
-    {
+     
+     public void set_job_order_list_using_design_code_and_purchase_id()
+     {
         Database.DB_Manager new_conn = new Database.DB_Manager();
         //GET all the job_order_id from the Date and design_code
         //purchase_order = new_conn.get_all_purchase_details_from_date_and_design(Date, design_code);
@@ -34,16 +35,6 @@ public class production_recipe extends Design_and_colorway{
         //new_conn.get_all_job_order_from_date_and_design(Date, design_code);
         //Get the List of job order from the purchase order id
         //setJobs_for_this(new_conn.set_job_order_info_from_purchase_id(this.getId_purchase()));
-    }
-    
-    public void view_all_job_order_details(){
-        System.out.println("Size of this job is = "+jobs_for_this.size());
-        for(job_order all_jobs : jobs_for_this)
-        {
-            System.out.println("Job Order ID  : "+all_jobs.getJob_id());
-            System.out.println("Customer ID   : "+all_jobs.getCustomer_id());
-            System.out.println("Customer Name : "+all_jobs.getCustomer_name());
-        }
     }
     
     /**
@@ -124,6 +115,16 @@ public class production_recipe extends Design_and_colorway{
         }
      }
     
+    public void view_all_job_order_details(){
+        System.out.println("Size of this job is = "+jobs_for_this.size());
+        for(job_order all_jobs : jobs_for_this)
+        {
+            System.out.println("Job Order ID  : "+all_jobs.getJob_id());
+            System.out.println("Customer ID   : "+all_jobs.getCustomer_id());
+            System.out.println("Customer Name : "+all_jobs.getCustomer_name());
+        }
+    }
+    
     /***
      * Gets all the quantity in a string ex: 143 +153 +245 =
      * @return 
@@ -176,7 +177,5 @@ public class production_recipe extends Design_and_colorway{
         this.setDesign_details_from_des_code();
         this.add_all_colorway_from_design_code();
     }
-    
-    
     
 }
