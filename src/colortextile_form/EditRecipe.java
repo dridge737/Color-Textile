@@ -116,7 +116,7 @@ public class EditRecipe extends javax.swing.JFrame {
         
         //Fetch Details
         
-        set_all_colorways(prod_recipe.getAll_colorways());
+        set_all_textbox_colorways(prod_recipe.getAll_colorways());
         
         //Set details to Text boxes
         design_name.setText(prod_recipe.getDesign_name());
@@ -140,12 +140,11 @@ public class EditRecipe extends javax.swing.JFrame {
         }
     }
     
-    private void set_all_colorways(List<Colorway_screen_link_functions> this_color_and_screen)
+    private void set_all_textbox_colorways(List<Colorway_screen_link_functions> this_color_and_screen)
     {
-        System.out.println(this_color_and_screen.size());
+        //System.out.println(this_color_and_screen.size());
         for(int x = 0 ; x<this_color_and_screen.size();x++)
         {
-            
             List<colorway_and_screen> current_screen = this_color_and_screen.get(x).getThis_screens();
             
             if(x == 0)
@@ -188,7 +187,7 @@ public class EditRecipe extends javax.swing.JFrame {
                     }
                 }
             }
-            else if( x == 3)
+            else if( x == 2)
             {
                 setTextValues_colorway(colorway_name4,weigh_kg4, binder4, this_color_and_screen.get(x));
                 
@@ -202,7 +201,7 @@ public class EditRecipe extends javax.swing.JFrame {
                             setTextValues_screens(name11, percentage11, current_screen.get(temp_loop2));
                 }
             }
-            else if( x == 4)
+            else if( x == 3)
             {
                 setTextValues_colorway(colorway_name5,weigh_kg5, binder5, this_color_and_screen.get(x));
                 
@@ -216,7 +215,7 @@ public class EditRecipe extends javax.swing.JFrame {
                             setTextValues_screens(name15, percentage15, current_screen.get(temp_loop2));
                 }
             }
-            else if( x == 5)
+            else if( x == 4)
             {
                 setTextValues_colorway(colorway_name6,weigh_kg6, binder6, this_color_and_screen.get(x));
                 
@@ -231,7 +230,7 @@ public class EditRecipe extends javax.swing.JFrame {
                 }
             }
             
-            else if( x == 6)
+            else if( x == 5)
             {
                 setTextValues_colorway(colorway_name7,weigh_kg7, binder7, this_color_and_screen.get(x));
                 
@@ -245,7 +244,7 @@ public class EditRecipe extends javax.swing.JFrame {
                             setTextValues_screens(name23, percentage23, current_screen.get(temp_loop2));
                 }
             }
-            else if( x == 7)
+            else if( x == 6)
             {
                 setTextValues_colorway(colorway_name8,weigh_kg9, binder9, this_color_and_screen.get(x));
                 

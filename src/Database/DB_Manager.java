@@ -535,12 +535,14 @@ public class DB_Manager {
             while(rs.next())
             {
                 Colorway_screen_link_functions current_colorway = new Colorway_screen_link_functions();
+                
                 current_colorway.setBinder(rs.getFloat("binder"));
                 current_colorway.setColorway_name(rs.getString("colorway_name"));
                 current_colorway.setWeight_kg(rs.getFloat("weight_kg"));
                 current_colorway.setId_colorway(rs.getInt("id_colorway"));
                 current_colorway.setDesign_code(this_design_code);
                 all_color_screen.add(current_colorway);
+                //System.out.println(rs.getString("colorway_name"));
             }
             
             this.closeConn(conn, ps, rs);

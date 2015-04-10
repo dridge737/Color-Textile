@@ -37,7 +37,7 @@ public class Design_and_colorway extends design {
          Database.DB_Manager new_conn = new Database.DB_Manager();
          //Subclass
          this.setAll_colorways(new_conn.set_all_colorway_from_design_code(this.getDesign_code()));
-         
+         //System.out.println(this.all_colorways.size());
          for(int x = 0; x < getAll_colorways().size(); x++ )
          {
              //Subclass
