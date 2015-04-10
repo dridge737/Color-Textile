@@ -1678,7 +1678,7 @@ public class DB_Manager {
           
           System.out.println(sql);
           
-          if (sql == "SELECT * FROM colorway WHERE")
+          if (increment == 0)
           {
               System.out.print("nothing to be searched");
               return null;
@@ -1724,7 +1724,7 @@ public class DB_Manager {
           
           System.out.println(sql);
           
-          if (sql == "SELECT * FROM colorway_screen_connect WHERE")
+          if (increment == 0)
           {
               System.out.print("nothing to be searched");
               return null;
@@ -1800,7 +1800,7 @@ public class DB_Manager {
           
           System.out.println(sql);
           
-          if (sql == "SELECT * FROM purchase_order WHERE")
+          if (increment == 0)
           {
               System.out.print("nothing to be searched");
               return null;
@@ -1864,7 +1864,7 @@ public class DB_Manager {
           
           System.out.println(sql);
           
-          if (sql == "SELECT * FROM job_order WHERE")
+          if (increment == 0)
           {
               System.out.print("nothing to be searched");
               return null;

@@ -105,6 +105,9 @@ public class SearchJOGui extends javax.swing.JFrame {
                     info.setDesign_code(-1);
                     ResultSet rs2 = info.Search_purchase_info();
                
+                    
+                    // rs == job_order database
+                    // rs2 == purchase_order database
                     if(rs2.first())
                     {
                         rs2.previous();
@@ -131,10 +134,10 @@ public class SearchJOGui extends javax.swing.JFrame {
                             } else {
                                 String[] set1 = {
                                     Integer.toString(rs2.getInt("id_purchase")),
-                                    rs.getString("job_order_id"), 
+                                    rs2.getString("job_order_id"), 
                                     conn.get_customer_name(rs.getInt("customer_id")),
-                                    rs2.getString("date"),
-                                    rs.getString("quantity")
+                                    rs.getString("date"),
+                                    rs2.getString("quantity")
                                     };
                                 model.addRow(set1);
                             }
