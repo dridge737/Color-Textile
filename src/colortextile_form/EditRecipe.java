@@ -60,8 +60,9 @@ public class EditRecipe extends javax.swing.JFrame {
     {
         initComponents();
         initialize();
-        set_design_details_from_purchase_order(purchase_order_id);
-        
+        this.set_design_details_from_first_purchase_order();
+        this.set_id_purchase_details(purchase_order_id);
+        this.set_design_and_colorway_textbox_details();
     }
     
     private void initialize()
@@ -99,7 +100,7 @@ public class EditRecipe extends javax.swing.JFrame {
         //set_job_list(all_jobs);
     }
     
-    private void set_design_details_from_purchase_order(int purchase_order_id)
+    private void set_id_purchase_details(int purchase_order_id)
     {
         // USING GLOBAL VARIABLE
         //production_recipe this_purchase = new production_recipe();
@@ -108,14 +109,21 @@ public class EditRecipe extends javax.swing.JFrame {
         this_purchase.setId_purchase(purchase_order_id);
         this_purchase.set_this_Purchase_details_from_purchase_id();
         prod_recipe.add_purchase(this_purchase);
-        prod_recipe.setDesign_code(this_purchase.getDesign_code());
-        prod_recipe.setDesign_details_from_des_code();
+        
+    }
+    private void set_design_details_from_first_purchase_order()
+    {
         //Design_colorway_link_functions get_des_details = this_purchase.getNew_des_col_link();
+        prod_recipe.setDesign_code(prod_recipe.getAll_purchase().get(0).getDesign_code());
+        prod_recipe.setDesign_details_from_des_code();
+        
         prod_recipe.set_all_colorway_from_design_code();
         //prod_recipe.set_job_order_list_using_purchase_order_id();
         
-        //Fetch Details
-        
+    }
+    
+    public void set_design_and_colorway_textbox_details()
+    {
         set_all_textbox_colorways(prod_recipe.getAll_colorways());
         
         //Set details to Text boxes
@@ -123,9 +131,6 @@ public class EditRecipe extends javax.swing.JFrame {
         //design_code.setText(get_des_details.getDesign_code());
         fabric_style.setText(prod_recipe.getFabric_style());
         design_color.setText(prod_recipe.getColor_name());
-        
-        //new_job.getJob_id();
-        
     }
     
     

@@ -80,12 +80,6 @@ public class purchase_order {
         this.quantity = quantity;
     }
     
-    public ResultSet get_purchase_info_from_id_purchase(int purchase_id){
-        DB_Manager new_conn = new DB_Manager();
-        this.setId_purchase(purchase_id);
-       return new_conn.get_single_purchase_info_from_id_purchase(this);
-    }
-    
     public ResultSet Search_purchase_info(){
         DB_Manager new_conn = new DB_Manager();
        return new_conn.Search_id_purchase(this);

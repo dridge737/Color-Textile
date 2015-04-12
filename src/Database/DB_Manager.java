@@ -1136,8 +1136,6 @@ public class DB_Manager {
         
     }
     
-    
-    
     public List<purchase_order> get_all_purchase_for_this_job_order(colortextile_class.job_order this_job_order)
     {
         try{
@@ -1196,27 +1194,6 @@ public class DB_Manager {
 
         return null;
         
-    }
-    
-    public ResultSet get_single_purchase_info_from_id_purchase(colortextile_class.purchase_order purchase_id){
-        try {
-            DBConnection db = new DBConnection();
-            Connection conn = db.getConnection();  
-          
-            PreparedStatement ps = conn.prepareStatement("SELECT * FROM purchase_order WHERE id_purchase = ?");
-            
-            int item = 1;
-            ps.setInt(item++, purchase_id.getId_purchase());
-            
-            ResultSet rs = ps.executeQuery();
-            System.out.println(ps + "found");
-            return rs;
-        }
-        catch (SQLException ex)
-        {
-            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return null;
     }
     
     public colortextile_class.job_order get_job_order_details(String job_order_id)
@@ -1507,6 +1484,27 @@ public class DB_Manager {
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
         }
         return id_purchase;
+    }
+    
+    public ResultSet get_single_purchase_info_from_id_purchase(colortextile_class.purchase_order purchase_id){
+        try {
+            DBConnection db = new DBConnection();
+            Connection conn = db.getConnection();  
+          
+            PreparedStatement ps = conn.prepareStatement("SELECT * FROM purchase_order WHERE id_purchase = ?");
+            
+            int item = 1;
+            ps.setInt(item++, purchase_id.getId_purchase());
+            
+            ResultSet rs = ps.executeQuery();
+            System.out.println(ps + "found");
+            return rs;
+        }
+        catch (SQLException ex)
+        {
+            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
     }
     
     public purchase_order get_purchase_details(int purchase_id)
