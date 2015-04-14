@@ -47,6 +47,8 @@ public class production_recipe extends Design_and_colorway{
              purchase_order current_purchase = new purchase_order();
              current_purchase.setJob_order_id(this_job_order.getJob_id());
              current_purchase.setDesign_code(this.getDesign_code());
+             current_purchase.set_this_purchase_details_from_job_order_and_design_code();
+             all_purchase.add(current_purchase);
          }
          
      }

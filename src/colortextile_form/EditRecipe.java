@@ -85,7 +85,7 @@ public class EditRecipe extends javax.swing.JFrame {
         }
     }
     
-    private void set_purchase_details(int purchase_order_id)
+    private void set_textbox_purchase_details(int purchase_order_id)
     {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         /*

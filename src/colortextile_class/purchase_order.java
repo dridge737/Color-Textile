@@ -104,5 +104,13 @@ public class purchase_order {
         this.job_order_id = temp_purchase.getJob_order_id();
         this.quantity = temp_purchase.getQuantity();
     }
+    
+    public void set_this_purchase_details_from_job_order_and_design_code()
+    {
+        Database.DB_Manager new_conn = new Database.DB_Manager();
+        purchase_order temp_purchase = new_conn.get_purchase_details_from_job_order_and_design_code(job_order_id, design_code);
+        this.id_purchase = temp_purchase.getId_purchase();
+        this.quantity = temp_purchase.getQuantity();
+    }
 
 }

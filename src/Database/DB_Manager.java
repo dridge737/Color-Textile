@@ -1507,6 +1507,44 @@ public class DB_Manager {
         return null;
     }
     
+    public purchase_order get_purchase_details_from_job_order_and_design_code(String id_job_order, int design_code )
+    {
+        purchase_order current_purchase = new purchase_order();
+        try
+         {
+            DBConnection db = new DBConnection();
+            Connection conn = db.getConnection();
+         
+            PreparedStatement ps = 
+            conn.prepareStatement("SELECT *"
+                                 + " FROM purchase_order "
+                                 + " WHERE job_order_id = ? "
+                                 + " AND design_code = ?");
+            
+            int item = 1;
+            ps.setString(item++, id_job_order);
+            ps.setInt(item++, design_code);
+            /* 
+            System.out.println("Date :" +new_purchase.getDate());
+            System.out.println("Colorway Id :"  new_purchase.getDesign_code);
+            */
+            ResultSet rs = ps.executeQuery();
+            if(rs.first())
+            {
+                current_purchase.setQuantity(rs.getInt("quantity"));
+                current_purchase.setDesign_code(rs.getInt("design_code"));
+                current_purchase.setJob_order_id(rs.getString("job_order_id"));
+                current_purchase.setId_purchase(rs.getInt("id_purchase"));
+            }
+            this.closeConn(conn, ps, rs);
+        }
+        catch(SQLException ex){
+            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         
+         return current_purchase;
+    }
+    
     public purchase_order get_purchase_details(int purchase_id)
     {
         purchase_order current_purchase = new purchase_order();
