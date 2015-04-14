@@ -60,8 +60,8 @@ public class EditRecipe extends javax.swing.JFrame {
     {
         initComponents();
         initialize();
-        this.set_design_details_from_first_purchase_order();
         this.set_id_purchase_details(purchase_order_id);
+        this.set_design_details_from_first_purchase_order();
         this.set_design_and_colorway_textbox_details();
     }
     
@@ -111,15 +111,32 @@ public class EditRecipe extends javax.swing.JFrame {
         prod_recipe.add_purchase(this_purchase);
         
     }
+    
+    private void set_all_jobs_from_purchase_order()
+    {
+        prod_recipe.set_job_order_list_using_design_code_and_purchase_id();
+    }
     private void set_design_details_from_first_purchase_order()
     {
         //Design_colorway_link_functions get_des_details = this_purchase.getNew_des_col_link();
-        prod_recipe.setDesign_code(prod_recipe.getAll_purchase().get(0).getDesign_code());
-        prod_recipe.setDesign_details_from_des_code();
+        if(prod_recipe.getAll_purchase().size() >0)
+        {
+            prod_recipe.setDesign_code(prod_recipe.getAll_purchase().get(0).getDesign_code());
+            prod_recipe.setDesign_details_from_des_code();
+            prod_recipe.set_all_colorway_from_design_code();
+        }
         
-        prod_recipe.set_all_colorway_from_design_code();
-        //prod_recipe.set_job_order_list_using_purchase_order_id();
-        
+    }
+    
+    private void set_job_list(List<job_order> all_jobs)
+    {
+        for(job_order set_the_job : all_jobs)
+        {
+            customer_list.add(set_the_job.getCustomer_name());
+            job_list.add(set_the_job.getJob_id());
+            //quantity_list.add(set_the_job.getQuantity());
+            fill_list();
+        }
     }
     
     public void set_design_and_colorway_textbox_details()
@@ -131,18 +148,6 @@ public class EditRecipe extends javax.swing.JFrame {
         //design_code.setText(get_des_details.getDesign_code());
         fabric_style.setText(prod_recipe.getFabric_style());
         design_color.setText(prod_recipe.getColor_name());
-    }
-    
-    
-    private void set_job_list(List<job_order> all_jobs)
-    {
-        for(job_order set_the_job : all_jobs)
-        {
-            customer_list.add(set_the_job.getCustomer_name());
-            job_list.add(set_the_job.getJob_id());
-            //quantity_list.add(set_the_job.getQuantity());
-            fill_list();
-        }
     }
     
     private void set_all_textbox_colorways(List<Colorway_screen_link_functions> this_color_and_screen)
