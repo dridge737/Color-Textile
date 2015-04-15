@@ -1352,12 +1352,11 @@ public class DB_Manager {
           
           List<job_order> all_job_this_purchase = new ArrayList<job_order>();
             PreparedStatement ps = conn.prepareStatement("SELECT p.job_order_id, customer_id, date , customer_name "
-                                                        + "FROM color_textile.purchase_order p , job_order j, customer c "
-                    + "WHERE j.job_order_id = p.job_order_id "
-                    + "AND c.id_customer = j.customer_id"
-                    + "AND design_code = ? "
-                    + "AND date = "
-                            + "(SELECT date "
+                                                        + "FROM purchase_order p , job_order j, customer c "
+                    + " WHERE j.job_order_id = p.job_order_id "
+                    + " AND c.id_customer = j.customer_id "
+                    + " AND design_code = ? "
+                    + " AND date = (SELECT j2.date "
                             + "FROM purchase_order p2, job_order j2 "
                             + "WHERE id_purchase = ? "
                             + "AND j2.job_order_id = p2.job_order_id)");

@@ -88,7 +88,7 @@ public class EditRecipe extends javax.swing.JFrame {
     private void set_purchase_details()
     {
         prod_recipe.set_job_order_list_using_design_code_and_purchase_id();
-        prod_recipe.set_purchase_order_list_from_job_list();
+        //prod_recipe.set_purchase_order_list_from_job_list();
     }
     
     private void set_textbox_purchase_details(int purchase_order_id)
