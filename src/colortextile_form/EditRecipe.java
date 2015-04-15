@@ -88,7 +88,8 @@ public class EditRecipe extends javax.swing.JFrame {
     private void set_purchase_details()
     {
         prod_recipe.set_job_order_list_using_design_code_and_purchase_id();
-        //prod_recipe.set_purchase_order_list_from_job_list();
+        prod_recipe.set_purchase_order_list_from_job_list();
+        this.set_purchase_and_job_list_textbox();
     }
     
     private void set_textbox_purchase_details(int purchase_order_id)
@@ -127,7 +128,7 @@ public class EditRecipe extends javax.swing.JFrame {
         }
     }
     
-    private void set_purchase_and_job_list()
+    private void set_purchase_and_job_list_textbox()
     {
         int list;
         if(prod_recipe.getAll_purchase().size() < prod_recipe.getJobs_for_this().size())
@@ -141,10 +142,8 @@ public class EditRecipe extends javax.swing.JFrame {
                     prod_recipe.getJobs_for_this().get(interval).getCustomer_name(), 
                     prod_recipe.getJobs_for_this().get(interval).getJob_id(), 
                     Integer.toString(prod_recipe.getAll_purchase().get(interval).getQuantity()));
-            
-
-            fill_list();
         }
+        this.jList1.setModel(this_list.get_items_in_list());
     }
     
     public void set_design_and_colorway_textbox_details()
@@ -2831,9 +2830,9 @@ public class EditRecipe extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_coverage7KeyReleased
-    
-    private void fill_list(){
     /*
+    private void fill_list(){
+    
         int x=0;
         int total =0;
         list.removeAllElements();
@@ -2850,8 +2849,8 @@ public class EditRecipe extends javax.swing.JFrame {
         this.jList1.setModel(list);
         this.quantity_total.setText(null);
         this.quantity_total.setText(total + "");
-        */
-    }
+        
+    }*/
     private void include(String customer_name){
         
         String job_order = this.job_ord_label.getText() + this.text_job_order.getText();
@@ -2950,7 +2949,7 @@ public class EditRecipe extends javax.swing.JFrame {
                 current_job.delete_job_order_from_job_id();
                 this.this_list.remove_this_item(selected);
                 
-                fill_list();
+                this.jList1.setModel(this_list.get_items_in_list());
             }
         }
     }//GEN-LAST:event_button_remove_customerActionPerformed
