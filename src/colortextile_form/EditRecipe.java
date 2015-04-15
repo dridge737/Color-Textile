@@ -47,7 +47,6 @@ public class EditRecipe extends javax.swing.JFrame {
     
     private Recipe_functions use_func = new Recipe_functions();
     private job_customer_quantity_list this_list = new job_customer_quantity_list();
-    
     /**
      * Creates new form Add_new_design
      */
@@ -60,9 +59,10 @@ public class EditRecipe extends javax.swing.JFrame {
     {
         initComponents();
         initialize();
-        this.set_id_purchase_details(purchase_order_id);
+        this.set_purchase_details_from_id(purchase_order_id);
         this.set_design_details_from_first_purchase_order();
         this.set_design_and_colorway_textbox_details();
+        this.set_purchase_details();
     }
     
     private void initialize()
@@ -85,6 +85,12 @@ public class EditRecipe extends javax.swing.JFrame {
         }
     }
     
+    private void set_purchase_details()
+    {
+        prod_recipe.set_job_order_list_using_design_code_and_purchase_id();
+        prod_recipe.set_purchase_order_list_from_job_list();
+    }
+    
     private void set_textbox_purchase_details(int purchase_order_id)
     {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
@@ -100,7 +106,7 @@ public class EditRecipe extends javax.swing.JFrame {
         //set_job_list(all_jobs);
     }
     
-    private void set_id_purchase_details(int purchase_order_id)
+    private void set_purchase_details_from_id(int purchase_order_id)
     {
         // USING GLOBAL VARIABLE
         //production_recipe this_purchase = new production_recipe();
@@ -109,32 +115,34 @@ public class EditRecipe extends javax.swing.JFrame {
         this_purchase.setId_purchase(purchase_order_id);
         this_purchase.set_this_Purchase_details_from_purchase_id();
         prod_recipe.add_purchase(this_purchase);
-        
     }
     
-    private void set_all_jobs_from_purchase_order()
-    {
-        prod_recipe.set_job_order_list_using_design_code_and_purchase_id();
-    }
     private void set_design_details_from_first_purchase_order()
     {
-        //Design_colorway_link_functions get_des_details = this_purchase.getNew_des_col_link();
         if(prod_recipe.getAll_purchase().size() >0)
         {
             prod_recipe.setDesign_code(prod_recipe.getAll_purchase().get(0).getDesign_code());
             prod_recipe.setDesign_details_from_des_code();
             prod_recipe.set_all_colorway_from_design_code();
         }
-        
     }
     
-    private void set_job_list(List<job_order> all_jobs)
+    private void set_purchase_and_job_list()
     {
-        for(job_order set_the_job : all_jobs)
+        int list;
+        if(prod_recipe.getAll_purchase().size() < prod_recipe.getJobs_for_this().size())
+            list = prod_recipe.getAll_purchase().size();
+        else
+            list = prod_recipe.getJobs_for_this().size();
+        
+        for(int interval = 0; interval < list; interval++)
         {
-            customer_list.add(set_the_job.getCustomer_name());
-            job_list.add(set_the_job.getJob_id());
-            //quantity_list.add(set_the_job.getQuantity());
+            this_list.add_customer_job_quantity_in_list(
+                    prod_recipe.getJobs_for_this().get(interval).getCustomer_name(), 
+                    prod_recipe.getJobs_for_this().get(interval).getJob_id(), 
+                    Integer.toString(prod_recipe.getAll_purchase().get(interval).getQuantity()));
+            
+
             fill_list();
         }
     }
@@ -2253,23 +2261,28 @@ public class EditRecipe extends javax.swing.JFrame {
        
         
     }
-    private void add_job(int id_purchase){
-         
+    private void add_job(int id_purchase)
+    {
+        /*
+        for (int i = 0; i < job_list.size(); i++)
+        {
+            job_order job = new job_order();
+            DB_Manager new_conn = new DB_Manager();
             
-                for (int i = 0; i < job_list.size(); i++) {
-                       job_order job = new job_order();
-                       DB_Manager new_conn = new DB_Manager();
-                       
-                       job.setCustomer_id(new_conn.get_id_customer(this.customer_list.get(i).toString()));
-                       //job.setQuantity(Integer.parseInt(this.quantity_list.get(i).toString()));
-                       job.setJob_id(this.job_list.get(i).toString());
-                       //job.setId_purchase(id_purchase);
-                       
-                job.add_new_job_order();
-                    
-                }
-                      
+            job.setCustomer_id(new_conn.get_id_customer(this.customer_list.get(i).toString()));
+            //job.setQuantity(Integer.parseInt(this.quantity_list.get(i).toString()));
+            job.setJob_id(this.job_list.get(i).toString());
+            //job.setId_purchase(id_purchase);
+
+            job.add_new_job_order();
         }
+        */
+        List<job_order> all_jobs = get_job_details();
+        for(int x = 0; x < all_jobs.size() ; x++ )
+        {
+            all_jobs.get(x).add_new_job_order();
+        }
+    }
     
     
     private void fill_customer_list()
@@ -2818,13 +2831,9 @@ public class EditRecipe extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_coverage7KeyReleased
-   
-    DefaultListModel list = new DefaultListModel();
-    ArrayList quantity_list = new ArrayList( );
-    ArrayList job_list = new ArrayList( );
-    ArrayList customer_list = new ArrayList( );
     
     private void fill_list(){
+    /*
         int x=0;
         int total =0;
         list.removeAllElements();
@@ -2841,9 +2850,34 @@ public class EditRecipe extends javax.swing.JFrame {
         this.jList1.setModel(list);
         this.quantity_total.setText(null);
         this.quantity_total.setText(total + "");
+        */
     }
     private void include(String customer_name){
         
+        String job_order = this.job_ord_label.getText() + this.text_job_order.getText();
+        if(this.customer_check_box.isSelected())
+        {
+            customer custom = new customer();       
+            custom.setCustomer_name(this.customer_name_text.getText());
+            custom.add_new_customer();
+            this_list.add_customer_job_quantity_in_list(customer_name_text.getText(), 
+                                                        job_order, 
+                                                        quantity.getText());
+            //customer_list.add(this.customer_name_text.getText());
+        }
+        else
+        {
+            this_list.add_customer_job_quantity_in_list(customer_combo_list.getSelectedItem().toString(), 
+                    job_order, 
+                    quantity.getText());
+        }
+        //job_list.add(this.job_ord_label.getText() + this.text_job_order.getText());
+        //quantity_list.add(this.quantity.getText());
+        //refresh Textbox to add items
+        this.jList1.setModel(this_list.get_items_in_list());
+        this.quantity_total.setText(Integer.toString(this_list.get_quantity_total()));
+        
+        /*
         if (this.quantity.getText().trim().equals("")){
             JOptionPane.showMessageDialog(null,"Please Enter a quantity!");
         } else {
@@ -2852,7 +2886,7 @@ public class EditRecipe extends javax.swing.JFrame {
         quantity_list.add(this.quantity.getText());
                 
         fill_list();
-        }
+        }*/
     }
     
     private void button_include_customerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_include_customerActionPerformed
@@ -2900,26 +2934,25 @@ public class EditRecipe extends javax.swing.JFrame {
     
     private void button_remove_customerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_remove_customerActionPerformed
         // TODO add your handling code here:
-        
-        String a = this.jList1.getSelectedValue().toString();
-        int selected = this.jList1.getSelectedIndex();
-        
-         int reply = JOptionPane.showConfirmDialog(null, 
-                            "Delete job order :"+this.job_list.get(selected).toString() + "from this design?", 
+        if(jList1.getSelectedIndex() != -1)
+        {
+            int selected = this.jList1.getSelectedIndex();
+            int reply = JOptionPane.showConfirmDialog(null, 
+                            "Delete job order :"+this.this_list.getJob_list().get(selected).toString() + "from this design?", 
                             "DELETE?", JOptionPane.YES_NO_OPTION);
         //JOptionPane.showMessageDialog(null,a);
         //JOptionPane.showMessageDialog(null,selected);
-         if(reply == JOptionPane.YES_OPTION)
-         {
-              job_order current_job = new job_order();
-              current_job.setJob_id(this.job_list.get(selected).toString());
-              current_job.delete_job_order_from_job_id();
-              this.customer_list.remove(selected);
-              this.job_list.remove(selected);
-              this.quantity_list.remove(selected);
-              fill_list();
-         }
-      
+
+            if(reply == JOptionPane.YES_OPTION)
+            {
+                job_order current_job = new job_order();
+                current_job.setJob_id(this.this_list.getJob_list().get(selected).toString());
+                current_job.delete_job_order_from_job_id();
+                this.this_list.remove_this_item(selected);
+                
+                fill_list();
+            }
+        }
     }//GEN-LAST:event_button_remove_customerActionPerformed
 
     private String getFabricStyle()

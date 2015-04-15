@@ -32,14 +32,14 @@ public class production_recipe extends Design_and_colorway{
         //GET all the job_order_id from the Date and design_code
         if(all_purchase.size() > 0)
         {
-            jobs_for_this = new_conn.get_all_job_order_and_details_from_design_and_purchase_id(this.getDesign_code(), all_purchase.get(0).getId_purchase());
+            jobs_for_this = new_conn.get_all_job_order_and_details_from_design_and_purchase_id(all_purchase.get(0).getDesign_code(), all_purchase.get(0).getId_purchase());
             //new_conn.get_all_job_order_from_date_and_design(Date, design_code);
             //Get the List of job order from the purchase order id
             //setJobs_for_this(new_conn.set_job_order_info_from_purchase_id(this.getId_purchase()));
         }
     }
      
-     public void set_purchase_order_list_from_job_order_id()
+     public void set_purchase_order_list_from_job_list()
      {
          this.all_purchase.clear();
          for(job_order this_job_order : jobs_for_this)
@@ -50,16 +50,7 @@ public class production_recipe extends Design_and_colorway{
              current_purchase.set_this_purchase_details_from_job_order_and_design_code();
              all_purchase.add(current_purchase);
          }
-         
      }
-     
-    public void get_purchase_order_list_using_job_id()
-    {
-        for(job_order this_job : jobs_for_this)
-        {
-            this_job.getJob_id();
-        }
-    }
      
     /**
      * @return the jobs_for_this
