@@ -155,7 +155,6 @@ public class EditRecipe extends javax.swing.JFrame {
     
     private void set_all_textbox_colorways(List<Colorway_screen_link_functions> this_color_and_screen)
     {
-        //System.out.println(this_color_and_screen.size());
         for(int x = 0 ; x<this_color_and_screen.size();x++)
         {
             List<colorway_and_screen> current_screen = this_color_and_screen.get(x).getThis_screens();
@@ -2278,10 +2277,6 @@ public class EditRecipe extends javax.swing.JFrame {
                 
         purchase_order purchase = new purchase_order();
 
-        //purchase.setDate(spinnerValue);
-        //purchase.setDesign_code(this.design_code.getText());
-        
-        
         Boolean test1 = purchase.add_new_purchase();
         if (test1 == true){
             JOptionPane.showMessageDialog(null,"purchase added");
@@ -2289,12 +2284,8 @@ public class EditRecipe extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,"purchase failed");
         }
         
-        //add_job(purchase.getPurchase_Id_Last());
-        
             JOptionPane.showMessageDialog(null,purchase.getPurchase_Id_Last());
-        
-       
-        
+            
     }
     private void add_job(int id_purchase)
     {
@@ -2436,7 +2427,6 @@ public class EditRecipe extends javax.swing.JFrame {
     
     private void save_edit_butActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_save_edit_butActionPerformed
         // TODO add your handling code here:
-        // Winston codes start
        
         if (this.jList1.getModel().getSize() == 0)
         {
@@ -2444,17 +2434,10 @@ public class EditRecipe extends javax.swing.JFrame {
         } else {
             
             add_purchase();
-            
         }
-        // Winston codes end
         
         update_this_design();
-/*        List<Colorway_screen_link_functions> all_col_scr = this_purchase.getNew_des_col_link().getAll_colorways();
-        for(int x = 0; x<all_col_scr.size(); x++)
-        {
-            //all_col_scr.get(x).getId_colorway()
-        }
-*/        
+        
         int colorway_id = add_this_colorway(colorway_name2.getText(), 
                              Float.parseFloat(binder8.getSelectedItem().toString()),
                              weigh_kg8.getText());
@@ -2469,16 +2452,11 @@ public class EditRecipe extends javax.swing.JFrame {
             
             add_screen_and_color_screen(name3.getSelectedItem().toString(),
                                       percentage3.getText(), colorway_id );
-            
-             //add_this_design_and_colorway(design_code.getText(), colorway_id);
-            
         }
         
         int colorway_id2 = add_this_colorway(colorway_name3.getText(), 
                              Float.parseFloat(binder3.getSelectedItem().toString()),
                              weigh_kg3.getText());
-        
-        
         
         if(colorway_id2 != -1 )
         {
@@ -2490,10 +2468,6 @@ public class EditRecipe extends javax.swing.JFrame {
             
             add_screen_and_color_screen(name7.getSelectedItem().toString(),
                                       percentage7.getText(), colorway_id2 );
-            
-            
-            //add_this_design_and_colorway(design_code.getText(), colorway_id2);
-            
         }
         colorway_id = add_this_colorway(colorway_name4.getText(), 
                              Float.parseFloat(binder4.getSelectedItem().toString()),
@@ -2525,15 +2499,11 @@ public class EditRecipe extends javax.swing.JFrame {
             
             add_screen_and_color_screen(name15.getSelectedItem().toString(),
                                       percentage15.getText(), colorway_id2 );
-            
-            //add_this_design_and_colorway(design_code.getText(), colorway_id2);
         }
         
         colorway_id = add_this_colorway(colorway_name6.getText(), 
                              Float.parseFloat(binder6.getSelectedItem().toString()),
                              weigh_kg6.getText());
-        
-        //add_this_design_and_colorway(design_code.getText(), colorway_id);
         
         if(colorway_id != -1 )
         {
@@ -2562,11 +2532,9 @@ public class EditRecipe extends javax.swing.JFrame {
             
             add_screen_and_color_screen(name23.getSelectedItem().toString(),
                                       percentage23.getText(), colorway_id2 );
-                            
-            //add_this_design_and_colorway(design_code.getText(), colorway_id2);
+            
         }
-        
-        JOptionPane.showMessageDialog(null,"Successfully Added this Recipe");
+        JOptionPane.showMessageDialog(null,"Successfully Edited this Recipe");
          
     }//GEN-LAST:event_save_edit_butActionPerformed
     
