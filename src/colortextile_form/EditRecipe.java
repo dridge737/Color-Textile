@@ -2363,13 +2363,13 @@ public class EditRecipe extends javax.swing.JFrame {
                 float weight_kg = Float.parseFloat(temp_weight_kg);
                 if(prod_recipe.getAll_colorways().size()> colorway_num)
                 {
-                prod_recipe.getAll_colorways().get(colorway_num).setColorway_name(colorway_name);
-                prod_recipe.getAll_colorways().get(colorway_num).setBinder(binder_percent);
-                prod_recipe.getAll_colorways().get(colorway_num).setWeight_kg(weight_kg);
-                // new_colorway.add_new_colorway();
-                //new_colorway.set_id_colorway_from_variables();
-                prod_recipe.getAll_colorways().get(colorway_num).update_this_colorway();
-                //return new_colorway.getId_colorway();
+                    prod_recipe.getAll_colorways().get(colorway_num).setColorway_name(colorway_name);
+                    prod_recipe.getAll_colorways().get(colorway_num).setBinder(binder_percent);
+                    prod_recipe.getAll_colorways().get(colorway_num).setWeight_kg(weight_kg);
+                    // new_colorway.add_new_colorway();
+                    //new_colorway.set_id_colorway_from_variables();
+                    prod_recipe.getAll_colorways().get(colorway_num).update_this_colorway();
+                    return prod_recipe.getAll_colorways().get(colorway_num).getId_colorway();
                 }
                 else
                 {
@@ -2377,8 +2377,13 @@ public class EditRecipe extends javax.swing.JFrame {
                     this_color_screen.setColorway_name(colorway_name);
                     this_color_screen.setBinder(binder_percent);
                     this_color_screen.setWeight_kg(weight_kg);
+                    
+                    if(this_color_screen.add_new_colorway())
+                    {
+                        prod_recipe.add_colorway(this_color_screen);
+                        return this_color_screen.getId_colorway();
+                    }
                 }
-                return 1;
             }
         }
         return -1;
