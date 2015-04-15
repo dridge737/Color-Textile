@@ -2098,7 +2098,7 @@ public class Add_new_design extends javax.swing.JFrame {
         return pigment.getPigment_name();
     }
     
-    private void setTextValues_screens(JComboBox pigment_name, JTextField percentage, colorway_and_screen screen_p)
+    private void setTextValues_screens(JComboBox pigment_name, JTextField percentage, Pigment_screen_and_colorway screen_p)
     {
         pigment_name.setSelectedItem(screen_p.getPigment_name());
         percentage.setText(Float.toString(screen_p.getPigment_percentage()));
@@ -2116,7 +2116,7 @@ public class Add_new_design extends javax.swing.JFrame {
         //System.out.println(this_color_and_screen.size());
         for(int x = 0 ; x<this_color_and_screen.size(); x++)
         {
-            List<colorway_and_screen> current_screen = this_color_and_screen.get(x).getThis_screens();
+            List<Pigment_screen_and_colorway> current_screen = this_color_and_screen.get(x).getThis_screens();
             
             if(x == 0)
             {
@@ -2257,7 +2257,7 @@ public class Add_new_design extends javax.swing.JFrame {
             // get colorway result set form design code
             ResultSet rs_colorway = color.Search_colorway();
             
-            colorway_and_screen screen = new colorway_and_screen();
+            Pigment_screen_and_colorway screen = new Pigment_screen_and_colorway();
             
             //fill textboxes  +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
             
@@ -2574,7 +2574,7 @@ public class Add_new_design extends javax.swing.JFrame {
         if(id_pigment != -1 && id_colorway != -1 && !pigment_percentage.isEmpty())
         {
             float pigment_percent = Float.parseFloat(pigment_percentage);
-            colortextile_class.colorway_and_screen new_c_and_s = new colortextile_class.colorway_and_screen();
+            colortextile_class.Pigment_screen_and_colorway new_c_and_s = new colortextile_class.Pigment_screen_and_colorway();
             new_c_and_s.setId_colorway(id_colorway);
             new_c_and_s.setPigment_no(id_pigment);
             new_c_and_s.setPigment_percentage(pigment_percent);
@@ -2730,13 +2730,13 @@ public class Add_new_design extends javax.swing.JFrame {
         return all_colorway;
     }
     
-    private colorway_and_screen get_colorway_details_from_input(JComboBox pigment_text, JTextField percentageText )
+    private Pigment_screen_and_colorway get_colorway_details_from_input(JComboBox pigment_text, JTextField percentageText )
     {
-        colorway_and_screen this_colorway;
+        Pigment_screen_and_colorway this_colorway;
         if(!use_func.checkText2(percentageText.getText()))
-        this_colorway = new colorway_and_screen(pigment_text.getSelectedItem().toString(), Float.parseFloat(percentageText.getText()));
+        this_colorway = new Pigment_screen_and_colorway(pigment_text.getSelectedItem().toString(), Float.parseFloat(percentageText.getText()));
         else
-        this_colorway = new colorway_and_screen(pigment_text.getSelectedItem().toString());
+        this_colorway = new Pigment_screen_and_colorway(pigment_text.getSelectedItem().toString());
         
         return this_colorway;
     }

@@ -17,7 +17,7 @@ import java.util.regex.Pattern;
  */
 public class Colorway_screen_link_functions extends colorway implements Comparable<Colorway_screen_link_functions>{
     
-    private List<colorway_and_screen> this_screens = new ArrayList<>();
+    private List<Pigment_screen_and_colorway> this_screens = new ArrayList<>();
     
     public Colorway_screen_link_functions(){}
     
@@ -51,7 +51,7 @@ public class Colorway_screen_link_functions extends colorway implements Comparab
         return p.matcher(this_text).find();
     }
      
-    public void add_screen(colorway_and_screen this_screen)
+    public void add_screen(Pigment_screen_and_colorway this_screen)
     {
         this.this_screens.add(this_screen);
     }
@@ -71,7 +71,12 @@ public class Colorway_screen_link_functions extends colorway implements Comparab
             System.out.println("END");
         }
         */
-        
+    }
+    
+    public void update_this_colorway()
+    {
+        Database.DB_Manager new_conn = new Database.DB_Manager();
+        new_conn.update_colorway(this);
     }
     
     public void view_all_screen_pigment_details()
@@ -80,7 +85,7 @@ public class Colorway_screen_link_functions extends colorway implements Comparab
         System.out.println("Binder : " +getBinder());     
         System.out.println("Weight : " +getWeight_kg());
         
-        for (colorway_and_screen this_screen : getThis_screens()) {
+        for (Pigment_screen_and_colorway this_screen : getThis_screens()) {
             //System.out.println("Screen_id : " + this_screen.getId_screen());
             System.out.println("Colorway ID : " + this_screen.getId_colorway());
             System.out.println("Pigment no :" + this_screen.getPigment_no());
@@ -107,14 +112,14 @@ public class Colorway_screen_link_functions extends colorway implements Comparab
     /**
      * @return the this_screens
      */
-    public List<colorway_and_screen> getThis_screens() {
+    public List<Pigment_screen_and_colorway> getThis_screens() {
         return this_screens;
     }
 
     /**
      * @param this_screens the this_screens to set
      */
-    public void setThis_screens(List<colorway_and_screen> this_screens) {
+    public void setThis_screens(List<Pigment_screen_and_colorway> this_screens) {
         this.this_screens = this_screens;
     }
 

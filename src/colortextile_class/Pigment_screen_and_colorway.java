@@ -12,18 +12,18 @@ import java.sql.ResultSet;
  *
  * @author Eldridge
  */
-public class colorway_and_screen extends pigment{
+public class Pigment_screen_and_colorway extends pigment{
     private int id_color_screen;
     private int id_colorway;
     private float pigment_percentage;
 
-    public colorway_and_screen(){}
+    public Pigment_screen_and_colorway(){}
     
-    public colorway_and_screen(String pig_name){
+    public Pigment_screen_and_colorway(String pig_name){
         this.setPigment_name(pig_name);
     }
     
-    public colorway_and_screen(String pig_name, float pigment_percentage)
+    public Pigment_screen_and_colorway(String pig_name, float pigment_percentage)
     {
         this.setPigment_name(pig_name);
         this.setPigment_percentage(pigment_percentage);

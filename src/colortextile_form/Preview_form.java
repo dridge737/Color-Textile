@@ -44,7 +44,7 @@ public class Preview_form extends javax.swing.JFrame {
                 this.kg1.setText(Float.toString(all_colorway.get(interval).getWeight_kg()));
                 this.bind_per1.setText(Float.toString(all_colorway.get(interval).getBinder()));
                 
-                List<colorway_and_screen> all_color_screen = all_colorway.get(interval).getThis_screens();
+                List<Pigment_screen_and_colorway> all_color_screen = all_colorway.get(interval).getThis_screens();
                         for(int temp_x=0; temp_x<all_color_screen.size(); temp_x++)
                         {
                             if(temp_x==0)
@@ -74,7 +74,7 @@ public class Preview_form extends javax.swing.JFrame {
                 this.kg2.setText(Float.toString(all_colorway.get(interval).getWeight_kg()));
                 this.bind_per2.setText(Float.toString(all_colorway.get(interval).getBinder()));
                 
-                List<colorway_and_screen> all_color_screen = all_colorway.get(interval).getThis_screens();
+                List<Pigment_screen_and_colorway> all_color_screen = all_colorway.get(interval).getThis_screens();
                         for(int temp_x=0; temp_x<all_color_screen.size(); temp_x++)
                         {
                             if(temp_x==0)
@@ -104,7 +104,7 @@ public class Preview_form extends javax.swing.JFrame {
                 this.kg3.setText(Float.toString(all_colorway.get(interval).getWeight_kg()));
                 this.bind_per3.setText(Float.toString(all_colorway.get(interval).getBinder()));
                 
-                List<colorway_and_screen> all_color_screen = all_colorway.get(interval).getThis_screens();
+                List<Pigment_screen_and_colorway> all_color_screen = all_colorway.get(interval).getThis_screens();
                         for(int temp_x=0; temp_x<all_color_screen.size(); temp_x++)
                         {
                             if(temp_x==0)
@@ -134,7 +134,7 @@ public class Preview_form extends javax.swing.JFrame {
                 this.kg4.setText(Float.toString(all_colorway.get(interval).getWeight_kg()));
                 this.bind_per4.setText(Float.toString(all_colorway.get(interval).getBinder()));
                 
-                List<colorway_and_screen> all_color_screen = all_colorway.get(interval).getThis_screens();
+                List<Pigment_screen_and_colorway> all_color_screen = all_colorway.get(interval).getThis_screens();
                         for(int temp_x=0; temp_x<all_color_screen.size(); temp_x++)
                         {
                             if(temp_x==0)
@@ -165,7 +165,7 @@ public class Preview_form extends javax.swing.JFrame {
                 this.kg5.setText(Float.toString(all_colorway.get(interval).getWeight_kg()));
                 this.bind_per5.setText(Float.toString(all_colorway.get(interval).getBinder()));
                 
-                List<colorway_and_screen> all_color_screen = all_colorway.get(interval).getThis_screens();
+                List<Pigment_screen_and_colorway> all_color_screen = all_colorway.get(interval).getThis_screens();
                         for(int temp_x=0; temp_x<all_color_screen.size(); temp_x++)
                         {
                             if(temp_x==0)
@@ -195,7 +195,7 @@ public class Preview_form extends javax.swing.JFrame {
                 this.kg6.setText(Float.toString(all_colorway.get(interval).getWeight_kg()));
                 this.bind_per6.setText(Float.toString(all_colorway.get(interval).getBinder()));
                 
-                List<colorway_and_screen> all_color_screen = all_colorway.get(interval).getThis_screens();
+                List<Pigment_screen_and_colorway> all_color_screen = all_colorway.get(interval).getThis_screens();
                         for(int temp_x=0; temp_x<all_color_screen.size(); temp_x++)
                         {
                             if(temp_x==0)
@@ -225,7 +225,7 @@ public class Preview_form extends javax.swing.JFrame {
                 this.kg7.setText(Float.toString(all_colorway.get(interval).getWeight_kg()));
                 this.bind_per7.setText(Float.toString(all_colorway.get(interval).getBinder()));
                 
-                List<colorway_and_screen> all_color_screen = all_colorway.get(interval).getThis_screens();
+                List<Pigment_screen_and_colorway> all_color_screen = all_colorway.get(interval).getThis_screens();
                         for(int temp_x=0; temp_x<all_color_screen.size(); temp_x++)
                         {
                             if(temp_x==0)
@@ -254,7 +254,7 @@ public class Preview_form extends javax.swing.JFrame {
         //this_prod
     }
 
-    private void add_screen_to_textfield(colorway_and_screen this_screen, String kgp, JTextField name, JTextField percentage, JTextField kilograms)
+    private void add_screen_to_textfield(Pigment_screen_and_colorway this_screen, String kgp, JTextField name, JTextField percentage, JTextField kilograms)
     {
         name.setText(this_screen.getPigment_name());
         kilograms.setText(kgp);

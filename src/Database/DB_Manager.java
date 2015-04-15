@@ -555,7 +555,7 @@ public class DB_Manager {
         return null;
     }
     
-    public List<colorway_and_screen> set_all_colorway_and_screen_from_colorway_id(int colorway_id)
+    public List<Pigment_screen_and_colorway> set_all_colorway_and_screen_from_colorway_id(int colorway_id)
     {
         try{
             DBConnection db = new DBConnection();
@@ -570,11 +570,11 @@ public class DB_Manager {
             ps.setInt(item++, colorway_id);
             
             ResultSet screen_rs = ps.executeQuery();
-            List<colorway_and_screen> this_screen = new ArrayList<>();
+            List<Pigment_screen_and_colorway> this_screen = new ArrayList<>();
             
             while(screen_rs.next())
             {
-                colorway_and_screen this_s_pigment = new colorway_and_screen();
+                Pigment_screen_and_colorway this_s_pigment = new Pigment_screen_and_colorway();
                 
                 this_s_pigment.setId_colorway(colorway_id);
                 this_s_pigment.setPigment_no(screen_rs.getInt("p.pigment_no"));
@@ -1735,7 +1735,7 @@ public class DB_Manager {
         }
     }
     
-    public ResultSet Search_colorway_screen_connect(colortextile_class.colorway_and_screen connect){
+    public ResultSet Search_colorway_screen_connect(colortextile_class.Pigment_screen_and_colorway connect){
         try
         {
           DBConnection db = new DBConnection();
@@ -2014,7 +2014,7 @@ public class DB_Manager {
         }
     }
     
-    public void update_colorway_screen(colorway_and_screen this_color_screen)
+    public void update_colorway_screen(Pigment_screen_and_colorway this_color_screen)
     {
         try{
            DBConnection db = new DBConnection();

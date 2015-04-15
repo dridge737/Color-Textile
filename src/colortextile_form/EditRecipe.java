@@ -157,7 +157,7 @@ public class EditRecipe extends javax.swing.JFrame {
     {
         for(int x = 0 ; x<this_color_and_screen.size();x++)
         {
-            List<colorway_and_screen> current_screen = this_color_and_screen.get(x).getThis_screens();
+            List<Pigment_screen_and_colorway> current_screen = this_color_and_screen.get(x).getThis_screens();
             
             if(x == 0)
             {
@@ -313,7 +313,7 @@ public class EditRecipe extends javax.swing.JFrame {
         }
     }
     
-    private void setTextValues_screens(JComboBox pigment_name, JTextField percentage, colorway_and_screen screen_p)
+    private void setTextValues_screens(JComboBox pigment_name, JTextField percentage, Pigment_screen_and_colorway screen_p)
     {
         pigment_name.setSelectedItem(screen_p.getPigment_name());
         percentage.setText(Float.toString(screen_p.getPigment_percentage()));
@@ -2354,21 +2354,31 @@ public class EditRecipe extends javax.swing.JFrame {
         return -1;
     }
     
-    private int add_this_colorway(String colorway_name, float binder_percent, String temp_weight_kg)
+    private int update_this_colorway(int colorway_num, String colorway_name, float binder_percent, String temp_weight_kg)
     {
         if(colorway_name.length()>0)
         {
             if(temp_weight_kg.length()>0)
             {
                 float weight_kg = Float.parseFloat(temp_weight_kg);
-                colortextile_class.colorway new_colorway = new colortextile_class.colorway();
-                new_colorway.setColorway_name(colorway_name);
-                new_colorway.setBinder(binder_percent);
-                new_colorway.setWeight_kg(weight_kg);
-                new_colorway.add_new_colorway();
-                new_colorway.set_id_colorway_from_variables();
-                
-                return new_colorway.getId_colorway();
+                if(prod_recipe.getAll_colorways().size()> colorway_num)
+                {
+                prod_recipe.getAll_colorways().get(colorway_num).setColorway_name(colorway_name);
+                prod_recipe.getAll_colorways().get(colorway_num).setBinder(binder_percent);
+                prod_recipe.getAll_colorways().get(colorway_num).setWeight_kg(weight_kg);
+                // new_colorway.add_new_colorway();
+                //new_colorway.set_id_colorway_from_variables();
+                prod_recipe.getAll_colorways().get(colorway_num).update_this_colorway();
+                //return new_colorway.getId_colorway();
+                }
+                else
+                {
+                    Colorway_screen_link_functions this_color_screen = new Colorway_screen_link_functions();
+                    this_color_screen.setColorway_name(colorway_name);
+                    this_color_screen.setBinder(binder_percent);
+                    this_color_screen.setWeight_kg(weight_kg);
+                }
+                return 1;
             }
         }
         return -1;
@@ -2379,7 +2389,7 @@ public class EditRecipe extends javax.swing.JFrame {
         System.out.println("Screen_id = "+id_screen + "Colorway_id= "+id_colorway);
         if(id_screen != -1 && id_colorway != -1)
         {
-        colortextile_class.colorway_and_screen new_c_and_s = new colortextile_class.colorway_and_screen();
+        colortextile_class.Pigment_screen_and_colorway new_c_and_s = new colortextile_class.Pigment_screen_and_colorway();
         new_c_and_s.setId_colorway(id_colorway);
         //new_c_and_s.setId_screen(id_screen);
         
@@ -2438,10 +2448,10 @@ public class EditRecipe extends javax.swing.JFrame {
         
         update_this_design();
         
-        int colorway_id = add_this_colorway(colorway_name2.getText(), 
+        /////////1
+        int colorway_id = update_this_colorway(0,colorway_name2.getText(), 
                              Float.parseFloat(binder8.getSelectedItem().toString()),
                              weigh_kg8.getText());
-        
         if(colorway_id != -1)
         {   
             add_screen_and_color_screen(name1.getSelectedItem().toString(),
@@ -2454,10 +2464,10 @@ public class EditRecipe extends javax.swing.JFrame {
                                       percentage3.getText(), colorway_id );
         }
         
-        int colorway_id2 = add_this_colorway(colorway_name3.getText(), 
+        ////////////2
+        int colorway_id2 = update_this_colorway(1,colorway_name3.getText(), 
                              Float.parseFloat(binder3.getSelectedItem().toString()),
                              weigh_kg3.getText());
-        
         if(colorway_id2 != -1 )
         {
             add_screen_and_color_screen(name5.getSelectedItem().toString(),
@@ -2469,10 +2479,11 @@ public class EditRecipe extends javax.swing.JFrame {
             add_screen_and_color_screen(name7.getSelectedItem().toString(),
                                       percentage7.getText(), colorway_id2 );
         }
-        colorway_id = add_this_colorway(colorway_name4.getText(), 
+        
+        ////////////3
+        colorway_id = update_this_colorway(2,colorway_name4.getText(), 
                              Float.parseFloat(binder4.getSelectedItem().toString()),
                              weigh_kg4.getText());
-        
         if(colorway_id != -1 )
         {
             add_screen_and_color_screen(name9.getSelectedItem().toString(),
@@ -2485,10 +2496,11 @@ public class EditRecipe extends javax.swing.JFrame {
                                       percentage11.getText(), colorway_id );
             
         }
-        colorway_id2 = add_this_colorway(colorway_name5.getText(), 
+        
+        ////////////4
+        colorway_id2 = update_this_colorway(3,colorway_name5.getText(), 
                              Float.parseFloat(binder5.getSelectedItem().toString()),
                              weigh_kg5.getText());
-        
         if(colorway_id2 != -1 )
         {
             add_screen_and_color_screen(name13.getSelectedItem().toString(),
@@ -2501,10 +2513,10 @@ public class EditRecipe extends javax.swing.JFrame {
                                       percentage15.getText(), colorway_id2 );
         }
         
-        colorway_id = add_this_colorway(colorway_name6.getText(), 
+        ////////////5
+        colorway_id = update_this_colorway(4,colorway_name6.getText(), 
                              Float.parseFloat(binder6.getSelectedItem().toString()),
                              weigh_kg6.getText());
-        
         if(colorway_id != -1 )
         {
             add_screen_and_color_screen(name17.getSelectedItem().toString(),
@@ -2518,10 +2530,10 @@ public class EditRecipe extends javax.swing.JFrame {
     
         }
         
-        colorway_id2 = add_this_colorway(colorway_name7.getText(), 
+         ////////////6
+        colorway_id2 = update_this_colorway(5,colorway_name7.getText(), 
                              Float.parseFloat(binder7.getSelectedItem().toString()),
                              weigh_kg7.getText());
-        
         if( colorway_id2 != -1 )
         {
             add_screen_and_color_screen(name21.getSelectedItem().toString(),
@@ -2532,8 +2544,25 @@ public class EditRecipe extends javax.swing.JFrame {
             
             add_screen_and_color_screen(name23.getSelectedItem().toString(),
                                       percentage23.getText(), colorway_id2 );
-            
         }
+        
+        ////////////7
+        colorway_id = update_this_colorway(6,colorway_name8.getText(), 
+                             Float.parseFloat(binder9.getSelectedItem().toString()),
+                             weigh_kg9.getText());
+        
+        if( colorway_id2 != -1 )
+        {
+            add_screen_and_color_screen(name24.getSelectedItem().toString(),
+                                      percentage24.getText(), colorway_id2 );
+            
+            add_screen_and_color_screen(name25.getSelectedItem().toString(),
+                                      percentage25.getText(), colorway_id2 );
+            
+            add_screen_and_color_screen(name26.getSelectedItem().toString(),
+                                      percentage26.getText(), colorway_id2 );
+        }
+        
         JOptionPane.showMessageDialog(null,"Successfully Edited this Recipe");
          
     }//GEN-LAST:event_save_edit_butActionPerformed
@@ -3121,13 +3150,13 @@ public class EditRecipe extends javax.swing.JFrame {
         return all_purchase;
     }
     
-    private colorway_and_screen get_colorway_details_from_input(JComboBox pigment_text, JTextField percentageText )
+    private Pigment_screen_and_colorway get_colorway_details_from_input(JComboBox pigment_text, JTextField percentageText )
     {
-        colorway_and_screen this_colorway;
+        Pigment_screen_and_colorway this_colorway;
         if(!use_func.checkText2(percentageText.getText()))
-        this_colorway = new colorway_and_screen(pigment_text.getSelectedItem().toString(), Float.parseFloat(percentageText.getText()));
+        this_colorway = new Pigment_screen_and_colorway(pigment_text.getSelectedItem().toString(), Float.parseFloat(percentageText.getText()));
         else
-        this_colorway = new colorway_and_screen(pigment_text.getSelectedItem().toString());
+        this_colorway = new Pigment_screen_and_colorway(pigment_text.getSelectedItem().toString());
         
         return this_colorway;
     }
