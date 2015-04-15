@@ -92,21 +92,6 @@ public class EditRecipe extends javax.swing.JFrame {
         this.set_purchase_and_job_list_textbox();
     }
     
-    private void set_textbox_purchase_details(int purchase_order_id)
-    {
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        /*
-        try {
-            spinner_date.setValue(sdf.parse(prod_recipe.getDate()));
-        } catch (ParseException ex) {
-            Logger.getLogger(EditRecipe.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        */
-        
-        //List<job_order> all_jobs = this_purchase.getJobs_for_this();
-        //set_job_list(all_jobs);
-    }
-    
     private void set_purchase_details_from_id(int purchase_order_id)
     {
         // USING GLOBAL VARIABLE
@@ -136,6 +121,16 @@ public class EditRecipe extends javax.swing.JFrame {
         else
             list = prod_recipe.getJobs_for_this().size();
         
+        if( list>0 )
+        {
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            try {
+                spinner_date.setValue(sdf.parse(prod_recipe.getJobs_for_this().get(0).getDate()));
+            } catch (ParseException ex) {
+                Logger.getLogger(EditRecipe.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
         for(int interval = 0; interval < list; interval++)
         {
             this_list.add_customer_job_quantity_in_list(
@@ -144,6 +139,7 @@ public class EditRecipe extends javax.swing.JFrame {
                     Integer.toString(prod_recipe.getAll_purchase().get(interval).getQuantity()));
         }
         this.jList1.setModel(this_list.get_items_in_list());
+        quantity_total.setText(Integer.toString(this_list.get_quantity_total()));
     }
     
     public void set_design_and_colorway_textbox_details()
@@ -173,14 +169,17 @@ public class EditRecipe extends javax.swing.JFrame {
                     if(temp_loop2 == 0)
                     {
                             setTextValues_screens(name1, percentage1, current_screen.get(temp_loop2));
+                            update_kg_prep(percentage1.getText(), weigh_kg8.getText(), kg_1);
                     }
                     else if(temp_loop2 == 1)
                     {
                             setTextValues_screens(name2, percentage2, current_screen.get(temp_loop2));
+                            update_kg_prep(percentage2.getText(), weigh_kg8.getText(), kg_2);
                     }
                     else if(temp_loop2 == 2)
                     {
                             setTextValues_screens(name3, percentage3, current_screen.get(temp_loop2));
+                            update_kg_prep(percentage3.getText(), weigh_kg8.getText(), kg_3);
                     }
                 }
             }
@@ -193,14 +192,17 @@ public class EditRecipe extends javax.swing.JFrame {
                     if(temp_loop2 == 0)
                     {
                             setTextValues_screens(name5, percentage5, current_screen.get(temp_loop2));
+                            update_kg_prep(percentage5.getText(), weigh_kg3.getText(), kg_5);
                     }
                     else if(temp_loop2 == 1)
                     {
                             setTextValues_screens(name6, percentage6, current_screen.get(temp_loop2));
+                            update_kg_prep(percentage6.getText(), weigh_kg3.getText(), kg_6);
                     }
                     else if(temp_loop2 == 2)
                     {
                             setTextValues_screens(name7, percentage7, current_screen.get(temp_loop2));
+                            update_kg_prep(percentage7.getText(), weigh_kg3.getText(), kg_7);
                     }
                 }
             }
@@ -211,11 +213,18 @@ public class EditRecipe extends javax.swing.JFrame {
                 for(int temp_loop2 = 0; temp_loop2 < current_screen.size(); temp_loop2++ )
                 {
                     if(temp_loop2 == 0)
+                    {
                             setTextValues_screens(name9, percentage9, current_screen.get(temp_loop2));
-                    else if(temp_loop2 == 1)
+                            update_kg_prep(percentage9.getText(), weigh_kg4.getText(), kg_9);
+                    }
+                    else if(temp_loop2 == 1){
                             setTextValues_screens(name10, percentage10, current_screen.get(temp_loop2));
-                    else if(temp_loop2 == 2)
+                            update_kg_prep(percentage10.getText(), weigh_kg4.getText(), kg_10);
+                    }
+                    else if(temp_loop2 == 2){
                             setTextValues_screens(name11, percentage11, current_screen.get(temp_loop2));
+                            update_kg_prep(percentage11.getText(), weigh_kg4.getText(), kg_11);
+                    }
                 }
             }
             else if( x == 3)
@@ -225,11 +234,18 @@ public class EditRecipe extends javax.swing.JFrame {
                 for(int temp_loop2 = 0; temp_loop2 < current_screen.size(); temp_loop2++ )
                 {
                     if(temp_loop2 == 0)
+                    {
                             setTextValues_screens(name13, percentage13, current_screen.get(temp_loop2));
-                    else if(temp_loop2 == 1)
+                            update_kg_prep(percentage13.getText(), weigh_kg5.getText(), kg_13);
+                    }
+                    else if(temp_loop2 == 1){
                             setTextValues_screens(name14, percentage14, current_screen.get(temp_loop2));
-                    else if(temp_loop2 == 2)
+                            update_kg_prep(percentage14.getText(), weigh_kg5.getText(), kg_14);
+                    }
+                    else if(temp_loop2 == 2){
                             setTextValues_screens(name15, percentage15, current_screen.get(temp_loop2));
+                            update_kg_prep(percentage15.getText(), weigh_kg5.getText(), kg_15);
+                    }
                 }
             }
             else if( x == 4)
@@ -238,27 +254,40 @@ public class EditRecipe extends javax.swing.JFrame {
                 
                 for(int temp_loop2 = 0; temp_loop2 < current_screen.size(); temp_loop2++ )
                 {
-                    if(temp_loop2 == 0)
+                    if(temp_loop2 == 0){
                             setTextValues_screens(name17, percentage17, current_screen.get(temp_loop2));
-                    else if(temp_loop2 == 1)
+                            update_kg_prep(percentage17.getText(), weigh_kg6.getText(), kg_17);
+        
+                    }
+                    else if(temp_loop2 == 1){
                             setTextValues_screens(name18, percentage18, current_screen.get(temp_loop2));
-                    else if(temp_loop2 == 2)
+                            update_kg_prep(percentage18.getText(), weigh_kg6.getText(), kg_18);
+                    }
+                    else if(temp_loop2 == 2){
                             setTextValues_screens(name19, percentage19, current_screen.get(temp_loop2));
+                            update_kg_prep(percentage19.getText(), weigh_kg6.getText(), kg_19);
+                    }
                 }
             }
-            
+       
             else if( x == 5)
             {
                 setTextValues_colorway(colorway_name7,weigh_kg7, binder7, this_color_and_screen.get(x));
                 
                 for(int temp_loop2 = 0; temp_loop2 < current_screen.size(); temp_loop2++ )
                 {
-                    if(temp_loop2 == 0)
+                    if(temp_loop2 == 0){
                             setTextValues_screens(name21, percentage21, current_screen.get(temp_loop2));
-                    else if(temp_loop2 == 1)
+                            update_kg_prep(percentage21.getText(), weigh_kg7.getText(), kg_21);
+                    }
+                    else if(temp_loop2 == 1){
                             setTextValues_screens(name22, percentage22, current_screen.get(temp_loop2));
-                    else if(temp_loop2 == 2)
+                            update_kg_prep(percentage22.getText(), weigh_kg7.getText(), kg_22);
+                    }
+                    else if(temp_loop2 == 2){
                             setTextValues_screens(name23, percentage23, current_screen.get(temp_loop2));
+                            update_kg_prep(percentage23.getText(), weigh_kg7.getText(), kg_23);
+                    }
                 }
             }
             else if( x == 6)
@@ -267,12 +296,18 @@ public class EditRecipe extends javax.swing.JFrame {
                 
                 for(int temp_loop2 = 0; temp_loop2 < current_screen.size(); temp_loop2++ )
                 {
-                    if(temp_loop2 == 0)
+                    if(temp_loop2 == 0){
                             setTextValues_screens(name24, percentage24, current_screen.get(temp_loop2));
-                    else if(temp_loop2 == 1)
+                            update_kg_prep(percentage24.getText(), weigh_kg9.getText(), kg_24);
+                    }
+                    else if(temp_loop2 == 1){
                             setTextValues_screens(name25, percentage25, current_screen.get(temp_loop2));
-                    else if(temp_loop2 == 2)
+                            update_kg_prep(percentage25.getText(), weigh_kg9.getText(), kg_25);
+                    }
+                    else if(temp_loop2 == 2){
                             setTextValues_screens(name26, percentage26, current_screen.get(temp_loop2));
+                            update_kg_prep(percentage26.getText(), weigh_kg9.getText(), kg_26);
+                    }
                 }
             }
             
@@ -782,6 +817,7 @@ public class EditRecipe extends javax.swing.JFrame {
         jLabel3.setBounds(320, 120, 130, 34);
 
         quantity_total.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        quantity_total.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         quantity_total.setEnabled(false);
         jPanel16.add(quantity_total);
         quantity_total.setBounds(460, 120, 100, 34);
@@ -2409,7 +2445,6 @@ public class EditRecipe extends javax.swing.JFrame {
             
             add_purchase();
             
-            
         }
         // Winston codes end
         
@@ -2475,9 +2510,6 @@ public class EditRecipe extends javax.swing.JFrame {
             add_screen_and_color_screen(name11.getSelectedItem().toString(),
                                       percentage11.getText(), colorway_id );
             
-            
-            //add_this_design_and_colorway(design_code.getText(), colorway_id);
-  
         }
         colorway_id2 = add_this_colorway(colorway_name5.getText(), 
                              Float.parseFloat(binder5.getSelectedItem().toString()),
@@ -2514,8 +2546,6 @@ public class EditRecipe extends javax.swing.JFrame {
             add_screen_and_color_screen(name19.getSelectedItem().toString(),
                                       percentage19.getText(), colorway_id );
     
-            
-            //add_this_design_and_colorway(design_code.getText(), colorway_id);
         }
         
         colorway_id2 = add_this_colorway(colorway_name7.getText(), 
@@ -2689,7 +2719,7 @@ public class EditRecipe extends javax.swing.JFrame {
         update_kg_prep(percentage6.getText(), weigh_kg3.getText(), kg_6);
         update_kg_prep(percentage7.getText(), weigh_kg3.getText(), kg_7);
     }//GEN-LAST:event_weigh_kg3KeyReleased
-
+ 
     private void percentage9KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage9KeyReleased
         // TODO add your handling code here:
         check_this_textbox(percentage9);
@@ -2793,7 +2823,7 @@ public class EditRecipe extends javax.swing.JFrame {
         update_kg_prep(percentage22.getText(), weigh_kg7.getText(), kg_22);
         update_kg_prep(percentage23.getText(), weigh_kg7.getText(), kg_23);
     }//GEN-LAST:event_weigh_kg7KeyReleased
-
+        
     private void percentage24KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage24KeyReleased
         // TODO add your handling code here:
         check_this_textbox(percentage24);
@@ -2808,6 +2838,7 @@ public class EditRecipe extends javax.swing.JFrame {
         update_kg_prep(percentage26.getText(), weigh_kg9.getText(), kg_26);
     }//GEN-LAST:event_weigh_kg9KeyReleased
 
+        
     private void percentage25KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage25KeyReleased
         // TODO add your handling code here:
         check_this_textbox(percentage25);

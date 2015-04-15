@@ -2014,6 +2014,35 @@ public class DB_Manager {
         }
     }
     
+    public void update_colorway_screen(colorway_and_screen this_color_screen)
+    {
+        try{
+           DBConnection db = new DBConnection();
+           Connection conn = db.getConnection();  
+        
+           /*
+           UPDATE colorway_screen_connect SET pigment_no = (SELECT pigment_no FROM pigment WHERE pigment_name LIKE "L. PINK"), 
+           pigment_percentage= 56
+            WHERE id_color_screen = 33;
+           */
+           PreparedStatement ps = conn.prepareStatement("UPDATE colorway_screen_connect "
+                                                        + "SET pigment_no = (SELECT pigment_no FROM pigment WHERE pigment_name LIKE ?), "
+                                                        + "pigment_percentage = ?, "
+                                                        + "WHERE id_color_screen = ?");
+          int item = 1;
+          ps.setString(item++, this_color_screen.getPigment_name());
+          ps.setFloat(item++, this_color_screen.getPigment_percentage());
+          ps.setInt(item++, this_color_screen.getId_color_screen());
+          
+          ps.executeUpdate();
+          this.closeConn(conn, ps);
+        }
+        catch (SQLException ex)
+        {
+            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
     public void update_colorway(colorway this_colorway)
     {
         try
@@ -2029,6 +2058,33 @@ public class DB_Manager {
           ps.setFloat(item++, this_colorway.getBinder());
           ps.setFloat(item++, this_colorway.getWeight_kg());
           ps.setInt(item++, this_colorway.getId_colorway());
+          
+          ps.executeUpdate();
+          this.closeConn(conn, ps);
+        }
+        catch (SQLException ex)
+        {
+            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void update_this_design(design this_design)
+    {
+        try
+        {
+          DBConnection db = new DBConnection();
+          Connection conn = db.getConnection(); 
+          
+          //UPDATE design SET design_name = , color_name = , fabric_style =  WHERE design_code = ?
+          
+          PreparedStatement ps = conn.prepareStatement("UPDATE design "
+                                                        + " SET design_name = ?, color_name = ?, fabric_style = ? "
+                                                        + " WHERE design_code = ?");
+          int item = 1;
+          ps.setString(item++, this_design.getDesign_name());
+          ps.setString(item++, this_design.getColor_name());
+          ps.setString(item++, this_design.getFabric_style());
+          ps.setInt(item++, this_design.getDesign_code());
           
           ps.executeUpdate();
           this.closeConn(conn, ps);
