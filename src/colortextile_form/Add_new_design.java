@@ -2267,12 +2267,17 @@ public class Add_new_design extends javax.swing.JFrame {
             this.design_color.setText(rs_design.getString("color_name"));
             //fabric style
             this.fab_style_comb.addItem(rs_design.getString("fabric_style"));  this.fab_style_comb.setSelectedItem(rs_design.getString("fabric_style"));
-            
+            ResultSet rs_colorway_screen;
+            while (rs_colorway.next()){
+                int xyz = 0;
+                System.out.println(xyz);
+                xyz++;
+            }
             // 11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111
-            rs_colorway.first();
+            if(rs_colorway.first()){
             screen.setId_colorway(rs_colorway.getInt("id_colorway"));
             screen.setId_color_screen(-1);
-            ResultSet rs_colorway_screen = screen.Search_colorway_screen_connect();
+            rs_colorway_screen = screen.Search_colorway_screen_connect();
             
             
             //Screen Name
@@ -2294,7 +2299,7 @@ public class Add_new_design extends javax.swing.JFrame {
             this.name3.addItem(this.get_pigment_name(rs_colorway_screen.getInt("pigment_no"))); this.name3.setSelectedItem(this.get_pigment_name(rs_colorway_screen.getInt("pigment_no")));      this.percentage3.setText(rs_colorway_screen.getString("pigment_percentage"));
             }
             
-            
+            }
             //222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222
             if(rs_colorway.next()){
                 screen.setId_colorway(rs_colorway.getInt("id_colorway"));
@@ -2321,7 +2326,7 @@ public class Add_new_design extends javax.swing.JFrame {
             }
             
             
-            }
+            } else { System.out.println("2 no "); }
             //333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333
             if(rs_colorway.next()){
                 screen.setId_colorway(rs_colorway.getInt("id_colorway"));

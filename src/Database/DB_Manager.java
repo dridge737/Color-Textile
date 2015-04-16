@@ -1418,8 +1418,9 @@ public class DB_Manager {
           
             PreparedStatement ps = conn.prepareStatement("SELECT * FROM design ORDER BY design_code ASC ");
             ResultSet rs = ps.executeQuery();
-            this.closeConn(conn, ps, rs);
+            //this.closeConn(conn, ps, rs);
             return rs;
+            
         }
         catch (SQLException ex)
         {
