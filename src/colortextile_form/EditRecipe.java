@@ -2323,25 +2323,22 @@ public class EditRecipe extends javax.swing.JFrame {
         }
     }
     
-    private int update_this_screen_pigment(String pigment_name, String temp_pigment_percent)
+    private int update_this_screen_pigment(String pigment_name, String pigment_percent)
     {
         if(pigment_name.length()> 0)
         {
-            if(temp_pigment_percent.length() > 0)
+            if(pigment_percent.length() > 0)
             {
-                float pigment_percent = Float.parseFloat(temp_pigment_percent);
-            //declare pigment id
-            // MFD_VIOLET --> 1(id)
+                float this_pigment_percent = Float.parseFloat(pigment_percent);
+            
                 pigment new_pigment = new pigment();
-            //get pigment id from the pigment name
+            
                 new_pigment.setPigment_name(pigment_name);
                 new_pigment.get_id_pigment_from_name();
-            
-            //declare screen_pigment to add in screen_pigment table     
                 screen_pigment new_screen_pigment = new screen_pigment();
-            //set pigment no into the screen pigment
+            
                 new_screen_pigment.setPigment_no(new_pigment.getPigment_no());
-                new_screen_pigment.setPigment_percentage(pigment_percent);
+                new_screen_pigment.setPigment_percentage(this_pigment_percent);
                 new_screen_pigment.add_new_screen_pigment();
                 new_screen_pigment.get_screen_pigment_id_from_pigment_no_and_pigment_percentage();
             
