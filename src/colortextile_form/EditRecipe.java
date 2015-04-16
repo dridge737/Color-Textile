@@ -2401,16 +2401,13 @@ public class EditRecipe extends javax.swing.JFrame {
                 this.prod_recipe.getAll_colorways().get(interval).getThis_screens().get(pig_num).setPigment_name(pigment_name);
                 this.prod_recipe.getAll_colorways().get(interval).getThis_screens().get(pig_num).set_pigment_id_from_name();
                 this.prod_recipe.getAll_colorways().get(interval).getThis_screens().get(pig_num).setPigment_percentage(this_pigment_percent);
+                this.prod_recipe.getAll_colorways().get(interval).getThis_screens().get(pig_num).update_colorway_and_screen();
             }
             else
             {
-                pigment new_pigment = new pigment();
-            
-                new_pigment.setPigment_name(pigment_name);
-                new_pigment.set_pigment_id_from_name();
                 Pigment_screen_and_colorway new_screen_pigment = new Pigment_screen_and_colorway();
-            
-                new_screen_pigment.setPigment_no(new_pigment.getPigment_no());
+                new_screen_pigment.setPigment_name(pigment_name);
+                new_screen_pigment.set_pigment_id_from_name();
                 new_screen_pigment.setPigment_percentage(this_pigment_percent);
                 new_screen_pigment.setId_colorway(colorway_id);
                 new_screen_pigment.add_colorway_and_screen();
@@ -2464,13 +2461,13 @@ public class EditRecipe extends javax.swing.JFrame {
                 
                 if(colorway_id2 != -1 )
                 {
-                    update_or_add_this_screen_pigment(name5.getSelectedItem().toString(),
+                    update_or_add_this_screen_pigment(interval, 0, name5.getSelectedItem().toString(),
                                       percentage5.getText(), colorway_id2 );
                     
-                    update_or_add_this_screen_pigment(name6.getSelectedItem().toString(),
+                    update_or_add_this_screen_pigment(interval, 1, name6.getSelectedItem().toString(),
                                       percentage6.getText(), colorway_id2 );
                     
-                    update_or_add_this_screen_pigment(name7.getSelectedItem().toString(),
+                    update_or_add_this_screen_pigment(interval, 2, name7.getSelectedItem().toString(),
                                       percentage7.getText(), colorway_id2 );
                 }
             }
@@ -2483,13 +2480,13 @@ public class EditRecipe extends javax.swing.JFrame {
                 
                 if(colorway_id != -1 )
                 {
-                    update_or_add_this_screen_pigment(name9.getSelectedItem().toString(),
+                    update_or_add_this_screen_pigment(interval, 0, name9.getSelectedItem().toString(),
                                       percentage9.getText(), colorway_id );
                     
-                    update_or_add_this_screen_pigment(name10.getSelectedItem().toString(),
+                    update_or_add_this_screen_pigment(interval, 1, name10.getSelectedItem().toString(),
                                       percentage10.getText(), colorway_id );
                     
-                    update_or_add_this_screen_pigment(name11.getSelectedItem().toString(),
+                    update_or_add_this_screen_pigment(interval, 2, name11.getSelectedItem().toString(),
                                       percentage11.getText(), colorway_id );
                 }
             }
@@ -2502,13 +2499,13 @@ public class EditRecipe extends javax.swing.JFrame {
                 
                 if(colorway_id2 != -1 )
                 {
-                    update_or_add_this_screen_pigment(name13.getSelectedItem().toString(),
+                    update_or_add_this_screen_pigment(interval, 0, name13.getSelectedItem().toString(),
                                       percentage13.getText(), colorway_id2 );
                     
-                    update_or_add_this_screen_pigment(name14.getSelectedItem().toString(),
+                    update_or_add_this_screen_pigment(interval, 1, name14.getSelectedItem().toString(),
                                       percentage14.getText(), colorway_id2 );
                     
-                    update_or_add_this_screen_pigment(name15.getSelectedItem().toString(),
+                    update_or_add_this_screen_pigment(interval, 2, name15.getSelectedItem().toString(),
                                       percentage15.getText(), colorway_id2 );
                 }
             }
@@ -2521,13 +2518,13 @@ public class EditRecipe extends javax.swing.JFrame {
                 
                 if(colorway_id != -1 )
                 {
-                    update_or_add_this_screen_pigment(name17.getSelectedItem().toString(),
+                    update_or_add_this_screen_pigment(interval, 0, name17.getSelectedItem().toString(),
                                       percentage17.getText(), colorway_id );
                     
-                    update_or_add_this_screen_pigment(name18.getSelectedItem().toString(),
+                    update_or_add_this_screen_pigment(interval, 1, name18.getSelectedItem().toString(),
                                       percentage18.getText(), colorway_id );
                     
-                    update_or_add_this_screen_pigment(name19.getSelectedItem().toString(),
+                    update_or_add_this_screen_pigment(interval, 2, name19.getSelectedItem().toString(),
                                       percentage19.getText(), colorway_id );
                 }
             }
@@ -2541,13 +2538,13 @@ public class EditRecipe extends javax.swing.JFrame {
                 
                 if( colorway_id2 != -1 )
                 {
-                    update_or_add_this_screen_pigment(name21.getSelectedItem().toString(),
+                    update_or_add_this_screen_pigment(interval, 0, name21.getSelectedItem().toString(),
                                       percentage21.getText(), colorway_id2 );
                     
-                    update_or_add_this_screen_pigment(name22.getSelectedItem().toString(),
+                    update_or_add_this_screen_pigment(interval, 1, name22.getSelectedItem().toString(),
                                       percentage22.getText(), colorway_id2 );
                     
-                    update_or_add_this_screen_pigment(name23.getSelectedItem().toString(),
+                    update_or_add_this_screen_pigment(interval, 2, name23.getSelectedItem().toString(),
                                       percentage23.getText(), colorway_id2 );
                 }
             }
@@ -2559,13 +2556,13 @@ public class EditRecipe extends javax.swing.JFrame {
                              weigh_kg9.getText());
                 if(colorway_id != -1 )
                 {
-                    update_or_add_this_screen_pigment(name24.getSelectedItem().toString(),
+                    update_or_add_this_screen_pigment(interval, 0, name24.getSelectedItem().toString(),
                                       percentage24.getText(), colorway_id );
                     
-                    update_or_add_this_screen_pigment(name25.getSelectedItem().toString(),
+                    update_or_add_this_screen_pigment(interval, 1, name25.getSelectedItem().toString(),
                                       percentage25.getText(), colorway_id );
                     
-                    update_or_add_this_screen_pigment(name26.getSelectedItem().toString(),
+                    update_or_add_this_screen_pigment(interval, 2, name26.getSelectedItem().toString(),
                                       percentage26.getText(), colorway_id );
                 }
             }
