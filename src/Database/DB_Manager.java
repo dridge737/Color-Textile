@@ -6,7 +6,7 @@
 
 package Database;
 
-import colortextile_class.deletedClass.screen_pigment;
+//import colortextile_class.deletedClass.screen_pigment;
 import colortextile_class.*;
 import java.awt.Image;
 import java.sql.Array;
@@ -443,7 +443,7 @@ public class DB_Manager {
     
         return -1;
     }
-    
+    /*
     public int check_if_id_screen_exists(screen_pigment this_screen)
     {
          try{
@@ -478,7 +478,7 @@ public class DB_Manager {
         
         return 0;
     }
-    
+    */
     public int get_id_screen(int pigment_no, float pigment_percentage)
     {
         try{
@@ -593,7 +593,9 @@ public class DB_Manager {
         }
         return null;
     }
+    
     //DELETED **NEVER USE!
+    /*
     public List<screen_pigment> set_all_screen_pigment_from_colorway_id(int colorway_id)
     {
         try{
@@ -617,27 +619,13 @@ public class DB_Manager {
             while(screen_rs.next())
             {
                 screen_pigment this_s_pigment = new screen_pigment();
-                /*
-                System.out.println("Screen id = "+screen_rs.getInt("id_screen"));
-                System.out.println("Pigment no = "+screen_rs.getInt("p.pigment_no"));
-                System.out.println("Pigment percentage = "+screen_rs.getFloat("pigment_percentage"));
-                System.out.println("Pigment name= "+screen_rs.getString("p.pigment_name"));
-                */
-                //this_s_pigment.setId_screen(screen_rs.getInt("id_screen"));
+                
                 this_s_pigment.setPigment_no(screen_rs.getInt("p.pigment_no"));
                 this_s_pigment.setPigment_percentage(screen_rs.getFloat("pigment_percentage"));
                 this_s_pigment.setPigment_name(screen_rs.getString("p.pigment_name"));
                 this_screen.add(this_s_pigment);
             }
-            /*
-            for(screen_pigment thisscreens : this_screen)
-            {
-                System.out.println("Screen id = "+thisscreens.getId_screen());
-                System.out.println("Pigment no = "+thisscreens.getPigment_no());
-                System.out.println("Pigment percentage = "+thisscreens.getPigment_percentage());
-                System.out.println("Pigment name= "+thisscreens.getPigment_name());
-            }
-            */
+            
             this.closeConn(conn, ps, screen_rs);
             
             return this_screen;
@@ -648,6 +636,7 @@ public class DB_Manager {
         }
         return null;
     }
+    */
     
     //Get all colorway details using the colorway_id
     public colorway set_colorway_details_from_colorway_id(int id_colorway)
@@ -885,6 +874,7 @@ public class DB_Manager {
      * @param id_screen
      * @return 
      */
+    /*
     public screen_pigment get_pigment_id_and_percentage(int id_screen)
     {
         
@@ -915,7 +905,7 @@ public class DB_Manager {
         }
             return null;
     }
-    
+    */
     public int get_pigment_percentage(int id_screen)
     {
         int pigment_percentage = -1;
