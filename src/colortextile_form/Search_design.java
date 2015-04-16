@@ -52,9 +52,7 @@ public class Search_design extends javax.swing.JFrame {
              rs.previous();
              
             while(rs.next()) {
-                
-                
-                
+              
                    String[] set1 = {    
                                         rs.getString("design_code"),
                                         rs.getString("design_name"),
@@ -64,8 +62,7 @@ public class Search_design extends javax.swing.JFrame {
                                     };
                
                                model.addRow(set1);
-            
-                
+     
                 }
             } else {
                 
@@ -298,21 +295,36 @@ public class Search_design extends javax.swing.JFrame {
     }//GEN-LAST:event_text_design_colorActionPerformed
 
     private void insert_pic() throws SQLException{
-        
+        // super wrong........
+        /*
+        super("Image Display");
+        setSize(400, 400);
         
         design design_conn = new design();
-     //   design_conn.setDesign_code(get_design_code_from_table_selected());
         design_conn.get_picture_from_design_code();
-        Blob blob = design_conn.getDesign_image();
+        Blob blobpic = design_conn.getDesign_image();
+        Image img = Toolkit.getDefaultToolkit().createImage(blobpic);
+        Imageicon icon =new ImageIcon(img);
+        label_pic.setIcon(icon);
+        add(lphoto);
         
-        int blobLength = (int) blob.length();
-        byte[] image1 = blob.getBytes(1, blobLength);
+        */
+        String id = this.get_design_code_from_table_selected();
+        
+        design design_conn = new  design();
+        design_conn.setDesign_code(Integer.parseInt(id));
+        Blob blob = design_conn.getDesign_image();
+        byte[] image1 = blob.getBytes(1, ALLBITS);
         ImageIcon image = new ImageIcon(image1);
         
         
         label_pic.setIcon(image);
-        getContentPane().add(label_pic);
+        
         setVisible(true);
+       
+        
+        
+       
     }
     
     private void button_detailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_detailsActionPerformed
