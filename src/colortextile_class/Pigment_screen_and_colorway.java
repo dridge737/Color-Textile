@@ -64,6 +64,12 @@ public class Pigment_screen_and_colorway extends pigment{
         return new_conn.add_colorway_and_screen_connect(this.getPigment_no(), this.id_colorway, this.getPigment_percentage());
     }
     
+    public void update_colorway_and_screen()
+    {
+        Database.DB_Manager new_conn = new Database.DB_Manager();
+        new_conn.update_colorway_screen(this);
+    }
+    
     public boolean set_id_colorway_and_screen_from_variables()
     {
         Database.DB_Manager new_conn = new Database.DB_Manager();
