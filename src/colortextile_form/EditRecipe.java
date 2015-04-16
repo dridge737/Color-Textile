@@ -2399,6 +2399,7 @@ public class EditRecipe extends javax.swing.JFrame {
                 new_screen_pigment.setPigment_percentage(this_pigment_percent);
                 new_screen_pigment.setId_colorway(colorway_id);
                 new_screen_pigment.add_colorway_and_screen();
+                this.prod_recipe.getAll_colorways().get(interval).add_screen(new_screen_pigment);
                 //new_screen_pigment.get_screen_pigment_id_from_pigment_no_and_pigment_percentage();
             }
             //return new_screen_pigment.getId_screen();
