@@ -74,7 +74,7 @@ public class pigment implements Comparable<pigment>{
         this.stock = stock;
     }
     
-    public void get_id_pigment_from_name()
+    public void set_pigment_id_from_name()
     {
         DB_Manager newDbManager = new DB_Manager();
         pigment_no = newDbManager.get_id_pigment(this.pigment_name);

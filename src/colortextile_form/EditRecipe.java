@@ -5,7 +5,7 @@
  */
 
 package colortextile_form;
-import colortextile_class.deletedClass.screen_pigment;
+//import colortextile_class.deletedClass.screen_pigment;
 import Database.DB_Manager;
 import colortextile_class.*;
 import com.github.sarxos.webcam.Webcam;
@@ -2323,61 +2323,6 @@ public class EditRecipe extends javax.swing.JFrame {
         }
     }
     
-    private int update_this_screen_pigment(String pigment_name, String pigment_percent)
-    {
-        if(pigment_name.length()> 0)
-        {
-            if(pigment_percent.length() > 0)
-            {
-                float this_pigment_percent = Float.parseFloat(pigment_percent);
-            
-                pigment new_pigment = new pigment();
-            
-                new_pigment.setPigment_name(pigment_name);
-                new_pigment.get_id_pigment_from_name();
-                screen_pigment new_screen_pigment = new screen_pigment();
-            
-                new_screen_pigment.setPigment_no(new_pigment.getPigment_no());
-                new_screen_pigment.setPigment_percentage(this_pigment_percent);
-                new_screen_pigment.add_new_screen_pigment();
-                new_screen_pigment.get_screen_pigment_id_from_pigment_no_and_pigment_percentage();
-            
-            //return new_screen_pigment.getId_screen();
-            }
-            
-        }
-        return -1;
-    }
-    
-    private int add_new_screen_pigment(String pigment_name, String temp_pigment_percent)
-    {
-        if(pigment_name.length()> 0)
-        {
-            if(temp_pigment_percent.length() > 0)
-            {
-                float pigment_percent = Float.parseFloat(temp_pigment_percent);
-            //declare pigment id
-            // MFD_VIOLET --> 1(id)
-                pigment new_pigment = new pigment();
-            //get pigment id from the pigment name
-                new_pigment.setPigment_name(pigment_name);
-                new_pigment.get_id_pigment_from_name();
-            
-            //declare screen_pigment to add in screen_pigment table     
-                screen_pigment new_screen_pigment = new screen_pigment();
-            //set pigment no into the screen pigment
-                new_screen_pigment.setPigment_no(new_pigment.getPigment_no());
-                new_screen_pigment.setPigment_percentage(pigment_percent);
-                new_screen_pigment.add_new_screen_pigment();
-                new_screen_pigment.get_screen_pigment_id_from_pigment_no_and_pigment_percentage();
-            
-            //return new_screen_pigment.getId_screen();
-            }
-            
-        }
-        return -1;
-    }
-    
     private int update_this_colorway(int colorway_num, String colorway_name, float binder_percent, String temp_weight_kg)
     {
         if(colorway_name.length()>0)
@@ -2413,19 +2358,6 @@ public class EditRecipe extends javax.swing.JFrame {
         return -1;
     }
     
-    private void add_this_colorway_screen(int id_screen, int id_colorway)
-    {
-        System.out.println("Screen_id = "+id_screen + "Colorway_id= "+id_colorway);
-        if(id_screen != -1 && id_colorway != -1)
-        {
-        colortextile_class.Pigment_screen_and_colorway new_c_and_s = new colortextile_class.Pigment_screen_and_colorway();
-        new_c_and_s.setId_colorway(id_colorway);
-        //new_c_and_s.setId_screen(id_screen);
-        
-        new_c_and_s.add_colorway_and_screen();
-        }
-    }
-    
     private int update_this_design()
     {
         colortextile_class.design new_design = new colortextile_class.design();
@@ -2458,11 +2390,37 @@ public class EditRecipe extends javax.swing.JFrame {
         }
     }
     
-    private void add_screen_and_color_screen(String c_name, String perc_text, int color_id)
+    private int update_or_add_this_screen_pigment(int interval, int pig_num, String pigment_name, String pigment_percent, int colorway_id)
     {
-        int screen_pig_id = add_new_screen_pigment(c_name, perc_text);
-        add_this_colorway_screen(screen_pig_id , color_id);
+        if(pigment_name.length()> 0 && pigment_percent.length() > 0 && !pigment_percent.isEmpty())
+        {
+            float this_pigment_percent = Float.parseFloat(pigment_percent);
+            
+            if(this.prod_recipe.getAll_colorways().get(interval).getThis_screens().size() < pig_num)
+            {
+                this.prod_recipe.getAll_colorways().get(interval).getThis_screens().get(pig_num).setPigment_name(pigment_name);
+                this.prod_recipe.getAll_colorways().get(interval).getThis_screens().get(pig_num).set_pigment_id_from_name();
+                this.prod_recipe.getAll_colorways().get(interval).getThis_screens().get(pig_num).setPigment_percentage(this_pigment_percent);
+            }
+            else
+            {
+                pigment new_pigment = new pigment();
+            
+                new_pigment.setPigment_name(pigment_name);
+                new_pigment.set_pigment_id_from_name();
+                Pigment_screen_and_colorway new_screen_pigment = new Pigment_screen_and_colorway();
+            
+                new_screen_pigment.setPigment_no(new_pigment.getPigment_no());
+                new_screen_pigment.setPigment_percentage(this_pigment_percent);
+                new_screen_pigment.setId_colorway(colorway_id);
+                new_screen_pigment.add_colorway_and_screen();
+                //new_screen_pigment.get_screen_pigment_id_from_pigment_no_and_pigment_percentage();
+            }
+            //return new_screen_pigment.getId_screen();
+        }
+        return -1;
     }
+   
     
     private void save_edit_butActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_save_edit_butActionPerformed
         // TODO add your handling code here:
@@ -2476,122 +2434,142 @@ public class EditRecipe extends javax.swing.JFrame {
         }
         
         update_this_design();
-        
-        /////////1
-        int colorway_id = update_this_colorway(0,colorway_name2.getText(), 
+        for(int interval = 0; interval <7 ; interval++)
+        {
+            int colorway_id, colorway_id2;
+            /////////Colorway 1
+            if(interval == 0)
+            {
+                colorway_id = update_this_colorway(interval,colorway_name2.getText(), 
                              Float.parseFloat(binder8.getSelectedItem().toString()),
                              weigh_kg8.getText());
-        if(colorway_id != -1)
-        {   
-            add_screen_and_color_screen(name1.getSelectedItem().toString(),
+                if(colorway_id != -1)
+                {
+                    update_or_add_this_screen_pigment(interval,0,name1.getSelectedItem().toString(),
                                       percentage1.getText(), colorway_id );
-            
-            add_screen_and_color_screen(name2.getSelectedItem().toString(),
+                    
+                    update_or_add_this_screen_pigment(interval,1, name2.getSelectedItem().toString(),
                                       percentage2.getText(), colorway_id );
-            
-            add_screen_and_color_screen(name3.getSelectedItem().toString(),
+                    
+                    update_or_add_this_screen_pigment(interval,2, name3.getSelectedItem().toString(),
                                       percentage3.getText(), colorway_id );
-        }
-        
-        ////////////2
-        int colorway_id2 = update_this_colorway(1,colorway_name3.getText(), 
+                } 
+            }
+            ////////////Colorway 2
+            else if(interval == 1)
+            {
+                colorway_id2 = update_this_colorway(interval,colorway_name3.getText(), 
                              Float.parseFloat(binder3.getSelectedItem().toString()),
                              weigh_kg3.getText());
-        if(colorway_id2 != -1 )
-        {
-            add_screen_and_color_screen(name5.getSelectedItem().toString(),
+                
+                if(colorway_id2 != -1 )
+                {
+                    update_or_add_this_screen_pigment(name5.getSelectedItem().toString(),
                                       percentage5.getText(), colorway_id2 );
-            
-            add_screen_and_color_screen(name6.getSelectedItem().toString(),
+                    
+                    update_or_add_this_screen_pigment(name6.getSelectedItem().toString(),
                                       percentage6.getText(), colorway_id2 );
-            
-            add_screen_and_color_screen(name7.getSelectedItem().toString(),
+                    
+                    update_or_add_this_screen_pigment(name7.getSelectedItem().toString(),
                                       percentage7.getText(), colorway_id2 );
-        }
-        
-        ////////////3
-        colorway_id = update_this_colorway(2,colorway_name4.getText(), 
+                }
+            }
+            ////////////Colorway 3
+            else if(interval == 2)
+            {
+                colorway_id = update_this_colorway(interval,colorway_name4.getText(), 
                              Float.parseFloat(binder4.getSelectedItem().toString()),
                              weigh_kg4.getText());
-        if(colorway_id != -1 )
-        {
-            add_screen_and_color_screen(name9.getSelectedItem().toString(),
+                
+                if(colorway_id != -1 )
+                {
+                    update_or_add_this_screen_pigment(name9.getSelectedItem().toString(),
                                       percentage9.getText(), colorway_id );
-            
-            add_screen_and_color_screen(name10.getSelectedItem().toString(),
+                    
+                    update_or_add_this_screen_pigment(name10.getSelectedItem().toString(),
                                       percentage10.getText(), colorway_id );
-            
-            add_screen_and_color_screen(name11.getSelectedItem().toString(),
+                    
+                    update_or_add_this_screen_pigment(name11.getSelectedItem().toString(),
                                       percentage11.getText(), colorway_id );
-            
-        }
-        
-        ////////////4
-        colorway_id2 = update_this_colorway(3,colorway_name5.getText(), 
+                }
+            }
+            ////////////Colorway 4
+            else if(interval == 3)
+            {
+                colorway_id2 = update_this_colorway(interval,colorway_name5.getText(), 
                              Float.parseFloat(binder5.getSelectedItem().toString()),
                              weigh_kg5.getText());
-        if(colorway_id2 != -1 )
-        {
-            add_screen_and_color_screen(name13.getSelectedItem().toString(),
+                
+                if(colorway_id2 != -1 )
+                {
+                    update_or_add_this_screen_pigment(name13.getSelectedItem().toString(),
                                       percentage13.getText(), colorway_id2 );
-            
-            add_screen_and_color_screen(name14.getSelectedItem().toString(),
+                    
+                    update_or_add_this_screen_pigment(name14.getSelectedItem().toString(),
                                       percentage14.getText(), colorway_id2 );
-            
-            add_screen_and_color_screen(name15.getSelectedItem().toString(),
+                    
+                    update_or_add_this_screen_pigment(name15.getSelectedItem().toString(),
                                       percentage15.getText(), colorway_id2 );
-        }
-        
-        ////////////5
-        colorway_id = update_this_colorway(4,colorway_name6.getText(), 
+                }
+            }
+            ////////////Colorway 5
+            else if(interval == 4)
+            {
+                colorway_id = update_this_colorway(interval,colorway_name6.getText(), 
                              Float.parseFloat(binder6.getSelectedItem().toString()),
                              weigh_kg6.getText());
-        if(colorway_id != -1 )
-        {
-            add_screen_and_color_screen(name17.getSelectedItem().toString(),
+                
+                if(colorway_id != -1 )
+                {
+                    update_or_add_this_screen_pigment(name17.getSelectedItem().toString(),
                                       percentage17.getText(), colorway_id );
-            
-            add_screen_and_color_screen(name18.getSelectedItem().toString(),
+                    
+                    update_or_add_this_screen_pigment(name18.getSelectedItem().toString(),
                                       percentage18.getText(), colorway_id );
-            
-            add_screen_and_color_screen(name19.getSelectedItem().toString(),
+                    
+                    update_or_add_this_screen_pigment(name19.getSelectedItem().toString(),
                                       percentage19.getText(), colorway_id );
-    
-        }
-        
-         ////////////6
-        colorway_id2 = update_this_colorway(5,colorway_name7.getText(), 
+                }
+            }
+            ////////////Colorway 6
+            else if(interval == 5)
+            {
+             
+                colorway_id2 = update_this_colorway(interval,colorway_name7.getText(), 
                              Float.parseFloat(binder7.getSelectedItem().toString()),
                              weigh_kg7.getText());
-        if( colorway_id2 != -1 )
-        {
-            add_screen_and_color_screen(name21.getSelectedItem().toString(),
+                
+                if( colorway_id2 != -1 )
+                {
+                    update_or_add_this_screen_pigment(name21.getSelectedItem().toString(),
                                       percentage21.getText(), colorway_id2 );
-            
-            add_screen_and_color_screen(name22.getSelectedItem().toString(),
+                    
+                    update_or_add_this_screen_pigment(name22.getSelectedItem().toString(),
                                       percentage22.getText(), colorway_id2 );
-            
-            add_screen_and_color_screen(name23.getSelectedItem().toString(),
+                    
+                    update_or_add_this_screen_pigment(name23.getSelectedItem().toString(),
                                       percentage23.getText(), colorway_id2 );
-        }
-        
-        ////////////7
-        colorway_id = update_this_colorway(6,colorway_name8.getText(), 
+                }
+            }
+            //////////// Colorway 7
+            else if(interval == 6)
+            {
+                colorway_id = update_this_colorway(interval,colorway_name8.getText(), 
                              Float.parseFloat(binder9.getSelectedItem().toString()),
                              weigh_kg9.getText());
-        
-        if( colorway_id2 != -1 )
-        {
-            add_screen_and_color_screen(name24.getSelectedItem().toString(),
-                                      percentage24.getText(), colorway_id2 );
-            
-            add_screen_and_color_screen(name25.getSelectedItem().toString(),
-                                      percentage25.getText(), colorway_id2 );
-            
-            add_screen_and_color_screen(name26.getSelectedItem().toString(),
-                                      percentage26.getText(), colorway_id2 );
+                if(colorway_id != -1 )
+                {
+                    update_or_add_this_screen_pigment(name24.getSelectedItem().toString(),
+                                      percentage24.getText(), colorway_id );
+                    
+                    update_or_add_this_screen_pigment(name25.getSelectedItem().toString(),
+                                      percentage25.getText(), colorway_id );
+                    
+                    update_or_add_this_screen_pigment(name26.getSelectedItem().toString(),
+                                      percentage26.getText(), colorway_id );
+                }
+            }
         }
-        
         JOptionPane.showMessageDialog(null,"Successfully Edited this Recipe");
          
     }//GEN-LAST:event_save_edit_butActionPerformed

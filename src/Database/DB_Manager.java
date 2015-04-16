@@ -562,7 +562,7 @@ public class DB_Manager {
             Connection conn = db.getConnection();
             
             PreparedStatement ps = 
-            conn.prepareStatement("SELECT p.pigment_no, pigment_percentage, p.pigment_name " 
+            conn.prepareStatement("SELECT id_color_screen, p.pigment_no, pigment_percentage, p.pigment_name " 
                                  + " FROM colorway_screen_connect s_p, pigment p" 
                                  + " WHERE id_colorway = ? "
                                  + " AND s_p.pigment_no = p.pigment_no");
@@ -576,6 +576,7 @@ public class DB_Manager {
             {
                 Pigment_screen_and_colorway this_s_pigment = new Pigment_screen_and_colorway();
                 
+                this_s_pigment.setId_color_screen(screen_rs.getInt("id_color_screen"));
                 this_s_pigment.setId_colorway(colorway_id);
                 this_s_pigment.setPigment_no(screen_rs.getInt("p.pigment_no"));
                 this_s_pigment.setPigment_percentage(screen_rs.getFloat("pigment_percentage"));

@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package colortextile_class;
-import colortextile_class.deletedClass.screen_pigment;
+//import colortextile_class.deletedClass.screen_pigment;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;

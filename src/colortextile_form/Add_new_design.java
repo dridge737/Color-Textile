@@ -2559,7 +2559,7 @@ public class Add_new_design extends javax.swing.JFrame {
             pigment new_pigment = new pigment();
             //get pigment id from the pigment name
             new_pigment.setPigment_name(pigment_name);
-            new_pigment.get_id_pigment_from_name();
+            new_pigment.set_pigment_id_from_name();
             return new_pigment.getPigment_no();
         }
         return -1;
