@@ -2373,21 +2373,9 @@ public class EditRecipe extends javax.swing.JFrame {
             new_design.setFabric_style(fab_style_comb.getSelectedItem().toString());
         }
         
-        new_design.setFabric_style(null);
         new_design.update_design();
            
         return new_design.getDesign_code();
-    }
-    
-    private void add_this_design_and_colorway(String design_code, int color_id_temp)
-    {
-        System.out.println("Design Code = " +design_code+ " Colorway Id = "+color_id_temp );
-        if(color_id_temp != -1)
-        {
-            Unused.design_colorway new_dSign_cWay = new Unused.design_colorway();
-            new_dSign_cWay.setId_colorway(color_id_temp);
-            new_dSign_cWay.add_new_design_and_colorway_using_variables();
-        }
     }
     
     private int update_or_add_this_screen_pigment(int interval, int pig_num, String pigment_name, String pigment_percent, int colorway_id)
