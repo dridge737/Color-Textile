@@ -6,7 +6,7 @@
 
 package Database;
 
-//import colortextile_class.deletedClass.screen_pigment;
+import colortextile_class.deletedClass.screen_pigment;
 import colortextile_class.*;
 import java.awt.Image;
 import java.sql.Array;
@@ -443,42 +443,7 @@ public class DB_Manager {
     
         return -1;
     }
-    /*
-    public int check_if_id_screen_exists(screen_pigment this_screen)
-    {
-         try{
-            DBConnection db = new DBConnection();
-            Connection conn = db.getConnection();
-            
-            PreparedStatement ps = 
-            conn.prepareStatement("SELECT EXISTS (SELECT id_screen "
-                                + "FROM screen_pigment "
-                                + "WHERE pigment_no = ? "
-                                + "AND pigment_percentage BETWEEN ? AND ?) "
-                                + " AS CheckTest");
-                    
-                    
-            int item = 1;
-            ps.setInt(item++, this_screen.getPigment_no());
-            ps.setFloat(item++, this_screen.getPigment_percentage() -(float) 0.01);
-            ps.setFloat(item++, this_screen.getPigment_percentage() +(float) 0.01);
-            //System.out.println(ps);
-            ResultSet rs = ps.executeQuery();
-            
-            rs.first();
-            int checkTest = rs.getInt("CheckTest");
-            
-            this.closeConn(conn, ps, rs);
-            return checkTest;
-            
-        }
-        catch(SQLException ex){
-            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        return 0;
-    }
-    */
+    
     public int get_id_screen(int pigment_no, float pigment_percentage)
     {
         try{
@@ -593,50 +558,6 @@ public class DB_Manager {
         }
         return null;
     }
-    
-    //DELETED **NEVER USE!
-    /*
-    public List<screen_pigment> set_all_screen_pigment_from_colorway_id(int colorway_id)
-    {
-        try{
-            DBConnection db = new DBConnection();
-            Connection conn = db.getConnection();
-            System.out.println("Colorway_id = " +colorway_id);
-            PreparedStatement ps = 
-            conn.prepareStatement("SELECT id_screen, p.pigment_no, pigment_percentage, p.pigment_name " 
-                                 + " FROM screen_pigment s_p, pigment p" 
-                                 + " WHERE id_screen "
-                                 + " IN (SELECT id_screen "
-                                     + " FROM colorway_screen_connect "
-                                     + " WHERE id_colorway = ?)"
-                                 + " AND s_p.pigment_no = p.pigment_no");
-            int item = 1;
-            ps.setInt(item++, colorway_id);
-            ResultSet screen_rs = ps.executeQuery();
-            
-            List<screen_pigment> this_screen = new ArrayList<>();
-            
-            while(screen_rs.next())
-            {
-                screen_pigment this_s_pigment = new screen_pigment();
-                
-                this_s_pigment.setPigment_no(screen_rs.getInt("p.pigment_no"));
-                this_s_pigment.setPigment_percentage(screen_rs.getFloat("pigment_percentage"));
-                this_s_pigment.setPigment_name(screen_rs.getString("p.pigment_name"));
-                this_screen.add(this_s_pigment);
-            }
-            
-            this.closeConn(conn, ps, screen_rs);
-            
-            return this_screen;
-            
-        }
-        catch(SQLException ex){
-            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return null;
-    }
-    */
     
     //Get all colorway details using the colorway_id
     public colorway set_colorway_details_from_colorway_id(int id_colorway)
@@ -2128,6 +2049,87 @@ public class DB_Manager {
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
             
         }
+    }
+    
+    ////////////////////////UNUSED
+    
+    //DELETED **NEVER USE!
+    /*
+    public List<screen_pigment> set_all_screen_pigment_from_colorway_id(int colorway_id)
+    {
+        try{
+            DBConnection db = new DBConnection();
+            Connection conn = db.getConnection();
+            System.out.println("Colorway_id = " +colorway_id);
+            PreparedStatement ps = 
+            conn.prepareStatement("SELECT id_screen, p.pigment_no, pigment_percentage, p.pigment_name " 
+                                 + " FROM screen_pigment s_p, pigment p" 
+                                 + " WHERE id_screen "
+                                 + " IN (SELECT id_screen "
+                                     + " FROM colorway_screen_connect "
+                                     + " WHERE id_colorway = ?)"
+                                 + " AND s_p.pigment_no = p.pigment_no");
+            int item = 1;
+            ps.setInt(item++, colorway_id);
+            ResultSet screen_rs = ps.executeQuery();
+            
+            List<screen_pigment> this_screen = new ArrayList<>();
+            
+            while(screen_rs.next())
+            {
+                screen_pigment this_s_pigment = new screen_pigment();
+                
+                this_s_pigment.setPigment_no(screen_rs.getInt("p.pigment_no"));
+                this_s_pigment.setPigment_percentage(screen_rs.getFloat("pigment_percentage"));
+                this_s_pigment.setPigment_name(screen_rs.getString("p.pigment_name"));
+                this_screen.add(this_s_pigment);
+            }
+            
+            this.closeConn(conn, ps, screen_rs);
+            
+            return this_screen;
+            
+        }
+        catch(SQLException ex){
+            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+    */
+    
+    public int check_if_id_screen_exists(screen_pigment this_screen)
+    {
+         try{
+            DBConnection db = new DBConnection();
+            Connection conn = db.getConnection();
+            
+            PreparedStatement ps = 
+            conn.prepareStatement("SELECT EXISTS (SELECT id_screen "
+                                + "FROM screen_pigment "
+                                + "WHERE pigment_no = ? "
+                                + "AND pigment_percentage BETWEEN ? AND ?) "
+                                + " AS CheckTest");
+                    
+                    
+            int item = 1;
+            ps.setInt(item++, this_screen.getPigment_no());
+            ps.setFloat(item++, this_screen.getPigment_percentage() -(float) 0.01);
+            ps.setFloat(item++, this_screen.getPigment_percentage() +(float) 0.01);
+            //System.out.println(ps);
+            ResultSet rs = ps.executeQuery();
+            
+            rs.first();
+            int checkTest = rs.getInt("CheckTest");
+            
+            this.closeConn(conn, ps, rs);
+            return checkTest;
+            
+        }
+        catch(SQLException ex){
+            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return 0;
     }
 }
     
