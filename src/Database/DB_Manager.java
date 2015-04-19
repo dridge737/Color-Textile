@@ -1916,7 +1916,7 @@ public class DB_Manager {
            ps.setString(item++, this_design.getColor_name());
            ps.setString(item++, this_design.getFabric_style());
            ps.setInt(item++, this_design.getDesign_code());
-          
+          System.out.println(ps);
           ps.executeUpdate();
           this.closeConn(conn, ps);
         }
@@ -1939,9 +1939,10 @@ public class DB_Manager {
             WHERE id_color_screen = 33;
            */
            PreparedStatement ps = conn.prepareStatement("UPDATE colorway_screen_connect "
-                                                        + "SET pigment_no = (SELECT pigment_no FROM pigment WHERE pigment_name LIKE ?), "
-                                                        + "pigment_percentage = ?, "
-                                                        + "WHERE id_color_screen = ?");
+                                                        + " SET pigment_no = "
+                                                        + "(SELECT pigment_no FROM pigment WHERE pigment_name LIKE ?), "
+                                                        + " pigment_percentage = ? "
+                                                        + " WHERE id_color_screen = ?");
           int item = 1;
           ps.setString(item++, this_color_screen.getPigment_name());
           ps.setFloat(item++, this_color_screen.getPigment_percentage());
@@ -1964,8 +1965,8 @@ public class DB_Manager {
           Connection conn = db.getConnection(); 
           
           PreparedStatement ps = conn.prepareStatement("UPDATE colorway "
-                                                        + "SET colorway_name = ?, binder = ?, weight_kg = ?"
-                                                        + "WHERE id_colorway = ?");
+                                                        + " SET colorway_name = ?, binder = ?, weight_kg = ? "
+                                                        + " WHERE id_colorway = ?");
           int item = 1;
           ps.setString(item++, this_colorway.getColorway_name());
           ps.setFloat(item++, this_colorway.getBinder());

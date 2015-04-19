@@ -105,9 +105,10 @@ public class EditRecipe extends javax.swing.JFrame {
     
     private void set_design_details_from_first_purchase_order()
     {
-        if(prod_recipe.getAll_purchase().size() >0)
+        if(prod_recipe.getAll_purchase().size() != 0)
         {
             prod_recipe.setDesign_code(prod_recipe.getAll_purchase().get(0).getDesign_code());
+            System.out.println(prod_recipe.getAll_purchase().get(0).getDesign_code());
             prod_recipe.setDesign_details_from_des_code();
             prod_recipe.set_all_colorway_from_design_code();
         }
@@ -2270,13 +2271,8 @@ public class EditRecipe extends javax.swing.JFrame {
      * @param pigment_percent - percentage of pigment in variable float
      */
     private void add_purchase(){
+        /*
         
-        SimpleDateFormat formater = new SimpleDateFormat("yyyy/MM/dd");
-                String spinnerValue = formater.format(this.spinner_date.getValue());
-                System.out.println(spinnerValue);
-                
-        purchase_order purchase = new purchase_order();
-
         Boolean test1 = purchase.add_new_purchase();
         if (test1 == true){
             JOptionPane.showMessageDialog(null,"This Purchase has been edited");
@@ -2285,31 +2281,23 @@ public class EditRecipe extends javax.swing.JFrame {
         }
         
             JOptionPane.showMessageDialog(null,purchase.getPurchase_Id_Last());
+        */ 
+        
+        List<purchase_order> all_purchase = prod_recipe.getAll_purchase();
+        for(int x=0; x<all_purchase.size(); x++)
+        {
+            all_purchase.get(x).add_new_purchase();
+        }
             
     }
     private void add_job(int id_purchase)
     {
-        /*
-        for (int i = 0; i < job_list.size(); i++)
-        {
-            job_order job = new job_order();
-            DB_Manager new_conn = new DB_Manager();
-            
-            job.setCustomer_id(new_conn.get_id_customer(this.customer_list.get(i).toString()));
-            //job.setQuantity(Integer.parseInt(this.quantity_list.get(i).toString()));
-            job.setJob_id(this.job_list.get(i).toString());
-            //job.setId_purchase(id_purchase);
-
-            job.add_new_job_order();
-        }
-        */
         List<job_order> all_jobs = get_job_details();
         for(int x = 0; x < all_jobs.size() ; x++ )
         {
             all_jobs.get(x).add_new_job_order();
         }
     }
-    
     
     private void fill_customer_list()
     {
@@ -2319,16 +2307,14 @@ public class EditRecipe extends javax.swing.JFrame {
         list.get_customer_list();
         for ( String name : list.getCustomer_names() )
         {
-        this.customer_combo_list.addItem(name);
+            this.customer_combo_list.addItem(name);
         }
     }
     
     private int update_this_colorway(int colorway_num, String colorway_name, float binder_percent, String temp_weight_kg)
     {
-        if(colorway_name.length()>0)
+        if(colorway_name.length()>0 && temp_weight_kg.length()>0)
         {
-            if(temp_weight_kg.length()>0)
-            {
                 float weight_kg = Float.parseFloat(temp_weight_kg);
                 if(prod_recipe.getAll_colorways().size()> colorway_num)
                 {
@@ -2353,29 +2339,28 @@ public class EditRecipe extends javax.swing.JFrame {
                         return this_color_screen.getId_colorway();
                     }
                 }
-            }
+            
         }
         return -1;
     }
     
     private int update_this_design()
     {
-        colortextile_class.design new_design = new colortextile_class.design();
-        new_design.setDesign_name(design_name.getText());
-        new_design.setColor_name(design_color.getText());
+        prod_recipe.setDesign_name(design_name.getText());
+        prod_recipe.setColor_name(design_color.getText());
         if(fabric_check_box.isSelected())
         {
-            new_design.setFabric_style(fabric_style.getText().toUpperCase());
-            new_design.add_fabric_style();
+            prod_recipe.setFabric_style(fabric_style.getText().toUpperCase());
+            prod_recipe.add_fabric_style();
         }
         else
         {
-            new_design.setFabric_style(fab_style_comb.getSelectedItem().toString());
+            prod_recipe.setFabric_style(fab_style_comb.getSelectedItem().toString());
         }
         
-        new_design.update_design();
+        prod_recipe.update_design();
            
-        return new_design.getDesign_code();
+        return prod_recipe.getDesign_code();
     }
     
     private int update_or_add_this_screen_pigment(int interval, int pig_num, String pigment_name, String pigment_percent, int colorway_id)
@@ -2384,7 +2369,7 @@ public class EditRecipe extends javax.swing.JFrame {
         {
             float this_pigment_percent = Float.parseFloat(pigment_percent);
             
-            if(this.prod_recipe.getAll_colorways().get(interval).getThis_screens().size() < pig_num)
+            if(this.prod_recipe.getAll_colorways().get(interval).getThis_screens().size() > pig_num)
             {
                 this.prod_recipe.getAll_colorways().get(interval).getThis_screens().get(pig_num).setPigment_name(pigment_name);
                 this.prod_recipe.getAll_colorways().get(interval).getThis_screens().get(pig_num).set_pigment_id_from_name();
@@ -2407,19 +2392,8 @@ public class EditRecipe extends javax.swing.JFrame {
         return -1;
     }
    
-    
-    private void save_edit_butActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_save_edit_butActionPerformed
-        // TODO add your handling code here:
-       
-        if (this.jList1.getModel().getSize() == 0)
-        {
-            JOptionPane.showMessageDialog(null,"Please include a customer");
-        } else {
-            
-            add_purchase();
-        }
-        
-        update_this_design();
+    private void update_and_add_all_colorways()
+    {
         for(int interval = 0; interval <7 ; interval++)
         {
             int colorway_id, colorway_id2;
@@ -2556,6 +2530,25 @@ public class EditRecipe extends javax.swing.JFrame {
                 }
             }
         }
+        
+    }
+    
+    private void save_edit_butActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_save_edit_butActionPerformed
+        // TODO add your handling code here:
+       
+        if (this.jList1.getModel().getSize() == 0)
+        {
+            JOptionPane.showMessageDialog(null,"Please include a customer");
+        } else {
+            //System.out.print("Hello");
+            update_this_design();
+            update_and_add_all_colorways();
+            
+            //add_purchase();
+        }
+        
+        
+        
         JOptionPane.showMessageDialog(null,"Successfully Edited this Recipe");
          
     }//GEN-LAST:event_save_edit_butActionPerformed
