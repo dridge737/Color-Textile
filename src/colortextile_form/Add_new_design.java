@@ -108,7 +108,7 @@ public class Add_new_design extends javax.swing.JFrame {
         customer_check_box = new javax.swing.JCheckBox();
         customer_name_text = new javax.swing.JTextField();
         job_ord_label = new javax.swing.JLabel();
-        button_remove_customer1 = new javax.swing.JButton();
+        edit_purchase = new javax.swing.JButton();
         jPanel11 = new javax.swing.JPanel();
         jTabbedPane2 = new javax.swing.JTabbedPane();
         jPanel9 = new javax.swing.JPanel();
@@ -582,14 +582,14 @@ public class Add_new_design extends javax.swing.JFrame {
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel3.setText("Total Quantity :");
         jPanel16.add(jLabel3);
-        jLabel3.setBounds(415, 120, 130, 34);
+        jLabel3.setBounds(415, 125, 130, 34);
 
         quantity_total.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         quantity_total.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         quantity_total.setEnabled(false);
         quantity_total.setSelectionColor(new java.awt.Color(153, 153, 153));
         jPanel16.add(quantity_total);
-        quantity_total.setBounds(553, 120, 150, 34);
+        quantity_total.setBounds(553, 125, 150, 34);
 
         jLabel5.setBackground(new java.awt.Color(255, 255, 255));
         jLabel5.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
@@ -598,7 +598,7 @@ public class Add_new_design extends javax.swing.JFrame {
         jLabel5.setText("m");
         jLabel5.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         jPanel16.add(jLabel5);
-        jLabel5.setBounds(705, 120, 13, 34);
+        jLabel5.setBounds(705, 125, 13, 34);
 
         jLabel13.setBackground(new java.awt.Color(255, 255, 255));
         jLabel13.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
@@ -633,30 +633,30 @@ public class Add_new_design extends javax.swing.JFrame {
 
         button_include_customer.setBackground(new java.awt.Color(255, 255, 255));
         button_include_customer.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
-        button_include_customer.setText("Add ");
+        button_include_customer.setText("Add Purchase");
         button_include_customer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_include_customerActionPerformed(evt);
             }
         });
         jPanel16.add(button_include_customer);
-        button_include_customer.setBounds(20, 168, 240, 30);
+        button_include_customer.setBounds(20, 168, 380, 30);
 
         button_remove_customer.setBackground(new java.awt.Color(255, 255, 255));
         button_remove_customer.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
-        button_remove_customer.setText("Delete");
+        button_remove_customer.setText("Delete Purchase");
         button_remove_customer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_remove_customerActionPerformed(evt);
             }
         });
         jPanel16.add(button_remove_customer);
-        button_remove_customer.setBounds(515, 168, 240, 30);
+        button_remove_customer.setBounds(584, 168, 165, 30);
 
         jScrollPane1.setViewportView(jList1);
 
         jPanel16.add(jScrollPane1);
-        jScrollPane1.setBounds(420, 20, 300, 90);
+        jScrollPane1.setBounds(420, 15, 330, 100);
 
         jLabel9.setBackground(new java.awt.Color(255, 255, 255));
         jLabel9.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
@@ -708,16 +708,16 @@ public class Add_new_design extends javax.swing.JFrame {
         jPanel16.add(job_ord_label);
         job_ord_label.setBounds(186, 20, 70, 30);
 
-        button_remove_customer1.setBackground(new java.awt.Color(255, 255, 255));
-        button_remove_customer1.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
-        button_remove_customer1.setText("Delete");
-        button_remove_customer1.addActionListener(new java.awt.event.ActionListener() {
+        edit_purchase.setBackground(new java.awt.Color(255, 255, 255));
+        edit_purchase.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
+        edit_purchase.setText("Edit Purchase");
+        edit_purchase.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                button_remove_customer1ActionPerformed(evt);
+                edit_purchaseActionPerformed(evt);
             }
         });
-        jPanel16.add(button_remove_customer1);
-        button_remove_customer1.setBounds(267, 168, 240, 30);
+        jPanel16.add(edit_purchase);
+        edit_purchase.setBounds(414, 168, 165, 30);
 
         jPanel1.add(jPanel16);
         jPanel16.setBounds(0, 0, 770, 210);
@@ -3371,9 +3371,36 @@ public class Add_new_design extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_formWindowGainedFocus
 
-    private void button_remove_customer1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_remove_customer1ActionPerformed
+    private void edit_purchaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edit_purchaseActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_button_remove_customer1ActionPerformed
+        if(jList1.getSelectedIndex() != -1)
+        {
+            int selected = this.jList1.getSelectedIndex();
+            customer_combo_list.setSelectedItem(this_list.getCustomer_list().get(selected));
+            if(customer_combo_list.getSelectedItem().toString().equals(this_list.getCustomer_list().get(selected)))
+            {
+                customer_combo_list.setVisible(true);
+                this.customer_name_text.setVisible(false);
+            }
+            else
+            {
+                customer_name_text.setVisible(true);
+                customer_combo_list.setVisible(false);
+                customer_name_text.setText(this_list.getCustomer_list().get(selected).toString());
+            }
+            int start_index = this_list.getJob_list().get(selected).toString().length() - 4;
+            
+            text_job_order.setText(this_list.getJob_list().get(selected).toString().substring(start_index));
+            quantity.setText(this_list.getQuantity_list().get(selected).toString());
+            
+            jList1.setModel(this_list.remove_this_item(selected));
+            quantity_total.setText(Integer.toString(this_list.get_quantity_total()));
+        }
+        //this.customer_list.remove(selected);
+        //this.job_list.remove(selected);
+        //this.quantity_list.remove(selected);
+        //fill_list();
+    }//GEN-LAST:event_edit_purchaseActionPerformed
 
     private void compute_kg(JTextField weigh_kg, float coverage)
     {
@@ -3641,7 +3668,6 @@ public class Add_new_design extends javax.swing.JFrame {
     private javax.swing.JComboBox binder9;
     private javax.swing.JButton button_include_customer;
     private javax.swing.JButton button_remove_customer;
-    private javax.swing.JButton button_remove_customer1;
     private javax.swing.JTextField colorway_name2;
     private javax.swing.JTextField colorway_name3;
     private javax.swing.JTextField colorway_name4;
@@ -3661,6 +3687,7 @@ public class Add_new_design extends javax.swing.JFrame {
     private javax.swing.JTextField customer_name_text;
     private javax.swing.JTextField design_color;
     private javax.swing.JTextField design_name;
+    private javax.swing.JButton edit_purchase;
     private javax.swing.JComboBox fab_style_comb;
     private javax.swing.JCheckBox fabric_check_box;
     private javax.swing.JTextField fabric_style;
