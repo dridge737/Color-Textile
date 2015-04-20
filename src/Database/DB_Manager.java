@@ -641,14 +641,16 @@ public class DB_Manager {
             
             PreparedStatement ps = 
             conn.prepareStatement("SELECT id_colorway "
-                                 + "FROM colorway "
-                                 + "WHERE colorway_name LIKE ? "
-                                 + "AND binder LIKE ? "
-                                 + "AND weight_kg BETWEEN ? AND ?");
+                                 + " FROM colorway "
+                                 + " WHERE colorway_name LIKE ? "
+                                 + " AND binder LIKE ? "
+                                 + " AND design_code = ?"
+                                 + " AND weight_kg BETWEEN ? AND ?");
             
             int item = 1;
             ps.setString(item++, existing_colorway.getColorway_name());
             ps.setFloat(item++, existing_colorway.getBinder());
+            ps.setInt(item++, existing_colorway.getDesign_code());
             ps.setFloat(item++, existing_colorway.getWeight_kg()- (float) 0.01);
             ps.setFloat(item++, existing_colorway.getWeight_kg()+ (float) 0.01);
             
@@ -1939,12 +1941,11 @@ public class DB_Manager {
             WHERE id_color_screen = 33;
            */
            PreparedStatement ps = conn.prepareStatement("UPDATE colorway_screen_connect "
-                                                        + " SET pigment_no = "
-                                                        + "(SELECT pigment_no FROM pigment WHERE pigment_name LIKE ?), "
+                                                        + " SET pigment_no = ?, "
                                                         + " pigment_percentage = ? "
                                                         + " WHERE id_color_screen = ?");
           int item = 1;
-          ps.setString(item++, this_color_screen.getPigment_name());
+          ps.setInt(item++, this_color_screen.getPigment_no());
           ps.setFloat(item++, this_color_screen.getPigment_percentage());
           ps.setInt(item++, this_color_screen.getId_color_screen());
           

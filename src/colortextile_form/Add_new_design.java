@@ -108,6 +108,7 @@ public class Add_new_design extends javax.swing.JFrame {
         customer_check_box = new javax.swing.JCheckBox();
         customer_name_text = new javax.swing.JTextField();
         job_ord_label = new javax.swing.JLabel();
+        button_remove_customer1 = new javax.swing.JButton();
         jPanel11 = new javax.swing.JPanel();
         jTabbedPane2 = new javax.swing.JTabbedPane();
         jPanel9 = new javax.swing.JPanel();
@@ -639,7 +640,7 @@ public class Add_new_design extends javax.swing.JFrame {
             }
         });
         jPanel16.add(button_include_customer);
-        button_include_customer.setBounds(16, 168, 380, 30);
+        button_include_customer.setBounds(20, 168, 240, 30);
 
         button_remove_customer.setBackground(new java.awt.Color(255, 255, 255));
         button_remove_customer.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
@@ -650,7 +651,7 @@ public class Add_new_design extends javax.swing.JFrame {
             }
         });
         jPanel16.add(button_remove_customer);
-        button_remove_customer.setBounds(405, 168, 345, 30);
+        button_remove_customer.setBounds(515, 168, 240, 30);
 
         jScrollPane1.setViewportView(jList1);
 
@@ -706,6 +707,17 @@ public class Add_new_design extends javax.swing.JFrame {
         job_ord_label.setText("15P-10-");
         jPanel16.add(job_ord_label);
         job_ord_label.setBounds(186, 20, 70, 30);
+
+        button_remove_customer1.setBackground(new java.awt.Color(255, 255, 255));
+        button_remove_customer1.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
+        button_remove_customer1.setText("Delete");
+        button_remove_customer1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_remove_customer1ActionPerformed(evt);
+            }
+        });
+        jPanel16.add(button_remove_customer1);
+        button_remove_customer1.setBounds(267, 168, 240, 30);
 
         jPanel1.add(jPanel16);
         jPanel16.setBounds(0, 0, 770, 210);
@@ -3359,6 +3371,10 @@ public class Add_new_design extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_formWindowGainedFocus
 
+    private void button_remove_customer1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_remove_customer1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_button_remove_customer1ActionPerformed
+
     private void compute_kg(JTextField weigh_kg, float coverage)
     {
         if(!quantity_total.getBackground().equals(Color.pink) && quantity_total.getText().length()>0)
@@ -3625,6 +3641,7 @@ public class Add_new_design extends javax.swing.JFrame {
     private javax.swing.JComboBox binder9;
     private javax.swing.JButton button_include_customer;
     private javax.swing.JButton button_remove_customer;
+    private javax.swing.JButton button_remove_customer1;
     private javax.swing.JTextField colorway_name2;
     private javax.swing.JTextField colorway_name3;
     private javax.swing.JTextField colorway_name4;

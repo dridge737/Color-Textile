@@ -108,7 +108,6 @@ public class EditRecipe extends javax.swing.JFrame {
         if(prod_recipe.getAll_purchase().size() != 0)
         {
             prod_recipe.setDesign_code(prod_recipe.getAll_purchase().get(0).getDesign_code());
-            System.out.println(prod_recipe.getAll_purchase().get(0).getDesign_code());
             prod_recipe.setDesign_details_from_des_code();
             prod_recipe.set_all_colorway_from_design_code();
         }
@@ -145,12 +144,13 @@ public class EditRecipe extends javax.swing.JFrame {
     
     public void set_design_and_colorway_textbox_details()
     {
+        //SET all Screens textbox. Screens 1 to 7.
         set_all_textbox_colorways(prod_recipe.getAll_colorways());
         
-        //Set details to Text boxes
+        //Set Design details to Text boxes (Design_name, Fabric_style, Design_color)
         design_name.setText(prod_recipe.getDesign_name());
-        //design_code.setText(get_des_details.getDesign_code());
-        fabric_style.setText(prod_recipe.getFabric_style());
+        fab_style_comb.setSelectedItem(prod_recipe.getFabric_style());
+        //fabric_style.setText(prod_recipe.getFabric_style());
         design_color.setText(prod_recipe.getColor_name());
     }
     
@@ -374,6 +374,7 @@ public class EditRecipe extends javax.swing.JFrame {
         customer_check_box = new javax.swing.JCheckBox();
         customer_name_text = new javax.swing.JTextField();
         job_ord_label = new javax.swing.JLabel();
+        edit_item = new javax.swing.JButton();
         jLabel14 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         web_cams = new javax.swing.JComboBox();
@@ -864,25 +865,25 @@ public class EditRecipe extends javax.swing.JFrame {
 
         button_include_customer.setBackground(new java.awt.Color(255, 255, 255));
         button_include_customer.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
-        button_include_customer.setText("Add ");
+        button_include_customer.setText("Add Purchase");
         button_include_customer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_include_customerActionPerformed(evt);
             }
         });
         jPanel16.add(button_include_customer);
-        button_include_customer.setBounds(10, 170, 290, 30);
+        button_include_customer.setBounds(10, 170, 190, 30);
 
         button_remove_customer.setBackground(new java.awt.Color(255, 255, 255));
         button_remove_customer.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
-        button_remove_customer.setText("Delete");
+        button_remove_customer.setText("Delete Purchase");
         button_remove_customer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_remove_customerActionPerformed(evt);
             }
         });
         jPanel16.add(button_remove_customer);
-        button_remove_customer.setBounds(310, 170, 270, 30);
+        button_remove_customer.setBounds(400, 170, 180, 30);
 
         jScrollPane1.setViewportView(jList1);
 
@@ -937,6 +938,17 @@ public class EditRecipe extends javax.swing.JFrame {
         job_ord_label.setText("15P-10-");
         jPanel16.add(job_ord_label);
         job_ord_label.setBounds(150, 20, 70, 30);
+
+        edit_item.setBackground(new java.awt.Color(255, 255, 255));
+        edit_item.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
+        edit_item.setText("Edit Purchase");
+        edit_item.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                edit_itemActionPerformed(evt);
+            }
+        });
+        jPanel16.add(edit_item);
+        edit_item.setBounds(210, 170, 180, 30);
 
         jPanel1.add(jPanel16);
         jPanel16.setBounds(14, 0, 590, 210);
@@ -2332,9 +2344,15 @@ public class EditRecipe extends javax.swing.JFrame {
                     this_color_screen.setColorway_name(colorway_name);
                     this_color_screen.setBinder(binder_percent);
                     this_color_screen.setWeight_kg(weight_kg);
-                    
+                    this_color_screen.setDesign_code(prod_recipe.getDesign_code());
+                    while(prod_recipe.getAll_colorways().size() < colorway_num+1)
+                    {
+                        prod_recipe.add_colorway(new Colorway_screen_link_functions());
+                    }
                     if(this_color_screen.add_new_colorway())
                     {
+                        System.out.println("Added a New Screen to existing Design");
+                        this_color_screen.set_id_colorway_from_variables();
                         prod_recipe.add_colorway(this_color_screen);
                         return this_color_screen.getId_colorway();
                     }
@@ -2374,6 +2392,10 @@ public class EditRecipe extends javax.swing.JFrame {
                 this.prod_recipe.getAll_colorways().get(interval).getThis_screens().get(pig_num).setPigment_name(pigment_name);
                 this.prod_recipe.getAll_colorways().get(interval).getThis_screens().get(pig_num).set_pigment_id_from_name();
                 this.prod_recipe.getAll_colorways().get(interval).getThis_screens().get(pig_num).setPigment_percentage(this_pigment_percent);
+                System.out.println("Pigment Name = " +this.prod_recipe.getAll_colorways().get(interval).getThis_screens().get(pig_num).getPigment_name());
+                System.out.println("Pigment Percentage = " +this.prod_recipe.getAll_colorways().get(interval).getThis_screens().get(pig_num).getPigment_no());
+                System.out.println("Colorway_id = " +this.prod_recipe.getAll_colorways().get(interval).getThis_screens().get(pig_num).getId_colorway());
+                
                 this.prod_recipe.getAll_colorways().get(interval).getThis_screens().get(pig_num).update_colorway_and_screen();
             }
             else
@@ -2396,11 +2418,10 @@ public class EditRecipe extends javax.swing.JFrame {
     {
         for(int interval = 0; interval <7 ; interval++)
         {
-            int colorway_id, colorway_id2;
             /////////Colorway 1
             if(interval == 0)
             {
-                colorway_id = update_this_colorway(interval,colorway_name2.getText(), 
+                int colorway_id = update_this_colorway(interval,colorway_name2.getText(), 
                              Float.parseFloat(binder8.getSelectedItem().toString()),
                              weigh_kg8.getText());
                 if(colorway_id != -1)
@@ -2418,7 +2439,7 @@ public class EditRecipe extends javax.swing.JFrame {
             ////////////Colorway 2
             else if(interval == 1)
             {
-                colorway_id2 = update_this_colorway(interval,colorway_name3.getText(), 
+                int colorway_id2 = update_this_colorway(interval,colorway_name3.getText(), 
                              Float.parseFloat(binder3.getSelectedItem().toString()),
                              weigh_kg3.getText());
                 
@@ -2437,7 +2458,7 @@ public class EditRecipe extends javax.swing.JFrame {
             ////////////Colorway 3
             else if(interval == 2)
             {
-                colorway_id = update_this_colorway(interval,colorway_name4.getText(), 
+                int colorway_id = update_this_colorway(interval,colorway_name4.getText(), 
                              Float.parseFloat(binder4.getSelectedItem().toString()),
                              weigh_kg4.getText());
                 
@@ -2456,7 +2477,7 @@ public class EditRecipe extends javax.swing.JFrame {
             ////////////Colorway 4
             else if(interval == 3)
             {
-                colorway_id2 = update_this_colorway(interval,colorway_name5.getText(), 
+                int colorway_id2 = update_this_colorway(interval,colorway_name5.getText(), 
                              Float.parseFloat(binder5.getSelectedItem().toString()),
                              weigh_kg5.getText());
                 
@@ -2475,7 +2496,7 @@ public class EditRecipe extends javax.swing.JFrame {
             ////////////Colorway 5
             else if(interval == 4)
             {
-                colorway_id = update_this_colorway(interval,colorway_name6.getText(), 
+                int colorway_id = update_this_colorway(interval,colorway_name6.getText(), 
                              Float.parseFloat(binder6.getSelectedItem().toString()),
                              weigh_kg6.getText());
                 
@@ -2495,7 +2516,7 @@ public class EditRecipe extends javax.swing.JFrame {
             else if(interval == 5)
             {
              
-                colorway_id2 = update_this_colorway(interval,colorway_name7.getText(), 
+                int colorway_id2 = update_this_colorway(interval,colorway_name7.getText(), 
                              Float.parseFloat(binder7.getSelectedItem().toString()),
                              weigh_kg7.getText());
                 
@@ -2514,7 +2535,7 @@ public class EditRecipe extends javax.swing.JFrame {
             //////////// Colorway 7
             else if(interval == 6)
             {
-                colorway_id = update_this_colorway(interval,colorway_name8.getText(), 
+                int colorway_id = update_this_colorway(interval,colorway_name8.getText(), 
                              Float.parseFloat(binder9.getSelectedItem().toString()),
                              weigh_kg9.getText());
                 if(colorway_id != -1 )
@@ -2546,8 +2567,6 @@ public class EditRecipe extends javax.swing.JFrame {
             
             //add_purchase();
         }
-        
-        
         
         JOptionPane.showMessageDialog(null,"Successfully Edited this Recipe");
          
@@ -3300,6 +3319,10 @@ public class EditRecipe extends javax.swing.JFrame {
         show_add_pigment();
     }//GEN-LAST:event_pig31ActionPerformed
 
+    private void edit_itemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edit_itemActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_edit_itemActionPerformed
+
     private void show_add_pigment()
     {
         add_pigment_form add_pigment = new add_pigment_form();
@@ -3579,6 +3602,7 @@ public class EditRecipe extends javax.swing.JFrame {
     private javax.swing.JTextField customer_name_text;
     private javax.swing.JTextField design_color;
     private javax.swing.JTextField design_name;
+    private javax.swing.JButton edit_item;
     private javax.swing.JComboBox fab_style_comb;
     private javax.swing.JCheckBox fabric_check_box;
     private javax.swing.JTextField fabric_style;
