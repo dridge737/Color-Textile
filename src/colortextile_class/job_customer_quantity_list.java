@@ -147,6 +147,11 @@ public class job_customer_quantity_list {
                 JOptionPane.showMessageDialog(null,"Please Select a Customer!");
                 return false;
             }
+            if (this.customer_list.contains(combo_name.getSelectedItem().toString()))
+            {
+                JOptionPane.showMessageDialog(null,"Customer has already been added for this puchase!");
+                return false;   
+            }
         }
         return true;
     }
