@@ -157,6 +157,9 @@
             </Property>
             <Property name="toolTipText" type="java.lang.String" value="Day, Month and Year"/>
           </Properties>
+          <Events>
+            <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="spinner_dateStateChanged"/>
+          </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="spinner_date.setEditor(new JSpinner.DateEditor(spinner_date, &quot;dd/MM/yyyy&quot;));"/>
           </AuxValues>
@@ -421,7 +424,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="14" y="0" width="590" height="210"/>
+              <AbsoluteConstraints x="8" y="0" width="600" height="210"/>
             </Constraint>
           </Constraints>
 
@@ -577,7 +580,7 @@
               </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="10" y="170" width="295" height="30"/>
+                  <AbsoluteConstraints x="2" y="170" width="298" height="30"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -599,7 +602,7 @@
               </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="445" y="170" width="140" height="30"/>
+                  <AbsoluteConstraints x="450" y="170" width="140" height="30"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -747,7 +750,7 @@
               </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="310" y="170" width="130" height="30"/>
+                  <AbsoluteConstraints x="305" y="170" width="140" height="30"/>
                 </Constraint>
               </Constraints>
             </Component>

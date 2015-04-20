@@ -44,7 +44,7 @@ public class EditRecipe extends javax.swing.JFrame {
     private boolean web_cam_opened = false;
     private boolean pigment_screen_showed = false;
     private production_recipe prod_recipe  = new production_recipe();
-    
+    private job_customer_quantity_list temporary_list = new job_customer_quantity_list();
     private Recipe_functions use_func = new Recipe_functions();
     private job_customer_quantity_list this_list = new job_customer_quantity_list();
     /**
@@ -129,6 +129,7 @@ public class EditRecipe extends javax.swing.JFrame {
             } catch (ParseException ex) {
                 Logger.getLogger(EditRecipe.class.getName()).log(Level.SEVERE, null, ex);
             }
+            job_ord_label.setText(use_func.change_job_order_prefix(spinner_date));
         }
         
         for(int interval = 0; interval < list; interval++)
@@ -688,6 +689,11 @@ public class EditRecipe extends javax.swing.JFrame {
         spinner_date.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
         spinner_date.setModel(new javax.swing.SpinnerDateModel());
         spinner_date.setToolTipText("Day, Month and Year");
+        spinner_date.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                spinner_dateStateChanged(evt);
+            }
+        });
         jPanel14.add(spinner_date);
         spinner_date.setBounds(616, 20, 130, 34);
         spinner_date.setEditor(new JSpinner.DateEditor(spinner_date, "dd/MM/yyyy"));
@@ -872,7 +878,7 @@ public class EditRecipe extends javax.swing.JFrame {
             }
         });
         jPanel16.add(button_include_customer);
-        button_include_customer.setBounds(10, 170, 295, 30);
+        button_include_customer.setBounds(2, 170, 298, 30);
 
         button_remove_customer.setBackground(new java.awt.Color(255, 255, 255));
         button_remove_customer.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
@@ -884,7 +890,7 @@ public class EditRecipe extends javax.swing.JFrame {
             }
         });
         jPanel16.add(button_remove_customer);
-        button_remove_customer.setBounds(445, 170, 140, 30);
+        button_remove_customer.setBounds(450, 170, 140, 30);
 
         jScrollPane1.setViewportView(jList1);
 
@@ -950,10 +956,10 @@ public class EditRecipe extends javax.swing.JFrame {
             }
         });
         jPanel16.add(edit_item);
-        edit_item.setBounds(310, 170, 130, 30);
+        edit_item.setBounds(305, 170, 140, 30);
 
         jPanel1.add(jPanel16);
-        jPanel16.setBounds(14, 0, 590, 210);
+        jPanel16.setBounds(8, 0, 600, 210);
 
         jLabel14.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
         jLabel14.setText("INSERT PICTURE HERE");
@@ -2927,17 +2933,17 @@ public class EditRecipe extends javax.swing.JFrame {
         // TODO add your handling code here:
        String job_order_text = this.job_ord_label.getText() + this.text_job_order.getText();
         
-       if(this_list.check_if_job_is_good(job_order_text))
-       {
-           if(this_list.check_this_customer(customer_check_box, customer_combo_list, this.customer_name_text))
-           {
-               if (this_list.check_if_quantity_is_good(job_order_text))
+       if(this_list.check_if_job_is_good(job_order_text) 
+         && this_list.check_this_customer(customer_check_box, customer_combo_list, this.customer_name_text)
+               && this_list.check_if_quantity_is_good(job_order_text))
                {
                    include();
-               }    
-           }
-       }
-       
+                   quantity.setText("");
+                   customer_combo_list.setSelectedIndex(0);
+                   customer_name_text.setText("");
+                    if(edit_item.getText().equals("Cancel Edit"))
+                        edit_item.setText("Edit Purchase");
+               }
     }//GEN-LAST:event_button_include_customerActionPerformed
 
     private void include()
@@ -3323,7 +3329,66 @@ public class EditRecipe extends javax.swing.JFrame {
 
     private void edit_itemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edit_itemActionPerformed
         // TODO add your handling code here:
+        if(edit_item.getText().equals("Edit Purchase"))
+        {
+            if(jList1.getSelectedIndex() != -1)
+            {
+                int selected = this.jList1.getSelectedIndex();
+                customer_combo_list.setSelectedItem(this_list.getCustomer_list().get(selected));
+                if(customer_combo_list.getSelectedItem().toString().equals(this_list.getCustomer_list().get(selected)))
+                {
+                    customer_combo_list.setVisible(true);
+                    this.customer_name_text.setVisible(false);
+                }
+                else
+                {
+                    customer_name_text.setVisible(true);
+                    customer_combo_list.setVisible(false);
+                    customer_name_text.setText(this_list.getCustomer_list().get(selected).toString());
+                }
+                int start_index = this_list.getJob_list().get(selected).toString().length() - 4;
+                text_job_order.setText(this_list.getJob_list().get(selected).toString().substring(start_index));
+                job_ord_label.setText(this_list.getJob_list().get(selected).toString().substring(0, start_index));
+                quantity.setText(this_list.getQuantity_list().get(selected).toString());
+                
+                this.temporary_list.add_customer_job_quantity_in_list(
+                        this_list.getCustomer_list().get(selected).toString(), 
+                        this_list.getJob_list().get(selected).toString(), 
+                        this_list.getQuantity_list().get(selected).toString());
+                
+                
+                jList1.setModel(this_list.remove_this_item(selected));
+                quantity_total.setText(Integer.toString(this_list.get_quantity_total()));
+                edit_item.setText("Cancel Edit");
+            }
+            else
+                JOptionPane.showMessageDialog(null,"Please select an Item from the List");
+            
+        }
+        else if(edit_item.getText().equals("Cancel Edit"))
+        {
+            this.this_list.add_customer_job_quantity_in_list(
+                        temporary_list.getCustomer_list().get(0).toString(), 
+                        temporary_list.getJob_list().get(0).toString(), 
+                        temporary_list.getQuantity_list().get(0).toString());
+            quantity.setText("");
+            customer_combo_list.setSelectedIndex(0);
+            customer_name_text.setText("");
+            text_job_order.setText("");
+            temporary_list.clear_all_items();
+            jList1.setModel(this_list.get_items_in_list());
+            edit_item.setText("Edit Purchase");
+        }
+        //this.customer_list.remove(selected);
+        //this.job_list.remove(selected);
+        //this.quantity_list.remove(selected);
+        //fill_list();
     }//GEN-LAST:event_edit_itemActionPerformed
+
+    private void spinner_dateStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_spinner_dateStateChanged
+        // TODO add your handling code here:
+        job_ord_label.setText(use_func.change_job_order_prefix(spinner_date));
+    }//GEN-LAST:event_spinner_dateStateChanged
 
     private void show_add_pigment()
     {

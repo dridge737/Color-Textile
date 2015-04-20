@@ -70,6 +70,15 @@ public class Recipe_functions {
         return formater.format(this_spinner.getValue());
     }
     
+    public String change_job_order_prefix(JSpinner this_date_spinner)
+    {
+        String spinnerValue = this.get_date_from_spinner(this_date_spinner);
+        
+        String Year = spinnerValue.substring(2, 4);
+        String Month = spinnerValue.substring(5,7);
+        
+        return Year+ "P-" + Month + "-";
+    }
     /*
     private String get_date_from_spinner()
     {

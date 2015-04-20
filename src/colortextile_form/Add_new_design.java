@@ -56,7 +56,7 @@ public class Add_new_design extends javax.swing.JFrame {
         //InputVerifier new_verifier = new Verifier();
         //this.pigment_percentage8.setInputVerifier(new_verifier);
         fill_customer_list();
-        this.change_job_order_prefix();
+        job_ord_label.setText(use_func.change_job_order_prefix(spinner_date));
         this.customer_name_text.setVisible(false);
         this.fabric_style.setVisible(false);
     }
@@ -425,11 +425,6 @@ public class Add_new_design extends javax.swing.JFrame {
         spinner_date.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 spinner_dateStateChanged(evt);
-            }
-        });
-        spinner_date.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                spinner_dateKeyTyped(evt);
             }
         });
 
@@ -3192,6 +3187,7 @@ public class Add_new_design extends javax.swing.JFrame {
                     quantity.setText("");
                     customer_combo_list.setSelectedIndex(0);
                     customer_name_text.setText("");
+                    text_job_order.setText("");
                 }
             
         
@@ -3224,25 +3220,6 @@ public class Add_new_design extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.dispose();
     }//GEN-LAST:event_add_order2ActionPerformed
-
-    private void change_job_order_prefix()
-    {
-        String spinnerValue = use_func.get_date_from_spinner(spinner_date);
-        
-        String Year = spinnerValue.substring(2, 4);
-        String Month = spinnerValue.substring(5,7);
-        
-        job_ord_label.setText(Year+ "P-" + Month + "-");
-    }
-    private void spinner_dateStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_spinner_dateStateChanged
-        // TODO add your handling code here:
-        change_job_order_prefix();
-    }//GEN-LAST:event_spinner_dateStateChanged
-
-    private void spinner_dateKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_spinner_dateKeyTyped
-        // TODO add your handling code here:
-        change_job_order_prefix();
-    }//GEN-LAST:event_spinner_dateKeyTyped
 
     private void quantityKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_quantityKeyReleased
         // TODO add your handling code here:
@@ -3402,6 +3379,11 @@ public class Add_new_design extends javax.swing.JFrame {
         //this.quantity_list.remove(selected);
         //fill_list();
     }//GEN-LAST:event_edit_purchaseActionPerformed
+
+    private void spinner_dateStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_spinner_dateStateChanged
+        // TODO add your handling code here:
+        job_ord_label.setText(use_func.change_job_order_prefix(spinner_date));
+    }//GEN-LAST:event_spinner_dateStateChanged
 
     private void compute_kg(JTextField weigh_kg, float coverage)
     {
