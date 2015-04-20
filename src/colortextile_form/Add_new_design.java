@@ -640,7 +640,7 @@ public class Add_new_design extends javax.swing.JFrame {
             }
         });
         jPanel16.add(button_include_customer);
-        button_include_customer.setBounds(20, 168, 380, 30);
+        button_include_customer.setBounds(24, 168, 380, 30);
 
         button_remove_customer.setBackground(new java.awt.Color(255, 255, 255));
         button_remove_customer.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
@@ -3184,16 +3184,17 @@ public class Add_new_design extends javax.swing.JFrame {
         // TODO add your handling code here:
         String job_order_text = this.job_ord_label.getText() + this.text_job_order.getText();
         
-        if(this_list.check_if_job_is_good(job_order_text))
-        {
-            if(this_list.check_this_customer(customer_check_box, customer_combo_list, customer_name_text))
-            {
-                if (this_list.check_if_quantity_is_good(quantity.getText()))
+        if(this_list.check_if_job_is_good(job_order_text) 
+                && this_list.check_this_customer(customer_check_box, customer_combo_list, customer_name_text)
+                && this_list.check_if_quantity_is_good(quantity.getText()))
                 {
                     include();
+                    quantity.setText("");
+                    customer_combo_list.setSelectedIndex(0);
+                    customer_name_text.setText("");
                 }
-            }
-        }
+            
+        
     }//GEN-LAST:event_button_include_customerActionPerformed
 
     private void button_remove_customerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_remove_customerActionPerformed

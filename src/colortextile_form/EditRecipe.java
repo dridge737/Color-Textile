@@ -839,7 +839,7 @@ public class EditRecipe extends javax.swing.JFrame {
         jLabel13.setText("m");
         jLabel13.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         jPanel16.add(jLabel13);
-        jLabel13.setBounds(295, 120, 13, 34);
+        jLabel13.setBounds(290, 120, 13, 34);
 
         quantity.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         quantity.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -848,7 +848,7 @@ public class EditRecipe extends javax.swing.JFrame {
             }
         });
         jPanel16.add(quantity);
-        quantity.setBounds(150, 120, 143, 34);
+        quantity.setBounds(146, 120, 143, 34);
 
         jLabel12.setBackground(new java.awt.Color(255, 255, 255));
         jLabel12.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
@@ -861,7 +861,7 @@ public class EditRecipe extends javax.swing.JFrame {
         customer_combo_list.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         customer_combo_list.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jPanel16.add(customer_combo_list);
-        customer_combo_list.setBounds(150, 70, 160, 34);
+        customer_combo_list.setBounds(146, 70, 160, 34);
 
         button_include_customer.setBackground(new java.awt.Color(255, 255, 255));
         button_include_customer.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
@@ -872,23 +872,24 @@ public class EditRecipe extends javax.swing.JFrame {
             }
         });
         jPanel16.add(button_include_customer);
-        button_include_customer.setBounds(10, 170, 190, 30);
+        button_include_customer.setBounds(10, 170, 295, 30);
 
         button_remove_customer.setBackground(new java.awt.Color(255, 255, 255));
         button_remove_customer.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
         button_remove_customer.setText("Delete Purchase");
+        button_remove_customer.setMargin(new java.awt.Insets(2, 3, 2, 3));
         button_remove_customer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_remove_customerActionPerformed(evt);
             }
         });
         jPanel16.add(button_remove_customer);
-        button_remove_customer.setBounds(400, 170, 180, 30);
+        button_remove_customer.setBounds(445, 170, 140, 30);
 
         jScrollPane1.setViewportView(jList1);
 
         jPanel16.add(jScrollPane1);
-        jScrollPane1.setBounds(320, 20, 260, 90);
+        jScrollPane1.setBounds(310, 20, 275, 90);
 
         jLabel9.setBackground(new java.awt.Color(255, 255, 255));
         jLabel9.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
@@ -912,7 +913,7 @@ public class EditRecipe extends javax.swing.JFrame {
             }
         });
         jPanel16.add(text_job_order);
-        text_job_order.setBounds(220, 20, 90, 30);
+        text_job_order.setBounds(216, 20, 90, 30);
 
         customer_check_box.setBackground(new java.awt.Color(51, 153, 255));
         customer_check_box.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
@@ -925,11 +926,11 @@ public class EditRecipe extends javax.swing.JFrame {
             }
         });
         jPanel16.add(customer_check_box);
-        customer_check_box.setBounds(250, 50, 59, 20);
+        customer_check_box.setBounds(246, 50, 59, 20);
 
         customer_name_text.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
         jPanel16.add(customer_name_text);
-        customer_name_text.setBounds(150, 70, 160, 34);
+        customer_name_text.setBounds(146, 70, 160, 34);
 
         job_ord_label.setBackground(new java.awt.Color(255, 255, 255));
         job_ord_label.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
@@ -937,18 +938,19 @@ public class EditRecipe extends javax.swing.JFrame {
         job_ord_label.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         job_ord_label.setText("15P-10-");
         jPanel16.add(job_ord_label);
-        job_ord_label.setBounds(150, 20, 70, 30);
+        job_ord_label.setBounds(146, 20, 70, 30);
 
         edit_item.setBackground(new java.awt.Color(255, 255, 255));
         edit_item.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
         edit_item.setText("Edit Purchase");
+        edit_item.setMargin(new java.awt.Insets(2, 3, 2, 3));
         edit_item.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 edit_itemActionPerformed(evt);
             }
         });
         jPanel16.add(edit_item);
-        edit_item.setBounds(210, 170, 180, 30);
+        edit_item.setBounds(310, 170, 130, 30);
 
         jPanel1.add(jPanel16);
         jPanel16.setBounds(14, 0, 590, 210);

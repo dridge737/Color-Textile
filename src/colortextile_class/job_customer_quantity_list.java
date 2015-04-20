@@ -121,10 +121,10 @@ public class job_customer_quantity_list {
             }
             else
             {
-                customer custom = new customer();       
-                custom.setCustomer_name(text_name);
+                customer this_customer = new customer();       
+                this_customer.setCustomer_name(text_name);
                 
-                if(custom.check_if_this_customer_exists())
+                if(this_customer.check_if_this_customer_exists())
                 {
                     JOptionPane.showMessageDialog(null,"Customer Name already Exists");
                     good_customer = false;
