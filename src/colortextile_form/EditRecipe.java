@@ -717,6 +717,7 @@ public class EditRecipe extends javax.swing.JFrame {
         design_name.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jPanel1.add(design_name);
         design_name.setBounds(172, 212, 200, 32);
+        design_name.getAccessibleContext().setAccessibleDescription("This Design's name");
 
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
         jLabel2.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
@@ -782,6 +783,7 @@ public class EditRecipe extends javax.swing.JFrame {
         design_color.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jPanel1.add(design_color);
         design_color.setBounds(172, 253, 200, 32);
+        design_color.getAccessibleContext().setAccessibleDescription("This Design's Color");
 
         fabric_check_box.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         fabric_check_box.setForeground(new java.awt.Color(255, 255, 255));
@@ -855,6 +857,7 @@ public class EditRecipe extends javax.swing.JFrame {
         });
         jPanel16.add(quantity);
         quantity.setBounds(146, 120, 143, 34);
+        quantity.getAccessibleContext().setAccessibleDescription("Input Ordered Quantity");
 
         jLabel12.setBackground(new java.awt.Color(255, 255, 255));
         jLabel12.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
@@ -868,6 +871,7 @@ public class EditRecipe extends javax.swing.JFrame {
         customer_combo_list.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jPanel16.add(customer_combo_list);
         customer_combo_list.setBounds(146, 70, 160, 34);
+        customer_combo_list.getAccessibleContext().setAccessibleDescription("Select Customer Name");
 
         button_include_customer.setBackground(new java.awt.Color(255, 255, 255));
         button_include_customer.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
@@ -890,12 +894,12 @@ public class EditRecipe extends javax.swing.JFrame {
             }
         });
         jPanel16.add(button_remove_customer);
-        button_remove_customer.setBounds(450, 170, 140, 30);
+        button_remove_customer.setBounds(452, 170, 140, 30);
 
         jScrollPane1.setViewportView(jList1);
 
         jPanel16.add(jScrollPane1);
-        jScrollPane1.setBounds(310, 20, 275, 90);
+        jScrollPane1.setBounds(315, 20, 275, 90);
 
         jLabel9.setBackground(new java.awt.Color(255, 255, 255));
         jLabel9.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
@@ -920,6 +924,7 @@ public class EditRecipe extends javax.swing.JFrame {
         });
         jPanel16.add(text_job_order);
         text_job_order.setBounds(216, 20, 90, 30);
+        text_job_order.getAccessibleContext().setAccessibleDescription("Last 4 Digits in a Job Order ID");
 
         customer_check_box.setBackground(new java.awt.Color(51, 153, 255));
         customer_check_box.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
@@ -956,7 +961,7 @@ public class EditRecipe extends javax.swing.JFrame {
             }
         });
         jPanel16.add(edit_item);
-        edit_item.setBounds(305, 170, 140, 30);
+        edit_item.setBounds(307, 170, 140, 30);
 
         jPanel1.add(jPanel16);
         jPanel16.setBounds(8, 0, 600, 210);
@@ -2562,12 +2567,17 @@ public class EditRecipe extends javax.swing.JFrame {
         
     }
     
+    private void update_job_order()
+    {
+        
+    }
+    
     private void save_edit_butActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_save_edit_butActionPerformed
         // TODO add your handling code here:
        
         if (this.jList1.getModel().getSize() == 0)
         {
-            JOptionPane.showMessageDialog(null,"Please include a customer");
+            JOptionPane.showMessageDialog(null,"Please leave at least one customer to process this purchase");
         } else {
             //System.out.print("Hello");
             update_this_design();
@@ -2575,7 +2585,6 @@ public class EditRecipe extends javax.swing.JFrame {
             
             //add_purchase();
         }
-        
         JOptionPane.showMessageDialog(null,"Successfully Edited this Recipe");
          
     }//GEN-LAST:event_save_edit_butActionPerformed

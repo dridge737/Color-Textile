@@ -1983,23 +1983,22 @@ public class DB_Manager {
         }
     }
     
-    public void update_this_design(design this_design)
+    public void update_job_order(job_order this_job_order)
     {
         try
         {
           DBConnection db = new DBConnection();
           Connection conn = db.getConnection(); 
           
-          //UPDATE design SET design_name = , color_name = , fabric_style =  WHERE design_code = ?
-          
-          PreparedStatement ps = conn.prepareStatement("UPDATE design "
-                                                        + " SET design_name = ?, color_name = ?, fabric_style = ? "
-                                                        + " WHERE design_code = ?");
+          PreparedStatement ps = conn.prepareStatement("UPDATE job_order "
+                                                        + " SET customer_id  = ?, "
+                                                        + " date = ?"
+                                                        + " WHERE job_order_id = ?");
           int item = 1;
-          ps.setString(item++, this_design.getDesign_name());
-          ps.setString(item++, this_design.getColor_name());
-          ps.setString(item++, this_design.getFabric_style());
-          ps.setInt(item++, this_design.getDesign_code());
+          
+          ps.setInt(item++, this_job_order.getCustomer_id());
+          ps.setString(item++, this_job_order.getDate());
+          ps.setString(item++, this_job_order.getJob_id());
           
           ps.executeUpdate();
           this.closeConn(conn, ps);
@@ -2009,6 +2008,31 @@ public class DB_Manager {
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    public void update_purchase_order_quantity(purchase_order this_purchase)
+    {
+        try
+        {
+          DBConnection db = new DBConnection();
+          Connection conn = db.getConnection(); 
+          
+          PreparedStatement ps = conn.prepareStatement("UPDATE purchase_order "
+                                                        + " SET quantity  = ? "
+                                                        + " WHERE id_purchase = ?");
+          int item = 1;
+          
+          ps.setFloat(item++, this_purchase.getQuantity());
+          ps.setInt(item++, this_purchase.getId_purchase());
+          
+          ps.executeUpdate();
+          this.closeConn(conn, ps);
+        }
+        catch (SQLException ex)
+        {
+            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
     
     public void delete_colorway_screen_connect(int id_colorway)
     {
