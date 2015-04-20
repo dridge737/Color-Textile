@@ -121,7 +121,7 @@ public class EditRecipe extends javax.swing.JFrame {
         else
             list = prod_recipe.getJobs_for_this().size();
         
-        if( list>0 )
+        if( list > 0 )
         {
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
             try {
