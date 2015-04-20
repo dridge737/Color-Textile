@@ -134,9 +134,16 @@ public class job_customer_quantity_list {
         return good_customer;
     }
     
-    public boolean check_this_customer(JCheckBox jCheckBox1, JComboBox combo_name, JTextField customer_name_text)
+    /**
+     * 
+     * @param customerCheckbox checkbox used to identify if textfield or combobox will be used
+     * @param combo_name customer name combo box
+     * @param customer_name_text customer name text box for new customer
+     * @return true if customer has already been added in the List
+     */
+    public boolean check_this_customer(JCheckBox customerCheckbox, JComboBox combo_name, JTextField customer_name_text)
     {
-        if(jCheckBox1.isSelected())
+        if(customerCheckbox.isSelected())
         {
             return this.check_customer_if_is_in_database_and_has_text(customer_name_text.getText());
         }
