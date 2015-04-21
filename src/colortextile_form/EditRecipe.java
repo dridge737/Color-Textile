@@ -996,6 +996,11 @@ public class EditRecipe extends javax.swing.JFrame {
         jTabbedPane2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
 
         jPanel9.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jPanel9MouseExited(evt);
+            }
+        });
         jPanel9.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel129.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
@@ -1180,6 +1185,11 @@ public class EditRecipe extends javax.swing.JFrame {
         jTabbedPane2.addTab("1", jPanel9);
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jPanel4MouseExited(evt);
+            }
+        });
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         colorway_name3.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
@@ -1356,6 +1366,11 @@ public class EditRecipe extends javax.swing.JFrame {
         jTabbedPane2.addTab("2", jPanel4);
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jPanel5MouseExited(evt);
+            }
+        });
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         colorway_name4.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
@@ -1529,6 +1544,11 @@ public class EditRecipe extends javax.swing.JFrame {
         jTabbedPane2.addTab("3", jPanel5);
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jPanel6MouseExited(evt);
+            }
+        });
         jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         colorway_name5.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
@@ -1701,6 +1721,11 @@ public class EditRecipe extends javax.swing.JFrame {
         jTabbedPane2.addTab("4", jPanel6);
 
         jPanel7.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jPanel7MouseExited(evt);
+            }
+        });
         jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         colorway_name6.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
@@ -1873,6 +1898,11 @@ public class EditRecipe extends javax.swing.JFrame {
         jTabbedPane2.addTab("5", jPanel7);
 
         jPanel8.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jPanel8MouseExited(evt);
+            }
+        });
         jPanel8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         colorway_name7.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
@@ -2045,6 +2075,11 @@ public class EditRecipe extends javax.swing.JFrame {
         jTabbedPane2.addTab("6", jPanel8);
 
         jPanel15.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel15.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jPanel15MouseExited(evt);
+            }
+        });
         jPanel15.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         colorway_name8.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
@@ -2218,7 +2253,7 @@ public class EditRecipe extends javax.swing.JFrame {
 
         save_edit_but.setBackground(new java.awt.Color(255, 255, 255));
         save_edit_but.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        save_edit_but.setText("Save & Print");
+        save_edit_but.setText("Save This Edit");
         save_edit_but.setToolTipText("");
         save_edit_but.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -3381,6 +3416,62 @@ public class EditRecipe extends javax.swing.JFrame {
         job_ord_label.setText(use_func.change_job_order_prefix(spinner_date));
     }//GEN-LAST:event_spinner_dateStateChanged
 
+    private void check_this_panels_colorway_and_weight(JTextField colorway_textbox, JTextField weight_textbox, int tabbedpane_index)
+    {
+        if(colorway_textbox.getText().length() > 0 && weight_textbox.getText().length() == 0
+         || colorway_textbox.getText().length() == 0 && weight_textbox.getText().length() > 0)
+        {
+            if(!jTabbedPane2.getForegroundAt(tabbedpane_index).equals(Color.red))
+            {
+                jTabbedPane2.setForegroundAt(tabbedpane_index, Color.red);
+                this.count_screen_1++;
+            }
+        }
+        else
+        {
+            if(jTabbedPane2.getForegroundAt(tabbedpane_index) == Color.red)
+            {
+                jTabbedPane2.setForegroundAt(tabbedpane_index, Color.BLACK);
+                this.count_screen_1--;
+            }
+        }
+        check_screen();
+    }
+    private void jPanel9MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel9MouseExited
+        // TODO add your handling code here:
+        check_this_panels_colorway_and_weight(colorway_name2, weigh_kg8, 0);
+    }//GEN-LAST:event_jPanel9MouseExited
+
+    private void jPanel4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel4MouseExited
+        // TODO add your handling code here:
+        check_this_panels_colorway_and_weight(colorway_name3, weigh_kg3, 1);
+    }//GEN-LAST:event_jPanel4MouseExited
+
+    private void jPanel5MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel5MouseExited
+        // TODO add your handling code here:
+         check_this_panels_colorway_and_weight(colorway_name4, weigh_kg4, 2);
+    }//GEN-LAST:event_jPanel5MouseExited
+
+    private void jPanel6MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel6MouseExited
+        // TODO add your handling code here:
+        check_this_panels_colorway_and_weight(colorway_name5, weigh_kg5, 3);
+    }//GEN-LAST:event_jPanel6MouseExited
+
+    private void jPanel7MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel7MouseExited
+        // TODO add your handling code here:
+        check_this_panels_colorway_and_weight(colorway_name6, weigh_kg6, 4);
+    }//GEN-LAST:event_jPanel7MouseExited
+
+    private void jPanel8MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel8MouseExited
+        // TODO add your handling code here:
+        check_this_panels_colorway_and_weight(colorway_name7, weigh_kg7, 5);
+    }//GEN-LAST:event_jPanel8MouseExited
+
+    private void jPanel15MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel15MouseExited
+        // TODO add your handling code here:
+        check_this_panels_colorway_and_weight(colorway_name8, weigh_kg9, 6);
+    }//GEN-LAST:event_jPanel15MouseExited
+
     private void show_add_pigment()
     {
         add_pigment_form add_pigment = new add_pigment_form();
@@ -3441,6 +3532,8 @@ public class EditRecipe extends javax.swing.JFrame {
                 the_textfield.setBackground(Color.pink);
                 count_screen_1++;
             }
+            check_screen();
+            return false;
         }
         else
         {
@@ -3449,16 +3542,23 @@ public class EditRecipe extends javax.swing.JFrame {
                 the_textfield.setBackground(Color.white);           
                 count_screen_1--;
             }
+            check_screen();
+            return true;
         }
             
+        
+    }
+    
+    public void check_screen()
+    {
+        System.out.println(count_screen_1);
         if(count_screen_1 > 0)
         {
             save_edit_but.setEnabled(false);
-            return false;
         }
         else
             save_edit_but.setEnabled(true);
-        return true;
+
     }
     
     public void addBlankSpace()

@@ -22,6 +22,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.regex.Pattern;
 import javax.swing.DefaultListModel;
+import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JSpinner;
@@ -44,6 +45,17 @@ public class Add_new_design extends javax.swing.JFrame {
     /**
      * Creates new form Add_new_design
      */
+    
+    protected static ImageIcon createImageIcon(String path) {
+        java.net.URL imgURL = Add_new_design.class.getResource(path);
+        if (imgURL != null) {
+            return new ImageIcon(imgURL);
+        } else {
+            System.err.println("Couldn't find file: " + path);
+            return null;
+        }
+    }
+    
     public Add_new_design() {
         initComponents();
         addListItems();
@@ -59,6 +71,10 @@ public class Add_new_design extends javax.swing.JFrame {
         job_ord_label.setText(use_func.change_job_order_prefix(spinner_date));
         this.customer_name_text.setVisible(false);
         this.fabric_style.setVisible(false);
+        //ImageIcon icon;
+        //icon = createImageIcon("Image/iStethIcon4.ico");
+        //jTabbedPane2.setIconAt(1, icon);
+        
     }
 
     /**
@@ -720,13 +736,25 @@ public class Add_new_design extends javax.swing.JFrame {
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 770, 295));
 
         jPanel11.setBackground(new java.awt.Color(51, 153, 255));
+        jPanel11.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jTabbedPane2.setBackground(new java.awt.Color(255, 255, 255));
         jTabbedPane2.setTabPlacement(javax.swing.JTabbedPane.LEFT);
         jTabbedPane2.setToolTipText("");
+        jTabbedPane2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jTabbedPane2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jTabbedPane2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jTabbedPane2MouseExited(evt);
+            }
+        });
 
         jPanel9.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jPanel9MouseExited(evt);
+            }
+        });
         jPanel9.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel129.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
@@ -911,6 +939,11 @@ public class Add_new_design extends javax.swing.JFrame {
         jTabbedPane2.addTab("1", jPanel9);
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jPanel4MouseExited(evt);
+            }
+        });
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         colorway_name3.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
@@ -1092,6 +1125,11 @@ public class Add_new_design extends javax.swing.JFrame {
         jTabbedPane2.addTab("2", jPanel4);
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jPanel5MouseExited(evt);
+            }
+        });
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         colorway_name4.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
@@ -1270,6 +1308,11 @@ public class Add_new_design extends javax.swing.JFrame {
         jTabbedPane2.addTab("3", jPanel5);
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jPanel6MouseExited(evt);
+            }
+        });
         jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         colorway_name5.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
@@ -1447,6 +1490,11 @@ public class Add_new_design extends javax.swing.JFrame {
         jTabbedPane2.addTab("4", jPanel6);
 
         jPanel7.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jPanel7MouseExited(evt);
+            }
+        });
         jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         colorway_name6.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
@@ -1624,6 +1672,11 @@ public class Add_new_design extends javax.swing.JFrame {
         jTabbedPane2.addTab("5", jPanel7);
 
         jPanel8.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jPanel8MouseExited(evt);
+            }
+        });
         jPanel8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         colorway_name7.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
@@ -1801,6 +1854,11 @@ public class Add_new_design extends javax.swing.JFrame {
         jTabbedPane2.addTab("6", jPanel8);
 
         jPanel15.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel15.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jPanel15MouseExited(evt);
+            }
+        });
         jPanel15.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         colorway_name8.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
@@ -1977,6 +2035,8 @@ public class Add_new_design extends javax.swing.JFrame {
 
         jTabbedPane2.addTab("7", jPanel15);
 
+        jPanel11.add(jTabbedPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 44, 748, 246));
+
         add_order.setBackground(new java.awt.Color(255, 255, 255));
         add_order.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         add_order.setText("Add & Print");
@@ -1986,10 +2046,13 @@ public class Add_new_design extends javax.swing.JFrame {
                 add_orderActionPerformed(evt);
             }
         });
+        jPanel11.add(add_order, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 296, 240, 42));
+        add_order.getAccessibleContext().setAccessibleDescription("Add this design and print it");
 
         jLabel8.setFont(new java.awt.Font("Century Gothic", 0, 30)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Screens");
+        jPanel11.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(43, 0, 150, -1));
 
         preview_but.setBackground(new java.awt.Color(255, 255, 255));
         preview_but.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
@@ -2000,6 +2063,8 @@ public class Add_new_design extends javax.swing.JFrame {
                 preview_butActionPerformed(evt);
             }
         });
+        jPanel11.add(preview_but, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 296, 240, 42));
+        preview_but.getAccessibleContext().setAccessibleDescription("Show a previous of the design's details");
 
         add_order2.setBackground(new java.awt.Color(255, 255, 255));
         add_order2.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
@@ -2010,43 +2075,8 @@ public class Add_new_design extends javax.swing.JFrame {
                 add_order2ActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
-        jPanel11.setLayout(jPanel11Layout);
-        jPanel11Layout.setHorizontalGroup(
-            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel11Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(add_order, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(preview_but, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(add_order2, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(14, 14, 14))
-            .addGroup(jPanel11Layout.createSequentialGroup()
-                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel11Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 748, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel11Layout.createSequentialGroup()
-                        .addGap(43, 43, 43)
-                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel11Layout.setVerticalGroup(
-            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel11Layout.createSequentialGroup()
-                .addComponent(jLabel8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(preview_but, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(add_order2, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(add_order, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(77, 77, 77))
-        );
+        jPanel11.add(add_order2, new org.netbeans.lib.awtextra.AbsoluteConstraints(516, 296, 240, 42));
+        add_order2.getAccessibleContext().setAccessibleDescription("Cancel the addition of this design");
 
         getContentPane().add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 350, 770, 350));
 
@@ -3410,6 +3440,69 @@ public class Add_new_design extends javax.swing.JFrame {
         job_ord_label.setText(use_func.change_job_order_prefix(spinner_date));
     }//GEN-LAST:event_spinner_dateStateChanged
 
+    private void jTabbedPane2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTabbedPane2MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTabbedPane2MouseExited
+
+    private void check_this_panels_colorway_and_weight(JTextField colorway_textbox, JTextField weight_textbox, int tabbedpane_index)
+    {
+        if(colorway_textbox.getText().length() > 0 && weight_textbox.getText().length() == 0
+         || colorway_textbox.getText().length() == 0 && weight_textbox.getText().length() > 0)
+        {
+            if(!jTabbedPane2.getForegroundAt(tabbedpane_index).equals(Color.red))
+            {
+                jTabbedPane2.setForegroundAt(tabbedpane_index, Color.red);
+                this.count_screen_1++;
+            }
+        }
+        else
+        {
+            if(jTabbedPane2.getForegroundAt(tabbedpane_index) == Color.red)
+            {
+                jTabbedPane2.setForegroundAt(tabbedpane_index, Color.BLACK);
+                this.count_screen_1--;
+            }
+        }
+        check_screen();
+    }
+    private void jPanel9MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel9MouseExited
+        // TODO add your handling code here:
+        check_this_panels_colorway_and_weight(colorway_name2, weigh_kg8, 0);
+    }//GEN-LAST:event_jPanel9MouseExited
+
+    private void jPanel4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel4MouseExited
+        // TODO add your handling code here:
+        check_this_panels_colorway_and_weight(colorway_name3, weigh_kg3, 1);
+    }//GEN-LAST:event_jPanel4MouseExited
+
+    private void jPanel5MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel5MouseExited
+        // TODO add your handling code here:
+        check_this_panels_colorway_and_weight(colorway_name4, weigh_kg4, 2);
+    }//GEN-LAST:event_jPanel5MouseExited
+
+    private void jPanel6MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel6MouseExited
+        // TODO add your handling code here:
+        check_this_panels_colorway_and_weight(colorway_name5, weigh_kg5, 3);
+        
+    }//GEN-LAST:event_jPanel6MouseExited
+
+    private void jPanel7MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel7MouseExited
+        // TODO add your handling code here:
+        check_this_panels_colorway_and_weight(colorway_name6, weigh_kg6, 4);
+        
+    }//GEN-LAST:event_jPanel7MouseExited
+
+    private void jPanel8MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel8MouseExited
+        // TODO add your handling code here:
+        check_this_panels_colorway_and_weight(colorway_name7, weigh_kg7, 5);
+        
+    }//GEN-LAST:event_jPanel8MouseExited
+
+    private void jPanel15MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel15MouseExited
+        // TODO add your handling code here:
+        check_this_panels_colorway_and_weight(colorway_name8, weigh_kg9, 6);
+    }//GEN-LAST:event_jPanel15MouseExited
+
     private void compute_kg(JTextField weigh_kg, float coverage)
     {
         if(!quantity_total.getBackground().equals(Color.pink) && quantity_total.getText().length()>0)
@@ -3459,6 +3552,8 @@ public class Add_new_design extends javax.swing.JFrame {
                 the_textfield.setBackground(Color.pink);
                 count_screen_1++;
             }
+            check_screen();
+            return false;
         }
         else
         {
@@ -3467,15 +3562,21 @@ public class Add_new_design extends javax.swing.JFrame {
                 the_textfield.setBackground(Color.white);           
                 count_screen_1--;
             }
+            check_screen();
+            return true;
         }
+    }
+    
+    public void check_screen()
+    {
+        System.out.println(count_screen_1);
         if(count_screen_1 > 0)
         {
             add_order.setEnabled(false);
-            return false;
         }
         else
             add_order.setEnabled(true);
-        return true;
+
     }
     
     private void addBlankSpace()
