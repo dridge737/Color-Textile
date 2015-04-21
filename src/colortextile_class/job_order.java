@@ -146,5 +146,11 @@ public class job_order extends customer {
         System.out.println("Date          : "+this.getDate());
             
     }
+    
+    public void update_job_order_using_job_id()
+    {
+        DB_Manager new_conn = new DB_Manager();
+        new_conn.update_job_order(this);
+    }
         
 }

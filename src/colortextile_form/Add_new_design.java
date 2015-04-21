@@ -2548,17 +2548,14 @@ public class Add_new_design extends javax.swing.JFrame {
     
     private int add_this_colorway(String colorway_name, float binder_percent, String temp_weight_kg, int design_code)
     {
-        if(!colorway_name.isEmpty())
+        if(!colorway_name.isEmpty() && !temp_weight_kg.isEmpty())
         {
-            if(!temp_weight_kg.isEmpty())
-            {
                 float weight_kg = Float.parseFloat(temp_weight_kg);
                 colortextile_class.colorway new_colorway = new colortextile_class.colorway(colorway_name, binder_percent, weight_kg, design_code);
                 new_colorway.add_new_colorway();
                 new_colorway.set_id_colorway_from_variables();
                 
                 return new_colorway.getId_colorway();
-            }
         }
         return -1;
     }
@@ -2754,9 +2751,11 @@ public class Add_new_design extends javax.swing.JFrame {
     
     private void add_all_this_colorways(int design_code)
     {
+        //1
         int colorway_id = add_this_colorway(colorway_name2.getText(), 
                              Float.parseFloat(binder8.getSelectedItem().toString()),
                              weigh_kg8.getText(), design_code);
+        System.out.println("COLORWAY id 1 = " +colorway_id);
         if(colorway_id != -1 )
         {   
             add_this_colorway_screen(name1.getSelectedItem().toString(),
@@ -2768,10 +2767,12 @@ public class Add_new_design extends javax.swing.JFrame {
             add_this_colorway_screen(name3.getSelectedItem().toString(),
                                       percentage3.getText(), colorway_id );
         }
+        
+        //2
         int colorway_id2 = add_this_colorway(colorway_name3.getText(), 
                              Float.parseFloat(binder3.getSelectedItem().toString()),
                              weigh_kg3.getText(), design_code);
-        
+        System.out.println("COLORWAY id 2 = " +colorway_id2);
         if(colorway_id2 != -1 )
         {
             add_this_colorway_screen(name5.getSelectedItem().toString(),
@@ -2783,66 +2784,73 @@ public class Add_new_design extends javax.swing.JFrame {
             add_this_colorway_screen(name7.getSelectedItem().toString(),
                                       percentage7.getText(), colorway_id2 );
         }
-        colorway_id = add_this_colorway(colorway_name4.getText(), 
+        
+        //3
+        int colorway_id3 = add_this_colorway(colorway_name4.getText(), 
                              Float.parseFloat(binder4.getSelectedItem().toString()),
                              weigh_kg4.getText() , design_code);
-        
-        if(colorway_id != -1 )
+        System.out.println("COLORWAY id 3 = " +colorway_id3);
+        if(colorway_id3 != -1 )
         {
             add_this_colorway_screen(name9.getSelectedItem().toString(),
-                                      percentage9.getText(), colorway_id );
+                                      percentage9.getText(), colorway_id3 );
             
             add_this_colorway_screen(name10.getSelectedItem().toString(),
-                                      percentage10.getText(), colorway_id );
+                                      percentage10.getText(), colorway_id3 );
             
             add_this_colorway_screen(name11.getSelectedItem().toString(),
-                                      percentage11.getText(), colorway_id );
+                                      percentage11.getText(), colorway_id3 );
            
         }
-        colorway_id2 = add_this_colorway(colorway_name5.getText(), 
+        //4
+        int colorway_id4 = add_this_colorway(colorway_name5.getText(), 
                              Float.parseFloat(binder5.getSelectedItem().toString()),
                              weigh_kg5.getText(), design_code);
-        
-        if(colorway_id2 != -1 )
+        System.out.println("COLORWAY id 4 = " +colorway_id4);
+        if(colorway_id4 != -1 )
         {
             add_this_colorway_screen(name13.getSelectedItem().toString(),
-                                      percentage13.getText(), colorway_id2 );
+                                      percentage13.getText(), colorway_id4 );
             
             add_this_colorway_screen(name14.getSelectedItem().toString(),
-                                      percentage14.getText(), colorway_id2 );
+                                      percentage14.getText(), colorway_id4 );
             
             add_this_colorway_screen(name15.getSelectedItem().toString(),
-                                      percentage15.getText(), colorway_id2 );
+                                      percentage15.getText(), colorway_id4 );
         }
         
-        colorway_id = add_this_colorway(colorway_name6.getText(), 
+        //5
+        int colorway_id5 = add_this_colorway(colorway_name6.getText(), 
                              Float.parseFloat(binder6.getSelectedItem().toString()),
                              weigh_kg6.getText() , design_code);
+        System.out.println("COLORWAY id 5 = " +colorway_id5);
         if(colorway_id != -1 )
         {
             add_this_colorway_screen(name17.getSelectedItem().toString(),
-                                      percentage17.getText(), colorway_id );
+                                      percentage17.getText(), colorway_id5 );
             
             add_this_colorway_screen(name18.getSelectedItem().toString(),
-                                      percentage18.getText(), colorway_id );
+                                      percentage18.getText(), colorway_id5 );
             
             add_this_colorway_screen(name19.getSelectedItem().toString(),
-                                      percentage19.getText(), colorway_id );
+                                      percentage19.getText(), colorway_id5 );
         }
         
-        colorway_id2 = add_this_colorway(colorway_name7.getText(), 
+        //6
+        int colorway_id6 = add_this_colorway(colorway_name7.getText(), 
                              Float.parseFloat(binder7.getSelectedItem().toString()),
                              weigh_kg7.getText(), design_code);
-        if( colorway_id2 != -1 )
+        System.out.println("COLORWAY id 6 = " +colorway_id6);
+        if( colorway_id6 != -1 )
         {
             add_this_colorway_screen(name21.getSelectedItem().toString(),
-                                      percentage21.getText(), colorway_id2 );
+                                      percentage21.getText(), colorway_id6 );
             
             add_this_colorway_screen(name22.getSelectedItem().toString(),
-                                      percentage22.getText(), colorway_id2 );
+                                      percentage22.getText(), colorway_id6 );
             
             add_this_colorway_screen(name23.getSelectedItem().toString(),
-                                      percentage23.getText(), colorway_id2 );
+                                      percentage23.getText(), colorway_id6 );
         }
     }
 

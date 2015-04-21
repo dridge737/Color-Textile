@@ -27,6 +27,7 @@ public class ColorTextile {
         // TODO code application logic here
         
         //Database.DB_Manager newManager = new Database.DB_Manager();
+        
         //colortextile_class.deletedClass.screen_pigment this_screen = new colortextile_class.deletedClass.screen_pigment();
         //this_screen.setPigment_no(2);
         //this_screen.setPigment_percentage((float)56.7);

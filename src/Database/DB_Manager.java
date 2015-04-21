@@ -308,7 +308,8 @@ public class DB_Manager {
             DBConnection db = new DBConnection();
             Connection conn = db.getConnection();
             
-            PreparedStatement ps = conn.prepareStatement("INSERT INTO colorway_screen_connect (pigment_no, id_colorway, pigment_percentage)"
+            PreparedStatement ps = conn.prepareStatement("INSERT INTO colorway_screen_connect "
+                                                       + "(pigment_no, id_colorway, pigment_percentage)"
                                                        + "VALUES (?, ?, ?);");
             int item =1;
             ps.setInt(item++, id_pigment);
@@ -633,9 +634,8 @@ public class DB_Manager {
     
     public int get_id_colorway(colortextile_class.colorway existing_colorway)
     {
+        int id_colorway = -1;
         try{
-            
-            int id_colorway = -1;
             DBConnection db = new DBConnection();
             Connection conn = db.getConnection();
             

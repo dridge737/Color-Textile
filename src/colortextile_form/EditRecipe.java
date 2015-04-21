@@ -2290,39 +2290,6 @@ public class EditRecipe extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    /**
-     * 
-     * @param pigment_name -Declared pigment name
-     * @param pigment_percent - percentage of pigment in variable float
-     */
-    private void add_purchase(){
-        /*
-        
-        Boolean test1 = purchase.add_new_purchase();
-        if (test1 == true){
-            JOptionPane.showMessageDialog(null,"This Purchase has been edited");
-        } else {
-            JOptionPane.showMessageDialog(null,"Puchase not changed");
-        }
-        
-            JOptionPane.showMessageDialog(null,purchase.getPurchase_Id_Last());
-        */ 
-        
-        List<purchase_order> all_purchase = prod_recipe.getAll_purchase();
-        for(int x=0; x<all_purchase.size(); x++)
-        {
-            all_purchase.get(x).add_new_purchase();
-        }
-            
-    }
-    private void add_job(int id_purchase)
-    {
-        List<job_order> all_jobs = get_job_details();
-        for(int x = 0; x < all_jobs.size() ; x++ )
-        {
-            all_jobs.get(x).add_new_job_order();
-        }
-    }
     
     private void fill_customer_list()
     {
@@ -2567,9 +2534,22 @@ public class EditRecipe extends javax.swing.JFrame {
         
     }
     
-    private void update_job_order()
+    private void update_and_add_job_and_purchase_order()
     {
+        List<purchase_order> all_purchase = prod_recipe.getAll_purchase();
+        for(int x=0; x<all_purchase.size(); x++)
+        {
+            all_purchase.get(x).add_new_purchase();
+        }
         
+        List<job_order> all_jobs = get_job_details();
+        for(int x = 0; x < all_jobs.size() ; x++ )
+        {
+            if(all_jobs.get(x).check_if_job_exists())
+                all_jobs.get(x).update_job_order_using_job_id();
+            else
+                all_jobs.get(x).add_new_job_order();
+        }
     }
     
     private void save_edit_butActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_save_edit_butActionPerformed
@@ -2951,7 +2931,10 @@ public class EditRecipe extends javax.swing.JFrame {
                    customer_combo_list.setSelectedIndex(0);
                    customer_name_text.setText("");
                     if(edit_item.getText().equals("Cancel Edit"))
+                    {
                         edit_item.setText("Edit Purchase");
+                        this.temporary_list.clear_all_items();
+                    }
                }
     }//GEN-LAST:event_button_include_customerActionPerformed
 
@@ -3364,7 +3347,6 @@ public class EditRecipe extends javax.swing.JFrame {
                         this_list.getCustomer_list().get(selected).toString(), 
                         this_list.getJob_list().get(selected).toString(), 
                         this_list.getQuantity_list().get(selected).toString());
-                
                 
                 jList1.setModel(this_list.remove_this_item(selected));
                 quantity_total.setText(Integer.toString(this_list.get_quantity_total()));
