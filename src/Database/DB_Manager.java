@@ -282,7 +282,7 @@ public class DB_Manager {
             Connection conn = db.getConnection();
             
             PreparedStatement ps = conn.prepareStatement("INSERT INTO colorway (colorway_name, binder, weight_kg, design_code)"
-                                                       + "VALUES (? , ? , ? , ?)");
+                                                       + "VALUES (? , ROUND(?, 2) , ROUND(?, 2) , ?)");
             int item =1;
             ps.setString(item++, new_colorway.getColorway_name());
             ps.setFloat(item++, new_colorway.getBinder());
@@ -643,7 +643,7 @@ public class DB_Manager {
             conn.prepareStatement("SELECT id_colorway "
                                  + " FROM colorway "
                                  + " WHERE colorway_name LIKE ? "
-                                 + " AND binder LIKE ? "
+                                 + " AND binder <=> ROUND (?, 2) "
                                  + " AND design_code = ?"
                                  + " AND weight_kg BETWEEN ? AND ?");
             
