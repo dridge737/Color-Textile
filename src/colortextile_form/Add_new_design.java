@@ -2852,6 +2852,23 @@ public class Add_new_design extends javax.swing.JFrame {
             add_this_colorway_screen(name23.getSelectedItem().toString(),
                                       percentage23.getText(), colorway_id6 );
         }
+        
+        //7
+        int colorway_id7 = add_this_colorway(colorway_name8.getText(), 
+                             Float.parseFloat(binder9.getSelectedItem().toString()),
+                             weigh_kg9.getText(), design_code);
+        System.out.println("COLORWAY id 7 = " +colorway_id6);
+        if( colorway_id6 != -1 )
+        {
+            add_this_colorway_screen(name24.getSelectedItem().toString(),
+                                      percentage24.getText(), colorway_id6 );
+            
+            add_this_colorway_screen(name25.getSelectedItem().toString(),
+                                      percentage25.getText(), colorway_id6 );
+            
+            add_this_colorway_screen(name26.getSelectedItem().toString(),
+                                      percentage26.getText(), colorway_id6 );
+        }
     }
 
     private void include()
