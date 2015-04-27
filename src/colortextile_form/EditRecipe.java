@@ -3545,8 +3545,6 @@ public class EditRecipe extends javax.swing.JFrame {
             check_screen();
             return true;
         }
-            
-        
     }
     
     public void check_screen()
@@ -3558,7 +3556,6 @@ public class EditRecipe extends javax.swing.JFrame {
         }
         else
             save_edit_but.setEnabled(true);
-
     }
     
     public void addBlankSpace()
