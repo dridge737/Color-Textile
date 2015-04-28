@@ -2109,22 +2109,14 @@ public class Add_new_design extends javax.swing.JFrame {
         }
     }
     public void fill_info_from_purchase_id(int purchase_order){
-        //try {
+      
             purchase_order purchase = new purchase_order();
             purchase.setId_purchase(purchase_order);
-            //ResultSet rs = purchase.get_purchase_info_from_id_purchase(purchase_order);
-            //if(rs.first()){
-            //    System.out.println("first");
-            //}
-            //String code1 = rs.getString("design_code");
-            //System.out.println(code1);
+            
             
             purchase.set_this_Purchase_details_from_purchase_id();
             this.fill_info(purchase.getDesign_code());
-        //} 
-        //catch (SQLException ex) {
-        //    Logger.getLogger(Add_new_design.class.getName()).log(Level.SEVERE, null, ex);
-        //}
+       
     }
     
     public String get_pigment_name(int pigment_no){
