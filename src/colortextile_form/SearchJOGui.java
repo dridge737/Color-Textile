@@ -206,6 +206,7 @@ public class SearchJOGui extends javax.swing.JFrame {
         button_details = new javax.swing.JButton();
         label_pic = new javax.swing.JLabel();
         spinner_from = new javax.swing.JSpinner();
+        button_edit = new javax.swing.JButton();
 
         jFrame1.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         jFrame1.setTitle("Search Job Order");
@@ -270,7 +271,7 @@ public class SearchJOGui extends javax.swing.JFrame {
             }
         });
         jFrame1.getContentPane().add(jCheckBox2);
-        jCheckBox2.setBounds(585, 133, 65, 29);
+        jCheckBox2.setBounds(585, 133, 69, 29);
 
         jLabel8.setFont(new java.awt.Font("Century Gothic", 0, 34)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
@@ -423,7 +424,7 @@ public class SearchJOGui extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jCheckBox1);
-        jCheckBox1.setBounds(585, 133, 65, 29);
+        jCheckBox1.setBounds(585, 133, 69, 29);
 
         jLabel6.setFont(new java.awt.Font("Century Gothic", 0, 34)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
@@ -459,7 +460,7 @@ public class SearchJOGui extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTable1);
 
         button_details.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        button_details.setText("Details");
+        button_details.setText("Use Design");
         button_details.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_detailsActionPerformed(evt);
@@ -468,6 +469,14 @@ public class SearchJOGui extends javax.swing.JFrame {
 
         spinner_from.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
         spinner_from.setModel(new javax.swing.SpinnerDateModel(new java.util.Date(1410306137651L), null, null, java.util.Calendar.DAY_OF_MONTH));
+
+        button_edit.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        button_edit.setText("Edit Design");
+        button_edit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_editActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -486,9 +495,15 @@ public class SearchJOGui extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                 .addGap(450, 450, 450)
                                 .addComponent(button_details, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(label_pic, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(411, 411, 411)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(label_pic, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(411, 411, 411))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(62, 62, 62)
+                                .addComponent(button_edit, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE)))))
                 .addContainerGap(70, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -503,7 +518,9 @@ public class SearchJOGui extends javax.swing.JFrame {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(spinner_from, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(39, 39, 39)))
-                .addComponent(button_details, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(button_details, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(button_edit, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20))
@@ -647,6 +664,27 @@ public class SearchJOGui extends javax.swing.JFrame {
     private void button_details1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_details1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_button_details1ActionPerformed
+
+    private void button_editActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_editActionPerformed
+        // TODO add your handling code here:
+        int row = jTable1.getSelectedRow();
+        int total_col = jTable1.getColumnCount();
+        for(int col = 0; col < total_col; col++)
+        {
+            System.out.println(jTable1.getValueAt(row, col));
+        }
+        System.out.println("end");
+        String selected_purchase_order = jTable1.getValueAt(row, 0).toString();
+        
+        purchase_order purchase = new purchase_order();
+            purchase.setId_purchase(Integer.parseInt(selected_purchase_order));
+            
+            
+            purchase.set_this_Purchase_details_from_purchase_id();
+            int design_code = purchase.getDesign_code();
+            
+            
+    }//GEN-LAST:event_button_editActionPerformed
     private String get_design_code_from_table_selected(){
         
         int row = this.get_table_row_value();
@@ -711,6 +749,7 @@ public class SearchJOGui extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton button_details;
     private javax.swing.JButton button_details1;
+    private javax.swing.JButton button_edit;
     private javax.swing.JButton button_reset;
     private javax.swing.JButton button_reset1;
     private javax.swing.JButton button_search;
