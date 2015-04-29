@@ -137,6 +137,14 @@ public class job_order extends customer {
         new_conn.delete_job_order(this);
     }
     
+    public void check_and_delete_if_job_id_not_used()
+    {
+        DB_Manager new_conn = new DB_Manager();
+        if(new_conn.count_job_order_usage(job_id) <=1)
+            delete_job_order_from_job_id();
+        
+    }
+    
     public void display_details()
     {
         System.out.println("Job Order ID  : "+this.getJob_id());

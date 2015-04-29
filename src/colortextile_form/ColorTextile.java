@@ -34,11 +34,11 @@ public class ColorTextile {
         //int trial_get_pigment_id =  newManager.check_if_id_screen_exists(this_screen);
         //System.out.println("Result = :" +trial_get_pigment_id);
         
-        Add_new_design newDesign = new Add_new_design();
-        newDesign.setVisible(true);
+        //Add_new_design newDesign = new Add_new_design();
+        //newDesign.setVisible(true);
         
-        //EditRecipe edit_form = new EditRecipe(18);
-        //edit_form.setVisible(true);
+        EditRecipe edit_form = new EditRecipe(18);
+        edit_form.setVisible(true);
         
         /*
         

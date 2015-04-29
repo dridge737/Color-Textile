@@ -112,5 +112,17 @@ public class purchase_order {
         this.id_purchase = temp_purchase.getId_purchase();
         this.quantity = temp_purchase.getQuantity();
     }
+    
+    public void update_purchase_order()
+    {
+        Database.DB_Manager this_conn = new DB_Manager();
+        this_conn.update_purchase_order_quantity(this);
+    }
+    
+    public void delete_purchase_order()
+    {
+        Database.DB_Manager this_conn = new DB_Manager();
+        this_conn.delete_purchase_order(this);
+    }
 
 }

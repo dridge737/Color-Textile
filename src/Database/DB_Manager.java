@@ -1983,6 +1983,34 @@ public class DB_Manager {
         }
     }
     
+    public int count_job_order_usage(String job_order_id)
+    {
+        int total = 0;
+        try{
+            
+            DBConnection db = new DBConnection();
+            Connection conn = db.getConnection(); 
+            
+            PreparedStatement ps = conn.prepareStatement("SELECT COUNT(id_purchase) AS 'Total' "
+                                                        + " FROM purchase_order "
+                                                        + " WHERE job_order_id = ?");
+          int item = 1;
+          
+          ps.setString(item++, job_order_id);
+          
+          ResultSet rs = ps.executeQuery();
+          rs.first();
+          total = rs.getInt("Total");
+          this.closeConn(conn, ps, rs);
+          
+        }
+        catch(SQLException ex)
+        {
+            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return total;
+    }
+    
     public void update_job_order(job_order this_job_order)
     {
         try
@@ -2055,6 +2083,26 @@ public class DB_Manager {
         
     }
     
+    public void delete_purchase_order(purchase_order this_purchase)
+    {
+        try
+        {
+          DBConnection db = new DBConnection();
+          Connection conn = db.getConnection(); 
+          
+          PreparedStatement ps = conn.prepareStatement("DELETE FROM purchase_order "
+                                                        +" WHERE id_purchase = ?");
+          int item = 1;
+          ps.setInt(item++, this_purchase.getId_purchase());
+          
+          ps.executeUpdate();
+          this.closeConn(conn, ps);
+        }
+        catch (SQLException ex)
+        {
+            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex); 
+        }
+    }
     
     public void delete_job_order(job_order this_job)
     {
@@ -2073,8 +2121,7 @@ public class DB_Manager {
         }
         catch (SQLException ex)
         {
-            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
-            
+            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex); 
         }
     }
     

@@ -37,7 +37,21 @@ public class production_recipe extends Design_and_colorway{
             //Get the List of job order from the purchase order id
             //setJobs_for_this(new_conn.set_job_order_info_from_purchase_id(this.getId_purchase()));
         }
-    }
+     }
+     
+     public int get_job_order_index(String this_job_order_id)
+     {
+         int job_order_index = -1;
+         for(int job_index = 0; job_index < jobs_for_this.size(); job_index++)
+         {
+             if(jobs_for_this.get(job_index).getJob_id().equals(this_job_order_id))
+             {
+                 job_order_index = job_index;
+                 job_index = jobs_for_this.size();
+             }
+         }
+         return job_order_index;
+     }
      
      public void set_purchase_order_list_from_job_list()
      {
@@ -187,6 +201,11 @@ public class production_recipe extends Design_and_colorway{
     public void add_purchase(purchase_order this_purchase)
     {
         all_purchase.add(this_purchase);
+    }
+    
+    public void add_job(job_order this_job)
+    {
+        jobs_for_this.add(this_job);
     }
     /**
      * Set 

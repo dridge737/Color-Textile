@@ -63,6 +63,10 @@ public class EditRecipe extends javax.swing.JFrame {
         this.set_design_details_from_first_purchase_order();
         this.set_design_and_colorway_textbox_details();
         this.set_purchase_details();
+        
+        System.out.println(this.prod_recipe.get_all_job_id());
+        
+        System.out.println(this.prod_recipe.get_all_job_id().contains("15P-04-4564"));
     }
     
     private void initialize()
@@ -2566,35 +2570,48 @@ public class EditRecipe extends javax.swing.JFrame {
                 }
             }
         }
-        
     }
     
     private void update_and_add_job_and_purchase_order()
     {
-        List<purchase_order> all_purchase = prod_recipe.getAll_purchase();
-        for(int x=0; x<all_purchase.size(); x++)
-        {
-            all_purchase.get(x).add_new_purchase();
-        }
-        
+        production_recipe temp_list = new production_recipe();
         List<job_order> all_jobs = get_job_details();
+        List<purchase_order> all_purchase = this.get_all_purchase_details(this.prod_recipe.getDesign_code());
         for(int x = 0; x < all_jobs.size() ; x++ )
         {
-            if(all_jobs.get(x).check_if_job_exists())
+            int job_order_index =  this.prod_recipe.get_job_order_index(all_jobs.get(x).getJob_id());
+            if(job_order_index != -1)
+            {
                 all_jobs.get(x).update_job_order_using_job_id();
+                all_purchase.get(x).setId_purchase(prod_recipe.getAll_purchase().get(job_order_index).getId_purchase());
+                all_purchase.get(x).update_purchase_order();
+                temp_list.add_purchase(prod_recipe.getAll_purchase().get(job_order_index));
+                temp_list.add_job(prod_recipe.getJobs_for_this().get(job_order_index));
+                prod_recipe.getAll_purchase().remove(job_order_index);
+                prod_recipe.getJobs_for_this().remove(job_order_index);
+            }
             else
+            {
                 all_jobs.get(x).add_new_job_order();
+                all_purchase.get(x).add_new_purchase();
+            }
+        }
+        for(int remove_iterate = 0; remove_iterate < prod_recipe.getJobs_for_this().size(); remove_iterate++)
+        {
+            prod_recipe.getJobs_for_this().get(remove_iterate).check_and_delete_if_job_id_not_used();
+            prod_recipe.getAll_purchase().get(remove_iterate).delete_purchase_order();
         }
     }
     
     private void save_edit_butActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_save_edit_butActionPerformed
         // TODO add your handling code here:
        
-        if (this.jList1.getModel().getSize() == 0)
-        {
+        if (this.jList1.getModel().getSize() == 0){
             JOptionPane.showMessageDialog(null,"Please leave at least one customer to process this purchase");
-        } else {
+        } 
+        else {
             //System.out.print("Hello");
+            update_and_add_job_and_purchase_order();
             update_this_design();
             update_and_add_all_colorways();
             
@@ -3005,19 +3022,22 @@ public class EditRecipe extends javax.swing.JFrame {
         {
             int selected = this.jList1.getSelectedIndex();
             int reply = JOptionPane.showConfirmDialog(null, 
-                            "Delete job order :"+this.this_list.getJob_list().get(selected).toString() + "from this design?", 
+                            "Delete job order :"+this.this_list.getJob_list().get(selected).toString() + " from this design?", 
                             "DELETE?", JOptionPane.YES_NO_OPTION);
         //JOptionPane.showMessageDialog(null,a);
         //JOptionPane.showMessageDialog(null,selected);
 
             if(reply == JOptionPane.YES_OPTION)
             {
-                job_order current_job = new job_order();
+                this_list.remove_this_item(selected);
+                jList1.setModel(this_list.get_items_in_list());
+               /* job_order current_job = new job_order();
                 current_job.setJob_id(this.this_list.getJob_list().get(selected).toString());
                 current_job.delete_job_order_from_job_id();
-                this.this_list.remove_this_item(selected);
                 
-                this.jList1.setModel(this_list.get_items_in_list());
+                
+                
+                */
             }
         }
     }//GEN-LAST:event_button_remove_customerActionPerformed
@@ -3227,7 +3247,7 @@ public class EditRecipe extends javax.swing.JFrame {
             //Webcam webcam = Webcam.getWebcams().get(this.web_cams.getSelectedIndex());
             //webcam.close()
             File f = new File("New.jpg");
-            System.out.println(f.exists());
+            //System.out.println(f.exists());
             if (f.exists() && f.canRead()) {
                 try {
                     jLabel14.setIcon( new ImageIcon(ImageIO.read(f).getScaledInstance(140, 140, java.awt.Image.SCALE_SMOOTH) ) );
@@ -3549,7 +3569,7 @@ public class EditRecipe extends javax.swing.JFrame {
     
     public void check_screen()
     {
-        System.out.println(count_screen_1);
+        //System.out.println(count_screen_1);
         if(count_screen_1 > 0)
         {
             save_edit_but.setEnabled(false);
