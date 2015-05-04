@@ -64,6 +64,7 @@ public class SpreadsheetTrial {
             template.setField("date", this_purchase.getDate());
             template.setField("fabStyle", this_purchase.getFabric_style());
             template.setField("quant", quantity_all);
+            template.setField("total", quantity_sum);
             template.setField("color", this_purchase.getColor_name());
             
             List<Colorway_screen_link_functions> this_colorway = this_purchase.getAll_colorways();

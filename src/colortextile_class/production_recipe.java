@@ -26,6 +26,39 @@ public class production_recipe extends Design_and_colorway{
          this.Date = set_date;
      }
      
+     public void set_all_details_from_purchase_order_id(int purchase_order_id)
+     {
+         this.set_purchase_details_from_id(purchase_order_id);
+         this.set_design_details_from_first_purchase_order();
+         this.set_purchase_details();
+     }
+     
+     public void set_design_details_from_first_purchase_order()
+     {
+        if(this.getAll_purchase().size() != 0)
+        {
+            this.setDesign_code(this.getAll_purchase().get(0).getDesign_code());
+            this.setDesign_details_from_des_code();
+            this.set_all_colorway_from_design_code();
+        }
+     }
+     
+     public void set_purchase_details_from_id(int purchase_order_id)
+     {
+        // USING GLOBAL VARIABLE
+        purchase_order this_purchase = new purchase_order();
+        //Set Details
+        this_purchase.setId_purchase(purchase_order_id);
+        this_purchase.set_this_Purchase_details_from_purchase_id();
+        this.add_purchase(this_purchase);
+     }
+     
+     public void set_purchase_details()
+    {
+        this.set_job_order_list_using_design_code_and_purchase_id();
+        this.set_purchase_order_list_from_job_list();   
+    }
+     
      public void set_job_order_list_using_design_code_and_purchase_id()
      {
         Database.DB_Manager new_conn = new Database.DB_Manager();

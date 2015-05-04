@@ -124,5 +124,7 @@ public class purchase_order {
         Database.DB_Manager this_conn = new DB_Manager();
         this_conn.delete_purchase_order(this);
     }
+    
+    
 
 }

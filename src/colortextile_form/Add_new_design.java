@@ -2039,7 +2039,7 @@ public class Add_new_design extends javax.swing.JFrame {
 
         add_order.setBackground(new java.awt.Color(255, 255, 255));
         add_order.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        add_order.setText("Add & Print");
+        add_order.setText("Add");
         add_order.setToolTipText("");
         add_order.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

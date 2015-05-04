@@ -59,14 +59,9 @@ public class EditRecipe extends javax.swing.JFrame {
     {
         initComponents();
         initialize();
-        this.set_purchase_details_from_id(purchase_order_id);
-        this.set_design_details_from_first_purchase_order();
+        prod_recipe.set_all_details_from_purchase_order_id(purchase_order_id);
         this.set_design_and_colorway_textbox_details();
-        this.set_purchase_details();
-        
-        System.out.println(this.prod_recipe.get_all_job_id());
-        
-        System.out.println(this.prod_recipe.get_all_job_id().contains("15P-04-4564"));
+        this.set_purchase_and_job_list_textbox();
     }
     
     private void initialize()
@@ -86,34 +81,6 @@ public class EditRecipe extends javax.swing.JFrame {
         for(Webcam all_web : webcam)
         {
             web_cams.addItem(all_web.getName());
-        }
-    }
-    
-    private void set_purchase_details()
-    {
-        prod_recipe.set_job_order_list_using_design_code_and_purchase_id();
-        prod_recipe.set_purchase_order_list_from_job_list();
-        this.set_purchase_and_job_list_textbox();
-    }
-    
-    private void set_purchase_details_from_id(int purchase_order_id)
-    {
-        // USING GLOBAL VARIABLE
-        //production_recipe this_purchase = new production_recipe();
-        purchase_order this_purchase = new purchase_order();
-        //Set Details
-        this_purchase.setId_purchase(purchase_order_id);
-        this_purchase.set_this_Purchase_details_from_purchase_id();
-        prod_recipe.add_purchase(this_purchase);
-    }
-    
-    private void set_design_details_from_first_purchase_order()
-    {
-        if(prod_recipe.getAll_purchase().size() != 0)
-        {
-            prod_recipe.setDesign_code(prod_recipe.getAll_purchase().get(0).getDesign_code());
-            prod_recipe.setDesign_details_from_des_code();
-            prod_recipe.set_all_colorway_from_design_code();
         }
     }
     

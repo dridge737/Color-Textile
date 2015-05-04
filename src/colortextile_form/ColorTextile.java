@@ -13,6 +13,14 @@ import javax.swing.JFrame;
 import org.jopendocument.model.OpenDocument;
 import org.jopendocument.panel.ODSViewerPanel;
 import org.jopendocument.print.DefaultDocumentPrinter;
+import java.io.File;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import org.jdom.JDOMException;
+
+import org.jopendocument.dom.ODSingleXMLDocument;
+import org.jopendocument.dom.OOUtils;
 
 /**
  *
@@ -26,6 +34,31 @@ public class ColorTextile {
     public static void main(String[] args) {
         // TODO code application logic here
         
+        
+        try {
+            File f1 = new File("print_out.odt");
+            ODSingleXMLDocument p1 = ODSingleXMLDocument.createFromPackage(f1);
+            
+            File f2 = new File("print_out.odt");
+            ODSingleXMLDocument p2 = ODSingleXMLDocument.createFromPackage(f2);
+            
+            p1.add(p2);
+            
+            OOUtils.open(p1.saveToPackageAs(new File("cat")));
+            
+        } catch (JDOMException ex) {
+            Logger.getLogger(ColorTextile.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(ColorTextile.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+
+  // Concatenate them
+        
+
+  // Save to file and Open the document with OpenOffice.org !
+        
         //Database.DB_Manager newManager = new Database.DB_Manager();
         
         //colortextile_class.deletedClass.screen_pigment this_screen = new colortextile_class.deletedClass.screen_pigment();
@@ -37,8 +70,8 @@ public class ColorTextile {
         //Add_new_design newDesign = new Add_new_design();
         //newDesign.setVisible(true);
         
-        EditRecipe edit_form = new EditRecipe(18);
-        edit_form.setVisible(true);
+        //EditRecipe edit_form = new EditRecipe(18);
+        //edit_form.setVisible(true);
         
         /*
         
@@ -67,12 +100,12 @@ public class ColorTextile {
         //get_des_details.add_all_colorway_from_design_code();
        // get_des_details.view_all_colorway_details();
         */
-        colortextile_class.design this_design = new colortextile_class.design();
-        this_design.setColor_name("GREEN");
-        this_design.setDesign_name("MICRTG");
-        this_design.setFabric_style("KATUNIA");
-        this_design.setTotal_quantity((int)50660);
-        this_design.add_new_design();
+        //colortextile_class.design this_design = new colortextile_class.design();
+        //this_design.setColor_name("GREEN");
+        //this_design.setDesign_name("MICRTG");
+        //this_design.setFabric_style("KATUNIA");
+        //this_design.setTotal_quantity((int)50660);
+        //this_design.add_new_design();
  
     }
     
