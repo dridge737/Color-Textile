@@ -381,7 +381,7 @@ public class Add_new_design extends javax.swing.JFrame {
         jTextArea1.setRows(5);
         jScrollPane2.setViewportView(jTextArea1);
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Add New Design");
         setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         setForeground(java.awt.Color.white);
@@ -579,7 +579,7 @@ public class Add_new_design extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel4.setText("Design Colorway :");
+        jLabel4.setText("Design Color :");
         jPanel1.add(jLabel4);
         jLabel4.setBounds(20, 248, 153, 34);
 

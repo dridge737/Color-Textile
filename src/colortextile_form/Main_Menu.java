@@ -33,7 +33,6 @@ public class Main_Menu extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        add_new_recipe = new javax.swing.JButton();
         search_jo = new javax.swing.JButton();
         pigments = new javax.swing.JButton();
         Close_but = new javax.swing.JButton();
@@ -52,16 +51,6 @@ public class Main_Menu extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Main Menu");
         jLabel1.setToolTipText("");
-
-        add_new_recipe.setBackground(new java.awt.Color(255, 255, 255));
-        add_new_recipe.setFont(new java.awt.Font("Century Gothic", 0, 20)); // NOI18N
-        add_new_recipe.setText("Edit Existing Order");
-        add_new_recipe.setBorder(null);
-        add_new_recipe.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                add_new_recipeActionPerformed(evt);
-            }
-        });
 
         search_jo.setBackground(new java.awt.Color(255, 255, 255));
         search_jo.setFont(new java.awt.Font("Century Gothic", 0, 20)); // NOI18N
@@ -126,9 +115,7 @@ public class Main_Menu extends javax.swing.JFrame {
                             .addGap(49, 49, 49)
                             .addComponent(search_jo, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(add_new_recipe2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(add_new_recipe, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(add_new_recipe2, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(49, 49, 49)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(Close_but, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -150,9 +137,7 @@ public class Main_Menu extends javax.swing.JFrame {
                     .addComponent(pigments, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(add_new_recipe2, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Close_but, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(add_new_recipe, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(Close_but, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(37, 37, 37))
         );
 
@@ -205,12 +190,6 @@ public class Main_Menu extends javax.swing.JFrame {
         new_pigment_form.setVisible(true);
     }//GEN-LAST:event_pigmentsActionPerformed
 
-    private void add_new_recipeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_new_recipeActionPerformed
-        // TODO add your handling code here:
-        Add_new_design newDesign = new Add_new_design();
-        newDesign.setVisible(true);
-    }//GEN-LAST:event_add_new_recipeActionPerformed
-
     private void search_joActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_search_joActionPerformed
         // TODO add your handling code here:
         SearchJOGui new_jo = new SearchJOGui();
@@ -219,6 +198,8 @@ public class Main_Menu extends javax.swing.JFrame {
 
     private void add_new_recipe1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_new_recipe1ActionPerformed
         // TODO add your handling code here:
+        Add_new_design newDesign = new Add_new_design();
+        newDesign.setVisible(true);
     }//GEN-LAST:event_add_new_recipe1ActionPerformed
 
     private void add_new_recipe2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_new_recipe2ActionPerformed
@@ -262,7 +243,6 @@ public class Main_Menu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Close_but;
-    private javax.swing.JButton add_new_recipe;
     private javax.swing.JButton add_new_recipe1;
     private javax.swing.JButton add_new_recipe2;
     private javax.swing.JLabel jLabel1;

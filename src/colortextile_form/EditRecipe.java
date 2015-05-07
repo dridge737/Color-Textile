@@ -600,7 +600,7 @@ public class EditRecipe extends javax.swing.JFrame {
         jTextArea1.setRows(5);
         jScrollPane2.setViewportView(jTextArea1);
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Edit this design");
         setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         setForeground(java.awt.Color.white);

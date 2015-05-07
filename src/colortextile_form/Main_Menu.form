@@ -51,10 +51,7 @@
                               <Component id="search_jo" min="-2" pref="300" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="add_new_recipe2" alignment="1" min="-2" pref="327" max="-2" attributes="0"/>
-                                  <Component id="add_new_recipe" alignment="0" min="-2" pref="327" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="add_new_recipe2" min="-2" pref="327" max="-2" attributes="0"/>
                               <EmptySpace min="49" pref="49" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="Close_but" max="32767" attributes="0"/>
@@ -84,10 +81,7 @@
                       <Component id="add_new_recipe2" alignment="3" min="-2" pref="49" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="51" max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="Close_but" alignment="3" min="-2" pref="49" max="-2" attributes="0"/>
-                      <Component id="add_new_recipe" alignment="3" min="-2" pref="49" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="Close_but" min="-2" pref="49" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -105,23 +99,6 @@
             <Property name="text" type="java.lang.String" value="Main Menu"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
-        </Component>
-        <Component class="javax.swing.JButton" name="add_new_recipe">
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
-            </Property>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Century Gothic" size="20" style="0"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Edit Existing Order"/>
-            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-              <Border info="null"/>
-            </Property>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="add_new_recipeActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="search_jo">
           <Properties>
