@@ -74,7 +74,7 @@ public class ColorTextile {
             
             p1.add(p2);
             
-            OOUtils.open(p1.saveToPackageAs(new File("cat")));
+            //OOUtils.open(p1.saveToPackageAs(new File("cat")));
             
         } catch (JDOMException ex) {
             Logger.getLogger(ColorTextile.class.getName()).log(Level.SEVERE, null, ex);
