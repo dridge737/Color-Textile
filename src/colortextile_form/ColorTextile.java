@@ -6,9 +6,7 @@
 
 package colortextile_form;
 
-import colortextile_class.Design_and_colorway;
-import colortextile_class.Job_purchase_link_functions;
-import colortextile_class.SpreadsheetTrial;
+import colortextile_class.*;
 import javax.swing.JFrame;
 import org.jopendocument.model.OpenDocument;
 import org.jopendocument.panel.ODSViewerPanel;
@@ -34,29 +32,7 @@ public class ColorTextile {
     public static void main(String[] args) {
         // TODO code application logic here
         
-        
-        try {
-            File f1 = new File("print_out.odt");
-            ODSingleXMLDocument p1 = ODSingleXMLDocument.createFromPackage(f1);
-            
-            File f2 = new File("print_out.odt");
-            ODSingleXMLDocument p2 = ODSingleXMLDocument.createFromPackage(f2);
-            
-            p1.add(p2);
-            
-            OOUtils.open(p1.saveToPackageAs(new File("cat")));
-            
-        } catch (JDOMException ex) {
-            Logger.getLogger(ColorTextile.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(ColorTextile.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        
-
   // Concatenate them
-        
-
   // Save to file and Open the document with OpenOffice.org !
         
         //Database.DB_Manager newManager = new Database.DB_Manager();
@@ -73,33 +49,47 @@ public class ColorTextile {
         //EditRecipe edit_form = new EditRecipe(18);
         //edit_form.setVisible(true);
         
-        /*
-        
         Main_Menu new_menu = new Main_Menu();
         new_menu.setVisible(true);
         
-        
        // System.out.println(trial_get_pigment_id);
         
-        Design_colorway_link_functions get_des_details = new Design_colorway_link_functions();
-        Job_purchase_link_functions this_purchase = new Job_purchase_link_functions();
-        //this_purchase.setId_purchase(25);
-        //this_purchase.set_this_Purchase_details_from_purchase_id();
-        //this_purchase.set_design_details_from_purchase_order_id();
-        //this_purchase.setPurchase_Id_from_Date_and_code();
-        //this_purchase.set_design_details_from_purchase_order_id();
-        //this_purchase.set_job_order_list_using_purchase_order_id();
-        //this_purchase.view_all_job_order_details();
+        production_recipe this_purchase = new production_recipe();
+        this_purchase.set_all_details_from_purchase_order_id(16);
         SpreadsheetTrial newTrial = new SpreadsheetTrial();
-        //newTrial.print_this_job(this_purchase);
+        newTrial.print_this_job2(this_purchase, "file1");
         
-        EditRecipe EditRecipeForm = new EditRecipe(14);
-        EditRecipeForm.setVisible(true);
+        production_recipe this_purchase2 = new production_recipe();
+        SpreadsheetTrial newTrial2 = new SpreadsheetTrial();
+        this_purchase2.set_all_details_from_purchase_order_id(18);
+        newTrial2.print_this_job2(this_purchase2, "file2");
+        
+        
+        try {
+            File f1 = new File("file1.odt");
+            ODSingleXMLDocument p1 = ODSingleXMLDocument.createFromPackage(f1);
+            
+            File f2 = new File("file2.odt");
+            ODSingleXMLDocument p2 = ODSingleXMLDocument.createFromPackage(f2);
+            
+            p1.add(p2);
+            
+            OOUtils.open(p1.saveToPackageAs(new File("cat")));
+            
+        } catch (JDOMException ex) {
+            Logger.getLogger(ColorTextile.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(ColorTextile.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+        //EditRecipe EditRecipeForm = new EditRecipe(14);
+        //EditRecipeForm.setVisible(true);
         //get_des_details.setDesign_code("df343");
        // get_des_details.setDesign_details_from_des_code();
         //get_des_details.add_all_colorway_from_design_code();
        // get_des_details.view_all_colorway_details();
-        */
+        
         //colortextile_class.design this_design = new colortextile_class.design();
         //this_design.setColor_name("GREEN");
         //this_design.setDesign_name("MICRTG");

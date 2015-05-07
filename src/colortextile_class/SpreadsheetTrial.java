@@ -43,11 +43,11 @@ public class SpreadsheetTrial {
         static Namespace ns = Namespace.getNamespace("xlink", "http://www.w3.org/1999/xlink");
         static int screen_count =2;
        
-    public void print_this_job2(colortextile_class.production_recipe this_purchase)
+    public void print_this_job2(colortextile_class.production_recipe this_purchase, String file_name)
     {
          try {
             File templateFile = new File(in);
-            File outFile = new File(out);
+            File outFile = new File(file_name);
             RhinoTemplate template = new RhinoTemplate(templateFile);
         
             String all_job_id = this_purchase.get_all_job_id();
@@ -55,8 +55,7 @@ public class SpreadsheetTrial {
             String all_customer = this_purchase.get_all_customers();
             String quantity_all = this_purchase.get_all_quantity();
             int quantity_sum = this_purchase.get_quantity_sum();
-            quantity_all = quantity_all +"="+Integer.toString(quantity_sum);
-            
+            quantity_all = quantity_all.replace("=", "");
             // Fill with sample values.
             template.setField("customer", all_customer);
             template.setField("job", all_job_id);
@@ -113,6 +112,8 @@ public class SpreadsheetTrial {
             }
             else
                 template.saveAs(outFile);
+            
+            
          }
          catch (Exception e) {
             e.printStackTrace();

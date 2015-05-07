@@ -271,7 +271,7 @@ public class SearchJOGui extends javax.swing.JFrame {
             }
         });
         jFrame1.getContentPane().add(jCheckBox2);
-        jCheckBox2.setBounds(585, 133, 69, 29);
+        jCheckBox2.setBounds(585, 133, 65, 29);
 
         jLabel8.setFont(new java.awt.Font("Century Gothic", 0, 34)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
@@ -362,7 +362,7 @@ public class SearchJOGui extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Search Job Order");
-        setMinimumSize(new java.awt.Dimension(1488, 482));
+        setMinimumSize(new java.awt.Dimension(1283, 482));
         getContentPane().setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
@@ -424,7 +424,7 @@ public class SearchJOGui extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jCheckBox1);
-        jCheckBox1.setBounds(585, 133, 69, 29);
+        jCheckBox1.setBounds(585, 133, 65, 29);
 
         jLabel6.setFont(new java.awt.Font("Century Gothic", 0, 34)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
@@ -504,7 +504,7 @@ public class SearchJOGui extends javax.swing.JFrame {
                                 .addGap(62, 62, 62)
                                 .addComponent(button_edit, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE)))))
-                .addContainerGap(70, Short.MAX_VALUE))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -527,7 +527,7 @@ public class SearchJOGui extends javax.swing.JFrame {
         );
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 1320, 480);
+        jPanel1.setBounds(0, 0, 1280, 480);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

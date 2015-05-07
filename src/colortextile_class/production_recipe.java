@@ -56,7 +56,8 @@ public class production_recipe extends Design_and_colorway{
      public void set_purchase_details()
     {
         this.set_job_order_list_using_design_code_and_purchase_id();
-        this.set_purchase_order_list_from_job_list();   
+        this.set_purchase_order_list_from_job_list();  
+        this.setDate(jobs_for_this.get(0).getDate());
     }
      
      public void set_job_order_list_using_design_code_and_purchase_id()
