@@ -530,7 +530,7 @@ public class Preview_form extends javax.swing.JFrame {
         jPanel11 = new javax.swing.JPanel();
         add_order2 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(51, 153, 255));
         setMinimumSize(new java.awt.Dimension(820, 650));
         setName("Print Preview\n"); // NOI18N

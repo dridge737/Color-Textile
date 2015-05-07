@@ -846,7 +846,7 @@ public class EditRecipe extends javax.swing.JFrame {
 
         button_include_customer.setBackground(new java.awt.Color(255, 255, 255));
         button_include_customer.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
-        button_include_customer.setText("Add Purchase");
+        button_include_customer.setText("Add Customer Order");
         button_include_customer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_include_customerActionPerformed(evt);
@@ -857,7 +857,7 @@ public class EditRecipe extends javax.swing.JFrame {
 
         button_remove_customer.setBackground(new java.awt.Color(255, 255, 255));
         button_remove_customer.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
-        button_remove_customer.setText("Delete Purchase");
+        button_remove_customer.setText("Delete Order");
         button_remove_customer.setMargin(new java.awt.Insets(2, 3, 2, 3));
         button_remove_customer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -924,7 +924,7 @@ public class EditRecipe extends javax.swing.JFrame {
 
         edit_item.setBackground(new java.awt.Color(255, 255, 255));
         edit_item.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
-        edit_item.setText("Edit Purchase");
+        edit_item.setText("Edit Order");
         edit_item.setMargin(new java.awt.Insets(2, 3, 2, 3));
         edit_item.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2949,6 +2949,8 @@ public class EditRecipe extends javax.swing.JFrame {
                    quantity.setText("");
                    customer_combo_list.setSelectedIndex(0);
                    customer_name_text.setText("");
+                   text_job_order.setText("");
+                   
                     if(edit_item.getText().equals("Cancel Edit"))
                     {
                         edit_item.setText("Edit Purchase");
@@ -3343,7 +3345,7 @@ public class EditRecipe extends javax.swing.JFrame {
 
     private void edit_itemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edit_itemActionPerformed
         // TODO add your handling code here:
-        if(edit_item.getText().equals("Edit Purchase"))
+        if(edit_item.getText().equals("Edit Order"))
         {
             if(jList1.getSelectedIndex() != -1)
             {
@@ -3390,7 +3392,7 @@ public class EditRecipe extends javax.swing.JFrame {
             text_job_order.setText("");
             temporary_list.clear_all_items();
             jList1.setModel(this_list.get_items_in_list());
-            edit_item.setText("Edit Purchase");
+            edit_item.setText("Edit Order");
         }
         //this.customer_list.remove(selected);
         //this.job_list.remove(selected);

@@ -39,6 +39,7 @@ public class Add_new_design extends javax.swing.JFrame {
     private Recipe_functions use_func = new Recipe_functions();
     private boolean pigment_screen_showed = false;
     private job_customer_quantity_list this_list = new job_customer_quantity_list();
+    private job_customer_quantity_list temporary_list = new job_customer_quantity_list();
     //private ArrayList quantity_list = new ArrayList( );
     //private ArrayList job_list = new ArrayList( );
     //private ArrayList customer_list = new ArrayList( );
@@ -644,7 +645,7 @@ public class Add_new_design extends javax.swing.JFrame {
 
         button_include_customer.setBackground(new java.awt.Color(255, 255, 255));
         button_include_customer.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
-        button_include_customer.setText("Add Purchase");
+        button_include_customer.setText("Add Customer Order");
         button_include_customer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_include_customerActionPerformed(evt);
@@ -655,7 +656,7 @@ public class Add_new_design extends javax.swing.JFrame {
 
         button_remove_customer.setBackground(new java.awt.Color(255, 255, 255));
         button_remove_customer.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
-        button_remove_customer.setText("Delete Purchase");
+        button_remove_customer.setText("Delete Order");
         button_remove_customer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_remove_customerActionPerformed(evt);
@@ -721,7 +722,7 @@ public class Add_new_design extends javax.swing.JFrame {
 
         edit_purchase.setBackground(new java.awt.Color(255, 255, 255));
         edit_purchase.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
-        edit_purchase.setText("Edit Purchase");
+        edit_purchase.setText("Edit Order");
         edit_purchase.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 edit_purchaseActionPerformed(evt);
@@ -3235,6 +3236,12 @@ public class Add_new_design extends javax.swing.JFrame {
                     customer_combo_list.setSelectedIndex(0);
                     customer_name_text.setText("");
                     text_job_order.setText("");
+                    
+                    if(edit_purchase.getText().equals("Cancel Edit"))
+                    {
+                        edit_purchase.setText("Edit Purchase");
+                        this.temporary_list.clear_all_items();
+                    }
                 }
             
         
@@ -3398,28 +3405,55 @@ public class Add_new_design extends javax.swing.JFrame {
 
     private void edit_purchaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edit_purchaseActionPerformed
         // TODO add your handling code here:
-        if(jList1.getSelectedIndex() != -1)
+        
+        if(edit_purchase.getText().equals("Edit Order"))
         {
-            int selected = this.jList1.getSelectedIndex();
-            customer_combo_list.setSelectedItem(this_list.getCustomer_list().get(selected));
-            if(customer_combo_list.getSelectedItem().toString().equals(this_list.getCustomer_list().get(selected)))
+            if(jList1.getSelectedIndex() != -1)
             {
-                customer_combo_list.setVisible(true);
-                this.customer_name_text.setVisible(false);
+                int selected = this.jList1.getSelectedIndex();
+                customer_combo_list.setSelectedItem(this_list.getCustomer_list().get(selected));
+                if(customer_combo_list.getSelectedItem().toString().equals(this_list.getCustomer_list().get(selected)))
+                {
+                    customer_combo_list.setVisible(true);
+                    this.customer_name_text.setVisible(false);
+                }
+                else
+                {
+                    customer_name_text.setVisible(true);
+                    customer_combo_list.setVisible(false);
+                    customer_name_text.setText(this_list.getCustomer_list().get(selected).toString());
+                }
+                
+                int start_index = this_list.getJob_list().get(selected).toString().length() - 4;
+                text_job_order.setText(this_list.getJob_list().get(selected).toString().substring(start_index));
+                job_ord_label.setText(this_list.getJob_list().get(selected).toString().substring(0, start_index));
+                quantity.setText(this_list.getQuantity_list().get(selected).toString());
+                
+                this.temporary_list.add_customer_job_quantity_in_list(
+                        this_list.getCustomer_list().get(selected).toString(), 
+                        this_list.getJob_list().get(selected).toString(), 
+                        this_list.getQuantity_list().get(selected).toString());
+                
+                jList1.setModel(this_list.remove_this_item(selected));
+                quantity_total.setText(Integer.toString(this_list.get_quantity_total()));
+                edit_purchase.setText("Cancel Edit");
             }
             else
-            {
-                customer_name_text.setVisible(true);
-                customer_combo_list.setVisible(false);
-                customer_name_text.setText(this_list.getCustomer_list().get(selected).toString());
-            }
-            int start_index = this_list.getJob_list().get(selected).toString().length() - 4;
-            
-            text_job_order.setText(this_list.getJob_list().get(selected).toString().substring(start_index));
-            quantity.setText(this_list.getQuantity_list().get(selected).toString());
-            
-            jList1.setModel(this_list.remove_this_item(selected));
-            quantity_total.setText(Integer.toString(this_list.get_quantity_total()));
+                JOptionPane.showMessageDialog(null,"Please select an Item from the List");
+        }
+        else if(edit_purchase.getText().equals("Cancel Edit"))
+        {
+            this.this_list.add_customer_job_quantity_in_list(
+                        temporary_list.getCustomer_list().get(0).toString(), 
+                        temporary_list.getJob_list().get(0).toString(), 
+                        temporary_list.getQuantity_list().get(0).toString());
+            quantity.setText("");
+            customer_combo_list.setSelectedIndex(0);
+            customer_name_text.setText("");
+            text_job_order.setText("");
+            temporary_list.clear_all_items();
+            jList1.setModel(this_list.get_items_in_list());
+            edit_purchase.setText("Edit Order");
         }
         //this.customer_list.remove(selected);
         //this.job_list.remove(selected);
