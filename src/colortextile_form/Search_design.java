@@ -379,8 +379,9 @@ public class Search_design extends javax.swing.JFrame {
         
         int row = this.get_table_row_value();
         String id =(this.jTable1.getModel().getValueAt(row, 0).toString());
-        JOptionPane.showMessageDialog(null, "id= " + id);
         
+            System.out.println(id);
+        // testing commit --------------------------------------------------------------------------------------------------------------------------------------
         return id;
     }
     public int get_table_row_value(){
