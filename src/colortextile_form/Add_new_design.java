@@ -566,7 +566,7 @@ public class Add_new_design extends javax.swing.JFrame {
             }
         });
         jPanel1.add(fabric_check_box);
-        fabric_check_box.setBounds(650, 210, 63, 25);
+        fabric_check_box.setBounds(650, 210, 65, 25);
 
         jLabel11.setBackground(new java.awt.Color(255, 255, 255));
         jLabel11.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
@@ -580,7 +580,7 @@ public class Add_new_design extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel4.setText("Design Color :");
+        jLabel4.setText("Color :");
         jPanel1.add(jLabel4);
         jLabel4.setBounds(20, 248, 153, 34);
 
@@ -706,7 +706,7 @@ public class Add_new_design extends javax.swing.JFrame {
             }
         });
         jPanel16.add(customer_check_box);
-        customer_check_box.setBounds(340, 50, 59, 20);
+        customer_check_box.setBounds(340, 50, 63, 20);
 
         customer_name_text.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
         jPanel16.add(customer_name_text);
@@ -2271,7 +2271,7 @@ public class Add_new_design extends javax.swing.JFrame {
             design_info.setDesign_details_from_des_code();
             design_info.set_all_colorway_from_design_code();
             this.set_all_textbox_colorways(design_info.getAll_colorways());
-            
+            // testing comit ----------------------------------------------------------------------------------------------------------------------
             
 
 // get design result set from design code
