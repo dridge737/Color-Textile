@@ -44,217 +44,214 @@ public class Preview_form extends javax.swing.JFrame {
         
         for(int interval=0; interval<all_colorway.size(); interval++)
         {
-            if(interval==0)
+            if(all_colorway.get(interval).getColorway_name().length() != 0)
             {
-                this.screen1.setText(all_colorway.get(interval).getColorway_name());
-                this.kg1.setText(Float.toString(all_colorway.get(interval).getWeight_kg()));
-                this.bind_per1.setText(Float.toString(all_colorway.get(interval).getBinder()));
-                
-                List<Pigment_screen_and_colorway> all_color_screen = all_colorway.get(interval).getThis_screens();
-                        for(int temp_x=0; temp_x<all_color_screen.size(); temp_x++)
-                        {
-                            if(temp_x==0)
+                if(interval==0)
+                {
+                    this.screen1.setText(all_colorway.get(interval).getColorway_name());
+                    this.kg1.setText(Float.toString(all_colorway.get(interval).getWeight_kg()));
+                    this.bind_per1.setText(Float.toString(all_colorway.get(interval).getBinder()));
+                    
+                    List<Pigment_screen_and_colorway> all_color_screen = all_colorway.get(interval).getThis_screens();
+                    for(int temp_x=0; temp_x<all_color_screen.size(); temp_x++)
+                    {
+                        if(temp_x==0)
                             this.add_screen_to_textfield(all_color_screen.get(temp_x),
                                     all_color_screen.get(temp_x).compute_kg_prep(all_colorway.get(interval).getWeight_kg()),
                                     pig_name1,
                                     perc1,
                                     kgp1);
-                            else if(temp_x==1)
+                        else if(temp_x==1)
                             this.add_screen_to_textfield(all_color_screen.get(temp_x),
                                     all_color_screen.get(temp_x).compute_kg_prep(all_colorway.get(interval).getWeight_kg()),
                                     pig_name2,
                                     perc2,
                                     kgp2);
-                            else if(temp_x==2)
+                        else if(temp_x==2)
                             this.add_screen_to_textfield(all_color_screen.get(temp_x),
                                     all_color_screen.get(temp_x).compute_kg_prep(all_colorway.get(interval).getWeight_kg()),
                                     pig_name3,
                                     perc3,
                                     kgp3);
-                        }
-            }
-            else if(interval==1)
-            {
-                this.screen2.setText(all_colorway.get(interval).getColorway_name());
-                this.kg2.setText(Float.toString(all_colorway.get(interval).getWeight_kg()));
-                this.bind_per2.setText(Float.toString(all_colorway.get(interval).getBinder()));
+                    }
+                }
+                else if(interval==1)
+                {
+                    this.screen2.setText(all_colorway.get(interval).getColorway_name());
+                    this.kg2.setText(Float.toString(all_colorway.get(interval).getWeight_kg()));
+                    this.bind_per2.setText(Float.toString(all_colorway.get(interval).getBinder()));
                 
-                List<Pigment_screen_and_colorway> all_color_screen = all_colorway.get(interval).getThis_screens();
-                        for(int temp_x=0; temp_x<all_color_screen.size(); temp_x++)
-                        {
-                            if(temp_x==0)
+                    List<Pigment_screen_and_colorway> all_color_screen = all_colorway.get(interval).getThis_screens();
+                    for(int temp_x=0; temp_x<all_color_screen.size(); temp_x++)
+                    {
+                        if(temp_x==0)
                             this.add_screen_to_textfield(all_color_screen.get(temp_x),
                                     all_color_screen.get(temp_x).compute_kg_prep(all_colorway.get(interval).getWeight_kg()),
                                     pig_name4,
                                     perc4,
                                     kgp4);
-                            else if(temp_x==1)
+                        else if(temp_x==1)
                             this.add_screen_to_textfield(all_color_screen.get(temp_x),
                                     all_color_screen.get(temp_x).compute_kg_prep(all_colorway.get(interval).getWeight_kg()),
                                     pig_name5,
                                     perc5,
                                     kgp5);
-                            else if(temp_x==2)
+                        else if(temp_x==2)
                             this.add_screen_to_textfield(all_color_screen.get(temp_x),
                                     all_color_screen.get(temp_x).compute_kg_prep(all_colorway.get(interval).getWeight_kg()),
                                     pig_name6,
                                     perc6,
                                     kgp6);
-                        }
-            }
-            else if(interval==2)
-            {
-                this.screen3.setText(all_colorway.get(interval).getColorway_name());
-                this.kg3.setText(Float.toString(all_colorway.get(interval).getWeight_kg()));
-                this.bind_per3.setText(Float.toString(all_colorway.get(interval).getBinder()));
+                    }
+                }
+                else if(interval==2)
+                {
+                    this.screen3.setText(all_colorway.get(interval).getColorway_name());
+                    this.kg3.setText(Float.toString(all_colorway.get(interval).getWeight_kg()));
+                    this.bind_per3.setText(Float.toString(all_colorway.get(interval).getBinder()));
                 
-                List<Pigment_screen_and_colorway> all_color_screen = all_colorway.get(interval).getThis_screens();
-                        for(int temp_x=0; temp_x<all_color_screen.size(); temp_x++)
-                        {
-                            if(temp_x==0)
+                    List<Pigment_screen_and_colorway> all_color_screen = all_colorway.get(interval).getThis_screens();
+                    for(int temp_x=0; temp_x<all_color_screen.size(); temp_x++)
+                    {
+                        if(temp_x==0)
                             this.add_screen_to_textfield(all_color_screen.get(temp_x),
                                     all_color_screen.get(temp_x).compute_kg_prep(all_colorway.get(interval).getWeight_kg()),
                                     pig_name7,
                                     perc7,
                                     kgp7);
-                            else if(temp_x==1)
+                        else if(temp_x==1)
                             this.add_screen_to_textfield(all_color_screen.get(temp_x),
                                     all_color_screen.get(temp_x).compute_kg_prep(all_colorway.get(interval).getWeight_kg()),
                                     pig_name8,
                                     perc8,
                                     kgp8);
-                            else if(temp_x==2)
+                        else if(temp_x==2)
                             this.add_screen_to_textfield(all_color_screen.get(temp_x),
                                     all_color_screen.get(temp_x).compute_kg_prep(all_colorway.get(interval).getWeight_kg()),
                                     pig_name9,
                                     perc9,
                                     kgp9);
-                        }
-                
-            }
-            else if(interval==3)
-            {
-                this.screen4.setText(all_colorway.get(interval).getColorway_name());
-                this.kg4.setText(Float.toString(all_colorway.get(interval).getWeight_kg()));
-                this.bind_per4.setText(Float.toString(all_colorway.get(interval).getBinder()));
-                
-                List<Pigment_screen_and_colorway> all_color_screen = all_colorway.get(interval).getThis_screens();
-                        for(int temp_x=0; temp_x<all_color_screen.size(); temp_x++)
-                        {
-                            if(temp_x==0)
+                    }
+                }
+                else if(interval==3)
+                {
+                    this.screen4.setText(all_colorway.get(interval).getColorway_name());
+                    this.kg4.setText(Float.toString(all_colorway.get(interval).getWeight_kg()));
+                    this.bind_per4.setText(Float.toString(all_colorway.get(interval).getBinder()));
+                    
+                    List<Pigment_screen_and_colorway> all_color_screen = all_colorway.get(interval).getThis_screens();
+                    for(int temp_x=0; temp_x<all_color_screen.size(); temp_x++)
+                    {
+                        if(temp_x==0)
                             this.add_screen_to_textfield(all_color_screen.get(temp_x),
                                     all_color_screen.get(temp_x).compute_kg_prep(all_colorway.get(interval).getWeight_kg()),
                                     pig_name10,
                                     perc10,
                                     kgp10);
-                            else if(temp_x==1)
+                        else if(temp_x==1)
                             this.add_screen_to_textfield(all_color_screen.get(temp_x),
                                     all_color_screen.get(temp_x).compute_kg_prep(all_colorway.get(interval).getWeight_kg()),
                                     pig_name11,
                                     perc11,
                                     kgp11);
-                            else if(temp_x==2)
+                        else if(temp_x==2)
                             this.add_screen_to_textfield(all_color_screen.get(temp_x),
                                     all_color_screen.get(temp_x).compute_kg_prep(all_colorway.get(interval).getWeight_kg()),
                                     pig_name12,
                                     perc12,
                                     kgp12);
-                        }
+                    }
+                }
+                else if(interval==4)
+                {
+                    this.screen5.setText(all_colorway.get(interval).getColorway_name());
+                    this.kg5.setText(Float.toString(all_colorway.get(interval).getWeight_kg()));
+                    this.bind_per5.setText(Float.toString(all_colorway.get(interval).getBinder()));
                 
-            }
-            
-            else if(interval==4)
-            {
-                this.screen5.setText(all_colorway.get(interval).getColorway_name());
-                this.kg5.setText(Float.toString(all_colorway.get(interval).getWeight_kg()));
-                this.bind_per5.setText(Float.toString(all_colorway.get(interval).getBinder()));
-                
-                List<Pigment_screen_and_colorway> all_color_screen = all_colorway.get(interval).getThis_screens();
-                        for(int temp_x=0; temp_x<all_color_screen.size(); temp_x++)
-                        {
-                            if(temp_x==0)
+                    List<Pigment_screen_and_colorway> all_color_screen = all_colorway.get(interval).getThis_screens();
+                    for(int temp_x=0; temp_x<all_color_screen.size(); temp_x++)
+                    {
+                        if(temp_x==0)
                             this.add_screen_to_textfield(all_color_screen.get(temp_x),
                                     all_color_screen.get(temp_x).compute_kg_prep(all_colorway.get(interval).getWeight_kg()),
                                     pig_name13,
                                     perc13,
                                     kgp13);
-                            else if(temp_x==1)
+                        else if(temp_x==1)
                             this.add_screen_to_textfield(all_color_screen.get(temp_x),
                                     all_color_screen.get(temp_x).compute_kg_prep(all_colorway.get(interval).getWeight_kg()),
                                     pig_name14,
                                     perc14,
                                     kgp14);
-                            else if(temp_x==2)
+                        else if(temp_x==2)
                             this.add_screen_to_textfield(all_color_screen.get(temp_x),
                                     all_color_screen.get(temp_x).compute_kg_prep(all_colorway.get(interval).getWeight_kg()),
                                     pig_name15,
                                     perc15,
                                     kgp15);
-                        }
-                
-            }
-            else if(interval==5)
-            {
-                this.screen6.setText(all_colorway.get(interval).getColorway_name());
-                this.kg6.setText(Float.toString(all_colorway.get(interval).getWeight_kg()));
-                this.bind_per6.setText(Float.toString(all_colorway.get(interval).getBinder()));
-                
-                List<Pigment_screen_and_colorway> all_color_screen = all_colorway.get(interval).getThis_screens();
-                        for(int temp_x=0; temp_x<all_color_screen.size(); temp_x++)
-                        {
-                            if(temp_x==0)
+                    }
+                }
+                else if(interval==5)
+                {
+                    this.screen6.setText(all_colorway.get(interval).getColorway_name());
+                    this.kg6.setText(Float.toString(all_colorway.get(interval).getWeight_kg()));
+                    this.bind_per6.setText(Float.toString(all_colorway.get(interval).getBinder()));
+                    
+                    List<Pigment_screen_and_colorway> all_color_screen = all_colorway.get(interval).getThis_screens();
+                    for(int temp_x=0; temp_x<all_color_screen.size(); temp_x++)
+                    {
+                        if(temp_x==0)
                             this.add_screen_to_textfield(all_color_screen.get(temp_x),
                                     all_color_screen.get(temp_x).compute_kg_prep(all_colorway.get(interval).getWeight_kg()),
                                     pig_name16,
                                     perc16,
                                     kgp16);
-                            else if(temp_x==1)
+                        else if(temp_x==1)
                             this.add_screen_to_textfield(all_color_screen.get(temp_x),
                                     all_color_screen.get(temp_x).compute_kg_prep(all_colorway.get(interval).getWeight_kg()),
                                     pig_name17,
                                     perc17,
                                     kgp17);
-                            else if(temp_x==2)
+                        else if(temp_x==2)
                             this.add_screen_to_textfield(all_color_screen.get(temp_x),
                                     all_color_screen.get(temp_x).compute_kg_prep(all_colorway.get(interval).getWeight_kg()),
                                     pig_name18,
                                     perc18,
                                     kgp18);
-                        }
-                
-            }
-            else if(interval==6)
-            {
-                this.screen7.setText(all_colorway.get(interval).getColorway_name());
-                this.kg7.setText(Float.toString(all_colorway.get(interval).getWeight_kg()));
-                this.bind_per7.setText(Float.toString(all_colorway.get(interval).getBinder()));
-                
-                List<Pigment_screen_and_colorway> all_color_screen = all_colorway.get(interval).getThis_screens();
-                        for(int temp_x=0; temp_x<all_color_screen.size(); temp_x++)
-                        {
-                            if(temp_x==0)
+                    }
+                }
+                else if(interval==6)
+                {
+                    this.screen7.setText(all_colorway.get(interval).getColorway_name());
+                    this.kg7.setText(Float.toString(all_colorway.get(interval).getWeight_kg()));
+                    this.bind_per7.setText(Float.toString(all_colorway.get(interval).getBinder()));
+                    
+                    List<Pigment_screen_and_colorway> all_color_screen = all_colorway.get(interval).getThis_screens();
+                    for(int temp_x=0; temp_x<all_color_screen.size(); temp_x++)
+                    {
+                        if(temp_x==0)
                             this.add_screen_to_textfield(all_color_screen.get(temp_x),
                                     all_color_screen.get(temp_x).compute_kg_prep(all_colorway.get(interval).getWeight_kg()),
                                     pig_name19,
                                     perc19,
                                     kgp19);
-                            else if(temp_x==1)
+                        else if(temp_x==1)
                             this.add_screen_to_textfield(all_color_screen.get(temp_x),
                                     all_color_screen.get(temp_x).compute_kg_prep(all_colorway.get(interval).getWeight_kg()),
                                     pig_name20,
                                     perc20,
                                     kgp20);
-                            else if(temp_x==2)
+                        else if(temp_x==2)
                             this.add_screen_to_textfield(all_color_screen.get(temp_x),
                                     all_color_screen.get(temp_x).compute_kg_prep(all_colorway.get(interval).getWeight_kg()),
                                     pig_name21,
                                     perc21,
                                     kgp21);
-                        }
+                    }
+                }
                 
-            }
-           
-        }
+            }//IF Statement
+        }//FOR Loop
         //this_prod
     }
 
