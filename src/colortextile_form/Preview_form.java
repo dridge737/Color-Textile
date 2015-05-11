@@ -6,6 +6,8 @@
 package colortextile_form;
 
 import colortextile_class.*;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.util.List;
 import javax.swing.JTextField;
 
@@ -24,6 +26,10 @@ public class Preview_form extends javax.swing.JFrame {
     
     public Preview_form(colortextile_class.production_recipe this_prod)
     {
+        Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
+        int x = (int) ((dimension.getWidth() - this.getWidth()) / 5);
+        //int y = (int) ((dimension.getHeight() - this.getHeight()) / 4);
+        this.setLocation(x,50);
         initComponents();
         this.des_colorway.setText(this_prod.getColor_name());
         this.des_name.setText(this_prod.getDesign_name());
@@ -66,7 +72,6 @@ public class Preview_form extends javax.swing.JFrame {
                                     perc3,
                                     kgp3);
                         }
-                
             }
             else if(interval==1)
             {
@@ -96,7 +101,6 @@ public class Preview_form extends javax.swing.JFrame {
                                     perc6,
                                     kgp6);
                         }
-                
             }
             else if(interval==2)
             {
@@ -531,12 +535,13 @@ public class Preview_form extends javax.swing.JFrame {
         add_order2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Preview");
         setBackground(new java.awt.Color(51, 153, 255));
         setMinimumSize(new java.awt.Dimension(820, 650));
         setName("Print Preview\n"); // NOI18N
         getContentPane().setLayout(null);
 
-        jPanel1.setBackground(new java.awt.Color(77, 76, 76));
+        jPanel1.setBackground(new java.awt.Color(51, 153, 255));
         jPanel1.setLayout(null);
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -562,7 +567,7 @@ public class Preview_form extends javax.swing.JFrame {
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 810, 50);
 
-        jPanel2.setBackground(new java.awt.Color(77, 76, 76));
+        jPanel2.setBackground(new java.awt.Color(51, 153, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         jPanel2.setForeground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -624,12 +629,12 @@ public class Preview_form extends javax.swing.JFrame {
         getContentPane().add(jPanel2);
         jPanel2.setBounds(0, 50, 809, 124);
 
-        jScrollPane1.setBackground(new java.awt.Color(77, 76, 76));
+        jScrollPane1.setBackground(new java.awt.Color(51, 153, 255));
         jScrollPane1.setForeground(new java.awt.Color(255, 255, 255));
         jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
         jScrollPane1.setOpaque(false);
 
-        jPanel3.setBackground(new java.awt.Color(77, 76, 76));
+        jPanel3.setBackground(new java.awt.Color(51, 153, 255));
         jPanel3.setForeground(new java.awt.Color(255, 255, 255));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -1848,14 +1853,14 @@ public class Preview_form extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jPanel3);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(-1, 172, 809, 480);
+        jScrollPane1.setBounds(-1, 172, 809, 380);
 
-        jPanel11.setBackground(new java.awt.Color(77, 76, 76));
+        jPanel11.setBackground(new java.awt.Color(51, 153, 255));
         jPanel11.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         add_order2.setBackground(new java.awt.Color(255, 255, 255));
         add_order2.setFont(new java.awt.Font("Century Gothic", 0, 22)); // NOI18N
-        add_order2.setText("Ok");
+        add_order2.setText("Close");
         add_order2.setToolTipText("");
         add_order2.setOpaque(false);
         add_order2.addActionListener(new java.awt.event.ActionListener() {
@@ -1866,7 +1871,7 @@ public class Preview_form extends javax.swing.JFrame {
         jPanel11.add(add_order2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 10, 190, 40));
 
         getContentPane().add(jPanel11);
-        jPanel11.setBounds(0, 650, 810, 70);
+        jPanel11.setBounds(0, 550, 810, 70);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

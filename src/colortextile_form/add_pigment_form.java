@@ -5,6 +5,7 @@
  */
 package colortextile_form;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.sql.ResultSet;
@@ -47,12 +48,10 @@ public class add_pigment_form extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        pig_name = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         add_button = new javax.swing.JButton();
-        jLabel9 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         pigment_table = new javax.swing.JTable();
@@ -64,10 +63,6 @@ public class add_pigment_form extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(51, 153, 255));
         jPanel1.setLayout(null);
-
-        pig_name.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        jPanel1.add(pig_name);
-        pig_name.setBounds(200, 80, 170, 30);
 
         jLabel8.setBackground(new java.awt.Color(255, 255, 255));
         jLabel8.setFont(new java.awt.Font("Century Gothic", 0, 30)); // NOI18N
@@ -91,10 +86,10 @@ public class add_pigment_form extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setText("Pigment List");
+        jLabel7.setText("Pigment List Database");
         jLabel7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
         jPanel1.add(jLabel7);
-        jLabel7.setBounds(10, 130, 370, 40);
+        jLabel7.setBounds(10, 80, 370, 40);
 
         add_button.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         add_button.setText("Add Pigment");
@@ -106,14 +101,6 @@ public class add_pigment_form extends javax.swing.JFrame {
         });
         jPanel1.add(add_button);
         add_button.setBounds(10, 390, 170, 50);
-
-        jLabel9.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel9.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel9.setText("Pigment Name :");
-        jPanel1.add(jLabel9);
-        jLabel9.setBounds(30, 73, 160, 40);
 
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
         jPanel2.setOpaque(false);
@@ -142,20 +129,30 @@ public class add_pigment_form extends javax.swing.JFrame {
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 164, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 194, Short.MAX_VALUE)
         );
 
         jPanel1.add(jPanel2);
-        jPanel2.setBounds(10, 167, 370, 170);
+        jPanel2.setBounds(10, 117, 370, 200);
 
-        jTextField1.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        jTextField1.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
+        jTextField1.setForeground(new java.awt.Color(204, 204, 204));
+        jTextField1.setText("Pigment Name :");
+        jTextField1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jTextField1FocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextField1FocusLost(evt);
+            }
+        });
         jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jTextField1KeyReleased(evt);
             }
         });
         jPanel1.add(jTextField1);
-        jTextField1.setBounds(10, 340, 370, 30);
+        jTextField1.setBounds(10, 330, 370, 30);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -173,24 +170,24 @@ public class add_pigment_form extends javax.swing.JFrame {
 
     private void add_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_buttonActionPerformed
         // TODO add your handling code here:
-        if(pig_name.getText().length()>0)
+        if(jTextField1.getText().length()>0 && !jTextField1.getText().equals("Pigment Name :"))
         {
             colortextile_class.pigment add_this_pig = new colortextile_class.pigment();
-            add_this_pig.setPigment_name(pig_name.getText().toUpperCase());
+            add_this_pig.setPigment_name(jTextField1.getText().toUpperCase());
             if(!add_this_pig.check_pigment_exists())
             {
                 if(add_this_pig.add_pigment()){
                     this.fill_table();
-                    JOptionPane.showMessageDialog(null,"Successfully Added Pigment");
+                    JOptionPane.showMessageDialog(null,"Matagumpay na naidagdag ang Pigment");
                 }
                 else
-                    JOptionPane.showMessageDialog(null,"Something must be wrong.. pigment has not been added.");
+                    JOptionPane.showMessageDialog(null,"Hinde na-idagdag ang pigment.. Pakiulit nalang ang pagtakbo ng program");
             }
             else
-                JOptionPane.showMessageDialog(null,"Pigment has already been Added");
+                JOptionPane.showMessageDialog(null,"Naidagdag na ang pigment na ito.");
         }
         else
-        JOptionPane.showMessageDialog(null,"Please give a Pigment name");
+        JOptionPane.showMessageDialog(null,"Pakilagyan po ng letra ang ida-dagdag na pigment");
             
     }//GEN-LAST:event_add_buttonActionPerformed
 
@@ -213,6 +210,24 @@ public class add_pigment_form extends javax.swing.JFrame {
             rowSorter.setRowFilter(RowFilter.regexFilter("(?i)" + text));        
         }
     }//GEN-LAST:event_jTextField1KeyReleased
+
+    private void jTextField1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField1FocusGained
+        // TODO add your handling code here:
+        if(jTextField1.getText().equals("Pigment Name :"))
+        {
+            jTextField1.setText("");
+            jTextField1.setForeground(Color.BLACK);
+        }
+    }//GEN-LAST:event_jTextField1FocusGained
+
+    private void jTextField1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField1FocusLost
+        // TODO add your handling code here:
+        if(jTextField1.getText().equals(""))
+        {
+            jTextField1.setText("Pigment Name :");
+            jTextField1.setForeground(new Color(204,204,204));
+        }
+    }//GEN-LAST:event_jTextField1FocusLost
 
     /**
      * @param args the command line arguments
@@ -264,10 +279,7 @@ public class add_pigment_form extends javax.swing.JFrame {
         }
         
         //pigment_table.setTableHeader(null);
-        pigment_table.setModel(model); 
-        
-        
-    
+        pigment_table.setModel(model);
     }
     
     
@@ -277,12 +289,10 @@ public class add_pigment_form extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField pig_name;
     private javax.swing.JTable pigment_table;
     // End of variables declaration//GEN-END:variables
 }
