@@ -6,6 +6,8 @@
 package colortextile_form;
 
 import colortextile_class.*;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 
 /**
  *
@@ -19,7 +21,10 @@ public class Main_Menu extends javax.swing.JFrame {
     public Main_Menu() {
         initComponents();
         this.setSize(780, 400);
-        
+        Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
+        int x = (int) ((dimension.getWidth() - this.getWidth()) / 2);
+        int y = (int) ((dimension.getHeight() - this.getHeight()) / 2);
+        this.setLocation(x,y);
     }
 
     /**

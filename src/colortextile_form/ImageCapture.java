@@ -128,7 +128,7 @@ public class ImageCapture extends JFrame{
                 this.setLocation(x,y);
 		pack();
 		setVisible(true);
-		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                 this.addWindowListener(new WindowAdapter() {
                     public void windowClosing(WindowEvent evt) {
                         onExit();

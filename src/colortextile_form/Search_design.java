@@ -98,7 +98,7 @@ public class Search_design extends javax.swing.JFrame {
         label_pic = new javax.swing.JLabel();
         button_edit = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(51, 153, 255));
 
