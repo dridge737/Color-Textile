@@ -1859,7 +1859,7 @@ public class Preview_form extends javax.swing.JFrame {
         jPanel11.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         add_order2.setBackground(new java.awt.Color(255, 255, 255));
-        add_order2.setFont(new java.awt.Font("Century Gothic", 0, 22)); // NOI18N
+        add_order2.setFont(new java.awt.Font("Segoe UI Light", 0, 22)); // NOI18N
         add_order2.setText("Close");
         add_order2.setToolTipText("");
         add_order2.setOpaque(false);
