@@ -8,6 +8,8 @@ package colortextile_form;
 
 import Database.DB_Manager;
 import colortextile_class.design;
+import java.awt.Toolkit;
+import java.awt.event.WindowEvent;
 import java.sql.Blob;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -352,8 +354,15 @@ public class Search_design extends javax.swing.JFrame {
         Add_new_design design_form = new Add_new_design();
         design_form.setVisible(true);
         design_form.fill_info(Integer.parseInt(selcted_design_code));
+        close();
     }//GEN-LAST:event_button_detailsActionPerformed
 
+    
+    public void close(){
+        WindowEvent winCloseEvent = new WindowEvent(this,WindowEvent.WINDOW_CLOSING);
+        Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(winCloseEvent);
+    }
+    
     private void jTable1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTable1KeyPressed
         // TODO add your handling code here:
         try {
@@ -373,6 +382,7 @@ public class Search_design extends javax.swing.JFrame {
         }
         
         String selcted_design_code = jTable1.getValueAt(row, 0).toString();
+        close();
     }//GEN-LAST:event_button_editActionPerformed
 
     private String get_design_code_from_table_selected(){

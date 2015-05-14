@@ -14,6 +14,7 @@ import colortextile_class.purchase_order;
 import forms.*;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.awt.event.WindowEvent;
 import java.io.IOException;
 import java.sql.Blob;
 import java.sql.ResultSet;
@@ -271,7 +272,7 @@ public class SearchJOGui extends javax.swing.JFrame {
             }
         });
         jFrame1.getContentPane().add(jCheckBox2);
-        jCheckBox2.setBounds(585, 133, 65, 29);
+        jCheckBox2.setBounds(585, 133, 69, 29);
 
         jLabel8.setFont(new java.awt.Font("Century Gothic", 0, 34)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
@@ -426,7 +427,7 @@ public class SearchJOGui extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jCheckBox1);
-        jCheckBox1.setBounds(585, 133, 65, 29);
+        jCheckBox1.setBounds(585, 133, 69, 29);
 
         jLabel6.setFont(new java.awt.Font("Century Gothic", 0, 34)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
@@ -627,9 +628,15 @@ public class SearchJOGui extends javax.swing.JFrame {
         Add_new_design design_form = new Add_new_design();
         design_form.setVisible(true);
         design_form.fill_info_from_purchase_id(Integer.parseInt(selected_purchase_order));
+        close();
+        
         
     }//GEN-LAST:event_button_detailsActionPerformed
 
+    public void close(){
+        WindowEvent winCloseEvent = new WindowEvent(this,WindowEvent.WINDOW_CLOSING);
+        Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(winCloseEvent);
+    }
     private void jTable1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTable1KeyPressed
         // TODO add your handling code here:
        // JOptionPane.showMessageDialog(null, "key pressed");
@@ -681,7 +688,7 @@ public class SearchJOGui extends javax.swing.JFrame {
         
         EditRecipe editDesign = new EditRecipe(Integer.parseInt(selected_purchase_order));
         editDesign.setVisible(true);
-           
+           close();
             
     }//GEN-LAST:event_button_editActionPerformed
     private String get_design_code_from_table_selected(){
