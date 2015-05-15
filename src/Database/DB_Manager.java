@@ -1300,7 +1300,7 @@ public class DB_Manager {
         return null;
     }
     
-    public Blob get_picture_from_design_id(colortextile_class.design this_picture){
+    public ResultSet get_picture_from_design_id(colortextile_class.design this_picture){
         try
         {
           DBConnection db = new DBConnection();
@@ -1310,8 +1310,8 @@ public class DB_Manager {
             ResultSet rs = ps.executeQuery();
             while(rs.first())
             {
-                this_picture.setDesign_image(rs.getBlob("design_picture"));
-                return rs.getBlob("design_picture");
+                
+                return rs;
             }
            this.closeConn(conn, ps, rs);
         }
