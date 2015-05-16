@@ -660,11 +660,11 @@ public class SearchJOGui extends javax.swing.JFrame {
         // TODO add your handling code here:
        // JOptionPane.showMessageDialog(null, "key pressed");
    
-    /*    try {
+        try {
             insert_pic();
         } catch (SQLException ex) {
             Logger.getLogger(SearchJOGui.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
+        }
     }//GEN-LAST:event_jTable1KeyPressed
 
     private void button_search1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_search1ActionPerformed
@@ -721,19 +721,29 @@ public class SearchJOGui extends javax.swing.JFrame {
     private void insert_pic() throws SQLException{
         
         
-        design design_conn = new design();
-      //  design_conn.setDesign_code(get_design_code_from_table_selected());
-        design_conn.get_picture_from_design_code();
-        Blob blob = design_conn.getDesign_image();
+        String id = this.get_design_code_from_table_selected();
         
-        int blobLength = (int) blob.length();
-        byte[] image1 = blob.getBytes(1, blobLength);
-        ImageIcon image = new ImageIcon(image1);
+        design design_conn = new  design();
+        design_conn.setDesign_code(Integer.parseInt(id));
         
         
-        label_pic.setIcon(image);
-        getContentPane().add(label_pic);
+        ResultSet rs = design_conn.get_picture_from_design_code();
+        if(rs.next()){
+                byte[]imagedata = rs.getBytes("design_picture");
+                format = new ImageIcon(imagedata);
+                this.label_pic.setIcon(format);
+                
+            } else {
+            this.label_pic.setIcon(null);
+        }
+        
+        
+        
+        
         setVisible(true);
+       
+        
+        
     }
     /**
      * @param args the command line arguments
@@ -806,4 +816,7 @@ public class SearchJOGui extends javax.swing.JFrame {
     private javax.swing.JTextField text_job_id;
     private javax.swing.JTextField text_job_id1;
     // End of variables declaration//GEN-END:variables
+
+
+private ImageIcon format = null;
 }
