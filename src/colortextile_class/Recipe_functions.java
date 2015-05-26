@@ -29,20 +29,22 @@ public class Recipe_functions {
         if(fabric_style.equals("PONGEE")){
         
             float this_quant = Float.parseFloat(quantity_total);
-            computation = Math.round((80*coverage/100*this_quant)/1000);
+            computation = Math.round((8*coverage/10*this_quant)/1000);
         }
         else if(fabric_style.equals("COTTON") || fabric_style.equals("KATUNIA"))
         {
             float this_quant = Float.parseFloat(quantity_total);
-            computation = Math.round((120*coverage/100*this_quant)/1000);
+            computation = Math.round((12*coverage/10*this_quant)/1000);
         }
         else if (fabric_style.equals("MICROPEACH") || fabric_style.equals("TC") || fabric_style.equals("TROPICANA"))
         {
             float this_quant = Float.parseFloat(quantity_total);
-            computation = Math.round((100*coverage/100*this_quant)/1000);
+            computation = Math.round((10*coverage/10*this_quant)/1000);
         }
         return computation;
     }
+    
+    
     
     public float update_kg_and_prep(String percentage_text, String weight_kg)
     {
