@@ -2961,53 +2961,36 @@ public class Add_new_design extends javax.swing.JFrame {
 
     private void coverage1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_coverage1KeyReleased
         // TODO add your handling code here:
-        if(!use_func.checkText2(coverage1.getText()))
-        {
-            compute_kg(weigh_kg8, Float.parseFloat(coverage1.getText()));
-        }
-        
+        compute_kg(weigh_kg8, coverage1);    
+            
     }//GEN-LAST:event_coverage1KeyReleased
 
     private void coverage2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_coverage2KeyReleased
         // TODO add your handling code here:
-        if(!use_func.checkText2(coverage2.getText()))
-        {
-            compute_kg(weigh_kg7, Float.parseFloat(coverage2.getText()));
-        }
+        compute_kg(weigh_kg7, coverage2);
+        
     }//GEN-LAST:event_coverage2KeyReleased
 
     private void coverage3KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_coverage3KeyReleased
-        // TODO add your handling code here:
-        if(!use_func.checkText2(coverage3.getText()))
-        {   
-            compute_kg(weigh_kg3, Float.parseFloat(coverage3.getText()));
-        }
+        // TODO add your handling code here: 
+        compute_kg(weigh_kg3, coverage3);
     }//GEN-LAST:event_coverage3KeyReleased
 
     private void coverage4KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_coverage4KeyReleased
         // TODO add your handling code here:
-        if(!use_func.checkText2(coverage4.getText()))
-        {
-            compute_kg(weigh_kg4, Float.parseFloat(coverage4.getText()));
-        }
+        compute_kg(weigh_kg4, coverage4);
         
     }//GEN-LAST:event_coverage4KeyReleased
 
     private void coverage5KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_coverage5KeyReleased
         // TODO add your handling code here:
-        if(!use_func.checkText2(coverage5.getText()))
-        {
-            compute_kg(weigh_kg5, Float.parseFloat(coverage5.getText()));
-        }
+            compute_kg(weigh_kg5, coverage5);
         
     }//GEN-LAST:event_coverage5KeyReleased
 
     private void coverage6KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_coverage6KeyReleased
         // TODO add your handling code here:
-        if(!use_func.checkText2(coverage6.getText()))
-        {
-            compute_kg(weigh_kg6, Float.parseFloat(coverage6.getText()));
-        }
+            compute_kg(weigh_kg6, coverage6);
     }//GEN-LAST:event_coverage6KeyReleased
 
     private void percentage1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage1KeyReleased
@@ -3194,13 +3177,8 @@ public class Add_new_design extends javax.swing.JFrame {
 
     private void coverage7KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_coverage7KeyReleased
         // TODO add your handling code here:
-        if(coverage7.getText().length()>0)
-        {
-            if(!use_func.checkText2(coverage7.getText()))
-            {
-                compute_kg(weigh_kg9, Float.parseFloat(coverage7.getText()));
-            }
-        }
+        
+                compute_kg(weigh_kg9, coverage7);
     }//GEN-LAST:event_coverage7KeyReleased
     
     private void button_include_customerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_include_customerActionPerformed
@@ -3511,15 +3489,26 @@ public class Add_new_design extends javax.swing.JFrame {
 
     private void fab_style_combPopupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_fab_style_combPopupMenuWillBecomeInvisible
         // TODO add your handling code here:
-        System.out.println("HELGEG");
+        compute_kg(weigh_kg8, coverage1);
+        compute_kg(weigh_kg7, coverage2); //6th Window
+        compute_kg(weigh_kg3, coverage3);
+        compute_kg(weigh_kg4, coverage4);
+        compute_kg(weigh_kg5, coverage5);
+        compute_kg(weigh_kg6, coverage6);
+        compute_kg(weigh_kg9, coverage7); //7th Window
+        
     }//GEN-LAST:event_fab_style_combPopupMenuWillBecomeInvisible
 
-    private void compute_kg(JTextField weigh_kg, float coverage)
+    private void compute_kg(JTextField weigh_kg, JTextField coverage)
     {
-        if(!quantity_total.getBackground().equals(Color.pink) && quantity_total.getText().length()>0)
+        if(!use_func.checkText2(coverage.getText()))
         {
-            float this_computation = use_func.compute_this_kg(coverage, fab_style_comb.getSelectedItem().toString(), quantity_total.getText());
-            weigh_kg.setText(String.format("%.0f", this_computation));
+            if(!quantity_total.getBackground().equals(Color.pink) && quantity_total.getText().length()>0)
+            {
+                float cov_conversion = Float.parseFloat(coverage.getText());
+                float this_computation = use_func.compute_this_kg(cov_conversion, fab_style_comb.getSelectedItem().toString(), quantity_total.getText());
+                weigh_kg.setText(String.format("%.0f", this_computation));
+            }
         }
     }
     
