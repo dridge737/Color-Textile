@@ -22,6 +22,29 @@ import javax.swing.JTextField;
  */
 public class Recipe_functions {
     
+    public float compute_this_coverage(float kg, String fabric_style, String quantity_total)
+    {
+        float computation = 0;
+        
+        if(fabric_style.equals("PONGEE"))
+        {
+            float this_quant = Float.parseFloat(quantity_total);
+            computation = Math.round((kg*1000/this_quant)*10/8);
+        }
+        else if(fabric_style.equals("COTTON") || fabric_style.equals("KATUNIA"))
+        {
+            float this_quant = Float.parseFloat(quantity_total);
+            computation = Math.round((kg*1000/this_quant)*10/12);
+        }
+        else if (fabric_style.equals("MICROPEACH") || fabric_style.equals("TC") || fabric_style.equals("TROPICANA"))
+        {
+            float this_quant = Float.parseFloat(quantity_total);
+            computation = Math.round((kg*1000/this_quant));
+        }
+        
+        return computation;
+    }
+    
     public float compute_this_kg(float coverage, String fabric_style, String quantity_total)
     {
         float computation = 0;

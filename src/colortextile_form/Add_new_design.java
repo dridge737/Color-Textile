@@ -35,14 +35,12 @@ import javax.swing.SpinnerDateModel;
 public class Add_new_design extends javax.swing.JFrame {
 
     private int count_screen_1 = 0;
-    private colortextile_class.Job_purchase_link_functions this_purchase = new colortextile_class.Job_purchase_link_functions();
+    //private colortextile_class.Job_purchase_link_functions this_purchase = new colortextile_class.Job_purchase_link_functions();
     private Recipe_functions use_func = new Recipe_functions();
     private boolean pigment_screen_showed = false;
     private job_customer_quantity_list this_list = new job_customer_quantity_list();
     private job_customer_quantity_list temporary_list = new job_customer_quantity_list();
-    //private ArrayList quantity_list = new ArrayList( );
-    //private ArrayList job_list = new ArrayList( );
-    //private ArrayList customer_list = new ArrayList( );
+    private String current_style;
     /**
      * Creates new form Add_new_design
      */
@@ -74,6 +72,7 @@ public class Add_new_design extends javax.swing.JFrame {
         //ImageIcon icon;
         //icon = createImageIcon("Image/iStethIcon4.ico");
         //jTabbedPane2.setIconAt(1, icon);
+        current_style = fab_style_comb.getSelectedItem().toString();
         
     }
 
@@ -3489,13 +3488,18 @@ public class Add_new_design extends javax.swing.JFrame {
 
     private void fab_style_combPopupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_fab_style_combPopupMenuWillBecomeInvisible
         // TODO add your handling code here:
-        compute_kg(weigh_kg8, coverage1);
-        compute_kg(weigh_kg7, coverage2); //6th Window
-        compute_kg(weigh_kg3, coverage3);
-        compute_kg(weigh_kg4, coverage4);
-        compute_kg(weigh_kg5, coverage5);
-        compute_kg(weigh_kg6, coverage6);
-        compute_kg(weigh_kg9, coverage7); //7th Window
+        if(!current_style.equals(this.fab_style_comb.getSelectedItem().toString()))
+        {
+            compute_kg(weigh_kg8, coverage1);
+            compute_kg(weigh_kg3, coverage3);
+            compute_kg(weigh_kg4, coverage4);
+            compute_kg(weigh_kg5, coverage5);
+            compute_kg(weigh_kg6, coverage6);
+            compute_kg(weigh_kg7, coverage2); //6th Window
+            compute_kg(weigh_kg9, coverage7); //7th Window
+            current_style = fab_style_comb.getSelectedItem().toString();
+        }
+        
         
     }//GEN-LAST:event_fab_style_combPopupMenuWillBecomeInvisible
 
