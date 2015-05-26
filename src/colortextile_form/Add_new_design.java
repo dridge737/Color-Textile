@@ -594,6 +594,11 @@ public class Add_new_design extends javax.swing.JFrame {
         quantity_total.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         quantity_total.setEnabled(false);
         quantity_total.setSelectionColor(new java.awt.Color(153, 153, 153));
+        quantity_total.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                quantity_totalPropertyChange(evt);
+            }
+        });
         jPanel16.add(quantity_total);
         quantity_total.setBounds(553, 125, 150, 34);
 
@@ -3503,17 +3508,31 @@ public class Add_new_design extends javax.swing.JFrame {
         
     }//GEN-LAST:event_fab_style_combPopupMenuWillBecomeInvisible
 
+    private void quantity_totalPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_quantity_totalPropertyChange
+        // TODO add your handling code here:
+        compute_kg_from_coverage(weigh_kg7);
+    }//GEN-LAST:event_quantity_totalPropertyChange
+
+    private void compute_kg_from_coverage(JTextField weigh_kg)
+    {
+        if(!use_func.checkText2(weigh_kg.getText()) && quantity_total.getText().length()>0 )
+        {
+            System.out.println("Hello");
+            float kg_conversion = Float.parseFloat(weigh_kg.getText());
+            float coverage_computation = use_func.compute_this_coverage(kg_conversion, fab_style_comb.getSelectedItem().toString(), quantity_total.getText());
+            float the_computation = use_func.compute_this_kg(coverage_computation, fab_style_comb.getSelectedItem().toString(), quantity_total.getText());
+            weigh_kg.setText(String.format("%.0f", the_computation));
+        }
+    }
     private void compute_kg(JTextField weigh_kg, JTextField coverage)
     {
-        if(!use_func.checkText2(coverage.getText()))
+        if(!use_func.checkText2(coverage.getText()) && quantity_total.getText().length()>0)
         {
-            if(!quantity_total.getBackground().equals(Color.pink) && quantity_total.getText().length()>0)
-            {
-                float cov_conversion = Float.parseFloat(coverage.getText());
-                float this_computation = use_func.compute_this_kg(cov_conversion, fab_style_comb.getSelectedItem().toString(), quantity_total.getText());
-                weigh_kg.setText(String.format("%.0f", this_computation));
-            }
+            float cov_conversion = Float.parseFloat(coverage.getText());
+            float this_computation = use_func.compute_this_kg(cov_conversion, fab_style_comb.getSelectedItem().toString(), quantity_total.getText());
+            weigh_kg.setText(String.format("%.0f", this_computation));
         }
+        
     }
     
     private void update_kg_prep(String percentage_text, String weight_kg , JTextField this_textfield)
