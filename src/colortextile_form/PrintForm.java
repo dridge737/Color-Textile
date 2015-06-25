@@ -5,6 +5,15 @@
  */
 package colortextile_form;
 
+import Database.DB_Manager;
+import colortextile_class.design;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Eldridge
@@ -16,6 +25,43 @@ public class PrintForm extends javax.swing.JFrame {
      */
     public PrintForm() {
         initComponents();
+        fill_table();
+    }
+    
+    private void fill_table()
+    {
+        ResultSet rs = null;
+        DB_Manager conn= new DB_Manager();
+        DefaultTableModel model = new DefaultTableModel();
+        design design_conn = new design();
+        
+        model.addColumn("#");
+        model.addColumn("Design Name");
+        model.addColumn("Colorway Name");
+        model.addColumn("fabric_style");
+        
+        try {
+            if (rs.first())
+            {
+                rs.previous();
+                
+                while(rs.next()) {
+                    String[] set1 = {    rs.getString("design_code"),
+                                         rs.getString("design_name"),
+                                         rs.getString("color_name"),
+                                         rs.getString("fabric_style")
+                                    };
+                    model.addRow(set1);
+                }
+            }
+            else {
+                JOptionPane.showMessageDialog(null,"No Record");
+            }
+        }
+        catch (SQLException ex) {
+            Logger.getLogger(SearchJOGui.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        this.jTable1.setModel(model); 
     }
 
     /**
@@ -27,18 +73,41 @@ public class PrintForm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jPanel1 = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(null);
+
+        jPanel1.setBackground(new java.awt.Color(50, 153, 250));
+        jPanel1.setLayout(null);
+
+        jLabel6.setFont(new java.awt.Font("Century Gothic", 0, 34)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("Print Job Order");
+        jPanel1.add(jLabel6);
+        jLabel6.setBounds(50, 20, 270, 43);
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
+        jPanel1.add(jScrollPane1);
+        jScrollPane1.setBounds(10, 90, 621, 275);
+
+        getContentPane().add(jPanel1);
+        jPanel1.setBounds(0, 0, 640, 480);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -79,5 +148,9 @@ public class PrintForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }

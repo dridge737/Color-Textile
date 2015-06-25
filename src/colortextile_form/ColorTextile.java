@@ -8,17 +8,17 @@ package colortextile_form;
 
 import colortextile_class.*;
 import javax.swing.JFrame;
-import org.jopendocument.model.OpenDocument;
-import org.jopendocument.panel.ODSViewerPanel;
-import org.jopendocument.print.DefaultDocumentPrinter;
+//import org.jopendocument.model.OpenDocument;
+//import org.jopendocument.panel.ODSViewerPanel;
+//import org.jopendocument.print.DefaultDocumentPrinter;
 import java.io.File;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import org.jdom.JDOMException;
+//import org.jdom.JDOMException;
 
-import org.jopendocument.dom.ODSingleXMLDocument;
-import org.jopendocument.dom.OOUtils;
+//import org.jopendocument.dom.ODSingleXMLDocument;
+//import org.jopendocument.dom.OOUtils;
 
 /**
  *
@@ -64,7 +64,7 @@ public class ColorTextile {
         this_purchase2.set_all_details_from_purchase_order_id(18);
         newTrial2.print_this_job2(this_purchase2, "file2");
         
-        
+        /*
         try {
             File f1 = new File("file1.odt");
             ODSingleXMLDocument p1 = ODSingleXMLDocument.createFromPackage(f1);
@@ -81,7 +81,7 @@ public class ColorTextile {
         } catch (IOException ex) {
             Logger.getLogger(ColorTextile.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+        */
         
         //EditRecipe EditRecipeForm = new EditRecipe(14);
         //EditRecipeForm.setVisible(true);

@@ -18,6 +18,7 @@ public class colorway {
     private float binder;
     private float weight_kg;
     private int design_code;
+    private float coverage;
     
     public colorway(){
         id_colorway = 0;
@@ -34,6 +35,14 @@ public class colorway {
         this.binder = set_binder;
         this.weight_kg = set_weight_kg;
         this.design_code = set_design_code;
+    }
+    
+    public colorway(String name, float set_binder , float set_weight_kg, int set_design_code, float set_coverage){
+        this.colorway_name = name;
+        this.binder = set_binder;
+        this.weight_kg = set_weight_kg;
+        this.design_code = set_design_code;
+        this.coverage = set_coverage;
     }
 
     /**

@@ -20,6 +20,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -1323,6 +1324,26 @@ public class DB_Manager {
         return null;
     }
     
+    public DefaultTableModel get_table_job_order_for_purchase()
+    {
+        DefaultTableModel model = new DefaultTableModel();
+         try
+        {
+          DBConnection db = new DBConnection();
+          Connection conn = db.getConnection();  
+          
+            PreparedStatement ps = conn.prepareStatement("SELECT * FROM design ORDER BY design_code ASC ");
+            ResultSet rs = ps.executeQuery();
+            //this.closeConn(conn, ps, rs);
+            
+        }
+        catch (SQLException ex)
+        {
+            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
+            
+        }
+         return model;
+    }
     
     public ResultSet get_all_design(){
         try

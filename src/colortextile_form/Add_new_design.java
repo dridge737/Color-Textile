@@ -2584,7 +2584,9 @@ public class Add_new_design extends javax.swing.JFrame {
         if(!colorway_name.isEmpty() && !temp_weight_kg.isEmpty())
         {
                 float weight_kg = Float.parseFloat(temp_weight_kg);
-                colortextile_class.colorway new_colorway = new colortextile_class.colorway(colorway_name, binder_percent, weight_kg, design_code);
+                float coverage = use_func.compute_this_coverage(weight_kg, fab_style_comb.getSelectedItem().toString(), quantity_total.getText());
+                float adjusted_weight = use_func.compute_this_kg(coverage, fab_style_comb.getSelectedItem().toString(), "1000");
+                colortextile_class.colorway new_colorway = new colortextile_class.colorway(colorway_name, binder_percent, adjusted_weight, design_code);
                 new_colorway.add_new_colorway();
                 new_colorway.set_id_colorway_from_variables();
                 

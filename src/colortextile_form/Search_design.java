@@ -33,8 +33,8 @@ public class Search_design extends javax.swing.JFrame {
         initComponents();
         fill_table(design_conn.get_all_design_details());
     }
+    
     public void fill_table(ResultSet rs){
-        
         
         DB_Manager conn= new DB_Manager();
         DefaultTableModel model = new DefaultTableModel();
@@ -45,35 +45,27 @@ public class Search_design extends javax.swing.JFrame {
         model.addColumn("Colorway Name");
         model.addColumn("fabric_style");
         
-        
-        
-        
         try {
-            if (rs.first()){
+            if (rs.first())
+            {
+                rs.previous();
                 
-             rs.previous();
-             
-            while(rs.next()) {
-              
-                   String[] set1 = {    
-                                        rs.getString("design_code"),
-                                        rs.getString("design_name"),
-                                        rs.getString("color_name"),
-                                        rs.getString("fabric_style")
-                                        
+                while(rs.next()) {
+                    String[] set1 = {    rs.getString("design_code"),
+                                         rs.getString("design_name"),
+                                         rs.getString("color_name"),
+                                         rs.getString("fabric_style")
                                     };
-               
-                               model.addRow(set1);
-     
+                    model.addRow(set1);
                 }
-            } else {
-                
-            JOptionPane.showMessageDialog(null,"No Record");
             }
-        } catch (SQLException ex) {
+            else {
+                JOptionPane.showMessageDialog(null,"No Record");
+            }
+        }
+        catch (SQLException ex) {
             Logger.getLogger(SearchJOGui.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
         this.jTable1.setModel(model); 
     }
 
@@ -309,8 +301,8 @@ public class Search_design extends javax.swing.JFrame {
     }//GEN-LAST:event_button_searchActionPerformed
 
     private void button_resetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_resetActionPerformed
-        // TODO add your handling code here:
-       design design_conn = new design();
+        // TODO add your handling code here:s
+        design design_conn = new design();
         fill_table(design_conn.get_all_design_details());
     }//GEN-LAST:event_button_resetActionPerformed
 
@@ -325,7 +317,6 @@ public class Search_design extends javax.swing.JFrame {
         design design_conn = new  design();
         design_conn.setDesign_code(Integer.parseInt(id));
         
-        
         ResultSet rs = design_conn.get_picture_from_design_code();
         if(rs.next()){
                 byte[]imagedata = rs.getBytes("design_picture");
@@ -336,14 +327,7 @@ public class Search_design extends javax.swing.JFrame {
             this.label_pic.setIcon(null);
         }
         
-        
-        
-        
         setVisible(true);
-       
-        
-        
-       
     }
     
     private void button_detailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_detailsActionPerformed
@@ -396,7 +380,7 @@ public class Search_design extends javax.swing.JFrame {
         int row = this.get_table_row_value();
         String id =(this.jTable1.getModel().getValueAt(row, 0).toString());
         
-            System.out.println(id);
+        System.out.println(id);
         // testing commit --------------------------------------------------------------------------------------------------------------------------------------
         return id;
     }
@@ -405,7 +389,8 @@ public class Search_design extends javax.swing.JFrame {
             int row = this.jTable1.getSelectedRow();
             
             return row;
-        }catch(Exception e){
+        }
+        catch(Exception e){
             return -1;
         }
         
@@ -462,5 +447,5 @@ public class Search_design extends javax.swing.JFrame {
     private javax.swing.JTextField text_design_name;
     // End of variables declaration//GEN-END:variables
 
-private ImageIcon format = null;
+    private ImageIcon format = null;
 }
