@@ -273,7 +273,7 @@ public class SearchJOGui extends javax.swing.JFrame {
             }
         });
         jFrame1.getContentPane().add(jCheckBox2);
-        jCheckBox2.setBounds(585, 133, 69, 29);
+        jCheckBox2.setBounds(585, 133, 65, 29);
 
         jLabel8.setFont(new java.awt.Font("Century Gothic", 0, 34)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
@@ -428,7 +428,7 @@ public class SearchJOGui extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jCheckBox1);
-        jCheckBox1.setBounds(585, 133, 69, 29);
+        jCheckBox1.setBounds(585, 133, 65, 29);
 
         jLabel6.setFont(new java.awt.Font("Century Gothic", 0, 34)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
@@ -451,11 +451,6 @@ public class SearchJOGui extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTable1MouseClicked(evt);
-            }
-        });
         jTable1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jTable1KeyPressed(evt);
@@ -496,7 +491,7 @@ public class SearchJOGui extends javax.swing.JFrame {
             .addGroup(jDesktopPane1Layout.createSequentialGroup()
                 .addGap(33, 33, 33)
                 .addComponent(label_pic, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(38, Short.MAX_VALUE))
         );
         jDesktopPane1.setLayer(label_pic, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
@@ -548,7 +543,7 @@ public class SearchJOGui extends javax.swing.JFrame {
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 990, 480);
 
-        setSize(new java.awt.Dimension(1014, 535));
+        setSize(new java.awt.Dimension(1006, 521));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -557,9 +552,7 @@ public class SearchJOGui extends javax.swing.JFrame {
        DB_Manager id = new DB_Manager();
         
         job_order jobsearch = new job_order();
-        purchase_order purchasesearch = new purchase_order();
-        
-        
+        purchase_order PurchaseSearch = new purchase_order();
         
         SimpleDateFormat formater = new SimpleDateFormat("yyyy/MM/dd");
                 String spinnerValuefrom = formater.format(this.spinner_from.getValue());
@@ -571,9 +564,6 @@ public class SearchJOGui extends javax.swing.JFrame {
             jobsearch.setCustomer_id(-1);
         }
         
-       
-       
-            
         if (!(this.text_job_id.getText().trim().equals(""))){
             jobsearch.setJob_id(this.text_job_id.getText());
             
@@ -582,8 +572,6 @@ public class SearchJOGui extends javax.swing.JFrame {
             jobsearch.setJob_id(null);
         }
         
-        
-        
         if (this.jCheckBox1.isSelected())
         {
             jobsearch.setDate(spinnerValuefrom);         
@@ -591,16 +579,8 @@ public class SearchJOGui extends javax.swing.JFrame {
             jobsearch.setDate(null);
         }
         
-        
-        
-        
         fill_table(jobsearch.Search_job_info()); 
            JOptionPane.showMessageDialog(null,"fill table 1  ");
-        
-       
-     
-        
-       
         
     }//GEN-LAST:event_button_searchActionPerformed
 
@@ -608,10 +588,8 @@ public class SearchJOGui extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(this.jCheckBox1.isSelected()){
             this.spinner_from.setEnabled(true);
-            
         } else {
             this.spinner_from.setEnabled(false);
-            
         }
         
     }//GEN-LAST:event_jCheckBox1ActionPerformed
@@ -623,16 +601,6 @@ public class SearchJOGui extends javax.swing.JFrame {
     }//GEN-LAST:event_button_resetActionPerformed
 
     
-    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
-       // JOptionPane.showMessageDialog(null, "mouse clicked");
-        
-     /*   try {
-            insert_pic();
-        } catch (SQLException ex) {
-            Logger.getLogger(SearchJOGui.class.getName()).log(Level.SEVERE, null, ex);
-        } */
-    }//GEN-LAST:event_jTable1MouseClicked
-
     private void button_detailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_detailsActionPerformed
         // TODO add your handling code here:
         int row = jTable1.getSelectedRow();
@@ -648,8 +616,6 @@ public class SearchJOGui extends javax.swing.JFrame {
         design_form.setVisible(true);
         design_form.fill_info_from_purchase_id(Integer.parseInt(selected_purchase_order));
         close();
-        
-        
     }//GEN-LAST:event_button_detailsActionPerformed
 
     public void close(){
@@ -658,8 +624,6 @@ public class SearchJOGui extends javax.swing.JFrame {
     }
     private void jTable1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTable1KeyPressed
         // TODO add your handling code here:
-       // JOptionPane.showMessageDialog(null, "key pressed");
-   
         try {
             insert_pic();
         } catch (SQLException ex) {
@@ -707,7 +671,7 @@ public class SearchJOGui extends javax.swing.JFrame {
         
         EditRecipe editDesign = new EditRecipe(Integer.parseInt(selected_purchase_order));
         editDesign.setVisible(true);
-           close();
+        close();
             
     }//GEN-LAST:event_button_editActionPerformed
     private String get_design_code_from_table_selected(){
@@ -720,12 +684,10 @@ public class SearchJOGui extends javax.swing.JFrame {
     }
     private void insert_pic() throws SQLException{
         
-        
         String id = this.get_design_code_from_table_selected();
         
         design design_conn = new  design();
         design_conn.setDesign_code(Integer.parseInt(id));
-        
         
         ResultSet rs = design_conn.get_picture_from_design_code();
         if(rs.next()){
@@ -737,13 +699,7 @@ public class SearchJOGui extends javax.swing.JFrame {
             this.label_pic.setIcon(null);
         }
         
-        
-        
-        
         setVisible(true);
-       
-        
-        
     }
     /**
      * @param args the command line arguments

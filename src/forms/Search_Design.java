@@ -26,7 +26,6 @@ public class Search_Design extends javax.swing.JFrame {
         DB_Manager table = new DB_Manager();
         table.get_all_design();
         
-        
 }
     /**
      * This method is called from within the constructor to initialize the form.

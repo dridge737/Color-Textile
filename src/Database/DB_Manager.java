@@ -1327,22 +1327,54 @@ public class DB_Manager {
     public DefaultTableModel get_table_job_order_for_purchase()
     {
         DefaultTableModel model = new DefaultTableModel();
-         try
-        {
-          DBConnection db = new DBConnection();
-          Connection conn = db.getConnection();  
-          
-            PreparedStatement ps = conn.prepareStatement("SELECT * FROM design ORDER BY design_code ASC ");
+        
+        try {
+            DBConnection db = new DBConnection();
+            Connection conn = db.getConnection();
+            
+            PreparedStatement ps = conn.prepareStatement("SELECT design_name , date, "
+                    + " group_concat(jord.job_order_id SEPARATOR ', ') AS 'All Jobs' " 
+                    + " FROM job_order jord, purchase_order purch, design des  " 
+                    + " WHERE jord.job_order_id = purch.job_order_id "
+                    + " AND des.design_code = purch.design_code"
+                    + " GROUP BY date, des.design_code; ");
+            
             ResultSet rs = ps.executeQuery();
             //this.closeConn(conn, ps, rs);
+
+            model.addColumn("Design Name");
+            model.addColumn("Date");
+            model.addColumn("Job Order");
+        
+            int x=0;
             
+            if (rs.next())
+            {
+                String[] set1 = {
+                            rs.getString("design_name"),
+                            rs.getString("date"),
+                            rs.getString("All Jobs")
+                };
+                model.addRow(set1);
+                
+                while(rs.next())
+                {
+                    String[] this_set = {
+                        rs.getString("design_name"),
+                        rs.getString("date"),
+                        rs.getString("All Jobs")
+                    };
+                    model.addRow(this_set);
+                }
+            }
+            else {
+                JOptionPane.showMessageDialog(null,"No Record");
+            }
         }
-        catch (SQLException ex)
-        {
+        catch (SQLException ex) {
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
-            
         }
-         return model;
+        return model;
     }
     
     public ResultSet get_all_design(){

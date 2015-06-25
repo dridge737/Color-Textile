@@ -30,38 +30,8 @@ public class PrintForm extends javax.swing.JFrame {
     
     private void fill_table()
     {
-        ResultSet rs = null;
         DB_Manager conn= new DB_Manager();
-        DefaultTableModel model = new DefaultTableModel();
-        design design_conn = new design();
-        
-        model.addColumn("#");
-        model.addColumn("Design Name");
-        model.addColumn("Colorway Name");
-        model.addColumn("fabric_style");
-        
-        try {
-            if (rs.first())
-            {
-                rs.previous();
-                
-                while(rs.next()) {
-                    String[] set1 = {    rs.getString("design_code"),
-                                         rs.getString("design_name"),
-                                         rs.getString("color_name"),
-                                         rs.getString("fabric_style")
-                                    };
-                    model.addRow(set1);
-                }
-            }
-            else {
-                JOptionPane.showMessageDialog(null,"No Record");
-            }
-        }
-        catch (SQLException ex) {
-            Logger.getLogger(SearchJOGui.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        this.jTable1.setModel(model); 
+        this.jTable1.setModel(conn.get_table_job_order_for_purchase()); 
     }
 
     /**
