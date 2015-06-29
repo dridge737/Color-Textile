@@ -7,6 +7,9 @@ package colortextile_form;
 
 import Database.DB_Manager;
 import colortextile_class.design;
+import colortextile_class.purchase_order;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -20,18 +23,39 @@ import javax.swing.table.DefaultTableModel;
  */
 public class PrintForm extends javax.swing.JFrame {
 
+    private DefaultTableModel temporary_table_model;
     /**
      * Creates new form PrintForm
      */
     public PrintForm() {
         initComponents();
-        fill_table();
+        fill_table_per_purchase_table();
+        //Center the form
+        this.setSize(820, 550);
+        Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
+        
+        int x = (int) ((dimension.getWidth() - this.getWidth()) / 2);
+        int y = (int) ((dimension.getHeight() - this.getHeight()) / 2);
+        this.setLocation(x,y);
+        
     }
     
-    private void fill_table()
+    private void fill_table_per_purchase_table()
     {
         DB_Manager conn= new DB_Manager();
-        this.jTable1.setModel(conn.get_table_design_customer_job_order()); 
+        this.search_print.setModel(conn.get_table_design_customer_job_order()); 
+        temporary_table_model = conn.get_column_for_design_customer_job_order();
+        print_table.setModel(temporary_table_model);
+        print_table.removeAll();
+    }
+    
+    private void fill_table_merged_date_search()
+    {
+        DB_Manager conn= new DB_Manager();
+        this.search_print.setModel(conn.get_table_merged_date()); 
+        temporary_table_model = conn.get_column_table_for_merged_date();
+        print_table.setModel(temporary_table_model);
+        print_table.removeAll();
     }
 
     /**
@@ -46,9 +70,20 @@ public class PrintForm extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        search_print = new javax.swing.JTable();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        print_table = new javax.swing.JTable();
+        jPanel2 = new javax.swing.JPanel();
+        purchase_button = new javax.swing.JRadioButton();
+        combined_date_button = new javax.swing.JRadioButton();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Print Form");
         getContentPane().setLayout(null);
 
         jPanel1.setBackground(new java.awt.Color(50, 153, 250));
@@ -56,12 +91,15 @@ public class PrintForm extends javax.swing.JFrame {
 
         jLabel6.setFont(new java.awt.Font("Century Gothic", 0, 34)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("Print Job Order");
+        jLabel6.setText("Print Form");
         jPanel1.add(jLabel6);
-        jLabel6.setBounds(50, 20, 270, 43);
+        jLabel6.setBounds(20, 20, 270, 43);
 
-        jTable1.setAutoCreateRowSorter(true);
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+
+        search_print.setAutoCreateRowSorter(true);
+        search_print.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        search_print.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -72,17 +110,169 @@ public class PrintForm extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jTable1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jScrollPane1.setViewportView(jTable1);
+        search_print.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jScrollPane1.setViewportView(search_print);
 
         jPanel1.add(jScrollPane1);
-        jScrollPane1.setBounds(10, 90, 780, 275);
+        jScrollPane1.setBounds(10, 100, 780, 180);
+
+        jScrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+
+        print_table.setAutoCreateRowSorter(true);
+        print_table.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        print_table.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        print_table.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jScrollPane2.setViewportView(print_table);
+
+        jPanel1.add(jScrollPane2);
+        jScrollPane2.setBounds(10, 340, 780, 130);
+
+        jPanel2.setOpaque(false);
+
+        purchase_button.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        purchase_button.setForeground(new java.awt.Color(255, 255, 255));
+        purchase_button.setSelected(true);
+        purchase_button.setText("All Purchase Search");
+        purchase_button.setOpaque(false);
+        purchase_button.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                purchase_buttonMouseClicked(evt);
+            }
+        });
+
+        combined_date_button.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        combined_date_button.setForeground(new java.awt.Color(255, 255, 255));
+        combined_date_button.setText("Combined Date Search");
+        combined_date_button.setOpaque(false);
+        combined_date_button.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                combined_date_buttonMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap(408, Short.MAX_VALUE)
+                .addComponent(purchase_button)
+                .addGap(18, 18, 18)
+                .addComponent(combined_date_button)
+                .addContainerGap())
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(4, 4, 4)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(combined_date_button)
+                    .addComponent(purchase_button))
+                .addContainerGap())
+        );
+
+        jPanel1.add(jPanel2);
+        jPanel2.setBounds(10, 65, 780, 40);
+
+        jButton1.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
+        jButton1.setText("Confirm Table and Print");
+        jPanel1.add(jButton1);
+        jButton1.setBounds(10, 480, 340, 40);
+
+        jButton2.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
+        jButton2.setText("Add selected row to Print Table");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton2);
+        jButton2.setBounds(240, 290, 320, 40);
+        jButton2.getAccessibleContext().setAccessibleName("add_row");
+
+        jButton3.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
+        jButton3.setText("Remove selected row from Print Table");
+        jPanel1.add(jButton3);
+        jButton3.setBounds(450, 480, 340, 40);
+
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
+        jPanel3.setOpaque(false);
+        jPanel3.setLayout(null);
+
+        jLabel1.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Print Table");
+        jPanel3.add(jLabel1);
+        jLabel1.setBounds(60, 0, 130, 40);
+
+        jPanel1.add(jPanel3);
+        jPanel3.setBounds(597, 300, 190, 80);
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 800, 480);
+        jPanel1.setBounds(0, 0, 800, 540);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void combined_date_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_combined_date_buttonMouseClicked
+        // TODO add your handling code here:
+        this.purchase_button.setSelected(false);
+        this.combined_date_button.setSelected(true);
+        fill_table_merged_date_search();
+    }//GEN-LAST:event_combined_date_buttonMouseClicked
+
+    private void purchase_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_purchase_buttonMouseClicked
+        // TODO add your handling code here:
+        this.combined_date_button.setSelected(false);
+        this.purchase_button.setSelected(true);
+        fill_table_per_purchase_table();
+    }//GEN-LAST:event_purchase_buttonMouseClicked
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        int row = search_print.getSelectedRow();
+        int total_col = search_print.getColumnCount();
+        //for(int col = 0; col < total_col; col++)
+        //{
+            if(this.purchase_button.isSelected())
+            {
+                String[] this_set = {
+                        search_print.getValueAt(row, 0).toString(),
+                        search_print.getValueAt(row, 1).toString(),
+                        search_print.getValueAt(row, 2).toString(),
+                        search_print.getValueAt(row, 3).toString(),
+                        search_print.getValueAt(row, 4).toString(),
+                        search_print.getValueAt(row, 5).toString(),
+                        search_print.getValueAt(row, 6).toString()
+                    };
+                    temporary_table_model.addRow(this_set);
+            }
+            else
+            {
+                 String[] this_set = {
+                        search_print.getValueAt(row, 0).toString(),
+                        search_print.getValueAt(row, 1).toString(),
+                        search_print.getValueAt(row, 2).toString(),
+                        search_print.getValueAt(row, 3).toString(),
+                        search_print.getValueAt(row, 4).toString(),
+                        search_print.getValueAt(row, 5).toString()
+                    };
+                    temporary_table_model.addRow(this_set);
+            }
+        //}
+        
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -120,9 +310,19 @@ public class PrintForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JRadioButton combined_date_button;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable print_table;
+    private javax.swing.JRadioButton purchase_button;
+    private javax.swing.JTable search_print;
     // End of variables declaration//GEN-END:variables
 }

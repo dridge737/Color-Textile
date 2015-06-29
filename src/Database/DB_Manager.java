@@ -1212,7 +1212,7 @@ public class DB_Manager {
           
           List<job_order> all_job_this_purchase = new ArrayList<job_order>();
             PreparedStatement ps = conn.prepareStatement("SELECT p.job_order_id, customer_id, date , customer_name "
-                                                        + "FROM purchase_order p , job_order j, customer c "
+                    + "FROM purchase_order p , job_order j, customer c "
                     + " WHERE j.job_order_id = p.job_order_id "
                     + " AND c.id_customer = j.customer_id "
                     + " AND design_code = ? "
@@ -1269,6 +1269,70 @@ public class DB_Manager {
         return null;
     }
     
+    public DefaultTableModel get_column_table_for_merged_date()
+    {
+        DefaultTableModel model = new DefaultTableModel();
+        model.addColumn("Date");
+        model.addColumn("Design Name/s");
+        model.addColumn("Color/s");
+        model.addColumn("Fabric Style/s");
+        model.addColumn("Customer/s");
+        model.addColumn("Job Order/s");
+        
+        return model;
+    }
+    
+    public DefaultTableModel get_table_merged_date()
+    {
+        DefaultTableModel model = get_column_table_for_merged_date();
+        
+        try {
+            DBConnection db = new DBConnection();
+            Connection conn = db.getConnection();
+            
+            PreparedStatement ps = conn.prepareStatement("SELECT date, " +
+                    " group_concat(DISTINCT(design_name)) AS 'Design Name/s', " +
+                    " group_concat(DISTINCT(color_name)) AS 'Color/s', " +
+                    " group_concat(DISTINCT(fabric_style)) AS 'Fabric Style/s', " +
+                    " group_concat(customer_name) AS 'Customer/s', " +
+                    " group_concat(jord.job_order_id SEPARATOR ', ') AS 'All Job Order'" +
+                    " FROM job_order jord, purchase_order purch, design des, customer cust" +
+                    " WHERE jord.job_order_id = purch.job_order_id " +
+                    " AND des.design_code = purch.design_code " +
+                    " AND cust.id_customer= jord.customer_id " +
+                    " GROUP BY date " +
+                    " ORDER BY date ASC; ");
+            
+            ResultSet rs = ps.executeQuery();
+            
+            if (rs.next())
+            {
+                rs.previous();
+                while(rs.next())
+                {
+                    String[] this_set = {
+                        rs.getString("date"),
+                        rs.getString("Design Name/s"),
+                        rs.getString("Color/s"),
+                        rs.getString("Fabric Style/s"),
+                        rs.getString("Customer/s"),
+                        rs.getString("All Job Order")
+                    };
+                    model.addRow(this_set);
+                }
+                this.closeConn(conn, ps, rs);
+            }
+            else {
+                JOptionPane.showMessageDialog(null,"No Record");
+            }
+        }
+        catch (SQLException ex) {
+            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return model;
+    
+    }
+    
     public DefaultTableModel get_table_job_order_purchase_design()
     {
         DefaultTableModel model = new DefaultTableModel();
@@ -1314,7 +1378,7 @@ public class DB_Manager {
         return model;
     }
     
-    public DefaultTableModel get_table_design_customer_job_order()
+    public DefaultTableModel get_column_for_design_customer_job_order()
     {
         DefaultTableModel model = new DefaultTableModel();
         
@@ -1325,6 +1389,13 @@ public class DB_Manager {
         model.addColumn("Date");  
         model.addColumn("Customers");  
         model.addColumn("Job Orders");
+        
+        return model;
+    }
+    
+    public DefaultTableModel get_table_design_customer_job_order()
+    {
+        DefaultTableModel model = get_column_for_design_customer_job_order();
         
         try {
             
