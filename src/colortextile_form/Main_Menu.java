@@ -191,8 +191,10 @@ public class Main_Menu extends javax.swing.JFrame {
 
     private void pigmentsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pigmentsActionPerformed
         // TODO add your handling code here:
-        testing2.EditSearchPigmentForm new_pigment_form = new testing2.EditSearchPigmentForm();
-        new_pigment_form.setVisible(true);
+        add_pigment_form new_form = new add_pigment_form();
+        new_form.setVisible(true);
+        //testing2.EditSearchPigmentForm new_pigment_form = new testing2.EditSearchPigmentForm();
+        //new_pigment_form.setVisible(true);
     }//GEN-LAST:event_pigmentsActionPerformed
 
     private void search_joActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_search_joActionPerformed

@@ -53,7 +53,7 @@ public class ColorTextile {
         new_menu.setVisible(true);
         
        // System.out.println(trial_get_pigment_id);
-        
+        /*
         production_recipe this_purchase = new production_recipe();
         this_purchase.set_all_details_from_purchase_order_id(16);
         SpreadsheetTrial newTrial = new SpreadsheetTrial();
@@ -63,7 +63,7 @@ public class ColorTextile {
         SpreadsheetTrial newTrial2 = new SpreadsheetTrial();
         this_purchase2.set_all_details_from_purchase_order_id(18);
         newTrial2.print_this_job2(this_purchase2, "file2");
-        
+        */
         /*
         try {
             File f1 = new File("file1.odt");
