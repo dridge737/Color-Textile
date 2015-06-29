@@ -28,7 +28,7 @@ public class production_recipe extends Design_and_colorway{
      
      public void set_all_details_from_purchase_order_id(int purchase_order_id)
      {
-         this.set_purchase_details_from_id(purchase_order_id);
+         this.set_purchase_details_from_purchase_id(purchase_order_id);
          this.set_design_details_from_first_purchase_order();
          this.set_purchase_details();
      }
@@ -43,7 +43,7 @@ public class production_recipe extends Design_and_colorway{
         }
      }
      
-     public void set_purchase_details_from_id(int purchase_order_id)
+     public void set_purchase_details_from_purchase_id(int purchase_order_id)
      {
         // USING GLOBAL VARIABLE
         purchase_order this_purchase = new purchase_order();
@@ -250,4 +250,9 @@ public class production_recipe extends Design_and_colorway{
         this.set_all_colorway_from_design_code();
     }
     
+    public void set_all_job_order_from_design_code_and_date()
+    {
+        Database.DB_Manager new_conn = new Database.DB_Manager();
+        this.all_purchase = new_conn.get_all_purchase_details_from_date_and_design(Date, this.getDesign_code());
+    }
 }

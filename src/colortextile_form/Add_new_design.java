@@ -645,7 +645,7 @@ public class Add_new_design extends javax.swing.JFrame {
 
         button_include_customer.setBackground(new java.awt.Color(255, 255, 255));
         button_include_customer.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
-        button_include_customer.setText("Add Customer Order");
+        button_include_customer.setText("Add the Customer Order");
         button_include_customer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_include_customerActionPerformed(evt);
@@ -656,14 +656,14 @@ public class Add_new_design extends javax.swing.JFrame {
 
         button_remove_customer.setBackground(new java.awt.Color(255, 255, 255));
         button_remove_customer.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
-        button_remove_customer.setText("Delete Order");
+        button_remove_customer.setText("Delete item Order");
         button_remove_customer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_remove_customerActionPerformed(evt);
             }
         });
         jPanel16.add(button_remove_customer);
-        button_remove_customer.setBounds(584, 168, 165, 30);
+        button_remove_customer.setBounds(584, 168, 173, 30);
 
         jScrollPane1.setViewportView(jList1);
 
@@ -725,7 +725,7 @@ public class Add_new_design extends javax.swing.JFrame {
 
         edit_purchase.setBackground(new java.awt.Color(255, 255, 255));
         edit_purchase.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
-        edit_purchase.setText("Edit Order");
+        edit_purchase.setText("Edit item Order");
         edit_purchase.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 edit_purchaseActionPerformed(evt);
@@ -2049,7 +2049,7 @@ public class Add_new_design extends javax.swing.JFrame {
 
         add_order.setBackground(new java.awt.Color(255, 255, 255));
         add_order.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        add_order.setText("Add");
+        add_order.setText("Add this Purchase");
         add_order.setToolTipText("");
         add_order.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2066,7 +2066,7 @@ public class Add_new_design extends javax.swing.JFrame {
 
         preview_but.setBackground(new java.awt.Color(255, 255, 255));
         preview_but.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        preview_but.setText("Preview");
+        preview_but.setText("Preview this Purchase");
         preview_but.setToolTipText("");
         preview_but.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2078,7 +2078,7 @@ public class Add_new_design extends javax.swing.JFrame {
 
         add_order2.setBackground(new java.awt.Color(255, 255, 255));
         add_order2.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        add_order2.setText("Cancel");
+        add_order2.setText("Cancel Purchase");
         add_order2.setToolTipText("");
         add_order2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2088,7 +2088,7 @@ public class Add_new_design extends javax.swing.JFrame {
         jPanel11.add(add_order2, new org.netbeans.lib.awtextra.AbsoluteConstraints(516, 296, 240, 42));
         add_order2.getAccessibleContext().setAccessibleDescription("Cancel the addition of this design");
 
-        getContentPane().add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 350, 770, 350));
+        getContentPane().add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 350, 770, 360));
 
         setSize(new java.awt.Dimension(807, 752));
         setLocationRelativeTo(null);

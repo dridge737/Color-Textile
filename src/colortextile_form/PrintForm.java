@@ -7,11 +7,15 @@ package colortextile_form;
 
 import Database.DB_Manager;
 import colortextile_class.design;
+import colortextile_class.job_order;
+import colortextile_class.production_recipe;
 import colortextile_class.purchase_order;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -24,6 +28,8 @@ import javax.swing.table.DefaultTableModel;
 public class PrintForm extends javax.swing.JFrame {
 
     private DefaultTableModel temporary_table_model;
+    private DefaultTableModel search_model;
+    private List<production_recipe> prod_recipe  = new ArrayList<>();
     /**
      * Creates new form PrintForm
      */
@@ -43,19 +49,22 @@ public class PrintForm extends javax.swing.JFrame {
     private void fill_table_per_purchase_table()
     {
         DB_Manager conn= new DB_Manager();
-        this.search_print.setModel(conn.get_table_design_customer_job_order()); 
+        search_model = conn.get_table_design_customer_job_order();
+        this.search_print.setModel(search_model); 
+        print_table.removeAll();
         temporary_table_model = conn.get_column_for_design_customer_job_order();
         print_table.setModel(temporary_table_model);
-        print_table.removeAll();
+        
     }
     
     private void fill_table_merged_date_search()
     {
         DB_Manager conn= new DB_Manager();
-        this.search_print.setModel(conn.get_table_merged_date()); 
-        temporary_table_model = conn.get_column_table_for_merged_date();
-        print_table.setModel(temporary_table_model);
+        search_model = conn.get_table_merged_date();
+        this.search_print.setModel(search_model); 
         print_table.removeAll();
+        temporary_table_model = conn.get_column_table_for_merged_date();
+        print_table.setModel(temporary_table_model);   
     }
 
     /**
@@ -76,9 +85,9 @@ public class PrintForm extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         purchase_button = new javax.swing.JRadioButton();
         combined_date_button = new javax.swing.JRadioButton();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        print_button = new javax.swing.JButton();
+        add_row_button = new javax.swing.JButton();
+        delete_button = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -184,26 +193,36 @@ public class PrintForm extends javax.swing.JFrame {
         jPanel1.add(jPanel2);
         jPanel2.setBounds(10, 65, 780, 40);
 
-        jButton1.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
-        jButton1.setText("Confirm Table and Print");
-        jPanel1.add(jButton1);
-        jButton1.setBounds(10, 480, 340, 40);
-
-        jButton2.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
-        jButton2.setText("Add selected row to Print Table");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        print_button.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
+        print_button.setText("Confirm this Table and Print");
+        print_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                print_buttonActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2);
-        jButton2.setBounds(240, 290, 320, 40);
-        jButton2.getAccessibleContext().setAccessibleName("add_row");
+        jPanel1.add(print_button);
+        print_button.setBounds(10, 480, 340, 40);
 
-        jButton3.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
-        jButton3.setText("Remove selected row from Print Table");
-        jPanel1.add(jButton3);
-        jButton3.setBounds(450, 480, 340, 40);
+        add_row_button.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
+        add_row_button.setText("Add selected row to Print Table");
+        add_row_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                add_row_buttonActionPerformed(evt);
+            }
+        });
+        jPanel1.add(add_row_button);
+        add_row_button.setBounds(240, 290, 320, 40);
+        add_row_button.getAccessibleContext().setAccessibleName("add_row");
+
+        delete_button.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
+        delete_button.setText("Remove selected row from Print Table");
+        delete_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                delete_buttonActionPerformed(evt);
+            }
+        });
+        jPanel1.add(delete_button);
+        delete_button.setBounds(450, 480, 340, 40);
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
@@ -239,12 +258,14 @@ public class PrintForm extends javax.swing.JFrame {
         fill_table_per_purchase_table();
     }//GEN-LAST:event_purchase_buttonMouseClicked
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void add_row_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_row_buttonActionPerformed
         // TODO add your handling code here:
         int row = search_print.getSelectedRow();
-        int total_col = search_print.getColumnCount();
+        //int total_col = search_print.getColumnCount();
         //for(int col = 0; col < total_col; col++)
         //{
+        if(row == -1)
+        {
             if(this.purchase_button.isSelected())
             {
                 String[] this_set = {
@@ -271,8 +292,44 @@ public class PrintForm extends javax.swing.JFrame {
                     temporary_table_model.addRow(this_set);
             }
         //}
+            search_print.remove(row);
+        }
         
-    }//GEN-LAST:event_jButton2ActionPerformed
+        
+    }//GEN-LAST:event_add_row_buttonActionPerformed
+
+    private void delete_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_delete_buttonActionPerformed
+        // TODO add your handling code here:
+        int index_selected = this.print_table.getSelectedRow();
+        if(index_selected != -1)
+        this.print_table.remove(index_selected);
+    }//GEN-LAST:event_delete_buttonActionPerformed
+
+    private void print_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_print_buttonActionPerformed
+        // TODO add your handling code here:
+        for(int incre=0; incre<print_table.getRowCount(); incre++)
+        {
+            int radio_button_type,rad_button_type;
+            production_recipe this_prod_recipe = new production_recipe();
+                if(purchase_button.isSelected())
+                {
+                    radio_button_type=0;
+                    this_prod_recipe.setDate(print_table.getValueAt(incre, 4).toString());
+                }
+                else
+                {
+                    radio_button_type=1;
+                    this_prod_recipe.setDate(print_table.getValueAt(incre, 1).toString());
+                }
+            
+                this_prod_recipe.setDesign_name(print_table.getValueAt(incre, radio_button_type).toString());
+                this_prod_recipe.setColor_name(print_table.getValueAt(incre, radio_button_type+1).toString());
+                this_prod_recipe.setFabric_style(print_table.getValueAt(incre, radio_button_type+2).toString());
+                this_prod_recipe.set_design_code_using_variables();
+                this_prod_recipe.set_all_job_order_from_design_code_and_date();
+            
+        }
+    }//GEN-LAST:event_print_buttonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -310,10 +367,9 @@ public class PrintForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton add_row_button;
     private javax.swing.JRadioButton combined_date_button;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton delete_button;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
@@ -321,6 +377,7 @@ public class PrintForm extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JButton print_button;
     private javax.swing.JTable print_table;
     private javax.swing.JRadioButton purchase_button;
     private javax.swing.JTable search_print;

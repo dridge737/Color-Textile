@@ -712,9 +712,11 @@ public class DB_Manager {
             Connection conn = db.getConnection();
             
             PreparedStatement ps = 
-            conn.prepareStatement("SELECT design_code FROM design WHERE design_name = ?");
+            conn.prepareStatement("SELECT design_code FROM design WHERE design_name = ? AND color_name = ? AND fabric_style = ?");
             int item = 1;
             ps.setString(item++, new_design.getDesign_name());
+            ps.setString(item++, new_design.getColor_name());
+            ps.setString(item++, new_design.getFabric_style());
             ResultSet rs = ps.executeQuery();
             int design_code = -1;
             if(rs.first())
