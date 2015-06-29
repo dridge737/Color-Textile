@@ -93,6 +93,7 @@ public class design{
     {
         Database.DB_Manager new_conn = new Database.DB_Manager();
         int temp_design_code = new_conn.get_design_code(this);
+        
         if(temp_design_code != -1)
         {
             this.design_code = temp_design_code;

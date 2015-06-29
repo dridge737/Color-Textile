@@ -262,7 +262,7 @@ public class Search_design extends javax.swing.JFrame {
         }
         
         design_conn.setDesign_code(-1);
-        fill_table(design_conn.search_design());
+        //fill_table(design_conn.search_design());
     }//GEN-LAST:event_button_searchActionPerformed
 
     private void button_resetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_resetActionPerformed

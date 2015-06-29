@@ -170,6 +170,7 @@ public class production_recipe extends Design_and_colorway{
     
     public void view_all_puchase_order()
      {
+         System.out.println("Size of this purchase is :" +this.getAll_purchase().size());
         for (purchase_order all_purchase1 : getAll_purchase()) {
             System.out.println("Purchase id = " + all_purchase1.getId_purchase());
             System.out.println("Job Order = " + all_purchase1.getJob_order_id());
@@ -250,7 +251,7 @@ public class production_recipe extends Design_and_colorway{
         this.set_all_colorway_from_design_code();
     }
     
-    public void set_all_job_order_from_design_code_and_date()
+    public void set_all_purchase_details_from_design_code_and_date()
     {
         Database.DB_Manager new_conn = new Database.DB_Manager();
         this.all_purchase = new_conn.get_all_purchase_details_from_date_and_design(Date, this.getDesign_code());

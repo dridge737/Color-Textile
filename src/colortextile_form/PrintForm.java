@@ -6,12 +6,15 @@
 package colortextile_form;
 
 import Database.DB_Manager;
+import colortextile_class.SpreadsheetTrial;
 import colortextile_class.design;
 import colortextile_class.job_order;
 import colortextile_class.production_recipe;
 import colortextile_class.purchase_order;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.io.File;
+import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -20,6 +23,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import org.jdom.JDOMException;
+import org.jopendocument.dom.ODSingleXMLDocument;
 
 /**
  *
@@ -264,7 +269,7 @@ public class PrintForm extends javax.swing.JFrame {
         //int total_col = search_print.getColumnCount();
         //for(int col = 0; col < total_col; col++)
         //{
-        if(row == -1)
+        if(row != -1)
         {
             if(this.purchase_button.isSelected())
             {
@@ -291,9 +296,10 @@ public class PrintForm extends javax.swing.JFrame {
                     };
                     temporary_table_model.addRow(this_set);
             }
-        //}
-            search_print.remove(row);
+        //}   
         }
+         this.print_table.setModel(temporary_table_model);
+        // search_print.remove(row);
         
         
     }//GEN-LAST:event_add_row_buttonActionPerformed
@@ -307,10 +313,14 @@ public class PrintForm extends javax.swing.JFrame {
 
     private void print_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_print_buttonActionPerformed
         // TODO add your handling code here:
-        for(int incre=0; incre<print_table.getRowCount(); incre++)
+        
+        if(print_table.getRowCount()>0)
         {
-            int radio_button_type,rad_button_type;
             production_recipe this_prod_recipe = new production_recipe();
+            for(int incre=0; incre<print_table.getRowCount(); incre++)
+            {
+            int radio_button_type, rad_button_type;
+            
                 if(purchase_button.isSelected())
                 {
                     radio_button_type=0;
@@ -326,9 +336,46 @@ public class PrintForm extends javax.swing.JFrame {
                 this_prod_recipe.setColor_name(print_table.getValueAt(incre, radio_button_type+1).toString());
                 this_prod_recipe.setFabric_style(print_table.getValueAt(incre, radio_button_type+2).toString());
                 this_prod_recipe.set_design_code_using_variables();
-                this_prod_recipe.set_all_job_order_from_design_code_and_date();
+                this_prod_recipe.set_design_details_from_design_code();
+                //this_prod_recipe.set_all_job_order_from_design_code_and_date();
+                this_prod_recipe.set_all_purchase_details_from_design_code_and_date();
+                this_prod_recipe.set_job_order_list_using_design_code_and_purchase_id();
+                this_prod_recipe.view_all_colorway_details();
+                this_prod_recipe.view_all_puchase_order();
+                this_prod_recipe.view_all_job_order_details();
+                prod_recipe.add(this_prod_recipe);
+                if(incre ==0 )
+                {
+                    SpreadsheetTrial newTrial2 = new SpreadsheetTrial();
+                    newTrial2.print_this_job2(this_prod_recipe, "file1");
+                }
+                else
+                {
+                    
+                try {
+                    File f1 = new File("file1.odt");
+                    ODSingleXMLDocument p1 = ODSingleXMLDocument.createFromPackage(f1);
+                
+                    SpreadsheetTrial newTrial2 = new SpreadsheetTrial();
+                    newTrial2.print_this_job2(this_prod_recipe, "file2");
+                    File f2 = new File("file2.odt");
+                    ODSingleXMLDocument p2 = ODSingleXMLDocument.createFromPackage(f2);
+                    p1.add(p2);
+                    p1.saveToPackageAs(new File("cat"));
+                } catch (JDOMException ex) {
+                    Logger.getLogger(PrintForm.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (IOException ex) {
+                    Logger.getLogger(PrintForm.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
+                }
+            }
             
         }
+        else{
+            JOptionPane.showMessageDialog(null,"Please add something to print");
+        }
+        
     }//GEN-LAST:event_print_buttonActionPerformed
 
     /**

@@ -1163,7 +1163,7 @@ public class DB_Manager {
             
             PreparedStatement ps = 
                     conn.prepareStatement("SELECT jo.job_order_id, date, customer_id, id_purchase, quantity, design_code "
-                    + " FROM puchase_order AS po, "
+                    + " FROM purchase_order po, "
                     + "     job_order jo "
                     + " WHERE jo.job_order_id = po.job_order_id"
                     + " AND date = ? "

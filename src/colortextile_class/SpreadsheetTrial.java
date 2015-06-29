@@ -38,7 +38,7 @@ import org.jopendocument.dom.template.RhinoTemplate;
  */
 public class SpreadsheetTrial {
 
-        static String in = "Printext_change.odt";
+        static String in = "Printext_change3.odt";
 	static final String out = "print_out.odt";
         static Namespace ns = Namespace.getNamespace("xlink", "http://www.w3.org/1999/xlink");
         static int screen_count =2;
@@ -93,14 +93,23 @@ public class SpreadsheetTrial {
             this_colorway.remove(0);
             
             final List<Map<String, String>> print = new ArrayList<Map<String, String>>();
+            int y = 1;
+            
             for(Colorway_screen_link_functions current_colorway : this_colorway)
             {
                 print.add(createMap2(current_colorway));
+                y++;
             }
             
+            while(y<7)
+            {
+                print.add(fakeMap2());
+                y++;
+            }
+            screen_count = 2;
             template.setField("print", print);
             // Save to file.
-            final String bcfile = "New.jpg";
+            /*final String bcfile = "New.jpg";
             
             File image = new File(bcfile);
             if (image.exists() && image.canRead()) {
@@ -111,8 +120,9 @@ public class SpreadsheetTrial {
             ddoc.saveToPackageAs(outFile); 
             }
             else
-                template.saveAs(outFile);
-            
+                
+            */
+            template.saveAs(outFile);
             
          }
          catch (Exception e) {
@@ -175,6 +185,24 @@ public class SpreadsheetTrial {
                 x++;
             }
          
+         while(x<=3)
+            {
+                res.put("name"+x, "");
+                res.put("per"+x, "");
+                res.put("kilo"+x, "");
+                x++;
+            }
+         
+        return res;
+    }
+    private static Map<String, String> fakeMap2()
+    {
+         final Map<String, String> res = new HashMap<String, String>();
+         res.put("no", Integer.toString(screen_count++));
+         res.put("screen2", "");
+         res.put("kil2"   , "");
+         res.put("bind2"  , "___");
+         int x=1;
          while(x<=3)
             {
                 res.put("name"+x, "");

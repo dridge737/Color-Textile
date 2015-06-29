@@ -2152,7 +2152,6 @@ public class Add_new_design extends javax.swing.JFrame {
     
     private void set_all_textbox_colorways(List<Colorway_screen_link_functions> this_color_and_screen)
     {
-        
         for(int x = 0 ; x<this_color_and_screen.size(); x++)
         {
             List<Pigment_screen_and_colorway> current_screen = this_color_and_screen.get(x).getThis_screens();
