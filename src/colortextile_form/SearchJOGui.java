@@ -39,6 +39,7 @@ import javax.swing.table.TableColumn;
  */
 public class SearchJOGui extends javax.swing.JFrame {
 
+    private ArrayList order_list = new ArrayList( );
     /**
      * Creates new form SearchJO
      */
@@ -76,8 +77,6 @@ public class SearchJOGui extends javax.swing.JFrame {
         
     }
     
-                                                            ArrayList order_list = new ArrayList( );
-    
     public void fill_table(ResultSet rs){
         this.order_list.clear();
         
@@ -106,7 +105,6 @@ public class SearchJOGui extends javax.swing.JFrame {
                     info.setDesign_code(-1);
                     ResultSet rs2 = info.Search_purchase_info();
                
-                    
                     // rs == job_order database
                     // rs2 == purchase_order database
                     if(rs2.first())

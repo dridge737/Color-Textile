@@ -31,44 +31,9 @@ public class Search_design extends javax.swing.JFrame {
     public Search_design() {
         design design_conn = new design();
         initComponents();
-        fill_table(design_conn.get_all_design_details());
+        this.jTable1.setModel(design_conn.get_all_design_details());
     }
     
-    public void fill_table(ResultSet rs){
-        
-        DB_Manager conn= new DB_Manager();
-        DefaultTableModel model = new DefaultTableModel();
-        design design_conn = new design();
-        
-        model.addColumn("#");
-        model.addColumn("Design Name");
-        model.addColumn("Colorway Name");
-        model.addColumn("fabric_style");
-        
-        try {
-            if (rs.first())
-            {
-                rs.previous();
-                
-                while(rs.next()) {
-                    String[] set1 = {    rs.getString("design_code"),
-                                         rs.getString("design_name"),
-                                         rs.getString("color_name"),
-                                         rs.getString("fabric_style")
-                                    };
-                    model.addRow(set1);
-                }
-            }
-            else {
-                JOptionPane.showMessageDialog(null,"No Record");
-            }
-        }
-        catch (SQLException ex) {
-            Logger.getLogger(SearchJOGui.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        this.jTable1.setModel(model); 
-    }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -303,7 +268,7 @@ public class Search_design extends javax.swing.JFrame {
     private void button_resetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_resetActionPerformed
         // TODO add your handling code here:s
         design design_conn = new design();
-        fill_table(design_conn.get_all_design_details());
+        this.jTable1.setModel(design_conn.get_all_design_details());
     }//GEN-LAST:event_button_resetActionPerformed
 
     private void text_design_colorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_text_design_colorActionPerformed

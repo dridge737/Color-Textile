@@ -9,6 +9,7 @@ package colortextile_class;
 import java.sql.Blob;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -81,12 +82,6 @@ public class design{
         return false;
     }
     
-    public int get_fabric_style_id()
-    {
-        Database.DB_Manager new_conn = new Database.DB_Manager();
-        return new_conn.get_fabric_style_id(this.fabric_style);
-    }
-    
     public ArrayList<String> get_all_fabric_styles()
     {
         Database.DB_Manager new_conn = new Database.DB_Manager();
@@ -131,7 +126,6 @@ public class design{
             this.setFabric_style(new_design.getFabric_style());
         }
     }
-
     /**
      * @return the fabric_style
      */
@@ -160,9 +154,9 @@ public class design{
         this.design_image = design_image;
     }
     
-    public ResultSet get_all_design_details(){
+    public DefaultTableModel get_all_design_details(){
         Database.DB_Manager new_conn = new Database.DB_Manager();
-        return new_conn.get_all_design();
+        return new_conn.get_table_all_design();
     }
     
     public ResultSet search_design(){

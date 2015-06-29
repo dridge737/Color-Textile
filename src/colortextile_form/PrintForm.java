@@ -31,7 +31,7 @@ public class PrintForm extends javax.swing.JFrame {
     private void fill_table()
     {
         DB_Manager conn= new DB_Manager();
-        this.jTable1.setModel(conn.get_table_job_order_for_purchase()); 
+        this.jTable1.setModel(conn.get_table_design_customer_job_order()); 
     }
 
     /**
@@ -60,6 +60,7 @@ public class PrintForm extends javax.swing.JFrame {
         jPanel1.add(jLabel6);
         jLabel6.setBounds(50, 20, 270, 43);
 
+        jTable1.setAutoCreateRowSorter(true);
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -71,13 +72,14 @@ public class PrintForm extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTable1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jScrollPane1.setViewportView(jTable1);
 
         jPanel1.add(jScrollPane1);
-        jScrollPane1.setBounds(10, 90, 621, 275);
+        jScrollPane1.setBounds(10, 90, 780, 275);
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 640, 480);
+        jPanel1.setBounds(0, 0, 800, 480);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

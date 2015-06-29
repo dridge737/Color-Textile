@@ -20,8 +20,6 @@ public class job_order extends customer {
     private String job_id;
     private String date;
     private int customer_id;
-    
-    
     private ResultSet job_order_resultset;
 
     public void job_order(String job_order_id)
@@ -38,7 +36,6 @@ public class job_order extends customer {
     {
         Database.DB_Manager new_conn = new Database.DB_Manager();
         return new_conn.get_job_order_details(job_order_id);
-        
     }
     /**
      * @return the job_id
@@ -142,7 +139,6 @@ public class job_order extends customer {
         DB_Manager new_conn = new DB_Manager();
         if(new_conn.count_job_order_usage(job_id) <=1)
             delete_job_order_from_job_id();
-        
     }
     
     public void display_details()
@@ -150,7 +146,6 @@ public class job_order extends customer {
         System.out.println("Job Order ID  : "+this.getJob_id());
         System.out.println("Customer ID   : "+this.getCustomer_id());
         System.out.println("Customer Name : "+this.getCustomer_name());
-        //System.out.println("Quantity      : "+this.getQuantity());
         System.out.println("Date          : "+this.getDate());
             
     }
