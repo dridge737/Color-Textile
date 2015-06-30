@@ -9,6 +9,7 @@ package Database;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -22,7 +23,7 @@ public class DBConnection {
         url = "jdbc:mysql://localhost:3306/color_textile";
         driver = "com.mysql.jdbc.Driver";
         username = "root";
-        password = "";
+        password = "printex123";
         
     }
     public Connection getConnection()
@@ -37,6 +38,7 @@ public class DBConnection {
         }catch(Exception ex)
         {
             ex.printStackTrace();
+            JOptionPane.showMessageDialog(null,ex);
         }
         
         return null;
