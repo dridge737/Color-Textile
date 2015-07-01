@@ -115,7 +115,7 @@ public class SearchJOGui extends javax.swing.JFrame {
                             design design_conn = new design();
                             design_conn.setDesign_code(rs2.getInt("design_code"));
                             ResultSet rs3 = design_conn.search_design();
-                            
+                            //rs3 = design code
                             if (rs3.first()){
                                 String[] set1 = 
                                 {
@@ -130,7 +130,7 @@ public class SearchJOGui extends javax.swing.JFrame {
                                 };
                                 model.addRow(set1);
                                 
-                            } else {
+                            } /*else {
                                 String[] set1 = {
                                     Integer.toString(rs2.getInt("id_purchase")),
                                     rs2.getString("job_order_id"), 
@@ -139,17 +139,11 @@ public class SearchJOGui extends javax.swing.JFrame {
                                     rs2.getString("quantity")
                                     };
                                 model.addRow(set1);
-                            }
+                            } */
                         }
                     } 
-                    else 
-                    {
-                        String[] set1 = {   rs.getString("job_order_id"), 
-                                    conn.get_customer_name(rs.getInt("customer_id")), 
-                                    rs.getString("date")
-                        };
-                        model.addRow(set1);
-                    }
+                    
+                    
                 }
             } 
             else 
@@ -271,7 +265,7 @@ public class SearchJOGui extends javax.swing.JFrame {
             }
         });
         jFrame1.getContentPane().add(jCheckBox2);
-        jCheckBox2.setBounds(585, 133, 65, 29);
+        jCheckBox2.setBounds(585, 133, 69, 29);
 
         jLabel8.setFont(new java.awt.Font("Century Gothic", 0, 34)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
@@ -426,7 +420,7 @@ public class SearchJOGui extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jCheckBox1);
-        jCheckBox1.setBounds(585, 133, 65, 29);
+        jCheckBox1.setBounds(585, 133, 69, 29);
 
         jLabel6.setFont(new java.awt.Font("Century Gothic", 0, 34)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
@@ -603,11 +597,11 @@ public class SearchJOGui extends javax.swing.JFrame {
         // TODO add your handling code here:
         int row = jTable1.getSelectedRow();
         int total_col = jTable1.getColumnCount();
-        for(int col = 0; col < total_col; col++)
+       /* for(int col = 0; col < total_col; col++)
         {
             System.out.println(jTable1.getValueAt(row, col));
-        }
-        System.out.println("end");
+        } */
+        //System.out.println("end");
         String selected_purchase_order = jTable1.getValueAt(row, 0).toString();
         
         Add_new_design design_form = new Add_new_design();
@@ -657,11 +651,11 @@ public class SearchJOGui extends javax.swing.JFrame {
         // TODO add your handling code here:
         int row = jTable1.getSelectedRow();
         int total_col = jTable1.getColumnCount();
-        for(int col = 0; col < total_col; col++)
+        /*for(int col = 0; col < total_col; col++)
         {
             System.out.println(jTable1.getValueAt(row, col));
         }
-        System.out.println("end");
+        System.out.println("end"); */
         String selected_purchase_order = jTable1.getValueAt(row, 0).toString();
         
         purchase_order purchase = new purchase_order();
