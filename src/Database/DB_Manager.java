@@ -1766,11 +1766,11 @@ public class DB_Manager {
               
           }
           
-          System.out.println(sql);
+          //System.out.println(sql);
           
           if (increment == 0)
           {
-              System.out.print("nothing to be searched");
+             // System.out.print("nothing to be searched");
               return null;
           } else {
           
@@ -1809,11 +1809,11 @@ public class DB_Manager {
               sql = sql + " id_colorway= '"+connect.getId_colorway()+"'";
               increment++;
           }
-          System.out.println(sql);
+          //System.out.println(sql);
           
           if (increment == 0)
           {
-              System.out.print("nothing to be searched");
+            //  System.out.print("nothing to be searched");
               return null;
           } else {
           
@@ -1844,7 +1844,7 @@ public class DB_Manager {
               sql = sql + " id_purchase = '"+purchase.getId_purchase()+"'";
               increment++;
           } 
-          System.out.println(sql);
+         // System.out.println(sql);
           
           if (purchase.getDesign_code()!= -1){
               
@@ -1866,11 +1866,11 @@ public class DB_Manager {
               increment++;
           }
           
-          System.out.println(sql);
+         // System.out.println(sql);
           
           if (increment == 0)
           {
-              System.out.print("nothing to be searched");
+            //  System.out.print("nothing to be searched");
               return null;
           } else {
           
@@ -1920,11 +1920,11 @@ public class DB_Manager {
               
           }
           
-          System.out.println(sql);
+          //System.out.println(sql);
           
           if (increment == 0)
           {
-              System.out.print("nothing to be searched");
+             // System.out.print("nothing to be searched");
               return null;
           } else {
           
@@ -1977,11 +1977,11 @@ public class DB_Manager {
               increment++;
           }
           
-          System.out.println(sql);
+         // System.out.println(sql);
           
           if (increment == 0)
           {
-              System.out.print("nothing to be searched");
+            //  System.out.print("nothing to be searched");
               return null;
           } else {
           
@@ -2016,7 +2016,7 @@ public class DB_Manager {
            ps.setString(item++, this_design.getColor_name());
            ps.setString(item++, this_design.getFabric_style());
            ps.setInt(item++, this_design.getDesign_code());
-          System.out.println(ps);
+         // System.out.println(ps);
           ps.executeUpdate();
           this.closeConn(conn, ps);
         }
