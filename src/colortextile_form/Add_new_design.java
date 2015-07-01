@@ -16,12 +16,9 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import java.util.regex.Pattern;
-import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
@@ -41,6 +38,7 @@ public class Add_new_design extends javax.swing.JFrame {
     private job_customer_quantity_list this_list = new job_customer_quantity_list();
     private job_customer_quantity_list temporary_list = new job_customer_quantity_list();
     private String current_style;
+    private int pigment_button_check = -1;
     /**
      * Creates new form Add_new_design
      */
@@ -69,9 +67,6 @@ public class Add_new_design extends javax.swing.JFrame {
         fill_customer_list();
         job_ord_label.setText(use_func.change_job_order_prefix(spinner_date));
         this.customer_name_text.setVisible(false);
-        //ImageIcon icon;
-        //icon = createImageIcon("Image/iStethIcon4.ico");
-        //jTabbedPane2.setIconAt(1, icon);
         current_style = fab_style_comb.getSelectedItem().toString();
         
     }
@@ -127,7 +122,7 @@ public class Add_new_design extends javax.swing.JFrame {
         jTabbedPane2 = new javax.swing.JTabbedPane();
         jPanel9 = new javax.swing.JPanel();
         jLabel129 = new javax.swing.JLabel();
-        colorway_name2 = new javax.swing.JTextField();
+        colorway_name = new javax.swing.JTextField();
         name1 = new javax.swing.JComboBox();
         percentage1 = new javax.swing.JTextField();
         jSeparator17 = new javax.swing.JSeparator();
@@ -136,7 +131,7 @@ public class Add_new_design extends javax.swing.JFrame {
         jLabel131 = new javax.swing.JLabel();
         jLabel132 = new javax.swing.JLabel();
         jLabel133 = new javax.swing.JLabel();
-        weigh_kg8 = new javax.swing.JTextField();
+        weigh_kg = new javax.swing.JTextField();
         jLabel134 = new javax.swing.JLabel();
         name2 = new javax.swing.JComboBox();
         percentage2 = new javax.swing.JTextField();
@@ -149,7 +144,7 @@ public class Add_new_design extends javax.swing.JFrame {
         kg_3 = new javax.swing.JTextField();
         jLabel139 = new javax.swing.JLabel();
         jSeparator18 = new javax.swing.JSeparator();
-        binder8 = new javax.swing.JComboBox();
+        binder = new javax.swing.JComboBox();
         jLabel143 = new javax.swing.JLabel();
         jLabel144 = new javax.swing.JLabel();
         kg_1 = new javax.swing.JTextField();
@@ -344,7 +339,7 @@ public class Add_new_design extends javax.swing.JFrame {
         jLabel117 = new javax.swing.JLabel();
         jLabel124 = new javax.swing.JLabel();
         jLabel125 = new javax.swing.JLabel();
-        weigh_kg9 = new javax.swing.JTextField();
+        weigh_kg8 = new javax.swing.JTextField();
         jLabel126 = new javax.swing.JLabel();
         name25 = new javax.swing.JComboBox();
         percentage25 = new javax.swing.JTextField();
@@ -358,12 +353,12 @@ public class Add_new_design extends javax.swing.JFrame {
         kg_26 = new javax.swing.JTextField();
         jLabel152 = new javax.swing.JLabel();
         jSeparator20 = new javax.swing.JSeparator();
-        binder9 = new javax.swing.JComboBox();
+        binder8 = new javax.swing.JComboBox();
         jLabel169 = new javax.swing.JLabel();
         jLabel170 = new javax.swing.JLabel();
         jLabel171 = new javax.swing.JLabel();
         jLabel172 = new javax.swing.JLabel();
-        coverage7 = new javax.swing.JTextField();
+        coverage8 = new javax.swing.JTextField();
         jLabel173 = new javax.swing.JLabel();
         jLabel174 = new javax.swing.JLabel();
         pig71 = new javax.swing.JButton();
@@ -753,11 +748,6 @@ public class Add_new_design extends javax.swing.JFrame {
         jTabbedPane2.setToolTipText("");
         jTabbedPane2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jTabbedPane2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jTabbedPane2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jTabbedPane2MouseExited(evt);
-            }
-        });
 
         jPanel9.setBackground(new java.awt.Color(255, 255, 255));
         jPanel9.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -772,8 +762,8 @@ public class Add_new_design extends javax.swing.JFrame {
         jLabel129.setText("Screen Name :");
         jPanel9.add(jLabel129, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 10, 120, 34));
 
-        colorway_name2.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
-        jPanel9.add(colorway_name2, new org.netbeans.lib.awtextra.AbsoluteConstraints(133, 10, 180, 34));
+        colorway_name.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
+        jPanel9.add(colorway_name, new org.netbeans.lib.awtextra.AbsoluteConstraints(133, 10, 180, 34));
 
         name1.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         name1.setName("pigment_name"); // NOI18N
@@ -811,13 +801,13 @@ public class Add_new_design extends javax.swing.JFrame {
         jLabel133.setText("Coverage :");
         jPanel9.add(jLabel133, new org.netbeans.lib.awtextra.AbsoluteConstraints(525, 10, -1, 34));
 
-        weigh_kg8.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
-        weigh_kg8.addKeyListener(new java.awt.event.KeyAdapter() {
+        weigh_kg.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
+        weigh_kg.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                weigh_kg8KeyReleased(evt);
+                weigh_kgKeyReleased(evt);
             }
         });
-        jPanel9.add(weigh_kg8, new org.netbeans.lib.awtextra.AbsoluteConstraints(452, 10, 60, 34));
+        jPanel9.add(weigh_kg, new org.netbeans.lib.awtextra.AbsoluteConstraints(452, 10, 60, 34));
 
         jLabel134.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         jLabel134.setText("Pigment Name :");
@@ -875,9 +865,9 @@ public class Add_new_design extends javax.swing.JFrame {
         jPanel9.add(jLabel139, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 149, -1, -1));
         jPanel9.add(jSeparator18, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 255, 775, 10));
 
-        binder8.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
-        binder8.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "3.5", "4", "5.5", "8" }));
-        jPanel9.add(binder8, new org.netbeans.lib.awtextra.AbsoluteConstraints(351, 200, 61, 30));
+        binder.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
+        binder.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "3.5", "4", "5.5", "8" }));
+        jPanel9.add(binder, new org.netbeans.lib.awtextra.AbsoluteConstraints(351, 200, 61, 30));
 
         jLabel143.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         jLabel143.setText("Binder :");
@@ -1904,13 +1894,13 @@ public class Add_new_design extends javax.swing.JFrame {
         jLabel125.setText("%");
         jPanel15.add(jLabel125, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 74, 31, 22));
 
-        weigh_kg9.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
-        weigh_kg9.addKeyListener(new java.awt.event.KeyAdapter() {
+        weigh_kg8.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
+        weigh_kg8.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                weigh_kg9KeyReleased(evt);
+                weigh_kg8KeyReleased(evt);
             }
         });
-        jPanel15.add(weigh_kg9, new org.netbeans.lib.awtextra.AbsoluteConstraints(452, 10, 60, 34));
+        jPanel15.add(weigh_kg8, new org.netbeans.lib.awtextra.AbsoluteConstraints(452, 10, 60, 34));
 
         jLabel126.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         jLabel126.setText("Pigment Name :");
@@ -1971,9 +1961,9 @@ public class Add_new_design extends javax.swing.JFrame {
         jPanel15.add(jLabel152, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 149, -1, -1));
         jPanel15.add(jSeparator20, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 255, 775, 10));
 
-        binder9.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
-        binder9.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "3.5", "4", "5.5", "8" }));
-        jPanel15.add(binder9, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 200, 61, 30));
+        binder8.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
+        binder8.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "3.5", "4", "5.5", "8" }));
+        jPanel15.add(binder8, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 200, 61, 30));
 
         jLabel169.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         jLabel169.setText("Binder :");
@@ -1992,13 +1982,13 @@ public class Add_new_design extends javax.swing.JFrame {
         jLabel172.setText("%");
         jPanel15.add(jLabel172, new org.netbeans.lib.awtextra.AbsoluteConstraints(678, 10, 15, 34));
 
-        coverage7.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
-        coverage7.addKeyListener(new java.awt.event.KeyAdapter() {
+        coverage8.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
+        coverage8.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                coverage7KeyReleased(evt);
+                coverage8KeyReleased(evt);
             }
         });
-        jPanel15.add(coverage7, new org.netbeans.lib.awtextra.AbsoluteConstraints(615, 10, 60, 34));
+        jPanel15.add(coverage8, new org.netbeans.lib.awtextra.AbsoluteConstraints(615, 10, 60, 34));
 
         jLabel173.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         jLabel173.setText("Coverage :");
@@ -2124,7 +2114,6 @@ public class Add_new_design extends javax.swing.JFrame {
             purchase_order purchase = new purchase_order();
             purchase.setId_purchase(purchase_order);
             
-            
             purchase.set_this_Purchase_details_from_purchase_id();
             this.fill_info(purchase.getDesign_code());
        
@@ -2158,7 +2147,7 @@ public class Add_new_design extends javax.swing.JFrame {
             
             if(x == 0)
             {
-                setTextValues_colorway(colorway_name2,weigh_kg8, binder8, this_color_and_screen.get(x));
+                setTextValues_colorway(colorway_name,weigh_kg, binder, this_color_and_screen.get(x));
                 
                 for(int temp_loop2 = 0; temp_loop2 < current_screen.size(); temp_loop2++ )
                 {
@@ -2255,7 +2244,7 @@ public class Add_new_design extends javax.swing.JFrame {
             }
             else if( x == 6)
             {
-                setTextValues_colorway(colorway_name8,weigh_kg9, binder9, this_color_and_screen.get(x));
+                setTextValues_colorway(colorway_name8,weigh_kg8, binder8, this_color_and_screen.get(x));
                 
                 for(int temp_loop2 = 0; temp_loop2 < current_screen.size(); temp_loop2++ )
                 {
@@ -2267,13 +2256,13 @@ public class Add_new_design extends javax.swing.JFrame {
                             setTextValues_screens(name26, percentage26, current_screen.get(temp_loop2));
                 }
             }
-            
         }
     }
     
     public void fill_info(int design_id){
+        
         try {
-            System.out.println("filling the textboxes ");
+            //System.out.println("filling the textboxes ");
             //design DB
             Design_and_colorway design_info = new Design_and_colorway();
             design_info.setDesign_code(design_id);
@@ -2281,9 +2270,7 @@ public class Add_new_design extends javax.swing.JFrame {
             design_info.set_all_colorway_from_design_code();
             this.set_all_textbox_colorways(design_info.getAll_colorways());
             // testing comit ----------------------------------------------------------------------------------------------------------------------
-            
-
-// get design result set from design code
+            // get design result set from design code
             ResultSet rs_design = design_info.search_design();  
             //design result set move to first
             rs_design.first(); 
@@ -2298,7 +2285,6 @@ public class Add_new_design extends javax.swing.JFrame {
             Pigment_screen_and_colorway screen = new Pigment_screen_and_colorway();
             
             //fill textboxes  +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-            
             //design name
             this.design_name.setText(rs_design.getString("design_name"));
             //design colorway
@@ -2319,13 +2305,13 @@ public class Add_new_design extends javax.swing.JFrame {
             
             
             //Screen Name
-            this.colorway_name2.setText(rs_colorway.getString("colorway_name"));
+            this.colorway_name.setText(rs_colorway.getString("colorway_name"));
             //Kilograms/KGS
-            this.weigh_kg8.setText(rs_colorway.getString("weight_kg"));
+            this.weigh_kg.setText(rs_colorway.getString("weight_kg"));
             //Coverage
             //this.coverage1.setText("");
             //binder
-            this.binder8.addItem(rs_colorway.getString("binder")); this.binder8.setSelectedItem(rs_colorway.getString("binder"));
+            this.binder.addItem(rs_colorway.getString("binder")); this.binder.setSelectedItem(rs_colorway.getString("binder"));
             //Pigment Name                     Percentage                        KG/Prep
             if(rs_colorway_screen.first()){
             this.name1.addItem(this.get_pigment_name(rs_colorway_screen.getInt("pigment_no"))); this.name1.setSelectedItem(this.get_pigment_name(rs_colorway_screen.getInt("pigment_no")));      this.percentage1.setText(rs_colorway_screen.getString("pigment_percentage"));
@@ -2482,10 +2468,10 @@ public class Add_new_design extends javax.swing.JFrame {
             //Screen Name
             this.colorway_name8.setText(rs_colorway.getString("colorway_name"));
             //Kilograms/KGS
-            this.weigh_kg9.setText(rs_colorway.getString("weight_kg"));
+            this.weigh_kg8.setText(rs_colorway.getString("weight_kg"));
             //Coverage
             //this.coverage7.setText("");
-            this.binder9.addItem(rs_colorway.getString("binder")); this.binder9.setSelectedItem(rs_colorway.getString("binder"));
+            this.binder8.addItem(rs_colorway.getString("binder")); this.binder8.setSelectedItem(rs_colorway.getString("binder"));
             //
             //Pigment Name    Percentage     KG/Prep
             if(rs_colorway_screen.first()){
@@ -2607,45 +2593,61 @@ public class Add_new_design extends javax.swing.JFrame {
         return -1;
             
     }
-                                          //COLORWAY NAME,      PERCENTAGE TEXT ,           COLORWAY ID , 
-    private void add_this_colorway_screen(String pigment_name, String pigment_percentage, int id_colorway)
+                                          //This contains COLORWAY NAME and PERCENTAGE TEXT   var for COLORWAY ID 
+    private void add_this_colorway_screen(Pigment_screen_and_colorway this_screen_and_colorway, int id_colorway)
     {
-        int id_pigment = get_pigment_id(pigment_name);
+        int id_pigment = get_pigment_id(this_screen_and_colorway.getPigment_name());
         
         //System.out.println("Pigment_id = "+ pigment_name + " Colorway_id= "+id_colorway+ "Pigment_percentage =" +pigment_percentage);
-        if(id_pigment != -1 && id_colorway != -1 && !pigment_percentage.isEmpty())
+        if(id_pigment != -1 && id_colorway != -1 && ! Float.toString(this_screen_and_colorway.getPigment_percentage()).isEmpty() )
         {
-            float pigment_percent = Float.parseFloat(pigment_percentage);
-            colortextile_class.Pigment_screen_and_colorway new_c_and_s = new colortextile_class.Pigment_screen_and_colorway();
-            new_c_and_s.setId_colorway(id_colorway);
-            new_c_and_s.setPigment_no(id_pigment);
-            new_c_and_s.setPigment_percentage(pigment_percent);
-        
-            new_c_and_s.add_colorway_and_screen();
+            this_screen_and_colorway.setId_colorway(id_colorway);
+            this_screen_and_colorway.setPigment_no(id_pigment);
+            this_screen_and_colorway.add_colorway_and_screen();
+            
+            //float pigment_percent = Float.parseFloat(pigment_percentage);
+            //colortextile_class.Pigment_screen_and_colorway new_c_and_s = new colortextile_class.Pigment_screen_and_colorway();
+            //new_c_and_s.setId_colorway(id_colorway);
+            //new_c_and_s.setPigment_no(id_pigment);
+            //new_c_and_s.setPigment_percentage(pigment_percent);
+            //new_c_and_s.add_colorway_and_screen();
         }
     }
     
-    private int add_this_design()
+    private int add_this_design_and_colorway()
     {
-        colortextile_class.design new_design = get_design_details();
-        if(new_design.add_new_design())
+        production_recipe this_design = get_design_details();
+        if(this_design.get_design_code_using_variables())
         {
-            new_design.set_design_code_using_variables();
-            return new_design.getDesign_code();
+            ////Design has already been added, just access design code;
+            int reply = JOptionPane.showConfirmDialog(null,"The design with this name, color and fabric has already been added. (Yes to use this design, No to change name of design , color or fabric) "
+                    + "Do you want to use the existing design?","Use existing design?", JOptionPane.YES_NO_OPTION);
+            if(reply == JOptionPane.YES_OPTION)
+            {
+                
+            }
+            else
+            {
+                this_design.setDesign_code(-1);
+            }
         }
-        return -1;
+        else
+        {
+            this_design.add_new_design_and_set_design_code();
+        }
+        
+        if(this_design.getDesign_code() != -1)
+            this.add_all_this_colorways(this_design.getDesign_code());
+        return this_design.getDesign_code();
     }
     
     private production_recipe get_design_details()
     {
+        //Constructor instead of setting items
         colortextile_class.production_recipe new_design = new colortextile_class.production_recipe(design_name.getText(),
                 design_color.getText(),
                 fab_style_comb.getSelectedItem().toString(),
                 use_func.get_date_from_spinner(spinner_date));
-        //new_design.setDesign_name(design_name.getText());
-        //new_design.setColor_name(design_color.getText());
-        //new_design.setFabric_style(getFabricStyle());
-        //new_design.setDate(this.get_date_from_spinner());
         
         List<Colorway_screen_link_functions> all_color_screen = this.get_all_colorway_inputs();
         new_design.setAll_colorways(all_color_screen);
@@ -2671,14 +2673,16 @@ public class Add_new_design extends javax.swing.JFrame {
             
             if(interval==0)
             {
-                this_colorway_screen = new Colorway_screen_link_functions(colorway_name2.getText(), 
-                             Float.parseFloat(binder8.getSelectedItem().toString()),
-                             weigh_kg8.getText());
+                //Individual Colorway
+                this_colorway_screen = new Colorway_screen_link_functions(colorway_name.getText(), 
+                             Float.parseFloat(binder.getSelectedItem().toString()),
+                             weigh_kg.getText());
         
                 this_colorway_screen.add_screen(get_colorway_details_from_input(name1, percentage1));
                 this_colorway_screen.add_screen(get_colorway_details_from_input(name2, percentage2));
                 this_colorway_screen.add_screen(get_colorway_details_from_input(name3, percentage3));
         
+                //All Colorways to be stacked in List
                 all_colorway.add(this_colorway_screen);
             }
             else if(interval==1)
@@ -2744,8 +2748,8 @@ public class Add_new_design extends javax.swing.JFrame {
             else if(interval == 6)
             {
                 this_colorway_screen = new Colorway_screen_link_functions(colorway_name8.getText(), 
-                             Float.parseFloat(binder9.getSelectedItem().toString()),
-                             weigh_kg9.getText());
+                             Float.parseFloat(binder8.getSelectedItem().toString()),
+                             weigh_kg8.getText());
                 
                 this_colorway_screen.add_screen(get_colorway_details_from_input(name24, percentage24));
                 this_colorway_screen.add_screen(get_colorway_details_from_input(name25, percentage25));
@@ -2770,123 +2774,123 @@ public class Add_new_design extends javax.swing.JFrame {
     
     private void add_all_this_colorways(int design_code)
     {
-        //1
-        int colorway_id = add_this_colorway(colorway_name2.getText(), 
-                             Float.parseFloat(binder8.getSelectedItem().toString()),
-                             weigh_kg8.getText(), design_code);
-        System.out.println("COLORWAY id 1 = " +colorway_id);
+        //1st Colorway if it exists
+        int colorway_id = add_this_colorway(colorway_name.getText(), 
+                             Float.parseFloat(binder.getSelectedItem().toString()),
+                             weigh_kg.getText(), design_code);
+        //System.out.println("COLORWAY id 1 = " +colorway_id);
         if(colorway_id != -1 )
         {   
-            add_this_colorway_screen(name1.getSelectedItem().toString(),
-                                      percentage1.getText(), colorway_id );
+            add_this_colorway_screen(get_colorway_details_from_input(name1,percentage1), 
+                    colorway_id );
             
-            add_this_colorway_screen(name2.getSelectedItem().toString(),
-                                      percentage2.getText(), colorway_id );
+            add_this_colorway_screen(get_colorway_details_from_input(name2,percentage2), 
+                    colorway_id );
             
-            add_this_colorway_screen(name3.getSelectedItem().toString(),
-                                      percentage3.getText(), colorway_id );
+            add_this_colorway_screen(get_colorway_details_from_input(name3,percentage3), 
+                    colorway_id );
         }
         
-        //2
+        //2nd Colorway if it exists
         int colorway_id2 = add_this_colorway(colorway_name3.getText(), 
                              Float.parseFloat(binder3.getSelectedItem().toString()),
                              weigh_kg3.getText(), design_code);
-        System.out.println("COLORWAY id 2 = " +colorway_id2);
+        //System.out.println("COLORWAY id 2 = " +colorway_id2);
         if(colorway_id2 != -1 )
         {
-            add_this_colorway_screen(name5.getSelectedItem().toString(),
-                                      percentage5.getText(), colorway_id2 );
+            add_this_colorway_screen(get_colorway_details_from_input(name5,percentage5), 
+                    colorway_id2 );
             
-            add_this_colorway_screen(name6.getSelectedItem().toString(),
-                                      percentage6.getText(), colorway_id2 );
+            add_this_colorway_screen(get_colorway_details_from_input(name6,percentage6), 
+                    colorway_id2 );
             
-            add_this_colorway_screen(name7.getSelectedItem().toString(),
-                                      percentage7.getText(), colorway_id2 );
+            add_this_colorway_screen(get_colorway_details_from_input(name7,percentage7), 
+                    colorway_id2 );
         }
         
-        //3
+        //3rd Colorway if it exists
         int colorway_id3 = add_this_colorway(colorway_name4.getText(), 
                              Float.parseFloat(binder4.getSelectedItem().toString()),
                              weigh_kg4.getText() , design_code);
-        System.out.println("COLORWAY id 3 = " +colorway_id3);
+        //System.out.println("COLORWAY id 3 = " +colorway_id3);
         if(colorway_id3 != -1 )
         {
-            add_this_colorway_screen(name9.getSelectedItem().toString(),
-                                      percentage9.getText(), colorway_id3 );
+            add_this_colorway_screen(get_colorway_details_from_input(name9,percentage9), 
+                    colorway_id3 );
             
-            add_this_colorway_screen(name10.getSelectedItem().toString(),
-                                      percentage10.getText(), colorway_id3 );
+            add_this_colorway_screen(get_colorway_details_from_input(name10,percentage10),
+                    colorway_id3 );
             
-            add_this_colorway_screen(name11.getSelectedItem().toString(),
-                                      percentage11.getText(), colorway_id3 );
+            add_this_colorway_screen(get_colorway_details_from_input(name11,percentage11), 
+                    colorway_id3 );
            
         }
-        //4
+        //4th Colorway if it exists
         int colorway_id4 = add_this_colorway(colorway_name5.getText(), 
                              Float.parseFloat(binder5.getSelectedItem().toString()),
                              weigh_kg5.getText(), design_code);
-        System.out.println("COLORWAY id 4 = " +colorway_id4);
+        //System.out.println("COLORWAY id 4 = " +colorway_id4);
         if(colorway_id4 != -1 )
         {
-            add_this_colorway_screen(name13.getSelectedItem().toString(),
-                                      percentage13.getText(), colorway_id4 );
+            add_this_colorway_screen(get_colorway_details_from_input(name13,percentage13),
+                    colorway_id4 );
             
-            add_this_colorway_screen(name14.getSelectedItem().toString(),
-                                      percentage14.getText(), colorway_id4 );
+            add_this_colorway_screen(get_colorway_details_from_input(name14,percentage14), 
+                    colorway_id4 );
             
-            add_this_colorway_screen(name15.getSelectedItem().toString(),
-                                      percentage15.getText(), colorway_id4 );
+            add_this_colorway_screen(get_colorway_details_from_input(name15,percentage15), 
+                    colorway_id4 );
         }
         
-        //5
+        //5th Colorway if it exists
         int colorway_id5 = add_this_colorway(colorway_name6.getText(), 
                              Float.parseFloat(binder6.getSelectedItem().toString()),
                              weigh_kg6.getText() , design_code);
-        System.out.println("COLORWAY id 5 = " +colorway_id5);
-        if(colorway_id != -1 )
+        //System.out.println("COLORWAY id 5 = " +colorway_id5);
+        if(colorway_id5 != -1 )
         {
-            add_this_colorway_screen(name17.getSelectedItem().toString(),
-                                      percentage17.getText(), colorway_id5 );
+            add_this_colorway_screen(get_colorway_details_from_input(name17,percentage17), 
+                    colorway_id5 );
             
-            add_this_colorway_screen(name18.getSelectedItem().toString(),
-                                      percentage18.getText(), colorway_id5 );
+            add_this_colorway_screen(get_colorway_details_from_input(name18,percentage18), 
+                    colorway_id5 );
             
-            add_this_colorway_screen(name19.getSelectedItem().toString(),
-                                      percentage19.getText(), colorway_id5 );
+            add_this_colorway_screen(get_colorway_details_from_input(name19,percentage19), 
+                    colorway_id5 );
         }
         
-        //6
+        //6th Colorway if it exists
         int colorway_id6 = add_this_colorway(colorway_name7.getText(), 
                              Float.parseFloat(binder7.getSelectedItem().toString()),
                              weigh_kg7.getText(), design_code);
-        System.out.println("COLORWAY id 6 = " +colorway_id6);
+        //System.out.println("COLORWAY id 6 = " +colorway_id6);
         if( colorway_id6 != -1 )
         {
-            add_this_colorway_screen(name21.getSelectedItem().toString(),
-                                      percentage21.getText(), colorway_id6 );
+            add_this_colorway_screen(get_colorway_details_from_input(name21,percentage21), 
+                    colorway_id6 );
             
-            add_this_colorway_screen(name22.getSelectedItem().toString(),
-                                      percentage22.getText(), colorway_id6 );
+            add_this_colorway_screen(get_colorway_details_from_input(name22,percentage22), 
+                    colorway_id6 );
             
-            add_this_colorway_screen(name23.getSelectedItem().toString(),
-                                      percentage23.getText(), colorway_id6 );
+            add_this_colorway_screen(get_colorway_details_from_input(name23,percentage23), 
+                    colorway_id6 );
         }
         
-        //7
+        //7th Colorway if it exists
         int colorway_id7 = add_this_colorway(colorway_name8.getText(), 
-                             Float.parseFloat(binder9.getSelectedItem().toString()),
-                             weigh_kg9.getText(), design_code);
-        System.out.println("COLORWAY id 7 = " +colorway_id6);
-        if( colorway_id6 != -1 )
+                             Float.parseFloat(binder8.getSelectedItem().toString()),
+                             weigh_kg8.getText(), design_code);
+        //System.out.println("COLORWAY id 7 = " +colorway_id6);
+        if( colorway_id7 != -1 )
         {
-            add_this_colorway_screen(name24.getSelectedItem().toString(),
-                                      percentage24.getText(), colorway_id6 );
+            add_this_colorway_screen(get_colorway_details_from_input(name24,percentage24), 
+                    colorway_id7 );
             
-            add_this_colorway_screen(name25.getSelectedItem().toString(),
-                                      percentage25.getText(), colorway_id6 );
+            add_this_colorway_screen(get_colorway_details_from_input(name25,percentage25), 
+                    colorway_id7 );
             
-            add_this_colorway_screen(name26.getSelectedItem().toString(),
-                                      percentage26.getText(), colorway_id6 );
+            add_this_colorway_screen(get_colorway_details_from_input(name26,percentage26), 
+                    colorway_id7 );
         }
     }
 
@@ -2931,18 +2935,26 @@ public class Add_new_design extends javax.swing.JFrame {
         }
         else 
         {   //Adds purchase order and design
-            int des_code = this.add_this_design();
-            this.add_purchase(des_code);
-            this.add_job();
-            this.add_all_this_colorways(des_code);
+            int des_code = this.add_this_design_and_colorway();
+            if(des_code != -1)
+            {
+                this.add_purchase(des_code);
+                this.add_job();
+            }
             
-            production_recipe prod_recipe = this.get_design_details();
+            //production_recipe prod_recipe = this.get_design_details();
             //this.this_purchase.setPurchase_Id_from_Date_and_code();
             //prod_recipe.set_design_details_from_purchase_order_id();
             //this.this_purchase.set_job_order_list_using_purchase_order_id();
-    //        SpreadsheetTrial printFile = new SpreadsheetTrial();
-    //        printFile.print_this_job2(prod_recipe);
-            JOptionPane.showMessageDialog(null,"Successfully Added this Recipe");
+            //SpreadsheetTrial printFile = new SpreadsheetTrial();
+            //printFile.print_this_job2(prod_recipe);
+            int CloseorNoreply = JOptionPane.showConfirmDialog(null,"Successfully Added this Recipe! Close Windows? "
+                    + "(Yes to close this window) ", "Close this Window?", JOptionPane.YES_NO_OPTION);
+            if(CloseorNoreply == JOptionPane.YES_OPTION)
+            {
+                this.dispose();
+            }
+           
         }
         
     }//GEN-LAST:event_add_orderActionPerformed
@@ -2966,14 +2978,12 @@ public class Add_new_design extends javax.swing.JFrame {
 
     private void coverage1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_coverage1KeyReleased
         // TODO add your handling code here:
-        compute_kg(weigh_kg8, coverage1);    
-            
+        compute_kg(weigh_kg, coverage1);    
     }//GEN-LAST:event_coverage1KeyReleased
 
     private void coverage2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_coverage2KeyReleased
         // TODO add your handling code here:
-        compute_kg(weigh_kg7, coverage2);
-        
+        compute_kg(weigh_kg7, coverage2);     
     }//GEN-LAST:event_coverage2KeyReleased
 
     private void coverage3KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_coverage3KeyReleased
@@ -2983,46 +2993,44 @@ public class Add_new_design extends javax.swing.JFrame {
 
     private void coverage4KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_coverage4KeyReleased
         // TODO add your handling code here:
-        compute_kg(weigh_kg4, coverage4);
-        
+        compute_kg(weigh_kg4, coverage4);       
     }//GEN-LAST:event_coverage4KeyReleased
 
     private void coverage5KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_coverage5KeyReleased
         // TODO add your handling code here:
-            compute_kg(weigh_kg5, coverage5);
-        
+        compute_kg(weigh_kg5, coverage5);
     }//GEN-LAST:event_coverage5KeyReleased
 
     private void coverage6KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_coverage6KeyReleased
         // TODO add your handling code here:
-            compute_kg(weigh_kg6, coverage6);
+        compute_kg(weigh_kg6, coverage6);
     }//GEN-LAST:event_coverage6KeyReleased
 
     private void percentage1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage1KeyReleased
         // TODO add your handling code here:
         check_this_textbox(percentage1);
-        update_kg_prep(percentage1.getText(), weigh_kg8.getText(), kg_1);
+        update_kg_prep(percentage1.getText(), weigh_kg.getText(), kg_1);
     }//GEN-LAST:event_percentage1KeyReleased
 
     private void percentage2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage2KeyReleased
         // TODO add your handling code here:
         check_this_textbox(percentage2);
-        update_kg_prep(percentage2.getText(), weigh_kg8.getText(), kg_2);
+        update_kg_prep(percentage2.getText(), weigh_kg.getText(), kg_2);
     }//GEN-LAST:event_percentage2KeyReleased
 
     private void percentage3KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage3KeyReleased
         // TODO add your handling code here:
         check_this_textbox(percentage3);
-        update_kg_prep(percentage3.getText(), weigh_kg8.getText(), kg_3);
+        update_kg_prep(percentage3.getText(), weigh_kg.getText(), kg_3);
     }//GEN-LAST:event_percentage3KeyReleased
 
-    private void weigh_kg8KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_weigh_kg8KeyReleased
+    private void weigh_kgKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_weigh_kgKeyReleased
         // TODO add your handling code here:
-        check_this_textbox(weigh_kg8);
-        update_kg_prep(percentage1.getText(), weigh_kg8.getText(), kg_1);
-        update_kg_prep(percentage2.getText(), weigh_kg8.getText(), kg_2);
-        update_kg_prep(percentage3.getText(), weigh_kg8.getText(), kg_3);
-    }//GEN-LAST:event_weigh_kg8KeyReleased
+        check_this_textbox(weigh_kg);
+        update_kg_prep(percentage1.getText(), weigh_kg.getText(), kg_1);
+        update_kg_prep(percentage2.getText(), weigh_kg.getText(), kg_2);
+        update_kg_prep(percentage3.getText(), weigh_kg.getText(), kg_3);
+    }//GEN-LAST:event_weigh_kgKeyReleased
 
     private void percentage5KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage5KeyReleased
         // TODO add your handling code here:
@@ -3157,34 +3165,33 @@ public class Add_new_design extends javax.swing.JFrame {
     private void percentage24KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage24KeyReleased
         // TODO add your handling code here:
         check_this_textbox(percentage24);
-        update_kg_prep(percentage24.getText(), weigh_kg9.getText(), kg_24);
+        update_kg_prep(percentage24.getText(), weigh_kg8.getText(), kg_24);
     }//GEN-LAST:event_percentage24KeyReleased
 
-    private void weigh_kg9KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_weigh_kg9KeyReleased
+    private void weigh_kg8KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_weigh_kg8KeyReleased
         // TODO add your handling code here:
-        check_this_textbox(weigh_kg9);
-        update_kg_prep(percentage24.getText(), weigh_kg9.getText(), kg_24);
-        update_kg_prep(percentage25.getText(), weigh_kg9.getText(), kg_25);
-        update_kg_prep(percentage26.getText(), weigh_kg9.getText(), kg_26);
-    }//GEN-LAST:event_weigh_kg9KeyReleased
+        check_this_textbox(weigh_kg8);
+        update_kg_prep(percentage24.getText(), weigh_kg8.getText(), kg_24);
+        update_kg_prep(percentage25.getText(), weigh_kg8.getText(), kg_25);
+        update_kg_prep(percentage26.getText(), weigh_kg8.getText(), kg_26);
+    }//GEN-LAST:event_weigh_kg8KeyReleased
 
     private void percentage25KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage25KeyReleased
         // TODO add your handling code here:
         check_this_textbox(percentage25);
-        update_kg_prep(percentage25.getText(), weigh_kg9.getText(), kg_25);
+        update_kg_prep(percentage25.getText(), weigh_kg8.getText(), kg_25);
     }//GEN-LAST:event_percentage25KeyReleased
 
     private void percentage26KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage26KeyReleased
         // TODO add your handling code here:
         check_this_textbox(percentage26);
-        update_kg_prep(percentage26.getText(), weigh_kg9.getText(), kg_26);
+        update_kg_prep(percentage26.getText(), weigh_kg8.getText(), kg_26);
     }//GEN-LAST:event_percentage26KeyReleased
 
-    private void coverage7KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_coverage7KeyReleased
+    private void coverage8KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_coverage8KeyReleased
         // TODO add your handling code here:
-        
-                compute_kg(weigh_kg9, coverage7);
-    }//GEN-LAST:event_coverage7KeyReleased
+        compute_kg(weigh_kg8, coverage8);
+    }//GEN-LAST:event_coverage8KeyReleased
     
     private void button_include_customerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_include_customerActionPerformed
         // TODO add your handling code here:
@@ -3253,116 +3260,138 @@ public class Add_new_design extends javax.swing.JFrame {
     private void pig11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pig11ActionPerformed
         // TODO add your handling code here:
         show_add_pigment();
+        this.pigment_button_check = 1;
     }//GEN-LAST:event_pig11ActionPerformed
 
     private void pig12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pig12ActionPerformed
         // TODO add your handling code here:
         show_add_pigment();
+        this.pigment_button_check = 2;
     }//GEN-LAST:event_pig12ActionPerformed
 
     private void pig13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pig13ActionPerformed
         // TODO add your handling code here:
         show_add_pigment();
+        this.pigment_button_check = 3;
     }//GEN-LAST:event_pig13ActionPerformed
 
     private void pig21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pig21ActionPerformed
         // TODO add your handling code here:
         show_add_pigment();
+        this.pigment_button_check = 4;
     }//GEN-LAST:event_pig21ActionPerformed
 
     private void pig22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pig22ActionPerformed
         // TODO add your handling code here:
         show_add_pigment();
+        this.pigment_button_check = 5;
     }//GEN-LAST:event_pig22ActionPerformed
 
     private void pig23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pig23ActionPerformed
         // TODO add your handling code here:
         show_add_pigment();
+        this.pigment_button_check = 6;
     }//GEN-LAST:event_pig23ActionPerformed
 
     private void pig31ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pig31ActionPerformed
         // TODO add your handling code here:
         show_add_pigment();
+        this.pigment_button_check = 7;
     }//GEN-LAST:event_pig31ActionPerformed
 
     private void pig32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pig32ActionPerformed
         // TODO add your handling code here:
         show_add_pigment();
+        this.pigment_button_check = 8;
     }//GEN-LAST:event_pig32ActionPerformed
 
     private void pig33ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pig33ActionPerformed
         // TODO add your handling code here:
         show_add_pigment();
+        this.pigment_button_check = 9;
     }//GEN-LAST:event_pig33ActionPerformed
 
     private void pig41ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pig41ActionPerformed
         // TODO add your handling code here:
         show_add_pigment();
+        this.pigment_button_check = 10;
     }//GEN-LAST:event_pig41ActionPerformed
 
     private void pig42ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pig42ActionPerformed
         // TODO add your handling code here:
         show_add_pigment();
+        this.pigment_button_check = 11;
     }//GEN-LAST:event_pig42ActionPerformed
 
     private void pig43ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pig43ActionPerformed
         // TODO add your handling code here:
         show_add_pigment();
+        this.pigment_button_check = 12;
     }//GEN-LAST:event_pig43ActionPerformed
 
     private void pig51ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pig51ActionPerformed
         // TODO add your handling code here:
         show_add_pigment();
+        this.pigment_button_check = 13;
     }//GEN-LAST:event_pig51ActionPerformed
 
     private void pig52ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pig52ActionPerformed
         // TODO add your handling code here:
         show_add_pigment();
+        this.pigment_button_check = 14;
     }//GEN-LAST:event_pig52ActionPerformed
 
     private void pig53ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pig53ActionPerformed
         // TODO add your handling code here:
         show_add_pigment();
+        this.pigment_button_check = 15;
     }//GEN-LAST:event_pig53ActionPerformed
 
     private void pig63ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pig63ActionPerformed
         // TODO add your handling code here:
         show_add_pigment();
+        this.pigment_button_check = 16;
     }//GEN-LAST:event_pig63ActionPerformed
 
     private void pig61ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pig61ActionPerformed
         // TODO add your handling code here:
         show_add_pigment();
+        this.pigment_button_check = 17;
     }//GEN-LAST:event_pig61ActionPerformed
 
     private void pig62ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pig62ActionPerformed
         // TODO add your handling code here:
         show_add_pigment();
+        this.pigment_button_check = 18;
     }//GEN-LAST:event_pig62ActionPerformed
 
     private void pig_73ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pig_73ActionPerformed
         // TODO add your handling code here:
         show_add_pigment();
+        this.pigment_button_check = 19;
     }//GEN-LAST:event_pig_73ActionPerformed
 
     private void pig72ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pig72ActionPerformed
         // TODO add your handling code here:
         show_add_pigment();
+        this.pigment_button_check = 20;
     }//GEN-LAST:event_pig72ActionPerformed
 
     private void pig71ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pig71ActionPerformed
         // TODO add your handling code here:
         show_add_pigment();
+        this.pigment_button_check = 21;
     }//GEN-LAST:event_pig71ActionPerformed
 
     private void formWindowGainedFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowGainedFocus
         // TODO add your handling code here:
         if(this.pigment_screen_showed)
         {
-        pigment this_pigment = new pigment();
-        if(this_pigment.count_all_pigment() != (name1.getItemCount()-1))
-            this.registerSelectedItem();
-        pigment_screen_showed = false;
+            pigment this_pigment = new pigment();
+            if(this_pigment.count_all_pigment() != (name1.getItemCount()-1))
+                this.registerSelectedItem();
+            pigment_screen_showed = false;
+            //this_pigment
         }
     }//GEN-LAST:event_formWindowGainedFocus
 
@@ -3429,10 +3458,6 @@ public class Add_new_design extends javax.swing.JFrame {
         job_ord_label.setText(use_func.change_job_order_prefix(spinner_date));
     }//GEN-LAST:event_spinner_dateStateChanged
 
-    private void jTabbedPane2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTabbedPane2MouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTabbedPane2MouseExited
-
     private void check_this_panels_colorway_and_weight(JTextField colorway_textbox, JTextField weight_textbox, int tabbedpane_index)
     {
         if(colorway_textbox.getText().length() > 0 && weight_textbox.getText().length() == 0
@@ -3456,7 +3481,7 @@ public class Add_new_design extends javax.swing.JFrame {
     }
     private void jPanel9MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel9MouseExited
         // TODO add your handling code here:
-        check_this_panels_colorway_and_weight(colorway_name2, weigh_kg8, 0);
+        check_this_panels_colorway_and_weight(colorway_name, weigh_kg, 0);
     }//GEN-LAST:event_jPanel9MouseExited
 
     private void jPanel4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel4MouseExited
@@ -3472,41 +3497,36 @@ public class Add_new_design extends javax.swing.JFrame {
     private void jPanel6MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel6MouseExited
         // TODO add your handling code here:
         check_this_panels_colorway_and_weight(colorway_name5, weigh_kg5, 3);
-        
     }//GEN-LAST:event_jPanel6MouseExited
 
     private void jPanel7MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel7MouseExited
         // TODO add your handling code here:
         check_this_panels_colorway_and_weight(colorway_name6, weigh_kg6, 4);
-        
     }//GEN-LAST:event_jPanel7MouseExited
 
     private void jPanel8MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel8MouseExited
         // TODO add your handling code here:
         check_this_panels_colorway_and_weight(colorway_name7, weigh_kg7, 5);
-        
     }//GEN-LAST:event_jPanel8MouseExited
 
     private void jPanel15MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel15MouseExited
         // TODO add your handling code here:
-        check_this_panels_colorway_and_weight(colorway_name8, weigh_kg9, 6);
+        check_this_panels_colorway_and_weight(colorway_name8, weigh_kg8, 6);
     }//GEN-LAST:event_jPanel15MouseExited
 
     private void fab_style_combPopupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_fab_style_combPopupMenuWillBecomeInvisible
         // TODO add your handling code here:
         if(!current_style.equals(this.fab_style_comb.getSelectedItem().toString()))
         {
-            compute_kg(weigh_kg8, coverage1);
+            compute_kg(weigh_kg, coverage1);
             compute_kg(weigh_kg3, coverage3);
             compute_kg(weigh_kg4, coverage4);
             compute_kg(weigh_kg5, coverage5);
             compute_kg(weigh_kg6, coverage6);
             compute_kg(weigh_kg7, coverage2); //6th Window
-            compute_kg(weigh_kg9, coverage7); //7th Window
+            compute_kg(weigh_kg8, coverage8); //7th Window
             current_style = fab_style_comb.getSelectedItem().toString();
         }
-        
-        
     }//GEN-LAST:event_fab_style_combPopupMenuWillBecomeInvisible
 
     private void quantity_totalPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_quantity_totalPropertyChange
@@ -3518,7 +3538,7 @@ public class Add_new_design extends javax.swing.JFrame {
     {
         if(!use_func.checkText2(weigh_kg.getText()) && quantity_total.getText().length()>0 )
         {
-            System.out.println("Hello");
+            //System.out.println("Hello");
             float kg_conversion = Float.parseFloat(weigh_kg.getText());
             float coverage_computation = use_func.compute_this_coverage(kg_conversion, fab_style_comb.getSelectedItem().toString(), quantity_total.getText());
             float the_computation = use_func.compute_this_kg(coverage_computation, fab_style_comb.getSelectedItem().toString(), quantity_total.getText());
@@ -3546,8 +3566,7 @@ public class Add_new_design extends javax.swing.JFrame {
                 float weight_preparation = use_func.update_kg_and_prep(percentage_text, weight_kg);
                 this_textfield.setText(String.format("%.2f", weight_preparation));
             }
-            else
-            {
+            else{
                 this_textfield.setText("Error!");
             }
         }
@@ -3584,14 +3603,12 @@ public class Add_new_design extends javax.swing.JFrame {
     
     public void check_screen()
     {
-        //m.out.println(count_screen_1);
         if(count_screen_1 > 0)
         {
             add_order.setEnabled(false);
         }
         else
             add_order.setEnabled(true);
-
     }
     
     private void addBlankSpace()
@@ -3701,29 +3718,28 @@ public class Add_new_design extends javax.swing.JFrame {
         ArrayList<String> pigment_list = list_pigment.get_all_pigment_name();
         addBlankSpace();
         
-        for(int temp_i = 0; temp_i < pigment_list.size(); temp_i++)
-        {
-            name1.addItem(pigment_list.get(temp_i));
-            name2.addItem(pigment_list.get(temp_i));
-            name3.addItem(pigment_list.get(temp_i));
-            name5.addItem(pigment_list.get(temp_i));
-            name6.addItem(pigment_list.get(temp_i));
-            name7.addItem(pigment_list.get(temp_i));
-            name9.addItem(pigment_list.get(temp_i));
-            name10.addItem(pigment_list.get(temp_i));
-            name11.addItem(pigment_list.get(temp_i));
-            name13.addItem(pigment_list.get(temp_i));
-            name14.addItem(pigment_list.get(temp_i));
-            name15.addItem(pigment_list.get(temp_i));
-            name17.addItem(pigment_list.get(temp_i));
-            name18.addItem(pigment_list.get(temp_i));
-            name19.addItem(pigment_list.get(temp_i));
-            name21.addItem(pigment_list.get(temp_i));
-            name22.addItem(pigment_list.get(temp_i));
-            name23.addItem(pigment_list.get(temp_i));
-            name24.addItem(pigment_list.get(temp_i));
-            name25.addItem(pigment_list.get(temp_i));
-            name26.addItem(pigment_list.get(temp_i));
+        for (String pigment_list1 : pigment_list) {
+            name1.addItem(pigment_list1);
+            name2.addItem(pigment_list1);
+            name3.addItem(pigment_list1);
+            name5.addItem(pigment_list1);
+            name6.addItem(pigment_list1);
+            name7.addItem(pigment_list1);
+            name9.addItem(pigment_list1);
+            name10.addItem(pigment_list1);
+            name11.addItem(pigment_list1);
+            name13.addItem(pigment_list1);
+            name14.addItem(pigment_list1);
+            name15.addItem(pigment_list1);
+            name17.addItem(pigment_list1);
+            name18.addItem(pigment_list1);
+            name19.addItem(pigment_list1);
+            name21.addItem(pigment_list1);
+            name22.addItem(pigment_list1);
+            name23.addItem(pigment_list1);
+            name24.addItem(pigment_list1);
+            name25.addItem(pigment_list1);
+            name26.addItem(pigment_list1);
         }
         setJobid();
     }
@@ -3784,16 +3800,16 @@ public class Add_new_design extends javax.swing.JFrame {
     private javax.swing.JButton bind_add5;
     private javax.swing.JButton bind_add6;
     private javax.swing.JButton bind_add7;
+    private javax.swing.JComboBox binder;
     private javax.swing.JComboBox binder3;
     private javax.swing.JComboBox binder4;
     private javax.swing.JComboBox binder5;
     private javax.swing.JComboBox binder6;
     private javax.swing.JComboBox binder7;
     private javax.swing.JComboBox binder8;
-    private javax.swing.JComboBox binder9;
     private javax.swing.JButton button_include_customer;
     private javax.swing.JButton button_remove_customer;
-    private javax.swing.JTextField colorway_name2;
+    private javax.swing.JTextField colorway_name;
     private javax.swing.JTextField colorway_name3;
     private javax.swing.JTextField colorway_name4;
     private javax.swing.JTextField colorway_name5;
@@ -3806,7 +3822,7 @@ public class Add_new_design extends javax.swing.JFrame {
     private javax.swing.JTextField coverage4;
     private javax.swing.JTextField coverage5;
     private javax.swing.JTextField coverage6;
-    private javax.swing.JTextField coverage7;
+    private javax.swing.JTextField coverage8;
     private javax.swing.JCheckBox customer_check_box;
     private javax.swing.JComboBox customer_combo_list;
     private javax.swing.JTextField customer_name_text;
@@ -4057,13 +4073,13 @@ public class Add_new_design extends javax.swing.JFrame {
     private javax.swing.JTextField quantity_total;
     private javax.swing.JSpinner spinner_date;
     private javax.swing.JTextField text_job_order;
+    private javax.swing.JTextField weigh_kg;
     private javax.swing.JTextField weigh_kg3;
     private javax.swing.JTextField weigh_kg4;
     private javax.swing.JTextField weigh_kg5;
     private javax.swing.JTextField weigh_kg6;
     private javax.swing.JTextField weigh_kg7;
     private javax.swing.JTextField weigh_kg8;
-    private javax.swing.JTextField weigh_kg9;
     // End of variables declaration//GEN-END:variables
 
     

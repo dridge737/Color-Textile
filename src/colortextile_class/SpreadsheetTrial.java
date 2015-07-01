@@ -95,22 +95,23 @@ public class SpreadsheetTrial {
             }
             this_colorway.remove(0);
             
-            final List<Map<String, String>> print = new ArrayList<Map<String, String>>();
+            final List<Map<String, String>> Colorway_Map = new ArrayList<Map<String, String>>();
             int y = 1;
             
             for(Colorway_screen_link_functions current_colorway : this_colorway)
             {
-                print.add(createMap2(current_colorway));
+                Colorway_Map.add(createMap2(current_colorway));
                 y++;
             }
             
             while(y<7)
             {
-                print.add(fakeMap2());
+                Colorway_Map.add(fakeMap2());
                 y++;
             }
+            //reset Screen count
             screen_count = 2;
-            template.setField("print", print);
+            template.setField("print", Colorway_Map);
             // Save to file.
             /*final String bcfile = "New.jpg";
             
@@ -121,9 +122,7 @@ public class SpreadsheetTrial {
             
             ddoc.getDescendantByName("draw:frame", "graphics1").setAttribute("href", tmp.toURI().toURL().toString(), ns); 
             ddoc.saveToPackageAs(outFile); 
-            }
-            else
-                
+            }                
             */
             template.saveAs(outFile);
             
@@ -133,33 +132,66 @@ public class SpreadsheetTrial {
         }
          
     }
-    public void bulk_print_item(production_recipe recipe_to_be_printed)
+    
+    private List<production_recipe> merge_design_colorways(List<production_recipe> bulk_recipe)
     {
-        if(1 ==0 )
+        int loop_size = bulk_recipe.size();
+        List<production_recipe> temp_bulk_recipe = null;
+        for(int iterate =0; iterate< loop_size; iterate++)
         {
-            SpreadsheetTrial newTrial2 = new SpreadsheetTrial();
-            newTrial2.print_this_job2(recipe_to_be_printed, "file1");
+            production_recipe temporary_single_recipe_holder = bulk_recipe.get(0);
+            bulk_recipe.remove(0);
+            for (production_recipe temp_bulk_recipe1 : bulk_recipe) 
+            {
+                if (temp_bulk_recipe1.getDesign_name().equals(temporary_single_recipe_holder.getDesign_name())) 
+                {
+                    int colorway_count = temporary_single_recipe_holder.getAll_colorways().size();
+                    List<Colorway_screen_link_functions> colorway_to_update = temporary_single_recipe_holder.getAll_colorways();
+                    //colorway_to_update    
+                    for(int colorway_iterate = 0; colorway_iterate<colorway_count; colorway_iterate++)
+                    {
+                       Colorway_screen_link_functions colorway_temp = temporary_single_recipe_holder.getAll_colorways().get(0);
+                       temporary_single_recipe_holder.getAll_colorways().remove(0);
+                     
+                        for()
+                        temporary_single_recipe_holder.getA
+                    }
+                    temporary_single_recipe_holder.setAll_colorways(colorway_to_update);
+                }
+            }
+            temp_bulk_recipe.add(temporary_single_recipe_holder);
         }
-        else
+        return temp_bulk_recipe;
+    }
+    
+    
+    
+    public void bulk_print_item(List<production_recipe> recipe_to_be_printed)
+    {
+        for(int iterate =0; iterate<recipe_to_be_printed.size(); iterate++)
         {
-            File f1 = new File("file1.odt");
-            File f2 = new File("file2.odt");
-            
-                ODSingleXMLDocument p1;
-            try {
-                p1 = ODSingleXMLDocument.createFromPackage(f1);
+            if(iterate ==0 )
+            {
                 SpreadsheetTrial newTrial2 = new SpreadsheetTrial();
-                newTrial2.print_this_job2(recipe_to_be_printed, "file2");
-                ODSingleXMLDocument p2 = ODSingleXMLDocument.createFromPackage(f2);
-                p1.add(p2);
-                p1.saveToPackageAs(new File("PrintFile"));
-            } catch (JDOMException ex) {
-                Logger.getLogger(SpreadsheetTrial.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (IOException ex) {
+                newTrial2.print_this_job2(recipe_to_be_printed.get(iterate), "file1");
+            }
+            else
+            {
+                File f1 = new File("file1.odt");
+                File f2 = new File("file2.odt");
+                ODSingleXMLDocument p1;
+                try {
+                    p1 = ODSingleXMLDocument.createFromPackage(f1);
+                    this.print_this_job2(recipe_to_be_printed.get(iterate), "file2");
+                    ODSingleXMLDocument p2 = ODSingleXMLDocument.createFromPackage(f2);
+                    p1.add(p2);
+                    p1.saveToPackageAs(new File("PrintFile"));
+                } catch (JDOMException ex) {
+                    Logger.getLogger(SpreadsheetTrial.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (IOException ex) {
                 Logger.getLogger(SpreadsheetTrial.class.getName()).log(Level.SEVERE, null, ex);
             }
-                
-            
+        }
         }
     }
         

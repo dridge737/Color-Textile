@@ -178,17 +178,21 @@ public class add_pigment_form extends javax.swing.JFrame {
             {
                 if(add_this_pig.add_pigment()){
                     this.fill_table();
-                    JOptionPane.showMessageDialog(null,"Matagumpay na naidagdag ang Pigment");
+                    JOptionPane.showMessageDialog(null, "Successfully added pigment : "+jTextField1.getText());
+                    //JOptionPane.showMessageDialog(null,"Matagumpay na naidagdag ang Pigment");
                     this.dispose();
                 }
                 else
-                    JOptionPane.showMessageDialog(null,"Hinde na-idagdag ang pigment.. Pakiulit nalang ang pagtakbo ng program");
+                    JOptionPane.showMessageDialog(null, "Error please run the program again.");
+                    //JOptionPane.showMessageDialog(null,"Hinde na-idagdag ang pigment.. Pakiulit nalang ang pagtakbo ng program");
             }
             else
-                JOptionPane.showMessageDialog(null,"Naidagdag na ang pigment na ito.");
+                JOptionPane.showMessageDialog(null, "Pigment has already been added to the Database");
+                //JOptionPane.showMessageDialog(null,"Naidagdag na ang pigment na ito.");
         }
         else
-        JOptionPane.showMessageDialog(null,"Pakilagyan po ng letra ang ida-dagdag na pigment");
+        JOptionPane.showMessageDialog(null, "Please add a character/letter to the pigment name");
+        //JOptionPane.showMessageDialog(null,"Pakilagyan po ng letra ang ida-dagdag na pigment");
             
     }//GEN-LAST:event_add_buttonActionPerformed
 

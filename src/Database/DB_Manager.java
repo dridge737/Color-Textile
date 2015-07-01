@@ -38,7 +38,7 @@ public class DB_Manager {
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
         }   
     }
-    
+    // OVERLOAD
     private void closeConn(Connection conn, PreparedStatement ps, ResultSet rs)
     {
         try {
@@ -145,6 +145,7 @@ public class DB_Manager {
         }
         return false;
     }
+    
     
     
     public int check_if_customer_exists(String customer_name)
@@ -328,8 +329,6 @@ public class DB_Manager {
         return false;
     }
     
-    
-
     public boolean add_design(colortextile_class.design new_design)
     {
          try{
@@ -707,29 +706,34 @@ public class DB_Manager {
     
     public int get_design_code(colortextile_class.design new_design)
     {
+        int design_code = -1;
         try{
             DBConnection db = new DBConnection();
             Connection conn = db.getConnection();
             
             PreparedStatement ps = 
-            conn.prepareStatement("SELECT design_code FROM design WHERE design_name = ? AND color_name = ? AND fabric_style = ?");
+            conn.prepareStatement("SELECT design_code "
+                    + "FROM design "
+                    + "WHERE design_name = ? "
+                    + "AND color_name = ? "
+                    + "AND fabric_style = ?");
             int item = 1;
             ps.setString(item++, new_design.getDesign_name());
             ps.setString(item++, new_design.getColor_name());
             ps.setString(item++, new_design.getFabric_style());
             ResultSet rs = ps.executeQuery();
-            int design_code = -1;
+            
             if(rs.first())
             {
                 design_code = rs.getInt("design_code");
             }
             this.closeConn(conn, ps, rs);
-            return design_code;
         }
         catch(SQLException ex){
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return -1;
+        
+        return design_code;
     }
     
     public ArrayList<String> get_all_pigment_name()

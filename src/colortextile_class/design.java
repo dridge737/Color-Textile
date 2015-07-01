@@ -9,6 +9,7 @@ package colortextile_class;
 import java.sql.Blob;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -23,10 +24,8 @@ public class design{
     private Blob design_image;
     private int total_quantity;
 
-    public design()
-    {
-        
-    }
+    public design(){}
+    
     public design(String design, String color, String fabric )
     {
         this.design_name = design;
@@ -61,14 +60,33 @@ public class design{
         this.design_name = design_name;
     }
 
-    public boolean add_new_design()
+    public boolean add_new_design_and_set_design_code()
     {
         Database.DB_Manager new_conn = new Database.DB_Manager();
         //if(!get_design_code_using_variables())
-        //{
-            return new_conn.add_design(this);
+        //{   //Design has not yet been added in the database
+            //ADD this design
+        if(new_conn.add_design(this))
+            this.set_design_code_using_variables();
+        else
+        {
+            this.design_code = -1;
+            return false;
+        }
         //}
-        //return false;
+        return true;
+    }
+    
+    public boolean get_design_code_using_variables()
+    {
+        Database.DB_Manager new_conn = new Database.DB_Manager();
+        int temp_design_code = new_conn.get_design_code(this);
+        if(temp_design_code != -1)
+        {   //Design code exists
+            this.design_code = temp_design_code;
+            return true;
+        }
+        return false;
     }
    /* 
     public boolean add_fabric_style()
