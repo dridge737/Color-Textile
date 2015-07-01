@@ -20,6 +20,8 @@ import java.util.UUID;
 import java.util.regex.Pattern;
 
 import java.nio.channels.FileChannel;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.jopendocument.dom.ODSingleXMLDocument;
 import org.jopendocument.dom.OOXML;
 import org.jopendocument.dom.XMLVersion;
@@ -27,6 +29,7 @@ import org.jopendocument.dom.template.JavaScriptTemplate;
 import org.jopendocument.util.JDOMUtils;
 import org.jdom.Attribute;
 import org.jdom.Element;
+import org.jdom.JDOMException;
 import org.jdom.Namespace;
 import org.jopendocument.dom.template.RhinoTemplate;
 //import static spreadsheettrial.TestTemplate.copyFileToTmp;
@@ -129,6 +132,35 @@ public class SpreadsheetTrial {
             e.printStackTrace();
         }
          
+    }
+    public void bulk_print_item(production_recipe recipe_to_be_printed)
+    {
+        if(1 ==0 )
+        {
+            SpreadsheetTrial newTrial2 = new SpreadsheetTrial();
+            newTrial2.print_this_job2(recipe_to_be_printed, "file1");
+        }
+        else
+        {
+            File f1 = new File("file1.odt");
+            File f2 = new File("file2.odt");
+            
+                ODSingleXMLDocument p1;
+            try {
+                p1 = ODSingleXMLDocument.createFromPackage(f1);
+                SpreadsheetTrial newTrial2 = new SpreadsheetTrial();
+                newTrial2.print_this_job2(recipe_to_be_printed, "file2");
+                ODSingleXMLDocument p2 = ODSingleXMLDocument.createFromPackage(f2);
+                p1.add(p2);
+                p1.saveToPackageAs(new File("PrintFile"));
+            } catch (JDOMException ex) {
+                Logger.getLogger(SpreadsheetTrial.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IOException ex) {
+                Logger.getLogger(SpreadsheetTrial.class.getName()).log(Level.SEVERE, null, ex);
+            }
+                
+            
+        }
     }
         
     /**
