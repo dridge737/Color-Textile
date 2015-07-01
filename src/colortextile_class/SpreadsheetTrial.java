@@ -235,6 +235,25 @@ public class SpreadsheetTrial {
     }
     */
     
+    /*
+        try {
+            File f1 = new File("file1.odt");
+            ODSingleXMLDocument p1 = ODSingleXMLDocument.createFromPackage(f1);
+            
+            File f2 = new File("file2.odt");
+            ODSingleXMLDocument p2 = ODSingleXMLDocument.createFromPackage(f2);
+            
+            p1.add(p2);
+            
+            //OOUtils.open(p1.saveToPackageAs(new File("cat")));
+            
+        } catch (JDOMException ex) {
+            Logger.getLogger(ColorTextile.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(ColorTextile.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        */
+    
 
     static File copyFileToTmp(File in) throws IOException {
 		File out = File.createTempFile(UUID.randomUUID().toString(), null);

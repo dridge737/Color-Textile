@@ -344,31 +344,7 @@ public class PrintForm extends javax.swing.JFrame {
                 this_prod_recipe.view_all_puchase_order();
                 this_prod_recipe.view_all_job_order_details();
                 prod_recipe.add(this_prod_recipe);
-                if(incre ==0 )
-                {
-                    SpreadsheetTrial newTrial2 = new SpreadsheetTrial();
-                    newTrial2.print_this_job2(this_prod_recipe, "file1");
-                }
-                else
-                {
-                    
-                try {
-                    File f1 = new File("file1.odt");
-                    ODSingleXMLDocument p1 = ODSingleXMLDocument.createFromPackage(f1);
                 
-                    SpreadsheetTrial newTrial2 = new SpreadsheetTrial();
-                    newTrial2.print_this_job2(this_prod_recipe, "file2");
-                    File f2 = new File("file2.odt");
-                    ODSingleXMLDocument p2 = ODSingleXMLDocument.createFromPackage(f2);
-                    p1.add(p2);
-                    p1.saveToPackageAs(new File("cat"));
-                } catch (JDOMException ex) {
-                    Logger.getLogger(PrintForm.class.getName()).log(Level.SEVERE, null, ex);
-                } catch (IOException ex) {
-                    Logger.getLogger(PrintForm.class.getName()).log(Level.SEVERE, null, ex);
-                }
-                
-                }
             }
             
         }
@@ -378,6 +354,36 @@ public class PrintForm extends javax.swing.JFrame {
         
     }//GEN-LAST:event_print_buttonActionPerformed
 
+    public void print_from_table(production_recipe recipe_to_be_printed)
+    {
+        if(1 ==0 )
+        {
+            SpreadsheetTrial newTrial2 = new SpreadsheetTrial();
+            newTrial2.print_this_job2(recipe_to_be_printed, "file1");
+        }
+        else
+        {
+            File f1 = new File("file1.odt");
+            File f2 = new File("file2.odt");
+            try {
+                ODSingleXMLDocument p1 = ODSingleXMLDocument.createFromPackage(f1);
+                SpreadsheetTrial newTrial2 = new SpreadsheetTrial();
+                newTrial2.print_this_job2(recipe_to_be_printed, "file2");
+                ODSingleXMLDocument p2 = ODSingleXMLDocument.createFromPackage(f2);
+                p1.add(p2);
+                p1.saveToPackageAs(new File("PrintFile"));
+            }
+            catch (JDOMException ex)
+            {
+                Logger.getLogger(PrintForm.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            catch (IOException ex)
+            {
+                Logger.getLogger(PrintForm.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
+    
     /**
      * @param args the command line arguments
      */

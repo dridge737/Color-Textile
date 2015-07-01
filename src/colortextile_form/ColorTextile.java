@@ -64,24 +64,7 @@ public class ColorTextile {
         this_purchase2.set_all_details_from_purchase_order_id(18);
         newTrial2.print_this_job2(this_purchase2, "file2");
         */
-        /*
-        try {
-            File f1 = new File("file1.odt");
-            ODSingleXMLDocument p1 = ODSingleXMLDocument.createFromPackage(f1);
-            
-            File f2 = new File("file2.odt");
-            ODSingleXMLDocument p2 = ODSingleXMLDocument.createFromPackage(f2);
-            
-            p1.add(p2);
-            
-            //OOUtils.open(p1.saveToPackageAs(new File("cat")));
-            
-        } catch (JDOMException ex) {
-            Logger.getLogger(ColorTextile.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(ColorTextile.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        */
+        
         
         //EditRecipe EditRecipeForm = new EditRecipe(14);
         //EditRecipeForm.setVisible(true);
