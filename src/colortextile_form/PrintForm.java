@@ -316,10 +316,10 @@ public class PrintForm extends javax.swing.JFrame {
         
         if(print_table.getRowCount()>0)
         {
-            production_recipe this_prod_recipe = new production_recipe();
             for(int incre=0; incre<print_table.getRowCount(); incre++)
             {
-            int radio_button_type, rad_button_type;
+                production_recipe this_prod_recipe = new production_recipe();
+                int radio_button_type, rad_button_type;
             
                 if(purchase_button.isSelected())
                 {
@@ -331,7 +331,9 @@ public class PrintForm extends javax.swing.JFrame {
                     radio_button_type=1;
                     this_prod_recipe.setDate(print_table.getValueAt(incre, 1).toString());
                 }
-            
+                System.out.println("Design Name = "+print_table.getValueAt(incre, radio_button_type));
+                System.out.println("Color Name = "+print_table.getValueAt(incre, radio_button_type+1));
+                System.out.println("Fabric = "+print_table.getValueAt(incre, radio_button_type+2));
                 this_prod_recipe.setDesign_name(print_table.getValueAt(incre, radio_button_type).toString());
                 this_prod_recipe.setColor_name(print_table.getValueAt(incre, radio_button_type+1).toString());
                 this_prod_recipe.setFabric_style(print_table.getValueAt(incre, radio_button_type+2).toString());
@@ -340,13 +342,15 @@ public class PrintForm extends javax.swing.JFrame {
                 //this_prod_recipe.set_all_job_order_from_design_code_and_date();
                 this_prod_recipe.set_all_purchase_details_from_design_code_and_date();
                 this_prod_recipe.set_job_order_list_using_design_code_and_purchase_id();
-                this_prod_recipe.view_all_colorway_details();
+                //this_prod_recipe.view_all_colorway_details();
                 this_prod_recipe.view_all_puchase_order();
-                this_prod_recipe.view_all_job_order_details();
+                //this_prod_recipe.view_all_job_order_details();
                 prod_recipe.add(this_prod_recipe);
                 
+                
             }
-            
+            SpreadsheetTrial file_to_print = new SpreadsheetTrial();
+            file_to_print.bulk_print_item(prod_recipe);
         }
         else{
             JOptionPane.showMessageDialog(null,"Please add something to print");

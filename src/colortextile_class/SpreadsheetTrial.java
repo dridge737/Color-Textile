@@ -133,34 +133,51 @@ public class SpreadsheetTrial {
          
     }
     
-    private List<production_recipe> merge_design_colorways(List<production_recipe> bulk_recipe)
+    private ArrayList<production_recipe> merge_design_colorways(List<production_recipe> bulk_recipe)
     {
         int loop_size = bulk_recipe.size();
-        List<production_recipe> temp_bulk_recipe = null;
-        for(int iterate =0; iterate< loop_size; iterate++)
+        ArrayList<production_recipe> temp_bulk_recipe = new ArrayList<production_recipe>();
+        for(int iterate =0; iterate< loop_size-1; iterate++)
         {
-            production_recipe temporary_single_recipe_holder = bulk_recipe.get(0);
+            //Place first Item of list in a temporary recipe
+            production_recipe recipe_1 = bulk_recipe.get(0);
+            //Remove first Item from the List
             bulk_recipe.remove(0);
-            for (production_recipe temp_bulk_recipe1 : bulk_recipe) 
+            System.out.println("Design name 1st Item= "+recipe_1.getDesign_name());
+            for (production_recipe recipe_2 : bulk_recipe) 
             {
-                if (temp_bulk_recipe1.getDesign_name().equals(temporary_single_recipe_holder.getDesign_name())) 
+                System.out.println("Design name 2nd Item= "+recipe_2.getDesign_name());
+                //Loop in the List to check if there is the same Design Name
+                if (recipe_1.getDesign_name().equals(recipe_2.getDesign_name())) 
                 {
-                    int colorway_count = temporary_single_recipe_holder.getAll_colorways().size();
-                    List<Colorway_screen_link_functions> colorway_to_update = temporary_single_recipe_holder.getAll_colorways();
+                    //if There is the same design name check for all the colorways 
+                    
                     //colorway_to_update    
-                    for(int colorway_iterate = 0; colorway_iterate<colorway_count; colorway_iterate++)
+                    //Loop to find same colorway name
+                    for(int colorway1_iterate = 0; colorway1_iterate< recipe_1.getAll_colorways().size(); colorway1_iterate++)
                     {
-                       Colorway_screen_link_functions colorway_temp = temporary_single_recipe_holder.getAll_colorways().get(0);
-                       temporary_single_recipe_holder.getAll_colorways().remove(0);
-                     
-                        //for()
-                        //temporary_single_recipe_holder.getA
+                        //First get all the colorways and the size
+                        // Loop through the 2nd Items colorway
+                        for(int colorway2_iterate = 0; colorway2_iterate < recipe_2.getAll_colorways().size(); colorway2_iterate++)
+                        {
+                            System.out.println("Colorway #"+colorway2_iterate+ " is :" +recipe_2.getAll_colorways().get(colorway2_iterate).getColorway_name());
+                            if(recipe_1.getAll_colorways().get(colorway1_iterate).getColorway_name().
+                                    equals(recipe_2.getAll_colorways().get(colorway2_iterate).getColorway_name())
+                             && recipe_1.getAll_colorways().get(colorway1_iterate).getThis_screens().size() == 
+                                        recipe_2.getAll_colorways().get(colorway2_iterate).getThis_screens().size())
+                            {    
+                                    recipe_1.getAll_colorways().get(colorway1_iterate).setWeight_kg(recipe_1.getAll_colorways().get(colorway1_iterate).getWeight_kg()+recipe_2.getAll_colorways().get(colorway2_iterate).getWeight_kg());
+                                    recipe_2.getAll_colorways().get(colorway2_iterate).setWeight_kg(0);
+                            }
+                            
+                        }
                     }
-                    temporary_single_recipe_holder.setAll_colorways(colorway_to_update);
                 }
             }
-            temp_bulk_recipe.add(temporary_single_recipe_holder);
+            recipe_1.view_all_colorway_details();
+            temp_bulk_recipe.add(recipe_1);
         }
+        temp_bulk_recipe.add(bulk_recipe.get(0));
         return temp_bulk_recipe;
     }
     
@@ -168,30 +185,41 @@ public class SpreadsheetTrial {
     
     public void bulk_print_item(List<production_recipe> recipe_to_be_printed)
     {
-        for(int iterate =0; iterate<recipe_to_be_printed.size(); iterate++)
+        System.out.println("RECIPE SIZE = "+recipe_to_be_printed.size());
+        
+        if(recipe_to_be_printed.size()>1)
         {
-            if(iterate ==0 )
+            recipe_to_be_printed = this.merge_design_colorways(recipe_to_be_printed);
+            for(int iterate =0; iterate<recipe_to_be_printed.size(); iterate++)
             {
-                SpreadsheetTrial newTrial2 = new SpreadsheetTrial();
-                newTrial2.print_this_job2(recipe_to_be_printed.get(iterate), "file1");
-            }
-            else
-            {
-                File f1 = new File("file1.odt");
-                File f2 = new File("file2.odt");
-                ODSingleXMLDocument p1;
-                try {
-                    p1 = ODSingleXMLDocument.createFromPackage(f1);
-                    this.print_this_job2(recipe_to_be_printed.get(iterate), "file2");
-                    ODSingleXMLDocument p2 = ODSingleXMLDocument.createFromPackage(f2);
-                    p1.add(p2);
-                    p1.saveToPackageAs(new File("PrintFile"));
-                } catch (JDOMException ex) {
+                if(iterate ==0 )
+                {
+                    SpreadsheetTrial newTrial2 = new SpreadsheetTrial();
+                    newTrial2.print_this_job2(recipe_to_be_printed.get(iterate), "file1");
+                }
+                else
+                {
+                    File f1 = new File("file1.odt");
+                    File f2 = new File("file2.odt");
+                    ODSingleXMLDocument p1;
+                    try {
+                        p1 = ODSingleXMLDocument.createFromPackage(f1);
+                        this.print_this_job2(recipe_to_be_printed.get(iterate), "file2");
+                        ODSingleXMLDocument p2 = ODSingleXMLDocument.createFromPackage(f2);
+                        p1.add(p2);
+                        p1.saveToPackageAs(new File("PrintFile"));
+                    } catch (JDOMException ex) {
                     Logger.getLogger(SpreadsheetTrial.class.getName()).log(Level.SEVERE, null, ex);
-                } catch (IOException ex) {
-                Logger.getLogger(SpreadsheetTrial.class.getName()).log(Level.SEVERE, null, ex);
+                    } catch (IOException ex) {
+                        Logger.getLogger(SpreadsheetTrial.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
             }
         }
+        else
+        {
+            SpreadsheetTrial newTrial2 = new SpreadsheetTrial();
+            newTrial2.print_this_job2(recipe_to_be_printed.get(0), "PrintFile");
         }
     }
         
