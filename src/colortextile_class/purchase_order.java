@@ -125,6 +125,13 @@ public class purchase_order {
         this_conn.delete_purchase_order(this);
     }
     
+    public void fill_info_from_purchase_id(){
+      
+            purchase_order purchase = new purchase_order();
+            purchase.setId_purchase(this.getId_purchase());
+            purchase.set_this_Purchase_details_from_purchase_id();
+    }
+    
     
 
 }

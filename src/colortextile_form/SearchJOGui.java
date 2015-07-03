@@ -606,7 +606,7 @@ public class SearchJOGui extends javax.swing.JFrame {
         
         Add_new_design design_form = new Add_new_design();
         design_form.setVisible(true);
-        design_form.fill_info_from_purchase_id(Integer.parseInt(selected_purchase_order));
+        //design_form.fill_info_from_purchase_id(Integer.parseInt(selected_purchase_order));
         close();
     }//GEN-LAST:event_button_detailsActionPerformed
 

@@ -153,8 +153,8 @@ public class SpreadsheetTrial {
                        Colorway_screen_link_functions colorway_temp = temporary_single_recipe_holder.getAll_colorways().get(0);
                        temporary_single_recipe_holder.getAll_colorways().remove(0);
                      
-                        for()
-                        temporary_single_recipe_holder.getA
+                        //for()
+                        //temporary_single_recipe_holder.getA
                     }
                     temporary_single_recipe_holder.setAll_colorways(colorway_to_update);
                 }

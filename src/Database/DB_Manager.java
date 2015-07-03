@@ -595,6 +595,30 @@ public class DB_Manager {
         
     }
     
+    public pigment get_last_pigment_id_and_name()
+    {
+        pigment last_added_pigment = new pigment();
+        try
+        {
+            DBConnection db = new DBConnection();
+            Connection conn = db.getConnection();
+            
+            PreparedStatement ps = conn.prepareStatement("SELECT pigment_name, pigment_no FROM pigment WHERE pigment_no = (SELECT MAX(pigment_no) FROM pigment);");
+            
+            ResultSet rs = ps.executeQuery();
+            
+             if(rs.first())
+            {
+                last_added_pigment.setPigment_no(rs.getInt("pigment_no"));
+                last_added_pigment.setPigment_name(rs.getString("pigment_name"));
+            }
+        }
+        catch(SQLException ex){
+            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return last_added_pigment;
+    }
+    
     public int get_id_color_screen(int id_screen, int id_colorway , float pigment_percentage)
     {
         int id_color_screen = -1;

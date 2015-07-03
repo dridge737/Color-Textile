@@ -125,6 +125,14 @@ public class pigment implements Comparable<pigment>{
         return total;
     }
     
+    public void set_name_and_id_from_last_added_pigment()
+    {
+        DB_Manager new_conn = new DB_Manager();
+        pigment temporary_pigment = new_conn.get_last_pigment_id_and_name();
+        this.setPigment_no(temporary_pigment.getPigment_no());
+        this.setPigment_name(temporary_pigment.getPigment_name());
+    }
+    
     
     
     

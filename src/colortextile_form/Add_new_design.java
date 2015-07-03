@@ -451,9 +451,9 @@ public class Add_new_design extends javax.swing.JFrame {
         jPanel14Layout.setHorizontalGroup(
             jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel14Layout.createSequentialGroup()
-                .addGap(53, 53, 53)
+                .addGap(21, 21, 21)
                 .addComponent(jLabel7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 129, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 161, Short.MAX_VALUE)
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(spinner_date, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -461,20 +461,20 @@ public class Add_new_design extends javax.swing.JFrame {
         );
         jPanel14Layout.setVerticalGroup(
             jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel14Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel14Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel7)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(spinner_date, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel7)
+                    .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(spinner_date, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
 
         spinner_date.setEditor(new JSpinner.DateEditor(spinner_date, "dd/MM/yyyy"));
         jLabel6.getAccessibleContext().setAccessibleName("date");
 
-        getContentPane().add(jPanel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 770, 60));
+        getContentPane().add(jPanel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 770, 70));
 
         jPanel1.setBackground(new java.awt.Color(51, 153, 255));
         jPanel1.setLayout(null);
@@ -738,7 +738,7 @@ public class Add_new_design extends javax.swing.JFrame {
         jPanel1.add(jButton1);
         jButton1.setBounds(430, 215, 30, 25);
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 770, 295));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 65, 770, 290));
 
         jPanel11.setBackground(new java.awt.Color(51, 153, 255));
         jPanel11.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -2109,15 +2109,6 @@ public class Add_new_design extends javax.swing.JFrame {
             all_purchase.get(x).add_new_purchase();
         }
     }
-    public void fill_info_from_purchase_id(int purchase_order){
-      
-            purchase_order purchase = new purchase_order();
-            purchase.setId_purchase(purchase_order);
-            
-            purchase.set_this_Purchase_details_from_purchase_id();
-            this.fill_info(purchase.getDesign_code());
-       
-    }
     
     public String get_pigment_name(int pigment_no){
         pigment pigment = new pigment();
@@ -2954,7 +2945,6 @@ public class Add_new_design extends javax.swing.JFrame {
             {
                 this.dispose();
             }
-           
         }
         
     }//GEN-LAST:event_add_orderActionPerformed
@@ -3350,7 +3340,7 @@ public class Add_new_design extends javax.swing.JFrame {
     private void pig63ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pig63ActionPerformed
         // TODO add your handling code here:
         show_add_pigment();
-        this.pigment_button_check = 16;
+        this.pigment_button_check = 18;
     }//GEN-LAST:event_pig63ActionPerformed
 
     private void pig61ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pig61ActionPerformed
@@ -3362,13 +3352,13 @@ public class Add_new_design extends javax.swing.JFrame {
     private void pig62ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pig62ActionPerformed
         // TODO add your handling code here:
         show_add_pigment();
-        this.pigment_button_check = 18;
+        this.pigment_button_check = 16;
     }//GEN-LAST:event_pig62ActionPerformed
 
     private void pig_73ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pig_73ActionPerformed
         // TODO add your handling code here:
         show_add_pigment();
-        this.pigment_button_check = 19;
+        this.pigment_button_check = 21;
     }//GEN-LAST:event_pig_73ActionPerformed
 
     private void pig72ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pig72ActionPerformed
@@ -3380,18 +3370,95 @@ public class Add_new_design extends javax.swing.JFrame {
     private void pig71ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pig71ActionPerformed
         // TODO add your handling code here:
         show_add_pigment();
-        this.pigment_button_check = 21;
+        this.pigment_button_check = 19;
     }//GEN-LAST:event_pig71ActionPerformed
 
+    private void change_pigment_to_last_added_pigment()
+    {
+        Database.DB_Manager new_conn = new Database.DB_Manager();
+        pigment added_pigment = new pigment();
+        added_pigment.set_name_and_id_from_last_added_pigment();
+        switch(pigment_button_check)
+        {
+            case 1:
+                name1.setSelectedItem(added_pigment.getPigment_name());
+                break;
+            case 2:
+                name2.setSelectedItem(added_pigment.getPigment_name());
+                break;
+            case 3:
+                name3.setSelectedItem(added_pigment.getPigment_name());
+                break;
+            case 4:
+                name5.setSelectedItem(added_pigment.getPigment_name());
+                break;
+            case 5:
+                name6.setSelectedItem(added_pigment.getPigment_name());
+                break;
+            case 6:
+                name7.setSelectedItem(added_pigment.getPigment_name());
+                break;
+            case 7:
+                name9.setSelectedItem(added_pigment.getPigment_name());
+                break;
+            case 8:
+                name10.setSelectedItem(added_pigment.getPigment_name());
+                break;
+            case 9:
+                name11.setSelectedItem(added_pigment.getPigment_name());
+                break;
+            case 10:
+                name13.setSelectedItem(added_pigment.getPigment_name());
+                break;
+            case 11:
+                name14.setSelectedItem(added_pigment.getPigment_name());
+                break;
+            case 12:
+                name15.setSelectedItem(added_pigment.getPigment_name());
+                break;
+            case 13:
+                name17.setSelectedItem(added_pigment.getPigment_name());
+                break;
+            case 14:
+                name18.setSelectedItem(added_pigment.getPigment_name());
+                break;
+            case 15:
+                name19.setSelectedItem(added_pigment.getPigment_name());
+                break;
+            case 16:
+                name21.setSelectedItem(added_pigment.getPigment_name());
+                break;
+            case 17:
+                name22.setSelectedItem(added_pigment.getPigment_name());
+                break;
+            case 18:
+                name23.setSelectedItem(added_pigment.getPigment_name());
+                break;
+            case 19:
+                name24.setSelectedItem(added_pigment.getPigment_name());
+                break;
+            case 20:
+                name25.setSelectedItem(added_pigment.getPigment_name());
+                break;
+            case 21:
+                name26.setSelectedItem(added_pigment.getPigment_name());
+                break;  
+        }
+        
+    }
+    
     private void formWindowGainedFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowGainedFocus
         // TODO add your handling code here:
         if(this.pigment_screen_showed)
         {
             pigment this_pigment = new pigment();
             if(this_pigment.count_all_pigment() != (name1.getItemCount()-1))
+            {
                 this.registerSelectedItem();
+                this.change_pigment_to_last_added_pigment();
+            }
             pigment_screen_showed = false;
-            //this_pigment
+            
         }
     }//GEN-LAST:event_formWindowGainedFocus
 
