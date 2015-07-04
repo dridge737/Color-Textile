@@ -158,9 +158,9 @@ public class PrintForm extends javax.swing.JFrame {
         purchase_button.setSelected(true);
         purchase_button.setText("All Purchase Search");
         purchase_button.setOpaque(false);
-        purchase_button.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                purchase_buttonMouseClicked(evt);
+        purchase_button.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                purchase_buttonItemStateChanged(evt);
             }
         });
 
@@ -173,15 +173,20 @@ public class PrintForm extends javax.swing.JFrame {
                 combined_date_buttonMouseClicked(evt);
             }
         });
+        combined_date_button.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                combined_date_buttonItemStateChanged(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(408, Short.MAX_VALUE)
-                .addComponent(purchase_button)
-                .addGap(18, 18, 18)
+                .addContainerGap(384, Short.MAX_VALUE)
+                .addComponent(purchase_button, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(42, 42, 42)
                 .addComponent(combined_date_button)
                 .addContainerGap())
         );
@@ -251,17 +256,8 @@ public class PrintForm extends javax.swing.JFrame {
 
     private void combined_date_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_combined_date_buttonMouseClicked
         // TODO add your handling code here:
-        this.purchase_button.setSelected(false);
-        this.combined_date_button.setSelected(true);
-        fill_table_merged_date_search();
+        
     }//GEN-LAST:event_combined_date_buttonMouseClicked
-
-    private void purchase_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_purchase_buttonMouseClicked
-        // TODO add your handling code here:
-        this.combined_date_button.setSelected(false);
-        this.purchase_button.setSelected(true);
-        fill_table_per_purchase_table();
-    }//GEN-LAST:event_purchase_buttonMouseClicked
 
     private void add_row_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_row_buttonActionPerformed
         // TODO add your handling code here:
@@ -307,8 +303,11 @@ public class PrintForm extends javax.swing.JFrame {
     private void delete_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_delete_buttonActionPerformed
         // TODO add your handling code here:
         int index_selected = this.print_table.getSelectedRow();
+        System.out.println(index_selected);
         if(index_selected != -1)
-        this.print_table.remove(index_selected);
+        {
+            this.temporary_table_model.removeRow(0);
+        }
     }//GEN-LAST:event_delete_buttonActionPerformed
 
     private void print_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_print_buttonActionPerformed
@@ -357,6 +356,27 @@ public class PrintForm extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_print_buttonActionPerformed
+
+    private void purchase_buttonItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_purchase_buttonItemStateChanged
+        // TODO add your handling code here:
+        if(this.purchase_button.isSelected())
+        {
+            this.combined_date_button.setSelected(false);
+            this.purchase_button.setSelected(true);
+            fill_table_per_purchase_table();
+        }
+    }//GEN-LAST:event_purchase_buttonItemStateChanged
+
+    private void combined_date_buttonItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_combined_date_buttonItemStateChanged
+        // TODO add your handling code here:
+        if(this.combined_date_button.isSelected())
+        {
+            this.purchase_button.setSelected(false);
+            this.combined_date_button.setSelected(true);
+            fill_table_merged_date_search();
+        }
+        
+    }//GEN-LAST:event_combined_date_buttonItemStateChanged
 
     
     /**
