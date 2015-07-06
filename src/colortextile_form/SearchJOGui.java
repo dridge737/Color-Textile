@@ -603,19 +603,10 @@ public class SearchJOGui extends javax.swing.JFrame {
 
     
     private void button_detailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_detailsActionPerformed
-        // TODO add your handling code here:
-        int row = jTable1.getSelectedRow();
-        int total_col = jTable1.getColumnCount();
-       /* for(int col = 0; col < total_col; col++)
-        {
-            System.out.println(jTable1.getValueAt(row, col));
-        } */
-        //System.out.println("end");
-        String selected_purchase_order = jTable1.getValueAt(row, 0).toString();
-        
+      
         Add_new_design design_form = new Add_new_design();
         design_form.setVisible(true);
-        design_form.fill_info(Integer.parseInt(selected_purchase_order));
+        design_form.fill_info(this.get_design_code_from_table_selected());
         close();
     }//GEN-LAST:event_button_detailsActionPerformed
 
