@@ -265,7 +265,7 @@ public class SearchJOGui extends javax.swing.JFrame {
             }
         });
         jFrame1.getContentPane().add(jCheckBox2);
-        jCheckBox2.setBounds(585, 133, 65, 29);
+        jCheckBox2.setBounds(585, 133, 69, 29);
 
         jLabel8.setFont(new java.awt.Font("Century Gothic", 0, 34)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
@@ -420,7 +420,7 @@ public class SearchJOGui extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jCheckBox1);
-        jCheckBox1.setBounds(585, 133, 65, 29);
+        jCheckBox1.setBounds(585, 133, 69, 29);
 
         jLabel6.setFont(new java.awt.Font("Century Gothic", 0, 34)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
@@ -444,9 +444,17 @@ public class SearchJOGui extends javax.swing.JFrame {
             }
         ));
         jTable1.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                jTable1MouseReleased(evt);
+            }
+        });
         jTable1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jTable1KeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTable1KeyReleased(evt);
             }
         });
         jScrollPane1.setViewportView(jTable1);
@@ -617,11 +625,7 @@ public class SearchJOGui extends javax.swing.JFrame {
     }
     private void jTable1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTable1KeyPressed
         // TODO add your handling code here:
-        try {
-            insert_pic();
-        } catch (SQLException ex) {
-            Logger.getLogger(SearchJOGui.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        
     }//GEN-LAST:event_jTable1KeyPressed
 
     private void button_search1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_search1ActionPerformed
@@ -667,20 +671,51 @@ public class SearchJOGui extends javax.swing.JFrame {
         close();
             
     }//GEN-LAST:event_button_editActionPerformed
-    private String get_design_code_from_table_selected(){
+
+    private void jTable1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTable1KeyReleased
+        // TODO add your handling code here:
+        try {
+            insert_pic();
+        } catch (SQLException ex) {
+            Logger.getLogger(SearchJOGui.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jTable1KeyReleased
+
+    private void jTable1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseReleased
+        // TODO add your handling code here:
+        try {
+            insert_pic();
+        } catch (SQLException ex) {
+            Logger.getLogger(SearchJOGui.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jTable1MouseReleased
+    private int get_design_code_from_table_selected(){
         
         int row = this.get_table_row_value();
         String id =(this.jTable1.getModel().getValueAt(row, 0).toString());
         JOptionPane.showMessageDialog(null, "id= " + id);
         
-        return id;
+        purchase_order conn = new purchase_order();
+        conn.setId_purchase(Integer.parseInt(id));
+        conn.setDesign_code(-1);
+        conn.setJob_order_id(null);
+        
+        ResultSet rs = conn.Search_purchase_info();
+        
+        try {
+            int id1 = rs.getInt("design_code");
+            return id1;
+        } catch (SQLException ex) {
+            Logger.getLogger(SearchJOGui.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return -1;
     }
     private void insert_pic() throws SQLException{
         
-        String id = this.get_design_code_from_table_selected();
+        int id = this.get_design_code_from_table_selected();
         
         design design_conn = new  design();
-        design_conn.setDesign_code(Integer.parseInt(id));
+        design_conn.setDesign_code(id);
         
         ResultSet rs = design_conn.get_picture_from_design_code();
         if(rs.first()){
