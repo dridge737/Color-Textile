@@ -8,6 +8,7 @@ package colortextile_form;
 import colortextile_class.*;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -19,7 +20,19 @@ public class Main_Menu extends javax.swing.JFrame {
      * Creates new form Main_Menu
      */
     public Main_Menu() {
+        
         initComponents();
+        
+        this.addWindowListener(new java.awt.event.WindowAdapter() {
+            @Override
+            public void windowClosing(java.awt.event.WindowEvent windowEvent) {
+                if (JOptionPane.showConfirmDialog(null,"Are you sure to close this window?", "Close window?", 
+            JOptionPane.YES_NO_OPTION,
+            JOptionPane.QUESTION_MESSAGE) == JOptionPane.YES_OPTION){
+            dispose();
+                }
+            }
+       });
         this.setSize(475, 500);
         Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
         int x = (int) ((dimension.getWidth() - this.getWidth()) / 2);

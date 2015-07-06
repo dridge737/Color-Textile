@@ -65,7 +65,7 @@ public class Add_new_design extends javax.swing.JFrame {
             dispose();
                 }
             }
-});
+       });
         initComponents();
         addListItems();
         
@@ -82,8 +82,6 @@ public class Add_new_design extends javax.swing.JFrame {
         current_style = fab_style_comb.getSelectedItem().toString();
         
     }
-    
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -2953,7 +2951,7 @@ public class Add_new_design extends javax.swing.JFrame {
             //this.this_purchase.set_job_order_list_using_purchase_order_id();
             //SpreadsheetTrial printFile = new SpreadsheetTrial();
             //printFile.print_this_job2(prod_recipe);
-            int CloseorNoreply = JOptionPane.showConfirmDialog(null,"Successfully Added this Recipe! Close Windows? "
+            int CloseorNoreply = JOptionPane.showConfirmDialog(null,"Successfully Added this Recipe! Close Window? "
                     + "(Yes to close this window) ", "Close this Window?", JOptionPane.YES_NO_OPTION);
             if(CloseorNoreply == JOptionPane.YES_OPTION)
             {
@@ -3246,6 +3244,12 @@ public class Add_new_design extends javax.swing.JFrame {
 
     private void add_order2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_order2ActionPerformed
         // TODO add your handling code here:
+        int CloseorNoreply = JOptionPane.showConfirmDialog(null,"Cancel the addition of purchase and Close this Window? "
+                    + "(Yes to close this window) ", "Close this Window?", JOptionPane.YES_NO_OPTION);
+            if(CloseorNoreply == JOptionPane.YES_OPTION)
+            {
+                this.dispose();
+            }
         this.dispose();
     }//GEN-LAST:event_add_order2ActionPerformed
 
