@@ -23,7 +23,10 @@ import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
 import org.jdom.JDOMException;
 import org.jopendocument.dom.ODSingleXMLDocument;
 
@@ -91,6 +94,8 @@ public class PrintForm extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         purchase_button = new javax.swing.JRadioButton();
         combined_date_button = new javax.swing.JRadioButton();
+        jTextField1 = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
         print_button = new javax.swing.JButton();
         add_row_button = new javax.swing.JButton();
         delete_button = new javax.swing.JButton();
@@ -180,14 +185,30 @@ public class PrintForm extends javax.swing.JFrame {
             }
         });
 
+        jTextField1.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextField1KeyReleased(evt);
+            }
+        });
+
+        jLabel2.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        jLabel2.setText("Search Item :");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(384, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 196, Short.MAX_VALUE)
+                .addGap(89, 89, 89)
                 .addComponent(purchase_button, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(42, 42, 42)
+                .addGap(18, 18, 18)
                 .addComponent(combined_date_button)
                 .addContainerGap())
         );
@@ -195,14 +216,18 @@ public class PrintForm extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGap(4, 4, 4)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(combined_date_button)
-                    .addComponent(purchase_button))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(combined_date_button)
+                        .addComponent(purchase_button))
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
 
         jPanel1.add(jPanel2);
-        jPanel2.setBounds(10, 65, 780, 40);
+        jPanel2.setBounds(10, 64, 780, 40);
 
         print_button.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
         print_button.setText("Confirm this Table and Print");
@@ -409,6 +434,21 @@ public class PrintForm extends javax.swing.JFrame {
         
     }//GEN-LAST:event_combined_date_buttonItemStateChanged
 
+    private void jTextField1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyReleased
+        // TODO add your handling code here:
+        String text = this.jTextField1.getText();
+        TableRowSorter<TableModel> rowSorter
+            = new TableRowSorter<>(this.search_print.getModel());
+        
+        this.search_print.setRowSorter(rowSorter);
+        
+        if (text.trim().length() == 0) {
+            rowSorter.setRowFilter(null);
+        } else {
+            rowSorter.setRowFilter(RowFilter.regexFilter("(?i)" + text));        
+        }
+    }//GEN-LAST:event_jTextField1KeyReleased
+
     
     /**
      * @param args the command line arguments
@@ -450,12 +490,14 @@ public class PrintForm extends javax.swing.JFrame {
     private javax.swing.JRadioButton combined_date_button;
     private javax.swing.JButton delete_button;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JButton print_button;
     private javax.swing.JTable print_table;
     private javax.swing.JRadioButton purchase_button;

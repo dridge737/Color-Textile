@@ -66,6 +66,17 @@ public class EditRecipe extends javax.swing.JFrame {
     
     private void initialize()
     {
+        this.addWindowListener(new java.awt.event.WindowAdapter() {
+            @Override
+            public void windowClosing(java.awt.event.WindowEvent windowEvent) {
+                if (JOptionPane.showConfirmDialog(null,"Are you sure to close this window?", "Close window?", 
+            JOptionPane.YES_NO_OPTION,
+            JOptionPane.QUESTION_MESSAGE) == JOptionPane.YES_OPTION){
+            dispose();
+                }
+            }
+       });
+        
         addListItems();
         //Center the form
         Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
