@@ -1285,13 +1285,12 @@ public class DB_Manager {
           DBConnection db = new DBConnection();
           Connection conn = db.getConnection();  
           
-            PreparedStatement ps = conn.prepareStatement("SELECT * FROM design_picture WHERE design_code = '"+ this_picture.getDesign_code()+"' ");
+            PreparedStatement ps = conn.prepareStatement("SELECT design_picture FROM design_picture WHERE design_code = '"+ this_picture.getDesign_code()+"' ");
             ResultSet rs = ps.executeQuery();
-            if(rs.first())
-            {
+            
                 return rs;
-            }
-           this.closeConn(conn, ps, rs);
+            
+           //this.closeConn(conn, ps, rs);
         }
         catch (SQLException ex)
         {

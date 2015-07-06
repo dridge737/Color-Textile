@@ -265,7 +265,7 @@ public class SearchJOGui extends javax.swing.JFrame {
             }
         });
         jFrame1.getContentPane().add(jCheckBox2);
-        jCheckBox2.setBounds(585, 133, 69, 29);
+        jCheckBox2.setBounds(585, 133, 65, 29);
 
         jLabel8.setFont(new java.awt.Font("Century Gothic", 0, 34)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
@@ -420,7 +420,7 @@ public class SearchJOGui extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jCheckBox1);
-        jCheckBox1.setBounds(585, 133, 69, 29);
+        jCheckBox1.setBounds(585, 133, 65, 29);
 
         jLabel6.setFont(new java.awt.Font("Century Gothic", 0, 34)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
@@ -615,7 +615,7 @@ public class SearchJOGui extends javax.swing.JFrame {
         
         Add_new_design design_form = new Add_new_design();
         design_form.setVisible(true);
-        //design_form.fill_info_from_purchase_id(Integer.parseInt(selected_purchase_order));
+        design_form.fill_info(Integer.parseInt(selected_purchase_order));
         close();
     }//GEN-LAST:event_button_detailsActionPerformed
 
@@ -693,18 +693,22 @@ public class SearchJOGui extends javax.swing.JFrame {
         
         int row = this.get_table_row_value();
         String id =(this.jTable1.getModel().getValueAt(row, 0).toString());
-        JOptionPane.showMessageDialog(null, "id= " + id);
+        //JOptionPane.showMessageDialog(null, "id= " + id);
         
         purchase_order conn = new purchase_order();
         conn.setId_purchase(Integer.parseInt(id));
         conn.setDesign_code(-1);
-        conn.setJob_order_id(null);
+        //conn.setJob_order_id(null);
         
         ResultSet rs = conn.Search_purchase_info();
         
         try {
+            if(rs.next()){
             int id1 = rs.getInt("design_code");
+            System.out.println(id1);
             return id1;
+            }
+            
         } catch (SQLException ex) {
             Logger.getLogger(SearchJOGui.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -718,16 +722,14 @@ public class SearchJOGui extends javax.swing.JFrame {
         design_conn.setDesign_code(id);
         
         ResultSet rs = design_conn.get_picture_from_design_code();
+        
         if(rs.first()){
             //System.out
                 byte[] imagedata = rs.getBytes("design_picture");
                 format = new ImageIcon(imagedata);
                 this.label_pic.setIcon(format);
         } 
-        else 
-        {
-            this.label_pic.setIcon(null);
-        }
+        
         
         setVisible(true);
     }
