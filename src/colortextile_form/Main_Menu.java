@@ -20,7 +20,7 @@ public class Main_Menu extends javax.swing.JFrame {
      */
     public Main_Menu() {
         initComponents();
-        this.setSize(780, 400);
+        this.setSize(475, 500);
         Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
         int x = (int) ((dimension.getWidth() - this.getWidth()) / 2);
         int y = (int) ((dimension.getHeight() - this.getHeight()) / 2);
@@ -43,6 +43,7 @@ public class Main_Menu extends javax.swing.JFrame {
         Close_but = new javax.swing.JButton();
         add_new_recipe1 = new javax.swing.JButton();
         add_new_recipe2 = new javax.swing.JButton();
+        print_from_recipe = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
 
@@ -51,103 +52,95 @@ public class Main_Menu extends javax.swing.JFrame {
         getContentPane().setLayout(null);
 
         jPanel1.setBackground(new java.awt.Color(51, 153, 255));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Century Gothic", 0, 36)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Century Gothic", 0, 40)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Main Menu");
         jLabel1.setToolTipText("");
+        jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 355, -1));
 
         search_jo.setBackground(new java.awt.Color(255, 255, 255));
-        search_jo.setFont(new java.awt.Font("Century Gothic", 0, 20)); // NOI18N
-        search_jo.setText("Search Job Order");
-        search_jo.setBorder(null);
+        search_jo.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        search_jo.setText("Search,Edit and Use Added Recipe");
+        search_jo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 4));
+        search_jo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        search_jo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         search_jo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 search_joActionPerformed(evt);
             }
         });
+        jPanel1.add(search_jo, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 205, 370, 49));
 
         pigments.setBackground(new java.awt.Color(255, 255, 255));
-        pigments.setFont(new java.awt.Font("Century Gothic", 0, 20)); // NOI18N
-        pigments.setText("Search Pigments");
-        pigments.setBorder(null);
+        pigments.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        pigments.setText("Add Pigments");
+        pigments.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 4));
+        pigments.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        pigments.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         pigments.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 pigmentsActionPerformed(evt);
             }
         });
+        jPanel1.add(pigments, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 325, 370, 49));
 
         Close_but.setBackground(new java.awt.Color(255, 255, 255));
-        Close_but.setFont(new java.awt.Font("Century Gothic", 0, 20)); // NOI18N
+        Close_but.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         Close_but.setText("Exit");
-        Close_but.setBorder(null);
+        Close_but.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 4));
+        Close_but.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Close_but.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         Close_but.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Close_butActionPerformed(evt);
             }
         });
+        jPanel1.add(Close_but, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 385, 370, 49));
 
         add_new_recipe1.setBackground(new java.awt.Color(255, 255, 255));
-        add_new_recipe1.setFont(new java.awt.Font("Century Gothic", 0, 20)); // NOI18N
-        add_new_recipe1.setText("Add New Production Recipe");
-        add_new_recipe1.setBorder(null);
+        add_new_recipe1.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        add_new_recipe1.setText("Add New Design Recipe Order");
+        add_new_recipe1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 4));
+        add_new_recipe1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        add_new_recipe1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         add_new_recipe1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 add_new_recipe1ActionPerformed(evt);
             }
         });
+        jPanel1.add(add_new_recipe1, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 85, 370, 49));
 
         add_new_recipe2.setBackground(new java.awt.Color(255, 255, 255));
-        add_new_recipe2.setFont(new java.awt.Font("Century Gothic", 0, 20)); // NOI18N
-        add_new_recipe2.setText("Add Order from Existing Design");
-        add_new_recipe2.setBorder(null);
+        add_new_recipe2.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        add_new_recipe2.setText("Use Existing Recipe and Add new Order");
+        add_new_recipe2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 4));
+        add_new_recipe2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        add_new_recipe2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         add_new_recipe2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 add_new_recipe2ActionPerformed(evt);
             }
         });
+        jPanel1.add(add_new_recipe2, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 145, 370, 49));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(add_new_recipe1, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(49, 49, 49)
-                            .addComponent(search_jo, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(add_new_recipe2, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(49, 49, 49)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(Close_but, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(pigments, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE))))
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(33, 33, 33))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(jLabel1)
-                .addGap(29, 29, 29)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(search_jo, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(add_new_recipe1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(38, 38, 38)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(pigments, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(add_new_recipe2, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
-                .addComponent(Close_but, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(37, 37, 37))
-        );
+        print_from_recipe.setBackground(new java.awt.Color(255, 255, 255));
+        print_from_recipe.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        print_from_recipe.setText("Print from Existing Recipe/s");
+        print_from_recipe.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 4));
+        print_from_recipe.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        print_from_recipe.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        print_from_recipe.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                print_from_recipeActionPerformed(evt);
+            }
+        });
+        jPanel1.add(print_from_recipe, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 265, 370, 49));
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(10, 0, 740, 370);
+        jPanel1.setBounds(10, 0, 440, 460);
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -159,11 +152,11 @@ public class Main_Menu extends javax.swing.JFrame {
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 370, Short.MAX_VALUE)
+            .addGap(0, 460, Short.MAX_VALUE)
         );
 
         getContentPane().add(jPanel4);
-        jPanel4.setBounds(0, 0, 26, 370);
+        jPanel4.setBounds(0, 0, 26, 460);
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -171,15 +164,15 @@ public class Main_Menu extends javax.swing.JFrame {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 26, Short.MAX_VALUE)
+            .addGap(0, 10, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 370, Short.MAX_VALUE)
+            .addGap(0, 460, Short.MAX_VALUE)
         );
 
         getContentPane().add(jPanel3);
-        jPanel3.setBounds(750, 0, 26, 370);
+        jPanel3.setBounds(450, 0, 10, 460);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -212,6 +205,12 @@ public class Main_Menu extends javax.swing.JFrame {
     private void add_new_recipe2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_new_recipe2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_add_new_recipe2ActionPerformed
+
+    private void print_from_recipeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_print_from_recipeActionPerformed
+        // TODO add your handling code here:
+        PrintForm print_design = new PrintForm();
+        print_design.setVisible(true);
+    }//GEN-LAST:event_print_from_recipeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -257,6 +256,7 @@ public class Main_Menu extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JButton pigments;
+    private javax.swing.JButton print_from_recipe;
     private javax.swing.JButton search_jo;
     // End of variables declaration//GEN-END:variables
 }

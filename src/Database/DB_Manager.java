@@ -9,6 +9,10 @@ package Database;
 import colortextile_class.deletedClass.screen_pigment;
 import colortextile_class.*;
 import java.awt.Image;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.sql.Array;
 import java.sql.Blob;
 import java.sql.Connection;
@@ -1022,7 +1026,6 @@ public class DB_Manager {
     
     public ArrayList<String> get_customer_list(colortextile_class.customer customer_name) 
     {
-        
         try
         {
           DBConnection db = new DBConnection();
@@ -1284,19 +1287,50 @@ public class DB_Manager {
           
             PreparedStatement ps = conn.prepareStatement("SELECT * FROM design_picture WHERE design_code = '"+ this_picture.getDesign_code()+"' ");
             ResultSet rs = ps.executeQuery();
-            while(rs.first())
+            if(rs.first())
             {
-                
                 return rs;
             }
            this.closeConn(conn, ps, rs);
         }
         catch (SQLException ex)
         {
-            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
-            
+            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);  
         }
         return null;
+    }
+    
+    public ArrayList<Integer> get_all_design_code_from_date(String date)
+    {
+        ArrayList<Integer> design_codes = new ArrayList<>();
+        try
+        {
+          DBConnection db = new DBConnection();
+          Connection conn = db.getConnection();  
+          
+            PreparedStatement ps = conn.prepareStatement(" SELECT DISTINCT(design_code)" +
+                                                         " FROM job_order jo, purchase_order po " +
+                                                         " WHERE jo.job_order_id = po.job_order_id" +
+                                                         " AND DATE = ?;");
+            
+            int item = 1;
+            ps.setString(item++, date);
+                                                       
+            ResultSet rs = ps.executeQuery();
+            
+            while(rs.next())
+            {
+                design_codes.add(rs.getInt("design_code"));
+            }
+            this.closeConn(conn, ps, rs);
+        }
+        catch (SQLException ex)
+        {
+            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return design_codes;
+        
     }
     
     public DefaultTableModel get_column_table_for_merged_date()
@@ -1411,12 +1445,11 @@ public class DB_Manager {
     public DefaultTableModel get_column_for_design_customer_job_order()
     {
         DefaultTableModel model = new DefaultTableModel();
-        
+        model.addColumn("Date");  
         model.addColumn("Design");  
         model.addColumn("Color");   
         model.addColumn("Fabric Style");    
-        model.addColumn("Total Quantity");            
-        model.addColumn("Date");  
+        model.addColumn("Total Quantity");
         model.addColumn("Customers");  
         model.addColumn("Job Orders");
         
@@ -1450,11 +1483,11 @@ public class DB_Manager {
                 while (rs.next())
                 {   
                     String[] this_set = {
+                        rs.getString("date"),
                         rs.getString("design_name"),
                         rs.getString("color_name"),
                         rs.getString("fabric_style"),
                         rs.getString("Total"),
-                        rs.getString("date"),
                         rs.getString("Customer"),
                         rs.getString("All Jobs")
                     };
@@ -2022,24 +2055,92 @@ public class DB_Manager {
         }
     }
     //SEARCH END
+    public int check_if_design_picture_has_already_been_added(int design_code)
+    {
+        try {
+            DBConnection db = new DBConnection();
+            Connection conn = db.getConnection();
+
+            PreparedStatement ps = conn.prepareStatement("SELECT EXISTS "
+                    + " (SELECT design_code "
+                    + " FROM design_picture WHERE "
+                    + " design_code = ?) "
+                    + " AS 'CheckTest'");
+
+            int item = 1;
+            ps.setInt(item++, design_code);
+
+            ResultSet rs = ps.executeQuery();
+            
+            rs.first();
+            int checkTest = rs.getInt("CheckTest");
+            
+            this.closeConn(conn, ps);
+            return checkTest;
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return 0;
+    }
     
     public void update_design(design this_design)
     {
         try
         {
           DBConnection db = new DBConnection();
-          Connection conn = db.getConnection();  
+          Connection conn = db.getConnection();
+          
+          File file = new File("New.jpg");
+          FileInputStream fis = new FileInputStream(file);
+          System.out.println(file.exists());
+          if(file.exists())
+          {     
+              PreparedStatement ps;
+              int item =1;
+              if(this.check_if_design_picture_has_already_been_added(this_design.getDesign_code()) == 0)
+              {
+                  ps= conn.prepareStatement("INSERT design_picture "
+                          + "SET design_code = ?, " +
+                            "design_picture = ?");
+                  ps.setInt(item++, this_design.getDesign_code());
+                  try {
+                      ps.setBinaryStream(item++, fis, fis.available());
+                  } catch (IOException ex) {
+                      Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
+                  }
+                  ps.executeUpdate();
+              }
+              else
+              {
+                  ps = conn.prepareStatement("UPDATE design_picture "
+                          + "SET design_picture = ? " +
+                            "WHERE design_code = ?");
+                  
+                  try {
+                      ps.setBinaryStream(item++, fis, fis.available());
+                  } catch (IOException ex) {
+                      Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
+                  }
+                  ps.setInt(item++, this_design.getDesign_code());
+                  ps.executeUpdate();
+              }
+              
+          }
           
           PreparedStatement ps = conn.prepareStatement("UPDATE design "
                                             + "SET design_name = ?, "
                                             + "color_name = ?, "
                                             + "fabric_style = ? "
                                             + "WHERE design_code = ?");
+          
+           
            int item = 1;
            ps.setString(item++, this_design.getDesign_name());
            ps.setString(item++, this_design.getColor_name());
            ps.setString(item++, this_design.getFabric_style());
            ps.setInt(item++, this_design.getDesign_code());
+           
          // System.out.println(ps);
           ps.executeUpdate();
           this.closeConn(conn, ps);
@@ -2048,6 +2149,8 @@ public class DB_Manager {
         {
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
             
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     

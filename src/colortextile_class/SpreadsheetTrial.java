@@ -143,15 +143,14 @@ public class SpreadsheetTrial {
             production_recipe recipe_1 = bulk_recipe.get(0);
             //Remove first Item from the List
             bulk_recipe.remove(0);
-            System.out.println("Design name 1st Item= "+recipe_1.getDesign_name());
+            //System.out.println("Design name 1st Item= "+recipe_1.getDesign_name());
             for (production_recipe recipe_2 : bulk_recipe) 
             {
-                System.out.println("Design name 2nd Item= "+recipe_2.getDesign_name());
+                //System.out.println("Design name 2nd Item= "+recipe_2.getDesign_name());
                 //Loop in the List to check if there is the same Design Name
                 if (recipe_1.getDesign_name().equals(recipe_2.getDesign_name())) 
                 {
                     //if There is the same design name check for all the colorways 
-                    
                     //colorway_to_update    
                     //Loop to find same colorway name
                     for(int colorway1_iterate = 0; colorway1_iterate< recipe_1.getAll_colorways().size(); colorway1_iterate++)
@@ -160,7 +159,7 @@ public class SpreadsheetTrial {
                         // Loop through the 2nd Items colorway
                         for(int colorway2_iterate = 0; colorway2_iterate < recipe_2.getAll_colorways().size(); colorway2_iterate++)
                         {
-                            System.out.println("Colorway #"+colorway2_iterate+ " is :" +recipe_2.getAll_colorways().get(colorway2_iterate).getColorway_name());
+                            //System.out.println("Colorway #"+colorway2_iterate+ " is :" +recipe_2.getAll_colorways().get(colorway2_iterate).getColorway_name());
                             if(recipe_1.getAll_colorways().get(colorway1_iterate).getColorway_name().
                                     equals(recipe_2.getAll_colorways().get(colorway2_iterate).getColorway_name())
                              && recipe_1.getAll_colorways().get(colorway1_iterate).getThis_screens().size() == 
@@ -169,7 +168,6 @@ public class SpreadsheetTrial {
                                     recipe_1.getAll_colorways().get(colorway1_iterate).setWeight_kg(recipe_1.getAll_colorways().get(colorway1_iterate).getWeight_kg()+recipe_2.getAll_colorways().get(colorway2_iterate).getWeight_kg());
                                     recipe_2.getAll_colorways().get(colorway2_iterate).setWeight_kg(0);
                             }
-                            
                         }
                     }
                 }

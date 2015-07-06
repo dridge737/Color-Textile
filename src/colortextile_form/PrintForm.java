@@ -19,6 +19,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -42,7 +43,7 @@ public class PrintForm extends javax.swing.JFrame {
         initComponents();
         fill_table_per_purchase_table();
         //Center the form
-        this.setSize(820, 550);
+        this.setSize(815, 570);
         Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
         
         int x = (int) ((dimension.getWidth() - this.getWidth()) / 2);
@@ -259,41 +260,57 @@ public class PrintForm extends javax.swing.JFrame {
         
     }//GEN-LAST:event_combined_date_buttonMouseClicked
 
+    private void add_this_row_to_another_table(int radio_type)
+    {
+        
+    }
     private void add_row_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_row_buttonActionPerformed
         // TODO add your handling code here:
-        int row = search_print.getSelectedRow();
+        int[] row = search_print.getSelectedRows();
         //int total_col = search_print.getColumnCount();
         //for(int col = 0; col < total_col; col++)
         //{
-        if(row != -1)
+        for(int index_add = 0; index_add< row.length; index_add++ )
         {
             if(this.purchase_button.isSelected())
             {
+                temporary_table_model.addRow((Vector) this.search_model.getDataVector().get(row[index_add]));
+            /*
                 String[] this_set = {
-                        search_print.getValueAt(row, 0).toString(),
-                        search_print.getValueAt(row, 1).toString(),
-                        search_print.getValueAt(row, 2).toString(),
-                        search_print.getValueAt(row, 3).toString(),
-                        search_print.getValueAt(row, 4).toString(),
-                        search_print.getValueAt(row, 5).toString(),
-                        search_print.getValueAt(row, 6).toString()
+                        search_print.getValueAt(row[index_add], 0).toString(),
+                        search_print.getValueAt(row[index_add], 1).toString(),
+                        search_print.getValueAt(row[index_add], 2).toString(),
+                        search_print.getValueAt(row[index_add], 3).toString(),
+                        search_print.getValueAt(row[index_add], 4).toString(),
+                        search_print.getValueAt(row[index_add], 5).toString(),
+                        search_print.getValueAt(row[index_add], 6).toString()
                     };
+                
                     temporary_table_model.addRow(this_set);
+                */
             }
             else
             {
+                temporary_table_model.addRow((Vector) this.search_model.getDataVector().get(row[index_add]));
+                /*
                  String[] this_set = {
-                        search_print.getValueAt(row, 0).toString(),
-                        search_print.getValueAt(row, 1).toString(),
-                        search_print.getValueAt(row, 2).toString(),
-                        search_print.getValueAt(row, 3).toString(),
-                        search_print.getValueAt(row, 4).toString(),
-                        search_print.getValueAt(row, 5).toString()
+                        search_print.getValueAt(row[index_add], 0).toString(),
+                        search_print.getValueAt(row[index_add], 1).toString(),
+                        search_print.getValueAt(row[index_add], 2).toString(),
+                        search_print.getValueAt(row[index_add], 3).toString(),
+                        search_print.getValueAt(row[index_add], 4).toString(),
+                        search_print.getValueAt(row[index_add], 5).toString()
                     };
                     temporary_table_model.addRow(this_set);
+                  */  
             }
-        //}   
         }
+        
+        for(int remove_indexes = row.length; remove_indexes>0; remove_indexes-- )
+        {
+            search_model.removeRow(row[remove_indexes-1]);
+        }
+        
          this.print_table.setModel(temporary_table_model);
         // search_print.remove(row);
         
@@ -302,51 +319,56 @@ public class PrintForm extends javax.swing.JFrame {
 
     private void delete_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_delete_buttonActionPerformed
         // TODO add your handling code here:
-        int index_selected = this.print_table.getSelectedRow();
-        System.out.println(index_selected);
-        if(index_selected != -1)
+        int[] indexes_selected = this.print_table.getSelectedRows();
+        int index_count = this.print_table.getSelectedRowCount();
+        //System.out.println(indexes_selected.length);
+        for(int index_incre = indexes_selected.length; index_incre> 0; index_incre--)
         {
-            this.temporary_table_model.removeRow(0);
-        }
+            search_model.addRow((Vector) this.temporary_table_model.getDataVector().get(indexes_selected[index_incre-1]));
+            this.temporary_table_model.removeRow(indexes_selected[index_incre-1]);
+        }    
     }//GEN-LAST:event_delete_buttonActionPerformed
 
     private void print_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_print_buttonActionPerformed
         // TODO add your handling code here:
-        
         if(print_table.getRowCount()>0)
         {
             for(int incre=0; incre<print_table.getRowCount(); incre++)
             {
                 production_recipe this_prod_recipe = new production_recipe();
-                int radio_button_type, rad_button_type;
-            
+                this_prod_recipe.setDate(print_table.getValueAt(incre, 0).toString());
                 if(purchase_button.isSelected())
                 {
-                    radio_button_type=0;
-                    this_prod_recipe.setDate(print_table.getValueAt(incre, 4).toString());
+                    this_prod_recipe.setDesign_name(print_table.getValueAt(incre, 1).toString());
+                    this_prod_recipe.setColor_name(print_table.getValueAt(incre, 2).toString());
+                    this_prod_recipe.setFabric_style(print_table.getValueAt(incre, 3).toString());
+                    this_prod_recipe.set_design_code_using_variables();
+                    this_prod_recipe.set_design_details_and_colorway_details_from_design_code();
+                    this_prod_recipe.set_all_purchase_details_from_design_code_and_date();
+                    this_prod_recipe.set_job_order_list_using_design_code_and_purchase_id();
+                    //this_prod_recipe.view_all_colorway_details();
+                    //this_prod_recipe.view_all_job_order_details();
+                    //this_prod_recipe.view_all_puchase_order();
+                    prod_recipe.add(this_prod_recipe);
                 }
                 else
                 {
-                    radio_button_type=1;
-                    this_prod_recipe.setDate(print_table.getValueAt(incre, 1).toString());
+                    ArrayList<Integer> all_designs = this_prod_recipe.get_all_design_codes_from_date();
+                    for(int all_codes: all_designs)
+                    {
+                        System.out.println(all_codes);
+                        production_recipe recipe_to_add = new production_recipe();
+                        recipe_to_add.setDesign_code(all_codes);
+                        recipe_to_add.setDate(print_table.getValueAt(incre, 0).toString());
+                        recipe_to_add.set_design_details_and_colorway_details_from_design_code();
+                        recipe_to_add.set_all_purchase_details_from_design_code_and_date();
+                        recipe_to_add.set_job_order_list_using_design_code_and_purchase_id();
+                        recipe_to_add.view_all_colorway_details();
+                        recipe_to_add.view_all_job_order_details();
+                        recipe_to_add.view_all_puchase_order();
+                        prod_recipe.add(recipe_to_add);
+                    }
                 }
-                System.out.println("Design Name = "+print_table.getValueAt(incre, radio_button_type));
-                System.out.println("Color Name = "+print_table.getValueAt(incre, radio_button_type+1));
-                System.out.println("Fabric = "+print_table.getValueAt(incre, radio_button_type+2));
-                this_prod_recipe.setDesign_name(print_table.getValueAt(incre, radio_button_type).toString());
-                this_prod_recipe.setColor_name(print_table.getValueAt(incre, radio_button_type+1).toString());
-                this_prod_recipe.setFabric_style(print_table.getValueAt(incre, radio_button_type+2).toString());
-                this_prod_recipe.set_design_code_using_variables();
-                this_prod_recipe.set_design_details_from_design_code();
-                //this_prod_recipe.set_all_job_order_from_design_code_and_date();
-                this_prod_recipe.set_all_purchase_details_from_design_code_and_date();
-                this_prod_recipe.set_job_order_list_using_design_code_and_purchase_id();
-                //this_prod_recipe.view_all_colorway_details();
-                this_prod_recipe.view_all_puchase_order();
-                //this_prod_recipe.view_all_job_order_details();
-                prod_recipe.add(this_prod_recipe);
-                
-                
             }
             SpreadsheetTrial file_to_print = new SpreadsheetTrial();
             file_to_print.bulk_print_item(prod_recipe);
@@ -357,6 +379,15 @@ public class PrintForm extends javax.swing.JFrame {
         
     }//GEN-LAST:event_print_buttonActionPerformed
 
+    private void add_this_item_to_list(production_recipe this_prod_recipe)
+    {
+        /*
+                System.out.println("Design Name = "+print_table.getValueAt(incre, radio_button_type));
+                System.out.println("Color Name = "+print_table.getValueAt(incre, radio_button_type+1));
+                System.out.println("Fabric = "+print_table.getValueAt(incre, radio_button_type+2));
+                */
+        
+    }
     private void purchase_buttonItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_purchase_buttonItemStateChanged
         // TODO add your handling code here:
         if(this.purchase_button.isSelected())

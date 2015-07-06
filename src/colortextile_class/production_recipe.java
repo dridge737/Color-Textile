@@ -245,7 +245,7 @@ public class production_recipe extends Design_and_colorway{
     /**
      * Set 
      */
-    public void set_design_details_from_design_code()
+    public void set_design_details_and_colorway_details_from_design_code()
     {
         this.setDesign_details_from_des_code();
         this.set_all_colorway_from_design_code();
@@ -255,5 +255,12 @@ public class production_recipe extends Design_and_colorway{
     {
         Database.DB_Manager new_conn = new Database.DB_Manager();
         this.all_purchase = new_conn.get_all_purchase_details_from_date_and_design(Date, this.getDesign_code());
+    }
+    
+    public ArrayList<Integer> get_all_design_codes_from_date()
+    {
+        Database.DB_Manager new_conn = new Database.DB_Manager();
+        return new_conn.get_all_design_code_from_date(Date);
+        
     }
 }

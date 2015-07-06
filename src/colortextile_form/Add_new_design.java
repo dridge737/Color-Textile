@@ -29,6 +29,8 @@ import javax.swing.SpinnerDateModel;
  *
  * @author Eldridge
  */
+
+
 public class Add_new_design extends javax.swing.JFrame {
 
     private int count_screen_1 = 0;
@@ -54,6 +56,16 @@ public class Add_new_design extends javax.swing.JFrame {
     }
     
     public Add_new_design() {
+        this.addWindowListener(new java.awt.event.WindowAdapter() {
+            @Override
+            public void windowClosing(java.awt.event.WindowEvent windowEvent) {
+                if (JOptionPane.showConfirmDialog(null,"Are you sure to close this window?", "Close window?", 
+            JOptionPane.YES_NO_OPTION,
+            JOptionPane.QUESTION_MESSAGE) == JOptionPane.YES_OPTION){
+            dispose();
+                }
+            }
+});
         initComponents();
         addListItems();
         
@@ -70,6 +82,8 @@ public class Add_new_design extends javax.swing.JFrame {
         current_style = fab_style_comb.getSelectedItem().toString();
         
     }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -2068,7 +2082,7 @@ public class Add_new_design extends javax.swing.JFrame {
 
         add_order2.setBackground(new java.awt.Color(255, 255, 255));
         add_order2.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        add_order2.setText("Cancel Purchase");
+        add_order2.setText("Exit and Cancel");
         add_order2.setToolTipText("");
         add_order2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

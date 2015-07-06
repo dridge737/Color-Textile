@@ -50,7 +50,7 @@ public class SearchJOGui extends javax.swing.JFrame {
         Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
         int x = (int) ((dimension.getWidth() - this.getWidth()) / 2);
         int y = (int) ((dimension.getHeight() - this.getHeight()) / 2);
-        this.setLocation(x,0);
+        this.setLocation(x,y);
         
         this.combo_customer.addItem("");
         customer list = new customer();
@@ -265,7 +265,7 @@ public class SearchJOGui extends javax.swing.JFrame {
             }
         });
         jFrame1.getContentPane().add(jCheckBox2);
-        jCheckBox2.setBounds(585, 133, 69, 29);
+        jCheckBox2.setBounds(585, 133, 65, 29);
 
         jLabel8.setFont(new java.awt.Font("Century Gothic", 0, 34)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
@@ -420,7 +420,7 @@ public class SearchJOGui extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jCheckBox1);
-        jCheckBox1.setBounds(585, 133, 69, 29);
+        jCheckBox1.setBounds(585, 133, 65, 29);
 
         jLabel6.setFont(new java.awt.Font("Century Gothic", 0, 34)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
@@ -443,6 +443,7 @@ public class SearchJOGui extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTable1.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jTable1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jTable1KeyPressed(evt);
@@ -682,12 +683,14 @@ public class SearchJOGui extends javax.swing.JFrame {
         design_conn.setDesign_code(Integer.parseInt(id));
         
         ResultSet rs = design_conn.get_picture_from_design_code();
-        if(rs.next()){
-                byte[]imagedata = rs.getBytes("design_picture");
+        if(rs.first()){
+            //System.out
+                byte[] imagedata = rs.getBytes("design_picture");
                 format = new ImageIcon(imagedata);
                 this.label_pic.setIcon(format);
-                
-            } else {
+        } 
+        else 
+        {
             this.label_pic.setIcon(null);
         }
         
