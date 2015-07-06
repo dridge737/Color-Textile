@@ -2627,7 +2627,7 @@ public class Add_new_design extends javax.swing.JFrame {
                     + "Do you want to use the existing design?","Use existing design?", JOptionPane.YES_NO_OPTION);
             if(reply == JOptionPane.YES_OPTION)
             {
-                
+                //this_design.setDesign_code(reply);
             }
             else
             {
