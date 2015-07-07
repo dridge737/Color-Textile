@@ -39,7 +39,7 @@ public class screen_pigment extends pigment /*implements Comparable<screen_pigme
         DB_Manager new_conn = new DB_Manager();
         if(!check_screen_pigment_exists())
         {
-            new_conn.add_screen_pigment(this);
+            //new_conn.add_screen_pigment(this);
             return true;
         }
         return false;

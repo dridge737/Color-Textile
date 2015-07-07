@@ -8,7 +8,7 @@ package colortextile_form;
 //import colortextile_class.deletedClass.screen_pigment;
 import Database.DB_Manager;
 import colortextile_class.*;
-import com.github.sarxos.webcam.Webcam;
+//import com.github.sarxos.webcam.Webcam;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
@@ -306,7 +306,7 @@ public class EditRecipe extends javax.swing.JFrame {
     {
         colorway.setText(this_c_and_s.getColorway_name());
         weight.setText(Float.toString(this_c_and_s.getWeight_kg()));
-        binder.setSelectedItem(this_c_and_s.getBinder());
+        binder.setSelectedItem(Float.toString(this_c_and_s.getBinder()));
     }
     
     
@@ -857,7 +857,7 @@ public class EditRecipe extends javax.swing.JFrame {
 
         button_include_customer.setBackground(new java.awt.Color(255, 255, 255));
         button_include_customer.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
-        button_include_customer.setText("Add Customer Order");
+        button_include_customer.setText("Add Order");
         button_include_customer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_include_customerActionPerformed(evt);
@@ -2964,7 +2964,7 @@ public class EditRecipe extends javax.swing.JFrame {
                    
                     if(edit_item.getText().equals("Cancel Edit"))
                     {
-                        edit_item.setText("Edit Purchase");
+                        edit_item.setText("Edit Order");
                         this.temporary_list.clear_all_items();
                     }
                }
@@ -3211,7 +3211,12 @@ public class EditRecipe extends javax.swing.JFrame {
 
     private void cancel_butActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancel_butActionPerformed
         // TODO add your handling code here:
-        this.dispose();
+         int CloseorNoreply = JOptionPane.showConfirmDialog(null,"Cancel the Edit of this Production Recipe and Close this Window? "
+                    + "(Yes to close this window) ", "Close this Window?", JOptionPane.YES_NO_OPTION);
+            if(CloseorNoreply == JOptionPane.YES_OPTION)
+            {
+                this.dispose();
+            }
     }//GEN-LAST:event_cancel_butActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

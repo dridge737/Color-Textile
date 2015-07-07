@@ -64,6 +64,7 @@ public class Add_new_design extends javax.swing.JFrame {
             JOptionPane.QUESTION_MESSAGE) == JOptionPane.YES_OPTION){
             dispose();
                 }
+                
             }
        });
         initComponents();
@@ -386,7 +387,7 @@ public class Add_new_design extends javax.swing.JFrame {
         jTextArea1.setRows(5);
         jScrollPane2.setViewportView(jTextArea1);
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Add New Design");
         setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         setForeground(java.awt.Color.white);
@@ -652,7 +653,7 @@ public class Add_new_design extends javax.swing.JFrame {
 
         button_include_customer.setBackground(new java.awt.Color(255, 255, 255));
         button_include_customer.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
-        button_include_customer.setText("Add the Customer Order");
+        button_include_customer.setText("Add Customer Order");
         button_include_customer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_include_customerActionPerformed(evt);
@@ -663,14 +664,14 @@ public class Add_new_design extends javax.swing.JFrame {
 
         button_remove_customer.setBackground(new java.awt.Color(255, 255, 255));
         button_remove_customer.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
-        button_remove_customer.setText("Delete item Order");
+        button_remove_customer.setText("Delete Order");
         button_remove_customer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_remove_customerActionPerformed(evt);
             }
         });
         jPanel16.add(button_remove_customer);
-        button_remove_customer.setBounds(584, 168, 173, 30);
+        button_remove_customer.setBounds(584, 168, 133, 30);
 
         jScrollPane1.setViewportView(jList1);
 
@@ -732,7 +733,7 @@ public class Add_new_design extends javax.swing.JFrame {
 
         edit_purchase.setBackground(new java.awt.Color(255, 255, 255));
         edit_purchase.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
-        edit_purchase.setText("Edit item Order");
+        edit_purchase.setText("Edit Order");
         edit_purchase.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 edit_purchaseActionPerformed(evt);
@@ -2975,7 +2976,7 @@ public class Add_new_design extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (this.text_job_order.getText().length() >= 4 )
             this.text_job_order.setText(text_job_order.getText().substring(0, 3));
-        
+       
     }//GEN-LAST:event_text_job_orderKeyTyped
 
     private void coverage1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_coverage1KeyReleased
@@ -3244,13 +3245,12 @@ public class Add_new_design extends javax.swing.JFrame {
 
     private void add_order2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_order2ActionPerformed
         // TODO add your handling code here:
-        int CloseorNoreply = JOptionPane.showConfirmDialog(null,"Cancel the addition of purchase and Close this Window? "
+        int CloseorNoreply = JOptionPane.showConfirmDialog(null,"Cancel the order and Close this Window? "
                     + "(Yes to close this window) ", "Close this Window?", JOptionPane.YES_NO_OPTION);
             if(CloseorNoreply == JOptionPane.YES_OPTION)
             {
                 this.dispose();
             }
-        this.dispose();
     }//GEN-LAST:event_add_order2ActionPerformed
 
     private void quantityKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_quantityKeyReleased
@@ -3665,13 +3665,16 @@ public class Add_new_design extends javax.swing.JFrame {
     private boolean check_this_textbox(JTextField the_textfield)
     {
         if(use_func.checkText2(the_textfield.getText()))
-        {
-            if(!the_textfield.getBackground().equals(Color.pink) )
-            {
-                the_textfield.setBackground(Color.pink);
-                count_screen_1++;
-            }
-            check_screen();
+        { 
+            
+            //this.text_job_order.setText(text_job_order.getText().substring(0, 3));
+            the_textfield.setText(the_textfield.getText().replaceAll("[^0-9]", ""));
+            //if(!the_textfield.getBackground().equals(Color.pink) )
+            //{
+            //    the_textfield.setBackground(Color.pink);
+            //    count_screen_1++;
+            //}
+            //check_screen();
             return false;
         }
         else

@@ -26,11 +26,19 @@ public class Preview_form extends javax.swing.JFrame {
     
     public Preview_form(colortextile_class.production_recipe this_prod)
     {
+        //this.setSize(829, 621);
         Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
         int x = (int) ((dimension.getWidth() - this.getWidth()) / 5);
         //int y = (int) ((dimension.getHeight() - this.getHeight()) / 4);
         this.setLocation(x,50);
         initComponents();
+        initialize_items(this_prod);
+        //FOR Loop
+        //this_prod
+    }
+    
+    public void initialize_items(colortextile_class.production_recipe this_prod)
+    {
         this.des_colorway.setText(this_prod.getColor_name());
         this.des_name.setText(this_prod.getDesign_name());
         this.fab_style.setText(this_prod.getFabric_style());
@@ -251,8 +259,7 @@ public class Preview_form extends javax.swing.JFrame {
                 }
                 
             }//IF Statement
-        }//FOR Loop
-        //this_prod
+        }
     }
 
     private void add_screen_to_textfield(Pigment_screen_and_colorway this_screen, String kgp, JTextField name, JTextField percentage, JTextField kilograms)
@@ -288,6 +295,7 @@ public class Preview_form extends javax.swing.JFrame {
         fab_style = new javax.swing.JTextField();
         des_name = new javax.swing.JTextField();
         des_colorway = new javax.swing.JTextField();
+        jSeparator50 = new javax.swing.JSeparator();
         jScrollPane1 = new javax.swing.JScrollPane();
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
@@ -534,8 +542,10 @@ public class Preview_form extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Preview");
         setBackground(new java.awt.Color(51, 153, 255));
-        setMinimumSize(new java.awt.Dimension(820, 650));
+        setMinimumSize(new java.awt.Dimension(801, 660));
         setName("Print Preview\n"); // NOI18N
+        setPreferredSize(new java.awt.Dimension(801, 660));
+        setResizable(false);
         getContentPane().setLayout(null);
 
         jPanel1.setBackground(new java.awt.Color(51, 153, 255));
@@ -622,9 +632,10 @@ public class Preview_form extends javax.swing.JFrame {
 
         des_colorway.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jPanel2.add(des_colorway, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 82, 150, 32));
+        jPanel2.add(jSeparator50, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 125, 820, 10));
 
         getContentPane().add(jPanel2);
-        jPanel2.setBounds(0, 50, 809, 124);
+        jPanel2.setBounds(0, 50, 809, 140);
 
         jScrollPane1.setBackground(new java.awt.Color(51, 153, 255));
         jScrollPane1.setForeground(new java.awt.Color(255, 255, 255));
@@ -809,8 +820,8 @@ public class Preview_form extends javax.swing.JFrame {
 
         jPanel3.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 790, 210));
 
+        jPanel5.setBackground(new java.awt.Color(19, 110, 200));
         jPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        jPanel5.setOpaque(false);
         jPanel5.setLayout(null);
         jPanel5.add(jSeparator8);
         jSeparator8.setBounds(80, 165, 710, 10);
@@ -1155,8 +1166,8 @@ public class Preview_form extends javax.swing.JFrame {
 
         jPanel3.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 418, 790, 210));
 
+        jPanel7.setBackground(new java.awt.Color(19, 110, 200));
         jPanel7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        jPanel7.setOpaque(false);
         jPanel7.setLayout(null);
         jPanel7.add(jSeparator22);
         jSeparator22.setBounds(80, 165, 710, 10);
@@ -1501,8 +1512,8 @@ public class Preview_form extends javax.swing.JFrame {
 
         jPanel3.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 836, 790, 210));
 
+        jPanel9.setBackground(new java.awt.Color(19, 110, 200));
         jPanel9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        jPanel9.setOpaque(false);
         jPanel9.setLayout(null);
         jPanel9.add(jSeparator36);
         jSeparator36.setBounds(80, 165, 710, 10);
@@ -1850,16 +1861,16 @@ public class Preview_form extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jPanel3);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(-1, 172, 809, 380);
+        jScrollPane1.setBounds(-1, 182, 809, 380);
 
         jPanel11.setBackground(new java.awt.Color(51, 153, 255));
         jPanel11.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         add_order2.setBackground(new java.awt.Color(255, 255, 255));
-        add_order2.setFont(new java.awt.Font("Segoe UI Light", 0, 22)); // NOI18N
+        add_order2.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         add_order2.setText("Close");
         add_order2.setToolTipText("");
-        add_order2.setOpaque(false);
+        add_order2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         add_order2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 add_order2ActionPerformed(evt);
@@ -1868,7 +1879,7 @@ public class Preview_form extends javax.swing.JFrame {
         jPanel11.add(add_order2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 10, 190, 40));
 
         getContentPane().add(jPanel11);
-        jPanel11.setBounds(0, 550, 810, 70);
+        jPanel11.setBounds(0, 560, 810, 60);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -2090,6 +2101,7 @@ public class Preview_form extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator48;
     private javax.swing.JSeparator jSeparator49;
     private javax.swing.JSeparator jSeparator5;
+    private javax.swing.JSeparator jSeparator50;
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JSeparator jSeparator8;
