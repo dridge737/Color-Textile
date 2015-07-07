@@ -69,7 +69,7 @@ public class DB_Manager {
         
         int item = 1;
         
-        ps.setString(item++, fabric_name);
+        ps.setString(item++, fabric_name.toUpperCase());
         ps.executeUpdate();
         
         this.closeConn(conn, ps);
@@ -81,34 +81,6 @@ public class DB_Manager {
         return false;
     }
     
-    public boolean add_screen_pigment(colortextile_class.deletedClass.screen_pigment new_screen_pigment)
-    {
-        DBConnection db = new DBConnection();
-        Connection conn = db.getConnection();
-       
-        try {
-             PreparedStatement ps = 
-                     conn.prepareStatement("INSERT INTO screen_pigment (pigment_no, pigment_percentage) "
-                                            + "SELECT ?, ? FROM DUAL"
-                                            + "WHERE NOT EXISTS "
-                                            + "(SELECT 1 FROM screen_pigment "
-                                            + " WHERE pigment_no = ? AND pigment_percentage = ?");
-        
-        int item = 1;
-        
-        ps.setInt(item++, new_screen_pigment.getPigment_no());
-        ps.setFloat(item++, new_screen_pigment.getPigment_percentage());
-        ps.setInt(item++, new_screen_pigment.getPigment_no());
-        ps.setFloat(item++, new_screen_pigment.getPigment_percentage());
-        ps.executeUpdate();
-        
-        this.closeConn(conn, ps);
-        return true;
-        } catch (SQLException ex) {
-            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return false;
-    }
     
     public int count_number_of_pigment()
     {
@@ -139,7 +111,7 @@ public class DB_Manager {
             PreparedStatement ps = conn.prepareStatement("INSERT INTO pigment(pigment_name) VALUES (?)");
 
             int item = 1;
-            ps.setString(item++, this_pigment.getPigment_name());
+            ps.setString(item++, this_pigment.getPigment_name().toUpperCase());
 
             ps.executeUpdate();
             this.closeConn(conn, ps);
@@ -246,7 +218,7 @@ public class DB_Manager {
             String query = "INSERT INTO customer (customer_name) VALUES (?)";
 
             PreparedStatement preparedStmt = conn.prepareStatement(query);
-            preparedStmt.setString(1, new_customer.getCustomer_name());
+            preparedStmt.setString(1, new_customer.getCustomer_name().toUpperCase());
 
             preparedStmt.execute();
             
@@ -290,7 +262,7 @@ public class DB_Manager {
             PreparedStatement ps = conn.prepareStatement("INSERT INTO colorway (colorway_name, binder, weight_kg, design_code)"
                                                        + "VALUES (? , ROUND(?, 2) , ROUND(?, 2) , ?)");
             int item =1;
-            ps.setString(item++, new_colorway.getColorway_name());
+            ps.setString(item++, new_colorway.getColorway_name().toUpperCase());
             ps.setFloat(item++, new_colorway.getBinder());
             ps.setFloat(item++, new_colorway.getWeight_kg());
             ps.setInt(item++, new_colorway.getDesign_code());
@@ -343,9 +315,9 @@ public class DB_Manager {
             PreparedStatement ps = conn.prepareStatement("INSERT INTO design (design_name, color_name, fabric_style) "
                                                         + "VALUES ( ? , ? , ? )");
             int item = 1;
-            ps.setString(item++, new_design.getDesign_name()); 
-            ps.setString(item++, new_design.getColor_name());
-            ps.setString(item++, new_design.getFabric_style());
+            ps.setString(item++, new_design.getDesign_name().toUpperCase()); 
+            ps.setString(item++, new_design.getColor_name().toUpperCase());
+            ps.setString(item++, new_design.getFabric_style().toUpperCase());
           
             ps.executeUpdate();
             //System.out.println("Another Result = " +hello);
@@ -2350,7 +2322,39 @@ public class DB_Manager {
     
     ////////////////////////UNUSED
     private void not_used_classes(){
+        
     /*
+        
+    public boolean add_screen_pigment(colortextile_class.deletedClass.screen_pigment new_screen_pigment)
+    {
+        DBConnection db = new DBConnection();
+        Connection conn = db.getConnection();
+       
+        try {
+             PreparedStatement ps = 
+                     conn.prepareStatement("INSERT INTO screen_pigment (pigment_no, pigment_percentage) "
+                                            + "SELECT ?, ? FROM DUAL"
+                                            + "WHERE NOT EXISTS "
+                                            + "(SELECT 1 FROM screen_pigment "
+                                            + " WHERE pigment_no = ? AND pigment_percentage = ?");
+        
+        int item = 1;
+        
+        ps.setInt(item++, new_screen_pigment.getPigment_no());
+        ps.setFloat(item++, new_screen_pigment.getPigment_percentage());
+        ps.setInt(item++, new_screen_pigment.getPigment_no());
+        ps.setFloat(item++, new_screen_pigment.getPigment_percentage());
+        ps.executeUpdate();
+        
+        this.closeConn(conn, ps);
+        return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
+        
+        
     public screen_pigment get_pigment_id_and_percentage(int id_screen)
     {
         

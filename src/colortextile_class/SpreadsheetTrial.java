@@ -125,8 +125,13 @@ public class SpreadsheetTrial {
             ddoc.saveToPackageAs(outFile); 
             }                
             */
-            template.saveAs(outFile);
-            
+                template.saveAs(outFile); 
+         }
+         catch (IOException ex)
+         {
+             JOptionPane.showMessageDialog(null, "Please Close the Opened Document");
+                        //JOptionPane.("");
+             Logger.getLogger(SpreadsheetTrial.class.getName()).log(Level.SEVERE, null, ex);
          }
          catch (Exception e) {
             e.printStackTrace();
@@ -184,7 +189,7 @@ public class SpreadsheetTrial {
     
     public void bulk_print_item(List<production_recipe> recipe_to_be_printed)
     {
-        System.out.println("RECIPE SIZE = "+recipe_to_be_printed.size());
+        //System.out.println("RECIPE SIZE = "+recipe_to_be_printed.size());
         
         if(recipe_to_be_printed.size()>1)
         {
@@ -217,9 +222,9 @@ public class SpreadsheetTrial {
                         //JOptionPane.("");
                         Logger.getLogger(SpreadsheetTrial.class.getName()).log(Level.SEVERE, null, ex);
                     }
-                    f1.deleteOnExit();
-                    f2.deleteOnExit();
-                    new File("PrintFile").deleteOnExit();
+                    f1.delete();
+                    f2.delete();
+                    //new File("PrintFile").
                 }
             }
         }

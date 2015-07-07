@@ -401,6 +401,7 @@ public class PrintForm extends javax.swing.JFrame {
             }
             SpreadsheetTrial file_to_print = new SpreadsheetTrial();
             file_to_print.bulk_print_item(prod_recipe);
+            prod_recipe.clear();
         }
         else{
             JOptionPane.showMessageDialog(null,"Please add something to print");
