@@ -22,6 +22,7 @@ import java.util.regex.Pattern;
 import java.nio.channels.FileChannel;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import org.jopendocument.dom.ODSingleXMLDocument;
 import org.jopendocument.dom.OOXML;
 import org.jopendocument.dom.XMLVersion;
@@ -41,7 +42,7 @@ import org.jopendocument.dom.template.RhinoTemplate;
  */
 public class SpreadsheetTrial {
 
-        static String in = "Printext_change3.odt";
+        static String in = "Printext_change4.odt";
 	static final String out = "print_out.odt";
         static Namespace ns = Namespace.getNamespace("xlink", "http://www.w3.org/1999/xlink");
         static int screen_count =2;
@@ -66,7 +67,7 @@ public class SpreadsheetTrial {
             template.setField("date", this_purchase.getDate());
             template.setField("fabStyle", this_purchase.getFabric_style());
             template.setField("quant", quantity_all);
-            template.setField("total", quantity_sum);
+            template.setField("total", Integer.toString(quantity_sum));
             template.setField("color", this_purchase.getColor_name());
             
             List<Colorway_screen_link_functions> this_colorway = this_purchase.getAll_colorways();
@@ -199,6 +200,7 @@ public class SpreadsheetTrial {
                 {
                     File f1 = new File("file1.odt");
                     File f2 = new File("file2.odt");
+                    
                     ODSingleXMLDocument p1;
                     try {
                         p1 = ODSingleXMLDocument.createFromPackage(f1);
@@ -206,11 +208,18 @@ public class SpreadsheetTrial {
                         ODSingleXMLDocument p2 = ODSingleXMLDocument.createFromPackage(f2);
                         p1.add(p2);
                         p1.saveToPackageAs(new File("PrintFile"));
+                        
                     } catch (JDOMException ex) {
+                        
                     Logger.getLogger(SpreadsheetTrial.class.getName()).log(Level.SEVERE, null, ex);
                     } catch (IOException ex) {
+                        JOptionPane.showMessageDialog(null, "Please Close the Opened Document");
+                        //JOptionPane.("");
                         Logger.getLogger(SpreadsheetTrial.class.getName()).log(Level.SEVERE, null, ex);
                     }
+                    f1.deleteOnExit();
+                    f2.deleteOnExit();
+                    new File("PrintFile").deleteOnExit();
                 }
             }
         }

@@ -99,8 +99,8 @@ public class PrintForm extends javax.swing.JFrame {
         print_button = new javax.swing.JButton();
         add_row_button = new javax.swing.JButton();
         delete_button = new javax.swing.JButton();
-        jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        cancel_button = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Print Form");
@@ -229,17 +229,18 @@ public class PrintForm extends javax.swing.JFrame {
         jPanel1.add(jPanel2);
         jPanel2.setBounds(10, 64, 780, 40);
 
-        print_button.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
-        print_button.setText("Confirm this Table and Print");
+        print_button.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        print_button.setText("Print Table ");
+        print_button.setMargin(new java.awt.Insets(2, 2, 2, 2));
         print_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 print_buttonActionPerformed(evt);
             }
         });
         jPanel1.add(print_button);
-        print_button.setBounds(10, 480, 340, 40);
+        print_button.setBounds(10, 480, 250, 40);
 
-        add_row_button.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
+        add_row_button.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         add_row_button.setText("Add selected row to Print Table");
         add_row_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -250,29 +251,32 @@ public class PrintForm extends javax.swing.JFrame {
         add_row_button.setBounds(240, 290, 320, 40);
         add_row_button.getAccessibleContext().setAccessibleName("add_row");
 
-        delete_button.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
-        delete_button.setText("Remove selected row from Print Table");
+        delete_button.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        delete_button.setText("Remove Selected Item");
+        delete_button.setMargin(new java.awt.Insets(2, 2, 2, 2));
         delete_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 delete_buttonActionPerformed(evt);
             }
         });
         jPanel1.add(delete_button);
-        delete_button.setBounds(450, 480, 340, 40);
-
-        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
-        jPanel3.setOpaque(false);
-        jPanel3.setLayout(null);
+        delete_button.setBounds(270, 480, 270, 40);
 
         jLabel1.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Print Table");
-        jPanel3.add(jLabel1);
-        jLabel1.setBounds(60, 0, 130, 40);
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(20, 300, 130, 40);
 
-        jPanel1.add(jPanel3);
-        jPanel3.setBounds(597, 300, 190, 80);
+        cancel_button.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        cancel_button.setText("Cancel & Exit");
+        cancel_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancel_buttonActionPerformed(evt);
+            }
+        });
+        jPanel1.add(cancel_button);
+        cancel_button.setBounds(550, 480, 240, 40);
 
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 800, 540);
@@ -449,6 +453,11 @@ public class PrintForm extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jTextField1KeyReleased
 
+    private void cancel_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancel_buttonActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_cancel_buttonActionPerformed
+
     
     /**
      * @param args the command line arguments
@@ -487,6 +496,7 @@ public class PrintForm extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton add_row_button;
+    private javax.swing.JButton cancel_button;
     private javax.swing.JRadioButton combined_date_button;
     private javax.swing.JButton delete_button;
     private javax.swing.JLabel jLabel1;
@@ -494,7 +504,6 @@ public class PrintForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField jTextField1;
