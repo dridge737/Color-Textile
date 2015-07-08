@@ -26,13 +26,14 @@ public class Preview_form extends javax.swing.JFrame {
     
     public Preview_form(colortextile_class.production_recipe this_prod)
     {
-        //this.setSize(829, 621);
-        Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
-        int x = (int) ((dimension.getWidth() - this.getWidth()) / 5);
-        //int y = (int) ((dimension.getHeight() - this.getHeight()) / 4);
-        this.setLocation(x,50);
         initComponents();
         initialize_items(this_prod);
+        this.setSize(824, 658);
+        Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
+        int x = (int) ((dimension.getWidth() - this.getWidth()) / 2);
+        int y = (int) ((dimension.getHeight() - this.getHeight()) / 2);
+        this.setLocation(x,y);
+        
         //FOR Loop
         //this_prod
     }
@@ -542,10 +543,7 @@ public class Preview_form extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Preview");
         setBackground(new java.awt.Color(51, 153, 255));
-        setMinimumSize(new java.awt.Dimension(801, 660));
         setName("Print Preview\n"); // NOI18N
-        setPreferredSize(new java.awt.Dimension(801, 660));
-        setResizable(false);
         getContentPane().setLayout(null);
 
         jPanel1.setBackground(new java.awt.Color(51, 153, 255));
@@ -568,6 +566,8 @@ public class Preview_form extends javax.swing.JFrame {
         jLabel6.setBounds(530, 10, 125, 32);
 
         date.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        date.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        date.setEnabled(false);
         jPanel1.add(date);
         date.setBounds(660, 9, 120, 32);
 
@@ -577,6 +577,7 @@ public class Preview_form extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(51, 153, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         jPanel2.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel2.setEnabled(false);
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
@@ -616,21 +617,33 @@ public class Preview_form extends javax.swing.JFrame {
         jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 82, 90, 32));
 
         cust_text.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        cust_text.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        cust_text.setEnabled(false);
         jPanel2.add(cust_text, new org.netbeans.lib.awtextra.AbsoluteConstraints(108, 8, 380, 32));
 
         job_text.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        job_text.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        job_text.setEnabled(false);
         jPanel2.add(job_text, new org.netbeans.lib.awtextra.AbsoluteConstraints(108, 45, 380, 32));
 
         quantity.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        quantity.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        quantity.setEnabled(false);
         jPanel2.add(quantity, new org.netbeans.lib.awtextra.AbsoluteConstraints(108, 82, 380, 32));
 
         fab_style.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        fab_style.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        fab_style.setEnabled(false);
         jPanel2.add(fab_style, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 8, 150, 32));
 
         des_name.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        des_name.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        des_name.setEnabled(false);
         jPanel2.add(des_name, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 45, 150, 32));
 
         des_colorway.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        des_colorway.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        des_colorway.setEnabled(false);
         jPanel2.add(des_colorway, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 82, 150, 32));
         jPanel2.add(jSeparator50, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 125, 820, 10));
 
@@ -689,34 +702,50 @@ public class Preview_form extends javax.swing.JFrame {
         jLabel25.setBounds(480, 8, 109, 32);
 
         pig_name1.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        pig_name1.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        pig_name1.setEnabled(false);
         jPanel4.add(pig_name1);
         pig_name1.setBounds(209, 50, 150, 32);
 
         pig_name2.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        pig_name2.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        pig_name2.setEnabled(false);
         jPanel4.add(pig_name2);
         pig_name2.setBounds(209, 90, 150, 32);
 
         perc1.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        perc1.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        perc1.setEnabled(false);
         jPanel4.add(perc1);
         perc1.setBounds(435, 50, 43, 32);
 
         pig_name3.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        pig_name3.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        pig_name3.setEnabled(false);
         jPanel4.add(pig_name3);
         pig_name3.setBounds(209, 130, 150, 32);
 
         perc2.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        perc2.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        perc2.setEnabled(false);
         jPanel4.add(perc2);
         perc2.setBounds(435, 90, 43, 32);
 
         perc3.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        perc3.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        perc3.setEnabled(false);
         jPanel4.add(perc3);
         perc3.setBounds(435, 130, 43, 32);
 
         screen1.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        screen1.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        screen1.setEnabled(false);
         jPanel4.add(screen1);
         screen1.setBounds(177, 8, 212, 32);
 
         kg1.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        kg1.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        kg1.setEnabled(false);
         jPanel4.add(kg1);
         kg1.setBounds(590, 8, 77, 32);
 
@@ -749,14 +778,20 @@ public class Preview_form extends javax.swing.JFrame {
         jLabel29.setBounds(10, 50, 50, 160);
 
         kgp1.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        kgp1.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        kgp1.setEnabled(false);
         jPanel4.add(kgp1);
         kgp1.setBounds(560, 50, 43, 32);
 
         kgp2.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        kgp2.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        kgp2.setEnabled(false);
         jPanel4.add(kgp2);
         kgp2.setBounds(560, 90, 43, 32);
 
         kgp3.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        kgp3.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        kgp3.setEnabled(false);
         jPanel4.add(kgp3);
         kgp3.setBounds(560, 130, 43, 32);
 
@@ -794,6 +829,8 @@ public class Preview_form extends javax.swing.JFrame {
         jLabel33.setBounds(320, 173, 51, 32);
 
         bind_per1.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        bind_per1.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        bind_per1.setEnabled(false);
         jPanel4.add(bind_per1);
         bind_per1.setBounds(380, 173, 60, 32);
 
@@ -862,34 +899,50 @@ public class Preview_form extends javax.swing.JFrame {
         jLabel37.setBounds(480, 8, 109, 32);
 
         pig_name4.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        pig_name4.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        pig_name4.setEnabled(false);
         jPanel5.add(pig_name4);
         pig_name4.setBounds(209, 50, 150, 32);
 
         pig_name5.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        pig_name5.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        pig_name5.setEnabled(false);
         jPanel5.add(pig_name5);
         pig_name5.setBounds(209, 90, 150, 32);
 
         perc4.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        perc4.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        perc4.setEnabled(false);
         jPanel5.add(perc4);
         perc4.setBounds(435, 50, 43, 32);
 
         pig_name6.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        pig_name6.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        pig_name6.setEnabled(false);
         jPanel5.add(pig_name6);
         pig_name6.setBounds(209, 130, 150, 32);
 
         perc5.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        perc5.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        perc5.setEnabled(false);
         jPanel5.add(perc5);
         perc5.setBounds(435, 90, 43, 32);
 
         perc6.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        perc6.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        perc6.setEnabled(false);
         jPanel5.add(perc6);
         perc6.setBounds(435, 130, 43, 32);
 
         screen2.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        screen2.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        screen2.setEnabled(false);
         jPanel5.add(screen2);
         screen2.setBounds(177, 8, 212, 32);
 
         kg2.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        kg2.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        kg2.setEnabled(false);
         jPanel5.add(kg2);
         kg2.setBounds(590, 8, 77, 32);
 
@@ -922,14 +975,20 @@ public class Preview_form extends javax.swing.JFrame {
         jLabel41.setBounds(10, 50, 50, 160);
 
         kgp4.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        kgp4.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        kgp4.setEnabled(false);
         jPanel5.add(kgp4);
         kgp4.setBounds(560, 50, 43, 32);
 
         kgp5.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        kgp5.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        kgp5.setEnabled(false);
         jPanel5.add(kgp5);
         kgp5.setBounds(560, 90, 43, 32);
 
         kgp6.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        kgp6.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        kgp6.setEnabled(false);
         jPanel5.add(kgp6);
         kgp6.setBounds(560, 130, 43, 32);
 
@@ -967,6 +1026,8 @@ public class Preview_form extends javax.swing.JFrame {
         jLabel45.setBounds(320, 173, 51, 32);
 
         bind_per2.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        bind_per2.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        bind_per2.setEnabled(false);
         jPanel5.add(bind_per2);
         bind_per2.setBounds(380, 173, 60, 32);
 
@@ -1035,34 +1096,50 @@ public class Preview_form extends javax.swing.JFrame {
         jLabel50.setBounds(480, 8, 109, 32);
 
         pig_name7.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        pig_name7.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        pig_name7.setEnabled(false);
         jPanel6.add(pig_name7);
         pig_name7.setBounds(209, 50, 150, 32);
 
         pig_name8.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        pig_name8.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        pig_name8.setEnabled(false);
         jPanel6.add(pig_name8);
         pig_name8.setBounds(209, 90, 150, 32);
 
         perc7.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        perc7.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        perc7.setEnabled(false);
         jPanel6.add(perc7);
         perc7.setBounds(435, 50, 43, 32);
 
         pig_name9.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        pig_name9.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        pig_name9.setEnabled(false);
         jPanel6.add(pig_name9);
         pig_name9.setBounds(209, 130, 150, 32);
 
         perc8.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        perc8.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        perc8.setEnabled(false);
         jPanel6.add(perc8);
         perc8.setBounds(435, 90, 43, 32);
 
         perc9.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        perc9.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        perc9.setEnabled(false);
         jPanel6.add(perc9);
         perc9.setBounds(435, 130, 43, 32);
 
         screen3.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        screen3.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        screen3.setEnabled(false);
         jPanel6.add(screen3);
         screen3.setBounds(177, 8, 212, 32);
 
         kg3.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        kg3.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        kg3.setEnabled(false);
         jPanel6.add(kg3);
         kg3.setBounds(590, 8, 77, 32);
 
@@ -1095,14 +1172,20 @@ public class Preview_form extends javax.swing.JFrame {
         jLabel54.setBounds(10, 50, 50, 160);
 
         kgp7.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        kgp7.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        kgp7.setEnabled(false);
         jPanel6.add(kgp7);
         kgp7.setBounds(560, 50, 43, 32);
 
         kgp8.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        kgp8.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        kgp8.setEnabled(false);
         jPanel6.add(kgp8);
         kgp8.setBounds(560, 90, 43, 32);
 
         kgp9.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        kgp9.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        kgp9.setEnabled(false);
         jPanel6.add(kgp9);
         kgp9.setBounds(560, 130, 43, 32);
 
@@ -1140,6 +1223,8 @@ public class Preview_form extends javax.swing.JFrame {
         jLabel58.setBounds(320, 173, 51, 32);
 
         bind_per3.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        bind_per3.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        bind_per3.setEnabled(false);
         jPanel6.add(bind_per3);
         bind_per3.setBounds(380, 173, 60, 32);
 
@@ -1208,34 +1293,50 @@ public class Preview_form extends javax.swing.JFrame {
         jLabel64.setBounds(480, 8, 109, 32);
 
         pig_name10.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        pig_name10.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        pig_name10.setEnabled(false);
         jPanel7.add(pig_name10);
         pig_name10.setBounds(209, 50, 150, 32);
 
         pig_name11.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        pig_name11.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        pig_name11.setEnabled(false);
         jPanel7.add(pig_name11);
         pig_name11.setBounds(209, 90, 150, 32);
 
         perc10.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        perc10.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        perc10.setEnabled(false);
         jPanel7.add(perc10);
         perc10.setBounds(435, 50, 43, 32);
 
         pig_name12.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        pig_name12.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        pig_name12.setEnabled(false);
         jPanel7.add(pig_name12);
         pig_name12.setBounds(209, 130, 150, 32);
 
         perc11.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        perc11.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        perc11.setEnabled(false);
         jPanel7.add(perc11);
         perc11.setBounds(435, 90, 43, 32);
 
         perc12.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        perc12.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        perc12.setEnabled(false);
         jPanel7.add(perc12);
         perc12.setBounds(435, 130, 43, 32);
 
         screen4.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        screen4.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        screen4.setEnabled(false);
         jPanel7.add(screen4);
         screen4.setBounds(177, 8, 212, 32);
 
         kg4.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        kg4.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        kg4.setEnabled(false);
         jPanel7.add(kg4);
         kg4.setBounds(590, 8, 77, 32);
 
@@ -1268,14 +1369,20 @@ public class Preview_form extends javax.swing.JFrame {
         jLabel68.setBounds(10, 50, 50, 160);
 
         kgp10.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        kgp10.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        kgp10.setEnabled(false);
         jPanel7.add(kgp10);
         kgp10.setBounds(560, 50, 43, 32);
 
         kgp11.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        kgp11.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        kgp11.setEnabled(false);
         jPanel7.add(kgp11);
         kgp11.setBounds(560, 90, 43, 32);
 
         kgp12.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        kgp12.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        kgp12.setEnabled(false);
         jPanel7.add(kgp12);
         kgp12.setBounds(560, 130, 43, 32);
 
@@ -1313,6 +1420,8 @@ public class Preview_form extends javax.swing.JFrame {
         jLabel72.setBounds(320, 173, 51, 32);
 
         bind_per4.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        bind_per4.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        bind_per4.setEnabled(false);
         jPanel7.add(bind_per4);
         bind_per4.setBounds(380, 173, 60, 32);
 
@@ -1381,34 +1490,50 @@ public class Preview_form extends javax.swing.JFrame {
         jLabel78.setBounds(480, 8, 109, 32);
 
         pig_name13.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        pig_name13.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        pig_name13.setEnabled(false);
         jPanel8.add(pig_name13);
         pig_name13.setBounds(209, 50, 150, 32);
 
         pig_name14.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        pig_name14.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        pig_name14.setEnabled(false);
         jPanel8.add(pig_name14);
         pig_name14.setBounds(209, 90, 150, 32);
 
         perc13.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        perc13.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        perc13.setEnabled(false);
         jPanel8.add(perc13);
         perc13.setBounds(435, 50, 43, 32);
 
         pig_name15.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        pig_name15.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        pig_name15.setEnabled(false);
         jPanel8.add(pig_name15);
         pig_name15.setBounds(209, 130, 150, 32);
 
         perc14.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        perc14.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        perc14.setEnabled(false);
         jPanel8.add(perc14);
         perc14.setBounds(435, 90, 43, 32);
 
         perc15.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        perc15.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        perc15.setEnabled(false);
         jPanel8.add(perc15);
         perc15.setBounds(435, 130, 43, 32);
 
         screen5.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        screen5.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        screen5.setEnabled(false);
         jPanel8.add(screen5);
         screen5.setBounds(177, 8, 212, 32);
 
         kg5.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        kg5.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        kg5.setEnabled(false);
         jPanel8.add(kg5);
         kg5.setBounds(590, 8, 77, 32);
 
@@ -1441,14 +1566,20 @@ public class Preview_form extends javax.swing.JFrame {
         jLabel82.setBounds(10, 50, 50, 160);
 
         kgp13.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        kgp13.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        kgp13.setEnabled(false);
         jPanel8.add(kgp13);
         kgp13.setBounds(560, 50, 43, 32);
 
         kgp14.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        kgp14.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        kgp14.setEnabled(false);
         jPanel8.add(kgp14);
         kgp14.setBounds(560, 90, 43, 32);
 
         kgp15.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        kgp15.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        kgp15.setEnabled(false);
         jPanel8.add(kgp15);
         kgp15.setBounds(560, 130, 43, 32);
 
@@ -1486,6 +1617,8 @@ public class Preview_form extends javax.swing.JFrame {
         jLabel86.setBounds(320, 173, 51, 32);
 
         bind_per5.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        bind_per5.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        bind_per5.setEnabled(false);
         jPanel8.add(bind_per5);
         bind_per5.setBounds(380, 173, 60, 32);
 
@@ -1554,34 +1687,50 @@ public class Preview_form extends javax.swing.JFrame {
         jLabel92.setBounds(480, 8, 109, 32);
 
         pig_name16.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        pig_name16.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        pig_name16.setEnabled(false);
         jPanel9.add(pig_name16);
         pig_name16.setBounds(209, 50, 150, 32);
 
         pig_name17.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        pig_name17.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        pig_name17.setEnabled(false);
         jPanel9.add(pig_name17);
         pig_name17.setBounds(209, 90, 150, 32);
 
         perc16.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        perc16.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        perc16.setEnabled(false);
         jPanel9.add(perc16);
         perc16.setBounds(435, 50, 43, 32);
 
         pig_name18.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        pig_name18.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        pig_name18.setEnabled(false);
         jPanel9.add(pig_name18);
         pig_name18.setBounds(209, 130, 150, 32);
 
         perc17.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        perc17.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        perc17.setEnabled(false);
         jPanel9.add(perc17);
         perc17.setBounds(435, 90, 43, 32);
 
         perc18.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        perc18.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        perc18.setEnabled(false);
         jPanel9.add(perc18);
         perc18.setBounds(435, 130, 43, 32);
 
         screen6.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        screen6.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        screen6.setEnabled(false);
         jPanel9.add(screen6);
         screen6.setBounds(177, 8, 212, 32);
 
         kg6.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        kg6.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        kg6.setEnabled(false);
         jPanel9.add(kg6);
         kg6.setBounds(590, 8, 77, 32);
 
@@ -1614,14 +1763,20 @@ public class Preview_form extends javax.swing.JFrame {
         jLabel96.setBounds(10, 50, 50, 160);
 
         kgp16.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        kgp16.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        kgp16.setEnabled(false);
         jPanel9.add(kgp16);
         kgp16.setBounds(560, 50, 43, 32);
 
         kgp17.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        kgp17.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        kgp17.setEnabled(false);
         jPanel9.add(kgp17);
         kgp17.setBounds(560, 90, 43, 32);
 
         kgp18.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        kgp18.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        kgp18.setEnabled(false);
         jPanel9.add(kgp18);
         kgp18.setBounds(560, 130, 43, 32);
 
@@ -1659,6 +1814,8 @@ public class Preview_form extends javax.swing.JFrame {
         jLabel100.setBounds(320, 173, 51, 32);
 
         bind_per6.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        bind_per6.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        bind_per6.setEnabled(false);
         jPanel9.add(bind_per6);
         bind_per6.setBounds(380, 173, 60, 32);
 
@@ -1727,34 +1884,50 @@ public class Preview_form extends javax.swing.JFrame {
         jLabel106.setBounds(480, 8, 109, 32);
 
         pig_name19.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        pig_name19.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        pig_name19.setEnabled(false);
         jPanel10.add(pig_name19);
         pig_name19.setBounds(209, 50, 150, 32);
 
         pig_name20.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        pig_name20.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        pig_name20.setEnabled(false);
         jPanel10.add(pig_name20);
         pig_name20.setBounds(209, 90, 150, 32);
 
         perc19.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        perc19.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        perc19.setEnabled(false);
         jPanel10.add(perc19);
         perc19.setBounds(435, 50, 43, 32);
 
         pig_name21.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        pig_name21.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        pig_name21.setEnabled(false);
         jPanel10.add(pig_name21);
         pig_name21.setBounds(209, 130, 150, 32);
 
         perc20.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        perc20.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        perc20.setEnabled(false);
         jPanel10.add(perc20);
         perc20.setBounds(435, 90, 43, 32);
 
         perc21.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        perc21.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        perc21.setEnabled(false);
         jPanel10.add(perc21);
         perc21.setBounds(435, 130, 43, 32);
 
         screen7.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        screen7.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        screen7.setEnabled(false);
         jPanel10.add(screen7);
         screen7.setBounds(177, 8, 212, 32);
 
         kg7.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        kg7.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        kg7.setEnabled(false);
         jPanel10.add(kg7);
         kg7.setBounds(590, 8, 77, 32);
 
@@ -1787,14 +1960,20 @@ public class Preview_form extends javax.swing.JFrame {
         jLabel110.setBounds(10, 50, 50, 160);
 
         kgp19.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        kgp19.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        kgp19.setEnabled(false);
         jPanel10.add(kgp19);
         kgp19.setBounds(560, 50, 43, 32);
 
         kgp20.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        kgp20.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        kgp20.setEnabled(false);
         jPanel10.add(kgp20);
         kgp20.setBounds(560, 90, 43, 32);
 
         kgp21.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        kgp21.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        kgp21.setEnabled(false);
         jPanel10.add(kgp21);
         kgp21.setBounds(560, 130, 43, 32);
 
@@ -1832,6 +2011,8 @@ public class Preview_form extends javax.swing.JFrame {
         jLabel114.setBounds(320, 173, 51, 32);
 
         bind_per7.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        bind_per7.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        bind_per7.setEnabled(false);
         jPanel10.add(bind_per7);
         bind_per7.setBounds(380, 173, 60, 32);
 
