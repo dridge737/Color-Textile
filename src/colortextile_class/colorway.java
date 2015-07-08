@@ -155,4 +155,14 @@ public class colorway {
         Database.DB_Manager new_conn = new Database.DB_Manager();
         return new_conn.Search_colorway(this);
     }
+    
+    public void view_colorway_details()
+    {
+        System.out.println("DETAILS");
+        System.out.println("Colorway Name : "+this.colorway_name);
+        System.out.println("Binder : " +this.binder);
+        System.out.println("Design Code : "+this.design_code);
+        System.out.println("Colorway Id : "+this.id_colorway);
+        System.out.println("Weight :" +this.weight_kg);
+    }
 }

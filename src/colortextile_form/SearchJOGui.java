@@ -365,7 +365,7 @@ public class SearchJOGui extends javax.swing.JFrame {
         jFrame1.getContentPane().add(jPanel2);
         jPanel2.setBounds(0, 0, 1320, 480);
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Search Job Order");
         setMaximumSize(new java.awt.Dimension(1021, 482));
         setMinimumSize(new java.awt.Dimension(1021, 482));

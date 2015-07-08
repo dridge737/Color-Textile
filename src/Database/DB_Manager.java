@@ -2055,74 +2055,79 @@ public class DB_Manager {
         return 0;
     }
     
-    public void update_design(design this_design)
+    public void update_design_picture(design this_design) throws FileNotFoundException
     {
+        DBConnection db = new DBConnection();
+        Connection conn = db.getConnection();
+        File file = new File("New.jpg");
         try
         {
-          DBConnection db = new DBConnection();
-          Connection conn = db.getConnection();
-          
-          File file = new File("New.jpg");
-          FileInputStream fis = new FileInputStream(file);
-          System.out.println(file.exists());
-          if(file.exists())
-          {     
-              PreparedStatement ps;
-              int item =1;
-              if(this.check_if_design_picture_has_already_been_added(this_design.getDesign_code()) == 0)
-              {
-                  ps= conn.prepareStatement("INSERT design_picture "
-                          + "SET design_code = ?, " +
+            FileInputStream fis = new FileInputStream(file);
+            //System.out.println(file.exists());
+            if(file.exists())
+            {
+                PreparedStatement ps;
+                int item =1;
+                if(this.check_if_design_picture_has_already_been_added(this_design.getDesign_code()) == 0)
+                {
+                    ps= conn.prepareStatement("INSERT design_picture "
+                            + "SET design_code = ?, " +
                             "design_picture = ?");
-                  ps.setInt(item++, this_design.getDesign_code());
-                  try {
-                      ps.setBinaryStream(item++, fis, fis.available());
-                  } catch (IOException ex) {
-                      Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
-                  }
-                  ps.executeUpdate();
-              }
-              else
-              {
-                  ps = conn.prepareStatement("UPDATE design_picture "
+                    ps.setInt(item++, this_design.getDesign_code());
+                    ps.setBinaryStream(item++, fis, fis.available());
+                    ps.executeUpdate();
+                }
+                else
+                {
+                    ps = conn.prepareStatement("UPDATE design_picture "
                           + "SET design_picture = ? " +
                             "WHERE design_code = ?");
-                  
-                  try {
-                      ps.setBinaryStream(item++, fis, fis.available());
-                  } catch (IOException ex) {
-                      Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
-                  }
-                  ps.setInt(item++, this_design.getDesign_code());
-                  ps.executeUpdate();
-              }
-              
-          }
-          
-          PreparedStatement ps = conn.prepareStatement("UPDATE design "
+                    
+                    ps.setBinaryStream(item++, fis, fis.available());
+                    ps.setInt(item++, this_design.getDesign_code());
+                    ps.executeUpdate();
+                }
+            }
+        }
+        catch (SQLException ex)
+        {
+            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);    
+        } 
+        catch (IOException ex) 
+        {
+            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+    }
+    
+    public void update_design(design this_design)
+    {
+        DBConnection db = new DBConnection();
+        Connection conn = db.getConnection();
+        PreparedStatement ps;
+        int item = 1;
+        try
+        { 
+            ps = conn.prepareStatement("UPDATE design "
                                             + "SET design_name = ?, "
                                             + "color_name = ?, "
                                             + "fabric_style = ? "
                                             + "WHERE design_code = ?");
-          
            
-           int item = 1;
-           ps.setString(item++, this_design.getDesign_name());
-           ps.setString(item++, this_design.getColor_name());
-           ps.setString(item++, this_design.getFabric_style());
-           ps.setInt(item++, this_design.getDesign_code());
-           
-         // System.out.println(ps);
-          ps.executeUpdate();
-          this.closeConn(conn, ps);
+            
+            ps.setString(item++, this_design.getDesign_name());
+            ps.setString(item++, this_design.getColor_name());
+            ps.setString(item++, this_design.getFabric_style());
+            ps.setInt(item++, this_design.getDesign_code());
+            // System.out.println(ps);
+            ps.executeUpdate();
+            this.closeConn(conn, ps);
         }
         catch (SQLException ex)
         {
-            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
-            
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
-        }
+            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);    
+        } 
     }
     
     public void update_colorway_screen(Pigment_screen_and_colorway this_color_screen)
@@ -2165,6 +2170,7 @@ public class DB_Manager {
                                                         + " SET colorway_name = ?, binder = ?, weight_kg = ? "
                                                         + " WHERE id_colorway = ?");
           int item = 1;
+          this_colorway.view_colorway_details();
           ps.setString(item++, this_colorway.getColorway_name());
           ps.setFloat(item++, this_colorway.getBinder());
           ps.setFloat(item++, this_colorway.getWeight_kg());

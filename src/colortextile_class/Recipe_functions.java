@@ -117,7 +117,7 @@ public class Recipe_functions {
         String regex = "[^0-9]";
         Pattern p = Pattern.compile(regex);
         this_text = this_text.replaceFirst("[.]", "");
-       
+        
         return p.matcher(this_text).find();
     }
     

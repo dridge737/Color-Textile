@@ -53,15 +53,19 @@ public class EditRecipe extends javax.swing.JFrame {
     public EditRecipe() {
         initComponents();
         initialize();
+        
     }
     
     public EditRecipe(int purchase_order_id)
     {
         initComponents();
         initialize();
+        
         prod_recipe.set_all_details_from_purchase_order_id(purchase_order_id);
         this.set_design_and_colorway_textbox_details();
         this.set_purchase_and_job_list_textbox();
+        //binder8.setModel("3.5, ");
+        //binder8.setSelectedItem("8");
     }
     
     private void initialize()
@@ -75,7 +79,7 @@ public class EditRecipe extends javax.swing.JFrame {
             dispose();
                 }
             }
-       });
+        });
         
         addListItems();
         //Center the form
@@ -306,7 +310,11 @@ public class EditRecipe extends javax.swing.JFrame {
     {
         colorway.setText(this_c_and_s.getColorway_name());
         weight.setText(Float.toString(this_c_and_s.getWeight_kg()));
+        //System.out.println(this_c_and_s.getBinder());
+        //System.out.println(Float.toString(this_c_and_s.getBinder()));
+        //binder.setSelectedItem("8");
         binder.setSelectedItem(Float.toString(this_c_and_s.getBinder()));
+        //System.out.println("Binder = "+this_c_and_s.getBinder());
     }
     
     
@@ -321,8 +329,6 @@ public class EditRecipe extends javax.swing.JFrame {
 
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
-        jPanel12 = new javax.swing.JPanel();
-        jPanel13 = new javax.swing.JPanel();
         jPanel14 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         spinner_date = new javax.swing.JSpinner();
@@ -611,7 +617,7 @@ public class EditRecipe extends javax.swing.JFrame {
         jTextArea1.setRows(5);
         jScrollPane2.setViewportView(jTextArea1);
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Edit this design");
         setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         setForeground(java.awt.Color.white);
@@ -629,36 +635,6 @@ public class EditRecipe extends javax.swing.JFrame {
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel12.setBackground(new java.awt.Color(255, 255, 255));
-
-        javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
-        jPanel12.setLayout(jPanel12Layout);
-        jPanel12Layout.setHorizontalGroup(
-            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 15, Short.MAX_VALUE)
-        );
-        jPanel12Layout.setVerticalGroup(
-            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 790, Short.MAX_VALUE)
-        );
-
-        getContentPane().add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 15, 790));
-
-        jPanel13.setBackground(new java.awt.Color(255, 255, 255));
-
-        javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
-        jPanel13.setLayout(jPanel13Layout);
-        jPanel13Layout.setHorizontalGroup(
-            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 20, Short.MAX_VALUE)
-        );
-        jPanel13Layout.setVerticalGroup(
-            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 790, Short.MAX_VALUE)
-        );
-
-        getContentPane().add(jPanel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(777, 0, 20, 790));
-
         jPanel14.setBackground(new java.awt.Color(51, 153, 255));
         jPanel14.setLayout(null);
 
@@ -666,7 +642,7 @@ public class EditRecipe extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Edit Recipe");
         jPanel14.add(jLabel7);
-        jLabel7.setBounds(53, 11, 196, 45);
+        jLabel7.setBounds(30, 20, 196, 45);
 
         spinner_date.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
         spinner_date.setModel(new javax.swing.SpinnerDateModel());
@@ -681,7 +657,7 @@ public class EditRecipe extends javax.swing.JFrame {
         spinner_date.setEditor(new JSpinner.DateEditor(spinner_date, "dd/MM/yyyy"));
 
         jLabel6.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel6.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Century Gothic", 0, 17)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel6.setText("Date Ordered :");
@@ -691,7 +667,7 @@ public class EditRecipe extends javax.swing.JFrame {
         jLabel6.setBounds(470, 20, 140, 30);
         jLabel6.getAccessibleContext().setAccessibleName("date");
 
-        getContentPane().add(jPanel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 770, 60));
+        getContentPane().add(jPanel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 790, 60));
 
         jPanel1.setBackground(new java.awt.Color(51, 153, 255));
         jPanel1.setLayout(null);
@@ -702,7 +678,7 @@ public class EditRecipe extends javax.swing.JFrame {
         design_name.getAccessibleContext().setAccessibleDescription("This Design's name");
 
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel2.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Century Gothic", 0, 17)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel2.setText("Design Name :");
@@ -780,15 +756,15 @@ public class EditRecipe extends javax.swing.JFrame {
         fabric_check_box.setBounds(610, 210, 63, 25);
 
         jLabel11.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel11.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Century Gothic", 0, 17)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel11.setText("Fabric Style :");
         jPanel1.add(jLabel11);
-        jLabel11.setBounds(410, 230, 100, 34);
+        jLabel11.setBounds(400, 230, 110, 34);
 
         jLabel4.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel4.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Century Gothic", 0, 17)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel4.setText("Design Color :");
@@ -800,7 +776,7 @@ public class EditRecipe extends javax.swing.JFrame {
         jPanel16.setLayout(null);
 
         jLabel3.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel3.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Century Gothic", 0, 17)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel3.setText("Total Quantity :");
@@ -814,22 +790,22 @@ public class EditRecipe extends javax.swing.JFrame {
         quantity_total.setBounds(460, 120, 100, 34);
 
         jLabel5.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel5.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Century Gothic", 0, 17)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel5.setText("m");
         jLabel5.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         jPanel16.add(jLabel5);
-        jLabel5.setBounds(560, 120, 13, 34);
+        jLabel5.setBounds(560, 120, 15, 34);
 
         jLabel13.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel13.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        jLabel13.setFont(new java.awt.Font("Century Gothic", 0, 17)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel13.setText("m");
         jLabel13.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         jPanel16.add(jLabel13);
-        jLabel13.setBounds(290, 120, 13, 34);
+        jLabel13.setBounds(290, 120, 20, 34);
 
         quantity.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         quantity.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -842,7 +818,7 @@ public class EditRecipe extends javax.swing.JFrame {
         quantity.getAccessibleContext().setAccessibleDescription("Input Ordered Quantity");
 
         jLabel12.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel12.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
+        jLabel12.setFont(new java.awt.Font("Century Gothic", 0, 17)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel12.setText("Quantity :");
@@ -884,7 +860,7 @@ public class EditRecipe extends javax.swing.JFrame {
         jScrollPane1.setBounds(315, 20, 275, 90);
 
         jLabel9.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel9.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Century Gothic", 0, 17)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel9.setText("Customer Name :");
@@ -892,7 +868,7 @@ public class EditRecipe extends javax.swing.JFrame {
         jLabel9.setBounds(0, 70, 140, 34);
 
         jLabel10.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel10.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Century Gothic", 0, 17)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(247, 241, 241));
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel10.setText("Job Order :");
@@ -926,7 +902,7 @@ public class EditRecipe extends javax.swing.JFrame {
         customer_name_text.setBounds(146, 70, 160, 34);
 
         job_ord_label.setBackground(new java.awt.Color(255, 255, 255));
-        job_ord_label.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        job_ord_label.setFont(new java.awt.Font("Century Gothic", 0, 17)); // NOI18N
         job_ord_label.setForeground(new java.awt.Color(255, 255, 255));
         job_ord_label.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         job_ord_label.setText("15P-10-");
@@ -954,7 +930,7 @@ public class EditRecipe extends javax.swing.JFrame {
         jPanel1.add(jLabel14);
         jLabel14.setBounds(610, 0, 140, 130);
 
-        jButton1.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
+        jButton1.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
         jButton1.setText("Add Picture");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -968,7 +944,7 @@ public class EditRecipe extends javax.swing.JFrame {
         jPanel1.add(web_cams);
         web_cams.setBounds(610, 137, 140, 25);
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 770, 295));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 790, 295));
 
         jPanel11.setBackground(new java.awt.Color(51, 153, 255));
 
@@ -1094,7 +1070,7 @@ public class EditRecipe extends javax.swing.JFrame {
         jPanel9.add(jSeparator18, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 255, 775, 10));
 
         binder8.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
-        binder8.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "3.5", "4", "5.5", "8" }));
+        binder8.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "3.5", "4.0", "5.5", "8.0" }));
         jPanel9.add(binder8, new org.netbeans.lib.awtextra.AbsoluteConstraints(351, 200, 61, 30));
 
         jLabel143.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
@@ -1279,7 +1255,7 @@ public class EditRecipe extends javax.swing.JFrame {
         jPanel4.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 255, 743, 10));
 
         binder3.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
-        binder3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "3.5", "4", "5.5", "8" }));
+        binder3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "3.5", "4.0", "5.5", "8.0" }));
         jPanel4.add(binder3, new org.netbeans.lib.awtextra.AbsoluteConstraints(351, 200, 61, 30));
 
         jLabel63.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
@@ -1457,7 +1433,7 @@ public class EditRecipe extends javax.swing.JFrame {
         jPanel5.add(jSeparator10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 255, 743, 10));
 
         binder4.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
-        binder4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "3.5", "4", "5.5", "8" }));
+        binder4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "3.5", "4.0", "5.5", "8.0" }));
         jPanel5.add(binder4, new org.netbeans.lib.awtextra.AbsoluteConstraints(351, 200, 61, 30));
 
         jLabel79.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
@@ -1634,7 +1610,7 @@ public class EditRecipe extends javax.swing.JFrame {
         jPanel6.add(jSeparator12, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 255, 743, 10));
 
         binder5.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
-        binder5.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "3.5", "4", "5.5", "8" }));
+        binder5.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "3.5", "4.0", "5.5", "8.0" }));
         jPanel6.add(binder5, new org.netbeans.lib.awtextra.AbsoluteConstraints(351, 200, 61, 30));
 
         jLabel95.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
@@ -1811,7 +1787,7 @@ public class EditRecipe extends javax.swing.JFrame {
         jPanel7.add(jSeparator14, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 255, 743, 10));
 
         binder6.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
-        binder6.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "3.5", "4", "5.5", "8" }));
+        binder6.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "3.5", "4.0", "5.5", "8.0" }));
         jPanel7.add(binder6, new org.netbeans.lib.awtextra.AbsoluteConstraints(351, 200, 61, 30));
 
         jLabel111.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
@@ -1988,7 +1964,7 @@ public class EditRecipe extends javax.swing.JFrame {
         jPanel8.add(jSeparator16, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 255, 775, 10));
 
         binder7.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
-        binder7.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "3.5", "4", "5.5", "8" }));
+        binder7.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "3.5", "4.0", "5.5", "8.0" }));
         jPanel8.add(binder7, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 200, 61, 30));
 
         jLabel127.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
@@ -2165,7 +2141,7 @@ public class EditRecipe extends javax.swing.JFrame {
         jPanel15.add(jSeparator20, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 255, 775, 10));
 
         binder9.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
-        binder9.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "3.5", "4", "5.5", "8" }));
+        binder9.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "3.5", "4.0", "5.5", "8.0" }));
         jPanel15.add(binder9, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 200, 61, 30));
 
         jLabel169.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
@@ -2271,23 +2247,22 @@ public class EditRecipe extends javax.swing.JFrame {
         jPanel11.setLayout(jPanel11Layout);
         jPanel11Layout.setHorizontalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel11Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(save_edit_but, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(preview_but, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(cancel_but, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(14, 14, 14))
             .addGroup(jPanel11Layout.createSequentialGroup()
-                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel11Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 748, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel11Layout.createSequentialGroup()
-                        .addGap(43, 43, 43)
-                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(12, Short.MAX_VALUE))
+                        .addComponent(save_edit_but, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(preview_but, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cancel_but, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel11Layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 748, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel11Layout.createSequentialGroup()
+                            .addGap(43, 43, 43)
+                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
         jPanel11Layout.setVerticalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2303,7 +2278,7 @@ public class EditRecipe extends javax.swing.JFrame {
                 .addGap(41, 41, 41))
         );
 
-        getContentPane().add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 350, 770, 350));
+        getContentPane().add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 350, 790, 350));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -2324,37 +2299,36 @@ public class EditRecipe extends javax.swing.JFrame {
     {
         if(colorway_name.length()>0 && temp_weight_kg.length()>0)
         {
-                float weight_kg = Float.parseFloat(temp_weight_kg);
-                if(prod_recipe.getAll_colorways().size()> colorway_num)
-                {
-                    prod_recipe.getAll_colorways().get(colorway_num).setColorway_name(colorway_name);
-                    prod_recipe.getAll_colorways().get(colorway_num).setBinder(binder_percent);
-                    prod_recipe.getAll_colorways().get(colorway_num).setWeight_kg(weight_kg);
+            float weight_kg = Float.parseFloat(temp_weight_kg);
+            if(prod_recipe.getAll_colorways().size()< colorway_num)
+            {
+                prod_recipe.getAll_colorways().get(colorway_num).setColorway_name(colorway_name);
+                prod_recipe.getAll_colorways().get(colorway_num).setBinder(binder_percent);
+                prod_recipe.getAll_colorways().get(colorway_num).setWeight_kg(weight_kg);
                     // new_colorway.add_new_colorway();
                     //new_colorway.set_id_colorway_from_variables();
-                    prod_recipe.getAll_colorways().get(colorway_num).update_this_colorway();
-                    return prod_recipe.getAll_colorways().get(colorway_num).getId_colorway();
-                }
-                else
+                prod_recipe.getAll_colorways().get(colorway_num).update_this_colorway();
+                return prod_recipe.getAll_colorways().get(colorway_num).getId_colorway();
+            }
+            else
+            {
+                Colorway_screen_link_functions this_color_screen = new Colorway_screen_link_functions();
+                this_color_screen.setColorway_name(colorway_name);
+                this_color_screen.setBinder(binder_percent);
+                this_color_screen.setWeight_kg(weight_kg);
+                this_color_screen.setDesign_code(prod_recipe.getDesign_code());
+                while(prod_recipe.getAll_colorways().size() < colorway_num+1)
                 {
-                    Colorway_screen_link_functions this_color_screen = new Colorway_screen_link_functions();
-                    this_color_screen.setColorway_name(colorway_name);
-                    this_color_screen.setBinder(binder_percent);
-                    this_color_screen.setWeight_kg(weight_kg);
-                    this_color_screen.setDesign_code(prod_recipe.getDesign_code());
-                    while(prod_recipe.getAll_colorways().size() < colorway_num+1)
-                    {
-                        prod_recipe.add_colorway(new Colorway_screen_link_functions());
-                    }
-                    if(this_color_screen.add_new_colorway())
-                    {
-                        System.out.println("Added a New Screen to existing Design");
-                        this_color_screen.set_id_colorway_from_variables();
-                        prod_recipe.add_colorway(this_color_screen);
-                        return this_color_screen.getId_colorway();
-                    }
+                    prod_recipe.add_colorway(new Colorway_screen_link_functions());
                 }
-            
+                if(this_color_screen.add_new_colorway())
+                {   
+                    //System.out.println("Added a New Screen to existing Design");
+                    this_color_screen.set_id_colorway_from_variables();
+                    prod_recipe.add_colorway(this_color_screen);
+                    return this_color_screen.getId_colorway();
+                }
+            }
         }
         return -1;
     }
@@ -2417,7 +2391,7 @@ public class EditRecipe extends javax.swing.JFrame {
         {
             /////////Colorway 1
             if(interval == 0)
-            {
+            {   
                 int colorway_id = update_this_colorway(interval,colorway_name2.getText(), 
                              Float.parseFloat(binder8.getSelectedItem().toString()),
                              weigh_kg8.getText());
@@ -2579,6 +2553,7 @@ public class EditRecipe extends javax.swing.JFrame {
             prod_recipe.getJobs_for_this().get(remove_iterate).check_and_delete_if_job_id_not_used();
             prod_recipe.getAll_purchase().get(remove_iterate).delete_purchase_order();
         }
+        prod_recipe = temp_list;
     }
     
     private void save_edit_butActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_save_edit_butActionPerformed
@@ -3011,6 +2986,7 @@ public class EditRecipe extends javax.swing.JFrame {
             {
                 this_list.remove_this_item(selected);
                 jList1.setModel(this_list.get_items_in_list());
+                this.quantity_total.setText(Integer.toString(this_list.get_quantity_total()));
                /* job_order current_job = new job_order();
                 current_job.setJob_id(this.this_list.getJob_list().get(selected).toString());
                 current_job.delete_job_order_from_job_id();
@@ -3407,6 +3383,7 @@ public class EditRecipe extends javax.swing.JFrame {
             customer_name_text.setText("");
             text_job_order.setText("");
             temporary_list.clear_all_items();
+            quantity_total.setText(Integer.toString(this_list.get_quantity_total()));
             jList1.setModel(this_list.get_items_in_list());
             edit_item.setText("Edit Order");
         }
@@ -3890,8 +3867,6 @@ public class EditRecipe extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
-    private javax.swing.JPanel jPanel12;
-    private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel16;
