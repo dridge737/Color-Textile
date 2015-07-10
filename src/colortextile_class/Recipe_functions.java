@@ -22,6 +22,16 @@ import javax.swing.JTextField;
  */
 public class Recipe_functions {
     
+    public float normalize_to_onek_kilo()
+    {
+        
+    }
+    
+    public float recompute_to_total_quantity()
+    {
+        
+    }
+    
     public float compute_this_coverage(float kg, String fabric_style, String quantity_total)
     {
         float computation = 0;

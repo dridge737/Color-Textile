@@ -2576,8 +2576,6 @@ public class EditRecipe extends javax.swing.JFrame {
             update_this_design();
             update_and_add_job_and_purchase_order();
             
-            
-            
             //add_purchase();
         }
         JOptionPane.showMessageDialog(null,"Successfully Edited this Recipe");

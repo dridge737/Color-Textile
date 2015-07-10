@@ -245,6 +245,7 @@ public class production_recipe extends Design_and_colorway{
     /**
      * Set 
      */
+    
     public void set_design_details_and_colorway_details_from_design_code()
     {
         this.setDesign_details_from_des_code();
@@ -262,5 +263,57 @@ public class production_recipe extends Design_and_colorway{
         Database.DB_Manager new_conn = new Database.DB_Manager();
         return new_conn.get_all_design_code_from_date(Date);
         
+    }
+    
+    public float normalize_to_onek_kilo()
+    {
+        
+    }
+    
+    public float recompute_to_total_quantity()
+    {
+        
+    }
+    
+    public float compute_this_coverage(float kg, String fabric_style, String quantity_total)
+    {
+        float computation = 0;
+        float this_quant = Float.parseFloat(quantity_total);
+        if(fabric_style.equals("PONGEE"))
+        {
+            computation = Math.round((kg*1000/this_quant)*10/8);
+        }
+        else if(fabric_style.equals("COTTON") || fabric_style.equals("KATUNIA"))
+        {
+            computation = Math.round((kg*1000/this_quant)*10/12);
+        }
+        else if (fabric_style.equals("MICROPEACH") || fabric_style.equals("TC") || fabric_style.equals("TROPICANA"))
+        {
+            computation = Math.round((kg*1000/this_quant));
+        }
+        
+        return computation;
+    }
+    
+    public float compute_this_kg(float coverage, String fabric_style, String quantity_total)
+    {
+        float computation = 0;
+        
+        if(fabric_style.equals("PONGEE")){
+        
+            float this_quant = Float.parseFloat(quantity_total);
+            computation = Math.round((8*coverage/10*this_quant)/1000);
+        }
+        else if(fabric_style.equals("COTTON") || fabric_style.equals("KATUNIA"))
+        {
+            float this_quant = Float.parseFloat(quantity_total);
+            computation = Math.round((12*coverage/10*this_quant)/1000);
+        }
+        else if (fabric_style.equals("MICROPEACH") || fabric_style.equals("TC") || fabric_style.equals("TROPICANA"))
+        {
+            float this_quant = Float.parseFloat(quantity_total);
+            computation = Math.round((10*coverage/10*this_quant)/1000);
+        }
+        return computation;
     }
 }
