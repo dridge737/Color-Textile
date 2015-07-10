@@ -2116,9 +2116,9 @@ public class DB_Manager {
                                             + "WHERE design_code = ?");
            
             
-            ps.setString(item++, this_design.getDesign_name());
-            ps.setString(item++, this_design.getColor_name());
-            ps.setString(item++, this_design.getFabric_style());
+            ps.setString(item++, this_design.getDesign_name().toUpperCase());
+            ps.setString(item++, this_design.getColor_name().toUpperCase());
+            ps.setString(item++, this_design.getFabric_style().toUpperCase());
             ps.setInt(item++, this_design.getDesign_code());
             // System.out.println(ps);
             ps.executeUpdate();
@@ -2171,7 +2171,7 @@ public class DB_Manager {
                                                         + " WHERE id_colorway = ?");
           int item = 1;
           this_colorway.view_colorway_details();
-          ps.setString(item++, this_colorway.getColorway_name());
+          ps.setString(item++, this_colorway.getColorway_name().toUpperCase());
           ps.setFloat(item++, this_colorway.getBinder());
           ps.setFloat(item++, this_colorway.getWeight_kg());
           ps.setInt(item++, this_colorway.getId_colorway());

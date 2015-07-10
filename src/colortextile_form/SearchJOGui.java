@@ -461,9 +461,6 @@ public class SearchJOGui extends javax.swing.JFrame {
             }
         });
         jTable1.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                jTable1KeyPressed(evt);
-            }
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jTable1KeyReleased(evt);
             }
@@ -625,11 +622,6 @@ public class SearchJOGui extends javax.swing.JFrame {
         WindowEvent winCloseEvent = new WindowEvent(this,WindowEvent.WINDOW_CLOSING);
         Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(winCloseEvent);
     }
-    private void jTable1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTable1KeyPressed
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_jTable1KeyPressed
-
     private void button_search1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_search1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_button_search1ActionPerformed
