@@ -265,55 +265,102 @@ public class production_recipe extends Design_and_colorway{
         
     }
     
-    public float normalize_to_onek_kilo()
+    public float compute_this_kg_for_one_kilo(float colorway_kilogram)
     {
-        
+        //COMPUTE ITEM BY FIRST GETTING THE COVERAGE AS COVERAGE IS UNIVERSAL THROUGH DIFFERENT QUANTITIES
+        float coverage = this.compute_this_coverage(colorway_kilogram);
+                //NORMALIZE items  
+        return this.compute_this_kg_normalized(coverage);
     }
     
-    public float recompute_to_total_quantity()
+    public float compute_kilograms_to_total_quantity(float colorway_kilogram)
     {
-        
+        //float weight_kg = Float.parseFloat(colorway_kilo_gram);
+        //COMPUTE ITEM BY FIRST GETTING THE COVERAGE AS COVERAGE IS UNIVERSAL THROUGH DIFFERENT QUANTITIES
+        float coverage = this.compute_this_coverage_from_normalized_item(colorway_kilogram);
+        System.out.println("Coverage = :"+coverage);
+        return this.compute_this_kg(coverage);
     }
     
-    public float compute_this_coverage(float kg, String fabric_style, String quantity_total)
+    private float compute_this_coverage_from_normalized_item(float kg)
     {
-        float computation = 0;
-        float this_quant = Float.parseFloat(quantity_total);
-        if(fabric_style.equals("PONGEE"))
+        float coverage = 0;
+        if(this.getFabric_style().equals("PONGEE"))
         {
-            computation = Math.round((kg*1000/this_quant)*10/8);
+            coverage = Math.round((kg*1000/1000)*10/8);
         }
-        else if(fabric_style.equals("COTTON") || fabric_style.equals("KATUNIA"))
+        else if(this.getFabric_style().equals("COTTON") || this.getFabric_style().equals("KATUNIA"))
         {
-            computation = Math.round((kg*1000/this_quant)*10/12);
+            coverage = Math.round((kg*1000/1000)*10/12);
         }
-        else if (fabric_style.equals("MICROPEACH") || fabric_style.equals("TC") || fabric_style.equals("TROPICANA"))
+        else if (this.getFabric_style().equals("MICROPEACH") || this.getFabric_style().equals("TC") || this.getFabric_style().equals("TROPICANA"))
         {
-            computation = Math.round((kg*1000/this_quant));
+            coverage = Math.round((kg*1000/1000));
         }
         
-        return computation;
+        return coverage;
     }
     
-    public float compute_this_kg(float coverage, String fabric_style, String quantity_total)
+    public float compute_this_coverage(float kg)
     {
-        float computation = 0;
-        
-        if(fabric_style.equals("PONGEE")){
-        
-            float this_quant = Float.parseFloat(quantity_total);
-            computation = Math.round((8*coverage/10*this_quant)/1000);
-        }
-        else if(fabric_style.equals("COTTON") || fabric_style.equals("KATUNIA"))
+        float coverage = 0;
+        if(this.getFabric_style().equals("PONGEE"))
         {
-            float this_quant = Float.parseFloat(quantity_total);
-            computation = Math.round((12*coverage/10*this_quant)/1000);
+            coverage = Math.round((kg*1000/this.get_quantity_sum())*10/8);
         }
-        else if (fabric_style.equals("MICROPEACH") || fabric_style.equals("TC") || fabric_style.equals("TROPICANA"))
+        else if(this.getFabric_style().equals("COTTON") || this.getFabric_style().equals("KATUNIA"))
         {
-            float this_quant = Float.parseFloat(quantity_total);
-            computation = Math.round((10*coverage/10*this_quant)/1000);
+            coverage = Math.round((kg*1000/this.get_quantity_sum())*10/12);
         }
-        return computation;
+        else if (this.getFabric_style().equals("MICROPEACH") || this.getFabric_style().equals("TC") || this.getFabric_style().equals("TROPICANA"))
+        {
+            coverage = Math.round((kg*1000/this.get_quantity_sum()));
+        }
+        
+        return coverage;
+    }
+    
+    public float compute_this_kg_normalized(float coverage)
+    {
+        float colorway_kilogram = 0;
+        //float this_quant = 1000;
+        //COVERAGE SHOULD BE DIVIDED BY 100 TO BECOME DECIMAL
+        //ORIGINAL SHOULD BE 80*COVERAGE/100*TOTAL QUANTITY/ 1000
+        //SIMPLIFIED TO 8*COVERAGE/10*TOTAL QUANTITY /1000
+        if(this.getFabric_style().equals("PONGEE")){
+            colorway_kilogram = Math.round((8*coverage/10*1000)/1000);
+        }
+        else if(this.getFabric_style().equals("COTTON") || this.getFabric_style().equals("KATUNIA"))
+        {
+            colorway_kilogram = Math.round((12*coverage/10*1000)/1000);
+        }
+        else if (this.getFabric_style().equals("MICROPEACH") || this.getFabric_style().equals("TC") || this.getFabric_style().equals("TROPICANA"))
+        {
+            colorway_kilogram = Math.round((10*coverage/10*1000)/1000);
+        }
+        return colorway_kilogram;
+    }
+    
+    public float compute_this_kg(float coverage)
+    {
+        float colorway_kilogram = 0;
+        float this_quant = this.get_quantity_sum();
+        System.out.println("TOTAL QUANTITY ="+this_quant);
+        //COVERAGE SHOULD BE DIVIDED BY 100 TO BECOME DECIMAL
+        //ORIGINAL SHOULD BE 80*COVERAGE/100*TOTAL QUANTITY/ 1000
+        //SIMPLIFIED TO 8*COVERAGE/10*TOTAL QUANTITY /1000
+        if(this.getFabric_style().equals("PONGEE")){
+            colorway_kilogram = Math.round((8*coverage/10*this_quant)/1000);
+        }
+        else if(this.getFabric_style().equals("COTTON") || this.getFabric_style().equals("KATUNIA"))
+        {
+            colorway_kilogram = Math.round((12*coverage/10*this_quant)/1000);
+        }
+        else if (this.getFabric_style().equals("MICROPEACH") || this.getFabric_style().equals("TC") || this.getFabric_style().equals("TROPICANA"))
+        {
+            colorway_kilogram = Math.round((10*coverage/10*this_quant)/1000);
+        }
+        
+        return colorway_kilogram;
     }
 }

@@ -24,12 +24,12 @@ public class Recipe_functions {
     
     public float normalize_to_onek_kilo()
     {
-        
+        return 0;
     }
     
     public float recompute_to_total_quantity()
     {
-        
+        return 0;
     }
     
     public float compute_this_coverage(float kg, String fabric_style, String quantity_total)

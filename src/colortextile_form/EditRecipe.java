@@ -309,12 +309,11 @@ public class EditRecipe extends javax.swing.JFrame {
     private void setTextValues_colorway(JTextField colorway, JTextField weight, JComboBox binder, Colorway_screen_link_functions this_c_and_s)
     {
         colorway.setText(this_c_and_s.getColorway_name());
-        weight.setText(Float.toString(this_c_and_s.getWeight_kg()));
+        weight.setText(Float.toString(prod_recipe.compute_kilograms_to_total_quantity(this_c_and_s.getWeight_kg())));
         //System.out.println(this_c_and_s.getBinder());
         //System.out.println(Float.toString(this_c_and_s.getBinder()));
-        //binder.setSelectedItem("8");
+
         binder.setSelectedItem(Float.toString(this_c_and_s.getBinder()));
-        //System.out.println("Binder = "+this_c_and_s.getBinder());
     }
     
     
@@ -2305,7 +2304,8 @@ public class EditRecipe extends javax.swing.JFrame {
             {
                 prod_recipe.getAll_colorways().get(colorway_num).setColorway_name(colorway_name);
                 prod_recipe.getAll_colorways().get(colorway_num).setBinder(binder_percent);
-                prod_recipe.getAll_colorways().get(colorway_num).setWeight_kg(weight_kg);
+                prod_recipe.getAll_colorways().get(colorway_num).setWeight_kg(prod_recipe.compute_this_kg_for_one_kilo(weight_kg));
+                
                     // new_colorway.add_new_colorway();
                     //new_colorway.set_id_colorway_from_variables();
                 prod_recipe.getAll_colorways().get(colorway_num).update_this_colorway();
