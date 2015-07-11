@@ -459,8 +459,8 @@ public class DB_Manager {
             PreparedStatement ps = 
             conn.prepareStatement("SELECT * " 
                                 + "FROM colorway "
-                                + "WHERE design_code = ? ");
-                    
+                                + "WHERE design_code = ? "
+                                + " ORDER BY id_colorway");
 /*                                + "IN (SELECT id_colorway "
                                     + " FROM design_colorway_connect "
                                     + " WHERE design_code = ?) ");
@@ -505,7 +505,8 @@ public class DB_Manager {
             conn.prepareStatement("SELECT id_color_screen, p.pigment_no, pigment_percentage, p.pigment_name " 
                                  + " FROM colorway_screen_connect s_p, pigment p" 
                                  + " WHERE id_colorway = ? "
-                                 + " AND s_p.pigment_no = p.pigment_no");
+                                 + " AND s_p.pigment_no = p.pigment_no "
+                                 + " ORDER BY id_color_screen ASC");
             int item = 1;
             ps.setInt(item++, colorway_id);
             

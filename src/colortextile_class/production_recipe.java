@@ -7,6 +7,7 @@ package colortextile_class;
 
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JSpinner;
 
 /**
  *
@@ -362,5 +363,15 @@ public class production_recipe extends Design_and_colorway{
         }
         
         return colorway_kilogram;
+    }
+    
+    public String change_job_order_prefix(String spinnerValue)
+    {
+    //  String spinnerValue = this.get_date_from_spinner(this_date_spinner);
+        
+        String Year = spinnerValue.substring(2, 4);
+        String Month = spinnerValue.substring(5,7);
+        
+        return Year+ "P-" + Month + "-";
     }
 }

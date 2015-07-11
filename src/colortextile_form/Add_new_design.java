@@ -41,6 +41,7 @@ public class Add_new_design extends javax.swing.JFrame {
     private job_customer_quantity_list temporary_list = new job_customer_quantity_list();
     private String current_style;
     private int pigment_button_check = -1;
+    private production_recipe this_recipe = new production_recipe();
     /**
      * Creates new form Add_new_design
      */
@@ -2987,219 +2988,246 @@ public class Add_new_design extends javax.swing.JFrame {
 
     private void coverage1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_coverage1KeyReleased
         // TODO add your handling code here:
-        compute_kg(weigh_kg, coverage1);    
+        if(check_this_textbox(coverage1))
+        {
+            compute_kg(weigh_kg, coverage1);
+        }    
+        
     }//GEN-LAST:event_coverage1KeyReleased
 
     private void coverage2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_coverage2KeyReleased
         // TODO add your handling code here:
-        compute_kg(weigh_kg7, coverage2);     
+        if(check_this_textbox(coverage2))
+            compute_kg(weigh_kg7, coverage2);     
     }//GEN-LAST:event_coverage2KeyReleased
 
     private void coverage3KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_coverage3KeyReleased
         // TODO add your handling code here: 
-        compute_kg(weigh_kg3, coverage3);
+        if(check_this_textbox(coverage3))
+            compute_kg(weigh_kg3, coverage3);
     }//GEN-LAST:event_coverage3KeyReleased
 
     private void coverage4KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_coverage4KeyReleased
         // TODO add your handling code here:
-        compute_kg(weigh_kg4, coverage4);       
+        if(check_this_textbox(coverage4))
+            compute_kg(weigh_kg4, coverage4);       
     }//GEN-LAST:event_coverage4KeyReleased
 
     private void coverage5KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_coverage5KeyReleased
         // TODO add your handling code here:
-        compute_kg(weigh_kg5, coverage5);
+        if(check_this_textbox(coverage5))
+            compute_kg(weigh_kg5, coverage5);
     }//GEN-LAST:event_coverage5KeyReleased
 
     private void coverage6KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_coverage6KeyReleased
         // TODO add your handling code here:
-        compute_kg(weigh_kg6, coverage6);
+        if(check_this_textbox(coverage6))
+            compute_kg(weigh_kg6, coverage6);
     }//GEN-LAST:event_coverage6KeyReleased
 
     private void percentage1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage1KeyReleased
         // TODO add your handling code here:
-        check_this_textbox(percentage1);
-        update_kg_prep(percentage1.getText(), weigh_kg.getText(), kg_1);
+        if(check_this_textbox(percentage1))
+            update_kg_prep(percentage1.getText(), weigh_kg.getText(), kg_1);
     }//GEN-LAST:event_percentage1KeyReleased
 
     private void percentage2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage2KeyReleased
         // TODO add your handling code here:
-        check_this_textbox(percentage2);
-        update_kg_prep(percentage2.getText(), weigh_kg.getText(), kg_2);
+        if(check_this_textbox(percentage2))
+            update_kg_prep(percentage2.getText(), weigh_kg.getText(), kg_2);
     }//GEN-LAST:event_percentage2KeyReleased
 
     private void percentage3KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage3KeyReleased
         // TODO add your handling code here:
-        check_this_textbox(percentage3);
-        update_kg_prep(percentage3.getText(), weigh_kg.getText(), kg_3);
+        if(check_this_textbox(percentage3))
+            update_kg_prep(percentage3.getText(), weigh_kg.getText(), kg_3);
     }//GEN-LAST:event_percentage3KeyReleased
 
     private void weigh_kgKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_weigh_kgKeyReleased
         // TODO add your handling code here:
-        check_this_textbox(weigh_kg);
-        update_kg_prep(percentage1.getText(), weigh_kg.getText(), kg_1);
-        update_kg_prep(percentage2.getText(), weigh_kg.getText(), kg_2);
-        update_kg_prep(percentage3.getText(), weigh_kg.getText(), kg_3);
+        if(check_this_textbox(weigh_kg))
+        {        
+            update_kg_prep(percentage1.getText(), weigh_kg.getText(), kg_1);
+            update_kg_prep(percentage2.getText(), weigh_kg.getText(), kg_2);
+            update_kg_prep(percentage3.getText(), weigh_kg.getText(), kg_3);
+        }
     }//GEN-LAST:event_weigh_kgKeyReleased
 
     private void percentage5KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage5KeyReleased
         // TODO add your handling code here:
-        check_this_textbox(percentage5);
-        update_kg_prep(percentage5.getText(), weigh_kg3.getText(), kg_5);
+        if(check_this_textbox(percentage5))
+            update_kg_prep(percentage5.getText(), weigh_kg3.getText(), kg_5);
     }//GEN-LAST:event_percentage5KeyReleased
 
     private void percentage6KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage6KeyReleased
         // TODO add your handling code here:
-        check_this_textbox(percentage6);
-        update_kg_prep(percentage6.getText(), weigh_kg3.getText(), kg_6);
+        if(check_this_textbox(percentage6))
+            update_kg_prep(percentage6.getText(), weigh_kg3.getText(), kg_6);
     }//GEN-LAST:event_percentage6KeyReleased
 
     private void percentage7KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage7KeyReleased
         // TODO add your handling code here:
-        check_this_textbox(percentage7);
-        update_kg_prep(percentage7.getText(), weigh_kg3.getText(), kg_7);
+        if(check_this_textbox(percentage7))
+            update_kg_prep(percentage7.getText(), weigh_kg3.getText(), kg_7);
     }//GEN-LAST:event_percentage7KeyReleased
 
     private void weigh_kg3KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_weigh_kg3KeyReleased
         // TODO add your handling code here:
-        check_this_textbox(weigh_kg3);
-        update_kg_prep(percentage5.getText(), weigh_kg3.getText(), kg_5);
-        update_kg_prep(percentage6.getText(), weigh_kg3.getText(), kg_6);
-        update_kg_prep(percentage7.getText(), weigh_kg3.getText(), kg_7);
+        if(check_this_textbox(weigh_kg3))
+        {        
+            update_kg_prep(percentage5.getText(), weigh_kg3.getText(), kg_5);
+            update_kg_prep(percentage6.getText(), weigh_kg3.getText(), kg_6);
+            update_kg_prep(percentage7.getText(), weigh_kg3.getText(), kg_7);
+        }
     }//GEN-LAST:event_weigh_kg3KeyReleased
 
     private void percentage9KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage9KeyReleased
         // TODO add your handling code here:
-        check_this_textbox(percentage9);
-        update_kg_prep(percentage9.getText(), weigh_kg4.getText(), kg_9);
+        if(check_this_textbox(percentage9))
+            update_kg_prep(percentage9.getText(), weigh_kg4.getText(), kg_9);
     }//GEN-LAST:event_percentage9KeyReleased
 
     private void percentage10KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage10KeyReleased
         // TODO add your handling code here:
-        check_this_textbox(percentage10);
-        update_kg_prep(percentage10.getText(), weigh_kg4.getText(), kg_10);
+        if(check_this_textbox(percentage10))
+            update_kg_prep(percentage10.getText(), weigh_kg4.getText(), kg_10);
     }//GEN-LAST:event_percentage10KeyReleased
 
     private void percentage11KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage11KeyReleased
         // TODO add your handling code here:
-        check_this_textbox(percentage11);        
-        update_kg_prep(percentage11.getText(), weigh_kg4.getText(), kg_11);
+        if(check_this_textbox(percentage11))
+            update_kg_prep(percentage11.getText(), weigh_kg4.getText(), kg_11);
     }//GEN-LAST:event_percentage11KeyReleased
 
     private void weigh_kg4KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_weigh_kg4KeyReleased
         // TODO add your handling code here:
-        check_this_textbox(weigh_kg4);
-        update_kg_prep(percentage9.getText(), weigh_kg4.getText(), kg_9);
-        update_kg_prep(percentage10.getText(), weigh_kg4.getText(), kg_10);
-        update_kg_prep(percentage11.getText(), weigh_kg4.getText(), kg_11);
+        if(check_this_textbox(weigh_kg4))
+        {
+            update_kg_prep(percentage9.getText(), weigh_kg4.getText(), kg_9);
+            update_kg_prep(percentage10.getText(), weigh_kg4.getText(), kg_10);
+            update_kg_prep(percentage11.getText(), weigh_kg4.getText(), kg_11);
+        }
+        
     }//GEN-LAST:event_weigh_kg4KeyReleased
 
     private void percentage13KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage13KeyReleased
         // TODO add your handling code here:
-        check_this_textbox(percentage13);
-        update_kg_prep(percentage13.getText(), weigh_kg5.getText(), kg_13);
+        if(check_this_textbox(percentage13))
+            update_kg_prep(percentage13.getText(), weigh_kg5.getText(), kg_13);
     }//GEN-LAST:event_percentage13KeyReleased
 
     private void percentage14KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage14KeyReleased
         // TODO add your handling code here:
-        check_this_textbox(percentage14); 
-        update_kg_prep(percentage14.getText(), weigh_kg5.getText(), kg_14);
+        if(check_this_textbox(percentage14)) 
+            update_kg_prep(percentage14.getText(), weigh_kg5.getText(), kg_14);
     }//GEN-LAST:event_percentage14KeyReleased
 
     private void percentage15KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage15KeyReleased
         // TODO add your handling code here:
-        check_this_textbox(percentage15);
-        update_kg_prep(percentage15.getText(), weigh_kg5.getText(), kg_15);
+        if(check_this_textbox(percentage15))
+            update_kg_prep(percentage15.getText(), weigh_kg5.getText(), kg_15);
     }//GEN-LAST:event_percentage15KeyReleased
 
     private void weigh_kg5KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_weigh_kg5KeyReleased
         // TODO add your handling code here:
-        check_this_textbox(weigh_kg5);
-        update_kg_prep(percentage13.getText(), weigh_kg5.getText(), kg_13);
-        update_kg_prep(percentage14.getText(), weigh_kg5.getText(), kg_14);
-        update_kg_prep(percentage15.getText(), weigh_kg5.getText(), kg_15);
+        if(check_this_textbox(weigh_kg5)){
+            update_kg_prep(percentage13.getText(), weigh_kg5.getText(), kg_13);
+            update_kg_prep(percentage14.getText(), weigh_kg5.getText(), kg_14);
+            update_kg_prep(percentage15.getText(), weigh_kg5.getText(), kg_15);
+        }
     }//GEN-LAST:event_weigh_kg5KeyReleased
 
     private void percentage17KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage17KeyReleased
         // TODO add your handling code here:
-        check_this_textbox(percentage17);
-        update_kg_prep(percentage17.getText(), weigh_kg6.getText(), kg_17);
+        if(check_this_textbox(percentage17))
+            update_kg_prep(percentage17.getText(), weigh_kg6.getText(), kg_17);
     }//GEN-LAST:event_percentage17KeyReleased
 
     private void percentage18KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage18KeyReleased
         // TODO add your handling code here:
-        check_this_textbox(percentage18);
-        update_kg_prep(percentage18.getText(), weigh_kg6.getText(), kg_18);
+        if(check_this_textbox(percentage18))
+            update_kg_prep(percentage18.getText(), weigh_kg6.getText(), kg_18);
     }//GEN-LAST:event_percentage18KeyReleased
 
     private void percentage19KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage19KeyReleased
         // TODO add your handling code here:
-        check_this_textbox(percentage19);
-        update_kg_prep(percentage19.getText(), weigh_kg6.getText(), kg_19);
+        if(check_this_textbox(percentage19))
+            update_kg_prep(percentage19.getText(), weigh_kg6.getText(), kg_19);
     }//GEN-LAST:event_percentage19KeyReleased
 
     private void weigh_kg6KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_weigh_kg6KeyReleased
         // TODO add your handling code here:
-        check_this_textbox(weigh_kg6);
-        update_kg_prep(percentage17.getText(), weigh_kg6.getText(), kg_17);
-        update_kg_prep(percentage18.getText(), weigh_kg6.getText(), kg_18);
-        update_kg_prep(percentage19.getText(), weigh_kg6.getText(), kg_19);
+        if(check_this_textbox(weigh_kg6))
+        {
+            update_kg_prep(percentage17.getText(), weigh_kg6.getText(), kg_17);
+            update_kg_prep(percentage18.getText(), weigh_kg6.getText(), kg_18);
+            update_kg_prep(percentage19.getText(), weigh_kg6.getText(), kg_19);
+        }                
+        
     }//GEN-LAST:event_weigh_kg6KeyReleased
 
     private void percentage21KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage21KeyReleased
         // TODO add your handling code here:
-        check_this_textbox(percentage21);
-        update_kg_prep(percentage21.getText(), weigh_kg7.getText(), kg_21);
+        if(check_this_textbox(percentage21)){
+            update_kg_prep(percentage21.getText(), weigh_kg7.getText(), kg_21);
+        }
     }//GEN-LAST:event_percentage21KeyReleased
 
     private void percentage22KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage22KeyReleased
         // TODO add your handling code here:
-        check_this_textbox(percentage22);
-        update_kg_prep(percentage22.getText(), weigh_kg7.getText(), kg_22);
+        if(check_this_textbox(percentage22))
+            update_kg_prep(percentage22.getText(), weigh_kg7.getText(), kg_22);
     }//GEN-LAST:event_percentage22KeyReleased
 
     private void percentage23KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage23KeyReleased
         // TODO add your handling code here:
-        check_this_textbox(percentage23);
-        update_kg_prep(percentage23.getText(), weigh_kg7.getText(), kg_23);
+        if(check_this_textbox(percentage23))
+            update_kg_prep(percentage23.getText(), weigh_kg7.getText(), kg_23);
     }//GEN-LAST:event_percentage23KeyReleased
 
     private void weigh_kg7KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_weigh_kg7KeyReleased
         // TODO add your handling code here:
-        check_this_textbox(weigh_kg7);
-        update_kg_prep(percentage21.getText(), weigh_kg7.getText(), kg_21);
-        update_kg_prep(percentage22.getText(), weigh_kg7.getText(), kg_22);
-        update_kg_prep(percentage23.getText(), weigh_kg7.getText(), kg_23);
+        if(check_this_textbox(weigh_kg7)){
+            update_kg_prep(percentage21.getText(), weigh_kg7.getText(), kg_21);
+            update_kg_prep(percentage22.getText(), weigh_kg7.getText(), kg_22);
+            update_kg_prep(percentage23.getText(), weigh_kg7.getText(), kg_23);
+        }
     }//GEN-LAST:event_weigh_kg7KeyReleased
 
     private void percentage24KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage24KeyReleased
         // TODO add your handling code here:
-        check_this_textbox(percentage24);
-        update_kg_prep(percentage24.getText(), weigh_kg8.getText(), kg_24);
+        if(check_this_textbox(percentage24))
+        {
+            update_kg_prep(percentage24.getText(), weigh_kg8.getText(), kg_24);
+        }
     }//GEN-LAST:event_percentage24KeyReleased
 
     private void weigh_kg8KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_weigh_kg8KeyReleased
         // TODO add your handling code here:
-        check_this_textbox(weigh_kg8);
-        update_kg_prep(percentage24.getText(), weigh_kg8.getText(), kg_24);
-        update_kg_prep(percentage25.getText(), weigh_kg8.getText(), kg_25);
-        update_kg_prep(percentage26.getText(), weigh_kg8.getText(), kg_26);
+        if(check_this_textbox(weigh_kg8))
+        {        
+            update_kg_prep(percentage24.getText(), weigh_kg8.getText(), kg_24);
+            update_kg_prep(percentage25.getText(), weigh_kg8.getText(), kg_25);
+            update_kg_prep(percentage26.getText(), weigh_kg8.getText(), kg_26);
+        }
     }//GEN-LAST:event_weigh_kg8KeyReleased
 
     private void percentage25KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage25KeyReleased
         // TODO add your handling code here:
-        check_this_textbox(percentage25);
-        update_kg_prep(percentage25.getText(), weigh_kg8.getText(), kg_25);
+        if(check_this_textbox(percentage25))
+            update_kg_prep(percentage25.getText(), weigh_kg8.getText(), kg_25);
     }//GEN-LAST:event_percentage25KeyReleased
 
     private void percentage26KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage26KeyReleased
         // TODO add your handling code here:
-        check_this_textbox(percentage26);
-        update_kg_prep(percentage26.getText(), weigh_kg8.getText(), kg_26);
+        if(check_this_textbox(percentage26))
+            update_kg_prep(percentage26.getText(), weigh_kg8.getText(), kg_26);
     }//GEN-LAST:event_percentage26KeyReleased
 
     private void coverage8KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_coverage8KeyReleased
         // TODO add your handling code here:
-        compute_kg(weigh_kg8, coverage8);
+        if(check_this_textbox(coverage8))
+            compute_kg(weigh_kg8, coverage8);
     }//GEN-LAST:event_coverage8KeyReleased
     
     private void button_include_customerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_include_customerActionPerformed
@@ -3679,6 +3707,7 @@ public class Add_new_design extends javax.swing.JFrame {
         { 
             //this.text_job_order.setText(text_job_order.getText().substring(0, 3));
             the_textfield.setText(the_textfield.getText().replaceAll("[^0-9]", ""));
+            
             //if(!the_textfield.getBackground().equals(Color.pink) )
             //{
             //    the_textfield.setBackground(Color.pink);

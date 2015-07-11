@@ -60,7 +60,7 @@ public class Colorway_screen_link_functions extends colorway implements Comparab
     {
         Database.DB_Manager new_conn = new Database.DB_Manager();
         setThis_screens(new_conn.set_all_colorway_and_screen_from_colorway_id(this.getId_colorway()));
-        Collections.sort(getThis_screens());
+        //Collections.sort(getThis_screens());
         //FOR DEBUGGING
         /* 
         for (screen_pigment this_screen : getThis_screens()) {
