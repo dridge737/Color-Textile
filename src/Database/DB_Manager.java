@@ -1670,22 +1670,7 @@ public class DB_Manager {
     //UPDATE START
     ///EDIT and UPDATE function for SQL
     ///START all functions here with update_*
-    public void Update_Job_Order(colortextile_class.job_order job_order){
-        
-        try
-        {
-            DBConnection db = new DBConnection();
-            Connection conn = db.getConnection();  
-          
-          
-        //    PreparedStatement st = conn.prepareStatement("UPDATE job_order SET job_order_id='"+stock+"', date='"+tingi+"' , quantity='"+tingi+"' , fabric_style='"+tingi+"' , design_code='"+tingi+"' WHERE pigment_name='"+pigment_name+"'");       
-        //    st.execute();
-        }
-        catch (Exception e) 
-        {
-            e.printStackTrace();
-        }
-    }
+    
     //UPDATE END
     
     ///////////////////////////////////////////////////////////////////////////////////////////
