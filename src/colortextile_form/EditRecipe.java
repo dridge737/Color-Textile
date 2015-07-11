@@ -312,7 +312,6 @@ public class EditRecipe extends javax.swing.JFrame {
         weight.setText(Float.toString(prod_recipe.compute_kilograms_to_total_quantity(this_c_and_s.getWeight_kg())));
         //System.out.println(this_c_and_s.getBinder());
         //System.out.println(Float.toString(this_c_and_s.getBinder()));
-
         binder.setSelectedItem(Float.toString(this_c_and_s.getBinder()));
     }
     
@@ -641,7 +640,7 @@ public class EditRecipe extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Edit Recipe");
         jPanel14.add(jLabel7);
-        jLabel7.setBounds(30, 20, 196, 45);
+        jLabel7.setBounds(20, 20, 196, 45);
 
         spinner_date.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
         spinner_date.setModel(new javax.swing.SpinnerDateModel());
@@ -2347,7 +2346,7 @@ public class EditRecipe extends javax.swing.JFrame {
         {
             prod_recipe.setFabric_style(fab_style_comb.getSelectedItem().toString());
         }
-        
+        //prod_recipe.
         prod_recipe.update_design();
            //System.out.println("Design Code = "+prod_recipe.getDesign_code());
         return prod_recipe.getDesign_code();

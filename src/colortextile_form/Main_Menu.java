@@ -57,8 +57,6 @@ public class Main_Menu extends javax.swing.JFrame {
         add_new_recipe1 = new javax.swing.JButton();
         add_new_recipe2 = new javax.swing.JButton();
         print_from_recipe = new javax.swing.JButton();
-        jPanel4 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Main Menu");
@@ -72,7 +70,7 @@ public class Main_Menu extends javax.swing.JFrame {
         jLabel1.setText("Main Menu");
         jLabel1.setToolTipText("");
         jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 355, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 20, 355, -1));
 
         search_jo.setBackground(new java.awt.Color(255, 255, 255));
         search_jo.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
@@ -85,7 +83,7 @@ public class Main_Menu extends javax.swing.JFrame {
                 search_joActionPerformed(evt);
             }
         });
-        jPanel1.add(search_jo, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 205, 370, 49));
+        jPanel1.add(search_jo, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 205, 370, 49));
 
         pigments.setBackground(new java.awt.Color(255, 255, 255));
         pigments.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
@@ -98,7 +96,7 @@ public class Main_Menu extends javax.swing.JFrame {
                 pigmentsActionPerformed(evt);
             }
         });
-        jPanel1.add(pigments, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 325, 370, 49));
+        jPanel1.add(pigments, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 325, 370, 49));
 
         Close_but.setBackground(new java.awt.Color(255, 255, 255));
         Close_but.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
@@ -111,7 +109,7 @@ public class Main_Menu extends javax.swing.JFrame {
                 Close_butActionPerformed(evt);
             }
         });
-        jPanel1.add(Close_but, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 385, 370, 49));
+        jPanel1.add(Close_but, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 385, 370, 49));
 
         add_new_recipe1.setBackground(new java.awt.Color(255, 255, 255));
         add_new_recipe1.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
@@ -124,7 +122,7 @@ public class Main_Menu extends javax.swing.JFrame {
                 add_new_recipe1ActionPerformed(evt);
             }
         });
-        jPanel1.add(add_new_recipe1, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 85, 370, 49));
+        jPanel1.add(add_new_recipe1, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 85, 370, 49));
 
         add_new_recipe2.setBackground(new java.awt.Color(255, 255, 255));
         add_new_recipe2.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
@@ -137,7 +135,7 @@ public class Main_Menu extends javax.swing.JFrame {
                 add_new_recipe2ActionPerformed(evt);
             }
         });
-        jPanel1.add(add_new_recipe2, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 145, 370, 49));
+        jPanel1.add(add_new_recipe2, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 145, 370, 49));
 
         print_from_recipe.setBackground(new java.awt.Color(255, 255, 255));
         print_from_recipe.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
@@ -150,42 +148,10 @@ public class Main_Menu extends javax.swing.JFrame {
                 print_from_recipeActionPerformed(evt);
             }
         });
-        jPanel1.add(print_from_recipe, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 265, 370, 49));
+        jPanel1.add(print_from_recipe, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 265, 370, 49));
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(10, 0, 440, 460);
-
-        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
-
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 26, Short.MAX_VALUE)
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 460, Short.MAX_VALUE)
-        );
-
-        getContentPane().add(jPanel4);
-        jPanel4.setBounds(0, 0, 26, 460);
-
-        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 10, Short.MAX_VALUE)
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 460, Short.MAX_VALUE)
-        );
-
-        getContentPane().add(jPanel3);
-        jPanel3.setBounds(450, 0, 10, 460);
+        jPanel1.setBounds(0, 0, 460, 460);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -266,8 +232,6 @@ public class Main_Menu extends javax.swing.JFrame {
     private javax.swing.JButton add_new_recipe2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JButton pigments;
     private javax.swing.JButton print_from_recipe;
     private javax.swing.JButton search_jo;
