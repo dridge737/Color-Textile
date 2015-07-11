@@ -2041,7 +2041,7 @@ public class DB_Manager {
         return 0;
     }
     
-    public void update_design_picture(design this_design) throws FileNotFoundException
+    public void update_design_picture(design this_design)
     {
         DBConnection db = new DBConnection();
         Connection conn = db.getConnection();
@@ -2114,6 +2114,7 @@ public class DB_Manager {
         {
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);    
         } 
+        this.update_design_picture(this_design);
     }
     
     public void update_colorway_screen(Pigment_screen_and_colorway this_color_screen)
