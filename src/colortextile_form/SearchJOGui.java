@@ -430,7 +430,7 @@ public class SearchJOGui extends javax.swing.JFrame {
         });
 
         jDesktopPane1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jDesktopPane1.add(label_pic, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 0, 200, 143));
+        jDesktopPane1.add(label_pic, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 210, 143));
 
         text_job_id.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
         text_job_id.addKeyListener(new java.awt.event.KeyAdapter() {
