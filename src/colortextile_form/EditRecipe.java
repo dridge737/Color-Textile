@@ -453,6 +453,7 @@ public class EditRecipe extends javax.swing.JFrame {
         pig14 = new javax.swing.JButton();
         pig15 = new javax.swing.JButton();
         pig16 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         colorway_name4 = new javax.swing.JTextField();
         name9 = new javax.swing.JComboBox();
@@ -487,6 +488,7 @@ public class EditRecipe extends javax.swing.JFrame {
         pig17 = new javax.swing.JButton();
         pig18 = new javax.swing.JButton();
         pig19 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         colorway_name5 = new javax.swing.JTextField();
         name13 = new javax.swing.JComboBox();
@@ -521,6 +523,7 @@ public class EditRecipe extends javax.swing.JFrame {
         pig20 = new javax.swing.JButton();
         pig21 = new javax.swing.JButton();
         pig22 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
         jPanel7 = new javax.swing.JPanel();
         colorway_name6 = new javax.swing.JTextField();
         name17 = new javax.swing.JComboBox();
@@ -555,6 +558,7 @@ public class EditRecipe extends javax.swing.JFrame {
         pig23 = new javax.swing.JButton();
         pig24 = new javax.swing.JButton();
         pig25 = new javax.swing.JButton();
+        jButton7 = new javax.swing.JButton();
         jPanel8 = new javax.swing.JPanel();
         colorway_name7 = new javax.swing.JTextField();
         name21 = new javax.swing.JComboBox();
@@ -589,6 +593,7 @@ public class EditRecipe extends javax.swing.JFrame {
         pig26 = new javax.swing.JButton();
         pig27 = new javax.swing.JButton();
         pig28 = new javax.swing.JButton();
+        jButton8 = new javax.swing.JButton();
         jPanel15 = new javax.swing.JPanel();
         colorway_name8 = new javax.swing.JTextField();
         name24 = new javax.swing.JComboBox();
@@ -623,6 +628,7 @@ public class EditRecipe extends javax.swing.JFrame {
         pig29 = new javax.swing.JButton();
         pig30 = new javax.swing.JButton();
         pig31 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
         save_edit_but = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         preview_but = new javax.swing.JButton();
@@ -1091,10 +1097,10 @@ public class EditRecipe extends javax.swing.JFrame {
         jLabel153.setText("%");
         jPanel9.add(jLabel153, new org.netbeans.lib.awtextra.AbsoluteConstraints(416, 74, 31, 22));
 
-        jButton2.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        jButton2.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jButton2.setText("+");
         jButton2.setMargin(new java.awt.Insets(2, 0, 2, 0));
-        jPanel9.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 200, 30, 34));
+        jPanel9.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 203, 25, 25));
 
         pig11.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         pig11.setText("+");
@@ -1307,6 +1313,11 @@ public class EditRecipe extends javax.swing.JFrame {
         });
         jPanel4.add(pig16, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 148, 25, 25));
 
+        jButton4.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        jButton4.setText("+");
+        jButton4.setMargin(new java.awt.Insets(2, 0, 2, 0));
+        jPanel4.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 203, 25, 25));
+
         jTabbedPane2.addTab("2", jPanel4);
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
@@ -1485,6 +1496,11 @@ public class EditRecipe extends javax.swing.JFrame {
         });
         jPanel5.add(pig19, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 148, 25, 25));
 
+        jButton5.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        jButton5.setText("+");
+        jButton5.setMargin(new java.awt.Insets(2, 0, 2, 0));
+        jPanel5.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 203, 25, 25));
+
         jTabbedPane2.addTab("3", jPanel5);
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
@@ -1661,6 +1677,11 @@ public class EditRecipe extends javax.swing.JFrame {
             }
         });
         jPanel6.add(pig22, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 148, 25, 25));
+
+        jButton6.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        jButton6.setText("+");
+        jButton6.setMargin(new java.awt.Insets(2, 0, 2, 0));
+        jPanel6.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 203, 25, 25));
 
         jTabbedPane2.addTab("4", jPanel6);
 
@@ -1839,6 +1860,11 @@ public class EditRecipe extends javax.swing.JFrame {
         });
         jPanel7.add(pig25, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 148, 25, 25));
 
+        jButton7.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        jButton7.setText("+");
+        jButton7.setMargin(new java.awt.Insets(2, 0, 2, 0));
+        jPanel7.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 203, 25, 25));
+
         jTabbedPane2.addTab("5", jPanel7);
 
         jPanel8.setBackground(new java.awt.Color(255, 255, 255));
@@ -2016,6 +2042,11 @@ public class EditRecipe extends javax.swing.JFrame {
         });
         jPanel8.add(pig28, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 148, 25, 25));
 
+        jButton8.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        jButton8.setText("+");
+        jButton8.setMargin(new java.awt.Insets(2, 0, 2, 0));
+        jPanel8.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 203, 25, 25));
+
         jTabbedPane2.addTab("6", jPanel8);
 
         jPanel15.setBackground(new java.awt.Color(255, 255, 255));
@@ -2192,6 +2223,11 @@ public class EditRecipe extends javax.swing.JFrame {
             }
         });
         jPanel15.add(pig31, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 148, 25, 25));
+
+        jButton3.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        jButton3.setText("+");
+        jButton3.setMargin(new java.awt.Insets(2, 0, 2, 0));
+        jPanel15.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 203, 25, 25));
 
         jTabbedPane2.addTab("7", jPanel15);
 
@@ -3694,6 +3730,12 @@ public class EditRecipe extends javax.swing.JFrame {
     private javax.swing.JComboBox fab_style_comb;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel100;
     private javax.swing.JLabel jLabel102;

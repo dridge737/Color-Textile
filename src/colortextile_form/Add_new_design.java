@@ -916,7 +916,7 @@ public class Add_new_design extends javax.swing.JFrame {
                 bind_addActionPerformed(evt);
             }
         });
-        jPanel9.add(bind_add, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 202, 25, 25));
+        jPanel9.add(bind_add, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 203, 25, 25));
 
         pig11.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         pig11.setText("+");
@@ -1122,7 +1122,7 @@ public class Add_new_design extends javax.swing.JFrame {
         bind_add2.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         bind_add2.setText("+");
         bind_add2.setMargin(new java.awt.Insets(2, 0, 2, 0));
-        jPanel4.add(bind_add2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 203, 25, 25));
+        jPanel4.add(bind_add2, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 203, 25, 25));
 
         jTabbedPane2.addTab("2", jPanel4);
 
@@ -1305,7 +1305,7 @@ public class Add_new_design extends javax.swing.JFrame {
         bind_add3.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         bind_add3.setText("+");
         bind_add3.setMargin(new java.awt.Insets(2, 0, 2, 0));
-        jPanel5.add(bind_add3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 203, 25, 25));
+        jPanel5.add(bind_add3, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 203, 25, 25));
 
         jTabbedPane2.addTab("3", jPanel5);
 
@@ -1487,7 +1487,7 @@ public class Add_new_design extends javax.swing.JFrame {
         bind_add4.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         bind_add4.setText("+");
         bind_add4.setMargin(new java.awt.Insets(2, 0, 2, 0));
-        jPanel6.add(bind_add4, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 203, 25, 25));
+        jPanel6.add(bind_add4, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 203, 25, 25));
 
         jTabbedPane2.addTab("4", jPanel6);
 
@@ -1669,7 +1669,7 @@ public class Add_new_design extends javax.swing.JFrame {
         bind_add5.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         bind_add5.setText("+");
         bind_add5.setMargin(new java.awt.Insets(2, 0, 2, 0));
-        jPanel7.add(bind_add5, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 203, 25, 25));
+        jPanel7.add(bind_add5, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 203, 25, 25));
 
         jTabbedPane2.addTab("5", jPanel7);
 
@@ -1851,7 +1851,7 @@ public class Add_new_design extends javax.swing.JFrame {
         bind_add6.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         bind_add6.setText("+");
         bind_add6.setMargin(new java.awt.Insets(2, 0, 2, 0));
-        jPanel8.add(bind_add6, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 203, 25, 25));
+        jPanel8.add(bind_add6, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 203, 25, 25));
 
         jTabbedPane2.addTab("6", jPanel8);
 
@@ -2033,7 +2033,7 @@ public class Add_new_design extends javax.swing.JFrame {
         bind_add7.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         bind_add7.setText("+");
         bind_add7.setMargin(new java.awt.Insets(2, 0, 2, 0));
-        jPanel15.add(bind_add7, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 203, 25, 25));
+        jPanel15.add(bind_add7, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 203, 25, 25));
 
         jTabbedPane2.addTab("7", jPanel15);
 
