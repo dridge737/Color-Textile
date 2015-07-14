@@ -10,6 +10,7 @@ import colortextile_class.*;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.awt.event.KeyEvent;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.DateFormat;
@@ -24,7 +25,6 @@ import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JSpinner;
 import javax.swing.JTextField;
-import javax.swing.SpinnerDateModel;
 /**
  *
  * @author Eldridge
@@ -57,6 +57,7 @@ public class Add_new_design extends javax.swing.JFrame {
     }
     
     public Add_new_design() {
+        
         this.addWindowListener(new java.awt.event.WindowAdapter() {
             @Override
             public void windowClosing(java.awt.event.WindowEvent windowEvent) {
@@ -78,11 +79,30 @@ public class Add_new_design extends javax.swing.JFrame {
         this.setLocation(x,0);
         //InputVerifier new_verifier = new Verifier();
         //this.pigment_percentage8.setInputVerifier(new_verifier);
-        fill_customer_list();
+        this.set_customer_list_and_autocomplete();
         job_ord_label.setText(use_func.change_job_order_prefix(spinner_date));
-        this.customer_name_text.setVisible(false);
-        current_style = fab_style_comb.getSelectedItem().toString();
         
+        
+    }
+    
+    public void set_customer_list_and_autocomplete()
+    {
+        //fill_customer_list();
+        //this.customer_name_text.setVisible(false);
+        //current_style = fab_style_comb.getSelectedItem().toString();
+        //this.customer_combo_list.setEditable(true);
+        this.customer_combo_list.setVisible(false);
+        this.customer_check_box.setVisible(false);
+        ArrayList<String> words = new ArrayList<>();
+        customer list = new customer();
+        list.get_customer_list();
+        for ( String name : list.getCustomer_names() )
+        {
+            words.add(name);
+        }
+        auto_complete this_auto = new auto_complete();
+        this_auto.setupAutoComplete(this.customer_name_text, words);
+        this.customer_name_text.setColumns(30);
     }
 
     /**
@@ -117,6 +137,7 @@ public class Add_new_design extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         quantity = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
+        customer_name_text = new javax.swing.JTextField();
         customer_combo_list = new javax.swing.JComboBox();
         button_include_customer = new javax.swing.JButton();
         button_remove_customer = new javax.swing.JButton();
@@ -126,7 +147,6 @@ public class Add_new_design extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         text_job_order = new javax.swing.JTextField();
         customer_check_box = new javax.swing.JCheckBox();
-        customer_name_text = new javax.swing.JTextField();
         job_ord_label = new javax.swing.JLabel();
         edit_purchase = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
@@ -596,10 +616,14 @@ public class Add_new_design extends javax.swing.JFrame {
         jPanel16.add(jLabel12);
         jLabel12.setBounds(20, 120, 153, 34);
 
+        customer_name_text.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
+        jPanel16.add(customer_name_text);
+        customer_name_text.setBounds(190, 70, 210, 34);
+
         customer_combo_list.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         customer_combo_list.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jPanel16.add(customer_combo_list);
-        customer_combo_list.setBounds(190, 70, 210, 34);
+        customer_combo_list.setBounds(190, 70, 170, 34);
 
         button_include_customer.setBackground(new java.awt.Color(255, 255, 255));
         button_include_customer.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
@@ -639,10 +663,12 @@ public class Add_new_design extends javax.swing.JFrame {
 
         jLabel10.setBackground(new java.awt.Color(255, 255, 255));
         jLabel10.setFont(new java.awt.Font("Century Gothic", 0, 17)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(247, 241, 241));
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel10.setText("Job Order :");
         jLabel10.setFocusable(false);
+        jLabel10.setRequestFocusEnabled(false);
+        jLabel10.setVerifyInputWhenFocusTarget(false);
         jPanel16.add(jLabel10);
         jLabel10.setBounds(20, 20, 153, 34);
 
@@ -670,10 +696,6 @@ public class Add_new_design extends javax.swing.JFrame {
         });
         jPanel16.add(customer_check_box);
         customer_check_box.setBounds(340, 50, 59, 20);
-
-        customer_name_text.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
-        jPanel16.add(customer_name_text);
-        customer_name_text.setBounds(190, 70, 210, 34);
 
         job_ord_label.setBackground(new java.awt.Color(255, 255, 255));
         job_ord_label.setFont(new java.awt.Font("Century Gothic", 0, 17)); // NOI18N
@@ -2930,7 +2952,6 @@ public class Add_new_design extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (this.text_job_order.getText().length() >= 4 )
             this.text_job_order.setText(text_job_order.getText().substring(0, 3));
-       
     }//GEN-LAST:event_text_job_orderKeyTyped
 
     private void coverage1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_coverage1KeyReleased
@@ -3182,12 +3203,12 @@ public class Add_new_design extends javax.swing.JFrame {
         String job_order_text = this.job_ord_label.getText() + this.text_job_order.getText();
         
         if(this_list.check_if_job_is_good(job_order_text) 
-                && this_list.check_this_customer(customer_check_box, customer_combo_list, customer_name_text)
+                && this_list.check_customer_if_is_in_database_and_has_text(customer_name_text.getText())
                 && this_list.check_if_quantity_is_good(quantity.getText()))
                 {
                     include();
                     quantity.setText("");
-                    customer_combo_list.setSelectedIndex(0);
+                    //customer_combo_list.setSelectedIndex(0);
                     customer_name_text.setText("");
                     text_job_order.setText("");
                     
@@ -3603,8 +3624,31 @@ public class Add_new_design extends javax.swing.JFrame {
     private void text_job_orderKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_text_job_orderKeyReleased
         // TODO add your handling code here:
         check_this_textbox(text_job_order);
+        if (this.text_job_order.getText().length() == 4 )
+        {
+            String job_order_text = this.job_ord_label.getText() + this.text_job_order.getText();
+            DB_Manager new_conn = new DB_Manager();
+            job_order new_job_order = new job_order();
+            new_job_order.setJob_id(job_order_text);
+            if(new_job_order.set_job_order_details_if_available())
+            {
+                this.customer_name_text.setText(new_job_order.getCustomer_name());
+                this.customer_name_text.setEditable(false);
+                this.customer_name_text.validate();
+            }
+            else
+                this.customer_name_text.setEditable(true);
+        }
+        else
+            this.customer_name_text.setEditable(true);
+        
+        
     }//GEN-LAST:event_text_job_orderKeyReleased
 
+    private void check_if_job_order_has_been_added()
+    {
+        
+    }
     private void compute_kg_from_coverage(JTextField weigh_kg)
     {
         if(!use_func.checkText2(weigh_kg.getText()) && quantity_total.getText().length()>0 )

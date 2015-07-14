@@ -1092,16 +1092,20 @@ public class DB_Manager {
         {
             DBConnection db = new DBConnection();
             Connection conn = db.getConnection(); 
-            PreparedStatement ps = conn.prepareStatement("SELECT * FROM job_order WHERE job_order_id = ?");
+            PreparedStatement ps = conn.prepareStatement("SELECT * "
+                                                        + " FROM job_order jo , customer cu "
+                                                        + " WHERE job_order_id = ? "
+                                                        + " AND jo.customer_id = cu.id_customer");
             int item = 1;
             ps.setString(item++, job_order_id);
             ResultSet rs = ps.executeQuery();
             
             if(rs.first())
             {
-                this_job.setJob_id(job_order_id);
+                //this_job.setJob_id(job_order_id);
                 this_job.setCustomer_id(rs.getInt("customer_id"));
                 this_job.setDate(rs.getString("date"));
+                this_job.setCustomer_name(rs.getString("customer_name"));
             }
             this.closeConn(conn, ps, rs);
             

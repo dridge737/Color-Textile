@@ -123,10 +123,9 @@ public class job_customer_quantity_list {
             {
                 customer this_customer = new customer();       
                 this_customer.setCustomer_name(text_name);
-                
-                if(this_customer.check_if_this_customer_exists())
-                {
-                    JOptionPane.showMessageDialog(null,"Customer Name already Exists");
+                if(this.customer_list.contains(text_name))
+                        {
+                    JOptionPane.showMessageDialog(null,"Customer name has already been added");
                     good_customer = false;
                 }
             }
@@ -143,10 +142,10 @@ public class job_customer_quantity_list {
      */
     public boolean check_this_customer(JCheckBox customerCheckbox, JComboBox combo_name, JTextField customer_name_text)
     {
-        if(customerCheckbox.isSelected())
-        {
+        //if(customerCheckbox.isSelected())
+        //{
             return this.check_customer_if_is_in_database_and_has_text(customer_name_text.getText());
-        }
+        /*}
         else
         {
             if (combo_name.getSelectedItem().equals(""))
@@ -160,7 +159,7 @@ public class job_customer_quantity_list {
                 return false;   
             }
         }
-        return true;
+        return true;*/
     }
  
     public boolean check_if_quantity_is_good(String quantity)

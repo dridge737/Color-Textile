@@ -32,10 +32,19 @@ public class job_order extends customer {
         //this.fabric_style = details.fabric_style;
     }
     
-    public job_order get_details(String job_order_id)
+    public boolean set_job_order_details_if_available()
     {
         Database.DB_Manager new_conn = new Database.DB_Manager();
-        return new_conn.get_job_order_details(job_order_id);
+        if(new_conn.check_if_job_order_exists(this) == 1)
+        {
+            job_order temporary_job = new_conn.get_job_order_details(this.job_id);
+            this.customer_id = temporary_job.getCustomer_id();
+            this.date = temporary_job.getDate();
+            this.setCustomer_name(temporary_job.getCustomer_name());
+            return true;
+        }
+        return false;
+        
     }
     /**
      * @return the job_id
@@ -95,12 +104,6 @@ public class job_order extends customer {
     public void get_job_order_list()
     {
         Database.DB_Manager new_conn = new Database.DB_Manager();
-    }
-    
-    public void set_details_from_job_order_id()
-    {
-        Database.DB_Manager new_conn = new Database.DB_Manager();
-        // = new_conn.get_job_order_details(job_id); 
     }
 
     public boolean check_job_id(String JobId){
