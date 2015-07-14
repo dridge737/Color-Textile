@@ -125,7 +125,6 @@ public class SearchJOGui extends javax.swing.JFrame {
         
         
         
-        model.addColumn("#"); // purchaseorder
         model.addColumn("Job Order");       // job_order
         model.addColumn("Customer Name");   //job_order
         model.addColumn("date");            //job_order
@@ -133,7 +132,7 @@ public class SearchJOGui extends javax.swing.JFrame {
         model.addColumn("Design Name");     //design
         model.addColumn("Colorway Name");   //design
         model.addColumn("Fabric Style");    //desing
-        
+        model.addColumn("#"); // purchaseorder
         try {
             if (rs.first()){
                 
@@ -160,14 +159,15 @@ public class SearchJOGui extends javax.swing.JFrame {
                             if (rs3.first()){
                                 String[] set1 = 
                                 {
-                                    Integer.toString(rs2.getInt("id_purchase")),
+                                    
                                     rs2.getString("job_order_id"), 
                                     conn.get_customer_name(rs.getInt("customer_id")),
                                     rs.getString("date"),
                                     rs2.getString("quantity"),
                                     rs3.getString("design_name"),
                                     rs3.getString("color_name"),
-                                    rs3.getString("fabric_style")
+                                    rs3.getString("fabric_style"),
+                                    Integer.toString(rs2.getInt("id_purchase"))
                                 };
                                 model.addRow(set1);
                                 
@@ -410,6 +410,7 @@ public class SearchJOGui extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTable1.setEnabled(false);
         jTable1.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseReleased(java.awt.event.MouseEvent evt) {
@@ -567,7 +568,7 @@ public class SearchJOGui extends javax.swing.JFrame {
             System.out.println(jTable1.getValueAt(row, col));
         }
         System.out.println("end"); */
-        String selected_purchase_order = jTable1.getValueAt(row, 0).toString();
+        String selected_purchase_order = jTable1.getValueAt(row, 7).toString();
         
         purchase_order purchase = new purchase_order();
         purchase.setId_purchase(Integer.parseInt(selected_purchase_order));
@@ -608,7 +609,7 @@ public class SearchJOGui extends javax.swing.JFrame {
     private int get_design_code_from_table_selected(){
         
         int row = this.get_table_row_value();
-        String id =(this.jTable1.getModel().getValueAt(row, 0).toString());
+        String id =(this.jTable1.getModel().getValueAt(row, 7).toString());
         //JOptionPane.showMessageDialog(null, "id= " + id);
         
         purchase_order conn = new purchase_order();
