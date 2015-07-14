@@ -74,6 +74,7 @@ public class auto_complete {
                         txtInput.setText(cbInput.getSelectedItem().toString());
                         cbInput.setPopupVisible(false);
                     }
+                    
                 }
                 if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
                     cbInput.setPopupVisible(false);

@@ -375,6 +375,7 @@ public class PrintForm extends javax.swing.JFrame {
                     this_prod_recipe.set_design_details_and_colorway_details_from_design_code();
                     this_prod_recipe.set_all_purchase_details_from_design_code_and_date();
                     this_prod_recipe.set_job_order_list_using_design_code_and_purchase_id();
+                    this_prod_recipe.compute_all_colorway_to_total_quantity();
                     //this_prod_recipe.view_all_colorway_details();
                     //this_prod_recipe.view_all_job_order_details();
                     //this_prod_recipe.view_all_puchase_order();

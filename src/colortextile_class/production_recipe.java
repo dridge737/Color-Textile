@@ -376,7 +376,6 @@ public class production_recipe extends Design_and_colorway{
     public String change_job_order_prefix(String spinnerValue)
     {
     //  String spinnerValue = this.get_date_from_spinner(this_date_spinner);
-        
         String Year = spinnerValue.substring(2, 4);
         String Month = spinnerValue.substring(5,7);
         

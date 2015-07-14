@@ -32,6 +32,7 @@ import org.jdom.Attribute;
 import org.jdom.Element;
 import org.jdom.JDOMException;
 import org.jdom.Namespace;
+import org.jopendocument.dom.OOUtils;
 import org.jopendocument.dom.template.RhinoTemplate;
 //import static spreadsheettrial.TestTemplate.copyFileToTmp;
 
@@ -83,7 +84,7 @@ public class SpreadsheetTrial {
             while( x<=the_screens.size())
             {
                 template.setField("screen1_"+x, the_screens.get(x-1).getPigment_name() );
-                template.setField("per1_"+x, the_screens.get(x-1).getPigment_percentage() );
+                template.setField("per1_"+x, Float.toString(the_screens.get(x-1).getPigment_percentage()) );
                 template.setField("kg1_"+x, the_screens.get(x-1).compute_kg_prep(first_colorway.getWeight_kg()));
                 x++;
             }
@@ -227,11 +228,21 @@ public class SpreadsheetTrial {
                     //new File("PrintFile").
                 }
             }
+            try {
+                OOUtils.open(new File("PrintFile.odt"));
+            } catch (IOException ex) {
+                Logger.getLogger(SpreadsheetTrial.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         else
         {
             SpreadsheetTrial newTrial2 = new SpreadsheetTrial();
             newTrial2.print_this_job2(recipe_to_be_printed.get(0), "PrintFile");
+            try {
+                OOUtils.open(new File("PrintFile.odt"));
+            } catch (IOException ex) {
+                Logger.getLogger(SpreadsheetTrial.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }
         
@@ -284,7 +295,8 @@ public class SpreadsheetTrial {
          while(x<=the_screens.size())
             {
                 res.put("name"+x, the_screens.get(x-1).getPigment_name() );
-                res.put("per"+x, Float.toString(the_screens.get(x-1).getPigment_percentage() ));
+                res.put("per"+x, String.format(".2f", the_screens.get(x-1).getPigment_percentage()));
+                        //Float.toString(the_screens.get(x-1).getPigment_percentage() )
                 res.put("kilo"+x, the_screens.get(x-1).compute_kg_prep(this_color_screen.getWeight_kg()));
                 x++;
             }

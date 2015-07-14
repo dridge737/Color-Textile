@@ -112,13 +112,12 @@ public class EditRecipe extends javax.swing.JFrame {
         
         fill_customer_list();
         this.customer_name_text.setVisible(false);
-        this.fabric_style.setVisible(false);
         
-        //List<Webcam> webcam = Webcam.getWebcams();
-        //for(Webcam all_web : webcam)
-        //{
-        //    web_cams.addItem(all_web.getName());
-        //}
+        List<Webcam> webcam = Webcam.getWebcams();
+        for(Webcam all_web : webcam)
+        {
+            web_cams.addItem(all_web.getName());
+        }
     }
     
     private void set_purchase_and_job_list_textbox()
@@ -356,13 +355,11 @@ public class EditRecipe extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         design_name = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        fabric_style = new javax.swing.JTextField();
         fab_style_comb = new javax.swing.JComboBox();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jPanel10 = new javax.swing.JPanel();
         design_color = new javax.swing.JTextField();
-        fabric_check_box = new javax.swing.JCheckBox();
         jLabel11 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jPanel16 = new javax.swing.JPanel();
@@ -704,10 +701,6 @@ public class EditRecipe extends javax.swing.JFrame {
         jPanel1.add(jLabel2);
         jLabel2.setBounds(10, 210, 150, 34);
 
-        fabric_style.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        jPanel1.add(fabric_style);
-        fabric_style.setBounds(520, 230, 150, 34);
-
         fab_style_comb.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         fab_style_comb.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "PONGEE", "COTTON", "KATUNIA", "MICROPEACH", "TC", "TROPICANA" }));
         jPanel1.add(fab_style_comb);
@@ -761,18 +754,6 @@ public class EditRecipe extends javax.swing.JFrame {
         jPanel1.add(design_color);
         design_color.setBounds(172, 253, 200, 32);
         design_color.getAccessibleContext().setAccessibleDescription("This Design's Color");
-
-        fabric_check_box.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        fabric_check_box.setForeground(new java.awt.Color(255, 255, 255));
-        fabric_check_box.setText("New ?");
-        fabric_check_box.setOpaque(false);
-        fabric_check_box.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                fabric_check_boxActionPerformed(evt);
-            }
-        });
-        jPanel1.add(fabric_check_box);
-        fabric_check_box.setBounds(610, 210, 63, 25);
 
         jLabel11.setBackground(new java.awt.Color(255, 255, 255));
         jLabel11.setFont(new java.awt.Font("Century Gothic", 0, 17)); // NOI18N
@@ -2345,17 +2326,11 @@ public class EditRecipe extends javax.swing.JFrame {
     {
         prod_recipe.setDesign_name(design_name.getText());
         prod_recipe.setColor_name(design_color.getText());
-        if(fabric_check_box.isSelected())
-        {
-            prod_recipe.setFabric_style(fabric_style.getText().toUpperCase());
-            prod_recipe.add_fabric_style();
-        }
-        else
-        {
-            prod_recipe.setFabric_style(fab_style_comb.getSelectedItem().toString());
-        }
+        prod_recipe.setFabric_style(fab_style_comb.getSelectedItem().toString().toUpperCase());
+        
         //prod_recipe.
         prod_recipe.update_design();
+
            //System.out.println("Design Code = "+prod_recipe.getDesign_code());
         return prod_recipe.getDesign_code();
     }
@@ -2594,17 +2569,6 @@ public class EditRecipe extends javax.swing.JFrame {
         if (this.text_job_order.getText().length() >= 4 )
             this.text_job_order.setText(text_job_order.getText().substring(0, 3));
     }//GEN-LAST:event_text_job_orderKeyTyped
-
-    private void fabric_check_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fabric_check_boxActionPerformed
-        // TODO add your handling code here:
-        if(this.fabric_check_box.isSelected()){
-            this.fab_style_comb.setVisible(false);
-            this.fabric_style.setVisible(true);
-        } else {
-            this.fab_style_comb.setVisible(true);
-            this.fabric_style.setVisible(false);
-        }
-    }//GEN-LAST:event_fabric_check_boxActionPerformed
 
     private void quantityFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_quantityFocusLost
         // TODO add your handling code here:
@@ -3004,35 +2968,16 @@ public class EditRecipe extends javax.swing.JFrame {
                /* job_order current_job = new job_order();
                 current_job.setJob_id(this.this_list.getJob_list().get(selected).toString());
                 current_job.delete_job_order_from_job_id();
-                
-                
-                
                 */
             }
         }
     }//GEN-LAST:event_button_remove_customerActionPerformed
 
-    private String getFabricStyle()
-    {
-        if(fabric_check_box.isSelected())
-        {
-            Unused.fabric_style new_fabric = new Unused.fabric_style();
-            new_fabric.setFabric_style(fabric_style.getText().toUpperCase());
-            new_fabric.add_fabric_style();
-            
-            return new_fabric.getFabric_style();
-        }
-        else
-        {
-            return fab_style_comb.getSelectedItem().toString();
-        }
-    }
-    
      private production_recipe get_design_details()
     {
         colortextile_class.production_recipe new_design = new colortextile_class.production_recipe(design_name.getText(),
                 design_color.getText(),
-                getFabricStyle(), 
+                fab_style_comb.getSelectedItem().toString(), 
                 use_func.get_date_from_spinner(spinner_date));
         //new_design.setDesign_name(design_name.getText());
         //new_design.setColor_name(design_color.getText());
@@ -3481,14 +3426,8 @@ public class EditRecipe extends javax.swing.JFrame {
         {
             Recipe_functions use_func = new Recipe_functions();
             float this_computation;
-            if(this.fabric_check_box.isSelected())
-            {
-               this_computation = use_func.compute_this_kg(coverage, fabric_style.getText(), quantity_total.getText());
-            }
-            else{
-               this_computation = use_func.compute_this_kg(coverage, fab_style_comb.getSelectedItem().toString(),quantity_total.getText());
-            }
-                weigh_kg.setText(String.format("%.0f", this_computation));
+            this_computation = use_func.compute_this_kg(coverage, fab_style_comb.getSelectedItem().toString(),quantity_total.getText());
+            weigh_kg.setText(String.format("%.0f", this_computation));
         }
     }
     
@@ -3754,8 +3693,6 @@ public class EditRecipe extends javax.swing.JFrame {
     private javax.swing.JTextField design_name;
     private javax.swing.JButton edit_item;
     private javax.swing.JComboBox fab_style_comb;
-    private javax.swing.JCheckBox fabric_check_box;
-    private javax.swing.JTextField fabric_style;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel10;

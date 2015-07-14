@@ -43,7 +43,7 @@ public class Design_and_colorway extends design {
              //Subclass
              this.getAll_colorways().get(x).add_all_screens_from_colorway();
          }
-         Collections.sort(all_colorways);
+         //Collections.sort(all_colorways);
          
      }
      
