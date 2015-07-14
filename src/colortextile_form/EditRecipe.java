@@ -669,7 +669,7 @@ public class EditRecipe extends javax.swing.JFrame {
         });
         jPanel14.add(spinner_date);
         spinner_date.setBounds(616, 20, 130, 34);
-        spinner_date.setEditor(new JSpinner.DateEditor(spinner_date, "dd/MM/yyyy"));
+        spinner_date.setEditor(new JSpinner.DateEditor(spinner_date, "MM/dd/yyyy"));
 
         jLabel6.setBackground(new java.awt.Color(255, 255, 255));
         jLabel6.setFont(new java.awt.Font("Century Gothic", 0, 17)); // NOI18N
@@ -2221,7 +2221,7 @@ public class EditRecipe extends javax.swing.JFrame {
 
         cancel_but.setBackground(new java.awt.Color(255, 255, 255));
         cancel_but.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        cancel_but.setText("Cancel");
+        cancel_but.setText("Cancel & Exit");
         cancel_but.setToolTipText("");
         cancel_but.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
