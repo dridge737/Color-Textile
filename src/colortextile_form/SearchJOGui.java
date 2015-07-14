@@ -30,6 +30,9 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
+import javax.swing.RowFilter;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
 
 //import net.proteanit.sql.DbUtils;
 
@@ -87,13 +90,30 @@ public class SearchJOGui extends javax.swing.JFrame {
         }
         
     }
+    private void publicsorter(){
+        String text = this.text_job_id.getText(); 
+
+        TableRowSorter<TableModel> rowSorter = new TableRowSorter<>(this.jTable1.getModel()); 
+
+        this.jTable1.setRowSorter(rowSorter); 
+
+        if (text.trim().length() == 0) {
+
+        rowSorter.setRowFilter(null); 
+
+        } else 
+
+        { rowSorter.setRowFilter(RowFilter.regexFilter("(?i)" + text)); }
+
+    }
     
+    DefaultTableModel model = new DefaultTableModel();
     public void fill_table(ResultSet rs){
         this.order_list.clear();
         
         DB_Manager conn= new DB_Manager();
         
-        DefaultTableModel model = new DefaultTableModel();
+        
         
         model.addColumn("#"); // purchaseorder
         model.addColumn("Job Order");       // job_order
@@ -195,23 +215,15 @@ public class SearchJOGui extends javax.swing.JFrame {
         button_details1 = new javax.swing.JButton();
         label_pic1 = new javax.swing.JLabel();
         spinner_from1 = new javax.swing.JSpinner();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        combo_customer = new javax.swing.JComboBox();
-        text_job_id = new javax.swing.JTextField();
-        button_search = new javax.swing.JButton();
-        button_reset = new javax.swing.JButton();
-        jCheckBox1 = new javax.swing.JCheckBox();
         jLabel6 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         button_details = new javax.swing.JButton();
-        spinner_from = new javax.swing.JSpinner();
         button_edit = new javax.swing.JButton();
         jDesktopPane1 = new javax.swing.JDesktopPane();
         label_pic = new javax.swing.JLabel();
+        text_job_id = new javax.swing.JTextField();
 
         jFrame1.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         jFrame1.setTitle("Search Job Order");
@@ -276,7 +288,7 @@ public class SearchJOGui extends javax.swing.JFrame {
             }
         });
         jFrame1.getContentPane().add(jCheckBox2);
-        jCheckBox2.setBounds(585, 133, 65, 29);
+        jCheckBox2.setBounds(585, 133, 69, 29);
 
         jLabel8.setFont(new java.awt.Font("Century Gothic", 0, 34)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
@@ -372,67 +384,6 @@ public class SearchJOGui extends javax.swing.JFrame {
         setName("Search Job"); // NOI18N
         getContentPane().setLayout(null);
 
-        jLabel1.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel1.setText("Customer Name :");
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(20, 73, 140, 21);
-
-        jLabel2.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel2.setText("Job Order ID :");
-        getContentPane().add(jLabel2);
-        jLabel2.setBounds(20, 105, 140, 21);
-
-        jLabel3.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel3.setText("Date :");
-        getContentPane().add(jLabel3);
-        jLabel3.setBounds(20, 137, 140, 21);
-
-        combo_customer.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
-        getContentPane().add(combo_customer);
-        combo_customer.setBounds(170, 70, 414, 27);
-
-        text_job_id.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
-        getContentPane().add(text_job_id);
-        text_job_id.setBounds(170, 102, 414, 27);
-
-        button_search.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        button_search.setText("Search");
-        button_search.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                button_searchActionPerformed(evt);
-            }
-        });
-        getContentPane().add(button_search);
-        button_search.setBounds(36, 202, 123, 35);
-
-        button_reset.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        button_reset.setText("Reset");
-        button_reset.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                button_resetActionPerformed(evt);
-            }
-        });
-        getContentPane().add(button_reset);
-        button_reset.setBounds(165, 202, 134, 35);
-
-        jCheckBox1.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
-        jCheckBox1.setForeground(new java.awt.Color(255, 255, 255));
-        jCheckBox1.setText("Date");
-        jCheckBox1.setOpaque(false);
-        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jCheckBox1);
-        jCheckBox1.setBounds(585, 133, 65, 29);
-
         jLabel6.setFont(new java.awt.Font("Century Gothic", 0, 34)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Search Job Order");
@@ -475,9 +426,6 @@ public class SearchJOGui extends javax.swing.JFrame {
             }
         });
 
-        spinner_from.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
-        spinner_from.setModel(new javax.swing.SpinnerDateModel(new java.util.Date(1410306137651L), null, null, java.util.Calendar.DAY_OF_MONTH));
-
         button_edit.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         button_edit.setText("Edit Design");
         button_edit.addActionListener(new java.awt.event.ActionListener() {
@@ -491,18 +439,25 @@ public class SearchJOGui extends javax.swing.JFrame {
         jDesktopPane1Layout.setHorizontalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                .addGap(39, 39, 39)
+                .addGap(25, 25, 25)
                 .addComponent(label_pic, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addContainerGap(49, Short.MAX_VALUE))
         );
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                .addGap(33, 33, 33)
+                .addGap(31, 31, 31)
                 .addComponent(label_pic, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(38, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jDesktopPane1.setLayer(label_pic, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        text_job_id.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
+        text_job_id.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                text_job_idKeyReleased(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -513,39 +468,33 @@ public class SearchJOGui extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 929, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(28, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(41, 41, 41)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(172, 172, 172)
-                        .addComponent(spinner_from, javax.swing.GroupLayout.PREFERRED_SIZE, 412, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                        .addGap(450, 450, 450)
-                        .addComponent(button_details, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(62, 62, 62)
-                        .addComponent(button_edit, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jDesktopPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(76, 76, 76))))
+                        .addComponent(text_job_id, javax.swing.GroupLayout.PREFERRED_SIZE, 414, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(47, 47, 47)
+                        .addComponent(button_details, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(button_edit, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jDesktopPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(57, 57, 57))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap(132, Short.MAX_VALUE)
-                        .addComponent(spinner_from, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(39, 39, 39))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jDesktopPane1)
-                        .addGap(18, 18, 18)))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(button_details, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(button_edit, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(64, 64, 64)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(button_details, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(text_job_id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(button_edit, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addComponent(jDesktopPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 282, Short.MAX_VALUE)
                 .addGap(20, 20, 20))
         );
 
@@ -555,59 +504,6 @@ public class SearchJOGui extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(1006, 521));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void button_searchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_searchActionPerformed
-        // TODO add your handling code here:
-       DB_Manager id = new DB_Manager();
-        
-        job_order jobsearch = new job_order();
-        purchase_order PurchaseSearch = new purchase_order();
-        
-        SimpleDateFormat formater = new SimpleDateFormat("yyyy/MM/dd");
-                String spinnerValuefrom = formater.format(this.spinner_from.getValue());
-               
-        if(!(this.combo_customer.getSelectedItem().toString().trim().equals(""))){
-            
-        jobsearch.setCustomer_id(id.get_id_customer(this.combo_customer.getSelectedItem().toString()));
-        } else {
-            jobsearch.setCustomer_id(-1);
-        }
-        
-        if (!(this.text_job_id.getText().trim().equals(""))){
-            jobsearch.setJob_id(this.text_job_id.getText());
-            
-            JOptionPane.showMessageDialog(null,"Job order input=  " + this.text_job_id.getText());
-        } else {
-            jobsearch.setJob_id(null);
-        }
-        
-        if (this.jCheckBox1.isSelected())
-        {
-            jobsearch.setDate(spinnerValuefrom);         
-        } else {
-            jobsearch.setDate(null);
-        }
-        
-        fill_table(jobsearch.Search_job_info()); 
-           JOptionPane.showMessageDialog(null,"fill table 1  ");
-        
-    }//GEN-LAST:event_button_searchActionPerformed
-
-    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
-        // TODO add your handling code here:
-        if(this.jCheckBox1.isSelected()){
-            this.spinner_from.setEnabled(true);
-        } else {
-            this.spinner_from.setEnabled(false);
-        }
-        
-    }//GEN-LAST:event_jCheckBox1ActionPerformed
-
-    private void button_resetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_resetActionPerformed
-        // TODO add your handling code here:
-        job_order set = new job_order();
-        fill_table(set.job_order_all());
-    }//GEN-LAST:event_button_resetActionPerformed
 
     
     private void button_detailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_detailsActionPerformed
@@ -683,6 +579,12 @@ public class SearchJOGui extends javax.swing.JFrame {
             Logger.getLogger(SearchJOGui.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jTable1MouseReleased
+
+    private void text_job_idKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_text_job_idKeyReleased
+        // TODO add your handling code here:
+        
+        tablesorter();
+    }//GEN-LAST:event_text_job_idKeyReleased
     private int get_design_code_from_table_selected(){
         
         int row = this.get_table_row_value();
@@ -767,19 +669,12 @@ public class SearchJOGui extends javax.swing.JFrame {
     private javax.swing.JButton button_details;
     private javax.swing.JButton button_details1;
     private javax.swing.JButton button_edit;
-    private javax.swing.JButton button_reset;
     private javax.swing.JButton button_reset1;
-    private javax.swing.JButton button_search;
     private javax.swing.JButton button_search1;
-    private javax.swing.JComboBox combo_customer;
     private javax.swing.JComboBox combo_customer1;
-    private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JCheckBox jCheckBox2;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JFrame jFrame1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -793,7 +688,6 @@ public class SearchJOGui extends javax.swing.JFrame {
     private javax.swing.JTable jTable2;
     private javax.swing.JLabel label_pic;
     private javax.swing.JLabel label_pic1;
-    private javax.swing.JSpinner spinner_from;
     private javax.swing.JSpinner spinner_from1;
     private javax.swing.JTextField text_job_id;
     private javax.swing.JTextField text_job_id1;
