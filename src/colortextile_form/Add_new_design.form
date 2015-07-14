@@ -316,7 +316,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="425" y="210" width="140" height="34"/>
+              <AbsoluteConstraints x="460" y="210" width="110" height="34"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -705,9 +705,12 @@
               <Insets value="[0, 0, 0, 0]"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+          </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="430" y="215" width="30" height="25"/>
+              <AbsoluteConstraints x="425" y="215" width="30" height="25"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -1227,9 +1230,12 @@
                       <Insets value="[2, 0, 2, 0]"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bind_addActionPerformed"/>
+                  </Events>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="260" y="203" width="25" height="25"/>
+                      <AbsoluteConstraints x="260" y="202" width="25" height="25"/>
                     </Constraint>
                   </Constraints>
                 </Component>

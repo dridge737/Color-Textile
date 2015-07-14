@@ -16,6 +16,7 @@ public class fabric_style extends javax.swing.JFrame {
      */
     public fabric_style() {
         initComponents();
+        this.setSize(406, 365);
     }
 
     /**
@@ -29,10 +30,10 @@ public class fabric_style extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         title = new javax.swing.JLabel();
-        binder = new javax.swing.JTextField();
-        add_but = new javax.swing.JButton();
-        cancel_but = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
+        fabric_name = new javax.swing.JTextField();
+        cancel_button = new javax.swing.JButton();
+        add_button = new javax.swing.JButton();
+        kilograms = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -44,7 +45,7 @@ public class fabric_style extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(51, 153, 255));
         jPanel1.setLayout(null);
@@ -55,25 +56,48 @@ public class fabric_style extends javax.swing.JFrame {
         jPanel1.add(title);
         title.setBounds(20, 20, 342, 45);
 
-        binder.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
-        binder.setText("Fabric Name :");
-        jPanel1.add(binder);
-        binder.setBounds(20, 80, 330, 30);
+        fabric_name.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
+        fabric_name.setText("Fabric Name :");
+        fabric_name.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                fabric_nameFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                fabric_nameFocusLost(evt);
+            }
+        });
+        jPanel1.add(fabric_name);
+        fabric_name.setBounds(40, 80, 330, 30);
 
-        add_but.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        add_but.setText("Cancel");
-        jPanel1.add(add_but);
-        add_but.setBounds(205, 310, 180, 40);
+        cancel_button.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        cancel_button.setText("Cancel");
+        cancel_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancel_buttonActionPerformed(evt);
+            }
+        });
+        jPanel1.add(cancel_button);
+        cancel_button.setBounds(205, 310, 180, 40);
 
-        cancel_but.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        cancel_but.setText("Add New Fabric");
-        jPanel1.add(cancel_but);
-        cancel_but.setBounds(15, 310, 180, 40);
+        add_button.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        add_button.setText("Add New Fabric");
+        add_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                add_buttonActionPerformed(evt);
+            }
+        });
+        jPanel1.add(add_button);
+        add_button.setBounds(15, 310, 180, 40);
 
-        jTextField1.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        jTextField1.setText("Kilograms");
-        jPanel1.add(jTextField1);
-        jTextField1.setBounds(30, 170, 70, 30);
+        kilograms.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        kilograms.setText("Kilograms");
+        kilograms.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                kilogramsFocusGained(evt);
+            }
+        });
+        jPanel1.add(kilograms);
+        kilograms.setBounds(30, 170, 70, 30);
 
         jLabel1.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -98,7 +122,7 @@ public class fabric_style extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("1000 kgs");
         jPanel1.add(jLabel4);
-        jLabel4.setBounds(120, 205, 60, 30);
+        jLabel4.setBounds(120, 210, 60, 30);
 
         jLabel5.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
@@ -106,7 +130,7 @@ public class fabric_style extends javax.swing.JFrame {
         jPanel1.add(jLabel5);
         jLabel5.setBounds(120, 170, 90, 30);
         jPanel1.add(jSeparator1);
-        jSeparator1.setBounds(20, 205, 280, 10);
+        jSeparator1.setBounds(20, 210, 280, 10);
 
         jLabel6.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
@@ -118,25 +142,25 @@ public class fabric_style extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Screen");
         jPanel1.add(jLabel7);
-        jLabel7.setBounds(325, 187, 50, 19);
+        jLabel7.setBounds(330, 190, 50, 20);
 
         jLabel8.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Kilogram");
         jPanel1.add(jLabel8);
-        jLabel8.setBounds(320, 207, 70, 19);
+        jLabel8.setBounds(320, 210, 70, 20);
 
         jLabel9.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("=");
         jPanel1.add(jLabel9);
-        jLabel9.setBounds(307, 200, 20, 14);
+        jLabel9.setBounds(310, 200, 20, 10);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 412, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 406, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -145,6 +169,33 @@ public class fabric_style extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void fabric_nameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fabric_nameFocusGained
+        // TODO add your handling code here:
+        if(fabric_name.getText().equals("Fabric Name :"))
+                this.fabric_name.setText("");
+    }//GEN-LAST:event_fabric_nameFocusGained
+
+    private void fabric_nameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fabric_nameFocusLost
+        // TODO add your handling code here:
+        if(fabric_name.getText().length() == 0)
+            this.fabric_name.setText("Fabric Name :");
+    }//GEN-LAST:event_fabric_nameFocusLost
+
+    private void cancel_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancel_buttonActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_cancel_buttonActionPerformed
+
+    private void add_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_buttonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_add_buttonActionPerformed
+
+    private void kilogramsFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_kilogramsFocusGained
+        // TODO add your handling code here:
+        if(this.kilograms.getText().equals("Kilograms"))
+            this.kilograms.setText("");
+    }//GEN-LAST:event_kilogramsFocusGained
 
     /**
      * @param args the command line arguments
@@ -182,9 +233,9 @@ public class fabric_style extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton add_but;
-    private javax.swing.JTextField binder;
-    private javax.swing.JButton cancel_but;
+    private javax.swing.JButton add_button;
+    private javax.swing.JButton cancel_button;
+    private javax.swing.JTextField fabric_name;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -196,7 +247,7 @@ public class fabric_style extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField kilograms;
     private javax.swing.JLabel title;
     // End of variables declaration//GEN-END:variables
 }

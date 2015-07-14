@@ -548,7 +548,7 @@ public class Add_new_design extends javax.swing.JFrame {
         jLabel11.setText("Fabric Style :");
         jLabel11.setFocusable(false);
         jPanel1.add(jLabel11);
-        jLabel11.setBounds(425, 210, 140, 34);
+        jLabel11.setBounds(460, 210, 110, 34);
 
         jLabel4.setBackground(new java.awt.Color(255, 255, 255));
         jLabel4.setFont(new java.awt.Font("Century Gothic", 0, 17)); // NOI18N
@@ -727,8 +727,13 @@ public class Add_new_design extends javax.swing.JFrame {
         jButton1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jButton1.setText("+");
         jButton1.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton1);
-        jButton1.setBounds(430, 215, 30, 25);
+        jButton1.setBounds(425, 215, 30, 25);
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 65, 790, 290));
 
@@ -906,7 +911,12 @@ public class Add_new_design extends javax.swing.JFrame {
         bind_add.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         bind_add.setText("+");
         bind_add.setMargin(new java.awt.Insets(2, 0, 2, 0));
-        jPanel9.add(bind_add, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 203, 25, 25));
+        bind_add.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bind_addActionPerformed(evt);
+            }
+        });
+        jPanel9.add(bind_add, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 202, 25, 25));
 
         pig11.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         pig11.setText("+");
@@ -2883,7 +2893,7 @@ public class Add_new_design extends javax.swing.JFrame {
         String job_order = this.job_ord_label.getText() + this.text_job_order.getText();
         //if(this.customer_check_box.isSelected())
         //{
-
+        
         customer custom = new customer();
         custom.setCustomer_name(this.customer_name_text.getText().toUpperCase());
         custom.add_new_customer();
@@ -2902,7 +2912,7 @@ public class Add_new_design extends javax.swing.JFrame {
         //quantity_list.add(this.quantity.getText());
         //refresh Textbox to add items
         */
-            this.jList1.setModel(this_list.get_items_in_list());
+        this.jList1.setModel(this_list.get_items_in_list());
         this.quantity_total.setText(Integer.toString(this_list.get_quantity_total()));
     }
     
@@ -3665,6 +3675,19 @@ public class Add_new_design extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_text_job_orderKeyReleased
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        fabric_style new_fab_window = new fabric_style();
+        new_fab_window.setVisible(true);
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void bind_addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bind_addActionPerformed
+        // TODO add your handling code here:
+        add_binder_form new_binder = new add_binder_form();
+        new_binder.setVisible(true);
+    }//GEN-LAST:event_bind_addActionPerformed
 
     private void check_if_job_order_has_been_added()
     {
