@@ -7,8 +7,10 @@
 package colortextile_form;
 import Database.DB_Manager;
 import colortextile_class.*;
+import java.awt.AWTException;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Robot;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import java.sql.ResultSet;
@@ -81,7 +83,7 @@ public class Add_new_design extends javax.swing.JFrame {
         //this.pigment_percentage8.setInputVerifier(new_verifier);
         this.set_customer_list_and_autocomplete();
         job_ord_label.setText(use_func.change_job_order_prefix(spinner_date));
-        
+        current_style = fab_style_comb.getSelectedItem().toString();
         
     }
     
@@ -89,19 +91,21 @@ public class Add_new_design extends javax.swing.JFrame {
     {
         //fill_customer_list();
         //this.customer_name_text.setVisible(false);
-        //current_style = fab_style_comb.getSelectedItem().toString();
+        
         //this.customer_combo_list.setEditable(true);
         this.customer_combo_list.setVisible(false);
         this.customer_check_box.setVisible(false);
         ArrayList<String> words = new ArrayList<>();
         customer list = new customer();
         list.get_customer_list();
+        
         for ( String name : list.getCustomer_names() )
         {
             words.add(name);
         }
         auto_complete this_auto = new auto_complete();
         this_auto.setupAutoComplete(this.customer_name_text, words);
+        
         this.customer_name_text.setColumns(30);
     }
 
@@ -2877,16 +2881,17 @@ public class Add_new_design extends javax.swing.JFrame {
     private void include()
     {   
         String job_order = this.job_ord_label.getText() + this.text_job_order.getText();
-        if(this.customer_check_box.isSelected())
-        {
-            customer custom = new customer();       
-            custom.setCustomer_name(this.customer_name_text.getText().toUpperCase());
-            custom.add_new_customer();
-            this_list.add_customer_job_quantity_in_list(customer_name_text.getText(), 
+        //if(this.customer_check_box.isSelected())
+        //{
+
+        customer custom = new customer();
+        custom.setCustomer_name(this.customer_name_text.getText().toUpperCase());
+        custom.add_new_customer();
+        this_list.add_customer_job_quantity_in_list(customer_name_text.getText(), 
                                                         job_order, 
                                                         quantity.getText());
-            //customer_list.add(this.customer_name_text.getText());
-        }
+        //customer_list.add(this.customer_name_text.getText());
+        /*}
         else
         {
             this_list.add_customer_job_quantity_in_list(customer_combo_list.getSelectedItem().toString(), 
@@ -2896,7 +2901,8 @@ public class Add_new_design extends javax.swing.JFrame {
         //job_list.add(this.job_ord_label.getText() + this.text_job_order.getText());
         //quantity_list.add(this.quantity.getText());
         //refresh Textbox to add items
-        this.jList1.setModel(this_list.get_items_in_list());
+        */
+            this.jList1.setModel(this_list.get_items_in_list());
         this.quantity_total.setText(Integer.toString(this_list.get_quantity_total()));
     }
     
@@ -3624,6 +3630,7 @@ public class Add_new_design extends javax.swing.JFrame {
     private void text_job_orderKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_text_job_orderKeyReleased
         // TODO add your handling code here:
         check_this_textbox(text_job_order);
+        
         if (this.text_job_order.getText().length() == 4 )
         {
             String job_order_text = this.job_ord_label.getText() + this.text_job_order.getText();
@@ -3633,13 +3640,27 @@ public class Add_new_design extends javax.swing.JFrame {
             if(new_job_order.set_job_order_details_if_available())
             {
                 this.customer_name_text.setText(new_job_order.getCustomer_name());
+                //this.customer_name_text.setEditable(false);
+                //this.customer_name_text.validate();
+                Robot robot; 
+                try {
+                    
+                    robot = new Robot();
+                    customer_name_text.requestFocusInWindow();
+                    robot.keyPress(KeyEvent.VK_ENTER); 
+                    
+                } catch (AWTException ex) {
+                    Logger.getLogger(Add_new_design.class.getName()).log(Level.SEVERE, null, ex);
+                }
                 this.customer_name_text.setEditable(false);
-                this.customer_name_text.validate();
+                    quantity.requestFocusInWindow();
+                    
+                
             }
             else
                 this.customer_name_text.setEditable(true);
         }
-        else
+        else if(!customer_name_text.isEditable())
             this.customer_name_text.setEditable(true);
         
         
@@ -3664,6 +3685,7 @@ public class Add_new_design extends javax.swing.JFrame {
     {
         if(!use_func.checkText2(coverage.getText()) && quantity_total.getText().length()>0)
         {
+            
             float cov_conversion = Float.parseFloat(coverage.getText());
             float this_computation = use_func.compute_this_kg(cov_conversion, fab_style_comb.getSelectedItem().toString(), quantity_total.getText());
             weigh_kg.setText(String.format("%.0f", this_computation));

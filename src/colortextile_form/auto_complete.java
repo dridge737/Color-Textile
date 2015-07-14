@@ -30,7 +30,7 @@ public class auto_complete {
         return false;
     }
 
-    private static void setAdjusting(JComboBox cbInput, boolean adjusting) {
+    public static void setAdjusting(JComboBox cbInput, boolean adjusting) {
         cbInput.putClientProperty("is_adjusting", adjusting);
     }
 

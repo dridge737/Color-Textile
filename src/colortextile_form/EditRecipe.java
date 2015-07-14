@@ -68,6 +68,28 @@ public class EditRecipe extends javax.swing.JFrame {
         //binder8.setSelectedItem("8");
     }
     
+    public void set_customer_list_and_autocomplete()
+    {
+        //fill_customer_list();
+        //this.customer_name_text.setVisible(false);
+        
+        //this.customer_combo_list.setEditable(true);
+        this.customer_combo_list.setVisible(false);
+        this.customer_check_box.setVisible(false);
+        ArrayList<String> words = new ArrayList<>();
+        customer list = new customer();
+        list.get_customer_list();
+        
+        for ( String name : list.getCustomer_names() )
+        {
+            words.add(name);
+        }
+        auto_complete this_auto = new auto_complete();
+        this_auto.setupAutoComplete(this.customer_name_text, words);
+        
+        this.customer_name_text.setColumns(30);
+    }
+    
     private void initialize()
     {
         this.addWindowListener(new java.awt.event.WindowAdapter() {
@@ -350,6 +372,7 @@ public class EditRecipe extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         quantity = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
+        customer_name_text = new javax.swing.JTextField();
         customer_combo_list = new javax.swing.JComboBox();
         button_include_customer = new javax.swing.JButton();
         button_remove_customer = new javax.swing.JButton();
@@ -359,7 +382,6 @@ public class EditRecipe extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         text_job_order = new javax.swing.JTextField();
         customer_check_box = new javax.swing.JCheckBox();
-        customer_name_text = new javax.swing.JTextField();
         job_ord_label = new javax.swing.JLabel();
         edit_item = new javax.swing.JButton();
         jLabel14 = new javax.swing.JLabel();
@@ -823,10 +845,14 @@ public class EditRecipe extends javax.swing.JFrame {
         jPanel16.add(jLabel12);
         jLabel12.setBounds(0, 120, 140, 34);
 
+        customer_name_text.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
+        jPanel16.add(customer_name_text);
+        customer_name_text.setBounds(146, 70, 160, 34);
+
         customer_combo_list.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         customer_combo_list.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jPanel16.add(customer_combo_list);
-        customer_combo_list.setBounds(146, 70, 160, 34);
+        customer_combo_list.setBounds(150, 70, 160, 34);
         customer_combo_list.getAccessibleContext().setAccessibleDescription("Select Customer Name");
 
         button_include_customer.setBackground(new java.awt.Color(255, 255, 255));
@@ -894,10 +920,6 @@ public class EditRecipe extends javax.swing.JFrame {
         });
         jPanel16.add(customer_check_box);
         customer_check_box.setBounds(246, 50, 59, 20);
-
-        customer_name_text.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
-        jPanel16.add(customer_name_text);
-        customer_name_text.setBounds(146, 70, 160, 34);
 
         job_ord_label.setBackground(new java.awt.Color(255, 255, 255));
         job_ord_label.setFont(new java.awt.Font("Century Gothic", 0, 17)); // NOI18N
@@ -2972,8 +2994,8 @@ public class EditRecipe extends javax.swing.JFrame {
     private void include()
     {   
         String job_order = this.job_ord_label.getText() + this.text_job_order.getText();
-        if(this.customer_check_box.isSelected())
-        {
+        //if(this.customer_check_box.isSelected())
+        //{
             customer custom = new customer();       
             custom.setCustomer_name(customer_name_text.getText());
             custom.add_new_customer();
@@ -2981,13 +3003,13 @@ public class EditRecipe extends javax.swing.JFrame {
                                                         job_order, 
                                                         quantity.getText());
             //customer_list.add(this.customer_name_text.getText());
-        }
-        else
+        //}
+        /*else
         {
             this_list.add_customer_job_quantity_in_list(customer_combo_list.getSelectedItem().toString(), 
                     job_order, 
                     quantity.getText());
-        }
+        }*/
         //job_list.add(this.job_ord_label.getText() + this.text_job_order.getText());
         //quantity_list.add(this.quantity.getText());
         //refresh Textbox to add items
