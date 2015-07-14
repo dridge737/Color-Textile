@@ -66,6 +66,7 @@ public class EditRecipe extends javax.swing.JFrame {
         this.set_purchase_and_job_list_textbox();
         //binder8.setModel("3.5, ");
         //binder8.setSelectedItem("8");
+        this.set_customer_list_and_autocomplete();
     }
     
     public void set_customer_list_and_autocomplete()
@@ -109,9 +110,7 @@ public class EditRecipe extends javax.swing.JFrame {
         int x = (int) ((dimension.getWidth() - this.getWidth()) / 2);
         //int y = (int) ((dimension.getHeight() - this.getHeight()) / 2);
         this.setLocation(x,0);
-        
-        fill_customer_list();
-        this.customer_name_text.setVisible(false);
+        //fill_customer_list();
         
         List<Webcam> webcam = Webcam.getWebcams();
         for(Webcam all_web : webcam)
