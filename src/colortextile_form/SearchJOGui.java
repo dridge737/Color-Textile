@@ -572,8 +572,7 @@ public class SearchJOGui extends javax.swing.JFrame {
 
     private void text_job_idKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_text_job_idKeyReleased
         // TODO add your handling code here:
-        
-        //tablesorter();
+        this.publicsorter();
     }//GEN-LAST:event_text_job_idKeyReleased
     private int get_design_code_from_table_selected(){
         
