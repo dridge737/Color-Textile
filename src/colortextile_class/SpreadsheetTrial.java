@@ -186,12 +186,8 @@ public class SpreadsheetTrial {
         return temp_bulk_recipe;
     }
     
-    
-    
     public void bulk_print_item(List<production_recipe> recipe_to_be_printed)
     {
-        //System.out.println("RECIPE SIZE = "+recipe_to_be_printed.size());
-        
         if(recipe_to_be_printed.size()>1)
         {
             recipe_to_be_printed = this.merge_design_colorways(recipe_to_be_printed);
@@ -295,7 +291,7 @@ public class SpreadsheetTrial {
          while(x<=the_screens.size())
             {
                 res.put("name"+x, the_screens.get(x-1).getPigment_name() );
-                res.put("per"+x, String.format(".2f", the_screens.get(x-1).getPigment_percentage()));
+                res.put("per"+x, Float.toString(the_screens.get(x-1).getPigment_percentage()));
                         //Float.toString(the_screens.get(x-1).getPigment_percentage() )
                 res.put("kilo"+x, the_screens.get(x-1).compute_kg_prep(this_color_screen.getWeight_kg()));
                 x++;
