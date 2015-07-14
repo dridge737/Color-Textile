@@ -49,7 +49,7 @@ public class SearchJOGui extends javax.swing.JFrame {
     public SearchJOGui() {
         initComponents();
         
-        this.addWindowListener(new java.awt.event.WindowAdapter() {
+       /* this.addWindowListener(new java.awt.event.WindowAdapter() {
             @Override
             public void windowClosing(java.awt.event.WindowEvent windowEvent) {
                 if (JOptionPane.showConfirmDialog(null,"Are you sure to close this window?", "Close window?", 
@@ -60,6 +60,7 @@ public class SearchJOGui extends javax.swing.JFrame {
                 
             }
        });
+        */
         //Place Into Center
         Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
         int x = (int) ((dimension.getWidth() - this.getWidth()) / 2);
@@ -288,7 +289,7 @@ public class SearchJOGui extends javax.swing.JFrame {
             }
         });
         jFrame1.getContentPane().add(jCheckBox2);
-        jCheckBox2.setBounds(585, 133, 69, 29);
+        jCheckBox2.setBounds(585, 133, 65, 29);
 
         jLabel8.setFont(new java.awt.Font("Century Gothic", 0, 34)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));

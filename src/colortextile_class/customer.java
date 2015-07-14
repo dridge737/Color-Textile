@@ -49,7 +49,10 @@ public class customer {
     public void add_new_customer()
     {
         DB_Manager new_conn = new DB_Manager();
-        new_conn.add_customer(this);
+        if(!this.check_if_this_customer_exists())
+            new_conn.add_customer(this);
+        else
+            this.get_customer_id_from_name();
     }
 
     /**

@@ -3652,8 +3652,8 @@ public class Add_new_design extends javax.swing.JFrame {
                 } catch (AWTException ex) {
                     Logger.getLogger(Add_new_design.class.getName()).log(Level.SEVERE, null, ex);
                 }
-                this.customer_name_text.setEditable(false);
-                    quantity.requestFocusInWindow();
+                //this.customer_name_text.setEditable(false);
+                //    quantity.requestFocusInWindow();
                     
                 
             }

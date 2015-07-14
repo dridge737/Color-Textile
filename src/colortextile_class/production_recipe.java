@@ -365,6 +365,14 @@ public class production_recipe extends Design_and_colorway{
         return colorway_kilogram;
     }
     
+    public void compute_all_colorway_to_total_quantity()
+    {
+        for(int x = 0; x < getAll_colorways().size(); x++ )
+         {
+             this.getAll_colorways().get(x).setWeight_kg(this.compute_kilograms_to_total_quantity(this.getAll_colorways().get(x).getWeight_kg()));
+         }
+    }
+    
     public String change_job_order_prefix(String spinnerValue)
     {
     //  String spinnerValue = this.get_date_from_spinner(this_date_spinner);
