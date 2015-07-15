@@ -5,6 +5,8 @@
  */
 package colortextile_form;
 
+import java.awt.Color;
+
 /**
  *
  * @author Eldridge
@@ -52,11 +54,12 @@ public class fabric_style extends javax.swing.JFrame {
 
         title.setFont(new java.awt.Font("Century Gothic", 0, 36)); // NOI18N
         title.setForeground(new java.awt.Color(255, 255, 255));
-        title.setText("New Fabric");
+        title.setText("Add New Fabric");
         jPanel1.add(title);
         title.setBounds(20, 20, 342, 45);
 
         fabric_name.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
+        fabric_name.setForeground(new java.awt.Color(205, 205, 205));
         fabric_name.setText("Fabric Name :");
         fabric_name.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -90,14 +93,19 @@ public class fabric_style extends javax.swing.JFrame {
         add_button.setBounds(15, 310, 180, 40);
 
         kilograms.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        kilograms.setForeground(new java.awt.Color(205, 205, 205));
+        kilograms.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         kilograms.setText("Kilograms");
         kilograms.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 kilogramsFocusGained(evt);
             }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                kilogramsFocusLost(evt);
+            }
         });
         jPanel1.add(kilograms);
-        kilograms.setBounds(30, 170, 70, 30);
+        kilograms.setBounds(20, 172, 80, 30);
 
         jLabel1.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -173,13 +181,19 @@ public class fabric_style extends javax.swing.JFrame {
     private void fabric_nameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fabric_nameFocusGained
         // TODO add your handling code here:
         if(fabric_name.getText().equals("Fabric Name :"))
-                this.fabric_name.setText("");
+        {
+            this.fabric_name.setText("");
+            this.fabric_name.setForeground(Color.BLACK);
+        }
     }//GEN-LAST:event_fabric_nameFocusGained
 
     private void fabric_nameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fabric_nameFocusLost
         // TODO add your handling code here:
         if(fabric_name.getText().length() == 0)
+        {
             this.fabric_name.setText("Fabric Name :");
+            this.fabric_name.setForeground(new Color(205,205,205));
+        }
     }//GEN-LAST:event_fabric_nameFocusLost
 
     private void cancel_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancel_buttonActionPerformed
@@ -193,9 +207,20 @@ public class fabric_style extends javax.swing.JFrame {
 
     private void kilogramsFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_kilogramsFocusGained
         // TODO add your handling code here:
-        if(this.kilograms.getText().equals("Kilograms"))
+        if(this.kilograms.getText().equals("Kilograms")){
             this.kilograms.setText("");
+            this.kilograms.setForeground(Color.BLACK);
+        }
     }//GEN-LAST:event_kilogramsFocusGained
+
+    private void kilogramsFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_kilogramsFocusLost
+        // TODO add your handling code here:
+        if(this.kilograms.getText().length() == 0)
+        {
+            this.kilograms.setText("Kilograms");
+            this.kilograms.setForeground(new Color(205,205,205));
+        }
+    }//GEN-LAST:event_kilogramsFocusLost
 
     /**
      * @param args the command line arguments

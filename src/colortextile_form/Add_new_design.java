@@ -91,10 +91,9 @@ public class Add_new_design extends javax.swing.JFrame {
     {
         //fill_customer_list();
         //this.customer_name_text.setVisible(false);
-        
         //this.customer_combo_list.setEditable(true);
         this.customer_combo_list.setVisible(false);
-        this.customer_check_box.setVisible(false);
+        
         ArrayList<String> words = new ArrayList<>();
         customer list = new customer();
         list.get_customer_list();
@@ -143,17 +142,16 @@ public class Add_new_design extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         customer_name_text = new javax.swing.JTextField();
         customer_combo_list = new javax.swing.JComboBox();
+        text_job_order = new javax.swing.JTextField();
         button_include_customer = new javax.swing.JButton();
         button_remove_customer = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        text_job_order = new javax.swing.JTextField();
-        customer_check_box = new javax.swing.JCheckBox();
         job_ord_label = new javax.swing.JLabel();
         edit_purchase = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        add_fabric = new javax.swing.JButton();
         jPanel11 = new javax.swing.JPanel();
         jTabbedPane2 = new javax.swing.JTabbedPane();
         jPanel9 = new javax.swing.JPanel();
@@ -569,6 +567,8 @@ public class Add_new_design extends javax.swing.JFrame {
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel3.setText("Total Quantity :");
         jLabel3.setFocusable(false);
+        jLabel3.setRequestFocusEnabled(false);
+        jLabel3.setVerifyInputWhenFocusTarget(false);
         jPanel16.add(jLabel3);
         jLabel3.setBounds(415, 125, 130, 34);
 
@@ -590,6 +590,9 @@ public class Add_new_design extends javax.swing.JFrame {
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel5.setText("m");
         jLabel5.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        jLabel5.setFocusable(false);
+        jLabel5.setRequestFocusEnabled(false);
+        jLabel5.setVerifyInputWhenFocusTarget(false);
         jPanel16.add(jLabel5);
         jLabel5.setBounds(705, 125, 13, 34);
 
@@ -599,6 +602,9 @@ public class Add_new_design extends javax.swing.JFrame {
         jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel13.setText("m");
         jLabel13.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        jLabel13.setFocusable(false);
+        jLabel13.setRequestFocusEnabled(false);
+        jLabel13.setVerifyInputWhenFocusTarget(false);
         jPanel16.add(jLabel13);
         jLabel13.setBounds(388, 120, 13, 34);
 
@@ -617,6 +623,8 @@ public class Add_new_design extends javax.swing.JFrame {
         jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel12.setText("Quantity :");
         jLabel12.setFocusable(false);
+        jLabel12.setRequestFocusEnabled(false);
+        jLabel12.setVerifyInputWhenFocusTarget(false);
         jPanel16.add(jLabel12);
         jLabel12.setBounds(20, 120, 153, 34);
 
@@ -626,8 +634,23 @@ public class Add_new_design extends javax.swing.JFrame {
 
         customer_combo_list.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         customer_combo_list.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        customer_combo_list.setFocusable(false);
+        customer_combo_list.setRequestFocusEnabled(false);
+        customer_combo_list.setVerifyInputWhenFocusTarget(false);
         jPanel16.add(customer_combo_list);
         customer_combo_list.setBounds(190, 70, 170, 34);
+
+        text_job_order.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        text_job_order.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                text_job_orderKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                text_job_orderKeyTyped(evt);
+            }
+        });
+        jPanel16.add(text_job_order);
+        text_job_order.setBounds(258, 20, 140, 34);
 
         button_include_customer.setBackground(new java.awt.Color(255, 255, 255));
         button_include_customer.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
@@ -662,6 +685,8 @@ public class Add_new_design extends javax.swing.JFrame {
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel9.setText("Customer Name :");
         jLabel9.setFocusable(false);
+        jLabel9.setRequestFocusEnabled(false);
+        jLabel9.setVerifyInputWhenFocusTarget(false);
         jPanel16.add(jLabel9);
         jLabel9.setBounds(20, 70, 153, 34);
 
@@ -676,37 +701,14 @@ public class Add_new_design extends javax.swing.JFrame {
         jPanel16.add(jLabel10);
         jLabel10.setBounds(20, 20, 153, 34);
 
-        text_job_order.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        text_job_order.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                text_job_orderKeyReleased(evt);
-            }
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                text_job_orderKeyTyped(evt);
-            }
-        });
-        jPanel16.add(text_job_order);
-        text_job_order.setBounds(258, 20, 140, 34);
-
-        customer_check_box.setBackground(new java.awt.Color(51, 153, 255));
-        customer_check_box.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        customer_check_box.setForeground(java.awt.SystemColor.controlLtHighlight);
-        customer_check_box.setText("New?");
-        customer_check_box.setOpaque(false);
-        customer_check_box.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                customer_check_boxActionPerformed(evt);
-            }
-        });
-        jPanel16.add(customer_check_box);
-        customer_check_box.setBounds(340, 50, 59, 20);
-
         job_ord_label.setBackground(new java.awt.Color(255, 255, 255));
         job_ord_label.setFont(new java.awt.Font("Century Gothic", 0, 17)); // NOI18N
         job_ord_label.setForeground(new java.awt.Color(255, 255, 255));
         job_ord_label.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         job_ord_label.setText("15P-10-");
         job_ord_label.setFocusable(false);
+        job_ord_label.setRequestFocusEnabled(false);
+        job_ord_label.setVerifyInputWhenFocusTarget(false);
         jPanel16.add(job_ord_label);
         job_ord_label.setBounds(186, 20, 70, 34);
 
@@ -724,16 +726,16 @@ public class Add_new_design extends javax.swing.JFrame {
         jPanel1.add(jPanel16);
         jPanel16.setBounds(0, 0, 770, 210);
 
-        jButton1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jButton1.setText("+");
-        jButton1.setMargin(new java.awt.Insets(0, 0, 0, 0));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        add_fabric.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        add_fabric.setText("+");
+        add_fabric.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        add_fabric.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                add_fabricActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1);
-        jButton1.setBounds(425, 215, 30, 25);
+        jPanel1.add(add_fabric);
+        add_fabric.setBounds(425, 215, 30, 25);
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 65, 790, 290));
 
@@ -2992,16 +2994,6 @@ public class Add_new_design extends javax.swing.JFrame {
         
     }
     
-    private void customer_check_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_customer_check_boxActionPerformed
-        if(this.customer_check_box.isSelected()){
-            this.customer_name_text.setVisible(true);
-            this.customer_combo_list.setVisible(false);
-        } else {
-            this.customer_name_text.setVisible(false);
-            this.customer_combo_list.setVisible(true);
-        }        // TODO add your handling code here:
-    }//GEN-LAST:event_customer_check_boxActionPerformed
-
     private void text_job_orderKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_text_job_orderKeyTyped
         // TODO add your handling code here:
         if (this.text_job_order.getText().length() >= 4 )
@@ -3713,12 +3705,12 @@ public class Add_new_design extends javax.swing.JFrame {
         
     }//GEN-LAST:event_text_job_orderKeyReleased
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void add_fabricActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_fabricActionPerformed
         // TODO add your handling code here:
         fabric_style new_fab_window = new fabric_style();
         new_fab_window.setVisible(true);
         
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_add_fabricActionPerformed
 
     private void bind_add1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bind_add1ActionPerformed
         // TODO add your handling code here:
@@ -4024,6 +4016,7 @@ public class Add_new_design extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton add_fabric;
     private javax.swing.JButton add_order;
     private javax.swing.JButton add_order2;
     private javax.swing.JButton bind_add1;
@@ -4056,14 +4049,12 @@ public class Add_new_design extends javax.swing.JFrame {
     private javax.swing.JTextField coverage5;
     private javax.swing.JTextField coverage6;
     private javax.swing.JTextField coverage8;
-    private javax.swing.JCheckBox customer_check_box;
     private javax.swing.JComboBox customer_combo_list;
     private javax.swing.JTextField customer_name_text;
     private javax.swing.JTextField design_color;
     private javax.swing.JTextField design_name;
     private javax.swing.JButton edit_purchase;
     private javax.swing.JComboBox fab_style_comb;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel100;
     private javax.swing.JLabel jLabel102;

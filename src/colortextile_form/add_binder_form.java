@@ -6,6 +6,8 @@
 package colortextile_form;
 
 import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 
 /**
  *
@@ -18,6 +20,14 @@ public class add_binder_form extends javax.swing.JFrame {
      */
     public add_binder_form() {
         initComponents();
+        center_window();
+    }
+    public void center_window()
+    {
+        Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
+        int x = (int) ((dimension.getWidth() - this.getWidth()) / 2);
+        int y = (int) ((dimension.getHeight() - this.getHeight()) / 2);
+        this.setLocation(x,y);
     }
 
     /**
@@ -74,6 +84,11 @@ public class add_binder_form extends javax.swing.JFrame {
 
         add_binder.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         add_binder.setText("Add Binder");
+        add_binder.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                add_binderActionPerformed(evt);
+            }
+        });
         jPanel1.add(add_binder);
         add_binder.setBounds(10, 260, 170, 40);
 
@@ -129,6 +144,10 @@ public class add_binder_form extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.dispose();
     }//GEN-LAST:event_cancel_butActionPerformed
+
+    private void add_binderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_binderActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_add_binderActionPerformed
 
     /**
      * @param args the command line arguments

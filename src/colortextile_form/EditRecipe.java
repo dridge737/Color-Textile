@@ -703,6 +703,7 @@ public class EditRecipe extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel2.setText("Design Name :");
+        jLabel2.setFocusable(false);
         jPanel1.add(jLabel2);
         jLabel2.setBounds(10, 210, 150, 34);
 
@@ -765,6 +766,7 @@ public class EditRecipe extends javax.swing.JFrame {
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel11.setText("Fabric Style :");
+        jLabel11.setFocusable(false);
         jPanel1.add(jLabel11);
         jLabel11.setBounds(400, 230, 110, 34);
 
@@ -773,6 +775,7 @@ public class EditRecipe extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel4.setText("Design Color :");
+        jLabel4.setFocusable(false);
         jPanel1.add(jLabel4);
         jLabel4.setBounds(10, 250, 150, 34);
 
@@ -785,6 +788,7 @@ public class EditRecipe extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel3.setText("Total Quantity :");
+        jLabel3.setFocusable(false);
         jPanel16.add(jLabel3);
         jLabel3.setBounds(350, 120, 130, 34);
 
@@ -800,6 +804,7 @@ public class EditRecipe extends javax.swing.JFrame {
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel5.setText("m");
         jLabel5.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        jLabel5.setFocusable(false);
         jPanel16.add(jLabel5);
         jLabel5.setBounds(590, 120, 30, 34);
 
@@ -809,6 +814,7 @@ public class EditRecipe extends javax.swing.JFrame {
         jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel13.setText("m");
         jLabel13.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        jLabel13.setFocusable(false);
         jPanel16.add(jLabel13);
         jLabel13.setBounds(313, 120, 20, 34);
 
@@ -827,6 +833,7 @@ public class EditRecipe extends javax.swing.JFrame {
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel12.setText("Quantity :");
+        jLabel12.setFocusable(false);
         jPanel16.add(jLabel12);
         jLabel12.setBounds(20, 120, 140, 34);
 
@@ -873,6 +880,7 @@ public class EditRecipe extends javax.swing.JFrame {
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel9.setText("Customer Name :");
+        jLabel9.setFocusable(false);
         jPanel16.add(jLabel9);
         jLabel9.setBounds(10, 70, 150, 34);
 
@@ -881,6 +889,7 @@ public class EditRecipe extends javax.swing.JFrame {
         jLabel10.setForeground(new java.awt.Color(247, 241, 241));
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel10.setText("Job Order :");
+        jLabel10.setFocusable(false);
         jPanel16.add(jLabel10);
         jLabel10.setBounds(20, 20, 140, 34);
 
@@ -901,6 +910,8 @@ public class EditRecipe extends javax.swing.JFrame {
         job_ord_label.setForeground(new java.awt.Color(255, 255, 255));
         job_ord_label.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         job_ord_label.setText("15P-10-");
+        job_ord_label.setFocusable(false);
+        job_ord_label.setRequestFocusEnabled(false);
         jPanel16.add(job_ord_label);
         job_ord_label.setBounds(170, 20, 70, 34);
 
