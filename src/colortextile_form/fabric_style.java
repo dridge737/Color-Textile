@@ -70,7 +70,7 @@ public class fabric_style extends javax.swing.JFrame {
             }
         });
         jPanel1.add(fabric_name);
-        fabric_name.setBounds(40, 80, 330, 30);
+        fabric_name.setBounds(40, 85, 330, 30);
 
         cancel_button.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         cancel_button.setText("Cancel");
