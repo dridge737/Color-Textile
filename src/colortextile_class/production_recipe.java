@@ -288,15 +288,15 @@ public class production_recipe extends Design_and_colorway{
         float coverage = 0;
         if(this.getFabric_style().equals("PONGEE"))
         {
-            coverage = Math.round((kg*1000/1000)*10/8);
+            coverage = Math.round((kg)*10/8);
         }
         else if(this.getFabric_style().equals("COTTON") || this.getFabric_style().equals("KATUNIA"))
         {
-            coverage = Math.round((kg*1000/1000)*10/12);
+            coverage = Math.round((kg)*10/12);
         }
         else if (this.getFabric_style().equals("MICROPEACH") || this.getFabric_style().equals("TC") || this.getFabric_style().equals("TROPICANA"))
         {
-            coverage = Math.round((kg*1000/1000));
+            coverage = (float) Math.floor(kg);
         }
         
         return coverage;

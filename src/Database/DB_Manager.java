@@ -859,7 +859,7 @@ public class DB_Manager {
             Connection conn = db.getConnection();
             
             PreparedStatement ps = 
-            conn.prepareStatement("SELECT id_purchase "
+            conn.prepareStatement("SELECT id_customer "
                                  + "FROM customer "
                                  + "WHERE customer_name = ? ");
             

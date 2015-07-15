@@ -3412,13 +3412,13 @@ public class Add_new_design extends javax.swing.JFrame {
     private void pig61ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pig61ActionPerformed
         // TODO add your handling code here:
         show_add_pigment();
-        this.pigment_button_check = 17;
+        this.pigment_button_check = 16;
     }//GEN-LAST:event_pig61ActionPerformed
 
     private void pig62ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pig62ActionPerformed
         // TODO add your handling code here:
         show_add_pigment();
-        this.pigment_button_check = 16;
+        this.pigment_button_check = 17;
     }//GEN-LAST:event_pig62ActionPerformed
 
     private void pig_73ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pig_73ActionPerformed
