@@ -5,6 +5,8 @@
  */
 package colortextile_form;
 
+import java.awt.Color;
+
 /**
  *
  * @author Eldridge
@@ -30,8 +32,8 @@ public class add_binder_form extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         title = new javax.swing.JLabel();
         binder = new javax.swing.JTextField();
-        add_but = new javax.swing.JButton();
         cancel_but = new javax.swing.JButton();
+        add_binder = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
 
@@ -47,24 +49,33 @@ public class add_binder_form extends javax.swing.JFrame {
         title.setBounds(20, 20, 342, 45);
 
         binder.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
+        binder.setForeground(new java.awt.Color(205, 205, 205));
         binder.setText("New Binder :");
         binder.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 binderFocusGained(evt);
             }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                binderFocusLost(evt);
+            }
         });
         jPanel1.add(binder);
         binder.setBounds(40, 210, 310, 30);
 
-        add_but.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        add_but.setText("Cancel");
-        jPanel1.add(add_but);
-        add_but.setBounds(190, 260, 180, 40);
-
         cancel_but.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        cancel_but.setText("Add Binder");
+        cancel_but.setText("Cancel");
+        cancel_but.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancel_butActionPerformed(evt);
+            }
+        });
         jPanel1.add(cancel_but);
-        cancel_but.setBounds(10, 260, 170, 40);
+        cancel_but.setBounds(190, 260, 180, 40);
+
+        add_binder.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        add_binder.setText("Add Binder");
+        jPanel1.add(add_binder);
+        add_binder.setBounds(10, 260, 170, 40);
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -99,8 +110,25 @@ public class add_binder_form extends javax.swing.JFrame {
     private void binderFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_binderFocusGained
         // TODO add your handling code here:
         if(this.binder.getText().equals("New Binder :"))
+        {
             this.binder.setText("");
+            this.binder.setForeground(Color.BLACK);
+        }
     }//GEN-LAST:event_binderFocusGained
+
+    private void binderFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_binderFocusLost
+        // TODO add your handling code here:
+        if(this.binder.getText().equals(""))
+        {
+            this.binder.setText("New Binder :");
+            this.binder.setForeground(new Color(204,204,204));
+        }
+    }//GEN-LAST:event_binderFocusLost
+
+    private void cancel_butActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancel_butActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_cancel_butActionPerformed
 
     /**
      * @param args the command line arguments
@@ -138,7 +166,7 @@ public class add_binder_form extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton add_but;
+    private javax.swing.JButton add_binder;
     private javax.swing.JTextField binder;
     private javax.swing.JButton cancel_but;
     private javax.swing.JPanel jPanel1;

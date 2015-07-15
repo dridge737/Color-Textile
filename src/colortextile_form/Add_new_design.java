@@ -2958,7 +2958,6 @@ public class Add_new_design extends javax.swing.JFrame {
     
     private void add_orderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_orderActionPerformed
         // TODO add your handling code here:
-        
         if (this.jList1.getModel().getSize() == 0){
             JOptionPane.showMessageDialog(null,"Please add a customer and a job order");
         }
@@ -2980,12 +2979,18 @@ public class Add_new_design extends javax.swing.JFrame {
             int CloseorNoreply = JOptionPane.showConfirmDialog(null,"Successfully Added this Recipe! Close Window? "
                     + "(Yes to close this window) ", "Close this Window?", JOptionPane.YES_NO_OPTION);
             if(CloseorNoreply == JOptionPane.YES_OPTION)
-            {
                 this.dispose();
+            else
+            {
+                
             }
         }
         
     }//GEN-LAST:event_add_orderActionPerformed
+    
+    private void clear_all(){
+        
+    }
     
     private void customer_check_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_customer_check_boxActionPerformed
         if(this.customer_check_box.isSelected()){
