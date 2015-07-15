@@ -273,9 +273,7 @@ public class add_pigment_form extends javax.swing.JFrame {
     private void pig_textFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_pig_textFocusLost
         // TODO add your handling code here:
         if(pig_text.getText().equals(""))
-        {
             this.reset_pigment_text();
-        }
     }//GEN-LAST:event_pig_textFocusLost
 
     private void edit_butActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edit_butActionPerformed
