@@ -3555,8 +3555,7 @@ public class EditRecipe extends javax.swing.JFrame {
         if(!quantity_total.getBackground().equals(Color.pink) && quantity_total.getText().length()>0)
         {
             Recipe_functions use_func = new Recipe_functions();
-            float this_computation;
-            this_computation = use_func.compute_this_kg(coverage, fab_style_comb.getSelectedItem().toString(),quantity_total.getText());
+            float this_computation = use_func.compute_this_kg(coverage, fab_style_comb.getSelectedItem().toString(),quantity_total.getText());
             weigh_kg.setText(String.format("%.0f", this_computation));
         }
     }
