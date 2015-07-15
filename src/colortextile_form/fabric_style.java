@@ -105,7 +105,7 @@ public class fabric_style extends javax.swing.JFrame {
             }
         });
         jPanel1.add(kilograms);
-        kilograms.setBounds(20, 172, 80, 30);
+        kilograms.setBounds(28, 173, 80, 30);
 
         jLabel1.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -117,14 +117,14 @@ public class fabric_style extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("x");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(210, 170, 10, 30);
+        jLabel2.setBounds(220, 173, 10, 30);
 
         jLabel3.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("x");
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(100, 170, 20, 30);
+        jLabel3.setBounds(108, 173, 20, 30);
 
         jLabel4.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
@@ -136,7 +136,7 @@ public class fabric_style extends javax.swing.JFrame {
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("% Coverage");
         jPanel1.add(jLabel5);
-        jLabel5.setBounds(120, 170, 90, 30);
+        jLabel5.setBounds(128, 173, 90, 30);
         jPanel1.add(jSeparator1);
         jSeparator1.setBounds(20, 210, 280, 10);
 
@@ -144,7 +144,7 @@ public class fabric_style extends javax.swing.JFrame {
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Quantity");
         jPanel1.add(jLabel6);
-        jLabel6.setBounds(230, 170, 70, 30);
+        jLabel6.setBounds(232, 173, 70, 30);
 
         jLabel7.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
