@@ -52,7 +52,7 @@ public class customer {
         if(!this.check_if_this_customer_exists())
             new_conn.add_customer(this);
         else
-            this.get_customer_id_from_name();
+            this.set_customer_id_from_name();
     }
 
     /**
@@ -92,11 +92,9 @@ public class customer {
         new_conn.get_customer_list(this);
     }
 
-    public int get_customer_id_from_name() {
+    public void set_customer_id_from_name() {
         DB_Manager new_conn = new DB_Manager();
         this.customer_id = new_conn.get_id_customer_name(this);
-        return customer_id;
-        
     }
     
     public void set_customer_name_from_id()

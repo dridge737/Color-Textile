@@ -22,7 +22,8 @@ public class job_order extends customer {
     private int customer_id;
     private ResultSet job_order_resultset;
 
-    public void job_order(String job_order_id)
+    public job_order(){}
+    public job_order(String job_order_id)
     {
         Database.DB_Manager new_conn = new Database.DB_Manager();
         job_order details = new_conn.get_job_order_details(job_order_id);
@@ -88,7 +89,6 @@ public class job_order extends customer {
         this.customer_id = customer_id;
     }
 
-    
     public boolean add_new_job_order()
     {
         DB_Manager new_conn = new DB_Manager();

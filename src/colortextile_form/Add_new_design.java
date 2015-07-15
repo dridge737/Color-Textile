@@ -2565,10 +2565,9 @@ public class Add_new_design extends javax.swing.JFrame {
         for (int i = 0; i < this_list.getJob_list().size(); i++) 
         {
             job_order job = new job_order();
-            DB_Manager new_conn = new DB_Manager();
             job.setJob_id(this_list.getJob_list().get(i).toString());
             job.setCustomer_name(this_list.getCustomer_list().get(i).toString());
-            job.setCustomer_id(new_conn.get_id_customer(this_list.getCustomer_list().get(i).toString()));
+            job.set_customer_id_from_name();
             job.setDate(use_func.get_date_from_spinner(spinner_date));
             all_job_orders.add(job);
         }
@@ -3678,9 +3677,8 @@ public class Add_new_design extends javax.swing.JFrame {
         if (this.text_job_order.getText().length() == 4 )
         {
             String job_order_text = this.job_ord_label.getText() + this.text_job_order.getText();
-            DB_Manager new_conn = new DB_Manager();
-            job_order new_job_order = new job_order();
-            new_job_order.setJob_id(job_order_text);
+            job_order new_job_order = new job_order(job_order_text);
+            
             if(new_job_order.set_job_order_details_if_available())
             {
                 this.customer_name_text.setText(new_job_order.getCustomer_name());
@@ -3692,7 +3690,7 @@ public class Add_new_design extends javax.swing.JFrame {
                     robot = new Robot();
                     customer_name_text.requestFocusInWindow();
                     robot.keyPress(KeyEvent.VK_ENTER); 
-                    
+                    robot.keyRelease(KeyEvent.VK_ENTER);
                 } catch (AWTException ex) {
                     Logger.getLogger(Add_new_design.class.getName()).log(Level.SEVERE, null, ex);
                 }

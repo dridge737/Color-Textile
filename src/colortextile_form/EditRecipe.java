@@ -885,6 +885,9 @@ public class EditRecipe extends javax.swing.JFrame {
         jLabel10.setBounds(20, 20, 140, 34);
 
         text_job_order.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                text_job_orderKeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 text_job_orderKeyTyped(evt);
             }
@@ -3524,6 +3527,10 @@ public class EditRecipe extends javax.swing.JFrame {
         add_binder_form binder_form = new add_binder_form();
         binder_form.setVisible(true);
     }//GEN-LAST:event_add_bind7ActionPerformed
+
+    private void text_job_orderKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_text_job_orderKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_text_job_orderKeyReleased
 
     private void show_add_pigment()
     {

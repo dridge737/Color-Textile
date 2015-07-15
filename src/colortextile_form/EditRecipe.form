@@ -614,6 +614,7 @@
                 <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value="Last 4 Digits in a Job Order ID"/>
               </AccessibilityProperties>
               <Events>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="text_job_orderKeyReleased"/>
                 <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="text_job_orderKeyTyped"/>
               </Events>
               <Constraints>
