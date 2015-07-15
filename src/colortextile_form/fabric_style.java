@@ -150,13 +150,14 @@ public class fabric_style extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Screen");
         jPanel1.add(jLabel7);
-        jLabel7.setBounds(330, 190, 50, 20);
+        jLabel7.setBounds(333, 190, 50, 20);
 
         jLabel8.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setText("Kilogram");
         jPanel1.add(jLabel8);
-        jLabel8.setBounds(320, 210, 70, 20);
+        jLabel8.setBounds(323, 210, 70, 20);
 
         jLabel9.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
