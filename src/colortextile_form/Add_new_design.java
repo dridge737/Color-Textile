@@ -188,7 +188,7 @@ public class Add_new_design extends javax.swing.JFrame {
         jLabel140 = new javax.swing.JLabel();
         jLabel153 = new javax.swing.JLabel();
         pig13 = new javax.swing.JButton();
-        bind_add = new javax.swing.JButton();
+        bind_add1 = new javax.swing.JButton();
         pig11 = new javax.swing.JButton();
         pig12 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
@@ -908,15 +908,15 @@ public class Add_new_design extends javax.swing.JFrame {
         });
         jPanel9.add(pig13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 148, 25, 25));
 
-        bind_add.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        bind_add.setText("+");
-        bind_add.setMargin(new java.awt.Insets(2, 0, 2, 0));
-        bind_add.addActionListener(new java.awt.event.ActionListener() {
+        bind_add1.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        bind_add1.setText("+");
+        bind_add1.setMargin(new java.awt.Insets(2, 0, 2, 0));
+        bind_add1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bind_addActionPerformed(evt);
+                bind_add1ActionPerformed(evt);
             }
         });
-        jPanel9.add(bind_add, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 203, 25, 25));
+        jPanel9.add(bind_add1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 203, 25, 25));
 
         pig11.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         pig11.setText("+");
@@ -1122,6 +1122,11 @@ public class Add_new_design extends javax.swing.JFrame {
         bind_add2.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         bind_add2.setText("+");
         bind_add2.setMargin(new java.awt.Insets(2, 0, 2, 0));
+        bind_add2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bind_add2ActionPerformed(evt);
+            }
+        });
         jPanel4.add(bind_add2, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 203, 25, 25));
 
         jTabbedPane2.addTab("2", jPanel4);
@@ -1305,6 +1310,11 @@ public class Add_new_design extends javax.swing.JFrame {
         bind_add3.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         bind_add3.setText("+");
         bind_add3.setMargin(new java.awt.Insets(2, 0, 2, 0));
+        bind_add3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bind_add3ActionPerformed(evt);
+            }
+        });
         jPanel5.add(bind_add3, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 203, 25, 25));
 
         jTabbedPane2.addTab("3", jPanel5);
@@ -1487,6 +1497,11 @@ public class Add_new_design extends javax.swing.JFrame {
         bind_add4.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         bind_add4.setText("+");
         bind_add4.setMargin(new java.awt.Insets(2, 0, 2, 0));
+        bind_add4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bind_add4ActionPerformed(evt);
+            }
+        });
         jPanel6.add(bind_add4, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 203, 25, 25));
 
         jTabbedPane2.addTab("4", jPanel6);
@@ -1669,6 +1684,11 @@ public class Add_new_design extends javax.swing.JFrame {
         bind_add5.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         bind_add5.setText("+");
         bind_add5.setMargin(new java.awt.Insets(2, 0, 2, 0));
+        bind_add5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bind_add5ActionPerformed(evt);
+            }
+        });
         jPanel7.add(bind_add5, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 203, 25, 25));
 
         jTabbedPane2.addTab("5", jPanel7);
@@ -1851,6 +1871,11 @@ public class Add_new_design extends javax.swing.JFrame {
         bind_add6.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         bind_add6.setText("+");
         bind_add6.setMargin(new java.awt.Insets(2, 0, 2, 0));
+        bind_add6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bind_add6ActionPerformed(evt);
+            }
+        });
         jPanel8.add(bind_add6, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 203, 25, 25));
 
         jTabbedPane2.addTab("6", jPanel8);
@@ -2033,6 +2058,11 @@ public class Add_new_design extends javax.swing.JFrame {
         bind_add7.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         bind_add7.setText("+");
         bind_add7.setMargin(new java.awt.Insets(2, 0, 2, 0));
+        bind_add7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bind_add7ActionPerformed(evt);
+            }
+        });
         jPanel15.add(bind_add7, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 203, 25, 25));
 
         jTabbedPane2.addTab("7", jPanel15);
@@ -2611,28 +2641,32 @@ public class Add_new_design extends javax.swing.JFrame {
     private int add_this_design_and_colorway()
     {
         production_recipe this_design = get_design_details();
-        if(this_design.get_design_code_using_variables())
+        this_design.setDesign_code(-1);
+        if(design_name.getText().length() != 0 && design_color.getText().length() != 0 )
         {
-            ////Design has already been added, just access design code;
-            int reply = JOptionPane.showConfirmDialog(null,"The design with this name, color and fabric has already been added. (Yes to use this design, No to change name of design , color or fabric) "
-                    + "Do you want to use the existing design?","Use existing design?", JOptionPane.YES_NO_OPTION);
-            if(reply == JOptionPane.YES_OPTION)
+            if(this_design.get_design_code_using_variables())
             {
+            ////Design has already been added, just access design code;
+                int reply = JOptionPane.showConfirmDialog(null,"The design with this name, color and fabric has already been added. (Yes to use this design, No to change name of design , color or fabric) "
+                    + "Do you want to use the existing design?","Use existing design?", JOptionPane.YES_NO_OPTION);
+                if(reply == JOptionPane.YES_OPTION)
+                {
                 //this_design.setDesign_code(reply);
+                }
+                else
+                {
+                    this_design.setDesign_code(-1);
+                }
             }
             else
             {
-                this_design.setDesign_code(-1);
+                this_design.add_new_design_and_set_design_code();
             }
         }
-        else
-        {
-            this_design.add_new_design_and_set_design_code();
-        }
-        
         if(this_design.getDesign_code() != -1)
             this.add_all_this_colorways(this_design.getDesign_code());
         return this_design.getDesign_code();
+        
     }
     
     private production_recipe get_design_details()
@@ -3683,16 +3717,48 @@ public class Add_new_design extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void bind_addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bind_addActionPerformed
+    private void bind_add1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bind_add1ActionPerformed
         // TODO add your handling code here:
         add_binder_form new_binder = new add_binder_form();
         new_binder.setVisible(true);
-    }//GEN-LAST:event_bind_addActionPerformed
+    }//GEN-LAST:event_bind_add1ActionPerformed
 
-    private void check_if_job_order_has_been_added()
-    {
-        
-    }
+    private void bind_add2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bind_add2ActionPerformed
+        // TODO add your handling code here:
+        add_binder_form new_binder = new add_binder_form();
+        new_binder.setVisible(true);
+    }//GEN-LAST:event_bind_add2ActionPerformed
+
+    private void bind_add3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bind_add3ActionPerformed
+        // TODO add your handling code here:
+        add_binder_form new_binder = new add_binder_form();
+        new_binder.setVisible(true);
+    }//GEN-LAST:event_bind_add3ActionPerformed
+
+    private void bind_add4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bind_add4ActionPerformed
+        // TODO add your handling code here:
+        add_binder_form new_binder = new add_binder_form();
+        new_binder.setVisible(true);
+    }//GEN-LAST:event_bind_add4ActionPerformed
+
+    private void bind_add5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bind_add5ActionPerformed
+        // TODO add your handling code here:
+        add_binder_form new_binder = new add_binder_form();
+        new_binder.setVisible(true);
+    }//GEN-LAST:event_bind_add5ActionPerformed
+
+    private void bind_add6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bind_add6ActionPerformed
+        // TODO add your handling code here:
+        add_binder_form new_binder = new add_binder_form();
+        new_binder.setVisible(true);
+    }//GEN-LAST:event_bind_add6ActionPerformed
+
+    private void bind_add7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bind_add7ActionPerformed
+        // TODO add your handling code here:
+        add_binder_form new_binder = new add_binder_form();
+        new_binder.setVisible(true);
+    }//GEN-LAST:event_bind_add7ActionPerformed
+
     private void compute_kg_from_coverage(JTextField weigh_kg)
     {
         if(!use_func.checkText2(weigh_kg.getText()) && quantity_total.getText().length()>0 )
@@ -3957,7 +4023,7 @@ public class Add_new_design extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton add_order;
     private javax.swing.JButton add_order2;
-    private javax.swing.JButton bind_add;
+    private javax.swing.JButton bind_add1;
     private javax.swing.JButton bind_add2;
     private javax.swing.JButton bind_add3;
     private javax.swing.JButton bind_add4;

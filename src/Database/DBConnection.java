@@ -24,7 +24,6 @@ public class DBConnection {
         driver = "com.mysql.jdbc.Driver";
         username = "root";
         password = "";
-        
     }
     public Connection getConnection()
     {
