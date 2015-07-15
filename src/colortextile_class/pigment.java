@@ -78,6 +78,7 @@ public class pigment implements Comparable<pigment>{
     {
         DB_Manager newDbManager = new DB_Manager();
         pigment_no = newDbManager.get_id_pigment(this.pigment_name);
+        
     }
     
     public ArrayList<String> get_all_pigment_name()
@@ -131,6 +132,12 @@ public class pigment implements Comparable<pigment>{
         pigment temporary_pigment = new_conn.get_last_pigment_id_and_name();
         this.setPigment_no(temporary_pigment.getPigment_no());
         this.setPigment_name(temporary_pigment.getPigment_name());
+    }
+    
+    public void update_pigment()
+    {
+        DB_Manager new_conn = new DB_Manager();
+        new_conn.update_pigment(this);
     }
     
     

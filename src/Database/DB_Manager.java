@@ -2150,18 +2150,39 @@ public class DB_Manager {
         }
     }
     
+    public void update_pigment(pigment this_pigment)
+    {
+        DBConnection db = new DBConnection();
+        Connection conn = db.getConnection(); 
+         int item = 1;
+        try {
+            PreparedStatement ps = conn.prepareStatement("UPDATE pigment "
+                    + " SET pigment_name=? "
+                    + " WHERE pigment_no = ?;");
+            
+            ps.setString(item++, this_pigment.getPigment_name());
+            ps.setInt(item++, this_pigment.getPigment_no());
+            ps.executeUpdate();
+            this.closeConn(conn, ps);
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+          
+    }
+    
     public void update_colorway(colorway this_colorway)
     {
+        DBConnection db = new DBConnection();
+        Connection conn = db.getConnection(); 
+        
         try
         {
-          DBConnection db = new DBConnection();
-          Connection conn = db.getConnection(); 
-          
           PreparedStatement ps = conn.prepareStatement("UPDATE colorway "
                                                         + " SET colorway_name = ?, binder = ?, weight_kg = ? "
                                                         + " WHERE id_colorway = ?");
           int item = 1;
-          this_colorway.view_colorway_details();
+          //this_colorway.view_colorway_details();
           ps.setString(item++, this_colorway.getColorway_name().toUpperCase());
           ps.setFloat(item++, this_colorway.getBinder());
           ps.setFloat(item++, this_colorway.getWeight_kg());
