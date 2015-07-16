@@ -299,7 +299,7 @@ public class SearchJOGui extends javax.swing.JFrame {
             }
         });
         jFrame1.getContentPane().add(jCheckBox2);
-        jCheckBox2.setBounds(585, 133, 69, 29);
+        jCheckBox2.setBounds(585, 133, 65, 29);
 
         jLabel8.setFont(new java.awt.Font("Century Gothic", 0, 34)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
@@ -410,7 +410,6 @@ public class SearchJOGui extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jTable1.setEnabled(false);
         jTable1.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseReleased(java.awt.event.MouseEvent evt) {
@@ -524,11 +523,19 @@ public class SearchJOGui extends javax.swing.JFrame {
 
     
     private void button_detailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_detailsActionPerformed
-      
+        
+        int row = jTable1.getSelectedRow();
+        int total_col = jTable1.getColumnCount();
+        String selected_purchase_order = jTable1.getValueAt(row, 7).toString();
+        
+        purchase_order purchase = new purchase_order();
+        purchase.setId_purchase(Integer.parseInt(selected_purchase_order));
+        Integer.parseInt(selected_purchase_order);
+        
         Add_new_design design_form = new Add_new_design();
         design_form.setVisible(true);
-        design_form.fill_info(this.get_design_code_from_table_selected());
-        close();
+        design_form.fill_info2(this.get_design_code_from_table_selected());
+       
     }//GEN-LAST:event_button_detailsActionPerformed
 
     public void close(){

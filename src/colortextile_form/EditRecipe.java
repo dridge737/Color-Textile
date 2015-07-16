@@ -64,8 +64,6 @@ public class EditRecipe extends javax.swing.JFrame {
         prod_recipe.set_all_details_from_purchase_order_id(purchase_order_id);
         this.set_design_and_colorway_textbox_details();
         this.set_purchase_and_job_list_textbox();
-        //binder8.setModel("3.5, ");
-        //binder8.setSelectedItem("8");
         this.set_customer_list_and_autocomplete();
     }
     

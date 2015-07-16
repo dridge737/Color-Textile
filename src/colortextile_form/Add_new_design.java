@@ -84,7 +84,7 @@ public class Add_new_design extends javax.swing.JFrame {
         this.set_customer_list_and_autocomplete();
         job_ord_label.setText(use_func.change_job_order_prefix(spinner_date));
         current_style = fab_style_comb.getSelectedItem().toString();
-        
+        fill_info2(66);
     }
     
     public void set_customer_list_and_autocomplete()
@@ -2284,10 +2284,29 @@ public class Add_new_design extends javax.swing.JFrame {
         }
     }
     
+    public void set_design_and_colorway_textbox(Design_with_colorway this_design)
+    {
+        this.design_name.setText(this_design.getDesign_name());
+            //design colorway
+        this.design_color.setText(this_design.getColor_name());
+            //fabric style
+        this.fab_style_comb.setSelectedItem(this_design.getFabric_style());
+        //this.set_all_textbox_colorways(this_d);
+        set_all_textbox_colorways(this_design.getAll_colorways());
+    }
+    
+    public void fill_info2(int purchase_order)
+    {
+        production_recipe this_production = new production_recipe();
+        this_production.set_all_details_from_purchase_order_id(purchase_order);
+        this.set_design_and_colorway_textbox(this_production);
+        
+    }
+    /*
     public void fill_info(int design_id){
         
         try {
-            //System.out.println("filling the textboxes ");
+            
             //design DB
             Design_with_colorway design_info = new Design_with_colorway();
             design_info.setDesign_code(design_id);
@@ -2299,7 +2318,12 @@ public class Add_new_design extends javax.swing.JFrame {
             ResultSet rs_design = design_info.search_design();  
             //design result set move to first
             rs_design.first(); 
-            
+            this.design_name.setText(rs_design.getString("design_name"));
+            //design colorway
+        this.design_color.setText(rs_design.getString("color_name"));
+            //fabric style
+        this.fab_style_comb.addItem(rs_design.getString("fabric_style"));  this.fab_style_comb.setSelectedItem(rs_design.getString("fabric_style"));
+         
             //colorway DB
             colorway color = new colorway();
             color.setDesign_code(design_id);
@@ -2311,11 +2335,6 @@ public class Add_new_design extends javax.swing.JFrame {
             
             //fill textboxes  +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
             //design name
-            this.design_name.setText(rs_design.getString("design_name"));
-            //design colorway
-            this.design_color.setText(rs_design.getString("color_name"));
-            //fabric style
-            this.fab_style_comb.addItem(rs_design.getString("fabric_style"));  this.fab_style_comb.setSelectedItem(rs_design.getString("fabric_style"));
             ResultSet rs_colorway_screen;
             while (rs_colorway.next()){
                 int xyz = 0;
@@ -2515,7 +2534,7 @@ public class Add_new_design extends javax.swing.JFrame {
         }
         
     }
-    
+    */
     private List<purchase_order> get_all_purchase_details(int design_code)
     {
         List<purchase_order> all_purchase = new ArrayList<>();

@@ -18,7 +18,12 @@ public class purchase_order {
     private String job_order_id;
     private int quantity;
     
-    /**
+    public purchase_order(){}
+    public purchase_order(int purchase_id)
+    {
+        this.id_purchase = purchase_id;
+    }
+            /**
      * @return the id_purchase
      */
     public int getId_purchase() {

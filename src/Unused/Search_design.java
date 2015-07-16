@@ -4,10 +4,12 @@
  * and open the template in the editor.
  */
 
-package colortextile_form;
+package Unused;
 
 import Database.DB_Manager;
 import colortextile_class.design;
+import colortextile_form.Add_new_design;
+import colortextile_form.SearchJOGui;
 import java.awt.Toolkit;
 import java.awt.event.WindowEvent;
 import java.sql.Blob;
@@ -230,7 +232,7 @@ public class Search_design extends javax.swing.JFrame {
         
         Add_new_design design_form = new Add_new_design();
         design_form.setVisible(true);
-        design_form.fill_info(Integer.parseInt(selcted_design_code));
+        //design_form.fill_info(Integer.parseInt(selcted_design_code));
         close();
     }//GEN-LAST:event_button_detailsActionPerformed
 
