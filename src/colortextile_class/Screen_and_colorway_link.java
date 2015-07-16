@@ -15,18 +15,18 @@ import java.util.regex.Pattern;
  *
  * @author Eldridge
  */
-public class Colorway_screen_link_functions extends colorway implements Comparable<Colorway_screen_link_functions>{
+public class Screen_and_colorway_link extends colorway implements Comparable<Screen_and_colorway_link>{
     
-    private List<Screen_colorway> this_screens = new ArrayList<>();
+    private List<Colorway_and_pigment> this_screens = new ArrayList<>();
     
-    public Colorway_screen_link_functions(){}
+    public Screen_and_colorway_link(){}
     
-    public Colorway_screen_link_functions(String name, float bind, float weight)
+    public Screen_and_colorway_link(String name, float bind, float weight)
     {
         super(name,bind,weight);
     }
     
-    public Colorway_screen_link_functions(String name, float bind, String weight)
+    public Screen_and_colorway_link(String name, float bind, String weight)
     {
         this.setBinder(bind);
         this.setColorway_name(name);
@@ -51,7 +51,7 @@ public class Colorway_screen_link_functions extends colorway implements Comparab
         return p.matcher(this_text).find();
     }
      
-    public void add_screen(Screen_colorway this_screen)
+    public void add_screen(Colorway_and_pigment this_screen)
     {
         this.this_screens.add(this_screen);
     }
@@ -72,11 +72,8 @@ public class Colorway_screen_link_functions extends colorway implements Comparab
     
     public void view_all_screen_pigment_details()
     {
-        System.out.println("Colorway_name : " +getColorway_name());
-        System.out.println("Binder : " +getBinder());     
-        System.out.println("Weight : " +getWeight_kg());
-        
-        for (Screen_colorway this_screen : getThis_screens()) {
+        this.view_colorway_details();
+        for (Colorway_and_pigment this_screen : getThis_screens()) {
             this_screen.view_this_colorway_screen_details();
         }
                
@@ -91,7 +88,7 @@ public class Colorway_screen_link_functions extends colorway implements Comparab
 
     
     @Override
-    public int compareTo(Colorway_screen_link_functions o) {
+    public int compareTo(Screen_and_colorway_link o) {
         int compareTo = this.getColorway_name().compareTo(o.getColorway_name());
         return compareTo;
     }
@@ -99,14 +96,14 @@ public class Colorway_screen_link_functions extends colorway implements Comparab
     /**
      * @return the this_screens
      */
-    public List<Screen_colorway> getThis_screens() {
+    public List<Colorway_and_pigment> getThis_screens() {
         return this_screens;
     }
 
     /**
      * @param this_screens the this_screens to set
      */
-    public void setThis_screens(List<Screen_colorway> this_screens) {
+    public void setThis_screens(List<Colorway_and_pigment> this_screens) {
         this.this_screens = this_screens;
     }
 

@@ -16,7 +16,7 @@ import javax.swing.JTextField;
  */
 public class Design_with_colorway extends design {
     
-     private List<Colorway_screen_link_functions> all_colorways = new ArrayList<>();
+     private List<Screen_and_colorway_link> all_colorways = new ArrayList<>();
 
      public Design_with_colorway(){}
      public Design_with_colorway(String design, String color, String fabric)
@@ -24,7 +24,7 @@ public class Design_with_colorway extends design {
          super(design, color, fabric);
      }
      //Manual add
-     public void add_colorway(Colorway_screen_link_functions this_color_screen_link)
+     public void add_colorway(Screen_and_colorway_link this_color_screen_link)
      {
          this.getAll_colorways().add(this_color_screen_link);
      }
@@ -59,14 +59,14 @@ public class Design_with_colorway extends design {
     /**
      * @return the all_colorways
      */
-    public List<Colorway_screen_link_functions> getAll_colorways() {
+    public List<Screen_and_colorway_link> getAll_colorways() {
         return all_colorways;
     }
 
     /**
      * @param all_colorways the all_colorways to set
      */
-    public void setAll_colorways(List<Colorway_screen_link_functions> all_colorways) {
+    public void setAll_colorways(List<Screen_and_colorway_link> all_colorways) {
         this.all_colorways = all_colorways;
     }
     

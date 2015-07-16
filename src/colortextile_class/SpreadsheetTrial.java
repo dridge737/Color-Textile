@@ -71,15 +71,15 @@ public class SpreadsheetTrial {
             template.setField("total", Integer.toString(quantity_sum));
             template.setField("color", this_purchase.getColor_name());
             
-            List<Colorway_screen_link_functions> this_colorway = this_purchase.getAll_colorways();
+            List<Screen_and_colorway_link> this_colorway = this_purchase.getAll_colorways();
             
-            Colorway_screen_link_functions first_colorway = this_colorway.get(0);
+            Screen_and_colorway_link first_colorway = this_colorway.get(0);
             
             template.setField("screen1", first_colorway.getColorway_name());
             template.setField("kilo1", first_colorway.getWeight_kg());
             template.setField("bind1", first_colorway.getBinder());
             //FOR COLORWAY SCREEN
-            List<Screen_colorway> the_screens = first_colorway.getThis_screens();
+            List<Colorway_and_pigment> the_screens = first_colorway.getThis_screens();
             int x = 1;
             while( x<=the_screens.size())
             {
@@ -100,7 +100,7 @@ public class SpreadsheetTrial {
             final List<Map<String, String>> Colorway_Map = new ArrayList<Map<String, String>>();
             int y = 1;
             
-            for(Colorway_screen_link_functions current_colorway : this_colorway)
+            for(Screen_and_colorway_link current_colorway : this_colorway)
             {
                 Colorway_Map.add(createMap2(current_colorway));
                 y++;
@@ -278,7 +278,7 @@ public class SpreadsheetTrial {
         }  
     }
     */
-    private static Map<String, String> createMap2(Colorway_screen_link_functions this_color_screen)
+    private static Map<String, String> createMap2(Screen_and_colorway_link this_color_screen)
     {
          final Map<String, String> res = new HashMap<String, String>();
          res.put("no", Integer.toString(screen_count++));
@@ -286,7 +286,7 @@ public class SpreadsheetTrial {
          res.put("kil2"   , Float.toString(this_color_screen.getWeight_kg()));
          res.put("bind2"  , Float.toString(this_color_screen.getBinder()));
          
-         List<Screen_colorway> the_screens = this_color_screen.getThis_screens();
+         List<Colorway_and_pigment> the_screens = this_color_screen.getThis_screens();
          int x = 1;
          while(x<=the_screens.size())
             {

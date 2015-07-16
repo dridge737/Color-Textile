@@ -286,7 +286,7 @@ public class DB_Manager {
             DBConnection db = new DBConnection();
             Connection conn = db.getConnection();
             
-            PreparedStatement ps = conn.prepareStatement("INSERT INTO colorway_screen_connect "
+            PreparedStatement ps = conn.prepareStatement("INSERT INTO colorway_and_pigment "
                                                        + "(pigment_no, id_colorway, pigment_percentage)"
                                                        + "VALUES (?, ?, ?);");
             int item =1;
@@ -367,7 +367,7 @@ public class DB_Manager {
             DBConnection db = new DBConnection();
             Connection conn = db.getConnection();  
         
-            PreparedStatement ps = conn.prepareStatement("DELETE FROM colorway_screen_connect WHERE id_colorway = ?");
+            PreparedStatement ps = conn.prepareStatement("DELETE FROM colorway_and_pigment WHERE id_colorway = ?");
         
             int item = 1;
             ps.setInt(item++, id_colorway);
@@ -450,7 +450,7 @@ public class DB_Manager {
         return -1;
     }
     
-    public List<Colorway_screen_link_functions> set_all_colorway_from_design_code(int this_design_code)
+    public List<Screen_and_colorway_link> set_all_colorway_from_design_code(int this_design_code)
     {
         try{
             DBConnection db = new DBConnection();
@@ -468,13 +468,13 @@ public class DB_Manager {
             int item = 1;
             ps.setInt(item++, this_design_code);
             
-            List<Colorway_screen_link_functions> all_color_screen = new ArrayList<>();
+            List<Screen_and_colorway_link> all_color_screen = new ArrayList<>();
             
             ResultSet rs = ps.executeQuery();
             
             while(rs.next())
             {
-                Colorway_screen_link_functions current_colorway = new Colorway_screen_link_functions();
+                Screen_and_colorway_link current_colorway = new Screen_and_colorway_link();
                 
                 current_colorway.setBinder(rs.getFloat("binder"));
                 current_colorway.setColorway_name(rs.getString("colorway_name"));
@@ -495,7 +495,7 @@ public class DB_Manager {
         return null;
     }
     
-    public List<Screen_colorway> set_all_colorway_and_screen_from_colorway_id(int colorway_id)
+    public List<Colorway_and_pigment> set_all_colorway_and_screen_from_colorway_id(int colorway_id)
     {
         try{
             DBConnection db = new DBConnection();
@@ -503,7 +503,7 @@ public class DB_Manager {
             
             PreparedStatement ps = 
             conn.prepareStatement("SELECT id_color_screen, p.pigment_no, pigment_percentage, p.pigment_name " 
-                                 + " FROM colorway_screen_connect s_p, pigment p" 
+                                 + " FROM colorway_and_pigment s_p, pigment p" 
                                  + " WHERE id_colorway = ? "
                                  + " AND s_p.pigment_no = p.pigment_no "
                                  + " ORDER BY id_color_screen ASC");
@@ -511,11 +511,11 @@ public class DB_Manager {
             ps.setInt(item++, colorway_id);
             
             ResultSet screen_rs = ps.executeQuery();
-            List<Screen_colorway> this_screen = new ArrayList<>();
+            List<Colorway_and_pigment> this_screen = new ArrayList<>();
             
             while(screen_rs.next())
             {
-                Screen_colorway this_s_pigment = new Screen_colorway();
+                Colorway_and_pigment this_s_pigment = new Colorway_and_pigment();
                 
                 this_s_pigment.setId_color_screen(screen_rs.getInt("id_color_screen"));
                 this_s_pigment.setId_colorway(colorway_id);
@@ -605,7 +605,7 @@ public class DB_Manager {
             
             PreparedStatement ps = 
             conn.prepareStatement("SELECT id_color_screen "
-                                + " FROM colorway_screen_connect "
+                                + " FROM colorway_and_pigment "
                                 + " WHERE id_screen = ? "
                                 + " AND id_colorway = ?"
                                 + " AND pigment_percentage = ?");
@@ -1806,13 +1806,13 @@ public class DB_Manager {
         }
     }
     
-    public ResultSet Search_colorway_screen_connect(colortextile_class.Screen_colorway connect){
+    public ResultSet Search_colorway_screen_connect(colortextile_class.Colorway_and_pigment connect){
         try
         {
           DBConnection db = new DBConnection();
           Connection conn = db.getConnection();  
           
-          String sql ="SELECT * FROM colorway_screen_connect WHERE";
+          String sql = "SELECT * FROM colorway_and_pigment WHERE";
           int increment = 0;
           
           if (connect.getId_color_screen() != -1){
@@ -2121,7 +2121,7 @@ public class DB_Manager {
         this.update_design_picture(this_design);
     }
     
-    public void update_colorway_screen(Screen_colorway this_color_screen)
+    public void update_colorway_screen(Colorway_and_pigment this_color_screen)
     {
         try{
            DBConnection db = new DBConnection();
@@ -2132,7 +2132,7 @@ public class DB_Manager {
            pigment_percentage= 56
             WHERE id_color_screen = 33;
            */
-           PreparedStatement ps = conn.prepareStatement("UPDATE colorway_screen_connect "
+           PreparedStatement ps = conn.prepareStatement("UPDATE colorway_and_pigment "
                                                         + " SET pigment_no = ?, "
                                                         + " pigment_percentage = ? "
                                                         + " WHERE id_color_screen = ?");
@@ -2282,7 +2282,7 @@ public class DB_Manager {
           DBConnection db = new DBConnection();
           Connection conn = db.getConnection(); 
           
-          PreparedStatement ps = conn.prepareStatement("DELETE FROM colorway_screen_connect "
+          PreparedStatement ps = conn.prepareStatement("DELETE FROM colorway_and_pigment "
                                                         + "WHERE id_colorway = ?");
           int item = 1;
           ps.setInt(item++, id_colorway);
