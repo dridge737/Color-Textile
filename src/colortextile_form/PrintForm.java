@@ -53,6 +53,7 @@ public class PrintForm extends javax.swing.JFrame {
         int y = (int) ((dimension.getHeight() - this.getHeight()) / 2);
         this.setLocation(x,y);
         
+        
     }
     
     private void fill_table_per_purchase_table()

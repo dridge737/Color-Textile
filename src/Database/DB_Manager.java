@@ -1420,7 +1420,14 @@ public class DB_Manager {
     
     public DefaultTableModel get_column_for_design_customer_job_order()
     {
-        DefaultTableModel model = new DefaultTableModel();
+        DefaultTableModel model = new DefaultTableModel(){
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                //all cells false
+            return false;
+            }
+        };
+        
         model.addColumn("Date");  
         model.addColumn("Design");  
         model.addColumn("Color");   
