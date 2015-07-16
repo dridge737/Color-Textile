@@ -53,10 +53,8 @@ public class ImageCapture extends JFrame{
 			} catch (IOException e1) {
 				e1.printStackTrace();
 			}
-                        
                         panel.stop();
-                       webcam.close();
-                    
+                        webcam.close();
                         executor.shutdownNow();
 		}
 	}
