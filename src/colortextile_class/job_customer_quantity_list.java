@@ -81,31 +81,21 @@ public class job_customer_quantity_list {
     {
         boolean duplicate = false;
         
-        //job_order this_job_order = new job_order();
-        //this_job_order.setJob_id(job_order_text);
-        /*
-        if(this_job_order.check_if_job_exists())
+        if (job_order_text.length() != 11)
         {
-            JOptionPane.showMessageDialog(null,"Job order number has been already added before!");
+            JOptionPane.showMessageDialog(null,"Please input 4 job order number!");
             duplicate = true;
         }
-        else
-        {*/
-            if (job_order_text.length() != 11)
-            {
-                JOptionPane.showMessageDialog(null,"Please input 4 job order number!");
-                duplicate = true;
-            } 
-            else {
-                // check job order if existing
-                for (int j = 0; j < job_list.size(); j++ ){
-                    if (job_list.get(j).toString().trim().equals(job_order_text))
-                        duplicate = true;
-                }
-                if( duplicate == true){
-                    JOptionPane.showMessageDialog(null,"Job Order ID already Exists");
-                }
+        else {
+            // check job order if existing
+            for (int j = 0; j < job_list.size(); j++ ){
+                if (job_list.get(j).toString().trim().equals(job_order_text))
+                    duplicate = true;
             }
+            if( duplicate == true){
+                JOptionPane.showMessageDialog(null,"Job Order ID already Exists");
+            }
+        }
         
         return !duplicate;
     }
@@ -133,35 +123,6 @@ public class job_customer_quantity_list {
         return good_customer;
     }
     
-    /**
-     * 
-     * @param customerCheckbox checkbox used to identify if textfield or combobox will be used
-     * @param combo_name customer name combo box
-     * @param customer_name_text customer name text box for new customer
-     * @return true if customer has already been added in the List
-     */
-    public boolean check_this_customer(JCheckBox customerCheckbox, JComboBox combo_name, JTextField customer_name_text)
-    {
-        //if(customerCheckbox.isSelected())
-        //{
-            return this.check_customer_if_is_in_database_and_has_text(customer_name_text.getText());
-        /*}
-        else
-        {
-            if (combo_name.getSelectedItem().equals(""))
-            {
-                JOptionPane.showMessageDialog(null,"Please Select a Customer!");
-                return false;
-            }
-            if (this.customer_list.contains(combo_name.getSelectedItem().toString()))
-            {
-                JOptionPane.showMessageDialog(null,"Customer has already been added for this puchase!");
-                return false;   
-            }
-        }
-        return true;*/
-    }
- 
     public boolean check_if_quantity_is_good(String quantity)
     {   boolean quantity_check = true;
         if (quantity.trim().equals(""))
@@ -172,29 +133,6 @@ public class job_customer_quantity_list {
         return quantity_check;    
     }
     
-        /*
-    private void fill_list()
-    {
-        int x = 0;
-        int total = 0;
-        list.removeAllElements();
-        
-        while(x <= this.this_list.getJob_list().size() - 1)
-        {
-            //String combine = (x+1) +  "    " + 
-            //    this.job_list.get(x) + "    " + 
-            //    this.customer_list.get(x) + "    " +  
-            //    this.quantity_list.get(x);
-            
-            list.addElement(this_list.get_quant_job_customer_in_index(x));
-            
-            x++;
-        }
-        this.jList1.setModel(list);
-        //this.quantity_total.setText(null);
-        this.quantity_total.setText(Integer.toString(this_list.get_quantity_total()));
-    }
-*/
 
     /**
      * @return the quantity_list
@@ -237,4 +175,58 @@ public class job_customer_quantity_list {
     public void setCustomer_list(ArrayList customer_list) {
         this.customer_list = customer_list;
     }
+    
+    /**
+     * 
+     * @param customerCheckbox checkbox used to identify if textfield or combobox will be used
+     * @param combo_name customer name combo box
+     * @param customer_name_text customer name text box for new customer
+     * @return true if customer has already been added in the List
+     */
+    /*
+    public boolean check_this_customer(JCheckBox customerCheckbox, JComboBox combo_name, JTextField customer_name_text)
+    {
+        //if(customerCheckbox.isSelected())
+        //{
+            return this.check_customer_if_is_in_database_and_has_text(customer_name_text.getText());
+        }
+        else
+        {
+            if (combo_name.getSelectedItem().equals(""))
+            {
+                JOptionPane.showMessageDialog(null,"Please Select a Customer!");
+                return false;
+            }
+            if (this.customer_list.contains(combo_name.getSelectedItem().toString()))
+            {
+                JOptionPane.showMessageDialog(null,"Customer has already been added for this puchase!");
+                return false;   
+            }
+        }
+        return true;
+    }*/
+    
+    /*
+    private void fill_list()
+    {
+        int x = 0;
+        int total = 0;
+        list.removeAllElements();
+        
+        while(x <= this.this_list.getJob_list().size() - 1)
+        {
+            //String combine = (x+1) +  "    " + 
+            //    this.job_list.get(x) + "    " + 
+            //    this.customer_list.get(x) + "    " +  
+            //    this.quantity_list.get(x);
+            
+            list.addElement(this_list.get_quant_job_customer_in_index(x));
+            
+            x++;
+        }
+        this.jList1.setModel(list);
+        //this.quantity_total.setText(null);
+        this.quantity_total.setText(Integer.toString(this_list.get_quantity_total()));
+    }
+*/
 }

@@ -2929,10 +2929,12 @@ public class Add_new_design extends javax.swing.JFrame {
         String job_order = this.job_ord_label.getText() + this.text_job_order.getText();
         //if(this.customer_check_box.isSelected())
         //{
-        
         this_list.add_customer_job_quantity_in_list(customer_name_text.getText(), 
                                                         job_order, 
                                                         quantity.getText());
+        //refresh Textbox to add items
+        this.jList1.setModel(this_list.get_items_in_list());
+        this.quantity_total.setText(Integer.toString(this_list.get_quantity_total()));
         //customer_list.add(this.customer_name_text.getText());
         /*}
         else
@@ -2943,10 +2945,9 @@ public class Add_new_design extends javax.swing.JFrame {
         }
         //job_list.add(this.job_ord_label.getText() + this.text_job_order.getText());
         //quantity_list.add(this.quantity.getText());
-        //refresh Textbox to add items
+        
         */
-        this.jList1.setModel(this_list.get_items_in_list());
-        this.quantity_total.setText(Integer.toString(this_list.get_quantity_total()));
+        
     }
     
     private void show_add_pigment()
@@ -3251,8 +3252,8 @@ public class Add_new_design extends javax.swing.JFrame {
                 && this_list.check_if_quantity_is_good(quantity.getText()))
                 {
                     include();
+                    
                     quantity.setText("");
-                    //customer_combo_list.setSelectedIndex(0);
                     customer_name_text.setText("");
                     text_job_order.setText("");
                     
