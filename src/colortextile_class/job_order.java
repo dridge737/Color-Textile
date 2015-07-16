@@ -19,18 +19,20 @@ public class job_order extends customer {
     //Table Elements
     private String job_id;
     private String date;
-    private int customer_id;
     private ResultSet job_order_resultset;
 
     public job_order(){}
     public job_order(String job_order_id)
     {
-        Database.DB_Manager new_conn = new Database.DB_Manager();
-        job_order details = new_conn.get_job_order_details(job_order_id);
         this.job_id = job_order_id;
         //this.date = details.date;
         //this.design_code = details.design_code;
-        //this.fabric_style = details.fabric_style;
+    }
+    
+    public job_order(String job_order_id, String date, int customer_id){
+        this.job_id = job_order_id;
+        this.date = date;
+        this.setCustomer_id(customer_id);
     }
     
     public boolean set_job_order_details_if_available()
@@ -39,7 +41,7 @@ public class job_order extends customer {
         if(new_conn.check_if_job_order_exists(this) == 1)
         {
             job_order temporary_job = new_conn.get_job_order_details(this.job_id);
-            this.customer_id = temporary_job.getCustomer_id();
+            this.setCustomer_id(temporary_job.getCustomer_id());
             this.date = temporary_job.getDate();
             this.setCustomer_name(temporary_job.getCustomer_name());
             return true;
@@ -73,20 +75,6 @@ public class job_order extends customer {
      */
     public void setDate(String date) {
         this.date = date;
-    }
-
-    /**
-     * @return the customer_id
-     */
-    public int getCustomer_id() {
-        return customer_id;
-    }
-
-    /**
-     * @param customer_id the customer_id to set
-     */
-    public void setCustomer_id(int customer_id) {
-        this.customer_id = customer_id;
     }
 
     public boolean add_new_job_order()
