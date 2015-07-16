@@ -14,12 +14,12 @@ import javax.swing.JTextField;
  *
  * @author Eldridge
  */
-public class Design_and_colorway extends design {
+public class Design_with_colorway extends design {
     
      private List<Colorway_screen_link_functions> all_colorways = new ArrayList<>();
 
-     public Design_and_colorway(){}
-     public Design_and_colorway(String design, String color, String fabric)
+     public Design_with_colorway(){}
+     public Design_with_colorway(String design, String color, String fabric)
      {
          super(design, color, fabric);
      }
@@ -49,11 +49,7 @@ public class Design_and_colorway extends design {
      
      public void view_all_colorway_details()
      {
-         System.out.println("Design_code : " +this.getDesign_code());
-         System.out.println("Color Name :"  +this.getColor_name());
-         System.out.println("Design_name : " +this.getDesign_name());
-         System.out.println("Fabric Style : " +this.getFabric_style());
-         
+         this.view_design_details();
          for(int x = 0; x < getAll_colorways().size(); x++ )
          {
              this.getAll_colorways().get(x).view_all_screen_pigment_details();

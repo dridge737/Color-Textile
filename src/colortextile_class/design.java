@@ -231,4 +231,12 @@ public class design{
         return new_conn.get_all_fabric_styles();
     }
     
+    public void view_design_details()
+    {
+        System.out.println("Design_code : " +this.getDesign_code());
+        System.out.println("Color Name :"  +this.getColor_name());
+        System.out.println("Design_name : " +this.getDesign_name());
+        System.out.println("Fabric Style : " +this.getFabric_style());
+    }
+    
 }

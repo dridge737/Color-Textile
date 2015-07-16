@@ -13,7 +13,7 @@ import javax.swing.JSpinner;
  *
  * @author Eldridge
  */
-public class production_recipe extends Design_and_colorway{
+public class production_recipe extends Design_with_colorway{
     
      private String Date;
      private List<job_order> jobs_for_this = new ArrayList<>();

@@ -79,7 +79,7 @@ public class SpreadsheetTrial {
             template.setField("kilo1", first_colorway.getWeight_kg());
             template.setField("bind1", first_colorway.getBinder());
             //FOR COLORWAY SCREEN
-            List<Pigment_screen_and_colorway> the_screens = first_colorway.getThis_screens();
+            List<Screen_colorway> the_screens = first_colorway.getThis_screens();
             int x = 1;
             while( x<=the_screens.size())
             {
@@ -286,7 +286,7 @@ public class SpreadsheetTrial {
          res.put("kil2"   , Float.toString(this_color_screen.getWeight_kg()));
          res.put("bind2"  , Float.toString(this_color_screen.getBinder()));
          
-         List<Pigment_screen_and_colorway> the_screens = this_color_screen.getThis_screens();
+         List<Screen_colorway> the_screens = this_color_screen.getThis_screens();
          int x = 1;
          while(x<=the_screens.size())
             {

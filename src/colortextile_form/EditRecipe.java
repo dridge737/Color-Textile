@@ -165,7 +165,7 @@ public class EditRecipe extends javax.swing.JFrame {
     {
         for(int x = 0 ; x<this_color_and_screen.size();x++)
         {
-            List<Pigment_screen_and_colorway> current_screen = this_color_and_screen.get(x).getThis_screens();
+            List<Screen_colorway> current_screen = this_color_and_screen.get(x).getThis_screens();
             
             if(x == 0)
             {
@@ -321,7 +321,7 @@ public class EditRecipe extends javax.swing.JFrame {
         }
     }
     
-    private void setTextValues_screens(JComboBox pigment_name, JTextField percentage, Pigment_screen_and_colorway screen_p)
+    private void setTextValues_screens(JComboBox pigment_name, JTextField percentage, Screen_colorway screen_p)
     {
         pigment_name.setSelectedItem(screen_p.getPigment_name());
         percentage.setText(Float.toString(screen_p.getPigment_percentage()));
@@ -2440,7 +2440,7 @@ public class EditRecipe extends javax.swing.JFrame {
             }
             else
             {
-                Pigment_screen_and_colorway new_screen_pigment = new Pigment_screen_and_colorway();
+                Screen_colorway new_screen_pigment = new Screen_colorway();
                 new_screen_pigment.setPigment_name(pigment_name);
                 new_screen_pigment.set_pigment_id_from_name();
                 new_screen_pigment.setPigment_percentage(this_pigment_percent);
@@ -3209,13 +3209,13 @@ public class EditRecipe extends javax.swing.JFrame {
         return all_purchase;
     }
     
-    private Pigment_screen_and_colorway get_colorway_details_from_input(JComboBox pigment_text, JTextField percentageText )
+    private Screen_colorway get_colorway_details_from_input(JComboBox pigment_text, JTextField percentageText )
     {
-        Pigment_screen_and_colorway this_colorway;
+        Screen_colorway this_colorway;
         if(!use_func.checkText2(percentageText.getText()))
-        this_colorway = new Pigment_screen_and_colorway(pigment_text.getSelectedItem().toString(), Float.parseFloat(percentageText.getText()));
+        this_colorway = new Screen_colorway(pigment_text.getSelectedItem().toString(), Float.parseFloat(percentageText.getText()));
         else
-        this_colorway = new Pigment_screen_and_colorway(pigment_text.getSelectedItem().toString());
+        this_colorway = new Screen_colorway(pigment_text.getSelectedItem().toString());
         
         return this_colorway;
     }

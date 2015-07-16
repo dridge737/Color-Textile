@@ -17,7 +17,7 @@ import java.util.regex.Pattern;
  */
 public class Colorway_screen_link_functions extends colorway implements Comparable<Colorway_screen_link_functions>{
     
-    private List<Pigment_screen_and_colorway> this_screens = new ArrayList<>();
+    private List<Screen_colorway> this_screens = new ArrayList<>();
     
     public Colorway_screen_link_functions(){}
     
@@ -28,16 +28,16 @@ public class Colorway_screen_link_functions extends colorway implements Comparab
     
     public Colorway_screen_link_functions(String name, float bind, String weight)
     {
-            this.setBinder(bind);
-            this.setColorway_name(name);
-            if(!checkText2(weight))
+        this.setBinder(bind);
+        this.setColorway_name(name);
+        if(!checkText2(weight))
             this.setWeight_kg(Float.parseFloat(weight));
     }
     
     public String update_kg_prep(float percentage_text)
     {
-            float weight_prep = this.getWeight_kg() * percentage_text / 100;
-            return String.format("%.2f", weight_prep);
+        float weight_prep = this.getWeight_kg() * percentage_text / 100;
+        return String.format("%.2f", weight_prep);
     }
     
     private boolean checkText2(String this_text)
@@ -51,7 +51,7 @@ public class Colorway_screen_link_functions extends colorway implements Comparab
         return p.matcher(this_text).find();
     }
      
-    public void add_screen(Pigment_screen_and_colorway this_screen)
+    public void add_screen(Screen_colorway this_screen)
     {
         this.this_screens.add(this_screen);
     }
@@ -61,16 +61,7 @@ public class Colorway_screen_link_functions extends colorway implements Comparab
         Database.DB_Manager new_conn = new Database.DB_Manager();
         setThis_screens(new_conn.set_all_colorway_and_screen_from_colorway_id(this.getId_colorway()));
         //Collections.sort(getThis_screens());
-        //FOR DEBUGGING
-        /* 
-        for (screen_pigment this_screen : getThis_screens()) {
-            System.out.println("Screen_id : " + this_screen.getId_screen());
-            System.out.println("Pigment no :" + this_screen.getPigment_no());
-            System.out.println("Pigment name:" + this_screen.getPigment_name());
-            System.out.println("Pigment perentage  :" + this_screen.getPigment_percentage());
-            System.out.println("END");
-        }
-        */
+        
     }
     
     public void update_this_colorway()
@@ -85,12 +76,8 @@ public class Colorway_screen_link_functions extends colorway implements Comparab
         System.out.println("Binder : " +getBinder());     
         System.out.println("Weight : " +getWeight_kg());
         
-        for (Pigment_screen_and_colorway this_screen : getThis_screens()) {
-            //System.out.println("Screen_id : " + this_screen.getId_screen());
-            System.out.println("Colorway ID : " + this_screen.getId_colorway());
-            System.out.println("Pigment no :" + this_screen.getPigment_no());
-            System.out.println("Pigment name:" + this_screen.getPigment_name());
-            System.out.println("Pigment perentage  :" + this_screen.getPigment_percentage());
+        for (Screen_colorway this_screen : getThis_screens()) {
+            this_screen.view_this_colorway_screen_details();
         }
                
     }
@@ -112,14 +99,14 @@ public class Colorway_screen_link_functions extends colorway implements Comparab
     /**
      * @return the this_screens
      */
-    public List<Pigment_screen_and_colorway> getThis_screens() {
+    public List<Screen_colorway> getThis_screens() {
         return this_screens;
     }
 
     /**
      * @param this_screens the this_screens to set
      */
-    public void setThis_screens(List<Pigment_screen_and_colorway> this_screens) {
+    public void setThis_screens(List<Screen_colorway> this_screens) {
         this.this_screens = this_screens;
     }
 

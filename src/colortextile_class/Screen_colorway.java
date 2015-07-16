@@ -12,18 +12,18 @@ import java.sql.ResultSet;
  *
  * @author Eldridge
  */
-public class Pigment_screen_and_colorway extends pigment{
+public class Screen_colorway extends pigment{
     private int id_color_screen;
     private int id_colorway;
     private float pigment_percentage;
 
-    public Pigment_screen_and_colorway(){}
+    public Screen_colorway(){}
     
-    public Pigment_screen_and_colorway(String pig_name){
+    public Screen_colorway(String pig_name){
         this.setPigment_name(pig_name);
     }
     
-    public Pigment_screen_and_colorway(String pig_name, float pigment_percentage)
+    public Screen_colorway(String pig_name, float pigment_percentage)
     {
         this.setPigment_name(pig_name);
         this.setPigment_percentage(pigment_percentage);
@@ -113,5 +113,13 @@ public class Pigment_screen_and_colorway extends pigment{
     public ResultSet Search_colorway_screen_connect(){
         Database.DB_Manager new_conn = new Database.DB_Manager();
         return new_conn.Search_colorway_screen_connect(this);
+    }
+    
+    public void view_this_colorway_screen_details()
+    {
+        System.out.println("Colorway ID : " + this.getId_colorway());
+        System.out.println("Pigment no :" + this.getPigment_no());
+        System.out.println("Pigment name:" + this.getPigment_name());
+        System.out.println("Pigment perentage  :" + this.getPigment_percentage());
     }
 }

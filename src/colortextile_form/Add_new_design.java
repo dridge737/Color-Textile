@@ -2152,7 +2152,7 @@ public class Add_new_design extends javax.swing.JFrame {
         return pigment.getPigment_name();
     }
     
-    private void setTextValues_screens(JComboBox pigment_name, JTextField percentage, Pigment_screen_and_colorway screen_p)
+    private void setTextValues_screens(JComboBox pigment_name, JTextField percentage, Screen_colorway screen_p)
     {
         pigment_name.setSelectedItem(screen_p.getPigment_name());
         percentage.setText(Float.toString(screen_p.getPigment_percentage()));
@@ -2168,7 +2168,7 @@ public class Add_new_design extends javax.swing.JFrame {
     {
         for(int x = 0 ; x<this_color_and_screen.size(); x++)
         {
-            List<Pigment_screen_and_colorway> current_screen = this_color_and_screen.get(x).getThis_screens();
+            List<Screen_colorway> current_screen = this_color_and_screen.get(x).getThis_screens();
             
             if(x == 0)
             {
@@ -2289,7 +2289,7 @@ public class Add_new_design extends javax.swing.JFrame {
         try {
             //System.out.println("filling the textboxes ");
             //design DB
-            Design_and_colorway design_info = new Design_and_colorway();
+            Design_with_colorway design_info = new Design_with_colorway();
             design_info.setDesign_code(design_id);
             design_info.setDesign_details_from_des_code();
             design_info.set_all_colorway_from_design_code();
@@ -2307,7 +2307,7 @@ public class Add_new_design extends javax.swing.JFrame {
             // get colorway result set form design code
             ResultSet rs_colorway = color.Search_colorway();
             
-            Pigment_screen_and_colorway screen = new Pigment_screen_and_colorway();
+            Screen_colorway screen = new Screen_colorway();
             
             //fill textboxes  +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
             //design name
@@ -2620,7 +2620,7 @@ public class Add_new_design extends javax.swing.JFrame {
             
     }
                                           //This contains COLORWAY NAME and PERCENTAGE TEXT   var for COLORWAY ID 
-    private void add_this_colorway_screen(Pigment_screen_and_colorway this_screen_and_colorway, int id_colorway)
+    private void add_this_colorway_screen(Screen_colorway this_screen_and_colorway, int id_colorway)
     {
         int id_pigment = get_pigment_id(this_screen_and_colorway.getPigment_name());
         
@@ -2791,13 +2791,13 @@ public class Add_new_design extends javax.swing.JFrame {
         return all_colorway;
     }
     
-    private Pigment_screen_and_colorway get_colorway_details_from_input(JComboBox pigment_text, JTextField percentageText )
+    private Screen_colorway get_colorway_details_from_input(JComboBox pigment_text, JTextField percentageText )
     {
-        Pigment_screen_and_colorway this_colorway;
+        Screen_colorway this_colorway;
         if(!use_func.checkText2(percentageText.getText()))
-        this_colorway = new Pigment_screen_and_colorway(pigment_text.getSelectedItem().toString(), Float.parseFloat(percentageText.getText()));
+        this_colorway = new Screen_colorway(pigment_text.getSelectedItem().toString(), Float.parseFloat(percentageText.getText()));
         else
-        this_colorway = new Pigment_screen_and_colorway(pigment_text.getSelectedItem().toString());
+        this_colorway = new Screen_colorway(pigment_text.getSelectedItem().toString());
         
         return this_colorway;
     }
