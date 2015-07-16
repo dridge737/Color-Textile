@@ -175,11 +175,6 @@ public class PrintForm extends javax.swing.JFrame {
         combined_date_button.setForeground(new java.awt.Color(255, 255, 255));
         combined_date_button.setText("Combined Date Search");
         combined_date_button.setOpaque(false);
-        combined_date_button.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                combined_date_buttonMouseClicked(evt);
-            }
-        });
         combined_date_button.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 combined_date_buttonItemStateChanged(evt);
@@ -285,15 +280,7 @@ public class PrintForm extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void combined_date_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_combined_date_buttonMouseClicked
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_combined_date_buttonMouseClicked
-
-    private void add_this_row_to_another_table(int radio_type)
-    {
-        
-    }
+    
     private void add_row_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_row_buttonActionPerformed
         // TODO add your handling code here:
         int[] row = search_print.getSelectedRows();
@@ -322,17 +309,7 @@ public class PrintForm extends javax.swing.JFrame {
             else
             {
                 temporary_table_model.addRow((Vector) this.search_model.getDataVector().get(row[index_add]));
-                /*
-                 String[] this_set = {
-                        search_print.getValueAt(row[index_add], 0).toString(),
-                        search_print.getValueAt(row[index_add], 1).toString(),
-                        search_print.getValueAt(row[index_add], 2).toString(),
-                        search_print.getValueAt(row[index_add], 3).toString(),
-                        search_print.getValueAt(row[index_add], 4).toString(),
-                        search_print.getValueAt(row[index_add], 5).toString()
-                    };
-                    temporary_table_model.addRow(this_set);
-                  */  
+                
             }
         }
         
@@ -354,8 +331,10 @@ public class PrintForm extends javax.swing.JFrame {
         //System.out.println(indexes_selected.length);
         for(int index_incre = indexes_selected.length; index_incre> 0; index_incre--)
         {
-            search_model.addRow((Vector) this.temporary_table_model.getDataVector().get(indexes_selected[index_incre-1]));
+            this.search_model.addRow((Vector) this.temporary_table_model.getDataVector().get(indexes_selected[index_incre-1]));
+            //this.search_print.setModel(search_model);
             this.temporary_table_model.removeRow(indexes_selected[index_incre-1]);
+            
         }    
     }//GEN-LAST:event_delete_buttonActionPerformed
 
@@ -373,6 +352,7 @@ public class PrintForm extends javax.swing.JFrame {
                     this_prod_recipe.setColor_name(print_table.getValueAt(incre, 2).toString());
                     this_prod_recipe.setFabric_style(print_table.getValueAt(incre, 3).toString());
                     this_prod_recipe.set_design_code_using_variables();
+                    
                     this_prod_recipe.set_design_details_and_colorway_details_from_design_code();
                     this_prod_recipe.set_all_purchase_details_from_design_code_and_date();
                     this_prod_recipe.set_job_order_list_using_design_code_and_purchase_id();
@@ -387,7 +367,7 @@ public class PrintForm extends javax.swing.JFrame {
                     ArrayList<Integer> all_designs = this_prod_recipe.get_all_design_codes_from_date();
                     for(int all_codes: all_designs)
                     {
-                        System.out.println(all_codes);
+                        //System.out.println(all_codes);
                         production_recipe recipe_to_add = new production_recipe();
                         recipe_to_add.setDesign_code(all_codes);
                         recipe_to_add.setDate(print_table.getValueAt(incre, 0).toString());

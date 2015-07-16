@@ -20,7 +20,10 @@ public class production_recipe extends Design_with_colorway{
      private List<purchase_order> all_purchase = new ArrayList<>();
      
      public production_recipe(){}
-     
+     public production_recipe(String design, String color, String fabric)
+     {
+         super(design,color,fabric);
+     }
      public production_recipe(String design, String color, String fabric, String set_date)
      {
          super(design,color,fabric);
