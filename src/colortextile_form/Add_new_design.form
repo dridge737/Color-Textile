@@ -106,7 +106,7 @@
             <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
               <SpinnerModel initial="now" stepSize="5" type="date"/>
             </Property>
-            <Property name="toolTipText" type="java.lang.String" value="Day, Month and Year"/>
+            <Property name="toolTipText" type="java.lang.String" value="Month, Day and Year"/>
           </Properties>
           <Events>
             <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="spinner_dateStateChanged"/>
@@ -704,7 +704,7 @@
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="425" y="215" width="30" height="25"/>
+              <AbsoluteConstraints x="433" y="216" width="25" height="25"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -4375,7 +4375,7 @@
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="24" y="296" width="240" height="42"/>
+              <AbsoluteConstraints x="20" y="296" width="240" height="42"/>
             </Constraint>
           </Constraints>
         </Component>

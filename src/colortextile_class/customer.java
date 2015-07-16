@@ -51,8 +51,8 @@ public class customer {
         DB_Manager new_conn = new DB_Manager();
         if(!this.check_if_this_customer_exists())
             new_conn.add_customer(this);
-        else
-            this.set_customer_id_from_name();
+        
+        this.set_customer_id_from_name();
     }
 
     /**

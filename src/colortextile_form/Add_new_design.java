@@ -437,7 +437,7 @@ public class Add_new_design extends javax.swing.JFrame {
 
         spinner_date.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
         spinner_date.setModel(new javax.swing.SpinnerDateModel());
-        spinner_date.setToolTipText("Day, Month and Year");
+        spinner_date.setToolTipText("Month, Day and Year");
         spinner_date.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 spinner_dateStateChanged(evt);
@@ -735,7 +735,7 @@ public class Add_new_design extends javax.swing.JFrame {
             }
         });
         jPanel1.add(add_fabric);
-        add_fabric.setBounds(425, 215, 30, 25);
+        add_fabric.setBounds(433, 216, 25, 25);
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 65, 790, 290));
 
@@ -2080,7 +2080,7 @@ public class Add_new_design extends javax.swing.JFrame {
                 add_orderActionPerformed(evt);
             }
         });
-        jPanel11.add(add_order, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 296, 240, 42));
+        jPanel11.add(add_order, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 296, 240, 42));
         add_order.getAccessibleContext().setAccessibleDescription("Add this design and print it");
 
         jLabel8.setFont(new java.awt.Font("Century Gothic", 0, 30)); // NOI18N
@@ -2568,8 +2568,9 @@ public class Add_new_design extends javax.swing.JFrame {
         {
             job_order job = new job_order();
             job.setJob_id(this_list.getJob_list().get(i).toString());
-            job.setCustomer_name(this_list.getCustomer_list().get(i).toString());
-            job.set_customer_id_from_name();
+            job.setCustomer_name(this_list.getCustomer_list().get(i).toString().toUpperCase());
+            job.add_new_customer();
+            //job.set_customer_id_from_name();
             job.setDate(use_func.get_date_from_spinner(spinner_date));
             all_job_orders.add(job);
         }
@@ -2929,9 +2930,6 @@ public class Add_new_design extends javax.swing.JFrame {
         //if(this.customer_check_box.isSelected())
         //{
         
-        customer custom = new customer();
-        custom.setCustomer_name(this.customer_name_text.getText().toUpperCase());
-        custom.add_new_customer();
         this_list.add_customer_job_quantity_in_list(customer_name_text.getText(), 
                                                         job_order, 
                                                         quantity.getText());
@@ -3260,7 +3258,7 @@ public class Add_new_design extends javax.swing.JFrame {
                     
                     if(edit_purchase.getText().equals("Cancel Edit"))
                     {
-                        edit_purchase.setText("Edit Purchase");
+                        edit_purchase.setText("Edit Order");
                         this.temporary_list.clear_all_items();
                     }
                 }

@@ -550,12 +550,12 @@ public class Preview_form extends javax.swing.JFrame {
         jPanel1.setLayout(null);
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel1.setFont(new java.awt.Font("Century Gothic", 0, 28)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Century Gothic", 0, 34)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel1.setText("Print Preview");
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(30, 5, 240, 41);
+        jLabel1.setBounds(20, 10, 240, 41);
 
         jLabel6.setBackground(new java.awt.Color(255, 255, 255));
         jLabel6.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
@@ -601,7 +601,7 @@ public class Preview_form extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel5.setText("Design Colorway :");
+        jLabel5.setText("Color :");
         jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 82, 125, 32));
 
         jLabel7.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N

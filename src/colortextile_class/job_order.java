@@ -92,7 +92,10 @@ public class job_order extends customer {
     public boolean add_new_job_order()
     {
         DB_Manager new_conn = new DB_Manager();
+        if(!this.check_if_job_exists())
         return new_conn.add_job_order(this);
+        
+        return false;
     }
     
     public ResultSet job_order_all()
@@ -110,7 +113,6 @@ public class job_order extends customer {
         this.setJob_id(JobId);
         DB_Manager new_conn = new DB_Manager();
         return new_conn.Search_job_id(this);
-        
     }
     /**
      * Checks if the Job_order_Id has already been added in the database (NOT USED)
