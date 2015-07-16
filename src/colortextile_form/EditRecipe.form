@@ -90,6 +90,7 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Edit Recipe"/>
+            <Property name="focusable" type="boolean" value="false"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -133,6 +134,7 @@
             <Property name="horizontalAlignment" type="int" value="4"/>
             <Property name="text" type="java.lang.String" value="Date Ordered :"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
+            <Property name="focusable" type="boolean" value="false"/>
             <Property name="horizontalTextPosition" type="int" value="4"/>
           </Properties>
           <AccessibilityProperties>
@@ -151,6 +153,7 @@
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="99" red="33" type="rgb"/>
         </Property>
+        <Property name="focusable" type="boolean" value="false"/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -220,71 +223,6 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Container class="javax.swing.JPanel" name="jPanel2">
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="220" y="-40" width="-1" height="40"/>
-            </Constraint>
-          </Constraints>
-
-          <Layout>
-            <DimensionLayout dim="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="100" max="32767" attributes="0"/>
-              </Group>
-            </DimensionLayout>
-            <DimensionLayout dim="1">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="40" max="32767" attributes="0"/>
-              </Group>
-            </DimensionLayout>
-          </Layout>
-        </Container>
-        <Container class="javax.swing.JPanel" name="jPanel3">
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="350" y="-40" width="440" height="40"/>
-            </Constraint>
-          </Constraints>
-
-          <Layout>
-            <DimensionLayout dim="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="440" max="32767" attributes="0"/>
-              </Group>
-            </DimensionLayout>
-            <DimensionLayout dim="1">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="40" max="32767" attributes="0"/>
-              </Group>
-            </DimensionLayout>
-          </Layout>
-        </Container>
-        <Container class="javax.swing.JPanel" name="jPanel10">
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="66" green="0" red="cc" type="rgb"/>
-            </Property>
-          </Properties>
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="370" y="-40" width="-1" height="40"/>
-            </Constraint>
-          </Constraints>
-
-          <Layout>
-            <DimensionLayout dim="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="100" max="32767" attributes="0"/>
-              </Group>
-            </DimensionLayout>
-            <DimensionLayout dim="1">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="40" max="32767" attributes="0"/>
-              </Group>
-            </DimensionLayout>
-          </Layout>
-        </Container>
         <Component class="javax.swing.JTextField" name="design_color">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -333,7 +271,7 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="4"/>
-            <Property name="text" type="java.lang.String" value="Design Color :"/>
+            <Property name="text" type="java.lang.String" value="Color :"/>
             <Property name="focusable" type="boolean" value="false"/>
           </Properties>
           <Constraints>
@@ -347,6 +285,7 @@
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="33" green="33" red="33" type="rgb"/>
             </Property>
+            <Property name="focusable" type="boolean" value="false"/>
             <Property name="opaque" type="boolean" value="false"/>
           </Properties>
           <Constraints>
@@ -523,13 +462,14 @@
                   <Font name="Century Gothic" size="16" style="0"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Add Customer Order"/>
+                <Property name="focusable" type="boolean" value="false"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="button_include_customerActionPerformed"/>
               </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="20" y="170" width="298" height="30"/>
+                  <AbsoluteConstraints x="4" y="170" width="320" height="30"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -542,6 +482,7 @@
                   <Font name="Century Gothic" size="16" style="0"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Delete Order"/>
+                <Property name="focusable" type="boolean" value="false"/>
                 <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
                   <Insets value="[2, 3, 2, 3]"/>
                 </Property>
@@ -556,6 +497,9 @@
               </Constraints>
             </Component>
             <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+              <Properties>
+                <Property name="focusable" type="boolean" value="false"/>
+              </Properties>
               <AuxValues>
                 <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
               </AuxValues>
@@ -572,6 +516,7 @@
                     <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
                       <StringArray count="0"/>
                     </Property>
+                    <Property name="focusable" type="boolean" value="false"/>
                   </Properties>
                 </Component>
               </SubComponents>
@@ -663,6 +608,7 @@
                   <Font name="Century Gothic" size="16" style="0"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Edit Order"/>
+                <Property name="focusable" type="boolean" value="false"/>
                 <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
                   <Insets value="[2, 3, 2, 3]"/>
                 </Property>
@@ -691,6 +637,7 @@
                 </LineBorder>
               </Border>
             </Property>
+            <Property name="focusable" type="boolean" value="false"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -704,13 +651,14 @@
               <Font name="Century Gothic" size="16" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Add Picture"/>
+            <Property name="focusable" type="boolean" value="false"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="640" y="180" width="140" height="30"/>
+              <AbsoluteConstraints x="640" y="175" width="140" height="30"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -722,10 +670,11 @@
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="0"/>
             </Property>
+            <Property name="focusable" type="boolean" value="false"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="640" y="150" width="140" height="25"/>
+              <AbsoluteConstraints x="640" y="145" width="140" height="25"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -736,6 +685,7 @@
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="99" red="33" type="rgb"/>
         </Property>
+        <Property name="focusable" type="boolean" value="false"/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -795,6 +745,7 @@
             </Property>
             <Property name="tabPlacement" type="int" value="2"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
+            <Property name="focusable" type="boolean" value="false"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="14" style="1"/>
             </Property>
@@ -1255,6 +1206,7 @@
                       <Font name="Century Gothic" size="14" style="0"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="+"/>
+                    <Property name="focusable" type="boolean" value="false"/>
                     <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
                       <Insets value="[2, 0, 2, 0]"/>
                     </Property>
@@ -1274,6 +1226,7 @@
                       <Font name="Century Gothic" size="14" style="0"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="+"/>
+                    <Property name="focusable" type="boolean" value="false"/>
                     <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
                       <Insets value="[0, 0, 0, 0]"/>
                     </Property>
@@ -1293,6 +1246,7 @@
                       <Font name="Century Gothic" size="14" style="0"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="+"/>
+                    <Property name="focusable" type="boolean" value="false"/>
                     <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
                       <Insets value="[0, 0, 0, 0]"/>
                     </Property>
@@ -1312,6 +1266,7 @@
                       <Font name="Century Gothic" size="14" style="0"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="+"/>
+                    <Property name="focusable" type="boolean" value="false"/>
                     <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
                       <Insets value="[0, 0, 0, 0]"/>
                     </Property>
@@ -1773,6 +1728,7 @@
                       <Font name="Century Gothic" size="14" style="0"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="+"/>
+                    <Property name="focusable" type="boolean" value="false"/>
                     <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
                       <Insets value="[0, 0, 0, 0]"/>
                     </Property>
@@ -1792,6 +1748,7 @@
                       <Font name="Century Gothic" size="14" style="0"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="+"/>
+                    <Property name="focusable" type="boolean" value="false"/>
                     <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
                       <Insets value="[0, 0, 0, 0]"/>
                     </Property>
@@ -1811,6 +1768,7 @@
                       <Font name="Century Gothic" size="14" style="0"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="+"/>
+                    <Property name="focusable" type="boolean" value="false"/>
                     <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
                       <Insets value="[0, 0, 0, 0]"/>
                     </Property>
@@ -1830,6 +1788,7 @@
                       <Font name="Century Gothic" size="14" style="0"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="+"/>
+                    <Property name="focusable" type="boolean" value="false"/>
                     <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
                       <Insets value="[2, 0, 2, 0]"/>
                     </Property>
@@ -2288,6 +2247,7 @@
                       <Font name="Century Gothic" size="14" style="0"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="+"/>
+                    <Property name="focusable" type="boolean" value="false"/>
                     <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
                       <Insets value="[0, 0, 0, 0]"/>
                     </Property>
@@ -2307,6 +2267,7 @@
                       <Font name="Century Gothic" size="14" style="0"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="+"/>
+                    <Property name="focusable" type="boolean" value="false"/>
                     <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
                       <Insets value="[0, 0, 0, 0]"/>
                     </Property>
@@ -2326,6 +2287,7 @@
                       <Font name="Century Gothic" size="14" style="0"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="+"/>
+                    <Property name="focusable" type="boolean" value="false"/>
                     <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
                       <Insets value="[0, 0, 0, 0]"/>
                     </Property>
@@ -2345,6 +2307,7 @@
                       <Font name="Century Gothic" size="14" style="0"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="+"/>
+                    <Property name="focusable" type="boolean" value="false"/>
                     <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
                       <Insets value="[2, 0, 2, 0]"/>
                     </Property>
@@ -2800,6 +2763,7 @@
                       <Font name="Century Gothic" size="14" style="0"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="+"/>
+                    <Property name="focusable" type="boolean" value="false"/>
                     <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
                       <Insets value="[0, 0, 0, 0]"/>
                     </Property>
@@ -2819,6 +2783,7 @@
                       <Font name="Century Gothic" size="14" style="0"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="+"/>
+                    <Property name="focusable" type="boolean" value="false"/>
                     <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
                       <Insets value="[0, 0, 0, 0]"/>
                     </Property>
@@ -2838,6 +2803,7 @@
                       <Font name="Century Gothic" size="14" style="0"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="+"/>
+                    <Property name="focusable" type="boolean" value="false"/>
                     <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
                       <Insets value="[0, 0, 0, 0]"/>
                     </Property>
@@ -2857,6 +2823,7 @@
                       <Font name="Century Gothic" size="14" style="0"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="+"/>
+                    <Property name="focusable" type="boolean" value="false"/>
                     <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
                       <Insets value="[2, 0, 2, 0]"/>
                     </Property>
@@ -3312,6 +3279,7 @@
                       <Font name="Century Gothic" size="14" style="0"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="+"/>
+                    <Property name="focusable" type="boolean" value="false"/>
                     <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
                       <Insets value="[0, 0, 0, 0]"/>
                     </Property>
@@ -3331,6 +3299,7 @@
                       <Font name="Century Gothic" size="14" style="0"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="+"/>
+                    <Property name="focusable" type="boolean" value="false"/>
                     <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
                       <Insets value="[0, 0, 0, 0]"/>
                     </Property>
@@ -3350,6 +3319,7 @@
                       <Font name="Century Gothic" size="14" style="0"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="+"/>
+                    <Property name="focusable" type="boolean" value="false"/>
                     <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
                       <Insets value="[0, 0, 0, 0]"/>
                     </Property>
@@ -3369,6 +3339,7 @@
                       <Font name="Century Gothic" size="14" style="0"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="+"/>
+                    <Property name="focusable" type="boolean" value="false"/>
                     <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
                       <Insets value="[2, 0, 2, 0]"/>
                     </Property>
@@ -3824,6 +3795,7 @@
                       <Font name="Century Gothic" size="14" style="0"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="+"/>
+                    <Property name="focusable" type="boolean" value="false"/>
                     <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
                       <Insets value="[0, 0, 0, 0]"/>
                     </Property>
@@ -3843,6 +3815,7 @@
                       <Font name="Century Gothic" size="14" style="0"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="+"/>
+                    <Property name="focusable" type="boolean" value="false"/>
                     <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
                       <Insets value="[0, 0, 0, 0]"/>
                     </Property>
@@ -3862,6 +3835,7 @@
                       <Font name="Century Gothic" size="14" style="0"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="+"/>
+                    <Property name="focusable" type="boolean" value="false"/>
                     <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
                       <Insets value="[0, 0, 0, 0]"/>
                     </Property>
@@ -3881,6 +3855,7 @@
                       <Font name="Century Gothic" size="14" style="0"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="+"/>
+                    <Property name="focusable" type="boolean" value="false"/>
                     <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
                       <Insets value="[2, 0, 2, 0]"/>
                     </Property>
@@ -4336,6 +4311,7 @@
                       <Font name="Century Gothic" size="14" style="0"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="+"/>
+                    <Property name="focusable" type="boolean" value="false"/>
                     <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
                       <Insets value="[0, 0, 0, 0]"/>
                     </Property>
@@ -4355,6 +4331,7 @@
                       <Font name="Century Gothic" size="14" style="0"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="+"/>
+                    <Property name="focusable" type="boolean" value="false"/>
                     <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
                       <Insets value="[0, 0, 0, 0]"/>
                     </Property>
@@ -4374,6 +4351,7 @@
                       <Font name="Century Gothic" size="14" style="0"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="+"/>
+                    <Property name="focusable" type="boolean" value="false"/>
                     <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
                       <Insets value="[0, 0, 0, 0]"/>
                     </Property>
@@ -4393,6 +4371,7 @@
                       <Font name="Century Gothic" size="14" style="0"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="+"/>
+                    <Property name="focusable" type="boolean" value="false"/>
                     <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
                       <Insets value="[2, 0, 2, 0]"/>
                     </Property>
@@ -4434,6 +4413,7 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Screens"/>
+            <Property name="focusable" type="boolean" value="false"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="preview_but">

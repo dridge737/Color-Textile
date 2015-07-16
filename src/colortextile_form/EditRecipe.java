@@ -353,9 +353,6 @@ public class EditRecipe extends javax.swing.JFrame {
         design_name = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         fab_style_comb = new javax.swing.JComboBox();
-        jPanel2 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
-        jPanel10 = new javax.swing.JPanel();
         design_color = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -660,6 +657,7 @@ public class EditRecipe extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Century Gothic", 0, 36)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Edit Recipe");
+        jLabel7.setFocusable(false);
         jPanel14.add(jLabel7);
         jLabel7.setBounds(20, 20, 196, 45);
 
@@ -681,6 +679,7 @@ public class EditRecipe extends javax.swing.JFrame {
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel6.setText("Date Ordered :");
         jLabel6.setToolTipText("");
+        jLabel6.setFocusable(false);
         jLabel6.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         jPanel14.add(jLabel6);
         jLabel6.setBounds(470, 20, 140, 30);
@@ -689,6 +688,7 @@ public class EditRecipe extends javax.swing.JFrame {
         getContentPane().add(jPanel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 790, 60));
 
         jPanel1.setBackground(new java.awt.Color(51, 153, 255));
+        jPanel1.setFocusable(false);
         jPanel1.setLayout(null);
 
         design_name.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
@@ -710,50 +710,6 @@ public class EditRecipe extends javax.swing.JFrame {
         jPanel1.add(fab_style_comb);
         fab_style_comb.setBounds(520, 230, 150, 34);
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 40, Short.MAX_VALUE)
-        );
-
-        jPanel1.add(jPanel2);
-        jPanel2.setBounds(220, -40, 100, 40);
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 440, Short.MAX_VALUE)
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 40, Short.MAX_VALUE)
-        );
-
-        jPanel1.add(jPanel3);
-        jPanel3.setBounds(350, -40, 440, 40);
-
-        jPanel10.setBackground(new java.awt.Color(204, 0, 102));
-
-        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
-        jPanel10.setLayout(jPanel10Layout);
-        jPanel10Layout.setHorizontalGroup(
-            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-        jPanel10Layout.setVerticalGroup(
-            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 40, Short.MAX_VALUE)
-        );
-
-        jPanel1.add(jPanel10);
-        jPanel10.setBounds(370, -40, 100, 40);
-
         design_color.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jPanel1.add(design_color);
         design_color.setBounds(172, 253, 200, 32);
@@ -772,12 +728,13 @@ public class EditRecipe extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Century Gothic", 0, 17)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel4.setText("Design Color :");
+        jLabel4.setText("Color :");
         jLabel4.setFocusable(false);
         jPanel1.add(jLabel4);
         jLabel4.setBounds(10, 250, 150, 34);
 
         jPanel16.setBackground(new java.awt.Color(51, 51, 51));
+        jPanel16.setFocusable(false);
         jPanel16.setOpaque(false);
         jPanel16.setLayout(null);
 
@@ -848,17 +805,19 @@ public class EditRecipe extends javax.swing.JFrame {
         button_include_customer.setBackground(new java.awt.Color(255, 255, 255));
         button_include_customer.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
         button_include_customer.setText("Add Customer Order");
+        button_include_customer.setFocusable(false);
         button_include_customer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_include_customerActionPerformed(evt);
             }
         });
         jPanel16.add(button_include_customer);
-        button_include_customer.setBounds(20, 170, 298, 30);
+        button_include_customer.setBounds(4, 170, 320, 30);
 
         button_remove_customer.setBackground(new java.awt.Color(255, 255, 255));
         button_remove_customer.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
         button_remove_customer.setText("Delete Order");
+        button_remove_customer.setFocusable(false);
         button_remove_customer.setMargin(new java.awt.Insets(2, 3, 2, 3));
         button_remove_customer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -868,6 +827,9 @@ public class EditRecipe extends javax.swing.JFrame {
         jPanel16.add(button_remove_customer);
         button_remove_customer.setBounds(480, 170, 140, 30);
 
+        jScrollPane1.setFocusable(false);
+
+        jList1.setFocusable(false);
         jScrollPane1.setViewportView(jList1);
 
         jPanel16.add(jScrollPane1);
@@ -916,6 +878,7 @@ public class EditRecipe extends javax.swing.JFrame {
         edit_item.setBackground(new java.awt.Color(255, 255, 255));
         edit_item.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
         edit_item.setText("Edit Order");
+        edit_item.setFocusable(false);
         edit_item.setMargin(new java.awt.Insets(2, 3, 2, 3));
         edit_item.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -931,30 +894,35 @@ public class EditRecipe extends javax.swing.JFrame {
         jLabel14.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
         jLabel14.setText("INSERT PICTURE HERE");
         jLabel14.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        jLabel14.setFocusable(false);
         jPanel1.add(jLabel14);
         jLabel14.setBounds(640, 10, 140, 130);
 
         jButton1.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
         jButton1.setText("Add Picture");
+        jButton1.setFocusable(false);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
         jPanel1.add(jButton1);
-        jButton1.setBounds(640, 180, 140, 30);
+        jButton1.setBounds(640, 175, 140, 30);
 
         web_cams.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        web_cams.setFocusable(false);
         jPanel1.add(web_cams);
-        web_cams.setBounds(640, 150, 140, 25);
+        web_cams.setBounds(640, 145, 140, 25);
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 790, 295));
 
         jPanel11.setBackground(new java.awt.Color(51, 153, 255));
+        jPanel11.setFocusable(false);
 
         jTabbedPane2.setBackground(new java.awt.Color(255, 255, 255));
         jTabbedPane2.setTabPlacement(javax.swing.JTabbedPane.LEFT);
         jTabbedPane2.setToolTipText("");
+        jTabbedPane2.setFocusable(false);
         jTabbedPane2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
 
         jPanel9.setBackground(new java.awt.Color(255, 255, 255));
@@ -1111,6 +1079,7 @@ public class EditRecipe extends javax.swing.JFrame {
 
         add_bind1.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         add_bind1.setText("+");
+        add_bind1.setFocusable(false);
         add_bind1.setMargin(new java.awt.Insets(2, 0, 2, 0));
         add_bind1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1121,6 +1090,7 @@ public class EditRecipe extends javax.swing.JFrame {
 
         pig11.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         pig11.setText("+");
+        pig11.setFocusable(false);
         pig11.setMargin(new java.awt.Insets(0, 0, 0, 0));
         pig11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1131,6 +1101,7 @@ public class EditRecipe extends javax.swing.JFrame {
 
         pig12.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         pig12.setText("+");
+        pig12.setFocusable(false);
         pig12.setMargin(new java.awt.Insets(0, 0, 0, 0));
         pig12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1141,6 +1112,7 @@ public class EditRecipe extends javax.swing.JFrame {
 
         pig13.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         pig13.setText("+");
+        pig13.setFocusable(false);
         pig13.setMargin(new java.awt.Insets(0, 0, 0, 0));
         pig13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1302,6 +1274,7 @@ public class EditRecipe extends javax.swing.JFrame {
 
         pig14.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         pig14.setText("+");
+        pig14.setFocusable(false);
         pig14.setMargin(new java.awt.Insets(0, 0, 0, 0));
         pig14.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1312,6 +1285,7 @@ public class EditRecipe extends javax.swing.JFrame {
 
         pig15.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         pig15.setText("+");
+        pig15.setFocusable(false);
         pig15.setMargin(new java.awt.Insets(0, 0, 0, 0));
         pig15.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1322,6 +1296,7 @@ public class EditRecipe extends javax.swing.JFrame {
 
         pig16.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         pig16.setText("+");
+        pig16.setFocusable(false);
         pig16.setMargin(new java.awt.Insets(0, 0, 0, 0));
         pig16.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1332,6 +1307,7 @@ public class EditRecipe extends javax.swing.JFrame {
 
         add_bind2.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         add_bind2.setText("+");
+        add_bind2.setFocusable(false);
         add_bind2.setMargin(new java.awt.Insets(2, 0, 2, 0));
         add_bind2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1490,6 +1466,7 @@ public class EditRecipe extends javax.swing.JFrame {
 
         pig17.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         pig17.setText("+");
+        pig17.setFocusable(false);
         pig17.setMargin(new java.awt.Insets(0, 0, 0, 0));
         pig17.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1500,6 +1477,7 @@ public class EditRecipe extends javax.swing.JFrame {
 
         pig18.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         pig18.setText("+");
+        pig18.setFocusable(false);
         pig18.setMargin(new java.awt.Insets(0, 0, 0, 0));
         pig18.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1510,6 +1488,7 @@ public class EditRecipe extends javax.swing.JFrame {
 
         pig19.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         pig19.setText("+");
+        pig19.setFocusable(false);
         pig19.setMargin(new java.awt.Insets(0, 0, 0, 0));
         pig19.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1520,6 +1499,7 @@ public class EditRecipe extends javax.swing.JFrame {
 
         add_bind3.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         add_bind3.setText("+");
+        add_bind3.setFocusable(false);
         add_bind3.setMargin(new java.awt.Insets(2, 0, 2, 0));
         add_bind3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1677,6 +1657,7 @@ public class EditRecipe extends javax.swing.JFrame {
 
         pig20.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         pig20.setText("+");
+        pig20.setFocusable(false);
         pig20.setMargin(new java.awt.Insets(0, 0, 0, 0));
         pig20.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1687,6 +1668,7 @@ public class EditRecipe extends javax.swing.JFrame {
 
         pig21.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         pig21.setText("+");
+        pig21.setFocusable(false);
         pig21.setMargin(new java.awt.Insets(0, 0, 0, 0));
         pig21.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1697,6 +1679,7 @@ public class EditRecipe extends javax.swing.JFrame {
 
         pig22.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         pig22.setText("+");
+        pig22.setFocusable(false);
         pig22.setMargin(new java.awt.Insets(0, 0, 0, 0));
         pig22.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1707,6 +1690,7 @@ public class EditRecipe extends javax.swing.JFrame {
 
         add_bind4.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         add_bind4.setText("+");
+        add_bind4.setFocusable(false);
         add_bind4.setMargin(new java.awt.Insets(2, 0, 2, 0));
         add_bind4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1864,6 +1848,7 @@ public class EditRecipe extends javax.swing.JFrame {
 
         pig23.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         pig23.setText("+");
+        pig23.setFocusable(false);
         pig23.setMargin(new java.awt.Insets(0, 0, 0, 0));
         pig23.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1874,6 +1859,7 @@ public class EditRecipe extends javax.swing.JFrame {
 
         pig24.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         pig24.setText("+");
+        pig24.setFocusable(false);
         pig24.setMargin(new java.awt.Insets(0, 0, 0, 0));
         pig24.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1884,6 +1870,7 @@ public class EditRecipe extends javax.swing.JFrame {
 
         pig25.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         pig25.setText("+");
+        pig25.setFocusable(false);
         pig25.setMargin(new java.awt.Insets(0, 0, 0, 0));
         pig25.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1894,6 +1881,7 @@ public class EditRecipe extends javax.swing.JFrame {
 
         add_bind5.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         add_bind5.setText("+");
+        add_bind5.setFocusable(false);
         add_bind5.setMargin(new java.awt.Insets(2, 0, 2, 0));
         add_bind5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2051,6 +2039,7 @@ public class EditRecipe extends javax.swing.JFrame {
 
         pig26.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         pig26.setText("+");
+        pig26.setFocusable(false);
         pig26.setMargin(new java.awt.Insets(0, 0, 0, 0));
         pig26.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2061,6 +2050,7 @@ public class EditRecipe extends javax.swing.JFrame {
 
         pig27.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         pig27.setText("+");
+        pig27.setFocusable(false);
         pig27.setMargin(new java.awt.Insets(0, 0, 0, 0));
         pig27.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2071,6 +2061,7 @@ public class EditRecipe extends javax.swing.JFrame {
 
         pig28.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         pig28.setText("+");
+        pig28.setFocusable(false);
         pig28.setMargin(new java.awt.Insets(0, 0, 0, 0));
         pig28.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2081,6 +2072,7 @@ public class EditRecipe extends javax.swing.JFrame {
 
         add_bind6.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         add_bind6.setText("+");
+        add_bind6.setFocusable(false);
         add_bind6.setMargin(new java.awt.Insets(2, 0, 2, 0));
         add_bind6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2238,6 +2230,7 @@ public class EditRecipe extends javax.swing.JFrame {
 
         pig29.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         pig29.setText("+");
+        pig29.setFocusable(false);
         pig29.setMargin(new java.awt.Insets(0, 0, 0, 0));
         pig29.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2248,6 +2241,7 @@ public class EditRecipe extends javax.swing.JFrame {
 
         pig30.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         pig30.setText("+");
+        pig30.setFocusable(false);
         pig30.setMargin(new java.awt.Insets(0, 0, 0, 0));
         pig30.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2258,6 +2252,7 @@ public class EditRecipe extends javax.swing.JFrame {
 
         pig31.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         pig31.setText("+");
+        pig31.setFocusable(false);
         pig31.setMargin(new java.awt.Insets(0, 0, 0, 0));
         pig31.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2268,6 +2263,7 @@ public class EditRecipe extends javax.swing.JFrame {
 
         add_bind7.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         add_bind7.setText("+");
+        add_bind7.setFocusable(false);
         add_bind7.setMargin(new java.awt.Insets(2, 0, 2, 0));
         add_bind7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2291,6 +2287,7 @@ public class EditRecipe extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Century Gothic", 0, 30)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Screens");
+        jLabel8.setFocusable(false);
 
         preview_but.setBackground(new java.awt.Color(255, 255, 255));
         preview_but.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
@@ -3061,10 +3058,6 @@ public class EditRecipe extends javax.swing.JFrame {
                 design_color.getText(),
                 fab_style_comb.getSelectedItem().toString(), 
                 use_func.get_date_from_spinner(spinner_date));
-        //new_design.setDesign_name(design_name.getText());
-        //new_design.setColor_name(design_color.getText());
-        //new_design.setFabric_style(getFabricStyle());
-        //new_design.setDate(this.get_date_from_spinner());
         
         List<Screen_and_colorway_link> all_color_screen = this.get_all_colorway_inputs();
         new_design.setAll_colorways(all_color_screen);
@@ -3948,13 +3941,10 @@ public class EditRecipe extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel99;
     private javax.swing.JList jList1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel16;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;

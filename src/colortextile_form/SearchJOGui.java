@@ -529,22 +529,28 @@ public class SearchJOGui extends javax.swing.JFrame {
         int total_col = jTable1.getColumnCount();
         String selected_job_order = jTable1.getValueAt(row, 0).toString();
         
-        production_recipe this_recipe = new production_recipe();
+        design this_design = new production_recipe();
         //this_recipe.set
-        this_recipe.setDesign_name(jTable1.getValueAt(row, 4).toString());
-        this_recipe.setColor_name(jTable1.getValueAt(row,5).toString());
-        this_recipe.setFabric_style(jTable1.getValueAt(row,6).toString());
-        this_recipe.get_design_code_using_variables();
+        this_design.setDesign_name(jTable1.getValueAt(row, 4).toString());
+        this_design.setColor_name(jTable1.getValueAt(row,5).toString());
+        this_design.setFabric_style(jTable1.getValueAt(row,6).toString());
+        this_design.get_design_code_using_variables();
         
-        
-        //purchase.set
-        
+        purchase_order selected_purchase = new purchase_order();
+        selected_purchase.setJob_order_id(selected_job_order);
+        selected_purchase.setDesign_code(this_design.getDesign_code());
+        selected_purchase.set_this_purchase_details_from_job_order_and_design_code();
+                
         Add_new_design design_form = new Add_new_design();
         design_form.setVisible(true);
-        design_form.fill_info2(this.get_design_code_from_table_selected());
+        design_form.fill_info2(selected_purchase.getId_purchase());
        
     }//GEN-LAST:event_button_detailsActionPerformed
 
+    public void get_purchase_details_using_row_details()
+    {
+    
+    }
     public void close(){
         WindowEvent winCloseEvent = new WindowEvent(this,WindowEvent.WINDOW_CLOSING);
         Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(winCloseEvent);

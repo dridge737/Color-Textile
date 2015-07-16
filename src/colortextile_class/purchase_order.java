@@ -23,6 +23,8 @@ public class purchase_order {
     {
         this.id_purchase = purchase_id;
     }
+    
+    
             /**
      * @return the id_purchase
      */
