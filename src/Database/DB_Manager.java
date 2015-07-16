@@ -6,7 +6,7 @@
 
 package Database;
 
-import colortextile_class.deletedClass.screen_pigment;
+import Unused.screen_pigment;
 import colortextile_class.*;
 import java.awt.Image;
 import java.io.File;

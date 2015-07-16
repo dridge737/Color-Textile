@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package colortextile_class.deletedClass;
+package Unused;
 import Database.DB_Manager;
 import colortextile_class.pigment;
 /**

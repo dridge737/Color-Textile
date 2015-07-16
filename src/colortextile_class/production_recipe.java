@@ -173,10 +173,7 @@ public class production_recipe extends Design_and_colorway{
      {
          System.out.println("Size of this purchase is :" +this.getAll_purchase().size());
         for (purchase_order all_purchase1 : getAll_purchase()) {
-            System.out.println("Purchase id = " + all_purchase1.getId_purchase());
-            System.out.println("Job Order = " + all_purchase1.getJob_order_id());
-            System.out.println("Design code= " + all_purchase1.getDesign_code());
-            System.out.println("Quantity = " + all_purchase1.getQuantity());
+            all_purchase1.view_purchase_order_details();
         }
      }
     
@@ -184,9 +181,7 @@ public class production_recipe extends Design_and_colorway{
         System.out.println("Size of this job is = "+jobs_for_this.size());
         for(job_order all_jobs : jobs_for_this)
         {
-            System.out.println("Job Order ID  : "+all_jobs.getJob_id());
-            System.out.println("Customer ID   : "+all_jobs.getCustomer_id());
-            System.out.println("Customer Name : "+all_jobs.getCustomer_name());
+            all_jobs.view_job_order_details();
         }
     }
     

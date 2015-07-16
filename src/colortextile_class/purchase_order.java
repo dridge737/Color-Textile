@@ -132,6 +132,13 @@ public class purchase_order {
             purchase.set_this_Purchase_details_from_purchase_id();
     }
     
+    public void view_purchase_order_details()
+    {
+        System.out.println("Purchase id = " + this.getId_purchase());
+        System.out.println("Job Order = " + this.getJob_order_id());
+        System.out.println("Design code= " + this.getDesign_code());
+        System.out.println("Quantity = " + this.getQuantity());
+    }
     
 
 }

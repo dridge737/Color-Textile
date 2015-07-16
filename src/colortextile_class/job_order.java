@@ -134,19 +134,18 @@ public class job_order extends customer {
             delete_job_order_from_job_id();
     }
     
-    public void display_details()
+    public void update_job_order_using_job_id()
+    {
+        DB_Manager new_conn = new DB_Manager();
+        new_conn.update_job_order(this);
+    }
+    
+    public void view_job_order_details()
     {
         System.out.println("Job Order ID  : "+this.getJob_id());
         System.out.println("Customer ID   : "+this.getCustomer_id());
         System.out.println("Customer Name : "+this.getCustomer_name());
         System.out.println("Date          : "+this.getDate());
-            
-    }
-    
-    public void update_job_order_using_job_id()
-    {
-        DB_Manager new_conn = new DB_Manager();
-        new_conn.update_job_order(this);
     }
         
 }

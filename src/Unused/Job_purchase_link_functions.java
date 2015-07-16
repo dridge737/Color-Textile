@@ -3,8 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package colortextile_class;
+package Unused;
 
+import colortextile_class.job_order;
+import colortextile_class.purchase_order;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
@@ -29,11 +31,9 @@ public class Job_purchase_link_functions extends job_order{
     }
     
     public void view_all_puchase_order(){
+        
         for (purchase_order all_purchase1 : all_purchase) {
-            System.out.println("Purchase id = " + all_purchase1.getId_purchase());
-            System.out.println("Job Order = " + all_purchase1.getJob_order_id());
-            System.out.println("Design code= " + all_purchase1.getDesign_code());
-            System.out.println("Quantity = " + all_purchase1.getQuantity());
+            all_purchase1.view_purchase_order_details();
         }
      }
     
