@@ -391,15 +391,6 @@ public class PrintForm extends javax.swing.JFrame {
         
     }//GEN-LAST:event_print_buttonActionPerformed
 
-    private void add_this_item_to_list(production_recipe this_prod_recipe)
-    {
-        /*
-                System.out.println("Design Name = "+print_table.getValueAt(incre, radio_button_type));
-                System.out.println("Color Name = "+print_table.getValueAt(incre, radio_button_type+1));
-                System.out.println("Fabric = "+print_table.getValueAt(incre, radio_button_type+2));
-                */
-        
-    }
     private void purchase_buttonItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_purchase_buttonItemStateChanged
         // TODO add your handling code here:
         if(this.purchase_button.isSelected())
