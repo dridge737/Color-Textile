@@ -10,6 +10,7 @@ import Database.DB_Manager;
 import colortextile_class.customer;
 import colortextile_class.design;
 import colortextile_class.job_order;
+import colortextile_class.production_recipe;
 import colortextile_class.purchase_order;
 import forms.*;
 import java.awt.Dimension;
@@ -526,11 +527,17 @@ public class SearchJOGui extends javax.swing.JFrame {
         
         int row = jTable1.getSelectedRow();
         int total_col = jTable1.getColumnCount();
-        String selected_purchase_order = jTable1.getValueAt(row, 7).toString();
+        String selected_job_order = jTable1.getValueAt(row, 0).toString();
         
-        purchase_order purchase = new purchase_order();
-        purchase.setId_purchase(Integer.parseInt(selected_purchase_order));
-        Integer.parseInt(selected_purchase_order);
+        production_recipe this_recipe = new production_recipe();
+        //this_recipe.set
+        this_recipe.setDesign_name(jTable1.getValueAt(row, 4).toString());
+        this_recipe.setColor_name(jTable1.getValueAt(row,5).toString());
+        this_recipe.setFabric_style(jTable1.getValueAt(row,6).toString());
+        this_recipe.get_design_code_using_variables();
+        
+        
+        //purchase.set
         
         Add_new_design design_form = new Add_new_design();
         design_form.setVisible(true);

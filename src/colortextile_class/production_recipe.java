@@ -29,9 +29,12 @@ public class production_recipe extends Design_with_colorway{
      
      public void set_all_details_from_purchase_order_id(int purchase_order_id)
      {
-         this.set_purchase_details_from_purchase_id(purchase_order_id);
+         //
+         this.set_purchase_details_from_first_purchase_id(purchase_order_id);
          this.set_design_details_from_first_purchase_order();
-         this.set_purchase_details();
+         this.set_job_order_list_using_design_code_and_purchase_id();
+         this.set_purchase_order_list_from_job_list();
+         this.setDate(jobs_for_this.get(0).getDate());
      }
      
      public void set_design_details_from_first_purchase_order()
@@ -44,7 +47,7 @@ public class production_recipe extends Design_with_colorway{
         }
      }
      
-     public void set_purchase_details_from_purchase_id(int purchase_order_id)
+     public void set_purchase_details_from_first_purchase_id(int purchase_order_id)
      {
         // USING GLOBAL VARIABLE
         purchase_order this_purchase = new purchase_order();
@@ -53,13 +56,6 @@ public class production_recipe extends Design_with_colorway{
         this_purchase.set_this_Purchase_details_from_purchase_id();
         this.add_purchase(this_purchase);
      }
-     
-     public void set_purchase_details()
-    {
-        this.set_job_order_list_using_design_code_and_purchase_id();
-        this.set_purchase_order_list_from_job_list();  
-        this.setDate(jobs_for_this.get(0).getDate());
-    }
      
      public void set_job_order_list_using_design_code_and_purchase_id()
      {
