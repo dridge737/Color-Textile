@@ -2095,7 +2095,7 @@ public class Add_new_design extends javax.swing.JFrame {
 
         add_order2.setBackground(new java.awt.Color(255, 255, 255));
         add_order2.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        add_order2.setText("Exit and Cancel");
+        add_order2.setText("Cancel and Exit");
         add_order2.setToolTipText("");
         add_order2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
