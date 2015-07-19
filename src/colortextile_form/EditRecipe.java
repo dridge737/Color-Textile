@@ -66,6 +66,7 @@ public class EditRecipe extends javax.swing.JFrame {
         this.set_purchase_and_job_list_textbox();
         this.set_customer_list_and_autocomplete();
     }
+ 
     
     public void set_customer_list_and_autocomplete()
     {
@@ -157,6 +158,25 @@ public class EditRecipe extends javax.swing.JFrame {
         fab_style_comb.setSelectedItem(prod_recipe.getFabric_style());
         //fabric_style.setText(prod_recipe.getFabric_style());
         design_color.setText(prod_recipe.getColor_name());
+    }
+    
+    private void set_design_picture()
+    {
+        int id = this.get_design_code_from_table_selected();
+        
+        design design_conn = new  design();
+        design_conn.setDesign_code(id);
+        
+        ResultSet rs = design_conn.get_picture_from_design_code();
+        
+        if(rs.first()){
+            //System.out
+                byte[] imagedata = rs.getBytes("design_picture");
+                format = new ImageIcon(imagedata);
+                this.label_pic.setIcon(format);
+        } 
+        
+        setVisible(true);
     }
     
     private void set_all_textbox_colorways(List<Screen_and_colorway_link> this_color_and_screen)
