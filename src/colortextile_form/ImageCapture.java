@@ -56,6 +56,7 @@ public class ImageCapture extends JFrame{
                         panel.stop();
                         webcam.close();
                         executor.shutdownNow();
+                        dispose();
 		}
 	}
 

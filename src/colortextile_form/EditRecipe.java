@@ -350,7 +350,12 @@ public class EditRecipe extends javax.swing.JFrame {
     private void setTextValues_colorway(JTextField colorway, JTextField weight, JComboBox binder, Screen_and_colorway_link this_c_and_s)
     {
         colorway.setText(this_c_and_s.getColorway_name());
-        weight.setText(Float.toString(prod_recipe.compute_kilograms_to_total_quantity(this_c_and_s.getWeight_kg())));
+        float adjusted_weight = prod_recipe.compute_kilograms_to_total_quantity(this_c_and_s.getWeight_kg());
+        //int trial_weight = Math.(adjusted_weight/5);
+        //adjusted_weight = (5 * trial_weight);
+        weight.setText(Float.toString(adjusted_weight));
+                
+        //weight.setText(Float.toString(prod_recipe.compute_kilograms_to_total_quantity(this_c_and_s.getWeight_kg())));
         //System.out.println(this_c_and_s.getBinder());
         //System.out.println(Float.toString(this_c_and_s.getBinder()));
         binder.setSelectedItem(Float.toString(this_c_and_s.getBinder()));

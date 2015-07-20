@@ -33,7 +33,7 @@ public class fabric_style {
         if(get_fabric_style_id() == -1)
         {
             Database.DB_Manager new_conn = new Database.DB_Manager();
-            new_conn.add_fabric_style(fabric_style);
+            //new_conn.add_fabric_style(fabric_style, );
             return true;
         }
         return false;
