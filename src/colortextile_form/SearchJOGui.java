@@ -428,7 +428,7 @@ public class SearchJOGui extends javax.swing.JFrame {
         });
 
         jDesktopPane1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jDesktopPane1.add(label_pic, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 0, 130, 170));
+        jDesktopPane1.add(label_pic, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 450, 180));
 
         text_job_id.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
         text_job_id.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -502,7 +502,7 @@ public class SearchJOGui extends javax.swing.JFrame {
                         .addComponent(jDesktopPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel1);
