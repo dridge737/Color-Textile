@@ -2655,7 +2655,6 @@ public class EditRecipe extends javax.swing.JFrame {
             update_and_add_all_colorways();
             update_this_design();
             update_and_add_job_and_purchase_order();
-            
             //add_purchase();
         }
         JOptionPane.showMessageDialog(null,"Successfully Edited this Recipe");
@@ -2675,68 +2674,55 @@ public class EditRecipe extends javax.swing.JFrame {
 
     private void coverage1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_coverage1KeyReleased
         // TODO add your handling code here:
-        if(coverage1.getText().length()>0)
+
+        if(!use_func.checkText2(coverage1.getText()))
         {
-            if(!use_func.checkText2(coverage1.getText()))
-            {
-                compute_kg(weigh_kg2, Float.parseFloat(coverage1.getText()));
-            }
+            compute_kg(weigh_kg2, Float.parseFloat(coverage1.getText()));
         }
     }//GEN-LAST:event_coverage1KeyReleased
 
     private void coverage2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_coverage2KeyReleased
         // TODO add your handling code here:
-        if(coverage2.getText().length()>0)
+        if(!use_func.checkText2(coverage2.getText()))
         {
-            if(!use_func.checkText2(coverage2.getText()))
-            {
-                compute_kg(weigh_kg7, Float.parseFloat(coverage2.getText()));
-            }
+            compute_kg(weigh_kg7, Float.parseFloat(coverage2.getText()));
         }
     }//GEN-LAST:event_coverage2KeyReleased
 
     private void coverage3KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_coverage3KeyReleased
         // TODO add your handling code here:
-        if(coverage3.getText().length()>0)
+        if(!use_func.checkText2(coverage3.getText()))
         {
-            if(!use_func.checkText2(coverage3.getText()))
-            {
-                compute_kg(weigh_kg3, Float.parseFloat(coverage3.getText()));
-            }
+            compute_kg(weigh_kg3, Float.parseFloat(coverage3.getText()));
         }
     }//GEN-LAST:event_coverage3KeyReleased
 
     private void coverage4KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_coverage4KeyReleased
         // TODO add your handling code here:
-        if(coverage4.getText().length()>0)
+
+        if(!use_func.checkText2(coverage4.getText()))
         {
-            if(!use_func.checkText2(coverage4.getText()))
-            {
-                compute_kg(weigh_kg4, Float.parseFloat(coverage4.getText()));
-            }
+            compute_kg(weigh_kg4, Float.parseFloat(coverage4.getText()));
         }
+        
     }//GEN-LAST:event_coverage4KeyReleased
 
     private void coverage5KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_coverage5KeyReleased
         // TODO add your handling code here:
-        if(coverage4.getText().length()>0)
+        if(!use_func.checkText2(coverage5.getText()))
         {
-            if(!use_func.checkText2(coverage5.getText()))
-            {
-                compute_kg(weigh_kg5, Float.parseFloat(coverage5.getText()));
-            }
+            compute_kg(weigh_kg5, Float.parseFloat(coverage5.getText()));
         }
     }//GEN-LAST:event_coverage5KeyReleased
 
     private void coverage6KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_coverage6KeyReleased
         // TODO add your handling code here:
-        if(coverage6.getText().length()>0)
+
+        if(!use_func.checkText2(coverage6.getText()))
         {
-            if(!use_func.checkText2(coverage6.getText()))
-            {
-                compute_kg(weigh_kg6, Float.parseFloat(coverage6.getText()));
-            }
+            compute_kg(weigh_kg6, Float.parseFloat(coverage6.getText()));
         }
+        
     }//GEN-LAST:event_coverage6KeyReleased
 
     private void percentage1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage1KeyReleased
