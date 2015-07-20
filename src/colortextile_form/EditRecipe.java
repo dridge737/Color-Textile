@@ -34,6 +34,9 @@ import javax.swing.JSpinner;
 import javax.swing.JTextField;
 import javax.swing.SpinnerDateModel;
 import com.github.sarxos.webcam.Webcam;
+import java.sql.Blob;
+import java.sql.SQLException;
+import java.lang.Object;
 /**
  *
  * @author Eldridge
@@ -62,6 +65,7 @@ public class EditRecipe extends javax.swing.JFrame {
         initialize();
         
         prod_recipe.set_all_details_from_purchase_order_id(purchase_order_id);
+        prod_recipe.set_design_picture_from_design_code();
         this.set_design_and_colorway_textbox_details();
         this.set_purchase_and_job_list_textbox();
         this.set_customer_list_and_autocomplete();
@@ -158,25 +162,20 @@ public class EditRecipe extends javax.swing.JFrame {
         fab_style_comb.setSelectedItem(prod_recipe.getFabric_style());
         //fabric_style.setText(prod_recipe.getFabric_style());
         design_color.setText(prod_recipe.getColor_name());
+        set_design_picture(prod_recipe.getDesign_image());
     }
     
-    private void set_design_picture()
-    {
-        int id = this.get_design_code_from_table_selected();
-        
-        design design_conn = new  design();
-        design_conn.setDesign_code(id);
-        
-        ResultSet rs = design_conn.get_picture_from_design_code();
-        
-        if(rs.first()){
-            //System.out
-                byte[] imagedata = rs.getBytes("design_picture");
-                format = new ImageIcon(imagedata);
-                this.label_pic.setIcon(format);
-        } 
-        
-        setVisible(true);
+    private void set_design_picture(Blob image_stream)
+    {   
+        if(image_stream != null){
+            try {
+                ImageIcon design_pic = new ImageIcon(image_stream.getBytes(1, (int) image_stream.length()));
+                jLabel14.setIcon(design_pic);
+            } catch (SQLException ex) {
+                Logger.getLogger(EditRecipe.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        //setVisible(true);
     }
     
     private void set_all_textbox_colorways(List<Screen_and_colorway_link> this_color_and_screen)

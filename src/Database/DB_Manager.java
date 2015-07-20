@@ -210,6 +210,16 @@ public class DB_Manager {
         return 0;
     }
     
+    public boolean add_fabric_style(design this_design)
+    {
+        return false;
+    }
+    
+    public boolean add_binder(int binder)
+    {
+        return false;
+    }
+    
     public boolean add_customer(colortextile_class.customer new_customer) {
         try {
             DBConnection db = new DBConnection();
@@ -1252,6 +1262,34 @@ public class DB_Manager {
         catch (SQLException ex)
         {
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);   
+        }
+        return null;
+    }
+    
+    public Blob get_design_picture_using_design_id(int design_code)
+    {
+        Blob design_picture;
+        try
+        {
+          DBConnection db = new DBConnection();
+          Connection conn = db.getConnection();  
+          
+            PreparedStatement ps = conn.prepareStatement("SELECT design_picture FROM design_picture WHERE design_code = ? ");
+            int item = 1;
+            ps.setInt(item++, design_code);
+            
+            ResultSet rs = ps.executeQuery();
+            if(rs.first()){
+                design_picture = rs.getBlob(1);
+                this.closeConn(conn, ps, rs);
+                return design_picture;
+            }
+            
+        this.closeConn(conn, ps,rs);
+        }
+        catch (SQLException ex)
+        {
+            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);  
         }
         return null;
     }
