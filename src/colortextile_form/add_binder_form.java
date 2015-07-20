@@ -75,7 +75,7 @@ public class add_binder_form extends javax.swing.JFrame {
 
         title.setFont(new java.awt.Font("Century Gothic", 0, 36)); // NOI18N
         title.setForeground(new java.awt.Color(255, 255, 255));
-        title.setText("Add New Binder :");
+        title.setText("Add New Binder");
         jPanel1.add(title);
         title.setBounds(20, 20, 342, 45);
 
@@ -118,6 +118,7 @@ public class add_binder_form extends javax.swing.JFrame {
         jPanel1.add(add_binder);
         add_binder.setBounds(10, 260, 170, 40);
 
+        binder_table.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         binder_table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null},
