@@ -2674,10 +2674,12 @@ public class EditRecipe extends javax.swing.JFrame {
 
     private void coverage1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_coverage1KeyReleased
         // TODO add your handling code here:
-
         if(!use_func.checkText2(coverage1.getText()))
         {
             compute_kg(weigh_kg2, Float.parseFloat(coverage1.getText()));
+            update_kg_prep(percentage1.getText(), weigh_kg2.getText(), kg_1);
+            update_kg_prep(percentage2.getText(), weigh_kg2.getText(), kg_2);
+            update_kg_prep(percentage3.getText(), weigh_kg2.getText(), kg_3);
         }
     }//GEN-LAST:event_coverage1KeyReleased
 
@@ -2686,6 +2688,9 @@ public class EditRecipe extends javax.swing.JFrame {
         if(!use_func.checkText2(coverage2.getText()))
         {
             compute_kg(weigh_kg7, Float.parseFloat(coverage2.getText()));
+            update_kg_prep(percentage21.getText(), weigh_kg7.getText(), kg_21);
+            update_kg_prep(percentage22.getText(), weigh_kg7.getText(), kg_22);
+            update_kg_prep(percentage23.getText(), weigh_kg7.getText(), kg_23);
         }
     }//GEN-LAST:event_coverage2KeyReleased
 
@@ -2694,6 +2699,9 @@ public class EditRecipe extends javax.swing.JFrame {
         if(!use_func.checkText2(coverage3.getText()))
         {
             compute_kg(weigh_kg3, Float.parseFloat(coverage3.getText()));
+            update_kg_prep(percentage5.getText(), weigh_kg3.getText(), kg_5);
+            update_kg_prep(percentage6.getText(), weigh_kg3.getText(), kg_6);
+            update_kg_prep(percentage7.getText(), weigh_kg3.getText(), kg_7);
         }
     }//GEN-LAST:event_coverage3KeyReleased
 
@@ -2703,6 +2711,9 @@ public class EditRecipe extends javax.swing.JFrame {
         if(!use_func.checkText2(coverage4.getText()))
         {
             compute_kg(weigh_kg4, Float.parseFloat(coverage4.getText()));
+            update_kg_prep(percentage9.getText(), weigh_kg4.getText(), kg_9);
+            update_kg_prep(percentage10.getText(), weigh_kg4.getText(), kg_10);
+            update_kg_prep(percentage11.getText(), weigh_kg4.getText(), kg_11);
         }
         
     }//GEN-LAST:event_coverage4KeyReleased
@@ -2712,6 +2723,9 @@ public class EditRecipe extends javax.swing.JFrame {
         if(!use_func.checkText2(coverage5.getText()))
         {
             compute_kg(weigh_kg5, Float.parseFloat(coverage5.getText()));
+            update_kg_prep(percentage13.getText(), weigh_kg5.getText(), kg_13);
+            update_kg_prep(percentage14.getText(), weigh_kg5.getText(), kg_14);
+            update_kg_prep(percentage15.getText(), weigh_kg5.getText(), kg_15);
         }
     }//GEN-LAST:event_coverage5KeyReleased
 
@@ -2721,6 +2735,9 @@ public class EditRecipe extends javax.swing.JFrame {
         if(!use_func.checkText2(coverage6.getText()))
         {
             compute_kg(weigh_kg6, Float.parseFloat(coverage6.getText()));
+            update_kg_prep(percentage17.getText(), weigh_kg6.getText(), kg_17);
+            update_kg_prep(percentage18.getText(), weigh_kg6.getText(), kg_18);
+            update_kg_prep(percentage19.getText(), weigh_kg6.getText(), kg_19);
         }
         
     }//GEN-LAST:event_coverage6KeyReleased
@@ -2927,12 +2944,12 @@ public class EditRecipe extends javax.swing.JFrame {
 
     private void coverage7KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_coverage7KeyReleased
         // TODO add your handling code here:
-        if(coverage7.getText().length()>0)
+        if(!use_func.checkText2(coverage7.getText()))
         {
-            if(!use_func.checkText2(coverage7.getText()))
-            {
-                compute_kg(weigh_kg6, Float.parseFloat(coverage7.getText()));
-            }
+            compute_kg(weigh_kg6, Float.parseFloat(coverage7.getText()));
+            update_kg_prep(percentage24.getText(), weigh_kg9.getText(), kg_24);
+            update_kg_prep(percentage25.getText(), weigh_kg9.getText(), kg_25);
+            update_kg_prep(percentage26.getText(), weigh_kg9.getText(), kg_26);
         }
     }//GEN-LAST:event_coverage7KeyReleased
     /*
