@@ -35,6 +35,7 @@ import javax.swing.JTextField;
 import javax.swing.SpinnerDateModel;
 import com.github.sarxos.webcam.Webcam;
 import java.awt.AWTException;
+import java.awt.Image;
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
 import java.sql.Blob;
@@ -175,6 +176,11 @@ public class EditRecipe extends javax.swing.JFrame {
             try {
                 ImageIcon design_pic = new ImageIcon(image_stream.getBytes(1, (int) image_stream.length()));
                 jLabel14.setIcon(design_pic);
+                Image image = design_pic.getImage();
+                Image newimg = image.getScaledInstance(160, 130,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way  
+                design_pic = new ImageIcon(newimg);  // transform it back
+                this.jLabel14.setIcon(design_pic);
+                
             } catch (SQLException ex) {
                 Logger.getLogger(EditRecipe.class.getName()).log(Level.SEVERE, null, ex);
             }

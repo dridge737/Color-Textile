@@ -44,6 +44,7 @@ public class Add_new_design extends javax.swing.JFrame {
     private String current_style;
     private int pigment_button_check = -1;
     private production_recipe this_recipe = new production_recipe();
+    public boolean edit_recipe = false;
     /**
      * Creates new form Add_new_design
      */
@@ -2310,9 +2311,9 @@ public class Add_new_design extends javax.swing.JFrame {
     
     public void fill_info2(int purchase_order)
     {
-        production_recipe this_production = new production_recipe();
-        this_production.set_all_details_from_purchase_order_id(purchase_order);
-        this.set_design_and_colorway_textbox(this_production);
+        this.edit_recipe = true;
+        this_recipe.set_all_details_from_purchase_order_id(purchase_order);
+        this.set_design_and_colorway_textbox(this_recipe);
         
     }
     
