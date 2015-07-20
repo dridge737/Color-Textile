@@ -3595,7 +3595,6 @@ public class Add_new_design extends javax.swing.JFrame {
     {
         if(!use_func.checkText2(coverage.getText()) && quantity_total.getText().length()>0)
         {
-            
             float cov_conversion = Float.parseFloat(coverage.getText());
             float this_computation = use_func.compute_this_kg(cov_conversion, fab_style_comb.getSelectedItem().toString(), quantity_total.getText());
             weigh_kg.setText(String.format("%.0f", this_computation));
