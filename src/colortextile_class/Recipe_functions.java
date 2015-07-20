@@ -38,15 +38,15 @@ public class Recipe_functions {
         float this_quant = Float.parseFloat(quantity_total);
         if(fabric_style.equals("PONGEE"))
         {
-            computation = Math.round((kg*1000/this_quant)*10/8);
+            computation = (kg*1000/this_quant)*10/8;
         }
         else if(fabric_style.equals("COTTON") || fabric_style.equals("KATUNIA"))
         {
-            computation = Math.round((kg*1000/this_quant)*10/12);
+            computation = (kg*1000/this_quant)*10/12;
         }
         else if (fabric_style.equals("MICROPEACH") || fabric_style.equals("TC") || fabric_style.equals("TROPICANA"))
         {
-            computation = Math.round((kg*1000/this_quant));
+            computation = (kg*1000/this_quant);
         }
         
         return computation;
@@ -59,17 +59,17 @@ public class Recipe_functions {
         if(fabric_style.equals("PONGEE")){
         
             float this_quant = Float.parseFloat(quantity_total);
-            computation = Math.round((8*coverage/10*this_quant)/1000);
+            computation = (8*coverage/10*this_quant)/1000;
         }
         else if(fabric_style.equals("COTTON") || fabric_style.equals("KATUNIA"))
         {
             float this_quant = Float.parseFloat(quantity_total);
-            computation = Math.round((12*coverage/10*this_quant)/1000);
+            computation = (12*coverage/10*this_quant)/1000;
         }
         else if (fabric_style.equals("MICROPEACH") || fabric_style.equals("TC") || fabric_style.equals("TROPICANA"))
         {
             float this_quant = Float.parseFloat(quantity_total);
-            computation = Math.round((10*coverage/10*this_quant)/1000);
+            computation = (10*coverage/10*this_quant)/1000;
         }
         return computation;
     }

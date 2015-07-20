@@ -282,15 +282,15 @@ public class production_recipe extends Design_with_colorway{
         float coverage = 0;
         if(this.getFabric_style().equals("PONGEE"))
         {
-            coverage = Math.round((kg)*10/8);
+            coverage = (kg)*10/8;
         }
         else if(this.getFabric_style().equals("COTTON") || this.getFabric_style().equals("KATUNIA"))
         {
-            coverage = Math.round((kg)*10/12);
+            coverage = (kg)*10/12;
         }
         else if (this.getFabric_style().equals("MICROPEACH") || this.getFabric_style().equals("TC") || this.getFabric_style().equals("TROPICANA"))
         {
-            coverage = (float) Math.floor(kg);
+            coverage = (float)(kg);
         }
         
         return coverage;
@@ -301,15 +301,15 @@ public class production_recipe extends Design_with_colorway{
         float coverage = 0;
         if(this.getFabric_style().equals("PONGEE"))
         {
-            coverage = Math.round((kg*1000/this.get_quantity_sum())*10/8);
+            coverage = (kg*1000/this.get_quantity_sum())*10/8;
         }
         else if(this.getFabric_style().equals("COTTON") || this.getFabric_style().equals("KATUNIA"))
         {
-            coverage = Math.round((kg*1000/this.get_quantity_sum())*10/12);
+            coverage = (kg*1000/this.get_quantity_sum())*10/12;
         }
         else if (this.getFabric_style().equals("MICROPEACH") || this.getFabric_style().equals("TC") || this.getFabric_style().equals("TROPICANA"))
         {
-            coverage = Math.round((kg*1000/this.get_quantity_sum()));
+            coverage = (kg*1000/this.get_quantity_sum());
         }
         
         return coverage;
@@ -323,15 +323,15 @@ public class production_recipe extends Design_with_colorway{
         //ORIGINAL SHOULD BE 80*COVERAGE/100*TOTAL QUANTITY/ 1000
         //SIMPLIFIED TO 8*COVERAGE/10*TOTAL QUANTITY /1000
         if(this.getFabric_style().equals("PONGEE")){
-            colorway_kilogram = Math.round((8*coverage/10*1000)/1000);
+            colorway_kilogram = (8*coverage/10*1000)/1000;
         }
         else if(this.getFabric_style().equals("COTTON") || this.getFabric_style().equals("KATUNIA"))
         {
-            colorway_kilogram = Math.round((12*coverage/10*1000)/1000);
+            colorway_kilogram = (12*coverage/10*1000)/1000;
         }
         else if (this.getFabric_style().equals("MICROPEACH") || this.getFabric_style().equals("TC") || this.getFabric_style().equals("TROPICANA"))
         {
-            colorway_kilogram = Math.round((10*coverage/10*1000)/1000);
+            colorway_kilogram = (10*coverage/10*1000)/1000;
         }
         return colorway_kilogram;
     }
@@ -345,15 +345,16 @@ public class production_recipe extends Design_with_colorway{
         //ORIGINAL SHOULD BE 80*COVERAGE/100*TOTAL QUANTITY/ 1000
         //SIMPLIFIED TO 8*COVERAGE/10*TOTAL QUANTITY /1000
         if(this.getFabric_style().equals("PONGEE")){
-            colorway_kilogram = Math.round((8*coverage/10*this_quant)/1000);
+            colorway_kilogram = (8*coverage/10*this_quant)/1000;
         }
         else if(this.getFabric_style().equals("COTTON") || this.getFabric_style().equals("KATUNIA"))
         {
-            colorway_kilogram = Math.round((12*coverage/10*this_quant)/1000);
+            colorway_kilogram = (12*coverage/10*this_quant)/1000;
         }
         else if (this.getFabric_style().equals("MICROPEACH") || this.getFabric_style().equals("TC") || this.getFabric_style().equals("TROPICANA"))
         {
-            colorway_kilogram = Math.round((10*coverage/10*this_quant)/1000);
+            colorway_kilogram = (10*coverage/10*this_quant)/1000;
+            //colorway_kilogram = Math.round((10*coverage/10*this_quant)/1000);
         }
         
         return colorway_kilogram;

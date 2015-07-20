@@ -353,7 +353,7 @@ public class EditRecipe extends javax.swing.JFrame {
         float adjusted_weight = prod_recipe.compute_kilograms_to_total_quantity(this_c_and_s.getWeight_kg());
         //int trial_weight = Math.(adjusted_weight/5);
         //adjusted_weight = (5 * trial_weight);
-        weight.setText(Float.toString(adjusted_weight));
+        weight.setText(Integer.toString(Math.round(adjusted_weight)));
                 
         //weight.setText(Float.toString(prod_recipe.compute_kilograms_to_total_quantity(this_c_and_s.getWeight_kg())));
         //System.out.println(this_c_and_s.getBinder());
