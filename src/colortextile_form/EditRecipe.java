@@ -3012,7 +3012,7 @@ public class EditRecipe extends javax.swing.JFrame {
                {
                    include();
                    quantity.setText("");
-                   customer_combo_list.setSelectedIndex(0);
+                   //customer_combo_list.setSelectedIndex(0);
                    customer_name_text.setText("");
                    text_job_order.setText("");
                    
@@ -3398,7 +3398,7 @@ public class EditRecipe extends javax.swing.JFrame {
             if(jList1.getSelectedIndex() != -1)
             {
                 int selected = this.jList1.getSelectedIndex();
-                customer_combo_list.setSelectedItem(this_list.getCustomer_list().get(selected));
+                //customer_combo_list.setSelectedItem(this_list.getCustomer_list().get(selected));
                 //if(customer_combo_list.getSelectedItem().toString().equals(this_list.getCustomer_list().get(selected)))
                 //{
                 //    customer_combo_list.setVisible(true);
@@ -3434,8 +3434,8 @@ public class EditRecipe extends javax.swing.JFrame {
                         temporary_list.getCustomer_list().get(0).toString(), 
                         temporary_list.getJob_list().get(0).toString(), 
                         temporary_list.getQuantity_list().get(0).toString());
+            
             quantity.setText("");
-            customer_combo_list.setSelectedIndex(0);
             customer_name_text.setText("");
             text_job_order.setText("");
             temporary_list.clear_all_items();
@@ -3578,19 +3578,13 @@ public class EditRecipe extends javax.swing.JFrame {
         if(percentage_text.length()>0 && weight_kg.length()>0)
         {
             if(!use_func.checkText2(weight_kg) && !use_func.checkText2(percentage_text))
-            {
-                try
-                {            
-                    float temp_percentage = Float.parseFloat(percentage_text);
-                    float temp_weight = Float.parseFloat(weight_kg);
-                    float weight_prep = temp_weight * temp_percentage / 100;
+            {      
+                    //float temp_percentage = Float.parseFloat(percentage_text);
+                    //float temp_weight = Float.parseFloat(weight_kg);
+                    float weight_prep = use_func.update_kg_and_prep(percentage_text, weight_kg);
                     //Make this 2 Decimal digits
                     this_textfield.setText(String.format("%.2f", weight_prep));
-                }
-                catch(NumberFormatException ex)
-                {
-                    this_textfield.setText("Error!");
-                }
+                
             }
             else
             {
@@ -3601,27 +3595,28 @@ public class EditRecipe extends javax.swing.JFrame {
     
     private boolean check_this_textbox(JTextField the_textfield)
     {
-        boolean text_check = use_func.checkText2(the_textfield.getText());
-        if(text_check)
+       
+        if(use_func.checkText2(the_textfield.getText()))
         {
-            if(!the_textfield.getBackground().equals(Color.pink) )
-            {
-                the_textfield.setBackground(Color.pink);
-                count_screen_1++;
-            }
-            check_screen();
-            return false;
+            the_textfield.setText(the_textfield.getText().replaceAll("[^0-9]", ""));
+            //if(!the_textfield.getBackground().equals(Color.pink) )
+            //{
+            //    the_textfield.setBackground(Color.pink);
+            //    count_screen_1++;
+            //}
+            //check_screen();
+            //return false;
         }
-        else
-        {
-            if(the_textfield.getBackground().equals(Color.pink))
-            {
-                the_textfield.setBackground(Color.white);           
-                count_screen_1--;
-            }
-            check_screen();
+        //else
+        ///{
+        //    if(the_textfield.getBackground().equals(Color.pink))
+        //    {
+        //        the_textfield.setBackground(Color.white);           
+        //        count_screen_1--;
+        //    }
+        //    check_screen();
             return true;
-        }
+        //}
     }
     
     public void check_screen()

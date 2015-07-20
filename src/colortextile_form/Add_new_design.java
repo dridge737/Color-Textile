@@ -3347,18 +3347,18 @@ public class Add_new_design extends javax.swing.JFrame {
             if(jList1.getSelectedIndex() != -1)
             {
                 int selected = this.jList1.getSelectedIndex();
-                customer_combo_list.setSelectedItem(this_list.getCustomer_list().get(selected));
-                if(customer_combo_list.getSelectedItem().toString().equals(this_list.getCustomer_list().get(selected)))
-                {
-                    customer_combo_list.setVisible(true);
-                    this.customer_name_text.setVisible(false);
-                }
-                else
-                {
-                    customer_name_text.setVisible(true);
-                    customer_combo_list.setVisible(false);
+                //customer_combo_list.setSelectedItem(this_list.getCustomer_list().get(selected));
+                //if(customer_combo_list.getSelectedItem().toString().equals(this_list.getCustomer_list().get(selected)))
+                //{
+                //   customer_combo_list.setVisible(true);
+                //    this.customer_name_text.setVisible(false);
+                //}
+                //else
+                //{
+                //    customer_name_text.setVisible(true);
+                //    customer_combo_list.setVisible(false);
                     customer_name_text.setText(this_list.getCustomer_list().get(selected).toString());
-                }
+                //}
                 
                 int start_index = this_list.getJob_list().get(selected).toString().length() - 4;
                 text_job_order.setText(this_list.getJob_list().get(selected).toString().substring(start_index));
@@ -3384,7 +3384,11 @@ public class Add_new_design extends javax.swing.JFrame {
                         temporary_list.getJob_list().get(0).toString(), 
                         temporary_list.getQuantity_list().get(0).toString());
             
+            quantity.setText("");
+            customer_name_text.setText("");
+            text_job_order.setText("");
             temporary_list.clear_all_items();
+            quantity_total.setText(Integer.toString(this_list.get_quantity_total())); 
             jList1.setModel(this_list.get_items_in_list());
             edit_purchase.setText("Edit Order");
         }
