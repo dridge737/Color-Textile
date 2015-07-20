@@ -5,6 +5,7 @@
  */
 package colortextile_form;
 
+import colortextile_class.Recipe_functions;
 import colortextile_class.colorway;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -19,6 +20,7 @@ import javax.swing.table.DefaultTableModel;
 public class add_binder_form extends javax.swing.JFrame {
 
     private DefaultTableModel binder_model = new DefaultTableModel();
+    Recipe_functions this_function = new Recipe_functions();
     /**
      * Creates new form add_binder_form
      */
@@ -184,7 +186,10 @@ public class add_binder_form extends javax.swing.JFrame {
 
     private void binderKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_binderKeyReleased
         // TODO add your handling code here:
+        if(this_function.checkText2(binder.toString()))
+        {
         binder.setText(binder.getText().replaceAll("[^0-9]", ""));
+        }
     }//GEN-LAST:event_binderKeyReleased
 
     /**

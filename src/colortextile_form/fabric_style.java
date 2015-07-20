@@ -5,6 +5,7 @@
  */
 package colortextile_form;
 
+import colortextile_class.Recipe_functions;
 import colortextile_class.design;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -16,6 +17,7 @@ import java.awt.Toolkit;
  */
 public class fabric_style extends javax.swing.JFrame {
 
+    Recipe_functions this_function = new Recipe_functions();
     /**
      * Creates new form fabric_style
      */
@@ -249,7 +251,8 @@ public class fabric_style extends javax.swing.JFrame {
 
     private void kilogramsKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_kilogramsKeyReleased
         // TODO add your handling code here:
-         kilograms.setText(kilograms.getText().replaceAll("[^0-9]", ""));
+        if(this_function.checkText2(kilograms.getText()))
+            kilograms.setText(kilograms.getText().replaceAll("[^0-9]", ""));
     }//GEN-LAST:event_kilogramsKeyReleased
 
     /**
