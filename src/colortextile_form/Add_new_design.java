@@ -3114,14 +3114,14 @@ public class Add_new_design extends javax.swing.JFrame {
 
     private void quantityKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_quantityKeyReleased
         // TODO add your handling code here:
-        boolean text_check = use_func.checkText2(quantity.getText());
-        this.button_include_customer.setEnabled(!text_check);
-        if(text_check)
-        {
-            quantity.setBackground(Color.pink);
-        }
-        else
-            quantity.setBackground(Color.WHITE);
+        check_this_textbox(quantity);
+        //this.button_include_customer.setEnabled(!text_check);
+        //if(text_check)
+        //{
+        //    quantity.setBackground(Color.pink);
+        //}
+        //else
+        //    quantity.setBackground(Color.WHITE);
     }//GEN-LAST:event_quantityKeyReleased
 
     private void pig11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pig11ActionPerformed
@@ -3513,12 +3513,11 @@ public class Add_new_design extends javax.swing.JFrame {
                 //    quantity.requestFocusInWindow();
                 
             }
-            else
-                this.customer_name_text.setEditable(true);
+        //    else
+        //        this.customer_name_text.setEditable(true);
         }
-        else if(!customer_name_text.isEditable())
-            this.customer_name_text.setEditable(true);
-        
+        //else if(!customer_name_text.isEditable())
+        //    this.customer_name_text.setEditable(true);
         
     }//GEN-LAST:event_text_job_orderKeyReleased
 

@@ -34,6 +34,9 @@ import javax.swing.JSpinner;
 import javax.swing.JTextField;
 import javax.swing.SpinnerDateModel;
 import com.github.sarxos.webcam.Webcam;
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
 import java.sql.Blob;
 import java.sql.SQLException;
 import java.lang.Object;
@@ -793,9 +796,9 @@ public class EditRecipe extends javax.swing.JFrame {
         jLabel13.setBounds(313, 120, 20, 34);
 
         quantity.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        quantity.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                quantityFocusLost(evt);
+        quantity.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                quantityKeyReleased(evt);
             }
         });
         jPanel16.add(quantity);
@@ -2667,11 +2670,6 @@ public class EditRecipe extends javax.swing.JFrame {
             this.text_job_order.setText(text_job_order.getText().substring(0, 3));
     }//GEN-LAST:event_text_job_orderKeyTyped
 
-    private void quantityFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_quantityFocusLost
-        // TODO add your handling code here:
-        check_this_textbox(quantity);
-    }//GEN-LAST:event_quantityFocusLost
-
     private void coverage1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_coverage1KeyReleased
         // TODO add your handling code here:
         if(!use_func.checkText2(coverage1.getText()))
@@ -3554,7 +3552,44 @@ public class EditRecipe extends javax.swing.JFrame {
 
     private void text_job_orderKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_text_job_orderKeyReleased
         // TODO add your handling code here:
+        check_this_textbox(text_job_order);
+        
+        if (this.text_job_order.getText().length() == 4 )
+        {
+            String job_order_text = this.job_ord_label.getText() + this.text_job_order.getText();
+            job_order new_job_order = new job_order(job_order_text);
+            
+            if(new_job_order.set_job_order_details_if_available())
+            {
+                this.customer_name_text.setText(new_job_order.getCustomer_name());
+                //this.customer_name_text.setEditable(false);
+                //this.customer_name_text.validate();
+                Robot robot; 
+                try {
+                    
+                    robot = new Robot();
+                    customer_name_text.requestFocusInWindow();
+                    robot.keyPress(KeyEvent.VK_ENTER); 
+                    robot.keyRelease(KeyEvent.VK_ENTER);
+                } catch (AWTException ex) {
+                    Logger.getLogger(Add_new_design.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                //this.customer_name_text.setEditable(false);
+                //    quantity.requestFocusInWindow();
+                
+            }
+            //else
+            //    this.customer_name_text.setEditable(true);
+        }
+        //else if(!customer_name_text.isEditable())
+        //    this.customer_name_text.setEditable(true);
+        
     }//GEN-LAST:event_text_job_orderKeyReleased
+
+    private void quantityKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_quantityKeyReleased
+        // TODO add your handling code here:
+        check_this_textbox(quantity);
+    }//GEN-LAST:event_quantityKeyReleased
 
     private void show_add_pigment()
     {
