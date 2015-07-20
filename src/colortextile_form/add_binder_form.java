@@ -173,9 +173,12 @@ public class add_binder_form extends javax.swing.JFrame {
 
     private void add_binderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_binderActionPerformed
         // TODO add your handling code here:
-        colorway this_colorway = new colorway();
-        this_colorway.setBinder(Float.parseFloat(this.binder.getText()));
-        this_colorway.add_this_binder();
+        if(!binder.getText().equals("New Binder :"))
+        {
+            colorway this_colorway = new colorway();
+            this_colorway.setBinder(Float.parseFloat(this.binder.getText()));
+            this_colorway.add_this_binder();
+        }
     }//GEN-LAST:event_add_binderActionPerformed
 
     private void binderKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_binderKeyReleased

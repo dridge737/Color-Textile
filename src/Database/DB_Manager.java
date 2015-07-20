@@ -57,19 +57,20 @@ public class DB_Manager {
     ///Add functions for sql
     ///Start function names with add_*
     
-    public boolean add_fabric_style(String fabric_name)
+    public boolean add_fabric_style(String fabric_name, float fab_kilogram)
     {
         DBConnection dbc = new DBConnection();
         Connection conn = dbc.getConnection();
         
         try {
              PreparedStatement ps = 
-                     conn.prepareStatement("INSERT INTO fabric_style (fabric_name) "
-                                            + "VALUES (?)");
+                     conn.prepareStatement("INSERT INTO fabric_style (fabric_name, kilogram) "
+                                            + "VALUES (?, ?)");
         
         int item = 1;
         
         ps.setString(item++, fabric_name.toUpperCase());
+        ps.setFloat(item++, fab_kilogram);
         ps.executeUpdate();
         
         this.closeConn(conn, ps);

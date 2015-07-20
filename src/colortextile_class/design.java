@@ -24,6 +24,7 @@ public class design{
     private Blob design_image;
     private int total_quantity;
     private float percent;
+    private float fabric_kilogram;
     
     public design(){}
     
@@ -220,7 +221,7 @@ public class design{
         if(get_fabric_style_id() == -1)
         {
             Database.DB_Manager new_conn = new Database.DB_Manager();
-            new_conn.add_fabric_style(fabric_style);
+            new_conn.add_fabric_style(fabric_style, this.fabric_kilogram);
             return true;
         }
         return false;
@@ -259,5 +260,20 @@ public class design{
     public void setPercent(float percent) {
         this.percent = percent;
     }
+
+    /**
+     * @return the fabric_kilogram
+     */
+    public float getFabric_kilogram() {
+        return fabric_kilogram;
+    }
+
+    /**
+     * @param fabric_kilogram the fabric_kilogram to set
+     */
+    public void setFabric_kilogram(float fabric_kilogram) {
+        this.fabric_kilogram = fabric_kilogram;
+    }
+    
     
 }
