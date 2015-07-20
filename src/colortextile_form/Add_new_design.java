@@ -768,6 +768,11 @@ public class Add_new_design extends javax.swing.JFrame {
         jPanel9.add(jLabel133, new org.netbeans.lib.awtextra.AbsoluteConstraints(525, 10, -1, 34));
 
         weigh_kg.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
+        weigh_kg.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                weigh_kgPropertyChange(evt);
+            }
+        });
         weigh_kg.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 weigh_kgKeyReleased(evt);
@@ -2781,38 +2786,63 @@ public class Add_new_design extends javax.swing.JFrame {
         if(check_this_textbox(coverage1))
         {
             compute_kg(weigh_kg, coverage1);
+            update_kg_prep(percentage1.getText(), weigh_kg.getText(), kg_1);
+            update_kg_prep(percentage2.getText(), weigh_kg.getText(), kg_2);
+            update_kg_prep(percentage3.getText(), weigh_kg.getText(), kg_3);
         }    
         
     }//GEN-LAST:event_coverage1KeyReleased
 
     private void coverage2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_coverage2KeyReleased
         // TODO add your handling code here:
-        if(check_this_textbox(coverage2))
+        if(check_this_textbox(coverage2)){
             compute_kg(weigh_kg7, coverage2);     
+            update_kg_prep(percentage21.getText(), weigh_kg7.getText(), kg_21);
+            update_kg_prep(percentage22.getText(), weigh_kg7.getText(), kg_22);
+            update_kg_prep(percentage23.getText(), weigh_kg7.getText(), kg_23);
+        }
     }//GEN-LAST:event_coverage2KeyReleased
 
     private void coverage3KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_coverage3KeyReleased
         // TODO add your handling code here: 
-        if(check_this_textbox(coverage3))
+        if(check_this_textbox(coverage3)){
             compute_kg(weigh_kg3, coverage3);
+            update_kg_prep(percentage5.getText(), weigh_kg3.getText(), kg_5);
+            update_kg_prep(percentage6.getText(), weigh_kg3.getText(), kg_6);
+            update_kg_prep(percentage7.getText(), weigh_kg3.getText(), kg_7);
+        }
     }//GEN-LAST:event_coverage3KeyReleased
 
     private void coverage4KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_coverage4KeyReleased
         // TODO add your handling code here:
-        if(check_this_textbox(coverage4))
+        if(check_this_textbox(coverage4)){
             compute_kg(weigh_kg4, coverage4);       
+            update_kg_prep(percentage9.getText(), weigh_kg4.getText(), kg_9);
+            update_kg_prep(percentage10.getText(), weigh_kg4.getText(), kg_10);
+            update_kg_prep(percentage11.getText(), weigh_kg4.getText(), kg_11);
+        }
     }//GEN-LAST:event_coverage4KeyReleased
 
     private void coverage5KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_coverage5KeyReleased
         // TODO add your handling code here:
-        if(check_this_textbox(coverage5))
+        if(check_this_textbox(coverage5)){
             compute_kg(weigh_kg5, coverage5);
+            update_kg_prep(percentage13.getText(), weigh_kg5.getText(), kg_13);
+            update_kg_prep(percentage14.getText(), weigh_kg5.getText(), kg_14);
+            update_kg_prep(percentage15.getText(), weigh_kg5.getText(), kg_15);
+        }
+            
     }//GEN-LAST:event_coverage5KeyReleased
 
     private void coverage6KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_coverage6KeyReleased
         // TODO add your handling code here:
         if(check_this_textbox(coverage6))
+        {
             compute_kg(weigh_kg6, coverage6);
+            update_kg_prep(percentage17.getText(), weigh_kg6.getText(), kg_17);
+            update_kg_prep(percentage18.getText(), weigh_kg6.getText(), kg_18);
+            update_kg_prep(percentage19.getText(), weigh_kg6.getText(), kg_19);
+        }
     }//GEN-LAST:event_coverage6KeyReleased
 
     private void percentage1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage1KeyReleased
@@ -3016,8 +3046,13 @@ public class Add_new_design extends javax.swing.JFrame {
 
     private void coverage8KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_coverage8KeyReleased
         // TODO add your handling code here:
-        if(check_this_textbox(coverage8))
+        if(check_this_textbox(coverage8)){
             compute_kg(weigh_kg8, coverage8);
+            update_kg_prep(percentage24.getText(), weigh_kg8.getText(), kg_24);
+            update_kg_prep(percentage25.getText(), weigh_kg8.getText(), kg_25);
+            update_kg_prep(percentage26.getText(), weigh_kg8.getText(), kg_26);
+        }
+            
     }//GEN-LAST:event_coverage8KeyReleased
     
     private void button_include_customerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_include_customerActionPerformed
@@ -3531,6 +3566,16 @@ public class Add_new_design extends javax.swing.JFrame {
         add_binder_form new_binder = new add_binder_form();
         new_binder.setVisible(true);
     }//GEN-LAST:event_bind_add7ActionPerformed
+
+    private void weigh_kgPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_weigh_kgPropertyChange
+        // TODO add your handling code here:
+        if(check_this_textbox(weigh_kg))
+        {        
+            update_kg_prep(percentage1.getText(), weigh_kg.getText(), kg_1);
+            update_kg_prep(percentage2.getText(), weigh_kg.getText(), kg_2);
+            update_kg_prep(percentage3.getText(), weigh_kg.getText(), kg_3);
+        }
+    }//GEN-LAST:event_weigh_kgPropertyChange
 
     private void compute_kg_from_coverage(JTextField weigh_kg)
     {

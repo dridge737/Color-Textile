@@ -212,11 +212,45 @@ public class DB_Manager {
     
     public boolean add_fabric_style(design this_design)
     {
+        DBConnection db = new DBConnection();
+        Connection conn = db.getConnection();
+        try {
+            
+            PreparedStatement ps = conn.prepareStatement("INSERT INTO fabric_style (fabric_name, percent) VALUES (?, ?)");
+
+            int item = 1;
+            ps.setString(item++, this_design.getFabric_style());
+            ps.setFloat(item++, this_design.getPercent());
+
+            ps.execute();
+            
+            this.closeConn(conn, ps);
+            return true;
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
+        }
         return false;
     }
     
     public boolean add_binder(int binder)
     {
+        DBConnection db = new DBConnection();
+        Connection conn = db.getConnection();
+        try {
+            
+            String query = "INSERT INTO binder (binder) VALUES (?)";
+
+            PreparedStatement preparedStmt = conn.prepareStatement(query);
+            preparedStmt.setInt(1, binder);
+
+            preparedStmt.execute();
+            
+            this.closeConn(conn, preparedStmt);
+            return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
+        }
         return false;
     }
     

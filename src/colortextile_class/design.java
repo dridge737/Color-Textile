@@ -23,7 +23,8 @@ public class design{
     private String fabric_style;
     private Blob design_image;
     private int total_quantity;
-
+    private float percent;
+    
     public design(){}
     
     public design(String design, String color, String fabric )
@@ -243,6 +244,20 @@ public class design{
         System.out.println("Color Name :"  +this.getColor_name());
         System.out.println("Design_name : " +this.getDesign_name());
         System.out.println("Fabric Style : " +this.getFabric_style());
+    }
+
+    /**
+     * @return the percent
+     */
+    public float getPercent() {
+        return percent;
+    }
+
+    /**
+     * @param percent the percent to set
+     */
+    public void setPercent(float percent) {
+        this.percent = percent;
     }
     
 }
