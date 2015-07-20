@@ -7,6 +7,8 @@ package colortextile_form;
 
 import colortextile_class.design;
 import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 
 /**
  *
@@ -19,7 +21,16 @@ public class fabric_style extends javax.swing.JFrame {
      */
     public fabric_style() {
         initComponents();
-        this.setSize(406, 365);
+        //this.setSize(406, 365);
+        center_window();
+    }
+    
+    public void center_window()
+    {
+        Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
+        int x = (int) ((dimension.getWidth() - this.getWidth()) / 2);
+        int y = (int) ((dimension.getHeight() - this.getHeight()) / 2);
+        this.setLocation(x,y);
     }
 
     /**

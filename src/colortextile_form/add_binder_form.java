@@ -68,7 +68,7 @@ public class add_binder_form extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         binder_table = new javax.swing.JTable();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(51, 153, 255));
         jPanel1.setLayout(null);
