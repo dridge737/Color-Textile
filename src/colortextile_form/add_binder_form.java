@@ -5,9 +5,12 @@
  */
 package colortextile_form;
 
+import colortextile_class.colorway;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.util.Vector;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -15,12 +18,14 @@ import java.awt.Toolkit;
  */
 public class add_binder_form extends javax.swing.JFrame {
 
+    private DefaultTableModel binder_model = new DefaultTableModel();
     /**
      * Creates new form add_binder_form
      */
     public add_binder_form() {
         initComponents();
         center_window();
+        this.initialize_all_binder();
     }
     public void center_window()
     {
@@ -28,6 +33,22 @@ public class add_binder_form extends javax.swing.JFrame {
         int x = (int) ((dimension.getWidth() - this.getWidth()) / 2);
         int y = (int) ((dimension.getHeight() - this.getHeight()) / 2);
         this.setLocation(x,y);
+    }
+    
+    public void initialize_all_binder()
+    {
+        binder_model.addColumn("Binder Percent");
+        colorway new_colorway = new colorway();
+        binder_model.addRow(new Object[] {3.5});
+        binder_model.addRow(new Object[] {4.0});
+        binder_model.addRow(new Object[] {5.5});
+        binder_model.addRow(new Object[] {8.0});
+        //if(!new_colorway.get_all_binder().isEmpty())
+        for(Float binder_perc :new_colorway.get_all_binder())
+        {
+            binder_model.addRow(new Object[] {binder_perc});
+        }
+        binder_table.setModel(binder_model);
     }
 
     /**
@@ -45,16 +66,16 @@ public class add_binder_form extends javax.swing.JFrame {
         cancel_but = new javax.swing.JButton();
         add_binder = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        binder_table = new javax.swing.JTable();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(51, 153, 255));
         jPanel1.setLayout(null);
 
         title.setFont(new java.awt.Font("Century Gothic", 0, 36)); // NOI18N
         title.setForeground(new java.awt.Color(255, 255, 255));
-        title.setText("Add New Binder :");
+        title.setText("Add New Binder");
         jPanel1.add(title);
         title.setBounds(20, 20, 342, 45);
 
@@ -69,11 +90,16 @@ public class add_binder_form extends javax.swing.JFrame {
                 binderFocusLost(evt);
             }
         });
+        binder.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                binderKeyReleased(evt);
+            }
+        });
         jPanel1.add(binder);
         binder.setBounds(40, 210, 310, 30);
 
         cancel_but.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        cancel_but.setText("Cancel");
+        cancel_but.setText("Close");
         cancel_but.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cancel_butActionPerformed(evt);
@@ -92,7 +118,8 @@ public class add_binder_form extends javax.swing.JFrame {
         jPanel1.add(add_binder);
         add_binder.setBounds(10, 260, 170, 40);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        binder_table.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
+        binder_table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null},
                 {null},
@@ -103,7 +130,7 @@ public class add_binder_form extends javax.swing.JFrame {
                 "Title 1"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(binder_table);
 
         jPanel1.add(jScrollPane1);
         jScrollPane1.setBounds(40, 80, 310, 120);
@@ -147,7 +174,18 @@ public class add_binder_form extends javax.swing.JFrame {
 
     private void add_binderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_binderActionPerformed
         // TODO add your handling code here:
+        if(!binder.getText().equals("New Binder :"))
+        {
+            colorway this_colorway = new colorway();
+            this_colorway.setBinder(Float.parseFloat(this.binder.getText()));
+            this_colorway.add_this_binder();
+        }
     }//GEN-LAST:event_add_binderActionPerformed
+
+    private void binderKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_binderKeyReleased
+        // TODO add your handling code here:
+        binder.setText(binder.getText().replaceAll("[^0-9]", ""));
+    }//GEN-LAST:event_binderKeyReleased
 
     /**
      * @param args the command line arguments
@@ -187,10 +225,10 @@ public class add_binder_form extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton add_binder;
     private javax.swing.JTextField binder;
+    private javax.swing.JTable binder_table;
     private javax.swing.JButton cancel_but;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JLabel title;
     // End of variables declaration//GEN-END:variables
 }

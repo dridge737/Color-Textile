@@ -5,7 +5,10 @@
  */
 package colortextile_form;
 
+import colortextile_class.design;
 import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 
 /**
  *
@@ -18,7 +21,16 @@ public class fabric_style extends javax.swing.JFrame {
      */
     public fabric_style() {
         initComponents();
-        this.setSize(406, 365);
+        //this.setSize(406, 365);
+        center_window();
+    }
+    
+    public void center_window()
+    {
+        Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
+        int x = (int) ((dimension.getWidth() - this.getWidth()) / 2);
+        int y = (int) ((dimension.getHeight() - this.getHeight()) / 2);
+        this.setLocation(x,y);
     }
 
     /**
@@ -73,7 +85,7 @@ public class fabric_style extends javax.swing.JFrame {
         fabric_name.setBounds(40, 85, 330, 30);
 
         cancel_button.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        cancel_button.setText("Cancel");
+        cancel_button.setText("Close");
         cancel_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cancel_buttonActionPerformed(evt);
@@ -102,6 +114,11 @@ public class fabric_style extends javax.swing.JFrame {
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
                 kilogramsFocusLost(evt);
+            }
+        });
+        kilograms.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                kilogramsKeyReleased(evt);
             }
         });
         jPanel1.add(kilograms);
@@ -204,6 +221,13 @@ public class fabric_style extends javax.swing.JFrame {
 
     private void add_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_buttonActionPerformed
         // TODO add your handling code here:
+        if(!fabric_name.getText().equals("Fabric Name :") && !kilograms.getText().equals("Kilograms"))
+        {
+            design this_design = new design();
+            this_design.setFabric_style(this.fabric_name.getText());
+            this_design.setFabric_kilogram(Float.parseFloat(this.kilograms.getText()));
+            this_design.add_fabric_style();
+        }
     }//GEN-LAST:event_add_buttonActionPerformed
 
     private void kilogramsFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_kilogramsFocusGained
@@ -222,6 +246,11 @@ public class fabric_style extends javax.swing.JFrame {
             this.kilograms.setForeground(new Color(205,205,205));
         }
     }//GEN-LAST:event_kilogramsFocusLost
+
+    private void kilogramsKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_kilogramsKeyReleased
+        // TODO add your handling code here:
+         kilograms.setText(kilograms.getText().replaceAll("[^0-9]", ""));
+    }//GEN-LAST:event_kilogramsKeyReleased
 
     /**
      * @param args the command line arguments

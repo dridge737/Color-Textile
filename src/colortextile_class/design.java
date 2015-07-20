@@ -23,7 +23,9 @@ public class design{
     private String fabric_style;
     private Blob design_image;
     private int total_quantity;
-
+    private float percent;
+    private float fabric_kilogram;
+    
     public design(){}
     
     public design(String design, String color, String fabric )
@@ -187,6 +189,12 @@ public class design{
        Database.DB_Manager new_conn = new Database.DB_Manager();       
        return new_conn.get_picture_from_design_id(this);
    }
+   
+   public void set_design_picture_from_design_code()
+   {
+       Database.DB_Manager new_conn = new Database.DB_Manager();
+       this.design_image = new_conn.get_design_picture_using_design_id(design_code);
+   }
 
    public void update_design()
    {
@@ -213,7 +221,7 @@ public class design{
         if(get_fabric_style_id() == -1)
         {
             Database.DB_Manager new_conn = new Database.DB_Manager();
-            new_conn.add_fabric_style(fabric_style);
+            new_conn.add_fabric_style(fabric_style, this.fabric_kilogram);
             return true;
         }
         return false;
@@ -238,5 +246,34 @@ public class design{
         System.out.println("Design_name : " +this.getDesign_name());
         System.out.println("Fabric Style : " +this.getFabric_style());
     }
+
+    /**
+     * @return the percent
+     */
+    public float getPercent() {
+        return percent;
+    }
+
+    /**
+     * @param percent the percent to set
+     */
+    public void setPercent(float percent) {
+        this.percent = percent;
+    }
+
+    /**
+     * @return the fabric_kilogram
+     */
+    public float getFabric_kilogram() {
+        return fabric_kilogram;
+    }
+
+    /**
+     * @param fabric_kilogram the fabric_kilogram to set
+     */
+    public void setFabric_kilogram(float fabric_kilogram) {
+        this.fabric_kilogram = fabric_kilogram;
+    }
+    
     
 }

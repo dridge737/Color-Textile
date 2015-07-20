@@ -7,6 +7,7 @@
 package colortextile_class;
 
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
 /**
  *
@@ -164,5 +165,17 @@ public class colorway {
         System.out.println("Design Code : "+this.design_code);
         System.out.println("Colorway Id : "+this.id_colorway);
         System.out.println("Weight :" +this.weight_kg);
+    }
+    
+    public ArrayList<Float> get_all_binder()
+    {
+        Database.DB_Manager new_conn = new Database.DB_Manager();
+        return new_conn.get_all_binder();
+    }
+    
+    public boolean add_this_binder()
+    {
+        Database.DB_Manager new_conn = new Database.DB_Manager();
+        return new_conn.add_binder(this.getBinder());
     }
 }

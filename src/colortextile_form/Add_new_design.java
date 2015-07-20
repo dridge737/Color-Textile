@@ -87,6 +87,22 @@ public class Add_new_design extends javax.swing.JFrame {
         
     }
     
+    public void get_all_binders()
+    {
+        colorway this_colorway = new colorway();
+        ArrayList<Float> all_binder = this_colorway.get_all_binder();
+        for(Float this_binder : all_binder)
+        {
+            binder.addItem(this_binder);
+            binder2.addItem(this_binder);
+            binder3.addItem(this_binder);
+            binder4.addItem(this_binder);
+            binder5.addItem(this_binder);
+            binder6.addItem(this_binder);
+            binder7.addItem(this_binder);
+        }
+    }
+    
     public void set_customer_list_and_autocomplete()
     {
         //fill_customer_list();
@@ -209,7 +225,7 @@ public class Add_new_design extends javax.swing.JFrame {
         kg_7 = new javax.swing.JTextField();
         jLabel59 = new javax.swing.JLabel();
         jSeparator8 = new javax.swing.JSeparator();
-        binder3 = new javax.swing.JComboBox();
+        binder2 = new javax.swing.JComboBox();
         jLabel63 = new javax.swing.JLabel();
         jLabel64 = new javax.swing.JLabel();
         jLabel145 = new javax.swing.JLabel();
@@ -244,7 +260,7 @@ public class Add_new_design extends javax.swing.JFrame {
         kg_11 = new javax.swing.JTextField();
         jLabel75 = new javax.swing.JLabel();
         jSeparator10 = new javax.swing.JSeparator();
-        binder4 = new javax.swing.JComboBox();
+        binder3 = new javax.swing.JComboBox();
         jLabel79 = new javax.swing.JLabel();
         jLabel80 = new javax.swing.JLabel();
         jLabel146 = new javax.swing.JLabel();
@@ -279,7 +295,7 @@ public class Add_new_design extends javax.swing.JFrame {
         kg_15 = new javax.swing.JTextField();
         jLabel91 = new javax.swing.JLabel();
         jSeparator12 = new javax.swing.JSeparator();
-        binder5 = new javax.swing.JComboBox();
+        binder4 = new javax.swing.JComboBox();
         jLabel95 = new javax.swing.JLabel();
         jLabel96 = new javax.swing.JLabel();
         jLabel147 = new javax.swing.JLabel();
@@ -314,7 +330,7 @@ public class Add_new_design extends javax.swing.JFrame {
         kg_19 = new javax.swing.JTextField();
         jLabel107 = new javax.swing.JLabel();
         jSeparator14 = new javax.swing.JSeparator();
-        binder6 = new javax.swing.JComboBox();
+        binder5 = new javax.swing.JComboBox();
         jLabel111 = new javax.swing.JLabel();
         jLabel112 = new javax.swing.JLabel();
         jLabel148 = new javax.swing.JLabel();
@@ -349,7 +365,7 @@ public class Add_new_design extends javax.swing.JFrame {
         kg_23 = new javax.swing.JTextField();
         jLabel123 = new javax.swing.JLabel();
         jSeparator16 = new javax.swing.JSeparator();
-        binder7 = new javax.swing.JComboBox();
+        binder6 = new javax.swing.JComboBox();
         jLabel127 = new javax.swing.JLabel();
         jLabel128 = new javax.swing.JLabel();
         jLabel149 = new javax.swing.JLabel();
@@ -384,7 +400,7 @@ public class Add_new_design extends javax.swing.JFrame {
         kg_26 = new javax.swing.JTextField();
         jLabel152 = new javax.swing.JLabel();
         jSeparator20 = new javax.swing.JSeparator();
-        binder8 = new javax.swing.JComboBox();
+        binder7 = new javax.swing.JComboBox();
         jLabel169 = new javax.swing.JLabel();
         jLabel170 = new javax.swing.JLabel();
         jLabel171 = new javax.swing.JLabel();
@@ -768,6 +784,11 @@ public class Add_new_design extends javax.swing.JFrame {
         jPanel9.add(jLabel133, new org.netbeans.lib.awtextra.AbsoluteConstraints(525, 10, -1, 34));
 
         weigh_kg.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
+        weigh_kg.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                weigh_kgPropertyChange(evt);
+            }
+        });
         weigh_kg.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 weigh_kgKeyReleased(evt);
@@ -1025,9 +1046,9 @@ public class Add_new_design extends javax.swing.JFrame {
         jPanel4.add(jLabel59, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 149, -1, -1));
         jPanel4.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 255, 743, 10));
 
-        binder3.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
-        binder3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "3.5", "4", "5.5", "8" }));
-        jPanel4.add(binder3, new org.netbeans.lib.awtextra.AbsoluteConstraints(351, 200, 61, 30));
+        binder2.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
+        binder2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "3.5", "4", "5.5", "8" }));
+        jPanel4.add(binder2, new org.netbeans.lib.awtextra.AbsoluteConstraints(351, 200, 61, 30));
 
         jLabel63.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         jLabel63.setText("Binder :");
@@ -1217,9 +1238,9 @@ public class Add_new_design extends javax.swing.JFrame {
         jPanel5.add(jLabel75, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 149, -1, -1));
         jPanel5.add(jSeparator10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 255, 743, 10));
 
-        binder4.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
-        binder4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "3.5", "4", "5.5", "8" }));
-        jPanel5.add(binder4, new org.netbeans.lib.awtextra.AbsoluteConstraints(351, 200, 61, 30));
+        binder3.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
+        binder3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "3.5", "4", "5.5", "8" }));
+        jPanel5.add(binder3, new org.netbeans.lib.awtextra.AbsoluteConstraints(351, 200, 61, 30));
 
         jLabel79.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         jLabel79.setText("Binder :");
@@ -1408,9 +1429,9 @@ public class Add_new_design extends javax.swing.JFrame {
         jPanel6.add(jLabel91, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 149, -1, -1));
         jPanel6.add(jSeparator12, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 255, 743, 10));
 
-        binder5.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
-        binder5.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "3.5", "4", "5.5", "8" }));
-        jPanel6.add(binder5, new org.netbeans.lib.awtextra.AbsoluteConstraints(351, 200, 61, 30));
+        binder4.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
+        binder4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "3.5", "4", "5.5", "8" }));
+        jPanel6.add(binder4, new org.netbeans.lib.awtextra.AbsoluteConstraints(351, 200, 61, 30));
 
         jLabel95.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         jLabel95.setText("Binder :");
@@ -1596,9 +1617,9 @@ public class Add_new_design extends javax.swing.JFrame {
         jPanel7.add(jLabel107, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 149, -1, -1));
         jPanel7.add(jSeparator14, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 255, 743, 10));
 
-        binder6.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
-        binder6.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "3.5", "4", "5.5", "8" }));
-        jPanel7.add(binder6, new org.netbeans.lib.awtextra.AbsoluteConstraints(351, 200, 61, 30));
+        binder5.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
+        binder5.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "3.5", "4", "5.5", "8" }));
+        jPanel7.add(binder5, new org.netbeans.lib.awtextra.AbsoluteConstraints(351, 200, 61, 30));
 
         jLabel111.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         jLabel111.setText("Binder :");
@@ -1787,9 +1808,9 @@ public class Add_new_design extends javax.swing.JFrame {
         jPanel8.add(jLabel123, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 149, -1, -1));
         jPanel8.add(jSeparator16, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 255, 775, 10));
 
-        binder7.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
-        binder7.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "3.5", "4", "5.5", "8" }));
-        jPanel8.add(binder7, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 200, 61, 30));
+        binder6.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
+        binder6.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "3.5", "4", "5.5", "8" }));
+        jPanel8.add(binder6, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 200, 61, 30));
 
         jLabel127.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         jLabel127.setText("Binder :");
@@ -1978,9 +1999,9 @@ public class Add_new_design extends javax.swing.JFrame {
         jPanel15.add(jLabel152, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 149, -1, -1));
         jPanel15.add(jSeparator20, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 255, 775, 10));
 
-        binder8.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
-        binder8.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "3.5", "4", "5.5", "8" }));
-        jPanel15.add(binder8, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 200, 61, 30));
+        binder7.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
+        binder7.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "3.5", "4", "5.5", "8" }));
+        jPanel15.add(binder7, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 200, 61, 30));
 
         jLabel169.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         jLabel169.setText("Binder :");
@@ -2184,7 +2205,7 @@ public class Add_new_design extends javax.swing.JFrame {
             }
             else if( x == 1)
             {
-                setTextValues_colorway(colorway_name3,weigh_kg3, binder3, this_color_and_screen.get(x));
+                setTextValues_colorway(colorway_name3,weigh_kg3, binder2, this_color_and_screen.get(x));
                 
                 for(int temp_loop2 = 0; temp_loop2 < current_screen.size(); temp_loop2++ )
                 {
@@ -2204,7 +2225,7 @@ public class Add_new_design extends javax.swing.JFrame {
             }
             else if( x == 2)
             {
-                setTextValues_colorway(colorway_name4,weigh_kg4, binder4, this_color_and_screen.get(x));
+                setTextValues_colorway(colorway_name4,weigh_kg4, binder3, this_color_and_screen.get(x));
                 
                 for(int temp_loop2 = 0; temp_loop2 < current_screen.size(); temp_loop2++ )
                 {
@@ -2218,7 +2239,7 @@ public class Add_new_design extends javax.swing.JFrame {
             }
             else if( x == 3)
             {
-                setTextValues_colorway(colorway_name5,weigh_kg5, binder5, this_color_and_screen.get(x));
+                setTextValues_colorway(colorway_name5,weigh_kg5, binder4, this_color_and_screen.get(x));
                 
                 for(int temp_loop2 = 0; temp_loop2 < current_screen.size(); temp_loop2++ )
                 {
@@ -2232,7 +2253,7 @@ public class Add_new_design extends javax.swing.JFrame {
             }
             else if( x == 4)
             {
-                setTextValues_colorway(colorway_name6,weigh_kg6, binder6, this_color_and_screen.get(x));
+                setTextValues_colorway(colorway_name6,weigh_kg6, binder5, this_color_and_screen.get(x));
                 
                 for(int temp_loop2 = 0; temp_loop2 < current_screen.size(); temp_loop2++ )
                 {
@@ -2247,7 +2268,7 @@ public class Add_new_design extends javax.swing.JFrame {
             
             else if( x == 5)
             {
-                setTextValues_colorway(colorway_name7,weigh_kg7, binder7, this_color_and_screen.get(x));
+                setTextValues_colorway(colorway_name7,weigh_kg7, binder6, this_color_and_screen.get(x));
                 
                 for(int temp_loop2 = 0; temp_loop2 < current_screen.size(); temp_loop2++ )
                 {
@@ -2261,7 +2282,7 @@ public class Add_new_design extends javax.swing.JFrame {
             }
             else if( x == 6)
             {
-                setTextValues_colorway(colorway_name8,weigh_kg8, binder8, this_color_and_screen.get(x));
+                setTextValues_colorway(colorway_name8,weigh_kg8, binder7, this_color_and_screen.get(x));
                 
                 for(int temp_loop2 = 0; temp_loop2 < current_screen.size(); temp_loop2++ )
                 {
@@ -2495,7 +2516,7 @@ public class Add_new_design extends javax.swing.JFrame {
             else if(interval==1)
             {
                 this_colorway_screen = new Screen_and_colorway_link(colorway_name3.getText(), 
-                             Float.parseFloat(binder3.getSelectedItem().toString()),
+                             Float.parseFloat(binder2.getSelectedItem().toString()),
                              weigh_kg3.getText());
                 
                 this_colorway_screen.add_screen(get_colorway_details_from_input(name5, percentage5));
@@ -2507,7 +2528,7 @@ public class Add_new_design extends javax.swing.JFrame {
             else if(interval == 2)
             {
                 this_colorway_screen = new Screen_and_colorway_link(colorway_name4.getText(), 
-                             Float.parseFloat(binder4.getSelectedItem().toString()),
+                             Float.parseFloat(binder3.getSelectedItem().toString()),
                              weigh_kg4.getText());
                 
                 this_colorway_screen.add_screen(get_colorway_details_from_input(name9, percentage9));
@@ -2519,7 +2540,7 @@ public class Add_new_design extends javax.swing.JFrame {
             else if(interval == 3)
             {
                 this_colorway_screen = new Screen_and_colorway_link(colorway_name5.getText(), 
-                             Float.parseFloat(binder5.getSelectedItem().toString()),
+                             Float.parseFloat(binder4.getSelectedItem().toString()),
                              weigh_kg5.getText());
                 
                 this_colorway_screen.add_screen(get_colorway_details_from_input(name13, percentage13));
@@ -2531,7 +2552,7 @@ public class Add_new_design extends javax.swing.JFrame {
             else if(interval == 4)
             {
                 this_colorway_screen = new Screen_and_colorway_link(colorway_name6.getText(), 
-                             Float.parseFloat(binder6.getSelectedItem().toString()),
+                             Float.parseFloat(binder5.getSelectedItem().toString()),
                              weigh_kg6.getText());
                 
                 this_colorway_screen.add_screen(get_colorway_details_from_input(name17, percentage17));
@@ -2543,7 +2564,7 @@ public class Add_new_design extends javax.swing.JFrame {
             else if(interval == 5)
             {
              this_colorway_screen = new Screen_and_colorway_link(colorway_name7.getText(), 
-                             Float.parseFloat(binder7.getSelectedItem().toString()),
+                             Float.parseFloat(binder6.getSelectedItem().toString()),
                              weigh_kg7.getText());
                 
                 this_colorway_screen.add_screen(get_colorway_details_from_input(name21, percentage21));
@@ -2555,7 +2576,7 @@ public class Add_new_design extends javax.swing.JFrame {
             else if(interval == 6)
             {
                 this_colorway_screen = new Screen_and_colorway_link(colorway_name8.getText(), 
-                             Float.parseFloat(binder8.getSelectedItem().toString()),
+                             Float.parseFloat(binder7.getSelectedItem().toString()),
                              weigh_kg8.getText());
                 
                 this_colorway_screen.add_screen(get_colorway_details_from_input(name24, percentage24));
@@ -2600,7 +2621,7 @@ public class Add_new_design extends javax.swing.JFrame {
         
         //2nd Colorway if it exists
         int colorway_id2 = add_this_colorway(colorway_name3.getText(), 
-                             Float.parseFloat(binder3.getSelectedItem().toString()),
+                             Float.parseFloat(binder2.getSelectedItem().toString()),
                              weigh_kg3.getText(), design_code);
         //System.out.println("COLORWAY id 2 = " +colorway_id2);
         if(colorway_id2 != -1 )
@@ -2617,7 +2638,7 @@ public class Add_new_design extends javax.swing.JFrame {
         
         //3rd Colorway if it exists
         int colorway_id3 = add_this_colorway(colorway_name4.getText(), 
-                             Float.parseFloat(binder4.getSelectedItem().toString()),
+                             Float.parseFloat(binder3.getSelectedItem().toString()),
                              weigh_kg4.getText() , design_code);
         //System.out.println("COLORWAY id 3 = " +colorway_id3);
         if(colorway_id3 != -1 )
@@ -2634,7 +2655,7 @@ public class Add_new_design extends javax.swing.JFrame {
         }
         //4th Colorway if it exists
         int colorway_id4 = add_this_colorway(colorway_name5.getText(), 
-                             Float.parseFloat(binder5.getSelectedItem().toString()),
+                             Float.parseFloat(binder4.getSelectedItem().toString()),
                              weigh_kg5.getText(), design_code);
         //System.out.println("COLORWAY id 4 = " +colorway_id4);
         if(colorway_id4 != -1 )
@@ -2651,7 +2672,7 @@ public class Add_new_design extends javax.swing.JFrame {
         
         //5th Colorway if it exists
         int colorway_id5 = add_this_colorway(colorway_name6.getText(), 
-                             Float.parseFloat(binder6.getSelectedItem().toString()),
+                             Float.parseFloat(binder5.getSelectedItem().toString()),
                              weigh_kg6.getText() , design_code);
         //System.out.println("COLORWAY id 5 = " +colorway_id5);
         if(colorway_id5 != -1 )
@@ -2668,7 +2689,7 @@ public class Add_new_design extends javax.swing.JFrame {
         
         //6th Colorway if it exists
         int colorway_id6 = add_this_colorway(colorway_name7.getText(), 
-                             Float.parseFloat(binder7.getSelectedItem().toString()),
+                             Float.parseFloat(binder6.getSelectedItem().toString()),
                              weigh_kg7.getText(), design_code);
         //System.out.println("COLORWAY id 6 = " +colorway_id6);
         if( colorway_id6 != -1 )
@@ -2685,7 +2706,7 @@ public class Add_new_design extends javax.swing.JFrame {
         
         //7th Colorway if it exists
         int colorway_id7 = add_this_colorway(colorway_name8.getText(), 
-                             Float.parseFloat(binder8.getSelectedItem().toString()),
+                             Float.parseFloat(binder7.getSelectedItem().toString()),
                              weigh_kg8.getText(), design_code);
         //System.out.println("COLORWAY id 7 = " +colorway_id6);
         if( colorway_id7 != -1 )
@@ -2781,38 +2802,63 @@ public class Add_new_design extends javax.swing.JFrame {
         if(check_this_textbox(coverage1))
         {
             compute_kg(weigh_kg, coverage1);
+            update_kg_prep(percentage1.getText(), weigh_kg.getText(), kg_1);
+            update_kg_prep(percentage2.getText(), weigh_kg.getText(), kg_2);
+            update_kg_prep(percentage3.getText(), weigh_kg.getText(), kg_3);
         }    
         
     }//GEN-LAST:event_coverage1KeyReleased
 
     private void coverage2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_coverage2KeyReleased
         // TODO add your handling code here:
-        if(check_this_textbox(coverage2))
+        if(check_this_textbox(coverage2)){
             compute_kg(weigh_kg7, coverage2);     
+            update_kg_prep(percentage21.getText(), weigh_kg7.getText(), kg_21);
+            update_kg_prep(percentage22.getText(), weigh_kg7.getText(), kg_22);
+            update_kg_prep(percentage23.getText(), weigh_kg7.getText(), kg_23);
+        }
     }//GEN-LAST:event_coverage2KeyReleased
 
     private void coverage3KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_coverage3KeyReleased
         // TODO add your handling code here: 
-        if(check_this_textbox(coverage3))
+        if(check_this_textbox(coverage3)){
             compute_kg(weigh_kg3, coverage3);
+            update_kg_prep(percentage5.getText(), weigh_kg3.getText(), kg_5);
+            update_kg_prep(percentage6.getText(), weigh_kg3.getText(), kg_6);
+            update_kg_prep(percentage7.getText(), weigh_kg3.getText(), kg_7);
+        }
     }//GEN-LAST:event_coverage3KeyReleased
 
     private void coverage4KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_coverage4KeyReleased
         // TODO add your handling code here:
-        if(check_this_textbox(coverage4))
+        if(check_this_textbox(coverage4)){
             compute_kg(weigh_kg4, coverage4);       
+            update_kg_prep(percentage9.getText(), weigh_kg4.getText(), kg_9);
+            update_kg_prep(percentage10.getText(), weigh_kg4.getText(), kg_10);
+            update_kg_prep(percentage11.getText(), weigh_kg4.getText(), kg_11);
+        }
     }//GEN-LAST:event_coverage4KeyReleased
 
     private void coverage5KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_coverage5KeyReleased
         // TODO add your handling code here:
-        if(check_this_textbox(coverage5))
+        if(check_this_textbox(coverage5)){
             compute_kg(weigh_kg5, coverage5);
+            update_kg_prep(percentage13.getText(), weigh_kg5.getText(), kg_13);
+            update_kg_prep(percentage14.getText(), weigh_kg5.getText(), kg_14);
+            update_kg_prep(percentage15.getText(), weigh_kg5.getText(), kg_15);
+        }
+            
     }//GEN-LAST:event_coverage5KeyReleased
 
     private void coverage6KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_coverage6KeyReleased
         // TODO add your handling code here:
         if(check_this_textbox(coverage6))
+        {
             compute_kg(weigh_kg6, coverage6);
+            update_kg_prep(percentage17.getText(), weigh_kg6.getText(), kg_17);
+            update_kg_prep(percentage18.getText(), weigh_kg6.getText(), kg_18);
+            update_kg_prep(percentage19.getText(), weigh_kg6.getText(), kg_19);
+        }
     }//GEN-LAST:event_coverage6KeyReleased
 
     private void percentage1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage1KeyReleased
@@ -3016,8 +3062,13 @@ public class Add_new_design extends javax.swing.JFrame {
 
     private void coverage8KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_coverage8KeyReleased
         // TODO add your handling code here:
-        if(check_this_textbox(coverage8))
+        if(check_this_textbox(coverage8)){
             compute_kg(weigh_kg8, coverage8);
+            update_kg_prep(percentage24.getText(), weigh_kg8.getText(), kg_24);
+            update_kg_prep(percentage25.getText(), weigh_kg8.getText(), kg_25);
+            update_kg_prep(percentage26.getText(), weigh_kg8.getText(), kg_26);
+        }
+            
     }//GEN-LAST:event_coverage8KeyReleased
     
     private void button_include_customerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_include_customerActionPerformed
@@ -3079,14 +3130,14 @@ public class Add_new_design extends javax.swing.JFrame {
 
     private void quantityKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_quantityKeyReleased
         // TODO add your handling code here:
-        boolean text_check = use_func.checkText2(quantity.getText());
-        this.button_include_customer.setEnabled(!text_check);
-        if(text_check)
-        {
-            quantity.setBackground(Color.pink);
-        }
-        else
-            quantity.setBackground(Color.WHITE);
+        check_this_textbox(quantity);
+        //this.button_include_customer.setEnabled(!text_check);
+        //if(text_check)
+        //{
+        //    quantity.setBackground(Color.pink);
+        //}
+        //else
+        //    quantity.setBackground(Color.WHITE);
     }//GEN-LAST:event_quantityKeyReleased
 
     private void pig11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pig11ActionPerformed
@@ -3312,18 +3363,18 @@ public class Add_new_design extends javax.swing.JFrame {
             if(jList1.getSelectedIndex() != -1)
             {
                 int selected = this.jList1.getSelectedIndex();
-                customer_combo_list.setSelectedItem(this_list.getCustomer_list().get(selected));
-                if(customer_combo_list.getSelectedItem().toString().equals(this_list.getCustomer_list().get(selected)))
-                {
-                    customer_combo_list.setVisible(true);
-                    this.customer_name_text.setVisible(false);
-                }
-                else
-                {
-                    customer_name_text.setVisible(true);
-                    customer_combo_list.setVisible(false);
+                //customer_combo_list.setSelectedItem(this_list.getCustomer_list().get(selected));
+                //if(customer_combo_list.getSelectedItem().toString().equals(this_list.getCustomer_list().get(selected)))
+                //{
+                //   customer_combo_list.setVisible(true);
+                //    this.customer_name_text.setVisible(false);
+                //}
+                //else
+                //{
+                //    customer_name_text.setVisible(true);
+                //    customer_combo_list.setVisible(false);
                     customer_name_text.setText(this_list.getCustomer_list().get(selected).toString());
-                }
+                //}
                 
                 int start_index = this_list.getJob_list().get(selected).toString().length() - 4;
                 text_job_order.setText(this_list.getJob_list().get(selected).toString().substring(start_index));
@@ -3349,7 +3400,11 @@ public class Add_new_design extends javax.swing.JFrame {
                         temporary_list.getJob_list().get(0).toString(), 
                         temporary_list.getQuantity_list().get(0).toString());
             
+            quantity.setText("");
+            customer_name_text.setText("");
+            text_job_order.setText("");
             temporary_list.clear_all_items();
+            quantity_total.setText(Integer.toString(this_list.get_quantity_total())); 
             jList1.setModel(this_list.get_items_in_list());
             edit_purchase.setText("Edit Order");
         }
@@ -3474,12 +3529,11 @@ public class Add_new_design extends javax.swing.JFrame {
                 //    quantity.requestFocusInWindow();
                 
             }
-            else
-                this.customer_name_text.setEditable(true);
+        //    else
+        //        this.customer_name_text.setEditable(true);
         }
-        else if(!customer_name_text.isEditable())
-            this.customer_name_text.setEditable(true);
-        
+        //else if(!customer_name_text.isEditable())
+        //    this.customer_name_text.setEditable(true);
         
     }//GEN-LAST:event_text_job_orderKeyReleased
 
@@ -3532,6 +3586,16 @@ public class Add_new_design extends javax.swing.JFrame {
         new_binder.setVisible(true);
     }//GEN-LAST:event_bind_add7ActionPerformed
 
+    private void weigh_kgPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_weigh_kgPropertyChange
+        // TODO add your handling code here:
+        if(check_this_textbox(weigh_kg))
+        {        
+            update_kg_prep(percentage1.getText(), weigh_kg.getText(), kg_1);
+            update_kg_prep(percentage2.getText(), weigh_kg.getText(), kg_2);
+            update_kg_prep(percentage3.getText(), weigh_kg.getText(), kg_3);
+        }
+    }//GEN-LAST:event_weigh_kgPropertyChange
+
     private void compute_kg_from_coverage(JTextField weigh_kg)
     {
         if(!use_func.checkText2(weigh_kg.getText()) && quantity_total.getText().length()>0 )
@@ -3547,7 +3611,6 @@ public class Add_new_design extends javax.swing.JFrame {
     {
         if(!use_func.checkText2(coverage.getText()) && quantity_total.getText().length()>0)
         {
-            
             float cov_conversion = Float.parseFloat(coverage.getText());
             float this_computation = use_func.compute_this_kg(cov_conversion, fab_style_comb.getSelectedItem().toString(), quantity_total.getText());
             weigh_kg.setText(String.format("%.0f", this_computation));
@@ -4038,12 +4101,12 @@ public class Add_new_design extends javax.swing.JFrame {
     private javax.swing.JButton bind_add6;
     private javax.swing.JButton bind_add7;
     private javax.swing.JComboBox binder;
+    private javax.swing.JComboBox binder2;
     private javax.swing.JComboBox binder3;
     private javax.swing.JComboBox binder4;
     private javax.swing.JComboBox binder5;
     private javax.swing.JComboBox binder6;
     private javax.swing.JComboBox binder7;
-    private javax.swing.JComboBox binder8;
     private javax.swing.JButton button_include_customer;
     private javax.swing.JButton button_remove_customer;
     private javax.swing.JTextField colorway_name;
