@@ -99,7 +99,7 @@ public class add_binder_form extends javax.swing.JFrame {
         binder.setBounds(40, 210, 310, 30);
 
         cancel_but.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        cancel_but.setText("Cancel");
+        cancel_but.setText("Close");
         cancel_but.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cancel_butActionPerformed(evt);
@@ -118,7 +118,7 @@ public class add_binder_form extends javax.swing.JFrame {
         jPanel1.add(add_binder);
         add_binder.setBounds(10, 260, 170, 40);
 
-        binder_table.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        binder_table.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
         binder_table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null},

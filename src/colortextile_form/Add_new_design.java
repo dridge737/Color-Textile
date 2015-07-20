@@ -87,6 +87,22 @@ public class Add_new_design extends javax.swing.JFrame {
         
     }
     
+    public void get_all_binders()
+    {
+        colorway this_colorway = new colorway();
+        ArrayList<Float> all_binder = this_colorway.get_all_binder();
+        for(Float this_binder : all_binder)
+        {
+            binder.addItem(this_binder);
+            binder2.addItem(this_binder);
+            binder3.addItem(this_binder);
+            binder4.addItem(this_binder);
+            binder5.addItem(this_binder);
+            binder6.addItem(this_binder);
+            binder7.addItem(this_binder);
+        }
+    }
+    
     public void set_customer_list_and_autocomplete()
     {
         //fill_customer_list();
@@ -209,7 +225,7 @@ public class Add_new_design extends javax.swing.JFrame {
         kg_7 = new javax.swing.JTextField();
         jLabel59 = new javax.swing.JLabel();
         jSeparator8 = new javax.swing.JSeparator();
-        binder3 = new javax.swing.JComboBox();
+        binder2 = new javax.swing.JComboBox();
         jLabel63 = new javax.swing.JLabel();
         jLabel64 = new javax.swing.JLabel();
         jLabel145 = new javax.swing.JLabel();
@@ -244,7 +260,7 @@ public class Add_new_design extends javax.swing.JFrame {
         kg_11 = new javax.swing.JTextField();
         jLabel75 = new javax.swing.JLabel();
         jSeparator10 = new javax.swing.JSeparator();
-        binder4 = new javax.swing.JComboBox();
+        binder3 = new javax.swing.JComboBox();
         jLabel79 = new javax.swing.JLabel();
         jLabel80 = new javax.swing.JLabel();
         jLabel146 = new javax.swing.JLabel();
@@ -279,7 +295,7 @@ public class Add_new_design extends javax.swing.JFrame {
         kg_15 = new javax.swing.JTextField();
         jLabel91 = new javax.swing.JLabel();
         jSeparator12 = new javax.swing.JSeparator();
-        binder5 = new javax.swing.JComboBox();
+        binder4 = new javax.swing.JComboBox();
         jLabel95 = new javax.swing.JLabel();
         jLabel96 = new javax.swing.JLabel();
         jLabel147 = new javax.swing.JLabel();
@@ -314,7 +330,7 @@ public class Add_new_design extends javax.swing.JFrame {
         kg_19 = new javax.swing.JTextField();
         jLabel107 = new javax.swing.JLabel();
         jSeparator14 = new javax.swing.JSeparator();
-        binder6 = new javax.swing.JComboBox();
+        binder5 = new javax.swing.JComboBox();
         jLabel111 = new javax.swing.JLabel();
         jLabel112 = new javax.swing.JLabel();
         jLabel148 = new javax.swing.JLabel();
@@ -349,7 +365,7 @@ public class Add_new_design extends javax.swing.JFrame {
         kg_23 = new javax.swing.JTextField();
         jLabel123 = new javax.swing.JLabel();
         jSeparator16 = new javax.swing.JSeparator();
-        binder7 = new javax.swing.JComboBox();
+        binder6 = new javax.swing.JComboBox();
         jLabel127 = new javax.swing.JLabel();
         jLabel128 = new javax.swing.JLabel();
         jLabel149 = new javax.swing.JLabel();
@@ -384,7 +400,7 @@ public class Add_new_design extends javax.swing.JFrame {
         kg_26 = new javax.swing.JTextField();
         jLabel152 = new javax.swing.JLabel();
         jSeparator20 = new javax.swing.JSeparator();
-        binder8 = new javax.swing.JComboBox();
+        binder7 = new javax.swing.JComboBox();
         jLabel169 = new javax.swing.JLabel();
         jLabel170 = new javax.swing.JLabel();
         jLabel171 = new javax.swing.JLabel();
@@ -1030,9 +1046,9 @@ public class Add_new_design extends javax.swing.JFrame {
         jPanel4.add(jLabel59, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 149, -1, -1));
         jPanel4.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 255, 743, 10));
 
-        binder3.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
-        binder3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "3.5", "4", "5.5", "8" }));
-        jPanel4.add(binder3, new org.netbeans.lib.awtextra.AbsoluteConstraints(351, 200, 61, 30));
+        binder2.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
+        binder2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "3.5", "4", "5.5", "8" }));
+        jPanel4.add(binder2, new org.netbeans.lib.awtextra.AbsoluteConstraints(351, 200, 61, 30));
 
         jLabel63.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         jLabel63.setText("Binder :");
@@ -1222,9 +1238,9 @@ public class Add_new_design extends javax.swing.JFrame {
         jPanel5.add(jLabel75, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 149, -1, -1));
         jPanel5.add(jSeparator10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 255, 743, 10));
 
-        binder4.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
-        binder4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "3.5", "4", "5.5", "8" }));
-        jPanel5.add(binder4, new org.netbeans.lib.awtextra.AbsoluteConstraints(351, 200, 61, 30));
+        binder3.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
+        binder3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "3.5", "4", "5.5", "8" }));
+        jPanel5.add(binder3, new org.netbeans.lib.awtextra.AbsoluteConstraints(351, 200, 61, 30));
 
         jLabel79.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         jLabel79.setText("Binder :");
@@ -1413,9 +1429,9 @@ public class Add_new_design extends javax.swing.JFrame {
         jPanel6.add(jLabel91, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 149, -1, -1));
         jPanel6.add(jSeparator12, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 255, 743, 10));
 
-        binder5.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
-        binder5.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "3.5", "4", "5.5", "8" }));
-        jPanel6.add(binder5, new org.netbeans.lib.awtextra.AbsoluteConstraints(351, 200, 61, 30));
+        binder4.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
+        binder4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "3.5", "4", "5.5", "8" }));
+        jPanel6.add(binder4, new org.netbeans.lib.awtextra.AbsoluteConstraints(351, 200, 61, 30));
 
         jLabel95.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         jLabel95.setText("Binder :");
@@ -1601,9 +1617,9 @@ public class Add_new_design extends javax.swing.JFrame {
         jPanel7.add(jLabel107, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 149, -1, -1));
         jPanel7.add(jSeparator14, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 255, 743, 10));
 
-        binder6.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
-        binder6.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "3.5", "4", "5.5", "8" }));
-        jPanel7.add(binder6, new org.netbeans.lib.awtextra.AbsoluteConstraints(351, 200, 61, 30));
+        binder5.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
+        binder5.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "3.5", "4", "5.5", "8" }));
+        jPanel7.add(binder5, new org.netbeans.lib.awtextra.AbsoluteConstraints(351, 200, 61, 30));
 
         jLabel111.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         jLabel111.setText("Binder :");
@@ -1792,9 +1808,9 @@ public class Add_new_design extends javax.swing.JFrame {
         jPanel8.add(jLabel123, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 149, -1, -1));
         jPanel8.add(jSeparator16, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 255, 775, 10));
 
-        binder7.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
-        binder7.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "3.5", "4", "5.5", "8" }));
-        jPanel8.add(binder7, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 200, 61, 30));
+        binder6.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
+        binder6.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "3.5", "4", "5.5", "8" }));
+        jPanel8.add(binder6, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 200, 61, 30));
 
         jLabel127.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         jLabel127.setText("Binder :");
@@ -1983,9 +1999,9 @@ public class Add_new_design extends javax.swing.JFrame {
         jPanel15.add(jLabel152, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 149, -1, -1));
         jPanel15.add(jSeparator20, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 255, 775, 10));
 
-        binder8.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
-        binder8.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "3.5", "4", "5.5", "8" }));
-        jPanel15.add(binder8, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 200, 61, 30));
+        binder7.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
+        binder7.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "3.5", "4", "5.5", "8" }));
+        jPanel15.add(binder7, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 200, 61, 30));
 
         jLabel169.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         jLabel169.setText("Binder :");
@@ -2189,7 +2205,7 @@ public class Add_new_design extends javax.swing.JFrame {
             }
             else if( x == 1)
             {
-                setTextValues_colorway(colorway_name3,weigh_kg3, binder3, this_color_and_screen.get(x));
+                setTextValues_colorway(colorway_name3,weigh_kg3, binder2, this_color_and_screen.get(x));
                 
                 for(int temp_loop2 = 0; temp_loop2 < current_screen.size(); temp_loop2++ )
                 {
@@ -2209,7 +2225,7 @@ public class Add_new_design extends javax.swing.JFrame {
             }
             else if( x == 2)
             {
-                setTextValues_colorway(colorway_name4,weigh_kg4, binder4, this_color_and_screen.get(x));
+                setTextValues_colorway(colorway_name4,weigh_kg4, binder3, this_color_and_screen.get(x));
                 
                 for(int temp_loop2 = 0; temp_loop2 < current_screen.size(); temp_loop2++ )
                 {
@@ -2223,7 +2239,7 @@ public class Add_new_design extends javax.swing.JFrame {
             }
             else if( x == 3)
             {
-                setTextValues_colorway(colorway_name5,weigh_kg5, binder5, this_color_and_screen.get(x));
+                setTextValues_colorway(colorway_name5,weigh_kg5, binder4, this_color_and_screen.get(x));
                 
                 for(int temp_loop2 = 0; temp_loop2 < current_screen.size(); temp_loop2++ )
                 {
@@ -2237,7 +2253,7 @@ public class Add_new_design extends javax.swing.JFrame {
             }
             else if( x == 4)
             {
-                setTextValues_colorway(colorway_name6,weigh_kg6, binder6, this_color_and_screen.get(x));
+                setTextValues_colorway(colorway_name6,weigh_kg6, binder5, this_color_and_screen.get(x));
                 
                 for(int temp_loop2 = 0; temp_loop2 < current_screen.size(); temp_loop2++ )
                 {
@@ -2252,7 +2268,7 @@ public class Add_new_design extends javax.swing.JFrame {
             
             else if( x == 5)
             {
-                setTextValues_colorway(colorway_name7,weigh_kg7, binder7, this_color_and_screen.get(x));
+                setTextValues_colorway(colorway_name7,weigh_kg7, binder6, this_color_and_screen.get(x));
                 
                 for(int temp_loop2 = 0; temp_loop2 < current_screen.size(); temp_loop2++ )
                 {
@@ -2266,7 +2282,7 @@ public class Add_new_design extends javax.swing.JFrame {
             }
             else if( x == 6)
             {
-                setTextValues_colorway(colorway_name8,weigh_kg8, binder8, this_color_and_screen.get(x));
+                setTextValues_colorway(colorway_name8,weigh_kg8, binder7, this_color_and_screen.get(x));
                 
                 for(int temp_loop2 = 0; temp_loop2 < current_screen.size(); temp_loop2++ )
                 {
@@ -2500,7 +2516,7 @@ public class Add_new_design extends javax.swing.JFrame {
             else if(interval==1)
             {
                 this_colorway_screen = new Screen_and_colorway_link(colorway_name3.getText(), 
-                             Float.parseFloat(binder3.getSelectedItem().toString()),
+                             Float.parseFloat(binder2.getSelectedItem().toString()),
                              weigh_kg3.getText());
                 
                 this_colorway_screen.add_screen(get_colorway_details_from_input(name5, percentage5));
@@ -2512,7 +2528,7 @@ public class Add_new_design extends javax.swing.JFrame {
             else if(interval == 2)
             {
                 this_colorway_screen = new Screen_and_colorway_link(colorway_name4.getText(), 
-                             Float.parseFloat(binder4.getSelectedItem().toString()),
+                             Float.parseFloat(binder3.getSelectedItem().toString()),
                              weigh_kg4.getText());
                 
                 this_colorway_screen.add_screen(get_colorway_details_from_input(name9, percentage9));
@@ -2524,7 +2540,7 @@ public class Add_new_design extends javax.swing.JFrame {
             else if(interval == 3)
             {
                 this_colorway_screen = new Screen_and_colorway_link(colorway_name5.getText(), 
-                             Float.parseFloat(binder5.getSelectedItem().toString()),
+                             Float.parseFloat(binder4.getSelectedItem().toString()),
                              weigh_kg5.getText());
                 
                 this_colorway_screen.add_screen(get_colorway_details_from_input(name13, percentage13));
@@ -2536,7 +2552,7 @@ public class Add_new_design extends javax.swing.JFrame {
             else if(interval == 4)
             {
                 this_colorway_screen = new Screen_and_colorway_link(colorway_name6.getText(), 
-                             Float.parseFloat(binder6.getSelectedItem().toString()),
+                             Float.parseFloat(binder5.getSelectedItem().toString()),
                              weigh_kg6.getText());
                 
                 this_colorway_screen.add_screen(get_colorway_details_from_input(name17, percentage17));
@@ -2548,7 +2564,7 @@ public class Add_new_design extends javax.swing.JFrame {
             else if(interval == 5)
             {
              this_colorway_screen = new Screen_and_colorway_link(colorway_name7.getText(), 
-                             Float.parseFloat(binder7.getSelectedItem().toString()),
+                             Float.parseFloat(binder6.getSelectedItem().toString()),
                              weigh_kg7.getText());
                 
                 this_colorway_screen.add_screen(get_colorway_details_from_input(name21, percentage21));
@@ -2560,7 +2576,7 @@ public class Add_new_design extends javax.swing.JFrame {
             else if(interval == 6)
             {
                 this_colorway_screen = new Screen_and_colorway_link(colorway_name8.getText(), 
-                             Float.parseFloat(binder8.getSelectedItem().toString()),
+                             Float.parseFloat(binder7.getSelectedItem().toString()),
                              weigh_kg8.getText());
                 
                 this_colorway_screen.add_screen(get_colorway_details_from_input(name24, percentage24));
@@ -2605,7 +2621,7 @@ public class Add_new_design extends javax.swing.JFrame {
         
         //2nd Colorway if it exists
         int colorway_id2 = add_this_colorway(colorway_name3.getText(), 
-                             Float.parseFloat(binder3.getSelectedItem().toString()),
+                             Float.parseFloat(binder2.getSelectedItem().toString()),
                              weigh_kg3.getText(), design_code);
         //System.out.println("COLORWAY id 2 = " +colorway_id2);
         if(colorway_id2 != -1 )
@@ -2622,7 +2638,7 @@ public class Add_new_design extends javax.swing.JFrame {
         
         //3rd Colorway if it exists
         int colorway_id3 = add_this_colorway(colorway_name4.getText(), 
-                             Float.parseFloat(binder4.getSelectedItem().toString()),
+                             Float.parseFloat(binder3.getSelectedItem().toString()),
                              weigh_kg4.getText() , design_code);
         //System.out.println("COLORWAY id 3 = " +colorway_id3);
         if(colorway_id3 != -1 )
@@ -2639,7 +2655,7 @@ public class Add_new_design extends javax.swing.JFrame {
         }
         //4th Colorway if it exists
         int colorway_id4 = add_this_colorway(colorway_name5.getText(), 
-                             Float.parseFloat(binder5.getSelectedItem().toString()),
+                             Float.parseFloat(binder4.getSelectedItem().toString()),
                              weigh_kg5.getText(), design_code);
         //System.out.println("COLORWAY id 4 = " +colorway_id4);
         if(colorway_id4 != -1 )
@@ -2656,7 +2672,7 @@ public class Add_new_design extends javax.swing.JFrame {
         
         //5th Colorway if it exists
         int colorway_id5 = add_this_colorway(colorway_name6.getText(), 
-                             Float.parseFloat(binder6.getSelectedItem().toString()),
+                             Float.parseFloat(binder5.getSelectedItem().toString()),
                              weigh_kg6.getText() , design_code);
         //System.out.println("COLORWAY id 5 = " +colorway_id5);
         if(colorway_id5 != -1 )
@@ -2673,7 +2689,7 @@ public class Add_new_design extends javax.swing.JFrame {
         
         //6th Colorway if it exists
         int colorway_id6 = add_this_colorway(colorway_name7.getText(), 
-                             Float.parseFloat(binder7.getSelectedItem().toString()),
+                             Float.parseFloat(binder6.getSelectedItem().toString()),
                              weigh_kg7.getText(), design_code);
         //System.out.println("COLORWAY id 6 = " +colorway_id6);
         if( colorway_id6 != -1 )
@@ -2690,7 +2706,7 @@ public class Add_new_design extends javax.swing.JFrame {
         
         //7th Colorway if it exists
         int colorway_id7 = add_this_colorway(colorway_name8.getText(), 
-                             Float.parseFloat(binder8.getSelectedItem().toString()),
+                             Float.parseFloat(binder7.getSelectedItem().toString()),
                              weigh_kg8.getText(), design_code);
         //System.out.println("COLORWAY id 7 = " +colorway_id6);
         if( colorway_id7 != -1 )
@@ -4085,12 +4101,12 @@ public class Add_new_design extends javax.swing.JFrame {
     private javax.swing.JButton bind_add6;
     private javax.swing.JButton bind_add7;
     private javax.swing.JComboBox binder;
+    private javax.swing.JComboBox binder2;
     private javax.swing.JComboBox binder3;
     private javax.swing.JComboBox binder4;
     private javax.swing.JComboBox binder5;
     private javax.swing.JComboBox binder6;
     private javax.swing.JComboBox binder7;
-    private javax.swing.JComboBox binder8;
     private javax.swing.JButton button_include_customer;
     private javax.swing.JButton button_remove_customer;
     private javax.swing.JTextField colorway_name;

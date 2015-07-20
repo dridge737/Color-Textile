@@ -85,7 +85,7 @@ public class fabric_style extends javax.swing.JFrame {
         fabric_name.setBounds(40, 85, 330, 30);
 
         cancel_button.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        cancel_button.setText("Cancel");
+        cancel_button.setText("Close");
         cancel_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cancel_buttonActionPerformed(evt);

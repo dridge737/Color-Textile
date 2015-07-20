@@ -240,7 +240,7 @@ public class DB_Manager {
         Connection conn = db.getConnection();
         try {
             
-            String query = "INSERT INTO binder (binder) VALUES (?)";
+            String query = "INSERT INTO binders (binder) VALUES (?)";
 
             PreparedStatement preparedStmt = conn.prepareStatement(query);
             preparedStmt.setFloat(1, binder);
