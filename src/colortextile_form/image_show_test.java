@@ -8,6 +8,7 @@ package colortextile_form;
 
 import Database.DBConnection;
 import Database.DB_Manager;
+import java.awt.Image;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -125,7 +126,11 @@ public class image_show_test extends javax.swing.JFrame {
                 byte[]imagedata = rs.getBytes("design_picture");
                 format = new ImageIcon(imagedata);
                 this.jLabel1.setIcon(format);
+                Image image = format.getImage();
+                Image newimg = image.getScaledInstance(120, 120,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way  
+                format = new ImageIcon(newimg);  // transform it back
                 
+                this.jLabel1.setIcon(format);
             }
         }catch(Exception e){
             e.printStackTrace();
