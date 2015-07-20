@@ -2173,7 +2173,7 @@ public class Add_new_design extends javax.swing.JFrame {
     private void setTextValues_colorway(JTextField colorway, JTextField weight, JComboBox binder, Screen_and_colorway_link this_c_and_s)
     {
         colorway.setText(this_c_and_s.getColorway_name());
-        weight.setText(Float.toString(this_c_and_s.getWeight_kg()));
+        weight.setText(Integer.toString(Math.round(this_c_and_s.getWeight_kg())));
         binder.setSelectedItem(this_c_and_s.getBinder());
     }
     
