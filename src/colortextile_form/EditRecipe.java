@@ -918,7 +918,7 @@ public class EditRecipe extends javax.swing.JFrame {
             }
         });
         jPanel16.add(edit_item);
-        edit_item.setBounds(330, 170, 140, 30);
+        edit_item.setBounds(333, 170, 140, 30);
 
         jPanel1.add(jPanel16);
         jPanel16.setBounds(8, 0, 630, 210);
@@ -2250,7 +2250,7 @@ public class EditRecipe extends javax.swing.JFrame {
                 coverage8KeyReleased(evt);
             }
         });
-        jPanel15.add(coverage8, new org.netbeans.lib.awtextra.AbsoluteConstraints(615, 10, 60, 34));
+        jPanel15.add(coverage8, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 10, 60, 34));
 
         jLabel173.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         jLabel173.setText("Coverage :");
@@ -3654,7 +3654,6 @@ public class EditRecipe extends javax.swing.JFrame {
     
     private boolean check_this_textbox(JTextField the_textfield)
     {
-       
         if(use_func.checkText2(the_textfield.getText()))
         {
             the_textfield.setText(the_textfield.getText().replaceAll("[^0-9]", ""));
@@ -3664,7 +3663,7 @@ public class EditRecipe extends javax.swing.JFrame {
             //    count_screen_1++;
             //}
             //check_screen();
-            //return false;
+            return false;
         }
         //else
         ///{
@@ -3711,9 +3710,9 @@ public class EditRecipe extends javax.swing.JFrame {
             name23.addItem("");   
             name24.addItem("");   
             name25.addItem("");   
-            name26.addItem("");   
-   
+            name26.addItem(""); 
     }
+    
     public void addListItems()
     {
         colortextile_class.pigment list_pigment = new colortextile_class.pigment();

@@ -233,7 +233,7 @@ public class DB_Manager {
         return false;
     }
     
-    public boolean add_binder(int binder)
+    public boolean add_binder(Float binder)
     {
         DBConnection db = new DBConnection();
         Connection conn = db.getConnection();
@@ -242,7 +242,7 @@ public class DB_Manager {
             String query = "INSERT INTO binder (binder) VALUES (?)";
 
             PreparedStatement preparedStmt = conn.prepareStatement(query);
-            preparedStmt.setInt(1, binder);
+            preparedStmt.setFloat(1, binder);
 
             preparedStmt.execute();
             
@@ -1016,7 +1016,30 @@ public class DB_Manager {
         }
         return fabric_id;
     }
-    
+    public ArrayList<Float> get_all_binder()
+    {
+        DBConnection db = new DBConnection();
+        Connection conn = db.getConnection(); 
+        
+        try
+        {    
+            PreparedStatement ps = conn.prepareStatement("SELECT binder_percent FROM binders ORDER BY binder_percent ASC ");
+            
+            ResultSet rs = ps.executeQuery();
+            ArrayList<Float> binder_list = new ArrayList<>();
+            while(rs.next())
+            {
+                binder_list.add(rs.getFloat("binder_percent"));
+            }
+            this.closeConn(conn, ps, rs);
+            return binder_list;
+        }
+        catch (SQLException ex)
+        {
+            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
     public ArrayList<String> get_all_fabric_styles()
     {
         try
