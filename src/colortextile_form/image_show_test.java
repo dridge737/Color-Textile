@@ -127,7 +127,7 @@ public class image_show_test extends javax.swing.JFrame {
                 format = new ImageIcon(imagedata);
                 this.jLabel1.setIcon(format);
                 Image image = format.getImage();
-                Image newimg = image.getScaledInstance(120, 120,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way  
+                Image newimg = image.getScaledInstance(640, 480,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way  
                 format = new ImageIcon(newimg);  // transform it back
                 
                 this.jLabel1.setIcon(format);
