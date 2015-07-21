@@ -484,7 +484,7 @@ public class Add_new_design extends javax.swing.JFrame {
 
         design_name.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jPanel1.add(design_name);
-        design_name.setBounds(190, 210, 210, 34);
+        design_name.setBounds(200, 210, 210, 34);
 
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
         jLabel2.setFont(new java.awt.Font("Century Gothic", 0, 17)); // NOI18N
@@ -493,7 +493,7 @@ public class Add_new_design extends javax.swing.JFrame {
         jLabel2.setText("Design Name :");
         jLabel2.setFocusable(false);
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(20, 210, 153, 34);
+        jLabel2.setBounds(30, 210, 153, 34);
 
         fab_style_comb.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         fab_style_comb.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "PONGEE", "COTTON", "KATUNIA", "MICROPEACH", "TC", "TROPICANA" }));
@@ -507,11 +507,11 @@ public class Add_new_design extends javax.swing.JFrame {
             }
         });
         jPanel1.add(fab_style_comb);
-        fab_style_comb.setBounds(580, 210, 150, 34);
+        fab_style_comb.setBounds(590, 210, 150, 34);
 
         design_color.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jPanel1.add(design_color);
-        design_color.setBounds(190, 250, 210, 34);
+        design_color.setBounds(200, 250, 210, 34);
 
         jLabel11.setBackground(new java.awt.Color(255, 255, 255));
         jLabel11.setFont(new java.awt.Font("Century Gothic", 0, 17)); // NOI18N
@@ -520,7 +520,7 @@ public class Add_new_design extends javax.swing.JFrame {
         jLabel11.setText("Fabric Style :");
         jLabel11.setFocusable(false);
         jPanel1.add(jLabel11);
-        jLabel11.setBounds(460, 210, 110, 34);
+        jLabel11.setBounds(480, 210, 110, 34);
 
         jLabel4.setBackground(new java.awt.Color(255, 255, 255));
         jLabel4.setFont(new java.awt.Font("Century Gothic", 0, 17)); // NOI18N
@@ -529,7 +529,7 @@ public class Add_new_design extends javax.swing.JFrame {
         jLabel4.setText("Color :");
         jLabel4.setFocusable(false);
         jPanel1.add(jLabel4);
-        jLabel4.setBounds(20, 248, 153, 34);
+        jLabel4.setBounds(30, 250, 153, 34);
 
         jPanel16.setBackground(new java.awt.Color(51, 51, 51));
         jPanel16.setFocusable(false);
@@ -545,7 +545,7 @@ public class Add_new_design extends javax.swing.JFrame {
         jLabel3.setRequestFocusEnabled(false);
         jLabel3.setVerifyInputWhenFocusTarget(false);
         jPanel16.add(jLabel3);
-        jLabel3.setBounds(415, 122, 130, 34);
+        jLabel3.setBounds(450, 120, 130, 34);
 
         quantity_total.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         quantity_total.setText("0");
@@ -558,7 +558,7 @@ public class Add_new_design extends javax.swing.JFrame {
             }
         });
         jPanel16.add(quantity_total);
-        quantity_total.setBounds(553, 125, 150, 34);
+        quantity_total.setBounds(580, 120, 150, 34);
 
         jLabel5.setBackground(new java.awt.Color(255, 255, 255));
         jLabel5.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
@@ -570,7 +570,7 @@ public class Add_new_design extends javax.swing.JFrame {
         jLabel5.setRequestFocusEnabled(false);
         jLabel5.setVerifyInputWhenFocusTarget(false);
         jPanel16.add(jLabel5);
-        jLabel5.setBounds(705, 125, 13, 34);
+        jLabel5.setBounds(730, 120, 13, 34);
 
         jLabel13.setBackground(new java.awt.Color(255, 255, 255));
         jLabel13.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
@@ -582,7 +582,7 @@ public class Add_new_design extends javax.swing.JFrame {
         jLabel13.setRequestFocusEnabled(false);
         jLabel13.setVerifyInputWhenFocusTarget(false);
         jPanel16.add(jLabel13);
-        jLabel13.setBounds(388, 120, 13, 34);
+        jLabel13.setBounds(400, 120, 13, 34);
 
         quantity.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         quantity.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -591,7 +591,7 @@ public class Add_new_design extends javax.swing.JFrame {
             }
         });
         jPanel16.add(quantity);
-        quantity.setBounds(190, 120, 195, 34);
+        quantity.setBounds(190, 120, 210, 34);
 
         jLabel12.setBackground(new java.awt.Color(255, 255, 255));
         jLabel12.setFont(new java.awt.Font("Century Gothic", 0, 17)); // NOI18N
@@ -706,7 +706,7 @@ public class Add_new_design extends javax.swing.JFrame {
         edit_purchase.setBounds(414, 168, 165, 30);
 
         jPanel1.add(jPanel16);
-        jPanel16.setBounds(0, 0, 770, 210);
+        jPanel16.setBounds(10, 0, 770, 210);
 
         add_fabric.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         add_fabric.setText("+");
@@ -718,7 +718,7 @@ public class Add_new_design extends javax.swing.JFrame {
             }
         });
         jPanel1.add(add_fabric);
-        add_fabric.setBounds(433, 216, 25, 25);
+        add_fabric.setBounds(460, 220, 25, 25);
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 65, 790, 290));
 
@@ -2129,7 +2129,7 @@ public class Add_new_design extends javax.swing.JFrame {
 
         getContentPane().add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 350, 790, 360));
 
-        setSize(new java.awt.Dimension(807, 752));
+        setSize(new java.awt.Dimension(809, 752));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
     /**
