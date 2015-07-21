@@ -76,7 +76,7 @@ public class SpreadsheetTrial {
             Screen_and_colorway_link first_colorway = this_colorway.get(0);
             
             template.setField("screen1", first_colorway.getColorway_name());
-            template.setField("kilo1", first_colorway.getWeight_kg());
+            template.setField("kilo1", Integer.toString(Math.round(first_colorway.getWeight_kg())));
             template.setField("bind1", first_colorway.getBinder());
             //FOR COLORWAY SCREEN
             List<Colorway_and_pigment> the_screens = first_colorway.getThis_screens();
@@ -283,7 +283,7 @@ public class SpreadsheetTrial {
          final Map<String, String> res = new HashMap<String, String>();
          res.put("no", Integer.toString(screen_count++));
          res.put("screen2", this_color_screen.getColorway_name());
-         res.put("kil2"   , Float.toString(this_color_screen.getWeight_kg()));
+         res.put("kil2"   , Integer.toString(Math.round(this_color_screen.getWeight_kg())));
          res.put("bind2"  , Float.toString(this_color_screen.getBinder()));
          
          List<Colorway_and_pigment> the_screens = this_color_screen.getThis_screens();
