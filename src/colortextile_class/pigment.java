@@ -140,6 +140,12 @@ public class pigment implements Comparable<pigment>{
         new_conn.update_pigment(this);
     }
     
+    public void delete_this_pigment()
+    {
+        DB_Manager new_conn = new DB_Manager();
+        new_conn.delete_pigment(this.pigment_no);
+    }
+    
     
     
     

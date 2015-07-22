@@ -193,19 +193,11 @@ public class add_pigment_form extends javax.swing.JFrame {
             {   
                 colortextile_class.pigment add_this_pig = new colortextile_class.pigment();
                 add_this_pig.setPigment_name(pig_text.getText());
-                if(!add_this_pig.check_pigment_exists())
-                {
-                    if(add_this_pig.add_pigment()){
-                        
-                        JOptionPane.showMessageDialog(null, "Successfully added pigment : "+pig_text.getText());
+                if(add_this_pig.add_pigment()){
+                    JOptionPane.showMessageDialog(null, "Successfully added pigment : "+pig_text.getText());
                         //JOptionPane.showMessageDialog(null,"Matagumpay na naidagdag ang Pigment");
-                        this.dispose();
-                    }
-                    else
-                        JOptionPane.showMessageDialog(null, "Error please run the program again.");
-                        //JOptionPane.showMessageDialog(null,"Hinde na-idagdag ang pigment.. Pakiulit nalang ang pagtakbo ng program");
-
-                }
+                    this.dispose();
+                }    
                 else
                 JOptionPane.showMessageDialog(null, "Pigment has already been added.");
                 //JOptionPane.showMessageDialog(null,"Naidagdag na ang pigment na ito.");
@@ -215,8 +207,9 @@ public class add_pigment_form extends javax.swing.JFrame {
                this.update_this_pigment.set_pigment_id_from_name();
                if(this.update_this_pigment.getPigment_no() != -1)
                {
+                   update_this_pigment.delete_this_pigment();
                    update_this_pigment.setPigment_name(pig_text.getText());
-                   update_this_pigment.update_pigment();
+                   update_this_pigment.add_pigment();
                    JOptionPane.showMessageDialog(null, "Pigment has been updated.");
                }
                this.edit_but.setText("Edit");

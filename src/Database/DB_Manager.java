@@ -2420,6 +2420,26 @@ public class DB_Manager {
         }
     }
     
+    public void delete_pigment(int pigment_no)
+    {
+        DBConnection db = new DBConnection();
+        Connection conn = db.getConnection();
+        
+        try{
+             PreparedStatement ps = conn.prepareStatement("DELETE FROM pigment"
+                                                        +" WHERE pigment_no = ?");
+            int item = 1;
+            ps.setInt(item++, pigment_no);
+            
+            ps.executeUpdate();
+            this.closeConn(conn, ps);
+        }
+        catch (SQLException ex)
+        {
+            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex); 
+        }
+    }
+    
     public void delete_job_order(job_order this_job)
     {
         try
