@@ -196,7 +196,7 @@ public class add_pigment_form extends javax.swing.JFrame {
                 if(!add_this_pig.check_pigment_exists())
                 {
                     if(add_this_pig.add_pigment()){
-                        this.fill_table();
+                        
                         JOptionPane.showMessageDialog(null, "Successfully added pigment : "+pig_text.getText());
                         //JOptionPane.showMessageDialog(null,"Matagumpay na naidagdag ang Pigment");
                         this.dispose();
@@ -222,6 +222,7 @@ public class add_pigment_form extends javax.swing.JFrame {
                this.edit_but.setText("Edit");
                add_button.setText("Add Pigment");
             }
+            this.fill_table();
             this.reset_pigment_text();
         }
         else

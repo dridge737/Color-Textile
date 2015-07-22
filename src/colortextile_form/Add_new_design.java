@@ -2800,7 +2800,7 @@ public class Add_new_design extends javax.swing.JFrame {
     }//GEN-LAST:event_text_job_orderKeyTyped
 
     private void coverage1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_coverage1KeyReleased
-        // TODO add your handling code here:
+         // TODO add your handling code here:
         if(check_this_textbox(coverage1))
         {
             compute_kg(weigh_kg, coverage1);

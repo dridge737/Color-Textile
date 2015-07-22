@@ -2263,7 +2263,7 @@ public class DB_Manager {
                     + " SET pigment_name=? "
                     + " WHERE pigment_no = ?;");
             
-            ps.setString(item++, this_pigment.getPigment_name());
+            ps.setString(item++, this_pigment.getPigment_name().toUpperCase());
             ps.setInt(item++, this_pigment.getPigment_no());
             ps.executeUpdate();
             this.closeConn(conn, ps);
