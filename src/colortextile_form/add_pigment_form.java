@@ -189,18 +189,11 @@ public class add_pigment_form extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(pig_text.getText().length()>0 && !pig_text.getText().equals("Pigment Name :"))
         {
+            colortextile_class.pigment add_this_pig = new colortextile_class.pigment();
             if(add_button.getText().equals("Add Pigment"))
             {   
-                colortextile_class.pigment add_this_pig = new colortextile_class.pigment();
                 add_this_pig.setPigment_name(pig_text.getText());
-                if(add_this_pig.add_pigment()){
-                    JOptionPane.showMessageDialog(null, "Successfully added pigment : "+pig_text.getText());
-                        //JOptionPane.showMessageDialog(null,"Matagumpay na naidagdag ang Pigment");
-                    this.dispose();
-                }    
-                else
-                JOptionPane.showMessageDialog(null, "Pigment has already been added.");
-                //JOptionPane.showMessageDialog(null,"Naidagdag na ang pigment na ito.");
+                
             }
             else
             {
@@ -209,12 +202,23 @@ public class add_pigment_form extends javax.swing.JFrame {
                {
                    update_this_pigment.delete_this_pigment();
                    update_this_pigment.setPigment_name(pig_text.getText());
-                   update_this_pigment.add_pigment();
-                   JOptionPane.showMessageDialog(null, "Pigment has been updated.");
+                   if(update_this_pigment.add_pigment())
+                       JOptionPane.showMessageDialog(null, "Pigment has been updated.");
+                   else
+                       JOptionPane.showMessageDialog(null, "Pigment has already been added.");
                }
                this.edit_but.setText("Edit");
                add_button.setText("Add Pigment");
             }
+            
+            if(add_this_pig.add_pigment()){
+                    JOptionPane.showMessageDialog(null, "Successfully added pigment : "+pig_text.getText());
+                        //JOptionPane.showMessageDialog(null,"Matagumpay na naidagdag ang Pigment");
+                    this.dispose();
+                }    
+                else
+                JOptionPane.showMessageDialog(null, "Pigment has already been added.");
+                //JOptionPane.showMessageDialog(null,"Naidagdag na ang pigment na ito.");
             this.fill_table();
             this.reset_pigment_text();
         }
