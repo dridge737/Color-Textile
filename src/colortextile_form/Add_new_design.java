@@ -417,7 +417,7 @@ public class Add_new_design extends javax.swing.JFrame {
         add_order = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         preview_but = new javax.swing.JButton();
-        add_order2 = new javax.swing.JButton();
+        cancel_but = new javax.swing.JButton();
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -606,6 +606,7 @@ public class Add_new_design extends javax.swing.JFrame {
         jLabel12.setBounds(20, 120, 153, 34);
 
         customer_name_text.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
+        customer_name_text.setNextFocusableComponent(quantity);
         jPanel16.add(customer_name_text);
         customer_name_text.setBounds(190, 70, 210, 34);
 
@@ -618,6 +619,7 @@ public class Add_new_design extends javax.swing.JFrame {
         customer_combo_list.setBounds(190, 70, 170, 34);
 
         text_job_order.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        text_job_order.setNextFocusableComponent(customer_name_text);
         text_job_order.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 text_job_orderKeyReleased(evt);
@@ -743,7 +745,7 @@ public class Add_new_design extends javax.swing.JFrame {
 
         jLabel129.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         jLabel129.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel129.setText("Screen Name :");
+        jLabel129.setText("Screen Name 1 :");
         jPanel9.add(jLabel129, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 10, 120, 34));
 
         colorway_name.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
@@ -856,6 +858,8 @@ public class Add_new_design extends javax.swing.JFrame {
 
         binder.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         binder.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "3.5", "4", "5.5", "8" }));
+        binder.setName(""); // NOI18N
+        binder.setNextFocusableComponent(jTabbedPane2);
         jPanel9.add(binder, new org.netbeans.lib.awtextra.AbsoluteConstraints(351, 200, 61, 30));
 
         jLabel143.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
@@ -1050,6 +1054,7 @@ public class Add_new_design extends javax.swing.JFrame {
 
         binder2.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         binder2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "3.5", "4", "5.5", "8" }));
+        binder2.setNextFocusableComponent(jTabbedPane2);
         jPanel4.add(binder2, new org.netbeans.lib.awtextra.AbsoluteConstraints(351, 200, 61, 30));
 
         jLabel63.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
@@ -1062,7 +1067,7 @@ public class Add_new_design extends javax.swing.JFrame {
 
         jLabel145.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         jLabel145.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel145.setText("Screen Name :");
+        jLabel145.setText("Screen Name 2 :");
         jPanel4.add(jLabel145, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 10, 120, 34));
 
         jLabel156.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
@@ -1242,6 +1247,7 @@ public class Add_new_design extends javax.swing.JFrame {
 
         binder3.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         binder3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "3.5", "4", "5.5", "8" }));
+        binder3.setNextFocusableComponent(jTabbedPane2);
         jPanel5.add(binder3, new org.netbeans.lib.awtextra.AbsoluteConstraints(351, 200, 61, 30));
 
         jLabel79.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
@@ -1254,7 +1260,7 @@ public class Add_new_design extends javax.swing.JFrame {
 
         jLabel146.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         jLabel146.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel146.setText("Screen Name :");
+        jLabel146.setText("Screen Name 3 :");
         jPanel5.add(jLabel146, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 10, 120, 34));
 
         jLabel158.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
@@ -1433,6 +1439,7 @@ public class Add_new_design extends javax.swing.JFrame {
 
         binder4.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         binder4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "3.5", "4", "5.5", "8" }));
+        binder4.setNextFocusableComponent(jTabbedPane2);
         jPanel6.add(binder4, new org.netbeans.lib.awtextra.AbsoluteConstraints(351, 200, 61, 30));
 
         jLabel95.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
@@ -1445,7 +1452,7 @@ public class Add_new_design extends javax.swing.JFrame {
 
         jLabel147.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         jLabel147.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel147.setText("Screen Name :");
+        jLabel147.setText("Screen Name 4 :");
         jPanel6.add(jLabel147, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 10, 120, 34));
 
         jLabel160.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
@@ -1621,6 +1628,7 @@ public class Add_new_design extends javax.swing.JFrame {
 
         binder5.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         binder5.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "3.5", "4", "5.5", "8" }));
+        binder5.setNextFocusableComponent(jTabbedPane2);
         jPanel7.add(binder5, new org.netbeans.lib.awtextra.AbsoluteConstraints(351, 200, 61, 30));
 
         jLabel111.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
@@ -1633,7 +1641,7 @@ public class Add_new_design extends javax.swing.JFrame {
 
         jLabel148.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         jLabel148.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel148.setText("Screen Name :");
+        jLabel148.setText("Screen Name 5 :");
         jPanel7.add(jLabel148, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 10, 120, 34));
 
         jLabel162.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
@@ -1812,6 +1820,7 @@ public class Add_new_design extends javax.swing.JFrame {
 
         binder6.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         binder6.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "3.5", "4", "5.5", "8" }));
+        binder6.setNextFocusableComponent(jTabbedPane2);
         jPanel8.add(binder6, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 200, 61, 30));
 
         jLabel127.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
@@ -1824,7 +1833,7 @@ public class Add_new_design extends javax.swing.JFrame {
 
         jLabel149.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         jLabel149.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel149.setText("Screen Name :");
+        jLabel149.setText("Screen Name 6 :");
         jPanel8.add(jLabel149, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 10, 120, 34));
 
         jLabel154.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
@@ -2003,6 +2012,7 @@ public class Add_new_design extends javax.swing.JFrame {
 
         binder7.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         binder7.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "3.5", "4", "5.5", "8" }));
+        binder7.setNextFocusableComponent(add_fabric);
         jPanel15.add(binder7, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 200, 61, 30));
 
         jLabel169.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
@@ -2015,7 +2025,7 @@ public class Add_new_design extends javax.swing.JFrame {
 
         jLabel171.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         jLabel171.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel171.setText("Screen Name :");
+        jLabel171.setText("Screen Name 7 :");
         jPanel15.add(jLabel171, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 10, 120, 34));
 
         jLabel172.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
@@ -2116,17 +2126,17 @@ public class Add_new_design extends javax.swing.JFrame {
         jPanel11.add(preview_but, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 296, 240, 42));
         preview_but.getAccessibleContext().setAccessibleDescription("Show a previous of the design's details");
 
-        add_order2.setBackground(new java.awt.Color(255, 255, 255));
-        add_order2.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        add_order2.setText("Cancel and Exit");
-        add_order2.setToolTipText("");
-        add_order2.addActionListener(new java.awt.event.ActionListener() {
+        cancel_but.setBackground(new java.awt.Color(255, 255, 255));
+        cancel_but.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        cancel_but.setText("Cancel and Exit");
+        cancel_but.setToolTipText("");
+        cancel_but.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                add_order2ActionPerformed(evt);
+                cancel_butActionPerformed(evt);
             }
         });
-        jPanel11.add(add_order2, new org.netbeans.lib.awtextra.AbsoluteConstraints(516, 296, 240, 42));
-        add_order2.getAccessibleContext().setAccessibleDescription("Cancel the addition of this design");
+        jPanel11.add(cancel_but, new org.netbeans.lib.awtextra.AbsoluteConstraints(516, 296, 240, 42));
+        cancel_but.getAccessibleContext().setAccessibleDescription("Cancel the addition of this design");
 
         getContentPane().add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 350, 790, 360));
 
@@ -3121,7 +3131,7 @@ public class Add_new_design extends javax.swing.JFrame {
         this_preview.setVisible(true);
     }//GEN-LAST:event_preview_butActionPerformed
 
-    private void add_order2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_order2ActionPerformed
+    private void cancel_butActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancel_butActionPerformed
         // TODO add your handling code here:
         int CloseorNoreply = JOptionPane.showConfirmDialog(null,"Cancel the order and Close this Window? "
                     + "(Yes to close this window) ", "Close this Window?", JOptionPane.YES_NO_OPTION);
@@ -3129,7 +3139,7 @@ public class Add_new_design extends javax.swing.JFrame {
             {
                 this.dispose();
             }
-    }//GEN-LAST:event_add_order2ActionPerformed
+    }//GEN-LAST:event_cancel_butActionPerformed
 
     private void quantityKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_quantityKeyReleased
         // TODO add your handling code here:
@@ -4097,7 +4107,6 @@ public class Add_new_design extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton add_fabric;
     private javax.swing.JButton add_order;
-    private javax.swing.JButton add_order2;
     private javax.swing.JButton bind_add1;
     private javax.swing.JButton bind_add2;
     private javax.swing.JButton bind_add3;
@@ -4114,6 +4123,7 @@ public class Add_new_design extends javax.swing.JFrame {
     private javax.swing.JComboBox binder7;
     private javax.swing.JButton button_include_customer;
     private javax.swing.JButton button_remove_customer;
+    private javax.swing.JButton cancel_but;
     private javax.swing.JTextField colorway_name;
     private javax.swing.JTextField colorway_name3;
     private javax.swing.JTextField colorway_name4;

@@ -41,6 +41,7 @@ import java.awt.event.KeyEvent;
 import java.sql.Blob;
 import java.sql.SQLException;
 import java.lang.Object;
+import javax.swing.ComboBoxModel;
 /**
  *
  * @author Eldridge
@@ -55,6 +56,8 @@ public class EditRecipe extends javax.swing.JFrame {
     private Recipe_functions use_func = new Recipe_functions();
     private job_customer_quantity_list this_list = new job_customer_quantity_list();
     private String current_style;
+    private int pigment_button_check = -1;
+    int last_added_pigment_no;
     /**
      * Creates new form Add_new_design
      */
@@ -446,8 +449,8 @@ public class EditRecipe extends javax.swing.JFrame {
         jLabel153 = new javax.swing.JLabel();
         add_bind1 = new javax.swing.JButton();
         pig11 = new javax.swing.JButton();
-        pig12 = new javax.swing.JButton();
         pig13 = new javax.swing.JButton();
+        pig12 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         colorway_name3 = new javax.swing.JTextField();
         name5 = new javax.swing.JComboBox();
@@ -836,11 +839,13 @@ public class EditRecipe extends javax.swing.JFrame {
         jLabel12.setBounds(20, 120, 140, 34);
 
         customer_name_text.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
+        customer_name_text.setNextFocusableComponent(quantity);
         jPanel16.add(customer_name_text);
         customer_name_text.setBounds(170, 70, 160, 34);
 
         customer_combo_list.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         customer_combo_list.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        customer_combo_list.setFocusable(false);
         jPanel16.add(customer_combo_list);
         customer_combo_list.setBounds(170, 70, 160, 34);
         customer_combo_list.getAccessibleContext().setAccessibleDescription("Select Customer Name");
@@ -896,6 +901,7 @@ public class EditRecipe extends javax.swing.JFrame {
         jPanel16.add(jLabel10);
         jLabel10.setBounds(20, 20, 140, 34);
 
+        text_job_order.setNextFocusableComponent(customer_name_text);
         text_job_order.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 text_job_orderKeyReleased(evt);
@@ -978,7 +984,7 @@ public class EditRecipe extends javax.swing.JFrame {
 
         jLabel129.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         jLabel129.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel129.setText("Screen Name :");
+        jLabel129.setText("Screen Name 1 :");
         jPanel9.add(jLabel129, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 10, 120, 34));
 
         colorway_name2.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
@@ -1086,6 +1092,7 @@ public class EditRecipe extends javax.swing.JFrame {
 
         binder2.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         binder2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "3.5", "4.0", "5.5", "8.0" }));
+        binder2.setNextFocusableComponent(jTabbedPane2);
         jPanel9.add(binder2, new org.netbeans.lib.awtextra.AbsoluteConstraints(351, 200, 61, 30));
 
         jLabel143.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
@@ -1140,18 +1147,7 @@ public class EditRecipe extends javax.swing.JFrame {
                 pig11ActionPerformed(evt);
             }
         });
-        jPanel9.add(pig11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 148, 25, 25));
-
-        pig12.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        pig12.setText("+");
-        pig12.setFocusable(false);
-        pig12.setMargin(new java.awt.Insets(0, 0, 0, 0));
-        pig12.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                pig12ActionPerformed(evt);
-            }
-        });
-        jPanel9.add(pig12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 74, 25, 25));
+        jPanel9.add(pig11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 74, 25, 25));
 
         pig13.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         pig13.setText("+");
@@ -1162,7 +1158,18 @@ public class EditRecipe extends javax.swing.JFrame {
                 pig13ActionPerformed(evt);
             }
         });
-        jPanel9.add(pig13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 25, 25));
+        jPanel9.add(pig13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 148, 25, 25));
+
+        pig12.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        pig12.setText("+");
+        pig12.setFocusable(false);
+        pig12.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        pig12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pig12ActionPerformed(evt);
+            }
+        });
+        jPanel9.add(pig12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 25, 25));
 
         jTabbedPane2.addTab("1", jPanel9);
 
@@ -1280,6 +1287,7 @@ public class EditRecipe extends javax.swing.JFrame {
 
         binder3.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         binder3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "3.5", "4.0", "5.5", "8.0" }));
+        binder3.setNextFocusableComponent(jTabbedPane2);
         jPanel4.add(binder3, new org.netbeans.lib.awtextra.AbsoluteConstraints(351, 200, 61, 30));
 
         jLabel63.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
@@ -1292,7 +1300,7 @@ public class EditRecipe extends javax.swing.JFrame {
 
         jLabel145.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         jLabel145.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel145.setText("Screen Name :");
+        jLabel145.setText("Screen Name 2 :");
         jPanel4.add(jLabel145, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 10, 120, 34));
 
         jLabel156.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
@@ -1472,6 +1480,7 @@ public class EditRecipe extends javax.swing.JFrame {
 
         binder4.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         binder4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "3.5", "4.0", "5.5", "8.0" }));
+        binder4.setNextFocusableComponent(jTabbedPane2);
         jPanel5.add(binder4, new org.netbeans.lib.awtextra.AbsoluteConstraints(351, 200, 61, 30));
 
         jLabel79.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
@@ -1484,7 +1493,7 @@ public class EditRecipe extends javax.swing.JFrame {
 
         jLabel146.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         jLabel146.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel146.setText("Screen Name :");
+        jLabel146.setText("Screen Name 3 :");
         jPanel5.add(jLabel146, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 10, 120, 34));
 
         jLabel158.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
@@ -1663,6 +1672,7 @@ public class EditRecipe extends javax.swing.JFrame {
 
         binder5.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         binder5.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "3.5", "4.0", "5.5", "8.0" }));
+        binder5.setNextFocusableComponent(jTabbedPane2);
         jPanel6.add(binder5, new org.netbeans.lib.awtextra.AbsoluteConstraints(351, 200, 61, 30));
 
         jLabel95.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
@@ -1675,7 +1685,7 @@ public class EditRecipe extends javax.swing.JFrame {
 
         jLabel147.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         jLabel147.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel147.setText("Screen Name :");
+        jLabel147.setText("Screen Name 4 :");
         jPanel6.add(jLabel147, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 10, 120, 34));
 
         jLabel160.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
@@ -1854,6 +1864,7 @@ public class EditRecipe extends javax.swing.JFrame {
 
         binder6.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         binder6.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "3.5", "4.0", "5.5", "8.0" }));
+        binder6.setNextFocusableComponent(jTabbedPane2);
         jPanel7.add(binder6, new org.netbeans.lib.awtextra.AbsoluteConstraints(351, 200, 61, 30));
 
         jLabel111.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
@@ -1866,7 +1877,7 @@ public class EditRecipe extends javax.swing.JFrame {
 
         jLabel148.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         jLabel148.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel148.setText("Screen Name :");
+        jLabel148.setText("Screen Name 5 :");
         jPanel7.add(jLabel148, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 10, 120, 34));
 
         jLabel162.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
@@ -2045,6 +2056,7 @@ public class EditRecipe extends javax.swing.JFrame {
 
         binder7.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         binder7.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "3.5", "4.0", "5.5", "8.0" }));
+        binder7.setNextFocusableComponent(jTabbedPane2);
         jPanel8.add(binder7, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 200, 61, 30));
 
         jLabel127.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
@@ -2057,7 +2069,7 @@ public class EditRecipe extends javax.swing.JFrame {
 
         jLabel149.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         jLabel149.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel149.setText("Screen Name :");
+        jLabel149.setText("Screen Name 6 :");
         jPanel8.add(jLabel149, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 10, 120, 34));
 
         jLabel154.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
@@ -2236,6 +2248,7 @@ public class EditRecipe extends javax.swing.JFrame {
 
         binder9.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         binder9.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "3.5", "4.0", "5.5", "8.0" }));
+        binder9.setNextFocusableComponent(save_edit_but);
         jPanel15.add(binder9, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 200, 61, 30));
 
         jLabel169.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
@@ -2248,7 +2261,7 @@ public class EditRecipe extends javax.swing.JFrame {
 
         jLabel171.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         jLabel171.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel171.setText("Screen Name :");
+        jLabel171.setText("Screen Name 7 :");
         jPanel15.add(jLabel171, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 10, 120, 34));
 
         jLabel172.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
@@ -2319,7 +2332,7 @@ public class EditRecipe extends javax.swing.JFrame {
 
         save_edit_but.setBackground(new java.awt.Color(255, 255, 255));
         save_edit_but.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        save_edit_but.setText("Save This Edit");
+        save_edit_but.setText("Save this Edit");
         save_edit_but.setToolTipText("");
         save_edit_but.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2344,7 +2357,7 @@ public class EditRecipe extends javax.swing.JFrame {
 
         cancel_but.setBackground(new java.awt.Color(255, 255, 255));
         cancel_but.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        cancel_but.setText("Cancel & Exit");
+        cancel_but.setText("Cancel and Exit");
         cancel_but.setToolTipText("");
         cancel_but.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -3296,118 +3309,215 @@ public class EditRecipe extends javax.swing.JFrame {
         
         if(this.pigment_screen_showed)
         {
-        pigment this_pigment = new pigment();
-        if(this_pigment.count_all_pigment() != (name1.getItemCount()-1))
-            this.registerSelectedItem();
-        pigment_screen_showed = false;
+            pigment this_pigment = new pigment();
+            if(this_pigment.get_last_pigment_id() != this.last_added_pigment_no)
+            {
+                this.registerSelectedItem();
+                this.change_pigment_to_last_added_pigment();
+            }
+            pigment_screen_showed = false;
+            last_added_pigment_no = this_pigment.get_last_pigment_id();
         }
     }//GEN-LAST:event_formWindowGainedFocus
 
-    
+    private void change_pigment_to_last_added_pigment()
+    {
+        Database.DB_Manager new_conn = new Database.DB_Manager();
+        pigment added_pigment = new pigment();
+        added_pigment.set_name_and_id_from_last_added_pigment();
+        switch(pigment_button_check)
+        {
+            case 1:
+                name1.setSelectedItem(added_pigment.getPigment_name());
+                break;
+            case 2:
+                name2.setSelectedItem(added_pigment.getPigment_name());
+                break;
+            case 3:
+                name3.setSelectedItem(added_pigment.getPigment_name());
+                break;
+            case 4:
+                name5.setSelectedItem(added_pigment.getPigment_name());
+                break;
+            case 5:
+                name6.setSelectedItem(added_pigment.getPigment_name());
+                break;
+            case 6:
+                name7.setSelectedItem(added_pigment.getPigment_name());
+                break;
+            case 7:
+                name9.setSelectedItem(added_pigment.getPigment_name());
+                break;
+            case 8:
+                name10.setSelectedItem(added_pigment.getPigment_name());
+                break;
+            case 9:
+                name11.setSelectedItem(added_pigment.getPigment_name());
+                break;
+            case 10:
+                name13.setSelectedItem(added_pigment.getPigment_name());
+                break;
+            case 11:
+                name14.setSelectedItem(added_pigment.getPigment_name());
+                break;
+            case 12:
+                name15.setSelectedItem(added_pigment.getPigment_name());
+                break;
+            case 13:
+                name17.setSelectedItem(added_pigment.getPigment_name());
+                break;
+            case 14:
+                name18.setSelectedItem(added_pigment.getPigment_name());
+                break;
+            case 15:
+                name19.setSelectedItem(added_pigment.getPigment_name());
+                break;
+            case 16:
+                name21.setSelectedItem(added_pigment.getPigment_name());
+                break;
+            case 17:
+                name22.setSelectedItem(added_pigment.getPigment_name());
+                break;
+            case 18:
+                name23.setSelectedItem(added_pigment.getPigment_name());
+                break;
+            case 19:
+                name24.setSelectedItem(added_pigment.getPigment_name());
+                break;
+            case 20:
+                name25.setSelectedItem(added_pigment.getPigment_name());
+                break;
+            case 21:
+                name26.setSelectedItem(added_pigment.getPigment_name());
+                break;  
+        }
+        
+    }
     
     private void pig11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pig11ActionPerformed
         // TODO add your handling code here:
         show_add_pigment();
+        this.pigment_button_check = 1;
     }//GEN-LAST:event_pig11ActionPerformed
-
-    private void pig12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pig12ActionPerformed
-        // TODO add your handling code here:
-        show_add_pigment();
-    }//GEN-LAST:event_pig12ActionPerformed
 
     private void pig13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pig13ActionPerformed
         // TODO add your handling code here:
         show_add_pigment();
+        this.pigment_button_check = 3;
     }//GEN-LAST:event_pig13ActionPerformed
+
+    private void pig12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pig12ActionPerformed
+        // TODO add your handling code here:
+        show_add_pigment();
+        this.pigment_button_check = 2;
+    }//GEN-LAST:event_pig12ActionPerformed
 
     private void pig14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pig14ActionPerformed
         // TODO add your handling code here:
         show_add_pigment();
+        this.pigment_button_check = 4;
     }//GEN-LAST:event_pig14ActionPerformed
 
     private void pig15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pig15ActionPerformed
         // TODO add your handling code here:
         show_add_pigment();
+        this.pigment_button_check = 5;
     }//GEN-LAST:event_pig15ActionPerformed
 
     private void pig16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pig16ActionPerformed
         // TODO add your handling code here:
         show_add_pigment();
+        this.pigment_button_check = 6;
     }//GEN-LAST:event_pig16ActionPerformed
 
     private void pig17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pig17ActionPerformed
         // TODO add your handling code here:
         show_add_pigment();
+        this.pigment_button_check = 7;
     }//GEN-LAST:event_pig17ActionPerformed
 
     private void pig18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pig18ActionPerformed
         // TODO add your handling code here:
         show_add_pigment();
+        this.pigment_button_check = 8;
     }//GEN-LAST:event_pig18ActionPerformed
 
     private void pig19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pig19ActionPerformed
         // TODO add your handling code here:
         show_add_pigment();
+        this.pigment_button_check = 9;
     }//GEN-LAST:event_pig19ActionPerformed
 
     private void pig20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pig20ActionPerformed
         // TODO add your handling code here:
         show_add_pigment();
+        this.pigment_button_check = 10;
     }//GEN-LAST:event_pig20ActionPerformed
 
     private void pig21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pig21ActionPerformed
         // TODO add your handling code here:
         show_add_pigment();
+        this.pigment_button_check = 11;
     }//GEN-LAST:event_pig21ActionPerformed
 
     private void pig22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pig22ActionPerformed
         // TODO add your handling code here:
         show_add_pigment();
+        this.pigment_button_check = 12;
     }//GEN-LAST:event_pig22ActionPerformed
 
     private void pig23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pig23ActionPerformed
         // TODO add your handling code here:
         show_add_pigment();
+        this.pigment_button_check = 13;
     }//GEN-LAST:event_pig23ActionPerformed
 
     private void pig24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pig24ActionPerformed
         // TODO add your handling code here:
         show_add_pigment();
+        this.pigment_button_check = 14;
     }//GEN-LAST:event_pig24ActionPerformed
 
     private void pig25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pig25ActionPerformed
         // TODO add your handling code here:
         show_add_pigment();
+        this.pigment_button_check = 15;
     }//GEN-LAST:event_pig25ActionPerformed
 
     private void pig26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pig26ActionPerformed
         // TODO add your handling code here:
         show_add_pigment();
+        this.pigment_button_check = 16;
     }//GEN-LAST:event_pig26ActionPerformed
 
     private void pig27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pig27ActionPerformed
         // TODO add your handling code here:
         show_add_pigment();
+        this.pigment_button_check = 17;
     }//GEN-LAST:event_pig27ActionPerformed
 
     private void pig28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pig28ActionPerformed
         // TODO add your handling code here:
         show_add_pigment();
+        this.pigment_button_check = 18;
     }//GEN-LAST:event_pig28ActionPerformed
 
     private void pig29ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pig29ActionPerformed
         // TODO add your handling code here:
         show_add_pigment();
+        this.pigment_button_check = 19;
     }//GEN-LAST:event_pig29ActionPerformed
 
     private void pig30ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pig30ActionPerformed
         // TODO add your handling code here:
         show_add_pigment();
+        this.pigment_button_check = 20;
     }//GEN-LAST:event_pig30ActionPerformed
 
     private void pig31ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pig31ActionPerformed
         // TODO add your handling code here:
         show_add_pigment();
+        this.pigment_button_check = 21;
     }//GEN-LAST:event_pig31ActionPerformed
 
     private void edit_itemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edit_itemActionPerformed
@@ -3728,9 +3838,12 @@ public class EditRecipe extends javax.swing.JFrame {
     {
         colortextile_class.pigment list_pigment = new colortextile_class.pigment();
         ArrayList<String> pigment_list = list_pigment.get_all_pigment_name();
+        //ComboBoxModel new_model;
+        
         addBlankSpace();
         for(int temp_i = 0; temp_i < pigment_list.size(); temp_i++)
         {
+            
             name1.addItem(pigment_list.get(temp_i));
             name2.addItem(pigment_list.get(temp_i));
             name3.addItem(pigment_list.get(temp_i));
@@ -3753,6 +3866,7 @@ public class EditRecipe extends javax.swing.JFrame {
             name25.addItem(pigment_list.get(temp_i));
             name26.addItem(pigment_list.get(temp_i));
         }
+        this.last_added_pigment_no = list_pigment.get_last_pigment_id();
     }
     
     private void registerSelectedItem()
