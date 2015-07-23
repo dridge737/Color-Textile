@@ -3354,7 +3354,7 @@ public class Add_new_design extends javax.swing.JFrame {
                 this.change_pigment_to_last_added_pigment();
             }
             pigment_screen_showed = false;
-            
+            last_added_pigment_no = this_pigment.get_last_pigment_id();
         }
     }//GEN-LAST:event_formWindowGainedFocus
 
