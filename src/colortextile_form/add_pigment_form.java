@@ -190,7 +190,6 @@ public class add_pigment_form extends javax.swing.JFrame {
         if(pig_text.getText().length()>0 && !pig_text.getText().equals("Pigment Name :"))
         {
             //colortextile_class.pigment add_this_pig = new colortextile_class.pigment();
-            
             if(add_button.getText().equals("Save"))
             {
                this.update_this_pigment.set_pigment_id_from_name();

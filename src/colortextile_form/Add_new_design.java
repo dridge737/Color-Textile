@@ -45,6 +45,7 @@ public class Add_new_design extends javax.swing.JFrame {
     private int pigment_button_check = -1;
     private production_recipe this_recipe = new production_recipe();
     public boolean edit_recipe = false;
+    int last_added_pigment_no;
     /**
      * Creates new form Add_new_design
      */
@@ -3347,7 +3348,7 @@ public class Add_new_design extends javax.swing.JFrame {
         if(this.pigment_screen_showed)
         {
             pigment this_pigment = new pigment();
-            if(this_pigment.count_all_pigment() != (name1.getItemCount()-1))
+            if(this_pigment.get_last_pigment_id() != this.last_added_pigment_no)
             {
                 this.registerSelectedItem();
                 this.change_pigment_to_last_added_pigment();
@@ -3808,10 +3809,12 @@ public class Add_new_design extends javax.swing.JFrame {
             name25.addItem(pigment_list1);
             name26.addItem(pigment_list1);
         }
-        setJobid();
+        this.last_added_pigment_no = list_pigment.get_last_pigment_id();
+        setJobString();
+        
     }
     
-    public void setJobid()
+    public void setJobString()
     {
         DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
         Calendar cal = Calendar.getInstance();

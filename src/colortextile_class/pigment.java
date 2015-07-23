@@ -146,6 +146,12 @@ public class pigment implements Comparable<pigment>{
         new_conn.delete_pigment(this.pigment_no);
     }
     
+    public int get_last_pigment_id()
+    {
+        this.set_name_and_id_from_last_added_pigment();
+        return this.getPigment_no();  
+    }
+    
     
     
     
