@@ -288,7 +288,7 @@ public class SearchJOGui extends javax.swing.JFrame {
             }
         });
         jFrame1.getContentPane().add(jCheckBox2);
-        jCheckBox2.setBounds(585, 133, 65, 29);
+        jCheckBox2.setBounds(585, 133, 69, 29);
 
         jLabel8.setFont(new java.awt.Font("Century Gothic", 0, 34)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
