@@ -111,6 +111,25 @@ public class Recipe_functions {
         
         return Year+ "P-" + Month + "-";
     }
+    
+    public void update_kg_prep(String percentage_text, String weight_kg , JTextField this_textfield)
+    {
+        if(percentage_text.length()>0 && weight_kg.length()>0)
+        {
+            if(!this.checkText2(weight_kg) && !this.checkText2(percentage_text))
+            {      
+                    //float temp_percentage = Float.parseFloat(percentage_text);
+                    //float temp_weight = Float.parseFloat(weight_kg);
+                    float weight_prep = this.update_kg_and_prep(percentage_text, weight_kg);
+                    //Make this 2 Decimal digits
+                    this_textfield.setText(String.format("%.3f", weight_prep));
+            }
+            else
+            {
+                this_textfield.setText("Error!");
+            }
+        }
+    }
     /*
     private String get_date_from_spinner()
     {

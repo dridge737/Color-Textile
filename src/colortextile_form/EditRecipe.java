@@ -206,17 +206,17 @@ public class EditRecipe extends javax.swing.JFrame {
                     if(temp_loop2 == 0)
                     {
                             setTextValues_screens(name1, percentage1, current_screen.get(temp_loop2));
-                            update_kg_prep(percentage1.getText(), weigh_kg.getText(), kg_1);
+                            use_func.update_kg_prep(percentage1.getText(), weigh_kg.getText(), kg_1);
                     }
                     else if(temp_loop2 == 1)
                     {
                             setTextValues_screens(name2, percentage2, current_screen.get(temp_loop2));
-                            update_kg_prep(percentage2.getText(), weigh_kg.getText(), kg_2);
+                            use_func.update_kg_prep(percentage2.getText(), weigh_kg.getText(), kg_2);
                     }
                     else if(temp_loop2 == 2)
                     {
                             setTextValues_screens(name3, percentage3, current_screen.get(temp_loop2));
-                            update_kg_prep(percentage3.getText(), weigh_kg.getText(), kg_3);
+                            use_func.update_kg_prep(percentage3.getText(), weigh_kg.getText(), kg_3);
                     }
                 }
             }
@@ -229,17 +229,17 @@ public class EditRecipe extends javax.swing.JFrame {
                     if(temp_loop2 == 0)
                     {
                             setTextValues_screens(name5, percentage5, current_screen.get(temp_loop2));
-                            update_kg_prep(percentage5.getText(), weigh_kg3.getText(), kg_5);
+                            use_func.update_kg_prep(percentage5.getText(), weigh_kg3.getText(), kg_5);
                     }
                     else if(temp_loop2 == 1)
                     {
                             setTextValues_screens(name6, percentage6, current_screen.get(temp_loop2));
-                            update_kg_prep(percentage6.getText(), weigh_kg3.getText(), kg_6);
+                            use_func.update_kg_prep(percentage6.getText(), weigh_kg3.getText(), kg_6);
                     }
                     else if(temp_loop2 == 2)
                     {
                             setTextValues_screens(name7, percentage7, current_screen.get(temp_loop2));
-                            update_kg_prep(percentage7.getText(), weigh_kg3.getText(), kg_7);
+                            use_func.update_kg_prep(percentage7.getText(), weigh_kg3.getText(), kg_7);
                     }
                 }
             }
@@ -252,15 +252,15 @@ public class EditRecipe extends javax.swing.JFrame {
                     if(temp_loop2 == 0)
                     {
                             setTextValues_screens(name9, percentage9, current_screen.get(temp_loop2));
-                            update_kg_prep(percentage9.getText(), weigh_kg4.getText(), kg_9);
+                            use_func.update_kg_prep(percentage9.getText(), weigh_kg4.getText(), kg_9);
                     }
                     else if(temp_loop2 == 1){
                             setTextValues_screens(name10, percentage10, current_screen.get(temp_loop2));
-                            update_kg_prep(percentage10.getText(), weigh_kg4.getText(), kg_10);
+                            use_func.update_kg_prep(percentage10.getText(), weigh_kg4.getText(), kg_10);
                     }
                     else if(temp_loop2 == 2){
                             setTextValues_screens(name11, percentage11, current_screen.get(temp_loop2));
-                            update_kg_prep(percentage11.getText(), weigh_kg4.getText(), kg_11);
+                            use_func.update_kg_prep(percentage11.getText(), weigh_kg4.getText(), kg_11);
                     }
                 }
             }
@@ -273,15 +273,15 @@ public class EditRecipe extends javax.swing.JFrame {
                     if(temp_loop2 == 0)
                     {
                             setTextValues_screens(name13, percentage13, current_screen.get(temp_loop2));
-                            update_kg_prep(percentage13.getText(), weigh_kg5.getText(), kg_13);
+                            use_func.update_kg_prep(percentage13.getText(), weigh_kg5.getText(), kg_13);
                     }
                     else if(temp_loop2 == 1){
                             setTextValues_screens(name14, percentage14, current_screen.get(temp_loop2));
-                            update_kg_prep(percentage14.getText(), weigh_kg5.getText(), kg_14);
+                            use_func.update_kg_prep(percentage14.getText(), weigh_kg5.getText(), kg_14);
                     }
                     else if(temp_loop2 == 2){
                             setTextValues_screens(name15, percentage15, current_screen.get(temp_loop2));
-                            update_kg_prep(percentage15.getText(), weigh_kg5.getText(), kg_15);
+                            use_func.update_kg_prep(percentage15.getText(), weigh_kg5.getText(), kg_15);
                     }
                 }
             }
@@ -293,16 +293,16 @@ public class EditRecipe extends javax.swing.JFrame {
                 {
                     if(temp_loop2 == 0){
                             setTextValues_screens(name17, percentage17, current_screen.get(temp_loop2));
-                            update_kg_prep(percentage17.getText(), weigh_kg6.getText(), kg_17);
+                            use_func.update_kg_prep(percentage17.getText(), weigh_kg6.getText(), kg_17);
         
                     }
                     else if(temp_loop2 == 1){
                             setTextValues_screens(name18, percentage18, current_screen.get(temp_loop2));
-                            update_kg_prep(percentage18.getText(), weigh_kg6.getText(), kg_18);
+                            use_func.update_kg_prep(percentage18.getText(), weigh_kg6.getText(), kg_18);
                     }
                     else if(temp_loop2 == 2){
                             setTextValues_screens(name19, percentage19, current_screen.get(temp_loop2));
-                            update_kg_prep(percentage19.getText(), weigh_kg6.getText(), kg_19);
+                            use_func.update_kg_prep(percentage19.getText(), weigh_kg6.getText(), kg_19);
                     }
                 }
             }
@@ -315,15 +315,15 @@ public class EditRecipe extends javax.swing.JFrame {
                 {
                     if(temp_loop2 == 0){
                             setTextValues_screens(name21, percentage21, current_screen.get(temp_loop2));
-                            update_kg_prep(percentage21.getText(), weigh_kg7.getText(), kg_21);
+                            use_func.update_kg_prep(percentage21.getText(), weigh_kg7.getText(), kg_21);
                     }
                     else if(temp_loop2 == 1){
                             setTextValues_screens(name22, percentage22, current_screen.get(temp_loop2));
-                            update_kg_prep(percentage22.getText(), weigh_kg7.getText(), kg_22);
+                            use_func.update_kg_prep(percentage22.getText(), weigh_kg7.getText(), kg_22);
                     }
                     else if(temp_loop2 == 2){
                             setTextValues_screens(name23, percentage23, current_screen.get(temp_loop2));
-                            update_kg_prep(percentage23.getText(), weigh_kg7.getText(), kg_23);
+                            use_func.update_kg_prep(percentage23.getText(), weigh_kg7.getText(), kg_23);
                     }
                 }
             }
@@ -335,15 +335,15 @@ public class EditRecipe extends javax.swing.JFrame {
                 {
                     if(temp_loop2 == 0){
                             setTextValues_screens(name24, percentage24, current_screen.get(temp_loop2));
-                            update_kg_prep(percentage24.getText(), weigh_kg8.getText(), kg_24);
+                            use_func.update_kg_prep(percentage24.getText(), weigh_kg8.getText(), kg_24);
                     }
                     else if(temp_loop2 == 1){
                             setTextValues_screens(name25, percentage25, current_screen.get(temp_loop2));
-                            update_kg_prep(percentage25.getText(), weigh_kg8.getText(), kg_25);
+                            use_func.update_kg_prep(percentage25.getText(), weigh_kg8.getText(), kg_25);
                     }
                     else if(temp_loop2 == 2){
                             setTextValues_screens(name26, percentage26, current_screen.get(temp_loop2));
-                            update_kg_prep(percentage26.getText(), weigh_kg8.getText(), kg_26);
+                            use_func.update_kg_prep(percentage26.getText(), weigh_kg8.getText(), kg_26);
                     }
                 }
             }
@@ -414,6 +414,7 @@ public class EditRecipe extends javax.swing.JFrame {
         jLabel14 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         web_cams = new javax.swing.JComboBox();
+        add_fabric = new javax.swing.JButton();
         jPanel11 = new javax.swing.JPanel();
         jTabbedPane2 = new javax.swing.JTabbedPane();
         jPanel9 = new javax.swing.JPanel();
@@ -754,7 +755,7 @@ public class EditRecipe extends javax.swing.JFrame {
             }
         });
         jPanel1.add(fab_style_comb);
-        fab_style_comb.setBounds(520, 230, 150, 34);
+        fab_style_comb.setBounds(535, 230, 150, 34);
 
         design_color.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jPanel1.add(design_color);
@@ -768,7 +769,7 @@ public class EditRecipe extends javax.swing.JFrame {
         jLabel11.setText("Fabric Style :");
         jLabel11.setFocusable(false);
         jPanel1.add(jLabel11);
-        jLabel11.setBounds(400, 230, 110, 34);
+        jLabel11.setBounds(415, 230, 110, 34);
 
         jLabel4.setBackground(new java.awt.Color(255, 255, 255));
         jLabel4.setFont(new java.awt.Font("Century Gothic", 0, 17)); // NOI18N
@@ -962,6 +963,18 @@ public class EditRecipe extends javax.swing.JFrame {
         web_cams.setFocusable(false);
         jPanel1.add(web_cams);
         web_cams.setBounds(640, 145, 140, 25);
+
+        add_fabric.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        add_fabric.setText("+");
+        add_fabric.setFocusable(false);
+        add_fabric.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        add_fabric.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                add_fabricActionPerformed(evt);
+            }
+        });
+        jPanel1.add(add_fabric);
+        add_fabric.setBounds(390, 235, 25, 25);
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 790, 295));
 
@@ -2709,9 +2722,9 @@ public class EditRecipe extends javax.swing.JFrame {
         if(!use_func.checkText2(coverage1.getText()))
         {
             compute_kg(weigh_kg, coverage1);
-            update_kg_prep(percentage1.getText(), weigh_kg.getText(), kg_1);
-            update_kg_prep(percentage2.getText(), weigh_kg.getText(), kg_2);
-            update_kg_prep(percentage3.getText(), weigh_kg.getText(), kg_3);
+            use_func.update_kg_prep(percentage1.getText(), weigh_kg.getText(), kg_1);
+            use_func.update_kg_prep(percentage2.getText(), weigh_kg.getText(), kg_2);
+            use_func.update_kg_prep(percentage3.getText(), weigh_kg.getText(), kg_3);
         }
     }//GEN-LAST:event_coverage1KeyReleased
 
@@ -2720,9 +2733,9 @@ public class EditRecipe extends javax.swing.JFrame {
         if(!use_func.checkText2(coverage2.getText()))
         {
             compute_kg(weigh_kg7, coverage2);
-            update_kg_prep(percentage21.getText(), weigh_kg7.getText(), kg_21);
-            update_kg_prep(percentage22.getText(), weigh_kg7.getText(), kg_22);
-            update_kg_prep(percentage23.getText(), weigh_kg7.getText(), kg_23);
+            use_func.update_kg_prep(percentage21.getText(), weigh_kg7.getText(), kg_21);
+            use_func.update_kg_prep(percentage22.getText(), weigh_kg7.getText(), kg_22);
+            use_func.update_kg_prep(percentage23.getText(), weigh_kg7.getText(), kg_23);
         }
     }//GEN-LAST:event_coverage2KeyReleased
 
@@ -2731,9 +2744,9 @@ public class EditRecipe extends javax.swing.JFrame {
         if(!use_func.checkText2(coverage3.getText()))
         {
             compute_kg(weigh_kg3, coverage3);
-            update_kg_prep(percentage5.getText(), weigh_kg3.getText(), kg_5);
-            update_kg_prep(percentage6.getText(), weigh_kg3.getText(), kg_6);
-            update_kg_prep(percentage7.getText(), weigh_kg3.getText(), kg_7);
+            use_func.update_kg_prep(percentage5.getText(), weigh_kg3.getText(), kg_5);
+            use_func.update_kg_prep(percentage6.getText(), weigh_kg3.getText(), kg_6);
+            use_func.update_kg_prep(percentage7.getText(), weigh_kg3.getText(), kg_7);
         }
     }//GEN-LAST:event_coverage3KeyReleased
 
@@ -2743,9 +2756,9 @@ public class EditRecipe extends javax.swing.JFrame {
         if(!use_func.checkText2(coverage4.getText()))
         {
             compute_kg(weigh_kg4, coverage4);
-            update_kg_prep(percentage9.getText(), weigh_kg4.getText(), kg_9);
-            update_kg_prep(percentage10.getText(), weigh_kg4.getText(), kg_10);
-            update_kg_prep(percentage11.getText(), weigh_kg4.getText(), kg_11);
+            use_func.update_kg_prep(percentage9.getText(), weigh_kg4.getText(), kg_9);
+            use_func.update_kg_prep(percentage10.getText(), weigh_kg4.getText(), kg_10);
+            use_func.update_kg_prep(percentage11.getText(), weigh_kg4.getText(), kg_11);
         }
         
     }//GEN-LAST:event_coverage4KeyReleased
@@ -2755,9 +2768,9 @@ public class EditRecipe extends javax.swing.JFrame {
         if(!use_func.checkText2(coverage5.getText()))
         {
             compute_kg(weigh_kg5, coverage5);
-            update_kg_prep(percentage13.getText(), weigh_kg5.getText(), kg_13);
-            update_kg_prep(percentage14.getText(), weigh_kg5.getText(), kg_14);
-            update_kg_prep(percentage15.getText(), weigh_kg5.getText(), kg_15);
+            use_func.update_kg_prep(percentage13.getText(), weigh_kg5.getText(), kg_13);
+            use_func.update_kg_prep(percentage14.getText(), weigh_kg5.getText(), kg_14);
+            use_func.update_kg_prep(percentage15.getText(), weigh_kg5.getText(), kg_15);
         }
     }//GEN-LAST:event_coverage5KeyReleased
 
@@ -2767,9 +2780,9 @@ public class EditRecipe extends javax.swing.JFrame {
         if(!use_func.checkText2(coverage6.getText()))
         {
             compute_kg(weigh_kg6, coverage6);
-            update_kg_prep(percentage17.getText(), weigh_kg6.getText(), kg_17);
-            update_kg_prep(percentage18.getText(), weigh_kg6.getText(), kg_18);
-            update_kg_prep(percentage19.getText(), weigh_kg6.getText(), kg_19);
+            use_func.update_kg_prep(percentage17.getText(), weigh_kg6.getText(), kg_17);
+            use_func.update_kg_prep(percentage18.getText(), weigh_kg6.getText(), kg_18);
+            use_func.update_kg_prep(percentage19.getText(), weigh_kg6.getText(), kg_19);
         }
         
     }//GEN-LAST:event_coverage6KeyReleased
@@ -2777,140 +2790,140 @@ public class EditRecipe extends javax.swing.JFrame {
     private void percentage1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage1KeyReleased
         // TODO add your handling code here:
         if(check_this_textbox(percentage1))
-            update_kg_prep(percentage1.getText(), weigh_kg.getText(), kg_1);
+            use_func.update_kg_prep(percentage1.getText(), weigh_kg.getText(), kg_1);
     }//GEN-LAST:event_percentage1KeyReleased
 
     private void percentage2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage2KeyReleased
         // TODO add your handling code here:
         if(check_this_textbox(percentage2))
-        update_kg_prep(percentage2.getText(), weigh_kg.getText(), kg_2);
+        use_func.update_kg_prep(percentage2.getText(), weigh_kg.getText(), kg_2);
     }//GEN-LAST:event_percentage2KeyReleased
 
     private void percentage3KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage3KeyReleased
         // TODO add your handling code here:
         if(check_this_textbox(percentage3))
-        update_kg_prep(percentage3.getText(), weigh_kg.getText(), kg_3);
+        use_func.update_kg_prep(percentage3.getText(), weigh_kg.getText(), kg_3);
     }//GEN-LAST:event_percentage3KeyReleased
 
     private void weigh_kgKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_weigh_kgKeyReleased
         // TODO add your handling code here:
         if(check_this_textbox(weigh_kg))
         {
-            update_kg_prep(percentage1.getText(), weigh_kg.getText(), kg_1);
-            update_kg_prep(percentage2.getText(), weigh_kg.getText(), kg_2);
-            update_kg_prep(percentage3.getText(), weigh_kg.getText(), kg_3);
+            use_func.update_kg_prep(percentage1.getText(), weigh_kg.getText(), kg_1);
+            use_func.update_kg_prep(percentage2.getText(), weigh_kg.getText(), kg_2);
+            use_func.update_kg_prep(percentage3.getText(), weigh_kg.getText(), kg_3);
         }
     }//GEN-LAST:event_weigh_kgKeyReleased
 
     private void percentage5KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage5KeyReleased
         // TODO add your handling code here:
         if(check_this_textbox(percentage5))
-        update_kg_prep(percentage5.getText(), weigh_kg.getText(), kg_5);
+        use_func.update_kg_prep(percentage5.getText(), weigh_kg.getText(), kg_5);
     }//GEN-LAST:event_percentage5KeyReleased
 
     private void percentage6KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage6KeyReleased
         // TODO add your handling code here:
         if(check_this_textbox(percentage6))
-        update_kg_prep(percentage6.getText(), weigh_kg.getText(), kg_6);
+        use_func.update_kg_prep(percentage6.getText(), weigh_kg.getText(), kg_6);
     }//GEN-LAST:event_percentage6KeyReleased
 
     private void percentage7KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage7KeyReleased
         // TODO add your handling code here:
         if(check_this_textbox(percentage7))
-        update_kg_prep(percentage7.getText(), weigh_kg.getText(), kg_7);
+        use_func.update_kg_prep(percentage7.getText(), weigh_kg.getText(), kg_7);
     }//GEN-LAST:event_percentage7KeyReleased
 
     private void weigh_kg3KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_weigh_kg3KeyReleased
         // TODO add your handling code here:
         if(check_this_textbox(weigh_kg3))
         {
-            update_kg_prep(percentage5.getText(), weigh_kg3.getText(), kg_5);
-            update_kg_prep(percentage6.getText(), weigh_kg3.getText(), kg_6);
-            update_kg_prep(percentage7.getText(), weigh_kg3.getText(), kg_7);
+            use_func.update_kg_prep(percentage5.getText(), weigh_kg3.getText(), kg_5);
+            use_func.update_kg_prep(percentage6.getText(), weigh_kg3.getText(), kg_6);
+            use_func.update_kg_prep(percentage7.getText(), weigh_kg3.getText(), kg_7);
         }
     }//GEN-LAST:event_weigh_kg3KeyReleased
  
     private void percentage9KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage9KeyReleased
         // TODO add your handling code here:
         if(check_this_textbox(percentage9))
-            update_kg_prep(percentage9.getText(), weigh_kg4.getText(), kg_9);
+            use_func.update_kg_prep(percentage9.getText(), weigh_kg4.getText(), kg_9);
     }//GEN-LAST:event_percentage9KeyReleased
 
     private void percentage10KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage10KeyReleased
         // TODO add your handling code here:
         if(check_this_textbox(percentage10))
-            update_kg_prep(percentage10.getText(), weigh_kg4.getText(), kg_10);
+            use_func.update_kg_prep(percentage10.getText(), weigh_kg4.getText(), kg_10);
     }//GEN-LAST:event_percentage10KeyReleased
 
     private void percentage11KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage11KeyReleased
         // TODO add your handling code here:
         if(check_this_textbox(percentage11))       
-        update_kg_prep(percentage11.getText(), weigh_kg4.getText(), kg_11);
+        use_func.update_kg_prep(percentage11.getText(), weigh_kg4.getText(), kg_11);
     }//GEN-LAST:event_percentage11KeyReleased
 
     private void weigh_kg4KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_weigh_kg4KeyReleased
         // TODO add your handling code here:
         if(check_this_textbox(weigh_kg4))
         {        
-            update_kg_prep(percentage9.getText(), weigh_kg4.getText(), kg_9);
-            update_kg_prep(percentage10.getText(), weigh_kg4.getText(), kg_10);
-            update_kg_prep(percentage11.getText(), weigh_kg4.getText(), kg_11);
+            use_func.update_kg_prep(percentage9.getText(), weigh_kg4.getText(), kg_9);
+            use_func.update_kg_prep(percentage10.getText(), weigh_kg4.getText(), kg_10);
+            use_func.update_kg_prep(percentage11.getText(), weigh_kg4.getText(), kg_11);
         }
     }//GEN-LAST:event_weigh_kg4KeyReleased
 
     private void percentage13KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage13KeyReleased
         // TODO add your handling code here:
         if(check_this_textbox(percentage13))
-            update_kg_prep(percentage13.getText(), weigh_kg5.getText(), kg_13);
+            use_func.update_kg_prep(percentage13.getText(), weigh_kg5.getText(), kg_13);
     }//GEN-LAST:event_percentage13KeyReleased
 
     private void percentage14KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage14KeyReleased
         // TODO add your handling code here:
         if(check_this_textbox(percentage14))
-            update_kg_prep(percentage14.getText(), weigh_kg5.getText(), kg_14);
+            use_func.update_kg_prep(percentage14.getText(), weigh_kg5.getText(), kg_14);
     }//GEN-LAST:event_percentage14KeyReleased
 
     private void percentage15KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage15KeyReleased
         // TODO add your handling code here:
         if(check_this_textbox(percentage15))
-            update_kg_prep(percentage15.getText(), weigh_kg5.getText(), kg_15);
+            use_func.update_kg_prep(percentage15.getText(), weigh_kg5.getText(), kg_15);
     }//GEN-LAST:event_percentage15KeyReleased
 
     private void weigh_kg5KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_weigh_kg5KeyReleased
         // TODO add your handling code here:
         if(check_this_textbox(weigh_kg5))
         {
-            update_kg_prep(percentage13.getText(), weigh_kg5.getText(), kg_13);
-            update_kg_prep(percentage14.getText(), weigh_kg5.getText(), kg_14);
-            update_kg_prep(percentage15.getText(), weigh_kg5.getText(), kg_15);
+            use_func.update_kg_prep(percentage13.getText(), weigh_kg5.getText(), kg_13);
+            use_func.update_kg_prep(percentage14.getText(), weigh_kg5.getText(), kg_14);
+            use_func.update_kg_prep(percentage15.getText(), weigh_kg5.getText(), kg_15);
         }
     }//GEN-LAST:event_weigh_kg5KeyReleased
 
     private void percentage17KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage17KeyReleased
         // TODO add your handling code here:
         if(check_this_textbox(percentage17))
-            update_kg_prep(percentage17.getText(), weigh_kg6.getText(), kg_17);
+            use_func.update_kg_prep(percentage17.getText(), weigh_kg6.getText(), kg_17);
     }//GEN-LAST:event_percentage17KeyReleased
 
     private void percentage18KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage18KeyReleased
         // TODO add your handling code here:
         if(check_this_textbox(percentage18))
-            update_kg_prep(percentage18.getText(), weigh_kg6.getText(), kg_18);
+            use_func.update_kg_prep(percentage18.getText(), weigh_kg6.getText(), kg_18);
     }//GEN-LAST:event_percentage18KeyReleased
 
     private void percentage19KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage19KeyReleased
         // TODO add your handling code here:
         if(check_this_textbox(percentage19))
-            update_kg_prep(percentage19.getText(), weigh_kg6.getText(), kg_19);
+            use_func.update_kg_prep(percentage19.getText(), weigh_kg6.getText(), kg_19);
     }//GEN-LAST:event_percentage19KeyReleased
 
     private void weigh_kg6KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_weigh_kg6KeyReleased
         // TODO add your handling code here:
         if(check_this_textbox(weigh_kg6))
         {
-            update_kg_prep(percentage17.getText(), weigh_kg6.getText(), kg_17);
-            update_kg_prep(percentage18.getText(), weigh_kg6.getText(), kg_18);
-            update_kg_prep(percentage19.getText(), weigh_kg6.getText(), kg_19);
+            use_func.update_kg_prep(percentage17.getText(), weigh_kg6.getText(), kg_17);
+            use_func.update_kg_prep(percentage18.getText(), weigh_kg6.getText(), kg_18);
+            use_func.update_kg_prep(percentage19.getText(), weigh_kg6.getText(), kg_19);
         }
         
     }//GEN-LAST:event_weigh_kg6KeyReleased
@@ -2918,44 +2931,44 @@ public class EditRecipe extends javax.swing.JFrame {
     private void percentage21KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage21KeyReleased
         // TODO add your handling code here:
         if(check_this_textbox(percentage21))
-            update_kg_prep(percentage21.getText(), weigh_kg7.getText(), kg_21);
+            use_func.update_kg_prep(percentage21.getText(), weigh_kg7.getText(), kg_21);
     }//GEN-LAST:event_percentage21KeyReleased
 
     private void percentage22KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage22KeyReleased
         // TODO add your handling code here:
         if(check_this_textbox(percentage22))
-            update_kg_prep(percentage22.getText(), weigh_kg7.getText(), kg_22);
+            use_func.update_kg_prep(percentage22.getText(), weigh_kg7.getText(), kg_22);
     }//GEN-LAST:event_percentage22KeyReleased
 
     private void percentage23KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage23KeyReleased
         // TODO add your handling code here:
         if(check_this_textbox(percentage23))
-            update_kg_prep(percentage23.getText(), weigh_kg7.getText(), kg_23);
+            use_func.update_kg_prep(percentage23.getText(), weigh_kg7.getText(), kg_23);
     }//GEN-LAST:event_percentage23KeyReleased
 
     private void weigh_kg7KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_weigh_kg7KeyReleased
         // TODO add your handling code here:
         if(check_this_textbox(weigh_kg7))
         {
-            update_kg_prep(percentage21.getText(), weigh_kg7.getText(), kg_21);
-            update_kg_prep(percentage22.getText(), weigh_kg7.getText(), kg_22);
-            update_kg_prep(percentage23.getText(), weigh_kg7.getText(), kg_23);
+            use_func.update_kg_prep(percentage21.getText(), weigh_kg7.getText(), kg_21);
+            use_func.update_kg_prep(percentage22.getText(), weigh_kg7.getText(), kg_22);
+            use_func.update_kg_prep(percentage23.getText(), weigh_kg7.getText(), kg_23);
         }
     }//GEN-LAST:event_weigh_kg7KeyReleased
         
     private void percentage24KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage24KeyReleased
         // TODO add your handling code here:
         if(check_this_textbox(percentage24))
-            update_kg_prep(percentage24.getText(), weigh_kg8.getText(), kg_24);
+            use_func.update_kg_prep(percentage24.getText(), weigh_kg8.getText(), kg_24);
     }//GEN-LAST:event_percentage24KeyReleased
 
     private void weigh_kg8KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_weigh_kg8KeyReleased
         // TODO add your handling code here:
         if(check_this_textbox(weigh_kg8))
         {
-            update_kg_prep(percentage24.getText(), weigh_kg8.getText(), kg_24);
-            update_kg_prep(percentage25.getText(), weigh_kg8.getText(), kg_25);
-            update_kg_prep(percentage26.getText(), weigh_kg8.getText(), kg_26);
+            use_func.update_kg_prep(percentage24.getText(), weigh_kg8.getText(), kg_24);
+            use_func.update_kg_prep(percentage25.getText(), weigh_kg8.getText(), kg_25);
+            use_func.update_kg_prep(percentage26.getText(), weigh_kg8.getText(), kg_26);
         }
     }//GEN-LAST:event_weigh_kg8KeyReleased
 
@@ -2963,14 +2976,14 @@ public class EditRecipe extends javax.swing.JFrame {
     private void percentage25KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage25KeyReleased
         // TODO add your handling code here:
         if(check_this_textbox(percentage25))
-            update_kg_prep(percentage25.getText(), weigh_kg8.getText(), kg_25);
+            use_func.update_kg_prep(percentage25.getText(), weigh_kg8.getText(), kg_25);
     }//GEN-LAST:event_percentage25KeyReleased
 
     private void percentage26KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage26KeyReleased
         // TODO add your handling code here:
         if(check_this_textbox(percentage26))
         {
-            update_kg_prep(percentage26.getText(), weigh_kg8.getText(), kg_26);
+            use_func.update_kg_prep(percentage26.getText(), weigh_kg8.getText(), kg_26);
         }
     }//GEN-LAST:event_percentage26KeyReleased
 
@@ -2979,9 +2992,9 @@ public class EditRecipe extends javax.swing.JFrame {
         if(!use_func.checkText2(coverage8.getText()))
         {
             compute_kg(weigh_kg6, coverage8);
-            update_kg_prep(percentage24.getText(), weigh_kg8.getText(), kg_24);
-            update_kg_prep(percentage25.getText(), weigh_kg8.getText(), kg_25);
-            update_kg_prep(percentage26.getText(), weigh_kg8.getText(), kg_26);
+            use_func.update_kg_prep(percentage24.getText(), weigh_kg8.getText(), kg_24);
+            use_func.update_kg_prep(percentage25.getText(), weigh_kg8.getText(), kg_25);
+            use_func.update_kg_prep(percentage26.getText(), weigh_kg8.getText(), kg_26);
         }
     }//GEN-LAST:event_coverage8KeyReleased
     /*
@@ -3752,6 +3765,13 @@ public class EditRecipe extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_fab_style_combPopupMenuWillBecomeInvisible
 
+    private void add_fabricActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_fabricActionPerformed
+        // TODO add your handling code here:
+        fabric_style new_fab_window = new fabric_style();
+        new_fab_window.setVisible(true);
+
+    }//GEN-LAST:event_add_fabricActionPerformed
+
     private void compute_kg(JTextField weigh_kg, JTextField coverage)
     {
         if(!use_func.checkText2(coverage.getText()) && quantity_total.getText().length()>0)
@@ -3769,24 +3789,7 @@ public class EditRecipe extends javax.swing.JFrame {
         this.pigment_screen_showed = true;
     }
     
-    private void update_kg_prep(String percentage_text, String weight_kg , JTextField this_textfield)
-    {
-        if(percentage_text.length()>0 && weight_kg.length()>0)
-        {
-            if(!use_func.checkText2(weight_kg) && !use_func.checkText2(percentage_text))
-            {      
-                    //float temp_percentage = Float.parseFloat(percentage_text);
-                    //float temp_weight = Float.parseFloat(weight_kg);
-                    float weight_prep = use_func.update_kg_and_prep(percentage_text, weight_kg);
-                    //Make this 2 Decimal digits
-                    this_textfield.setText(String.format("%.2f", weight_prep));
-            }
-            else
-            {
-                this_textfield.setText("Error!");
-            }
-        }
-    }
+    
     
     private boolean check_this_textbox(JTextField the_textfield)
     {
@@ -4005,6 +4008,7 @@ public class EditRecipe extends javax.swing.JFrame {
     private javax.swing.JButton add_bind5;
     private javax.swing.JButton add_bind6;
     private javax.swing.JButton add_bind7;
+    private javax.swing.JButton add_fabric;
     private javax.swing.JComboBox binder2;
     private javax.swing.JComboBox binder3;
     private javax.swing.JComboBox binder4;
