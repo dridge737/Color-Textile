@@ -3067,6 +3067,7 @@ public class EditRecipe extends javax.swing.JFrame {
             this_list.add_customer_job_quantity_in_list(customer_name_text.getText(), 
                                                         job_order, 
                                                         quantity.getText());
+            
             //customer_list.add(this.customer_name_text.getText());
         //}
         /*else
@@ -3580,7 +3581,21 @@ public class EditRecipe extends javax.swing.JFrame {
 
     private void spinner_dateStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_spinner_dateStateChanged
         // TODO add your handling code here:
-        job_ord_label.setText(use_func.change_job_order_prefix(spinner_date));
+        if(!use_func.change_job_order_prefix(spinner_date).equals(job_ord_label.getText()))
+        {
+            job_ord_label.setText(use_func.change_job_order_prefix(spinner_date));
+            if(!this_list.getJob_list().isEmpty())
+            {
+                ArrayList<String> job_list = this_list.getJob_list();
+                for(int list_iterate= 0; list_iterate<job_list.size(); list_iterate++)
+                {
+                    job_list.set(list_iterate, job_ord_label.getText()+ job_list.get(list_iterate).substring(7, job_list.get(list_iterate).length()));
+                }
+                this_list.setJob_list(job_list);
+                jList1.setModel(this_list.get_items_in_list());
+            }
+        }
+        //job_ord_label.setText(use_func.change_job_order_prefix(spinner_date));
     }//GEN-LAST:event_spinner_dateStateChanged
 
     private void check_this_panels_colorway_and_weight(JTextField colorway_textbox, JTextField weight_textbox, int tabbedpane_index)
