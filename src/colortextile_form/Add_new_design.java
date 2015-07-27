@@ -521,7 +521,7 @@ public class Add_new_design extends javax.swing.JFrame {
         jLabel11.setText("Fabric Style :");
         jLabel11.setFocusable(false);
         jPanel1.add(jLabel11);
-        jLabel11.setBounds(480, 210, 110, 34);
+        jLabel11.setBounds(476, 210, 110, 34);
 
         jLabel4.setBackground(new java.awt.Color(255, 255, 255));
         jLabel4.setFont(new java.awt.Font("Century Gothic", 0, 17)); // NOI18N
@@ -721,7 +721,7 @@ public class Add_new_design extends javax.swing.JFrame {
             }
         });
         jPanel1.add(add_fabric);
-        add_fabric.setBounds(455, 215, 25, 25);
+        add_fabric.setBounds(452, 215, 25, 25);
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 65, 790, 290));
 
