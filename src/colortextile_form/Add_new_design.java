@@ -2326,6 +2326,7 @@ public class Add_new_design extends javax.swing.JFrame {
         this.edit_recipe = true;
         this_recipe.set_all_details_from_purchase_order_id(purchase_order);
         this.set_design_and_colorway_textbox(this_recipe);
+        this.previous_quantity_total = 1000;
         
     }
     

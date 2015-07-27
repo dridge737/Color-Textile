@@ -288,7 +288,7 @@ public class SearchJOGui extends javax.swing.JFrame {
             }
         });
         jFrame1.getContentPane().add(jCheckBox2);
-        jCheckBox2.setBounds(585, 133, 69, 29);
+        jCheckBox2.setBounds(585, 133, 65, 29);
 
         jLabel8.setFont(new java.awt.Font("Century Gothic", 0, 34)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
@@ -542,7 +542,7 @@ public class SearchJOGui extends javax.swing.JFrame {
         Add_new_design design_form = new Add_new_design();
         design_form.setVisible(true);
         design_form.fill_info2(selected_purchase.getId_purchase());
-       
+        
     }//GEN-LAST:event_button_detailsActionPerformed
 
     public void get_purchase_details_using_row_details()
