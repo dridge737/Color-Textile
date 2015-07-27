@@ -315,6 +315,28 @@ public class production_recipe extends Design_with_colorway{
         return coverage;
     }
     
+    public float compute_this_coverage(float kg, float quantity)
+    {
+        float coverage = 0;
+        if(this.getFabric_style().equals("PONGEE"))
+        {
+            coverage = (kg*1000/quantity)*10/8;
+        }
+        else if(this.getFabric_style().equals("COTTON") || this.getFabric_style().equals("KATUNIA"))
+        {
+            coverage = (kg*1000/quantity)*10/12;
+        }
+        else if (this.getFabric_style().equals("MICROPEACH") || this.getFabric_style().equals("TC") || this.getFabric_style().equals("TROPICANA"))
+        {
+            coverage = (kg*1000/quantity);
+        }
+        else
+            coverage = (kg*1000/quantity);
+            
+        return coverage;
+        
+    }
+    
     public float compute_this_kg_normalized(float coverage)
     {
         float colorway_kilogram = 0;
@@ -354,6 +376,30 @@ public class production_recipe extends Design_with_colorway{
         else if (this.getFabric_style().equals("MICROPEACH") || this.getFabric_style().equals("TC") || this.getFabric_style().equals("TROPICANA"))
         {
             colorway_kilogram = (10*coverage/10*this_quant)/1000;
+            //colorway_kilogram = Math.round((10*coverage/10*this_quant)/1000);
+        }
+        
+        return colorway_kilogram;
+    }
+    
+    public float compute_this_kg(float coverage, int quantity_total)
+    {
+        float colorway_kilogram = 0;
+        //float this_quant = this.get_quantity_sum();
+        //System.out.println("TOTAL QUANTITY ="+this_quant);
+        //COVERAGE SHOULD BE DIVIDED BY 100 TO BECOME DECIMAL
+        //ORIGINAL SHOULD BE 80*COVERAGE/100*TOTAL QUANTITY/ 1000
+        //SIMPLIFIED TO 8*COVERAGE/10*TOTAL QUANTITY /1000
+        if(this.getFabric_style().equals("PONGEE")){
+            colorway_kilogram = (8*coverage/10*quantity_total)/1000;
+        }
+        else if(this.getFabric_style().equals("COTTON") || this.getFabric_style().equals("KATUNIA"))
+        {
+            colorway_kilogram = (12*coverage/10*quantity_total)/1000;
+        }
+        else if (this.getFabric_style().equals("MICROPEACH") || this.getFabric_style().equals("TC") || this.getFabric_style().equals("TROPICANA"))
+        {
+            colorway_kilogram = (10*coverage/10*quantity_total)/1000;
             //colorway_kilogram = Math.round((10*coverage/10*this_quant)/1000);
         }
         

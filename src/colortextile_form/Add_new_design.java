@@ -46,6 +46,7 @@ public class Add_new_design extends javax.swing.JFrame {
     private production_recipe this_recipe = new production_recipe();
     public boolean edit_recipe = false;
     int last_added_pigment_no;
+    int previous_quantity_total = 0;
     /**
      * Creates new form Add_new_design
      */
@@ -2745,7 +2746,6 @@ public class Add_new_design extends javax.swing.JFrame {
                                                         quantity.getText());
         //refresh Textbox to add items
         this.jList1.setModel(this_list.get_items_in_list());
-        this.quantity_total.setText(Integer.toString(this_list.get_quantity_total()));
         //customer_list.add(this.customer_name_text.getText());
         /*}
         else
@@ -2758,9 +2758,38 @@ public class Add_new_design extends javax.swing.JFrame {
         //quantity_list.add(this.quantity.getText());
         
         */
+        this.quantity_total.setText(Integer.toString(this_list.get_quantity_total()));
+        this_recipe.setFabric_style(this.fab_style_comb.getSelectedItem().toString());
+        adjust_weights();
+        
         
     }
     
+    private void adjust_weights()
+    {
+        check_and_adjust_weights(weigh_kg);
+        check_and_adjust_weights(weigh_kg3);
+        check_and_adjust_weights(weigh_kg4);
+        check_and_adjust_weights(weigh_kg5);
+        check_and_adjust_weights(weigh_kg6);
+        check_and_adjust_weights(weigh_kg7);
+        check_and_adjust_weights(weigh_kg8);
+        this.previous_quantity_total = this_list.get_quantity_total();
+        
+    }
+    
+    private void check_and_adjust_weights(JTextField this_weight_field){
+        
+        if(this_weight_field.getText().length()>0 && previous_quantity_total != 0)
+        {
+            Float coverage_of_this = this_recipe.compute_this_coverage(Float.parseFloat(this_weight_field.getText()), this.previous_quantity_total);
+            //System.out.println(coverage_of_this.toString());
+            Float computation = this_recipe.compute_this_kg(coverage_of_this, this_list.get_quantity_total());
+            //System.out.println(computation);
+            this_weight_field.setText(Integer.toString(Math.round(computation)));
+        }
+        
+    }
     private void show_add_pigment()
     {
         add_pigment_form add_pigment = new add_pigment_form();
@@ -3401,6 +3430,7 @@ public class Add_new_design extends javax.swing.JFrame {
                 
                 jList1.setModel(this_list.remove_this_item(selected));
                 quantity_total.setText(Integer.toString(this_list.get_quantity_total()));
+                this.adjust_weights();
                 edit_purchase.setText("Cancel Edit");
             }
             else
@@ -3419,6 +3449,7 @@ public class Add_new_design extends javax.swing.JFrame {
             temporary_list.clear_all_items();
             quantity_total.setText(Integer.toString(this_list.get_quantity_total())); 
             jList1.setModel(this_list.get_items_in_list());
+            this.adjust_weights();
             edit_purchase.setText("Edit Order");
         }
         //this.customer_list.remove(selected);
