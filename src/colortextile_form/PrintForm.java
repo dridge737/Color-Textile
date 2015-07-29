@@ -66,11 +66,12 @@ public class PrintForm extends javax.swing.JFrame {
         search_model = conn.get_table_design_customer_job_order();
         
         this.search_print.setModel(search_model); 
+        search_print.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
         resizeColumnWidth(search_print);
         print_table.removeAll();
         temporary_table_model = conn.get_column_for_design_customer_job_order();
         print_table.setModel(temporary_table_model);
-        resizeColumnWidth(print_table);
+        //resizeColumnWidth(print_table);
         
     }
     
@@ -96,7 +97,7 @@ public class PrintForm extends javax.swing.JFrame {
         print_table.removeAll();
         temporary_table_model = conn.get_column_table_for_merged_date();
         print_table.setModel(temporary_table_model);   
-        resizeColumnWidth(print_table);
+        //resizeColumnWidth(print_table);
     }
 
     /**

@@ -652,6 +652,7 @@ public class SearchJOGui extends javax.swing.JFrame {
     private void insert_pic() throws SQLException{
         
         this.label_pic.setIcon(null);
+        this.label_pic.revalidate();
         int id = this.get_design_code_from_table_selected();
         
         design design_conn = new  design();
