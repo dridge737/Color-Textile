@@ -234,7 +234,7 @@ public class fabric_style extends javax.swing.JFrame {
                     !fabric_name.getText().toUpperCase().equals("TROPICANA"))
             {
                 design this_design = new design();
-                this_design.setFabric_style(this.fabric_name.getText());
+                this_design.setFabric_style(this.fabric_name.getText().toUpperCase());
                 this_design.setFabric_kilogram(Float.parseFloat(this.kilograms.getText()));
                 
                 if(this_design.add_fabric_style()){
