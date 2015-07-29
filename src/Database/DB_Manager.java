@@ -1466,8 +1466,8 @@ public class DB_Manager {
                 rs.previous();
                 while(rs.next())
                 {
-                    String get_job_prefix = rs.getString("All Jobs").substring(0, 7);
-                    String get_job_string = rs.getString("All Jobs").replaceAll(get_job_prefix,"");
+                    String get_job_prefix = rs.getString("All Job Order").substring(0, 7);
+                    String get_job_string = rs.getString("All Job Order").replaceAll(get_job_prefix,"");
                     get_job_string = get_job_prefix+ get_job_string;
                     
                     String[] this_set = {

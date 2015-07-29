@@ -3403,6 +3403,18 @@ public class Add_new_design extends javax.swing.JFrame {
             design new_design = new design();
             if(new_design.count_all_design() != fab_style_comb.getItemCount()-4)
             {
+                fab_style_comb.removeAllItems();
+                fab_style_comb.addItem("PONGEE");
+                fab_style_comb.addItem("COTTON");
+                fab_style_comb.addItem("KATUNIA");
+                fab_style_comb.addItem("MICROPEACH");
+                fab_style_comb.addItem("TC");
+                fab_style_comb.addItem("TROPICANA");
+                
+                for(String this_fabric : new_design.get_all_fabric_styles())
+                {
+                    fab_style_comb.addItem(this_fabric);
+                }
                 
             }
         }

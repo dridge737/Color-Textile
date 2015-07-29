@@ -124,7 +124,7 @@ public class Recipe_functions {
                     //Make this 2 Decimal digits
                     if(weight_prep < 0.01)
                     {
-                        this_textfield.setText(String.format("%.3f", Math.floor(weight_prep* 1000)/1000));
+                        this_textfield.setText(String.format("%.3f", Math.round(weight_prep* 1000)/1000));
                     }
                     else
                         this_textfield.setText(String.format("%.2f", Math.floor(weight_prep* 100)/100));
