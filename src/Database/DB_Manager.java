@@ -1068,7 +1068,7 @@ public class DB_Manager {
             DBConnection db = new DBConnection();
             Connection conn = db.getConnection(); 
             
-            PreparedStatement ps = conn.prepareStatement("SELECT fabric_name FROM fabric_style ORDER BY fabric_style ASC ");
+            PreparedStatement ps = conn.prepareStatement("SELECT fabric_name FROM fabric_style ORDER BY fabric_name ASC ");
             ResultSet rs = ps.executeQuery();
             ArrayList<String> fabric_style = new ArrayList<>();
             while(rs.next())

@@ -88,7 +88,11 @@ public class Add_new_design extends javax.swing.JFrame {
         this.set_customer_list_and_autocomplete();
         job_ord_label.setText(use_func.change_job_order_prefix(spinner_date));
         current_style = fab_style_comb.getSelectedItem().toString();
-        
+        design new_design = new design();
+        for(String this_fabric : new_design.get_all_fabric_styles())
+        {
+            fab_style_comb.addItem(this_fabric);
+        }
     }
     
     public void get_all_binders()

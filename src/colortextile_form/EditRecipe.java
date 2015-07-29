@@ -51,6 +51,7 @@ public class EditRecipe extends javax.swing.JFrame {
     private int count_screen_1 = 0;
     private boolean web_cam_opened = false;
     private boolean pigment_screen_showed = false;
+    private boolean fabric_style_screen_showed = false;
     private production_recipe prod_recipe  = new production_recipe();
     private job_customer_quantity_list temporary_list = new job_customer_quantity_list();
     private Recipe_functions use_func = new Recipe_functions();
@@ -77,6 +78,7 @@ public class EditRecipe extends javax.swing.JFrame {
         this.set_design_and_colorway_textbox_details();
         this.set_purchase_and_job_list_textbox();
         this.set_customer_list_and_autocomplete();
+        
     }
  
     
@@ -127,6 +129,12 @@ public class EditRecipe extends javax.swing.JFrame {
         for(Webcam all_web : webcam)
         {
             web_cams.addItem(all_web.getName());
+        }
+        
+        design new_design = new design();
+        for(String this_fabric : new_design.get_all_fabric_styles())
+        {
+            fab_style_comb.addItem(this_fabric);
         }
     }
     
@@ -3332,6 +3340,27 @@ public class EditRecipe extends javax.swing.JFrame {
             pigment_screen_showed = false;
             last_added_pigment_no = this_pigment.get_last_pigment_id();
         }
+        
+        if(this.fabric_style_screen_showed)
+        {
+            design new_design = new design();
+            if(new_design.count_all_design() != fab_style_comb.getItemCount()-4)
+            {
+                fab_style_comb.removeAllItems();
+                fab_style_comb.addItem("PONGEE");
+                fab_style_comb.addItem("COTTON");
+                fab_style_comb.addItem("KATUNIA");
+                fab_style_comb.addItem("MICROPEACH");
+                fab_style_comb.addItem("TC");
+                fab_style_comb.addItem("TROPICANA");
+                
+                for(String this_fabric : new_design.get_all_fabric_styles())
+                {
+                    fab_style_comb.addItem(this_fabric);
+                }
+                
+            }
+        }
     }//GEN-LAST:event_formWindowGainedFocus
 
     private void change_pigment_to_last_added_pigment()
@@ -3769,7 +3798,7 @@ public class EditRecipe extends javax.swing.JFrame {
         // TODO add your handling code here:
         fabric_style new_fab_window = new fabric_style();
         new_fab_window.setVisible(true);
-
+        fabric_style_screen_showed = true;
     }//GEN-LAST:event_add_fabricActionPerformed
 
     private void compute_kg(JTextField weigh_kg, JTextField coverage)

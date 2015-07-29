@@ -226,16 +226,28 @@ public class fabric_style extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(!fabric_name.getText().equals("Fabric Name :") && !kilograms.getText().equals("Kilograms"))
         {
-            design this_design = new design();
-            this_design.setFabric_style(this.fabric_name.getText());
-            this_design.setFabric_kilogram(Float.parseFloat(this.kilograms.getText()));
-            if(this_design.add_fabric_style()){
-                JOptionPane.showMessageDialog(null, "Fabric has successfully been added.");
-                this.dispose();
+            if(!fabric_name.getText().toUpperCase().equals("PONGEE") ||
+                    !fabric_name.getText().toUpperCase().equals("KATUNIA") ||
+                    !fabric_name.getText().toUpperCase().equals("COTTON") ||
+                    !fabric_name.getText().toUpperCase().equals("MICROPEACH") ||
+                    !fabric_name.getText().toUpperCase().equals("TC") ||
+                    !fabric_name.getText().toUpperCase().equals("TROPICANA"))
+            {
+                design this_design = new design();
+                this_design.setFabric_style(this.fabric_name.getText());
+                this_design.setFabric_kilogram(Float.parseFloat(this.kilograms.getText()));
+                
+                if(this_design.add_fabric_style()){
+                    JOptionPane.showMessageDialog(null, "Fabric has successfully been added.");
+                    this.dispose();
+                }
             }
             else
                 JOptionPane.showMessageDialog(null, "Fabric already been added.");
+            
         }
+        else
+            JOptionPane.showMessageDialog(null, "Please place a fabric name and kilograms");
     }//GEN-LAST:event_add_buttonActionPerformed
 
     private void kilogramsFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_kilogramsFocusGained
