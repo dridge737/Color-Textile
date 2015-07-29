@@ -11,6 +11,7 @@ import colortextile_class.design;
 import colortextile_class.job_order;
 import colortextile_class.production_recipe;
 import colortextile_class.purchase_order;
+import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.io.File;
@@ -23,8 +24,11 @@ import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableCellRenderer;
+import javax.swing.table.TableColumnModel;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 import org.jdom.JDOMException;
@@ -60,21 +64,39 @@ public class PrintForm extends javax.swing.JFrame {
     {
         DB_Manager conn= new DB_Manager();
         search_model = conn.get_table_design_customer_job_order();
+        
         this.search_print.setModel(search_model); 
+        resizeColumnWidth(search_print);
         print_table.removeAll();
         temporary_table_model = conn.get_column_for_design_customer_job_order();
         print_table.setModel(temporary_table_model);
+        resizeColumnWidth(print_table);
         
     }
+    
+    public void resizeColumnWidth(JTable table) {
+    final TableColumnModel columnModel = table.getColumnModel();
+    for (int column = 0; column < table.getColumnCount(); column++) {
+        int width = 50; // Min width
+        for (int row = 0; row < table.getRowCount(); row++) {
+            TableCellRenderer renderer = table.getCellRenderer(row, column);
+            Component comp = table.prepareRenderer(renderer, row, column);
+            width = Math.max(comp.getPreferredSize().width, width);
+        }
+        columnModel.getColumn(column).setPreferredWidth(width);
+    }
+}
     
     private void fill_table_merged_date_search()
     {
         DB_Manager conn= new DB_Manager();
         search_model = conn.get_table_merged_date();
         this.search_print.setModel(search_model); 
+        resizeColumnWidth(search_print);
         print_table.removeAll();
         temporary_table_model = conn.get_column_table_for_merged_date();
         print_table.setModel(temporary_table_model);   
+        resizeColumnWidth(print_table);
     }
 
     /**
