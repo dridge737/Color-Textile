@@ -10,6 +10,7 @@ import colortextile_class.design;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -228,7 +229,12 @@ public class fabric_style extends javax.swing.JFrame {
             design this_design = new design();
             this_design.setFabric_style(this.fabric_name.getText());
             this_design.setFabric_kilogram(Float.parseFloat(this.kilograms.getText()));
-            this_design.add_fabric_style();
+            if(this_design.add_fabric_style()){
+                JOptionPane.showMessageDialog(null, "Fabric has successfully been added.");
+                this.dispose();
+            }
+            else
+                JOptionPane.showMessageDialog(null, "Fabric already been added.");
         }
     }//GEN-LAST:event_add_buttonActionPerformed
 
