@@ -103,6 +103,26 @@ public class DB_Manager {
         return total;
     }
     
+    public int count_number_of_design()
+    {
+        int total = -1;
+        try {
+            DBConnection db = new DBConnection();
+            Connection conn = db.getConnection();
+
+            PreparedStatement ps = conn.prepareStatement("SELECT COUNT(id_fabric) AS 'Total' FROM fabric_style");
+           
+            ResultSet rs = ps.executeQuery();
+            
+            rs.first();
+            total = rs.getInt("Total");
+            this.closeConn(conn, ps, rs);
+        } catch (SQLException ex) {
+            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return total;
+    }
+    
     public boolean add_pigment(colortextile_class.pigment this_pigment)
     {
         try {
@@ -1446,13 +1466,18 @@ public class DB_Manager {
                 rs.previous();
                 while(rs.next())
                 {
+                    String get_job_prefix = rs.getString("All Jobs").substring(0, 7);
+                    String get_job_string = rs.getString("All Jobs").replaceAll(get_job_prefix,"");
+                    get_job_string = get_job_prefix+ get_job_string;
+                    
                     String[] this_set = {
                         rs.getString("date"),
                         rs.getString("Design Name/s"),
                         rs.getString("Color/s"),
                         rs.getString("Fabric Style/s"),
                         rs.getString("Customer/s"),
-                        rs.getString("All Job Order")
+                        get_job_string
+//rs.getString("All Job Order")
                     };
                     model.addRow(this_set);
                 }
@@ -1561,6 +1586,10 @@ public class DB_Manager {
                rs.previous();
                 while (rs.next())
                 {   
+                    String get_job_prefix = rs.getString("All Jobs").substring(0, 7);
+                    String get_job_string = rs.getString("All Jobs").replaceAll(get_job_prefix,"");
+                    get_job_string = get_job_prefix+ get_job_string;
+                    
                     String[] this_set = {
                         rs.getString("date"),
                         rs.getString("design_name"),
@@ -1568,7 +1597,7 @@ public class DB_Manager {
                         rs.getString("fabric_style"),
                         rs.getString("Total"),
                         rs.getString("Customer"),
-                        rs.getString("All Jobs")
+                        get_job_string
                     };
                     model.addRow(this_set);
                 }

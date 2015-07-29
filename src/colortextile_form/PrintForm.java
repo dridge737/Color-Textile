@@ -46,7 +46,7 @@ public class PrintForm extends javax.swing.JFrame {
         initComponents();
         fill_table_per_purchase_table();
         //Center the form
-        this.setSize(815, 570);
+        this.setSize(955, 570);
         Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
         
         int x = (int) ((dimension.getWidth() - this.getWidth()) / 2);
@@ -135,7 +135,7 @@ public class PrintForm extends javax.swing.JFrame {
         jScrollPane1.setViewportView(search_print);
 
         jPanel1.add(jScrollPane1);
-        jScrollPane1.setBounds(10, 100, 780, 180);
+        jScrollPane1.setBounds(10, 100, 920, 180);
 
         jScrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
 
@@ -156,7 +156,7 @@ public class PrintForm extends javax.swing.JFrame {
         jScrollPane2.setViewportView(print_table);
 
         jPanel1.add(jScrollPane2);
-        jScrollPane2.setBounds(10, 340, 780, 130);
+        jScrollPane2.setBounds(10, 340, 920, 130);
 
         jPanel2.setOpaque(false);
 
@@ -201,7 +201,7 @@ public class PrintForm extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 196, Short.MAX_VALUE)
+                .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 336, Short.MAX_VALUE)
                 .addGap(89, 89, 89)
                 .addComponent(purchase_button, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -223,7 +223,7 @@ public class PrintForm extends javax.swing.JFrame {
         );
 
         jPanel1.add(jPanel2);
-        jPanel2.setBounds(10, 64, 780, 40);
+        jPanel2.setBounds(10, 64, 920, 40);
 
         print_button.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         print_button.setText("Print Table ");
@@ -234,7 +234,7 @@ public class PrintForm extends javax.swing.JFrame {
             }
         });
         jPanel1.add(print_button);
-        print_button.setBounds(10, 480, 250, 40);
+        print_button.setBounds(10, 480, 300, 40);
 
         add_row_button.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         add_row_button.setText("Add selected row to Print Table");
@@ -244,7 +244,7 @@ public class PrintForm extends javax.swing.JFrame {
             }
         });
         jPanel1.add(add_row_button);
-        add_row_button.setBounds(240, 290, 320, 40);
+        add_row_button.setBounds(300, 290, 320, 40);
         add_row_button.getAccessibleContext().setAccessibleName("add_row");
 
         delete_button.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
@@ -256,7 +256,7 @@ public class PrintForm extends javax.swing.JFrame {
             }
         });
         jPanel1.add(delete_button);
-        delete_button.setBounds(270, 480, 270, 40);
+        delete_button.setBounds(328, 480, 300, 40);
 
         jLabel1.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -272,10 +272,10 @@ public class PrintForm extends javax.swing.JFrame {
             }
         });
         jPanel1.add(cancel_button);
-        cancel_button.setBounds(550, 480, 240, 40);
+        cancel_button.setBounds(645, 480, 280, 40);
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 800, 540);
+        jPanel1.setBounds(0, 0, 940, 540);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

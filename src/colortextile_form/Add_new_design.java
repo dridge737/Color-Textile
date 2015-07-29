@@ -39,6 +39,7 @@ public class Add_new_design extends javax.swing.JFrame {
     //private colortextile_class.Job_purchase_link_functions this_purchase = new colortextile_class.Job_purchase_link_functions();
     private Recipe_functions use_func = new Recipe_functions();
     private boolean pigment_screen_showed = false;
+    private boolean fabric_style_screen_showed = false;
     private job_customer_quantity_list this_list = new job_customer_quantity_list();
     private job_customer_quantity_list temporary_list = new job_customer_quantity_list();
     private String current_style;
@@ -3396,6 +3397,15 @@ public class Add_new_design extends javax.swing.JFrame {
             pigment_screen_showed = false;
             last_added_pigment_no = this_pigment.get_last_pigment_id();
         }
+        
+        if(this.fabric_style_screen_showed)
+        {
+            design new_design = new design();
+            if(new_design.count_all_design() != fab_style_comb.getItemCount()-4)
+            {
+                
+            }
+        }
     }//GEN-LAST:event_formWindowGainedFocus
 
     private void edit_purchaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edit_purchaseActionPerformed
@@ -3599,7 +3609,7 @@ public class Add_new_design extends javax.swing.JFrame {
         // TODO add your handling code here:
         fabric_style new_fab_window = new fabric_style();
         new_fab_window.setVisible(true);
-        
+        this.fabric_style_screen_showed = true;
     }//GEN-LAST:event_add_fabricActionPerformed
 
     private void bind_add1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bind_add1ActionPerformed

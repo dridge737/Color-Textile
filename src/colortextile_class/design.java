@@ -246,6 +246,12 @@ public class design{
         System.out.println("Design_name : " +this.getDesign_name());
         System.out.println("Fabric Style : " +this.getFabric_style());
     }
+    
+    public int count_all_design()
+    {
+        Database.DB_Manager new_conn = new Database.DB_Manager();
+        return new_conn.count_number_of_design();
+    }
 
     /**
      * @return the percent
