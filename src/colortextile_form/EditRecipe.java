@@ -3082,10 +3082,7 @@ public class EditRecipe extends javax.swing.JFrame {
         String job_order = this.job_ord_label.getText() + this.text_job_order.getText();
         //if(this.customer_check_box.isSelected())
         //{
-            customer custom = new customer();       
-            custom.setCustomer_name(customer_name_text.getText());
-            custom.add_new_customer();
-            this_list.add_customer_job_quantity_in_list(customer_name_text.getText(), 
+        this_list.add_customer_job_quantity_in_list(customer_name_text.getText(), 
                                                         job_order, 
                                                         quantity.getText());
             
