@@ -162,10 +162,60 @@ public class production_recipe extends Design_with_colorway{
         this.Date = Date;
     }
     
-    public void add_all_purchase_order()
+    public void set_add_all_purchase_order_from_job_order()
     {
         Database.DB_Manager new_conn = new Database.DB_Manager();
         setAll_purchase(new_conn.get_all_purchase_for_this_job_order(this.jobs_for_this.get(0)));
+    }
+    
+    public void add_all_purchase_order_to_database()
+    {
+        /*purchase_order purchase = new purchase_order();
+        for (int i = 0; i < job_list.size(); i++) 
+        {
+            purchase.setDesign_code(design_code);
+            purchase.setJob_order_id(this.job_list.get(i).toString()); 
+            purchase.setQuantity(Integer.parseInt(this.quantity_list.get(i).toString()));
+        
+            purchase.add_new_purchase();
+        }
+        // this_purchase.setDesign_code(purchase.getDesign_code());
+        // this_purchase.setDate(purchase.getDate());
+        */
+        for(int x=0; x<all_purchase.size(); x++)
+        {
+            all_purchase.get(x).add_new_purchase();
+        }
+    }
+    
+    public void add_all_job_order()
+    {
+         /* 
+        SimpleDateFormat formater = new SimpleDateFormat("yyyy/MM/dd");
+        String spinnerValue = formater.format(this.spinner_date.getValue());
+        
+                for (int i = 0; i < job_list.size(); i++) 
+                {
+                       job_order job = new job_order();
+                       DB_Manager new_conn = new DB_Manager();
+                       
+                       job.setJob_id(this.job_list.get(i).toString());
+                       
+                       if(job.Search_job_info() != null){
+                            job.setCustomer_id(new_conn.get_id_customer(this.customer_list.get(i).toString())); 
+                            job.setDate(spinnerValue);
+                            
+                            job.add_new_job_order();
+                       }
+                       //job.setQuantity(Integer.parseInt(this.quantity_list.get(i).toString()));
+                       //job.setId_purchase(id_purchase);
+                }   
+        */
+        
+        for(int x = 0; x < this.jobs_for_this.size() ; x++ )
+        {
+            jobs_for_this.get(x).add_new_job_order();
+        }
     }
     
     public void view_all_puchase_order()

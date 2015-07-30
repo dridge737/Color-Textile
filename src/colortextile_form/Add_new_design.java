@@ -2154,26 +2154,7 @@ public class Add_new_design extends javax.swing.JFrame {
      * @param pigment_name -Declared pigment name
      * @param pigment_percent - percentage of pigment in variable float
      */
-    private void add_purchase(int design_code)
-    {
-        /*purchase_order purchase = new purchase_order();
-        for (int i = 0; i < job_list.size(); i++) 
-        {
-            purchase.setDesign_code(design_code);
-            purchase.setJob_order_id(this.job_list.get(i).toString()); 
-            purchase.setQuantity(Integer.parseInt(this.quantity_list.get(i).toString()));
-        
-            purchase.add_new_purchase();
-        }
-        // this_purchase.setDesign_code(purchase.getDesign_code());
-        // this_purchase.setDate(purchase.getDate());
-        */
-        List<purchase_order> all_purchase = this.get_all_purchase_details(design_code);
-        for(int x=0; x<all_purchase.size(); x++)
-        {
-            all_purchase.get(x).add_new_purchase();
-        }
-    }
+    
     
     public String get_pigment_name(int pigment_no){
         pigment pigment = new pigment();
@@ -2351,34 +2332,7 @@ public class Add_new_design extends javax.swing.JFrame {
         return all_purchase;
     }
     
-    private void add_job()
-    {   /* 
-        SimpleDateFormat formater = new SimpleDateFormat("yyyy/MM/dd");
-        String spinnerValue = formater.format(this.spinner_date.getValue());
-        
-                for (int i = 0; i < job_list.size(); i++) 
-                {
-                       job_order job = new job_order();
-                       DB_Manager new_conn = new DB_Manager();
-                       
-                       job.setJob_id(this.job_list.get(i).toString());
-                       
-                       if(job.Search_job_info() != null){
-                            job.setCustomer_id(new_conn.get_id_customer(this.customer_list.get(i).toString())); 
-                            job.setDate(spinnerValue);
-                            
-                            job.add_new_job_order();
-                       }
-                       //job.setQuantity(Integer.parseInt(this.quantity_list.get(i).toString()));
-                       //job.setId_purchase(id_purchase);
-                }   
-        */
-        List<job_order> all_jobs = get_job_details();
-        for(int x = 0; x < all_jobs.size() ; x++ )
-        {
-            all_jobs.get(x).add_new_job_order();
-        }
-    }
+    
     
     private List<job_order> get_job_details()
     {    
@@ -2834,6 +2788,18 @@ public class Add_new_design extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_add_orderActionPerformed
+    
+    private void add_job()
+    {  
+        this_recipe.setJobs_for_this(get_job_details());
+        this_recipe.add_all_job_order();
+    }
+    
+    private void add_purchase(int design_code)
+    {
+        this_recipe.setAll_purchase(this.get_all_purchase_details(design_code));
+        this_recipe.add_all_purchase_order_to_database();
+    }
     
     private void clear_all(){
         
