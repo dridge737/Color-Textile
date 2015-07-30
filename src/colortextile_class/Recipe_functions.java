@@ -162,5 +162,33 @@ public class Recipe_functions {
         return p.matcher(this_text).find();
     }
     
+    public boolean check_this_textbox(JTextField the_textfield)
+    {
+        if(checkText2(the_textfield.getText()))
+        { 
+            //this.text_job_order.setText(text_job_order.getText().substring(0, 3));
+            the_textfield.setText(the_textfield.getText().replaceAll("[^0-9]", ""));
+            
+            //if(!the_textfield.getBackground().equals(Color.pink) )
+            //{
+            //    the_textfield.setBackground(Color.pink);
+            //    count_screen_1++;
+            //}
+            //check_screen();
+            return false;
+        }
+        return true;
+        //else
+        //{
+        //    if(the_textfield.getBackground().equals(Color.pink))
+        //    {
+        //        the_textfield.setBackground(Color.white);           
+        //        count_screen_1--;
+        //    }
+        //    check_screen();
+        //    return true;
+        //}
+    }
+    
     
 }

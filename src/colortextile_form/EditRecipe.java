@@ -3740,9 +3740,9 @@ public class EditRecipe extends javax.swing.JFrame {
 
     private void text_job_orderKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_text_job_orderKeyReleased
         // TODO add your handling code here:
-        check_this_textbox(text_job_order);
         
-        if (this.text_job_order.getText().length() == 4 )
+        
+        if (check_this_textbox(text_job_order) && this.text_job_order.getText().length() == 4 )
         {
             String job_order_text = this.job_ord_label.getText() + this.text_job_order.getText();
             job_order new_job_order = new job_order(job_order_text);
