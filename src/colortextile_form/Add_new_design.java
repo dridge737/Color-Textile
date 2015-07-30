@@ -22,6 +22,7 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
@@ -2750,12 +2751,6 @@ public class Add_new_design extends javax.swing.JFrame {
         }
         
     }
-    private void show_add_pigment()
-    {
-        add_pigment_form add_pigment = new add_pigment_form();
-        add_pigment.setVisible(true);
-        this.pigment_screen_showed = true;
-    }
     
     private void add_orderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_orderActionPerformed
         // TODO add your handling code here:
@@ -2781,10 +2776,7 @@ public class Add_new_design extends javax.swing.JFrame {
                     + "(Yes to close this window) ", "Close this Window?", JOptionPane.YES_NO_OPTION);
             if(CloseorNoreply == JOptionPane.YES_OPTION)
                 this.dispose();
-            else
-            {
-                
-            }
+            
         }
     }//GEN-LAST:event_add_orderActionPerformed
     
@@ -3091,29 +3083,24 @@ public class Add_new_design extends javax.swing.JFrame {
         if(this_list.check_if_job_is_good(job_order_text) 
                 && this_list.check_customer_if_is_in_database_and_has_text(customer_name_text.getText())
                 && this_list.check_if_quantity_is_good(quantity.getText()))
-                {
-                    include();
-                    
-                    quantity.setText("");
-                    customer_name_text.setText("");
-                    text_job_order.setText("");
-                    
-                    if(edit_purchase.getText().equals("Cancel Edit"))
-                    {
-                        edit_purchase.setText("Edit Order");
-                        this.temporary_list.clear_all_items();
-                    }
-                }
-            
-        
+        {
+            include();
+            quantity.setText("");
+            customer_name_text.setText("");
+            text_job_order.setText("");
+            if(edit_purchase.getText().equals("Cancel Edit"))
+            {
+                edit_purchase.setText("Edit Order");
+                this.temporary_list.clear_all_items();
+            }
+        }
     }//GEN-LAST:event_button_include_customerActionPerformed
 
     private void button_remove_customerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_remove_customerActionPerformed
         // TODO add your handling code here:
         if(jList1.getSelectedIndex() != -1)
         {
-        int selected = this.jList1.getSelectedIndex();
-        jList1.setModel(this_list.remove_this_item(selected));
+        jList1.setModel(this_list.remove_this_item(this.jList1.getSelectedIndex()));
         quantity_total.setText(Integer.toString(this_list.get_quantity_total()));
         }
         //this.customer_list.remove(selected);
@@ -3126,7 +3113,6 @@ public class Add_new_design extends javax.swing.JFrame {
     private void preview_butActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_preview_butActionPerformed
         // TODO add your handling code here:
         production_recipe prod_recipe = this.get_design_details();
-        
         Preview_form this_preview = new Preview_form(prod_recipe);
         this_preview.setVisible(true);
     }//GEN-LAST:event_preview_butActionPerformed
@@ -3272,78 +3258,11 @@ public class Add_new_design extends javax.swing.JFrame {
         this.pigment_button_check = 19;
     }//GEN-LAST:event_pig71ActionPerformed
 
-    private void change_pigment_to_last_added_pigment()
+    private void show_add_pigment()
     {
-        Database.DB_Manager new_conn = new Database.DB_Manager();
-        pigment added_pigment = new pigment();
-        added_pigment.set_name_and_id_from_last_added_pigment();
-        switch(pigment_button_check)
-        {
-            case 1:
-                name1.setSelectedItem(added_pigment.getPigment_name());
-                break;
-            case 2:
-                name2.setSelectedItem(added_pigment.getPigment_name());
-                break;
-            case 3:
-                name3.setSelectedItem(added_pigment.getPigment_name());
-                break;
-            case 4:
-                name5.setSelectedItem(added_pigment.getPigment_name());
-                break;
-            case 5:
-                name6.setSelectedItem(added_pigment.getPigment_name());
-                break;
-            case 6:
-                name7.setSelectedItem(added_pigment.getPigment_name());
-                break;
-            case 7:
-                name9.setSelectedItem(added_pigment.getPigment_name());
-                break;
-            case 8:
-                name10.setSelectedItem(added_pigment.getPigment_name());
-                break;
-            case 9:
-                name11.setSelectedItem(added_pigment.getPigment_name());
-                break;
-            case 10:
-                name13.setSelectedItem(added_pigment.getPigment_name());
-                break;
-            case 11:
-                name14.setSelectedItem(added_pigment.getPigment_name());
-                break;
-            case 12:
-                name15.setSelectedItem(added_pigment.getPigment_name());
-                break;
-            case 13:
-                name17.setSelectedItem(added_pigment.getPigment_name());
-                break;
-            case 14:
-                name18.setSelectedItem(added_pigment.getPigment_name());
-                break;
-            case 15:
-                name19.setSelectedItem(added_pigment.getPigment_name());
-                break;
-            case 16:
-                name21.setSelectedItem(added_pigment.getPigment_name());
-                break;
-            case 17:
-                name22.setSelectedItem(added_pigment.getPigment_name());
-                break;
-            case 18:
-                name23.setSelectedItem(added_pigment.getPigment_name());
-                break;
-            case 19:
-                name24.setSelectedItem(added_pigment.getPigment_name());
-                break;
-            case 20:
-                name25.setSelectedItem(added_pigment.getPigment_name());
-                break;
-            case 21:
-                name26.setSelectedItem(added_pigment.getPigment_name());
-                break;  
-        }
-        
+        add_pigment_form add_pigment = new add_pigment_form();
+        add_pigment.setVisible(true);
+        this.pigment_screen_showed = true;
     }
     
     private void formWindowGainedFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowGainedFocus
@@ -3359,29 +3278,11 @@ public class Add_new_design extends javax.swing.JFrame {
             pigment_screen_showed = false;
             last_added_pigment_no = this_pigment.get_last_pigment_id();
         }
-        
         if(this.fabric_style_screen_showed)
-        {
-            design new_design = new design();
-            if(new_design.count_all_design() != fab_style_comb.getItemCount()-4)
-            {
-                fab_style_comb.removeAllItems();
-                fab_style_comb.addItem("PONGEE");
-                fab_style_comb.addItem("COTTON");
-                fab_style_comb.addItem("KATUNIA");
-                fab_style_comb.addItem("MICROPEACH");
-                fab_style_comb.addItem("TC");
-                fab_style_comb.addItem("TROPICANA");
-                
-                for(String this_fabric : new_design.get_all_fabric_styles())
-                {
-                    fab_style_comb.addItem(this_fabric);
-                }
-                
-            }
-        }
+            this.use_func.check_and_add_new_fabrics(this.fab_style_comb);
     }//GEN-LAST:event_formWindowGainedFocus
 
+    
     private void edit_purchaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edit_purchaseActionPerformed
         // TODO add your handling code here:
         
@@ -3445,7 +3346,6 @@ public class Add_new_design extends javax.swing.JFrame {
 
     private void clear_customers_textbox(){
         quantity.setText("");
-        //customer_combo_list.setSelectedIndex(0);
         customer_name_text.setText("");
         text_job_order.setText("");
     }
@@ -3475,7 +3375,7 @@ public class Add_new_design extends javax.swing.JFrame {
             if(!jTabbedPane2.getForegroundAt(tabbedpane_index).equals(Color.red))
             {
                 jTabbedPane2.setForegroundAt(tabbedpane_index, Color.red);
-                this.count_screen_1++;
+                add_order.setEnabled(false);
             }
         }
         else
@@ -3483,11 +3383,12 @@ public class Add_new_design extends javax.swing.JFrame {
             if(jTabbedPane2.getForegroundAt(tabbedpane_index) == Color.red)
             {
                 jTabbedPane2.setForegroundAt(tabbedpane_index, Color.BLACK);
-                this.count_screen_1--;
+                add_order.setEnabled(true);
             }
         }
-        check_screen();
     }
+    
+    
     private void jPanel9MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel9MouseExited
         // TODO add your handling code here:
         check_this_panels_colorway_and_weight(colorway_name, weigh_kg, 0);
@@ -3557,8 +3458,8 @@ public class Add_new_design extends javax.swing.JFrame {
                 //this.customer_name_text.setEditable(false);
                 //this.customer_name_text.validate();
                 Robot robot; 
-                try {
-                    
+                try 
+                {
                     robot = new Robot();
                     customer_name_text.requestFocusInWindow();
                     robot.keyPress(KeyEvent.VK_ENTER); 
@@ -3587,46 +3488,44 @@ public class Add_new_design extends javax.swing.JFrame {
 
     private void bind_add1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bind_add1ActionPerformed
         // TODO add your handling code here:
-        add_binder_form new_binder = new add_binder_form();
-        new_binder.setVisible(true);
+        show_binder_form();
     }//GEN-LAST:event_bind_add1ActionPerformed
 
     private void bind_add2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bind_add2ActionPerformed
         // TODO add your handling code here:
-        add_binder_form new_binder = new add_binder_form();
-        new_binder.setVisible(true);
+        show_binder_form();
     }//GEN-LAST:event_bind_add2ActionPerformed
 
     private void bind_add3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bind_add3ActionPerformed
         // TODO add your handling code here:
-        add_binder_form new_binder = new add_binder_form();
-        new_binder.setVisible(true);
+        show_binder_form();
     }//GEN-LAST:event_bind_add3ActionPerformed
 
     private void bind_add4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bind_add4ActionPerformed
         // TODO add your handling code here:
-        add_binder_form new_binder = new add_binder_form();
-        new_binder.setVisible(true);
+        show_binder_form();
     }//GEN-LAST:event_bind_add4ActionPerformed
 
     private void bind_add5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bind_add5ActionPerformed
         // TODO add your handling code here:
-        add_binder_form new_binder = new add_binder_form();
-        new_binder.setVisible(true);
+        show_binder_form();
     }//GEN-LAST:event_bind_add5ActionPerformed
 
     private void bind_add6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bind_add6ActionPerformed
         // TODO add your handling code here:
-        add_binder_form new_binder = new add_binder_form();
-        new_binder.setVisible(true);
+        show_binder_form();
     }//GEN-LAST:event_bind_add6ActionPerformed
 
     private void bind_add7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bind_add7ActionPerformed
         // TODO add your handling code here:
-        add_binder_form new_binder = new add_binder_form();
-        new_binder.setVisible(true);
+        show_binder_form();
     }//GEN-LAST:event_bind_add7ActionPerformed
 
+    private void show_binder_form()
+    {
+        add_binder_form new_binder = new add_binder_form();
+        new_binder.setVisible(true);
+    }
     private void weigh_kgPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_weigh_kgPropertyChange
         // TODO add your handling code here:
         if(use_func.check_this_textbox(weigh_kg))
@@ -3657,23 +3556,13 @@ public class Add_new_design extends javax.swing.JFrame {
             weigh_kg.setText(String.format("%.0f", this_computation));
         }
     }
-    
-    
     /**
      * Checks if text can be parsed to float or int
      * @param this_text
      * @return true if text contains any character not 0-9
      */
     
-    public void check_screen()
-    {
-        if(count_screen_1 > 0)
-        {
-            add_order.setEnabled(false);
-        }
-        else
-            add_order.setEnabled(true);
-    }
+    
     
     private void addBlankSpace()
     {
@@ -3806,7 +3695,80 @@ public class Add_new_design extends javax.swing.JFrame {
             name26.addItem(pigment_list1);
         }
         this.last_added_pigment_no = list_pigment.get_last_pigment_id();
-        setJobString();
+        setJobString();   
+    }
+    
+    private void change_pigment_to_last_added_pigment()
+    {
+        Database.DB_Manager new_conn = new Database.DB_Manager();
+        pigment added_pigment = new pigment();
+        added_pigment.set_name_and_id_from_last_added_pigment();
+        switch(pigment_button_check)
+        {
+            case 1:
+                name1.setSelectedItem(added_pigment.getPigment_name());
+                break;
+            case 2:
+                name2.setSelectedItem(added_pigment.getPigment_name());
+                break;
+            case 3:
+                name3.setSelectedItem(added_pigment.getPigment_name());
+                break;
+            case 4:
+                name5.setSelectedItem(added_pigment.getPigment_name());
+                break;
+            case 5:
+                name6.setSelectedItem(added_pigment.getPigment_name());
+                break;
+            case 6:
+                name7.setSelectedItem(added_pigment.getPigment_name());
+                break;
+            case 7:
+                name9.setSelectedItem(added_pigment.getPigment_name());
+                break;
+            case 8:
+                name10.setSelectedItem(added_pigment.getPigment_name());
+                break;
+            case 9:
+                name11.setSelectedItem(added_pigment.getPigment_name());
+                break;
+            case 10:
+                name13.setSelectedItem(added_pigment.getPigment_name());
+                break;
+            case 11:
+                name14.setSelectedItem(added_pigment.getPigment_name());
+                break;
+            case 12:
+                name15.setSelectedItem(added_pigment.getPigment_name());
+                break;
+            case 13:
+                name17.setSelectedItem(added_pigment.getPigment_name());
+                break;
+            case 14:
+                name18.setSelectedItem(added_pigment.getPigment_name());
+                break;
+            case 15:
+                name19.setSelectedItem(added_pigment.getPigment_name());
+                break;
+            case 16:
+                name21.setSelectedItem(added_pigment.getPigment_name());
+                break;
+            case 17:
+                name22.setSelectedItem(added_pigment.getPigment_name());
+                break;
+            case 18:
+                name23.setSelectedItem(added_pigment.getPigment_name());
+                break;
+            case 19:
+                name24.setSelectedItem(added_pigment.getPigment_name());
+                break;
+            case 20:
+                name25.setSelectedItem(added_pigment.getPigment_name());
+                break;
+            case 21:
+                name26.setSelectedItem(added_pigment.getPigment_name());
+                break;  
+        }
         
     }
     

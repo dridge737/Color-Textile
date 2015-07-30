@@ -190,5 +190,24 @@ public class Recipe_functions {
         //}
     }
     
+    public void check_and_add_new_fabrics(JComboBox fabric_style)
+    {
+        if(new design().count_all_fabric_style() != fabric_style.getItemCount()-4)
+            {
+                fabric_style.removeAllItems();
+                fabric_style.addItem("PONGEE");
+                fabric_style.addItem("COTTON");
+                fabric_style.addItem("KATUNIA");
+                fabric_style.addItem("MICROPEACH");
+                fabric_style.addItem("TC");
+                fabric_style.addItem("TROPICANA");
+                
+                for(String this_fabric : new design().get_all_fabric_styles())
+                {
+                    fabric_style.addItem(this_fabric);
+                }
+            }
+    }
+    
     
 }

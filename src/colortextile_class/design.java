@@ -247,10 +247,10 @@ public class design{
         System.out.println("Fabric Style : " +this.getFabric_style());
     }
     
-    public int count_all_design()
+    public int count_all_fabric_style()
     {
         Database.DB_Manager new_conn = new Database.DB_Manager();
-        return new_conn.count_number_of_design();
+        return new_conn.count_number_of_fabric_style();
     }
 
     /**

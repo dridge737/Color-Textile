@@ -103,7 +103,7 @@ public class DB_Manager {
         return total;
     }
     
-    public int count_number_of_design()
+    public int count_number_of_fabric_style()
     {
         int total = -1;
         try {
