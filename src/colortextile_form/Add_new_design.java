@@ -2786,7 +2786,6 @@ public class Add_new_design extends javax.swing.JFrame {
                 
             }
         }
-        
     }//GEN-LAST:event_add_orderActionPerformed
     
     private void add_job()
