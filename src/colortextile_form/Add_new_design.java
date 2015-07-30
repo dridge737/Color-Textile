@@ -2698,13 +2698,16 @@ public class Add_new_design extends javax.swing.JFrame {
     private void include()
     {   
         String job_order = this.job_ord_label.getText() + this.text_job_order.getText();
-        //if(this.customer_check_box.isSelected())
-        //{
         this_list.add_customer_job_quantity_in_list(customer_name_text.getText(), 
                                                         job_order, 
                                                         quantity.getText());
         //refresh Textbox to add items
         this.jList1.setModel(this_list.get_items_in_list());
+        
+        
+        //if(this.customer_check_box.isSelected())
+        //{
+        
         //customer_list.add(this.customer_name_text.getText());
         /*}
         else
@@ -2717,11 +2720,6 @@ public class Add_new_design extends javax.swing.JFrame {
         //quantity_list.add(this.quantity.getText());
         
         */
-        this.quantity_total.setText(Integer.toString(this_list.get_quantity_total()));
-        this_recipe.setFabric_style(this.fab_style_comb.getSelectedItem().toString());
-        adjust_weights();
-        
-        
     }
     
     private void adjust_weights()
@@ -3086,6 +3084,9 @@ public class Add_new_design extends javax.swing.JFrame {
             quantity.setText("");
             customer_name_text.setText("");
             text_job_order.setText("");
+            
+            this.quantity_total.setText(Integer.toString(this_list.get_quantity_total()));
+            adjust_weights();
             if(edit_purchase.getText().equals("Cancel Edit"))
             {
                 edit_purchase.setText("Edit Order");
@@ -3424,6 +3425,7 @@ public class Add_new_design extends javax.swing.JFrame {
 
     private void fab_style_combPopupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_fab_style_combPopupMenuWillBecomeInvisible
         // TODO add your handling code here:
+        this_recipe.setFabric_style(this.fab_style_comb.getSelectedItem().toString());
         if(!current_style.equals(this.fab_style_comb.getSelectedItem().toString()))
         {
             compute_kg(weigh_kg, coverage1);

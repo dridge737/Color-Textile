@@ -3068,7 +3068,7 @@ public class EditRecipe extends javax.swing.JFrame {
                    //customer_combo_list.setSelectedIndex(0);
                    customer_name_text.setText("");
                    text_job_order.setText("");
-                   
+                   this.quantity_total.setText(Integer.toString(this_list.get_quantity_total()));
                     if(edit_item.getText().equals("Cancel Edit"))
                     {
                         edit_item.setText("Edit Order");
@@ -3080,12 +3080,14 @@ public class EditRecipe extends javax.swing.JFrame {
     private void include()
     {   
         String job_order = this.job_ord_label.getText() + this.text_job_order.getText();
-        //if(this.customer_check_box.isSelected())
-        //{
+        
         this_list.add_customer_job_quantity_in_list(customer_name_text.getText(), 
                                                         job_order, 
                                                         quantity.getText());
-            
+        
+        this.jList1.setModel(this_list.get_items_in_list());
+        //if(this.customer_check_box.isSelected())
+        //{
             //customer_list.add(this.customer_name_text.getText());
         //}
         /*else
@@ -3097,8 +3099,6 @@ public class EditRecipe extends javax.swing.JFrame {
         //job_list.add(this.job_ord_label.getText() + this.text_job_order.getText());
         //quantity_list.add(this.quantity.getText());
         //refresh Textbox to add items
-        this.jList1.setModel(this_list.get_items_in_list());
-        this.quantity_total.setText(Integer.toString(this_list.get_quantity_total()));
     }
     
     private void button_remove_customerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_remove_customerActionPerformed
@@ -3760,6 +3760,7 @@ public class EditRecipe extends javax.swing.JFrame {
 
     private void fab_style_combPopupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_fab_style_combPopupMenuWillBecomeInvisible
         // TODO add your handling code here:
+        this.prod_recipe.setFabric_style(this.fab_style_comb.getSelectedItem().toString());
         if(!current_style.equals(this.fab_style_comb.getSelectedItem().toString()))
         {
             compute_kg(weigh_kg, coverage1);
