@@ -2342,9 +2342,7 @@ public class Add_new_design extends javax.swing.JFrame {
         {
             job_order job = new job_order();
             job.setJob_id(this_list.getJob_list().get(i).toString());
-            job.setCustomer_name(this_list.getCustomer_list().get(i).toString().toUpperCase());
-            job.add_new_customer();
-            //job.set_customer_id_from_name();
+            job.setCustomer_name(this_list.getCustomer_list().get(i).toString().toUpperCase());//job.set_customer_id_from_name();
             job.setDate(use_func.get_date_from_spinner(spinner_date));
             all_job_orders.add(job);
         }

@@ -214,6 +214,8 @@ public class production_recipe extends Design_with_colorway{
         
         for(int x = 0; x < this.jobs_for_this.size() ; x++ )
         {
+            //Add Customer
+            jobs_for_this.get(x).add_new_customer();
             jobs_for_this.get(x).add_new_job_order();
         }
     }

@@ -111,8 +111,6 @@ public class job_customer_quantity_list {
             }
             else
             {
-                customer this_customer = new customer();       
-                this_customer.setCustomer_name(text_name);
                 if(this.customer_list.contains(text_name))
                 {
                     JOptionPane.showMessageDialog(null,"Customer name has already been added");
