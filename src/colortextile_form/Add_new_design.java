@@ -2744,8 +2744,7 @@ public class Add_new_design extends javax.swing.JFrame {
             Float computation = this_recipe.compute_this_kg(coverage_of_this, this_list.get_quantity_total());
             //System.out.println(computation);
             this_weight_field.setText(Integer.toString(Math.round(computation)));
-        }
-        
+        } 
     }
     
     private void add_orderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_orderActionPerformed
