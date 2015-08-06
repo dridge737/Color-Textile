@@ -119,7 +119,7 @@ public class SearchJOGui extends javax.swing.JFrame {
         model.addColumn("Design Name");     //design
         model.addColumn("Colorway Name");   //design
         model.addColumn("Fabric Style");    //desing
-        model.addColumn("#"); // purchaseorder
+        //model.addColumn("#"); // purchaseorder
         try {
             if (rs.first()){
                 
@@ -154,7 +154,7 @@ public class SearchJOGui extends javax.swing.JFrame {
                                     rs3.getString("design_name"),
                                     rs3.getString("color_name"),
                                     rs3.getString("fabric_style"),
-                                    Integer.toString(rs2.getInt("id_purchase"))
+                                    //Integer.toString(rs2.getInt("id_purchase"))
                                 };
                                 model.addRow(set1);
                                 
