@@ -92,7 +92,17 @@ public class Colorway_and_pigment extends pigment{
     public String compute_kg_prep(float weight_kg)
     {
         float weight_prep = weight_kg * getPigment_percentage() / 100;
-        return String.format("%.2f", weight_prep);
+        String this_weight_prep;
+        if(weight_prep < 0.01)
+        {
+            //this_textfield.setText(Float.toString( (float) next_weight/1000));
+            this_weight_prep = String.format("%.3f", (float) Math.round(weight_prep* 1000)/1000);
+        }
+        else
+            //this_textfield.setText(Float.toString((Math.floor(weight_prep* 100)/100));
+            this_weight_prep = String.format("%.2f", Math.floor(weight_prep* 100)/100);
+        
+         return this_weight_prep;
         //return weight_prep;
     }
 

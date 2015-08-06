@@ -84,10 +84,12 @@ public class SpreadsheetTrial {
             while( x<=the_screens.size())
             {
                 template.setField("screen1_"+x, the_screens.get(x-1).getPigment_name() );
-                if(the_screens.get(x-1).getPigment_percentage() <0.01)
-                    template.setField("per1_"+x, Float.toString((float) (Math.round(the_screens.get(x-1).getPigment_percentage()*1000)/1000)) );
-                else
-                    template.setField("per1_"+x, Float.toString((float) (Math.floor(the_screens.get(x-1).getPigment_percentage()*100)/100)) );
+                //if(the_screens.get(x-1).getPigment_percentage() <0.01)
+                //    template.setField("per1_"+x, String.format("%.3f",(float) (Math.round(the_screens.get(x-1).getPigment_percentage()*1000)/1000)));
+                            //Float.toString() );
+                //else
+                    //template.setField("per1_"+x, String.format("%.2f",(float) (Math.floor(the_screens.get(x-1).getPigment_percentage()*100)/100)) );
+                template.setField("per1_"+x, String.format("%.2f",(float) the_screens.get(x-1).getPigment_percentage()) );
                 template.setField("kg1_"+x, the_screens.get(x-1).compute_kg_prep(first_colorway.getWeight_kg()));
                 x++;
             }

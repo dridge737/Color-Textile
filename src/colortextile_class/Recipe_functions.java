@@ -122,15 +122,10 @@ public class Recipe_functions {
                     //float temp_weight = Float.parseFloat(weight_kg);
                     float weight_prep = this.update_kg_and_prep(percentage_text, weight_kg);
                     //Make this 2 Decimal digits
-
-                    if(weight_prep == 0)
-                    {
-                        this_textfield.setText("0");
-                    }
-                    else if(weight_prep < 0.01)
-                    {
-                        //this_textfield.setText(Float.toString(Math.round(weight_prep* 1000)/1000));
-                        this_textfield.setText(String.format("%.3f", Math.round(weight_prep* 1000)/1000));
+                    if(weight_prep < 0.01)
+                    {   
+                        //this_textfield.setText(Float.toString( (float) next_weight/1000));
+                        this_textfield.setText(String.format("%.3f", (float) Math.round(weight_prep* 1000)/1000));
                     }
                     else
                         //this_textfield.setText(Float.toString((Math.floor(weight_prep* 100)/100));

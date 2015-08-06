@@ -41,6 +41,7 @@ public class Add_new_design extends javax.swing.JFrame {
     private Recipe_functions use_func = new Recipe_functions();
     private boolean pigment_screen_showed = false;
     private boolean fabric_style_screen_showed = false;
+    private boolean binder_screen_showed = false;
     private job_customer_quantity_list this_list = new job_customer_quantity_list();
     private job_customer_quantity_list temporary_list = new job_customer_quantity_list();
     private String current_style;
@@ -52,16 +53,6 @@ public class Add_new_design extends javax.swing.JFrame {
     /**
      * Creates new form Add_new_design
      */
-    
-    protected static ImageIcon createImageIcon(String path) {
-        java.net.URL imgURL = Add_new_design.class.getResource(path);
-        if (imgURL != null) {
-            return new ImageIcon(imgURL);
-        } else {
-            System.err.println("Couldn't find file: " + path);
-            return null;
-        }
-    }
     
     public Add_new_design() {
         
@@ -87,6 +78,7 @@ public class Add_new_design extends javax.swing.JFrame {
         //InputVerifier new_verifier = new Verifier();
         //this.pigment_percentage8.setInputVerifier(new_verifier);
         this.set_customer_list_and_autocomplete();
+        this.remove_and_add_all_binders();
         job_ord_label.setText(use_func.change_job_order_prefix(spinner_date));
         current_style = fab_style_comb.getSelectedItem().toString();
         design new_design = new design();
@@ -95,12 +87,28 @@ public class Add_new_design extends javax.swing.JFrame {
             fab_style_comb.addItem(this_fabric);
         }
     }
-    
-    public void get_all_binders()
+    public void remove_and_add_all_binders()
     {
-        colorway this_colorway = new colorway();
-        ArrayList<Float> all_binder = this_colorway.get_all_binder();
-        for(Float this_binder : all_binder)
+        binder.removeAllItems();
+        binder2.removeAllItems();
+        binder3.removeAllItems();
+        binder4.removeAllItems();
+        binder5.removeAllItems();
+        binder6.removeAllItems();
+        binder7.removeAllItems();
+        ArrayList<Float> all_binder = new ArrayList<>();
+        all_binder.add((float) 3.5);
+        all_binder.add((float) 4.0);
+        all_binder.add((float) 5.5);
+        all_binder.add((float) 8.0);
+        
+        add_all_binders(all_binder);
+        this.add_all_binders_from_database();
+    }
+    
+    public void add_all_binders(ArrayList<Float> binder_to_be_added)
+    {
+        for(Float this_binder : binder_to_be_added)
         {
             binder.addItem(this_binder);
             binder2.addItem(this_binder);
@@ -110,6 +118,12 @@ public class Add_new_design extends javax.swing.JFrame {
             binder6.addItem(this_binder);
             binder7.addItem(this_binder);
         }
+    }
+    public void add_all_binders_from_database()
+    {
+        colorway this_colorway = new colorway();
+        ArrayList<Float> all_binder = this_colorway.get_all_binder();
+        add_all_binders(all_binder);
     }
     
     public void set_customer_list_and_autocomplete()
@@ -468,7 +482,7 @@ public class Add_new_design extends javax.swing.JFrame {
             }
         });
         jPanel14.add(spinner_date);
-        spinner_date.setBounds(619, 25, 126, 34);
+        spinner_date.setBounds(633, 20, 126, 34);
         spinner_date.setEditor(new JSpinner.DateEditor(spinner_date, "MM/dd/yyyy"));
 
         jLabel6.setBackground(new java.awt.Color(255, 255, 255));
@@ -477,11 +491,10 @@ public class Add_new_design extends javax.swing.JFrame {
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel6.setText("Date :");
         jLabel6.setToolTipText("");
-        jLabel6.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         jLabel6.setFocusable(false);
         jLabel6.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         jPanel14.add(jLabel6);
-        jLabel6.setBounds(509, 22, 100, 30);
+        jLabel6.setBounds(525, 20, 100, 30);
         jLabel6.getAccessibleContext().setAccessibleName("date");
 
         getContentPane().add(jPanel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 790, 70));
@@ -864,7 +877,7 @@ public class Add_new_design extends javax.swing.JFrame {
         jPanel9.add(jSeparator18, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 255, 775, 10));
 
         binder.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
-        binder.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "3.5", "4", "5.5", "8" }));
+        binder.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "3.5", "4.0", "5.5", "8.0" }));
         binder.setName(""); // NOI18N
         binder.setNextFocusableComponent(jTabbedPane2);
         jPanel9.add(binder, new org.netbeans.lib.awtextra.AbsoluteConstraints(351, 200, 61, 30));
@@ -2155,8 +2168,6 @@ public class Add_new_design extends javax.swing.JFrame {
      * @param pigment_name -Declared pigment name
      * @param pigment_percent - percentage of pigment in variable float
      */
-    
-    
     public String get_pigment_name(int pigment_no){
         pigment pigment = new pigment();
         pigment.setPigment_no(pigment_no);
@@ -2314,7 +2325,18 @@ public class Add_new_design extends javax.swing.JFrame {
         this_recipe.set_all_details_from_purchase_order_id(purchase_order);
         this.set_design_and_colorway_textbox(this_recipe);
         this.previous_quantity_total = 1000;
-        
+    }
+    
+    private void fill_customer_list()
+    {
+        this.customer_combo_list.removeAllItems();
+        this.customer_combo_list.addItem(" ");
+        customer list = new customer();
+        list.get_customer_list();
+        for ( String name : list.getCustomer_names() )
+        {
+            this.customer_combo_list.addItem(name);
+        }
     }
     
     private List<purchase_order> get_all_purchase_details(int design_code)
@@ -2333,8 +2355,6 @@ public class Add_new_design extends javax.swing.JFrame {
         return all_purchase;
     }
     
-    
-    
     private List<job_order> get_job_details()
     {    
         List<job_order> all_job_orders = new ArrayList<>();
@@ -2347,18 +2367,6 @@ public class Add_new_design extends javax.swing.JFrame {
             all_job_orders.add(job);
         }
         return all_job_orders;
-    }
-    
-    private void fill_customer_list()
-    {
-        this.customer_combo_list.removeAllItems();
-        this.customer_combo_list.addItem(" ");
-        customer list = new customer();
-        list.get_customer_list();
-        for ( String name : list.getCustomer_names() )
-        {
-            this.customer_combo_list.addItem(name);
-        }
     }
     
     private int add_this_colorway(String colorway_name, float binder_percent, String temp_weight_kg, int design_code)
@@ -3276,8 +3284,10 @@ public class Add_new_design extends javax.swing.JFrame {
             pigment_screen_showed = false;
             last_added_pigment_no = this_pigment.get_last_pigment_id();
         }
-        if(this.fabric_style_screen_showed)
+        else if(this.fabric_style_screen_showed)
             this.use_func.check_and_add_new_fabrics(this.fab_style_comb);
+        else if(this.pigment_screen_showed)
+            this.remove_and_add_all_binders();
     }//GEN-LAST:event_formWindowGainedFocus
 
     
@@ -3524,6 +3534,7 @@ public class Add_new_design extends javax.swing.JFrame {
     {
         add_binder_form new_binder = new add_binder_form();
         new_binder.setVisible(true);
+        this.binder_screen_showed = true;
     }
     private void weigh_kgPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_weigh_kgPropertyChange
         // TODO add your handling code here:

@@ -11,6 +11,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.util.Vector;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -181,7 +182,11 @@ public class add_binder_form extends javax.swing.JFrame {
             colorway this_colorway = new colorway();
             this_colorway.setBinder(Float.parseFloat(this.binder.getText()));
             this_colorway.add_this_binder();
+            JOptionPane.showMessageDialog(null,"Successfully added new binder value!");
+            this.dispose();
         }
+        else
+            JOptionPane.showMessageDialog(null,"Please input a binder value!");
     }//GEN-LAST:event_add_binderActionPerformed
 
     private void binderKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_binderKeyReleased

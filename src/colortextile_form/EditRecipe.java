@@ -52,6 +52,7 @@ public class EditRecipe extends javax.swing.JFrame {
     private boolean web_cam_opened = false;
     private boolean pigment_screen_showed = false;
     private boolean fabric_style_screen_showed = false;
+    private boolean binder_screen_showed = false;
     private production_recipe prod_recipe  = new production_recipe();
     private job_customer_quantity_list temporary_list = new job_customer_quantity_list();
     private Recipe_functions use_func = new Recipe_functions();
@@ -78,9 +79,8 @@ public class EditRecipe extends javax.swing.JFrame {
         this.set_design_and_colorway_textbox_details();
         this.set_purchase_and_job_list_textbox();
         this.set_customer_list_and_autocomplete();
-        
     }
- 
+    
     
     public void set_customer_list_and_autocomplete()
     {
@@ -716,7 +716,7 @@ public class EditRecipe extends javax.swing.JFrame {
             }
         });
         jPanel14.add(spinner_date);
-        spinner_date.setBounds(616, 20, 130, 34);
+        spinner_date.setBounds(650, 20, 130, 34);
         spinner_date.setEditor(new JSpinner.DateEditor(spinner_date, "MM/dd/yyyy"));
 
         jLabel6.setBackground(new java.awt.Color(255, 255, 255));
@@ -728,7 +728,7 @@ public class EditRecipe extends javax.swing.JFrame {
         jLabel6.setFocusable(false);
         jLabel6.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         jPanel14.add(jLabel6);
-        jLabel6.setBounds(470, 20, 140, 30);
+        jLabel6.setBounds(510, 20, 140, 30);
         jLabel6.getAccessibleContext().setAccessibleName("date");
 
         getContentPane().add(jPanel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 790, 60));
@@ -763,7 +763,7 @@ public class EditRecipe extends javax.swing.JFrame {
             }
         });
         jPanel1.add(fab_style_comb);
-        fab_style_comb.setBounds(535, 230, 150, 34);
+        fab_style_comb.setBounds(560, 230, 150, 34);
 
         design_color.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jPanel1.add(design_color);
@@ -777,7 +777,7 @@ public class EditRecipe extends javax.swing.JFrame {
         jLabel11.setText("Fabric Style :");
         jLabel11.setFocusable(false);
         jPanel1.add(jLabel11);
-        jLabel11.setBounds(415, 230, 110, 34);
+        jLabel11.setBounds(440, 230, 110, 34);
 
         jLabel4.setBackground(new java.awt.Color(255, 255, 255));
         jLabel4.setFont(new java.awt.Font("Century Gothic", 0, 17)); // NOI18N
@@ -982,7 +982,7 @@ public class EditRecipe extends javax.swing.JFrame {
             }
         });
         jPanel1.add(add_fabric);
-        add_fabric.setBounds(390, 235, 25, 25);
+        add_fabric.setBounds(410, 235, 25, 25);
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 790, 295));
 
@@ -3796,6 +3796,13 @@ public class EditRecipe extends javax.swing.JFrame {
         add_pigment_form add_pigment = new add_pigment_form();
         add_pigment.setVisible(true);
         this.pigment_screen_showed = true;
+    }
+    
+    private void show_binder_form()
+    {
+        add_binder_form new_binder = new add_binder_form();
+        new_binder.setVisible(true);
+        this.binder_screen_showed = true;
     }
     
     
