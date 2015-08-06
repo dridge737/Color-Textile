@@ -186,7 +186,7 @@ public class colorway {
     {   
         Database.DB_Manager new_conn = new Database.DB_Manager();
         
-        return new_conn.check_if_binder_exists(this.binder) != 0;
+        return new_conn.check_if_binder_exists(this.binder) == 0;
     }
     
     public float get_last_binder()
