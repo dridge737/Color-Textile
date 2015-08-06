@@ -97,13 +97,15 @@ public class Add_new_design extends javax.swing.JFrame {
         binder5.removeAllItems();
         binder6.removeAllItems();
         binder7.removeAllItems();
+        /*
         ArrayList<Float> all_binder = new ArrayList<>();
         all_binder.add((float) 3.5);
         all_binder.add((float) 4.0);
         all_binder.add((float) 5.5);
         all_binder.add((float) 8.0);
-        
         add_all_binders(all_binder);
+        
+        */
         this.add_all_binders_from_database();
     }
     

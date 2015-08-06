@@ -208,7 +208,7 @@ public class EditRecipe extends javax.swing.JFrame {
             
             if(x == 0)
             {
-                setTextValues_colorway(colorway_name2,weigh_kg, binder2, this_color_and_screen.get(x));
+                setTextValues_colorway(colorway_name2,weigh_kg, binder, this_color_and_screen.get(x));
                 
                 for(int temp_loop2 = 0; temp_loop2 < current_screen.size(); temp_loop2++ )
                 {
@@ -231,7 +231,7 @@ public class EditRecipe extends javax.swing.JFrame {
             }
             else if( x == 1)
             {
-                setTextValues_colorway(colorway_name3,weigh_kg3, binder3, this_color_and_screen.get(x));
+                setTextValues_colorway(colorway_name3,weigh_kg3, binder2, this_color_and_screen.get(x));
                 
                 for(int temp_loop2 = 0; temp_loop2 < current_screen.size(); temp_loop2++ )
                 {
@@ -254,7 +254,7 @@ public class EditRecipe extends javax.swing.JFrame {
             }
             else if( x == 2)
             {
-                setTextValues_colorway(colorway_name4,weigh_kg4, binder4, this_color_and_screen.get(x));
+                setTextValues_colorway(colorway_name4,weigh_kg4, binder3, this_color_and_screen.get(x));
                 
                 for(int temp_loop2 = 0; temp_loop2 < current_screen.size(); temp_loop2++ )
                 {
@@ -275,7 +275,7 @@ public class EditRecipe extends javax.swing.JFrame {
             }
             else if( x == 3)
             {
-                setTextValues_colorway(colorway_name5,weigh_kg5, binder5, this_color_and_screen.get(x));
+                setTextValues_colorway(colorway_name5,weigh_kg5, binder4, this_color_and_screen.get(x));
                 
                 for(int temp_loop2 = 0; temp_loop2 < current_screen.size(); temp_loop2++ )
                 {
@@ -296,7 +296,7 @@ public class EditRecipe extends javax.swing.JFrame {
             }
             else if( x == 4)
             {
-                setTextValues_colorway(colorway_name6,weigh_kg6, binder6, this_color_and_screen.get(x));
+                setTextValues_colorway(colorway_name6,weigh_kg6, binder5, this_color_and_screen.get(x));
                 
                 for(int temp_loop2 = 0; temp_loop2 < current_screen.size(); temp_loop2++ )
                 {
@@ -318,7 +318,7 @@ public class EditRecipe extends javax.swing.JFrame {
        
             else if( x == 5)
             {
-                setTextValues_colorway(colorway_name7,weigh_kg7, binder7, this_color_and_screen.get(x));
+                setTextValues_colorway(colorway_name7,weigh_kg7, binder6, this_color_and_screen.get(x));
                 
                 for(int temp_loop2 = 0; temp_loop2 < current_screen.size(); temp_loop2++ )
                 {
@@ -338,7 +338,7 @@ public class EditRecipe extends javax.swing.JFrame {
             }
             else if( x == 6)
             {
-                setTextValues_colorway(colorway_name8,weigh_kg8, binder9, this_color_and_screen.get(x));
+                setTextValues_colorway(colorway_name8,weigh_kg8, binder7, this_color_and_screen.get(x));
                 
                 for(int temp_loop2 = 0; temp_loop2 < current_screen.size(); temp_loop2++ )
                 {
@@ -450,7 +450,7 @@ public class EditRecipe extends javax.swing.JFrame {
         kg_3 = new javax.swing.JTextField();
         jLabel139 = new javax.swing.JLabel();
         jSeparator18 = new javax.swing.JSeparator();
-        binder2 = new javax.swing.JComboBox();
+        binder = new javax.swing.JComboBox();
         jLabel143 = new javax.swing.JLabel();
         jLabel144 = new javax.swing.JLabel();
         kg_1 = new javax.swing.JTextField();
@@ -484,7 +484,7 @@ public class EditRecipe extends javax.swing.JFrame {
         kg_7 = new javax.swing.JTextField();
         jLabel59 = new javax.swing.JLabel();
         jSeparator8 = new javax.swing.JSeparator();
-        binder3 = new javax.swing.JComboBox();
+        binder2 = new javax.swing.JComboBox();
         jLabel63 = new javax.swing.JLabel();
         jLabel64 = new javax.swing.JLabel();
         jLabel145 = new javax.swing.JLabel();
@@ -519,7 +519,7 @@ public class EditRecipe extends javax.swing.JFrame {
         kg_11 = new javax.swing.JTextField();
         jLabel75 = new javax.swing.JLabel();
         jSeparator10 = new javax.swing.JSeparator();
-        binder4 = new javax.swing.JComboBox();
+        binder3 = new javax.swing.JComboBox();
         jLabel79 = new javax.swing.JLabel();
         jLabel80 = new javax.swing.JLabel();
         jLabel146 = new javax.swing.JLabel();
@@ -554,7 +554,7 @@ public class EditRecipe extends javax.swing.JFrame {
         kg_15 = new javax.swing.JTextField();
         jLabel91 = new javax.swing.JLabel();
         jSeparator12 = new javax.swing.JSeparator();
-        binder5 = new javax.swing.JComboBox();
+        binder4 = new javax.swing.JComboBox();
         jLabel95 = new javax.swing.JLabel();
         jLabel96 = new javax.swing.JLabel();
         jLabel147 = new javax.swing.JLabel();
@@ -589,7 +589,7 @@ public class EditRecipe extends javax.swing.JFrame {
         kg_19 = new javax.swing.JTextField();
         jLabel107 = new javax.swing.JLabel();
         jSeparator14 = new javax.swing.JSeparator();
-        binder6 = new javax.swing.JComboBox();
+        binder5 = new javax.swing.JComboBox();
         jLabel111 = new javax.swing.JLabel();
         jLabel112 = new javax.swing.JLabel();
         jLabel148 = new javax.swing.JLabel();
@@ -624,7 +624,7 @@ public class EditRecipe extends javax.swing.JFrame {
         kg_23 = new javax.swing.JTextField();
         jLabel123 = new javax.swing.JLabel();
         jSeparator16 = new javax.swing.JSeparator();
-        binder7 = new javax.swing.JComboBox();
+        binder6 = new javax.swing.JComboBox();
         jLabel127 = new javax.swing.JLabel();
         jLabel128 = new javax.swing.JLabel();
         jLabel149 = new javax.swing.JLabel();
@@ -659,7 +659,7 @@ public class EditRecipe extends javax.swing.JFrame {
         kg_26 = new javax.swing.JTextField();
         jLabel152 = new javax.swing.JLabel();
         jSeparator20 = new javax.swing.JSeparator();
-        binder9 = new javax.swing.JComboBox();
+        binder7 = new javax.swing.JComboBox();
         jLabel169 = new javax.swing.JLabel();
         jLabel170 = new javax.swing.JLabel();
         jLabel171 = new javax.swing.JLabel();
@@ -1112,10 +1112,10 @@ public class EditRecipe extends javax.swing.JFrame {
         jPanel9.add(jLabel139, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 149, -1, -1));
         jPanel9.add(jSeparator18, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 255, 775, 10));
 
-        binder2.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
-        binder2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "3.5", "4.0", "5.5", "8.0" }));
-        binder2.setNextFocusableComponent(jTabbedPane2);
-        jPanel9.add(binder2, new org.netbeans.lib.awtextra.AbsoluteConstraints(351, 200, 61, 30));
+        binder.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
+        binder.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "3.5", "4.0", "5.5", "8.0" }));
+        binder.setNextFocusableComponent(jTabbedPane2);
+        jPanel9.add(binder, new org.netbeans.lib.awtextra.AbsoluteConstraints(351, 200, 61, 30));
 
         jLabel143.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         jLabel143.setText("Binder :");
@@ -1307,10 +1307,10 @@ public class EditRecipe extends javax.swing.JFrame {
         jPanel4.add(jLabel59, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 149, -1, -1));
         jPanel4.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 255, 743, 10));
 
-        binder3.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
-        binder3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "3.5", "4.0", "5.5", "8.0" }));
-        binder3.setNextFocusableComponent(jTabbedPane2);
-        jPanel4.add(binder3, new org.netbeans.lib.awtextra.AbsoluteConstraints(351, 200, 61, 30));
+        binder2.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
+        binder2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "3.5", "4.0", "5.5", "8.0" }));
+        binder2.setNextFocusableComponent(jTabbedPane2);
+        jPanel4.add(binder2, new org.netbeans.lib.awtextra.AbsoluteConstraints(351, 200, 61, 30));
 
         jLabel63.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         jLabel63.setText("Binder :");
@@ -1500,10 +1500,10 @@ public class EditRecipe extends javax.swing.JFrame {
         jPanel5.add(jLabel75, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 149, -1, -1));
         jPanel5.add(jSeparator10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 255, 743, 10));
 
-        binder4.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
-        binder4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "3.5", "4.0", "5.5", "8.0" }));
-        binder4.setNextFocusableComponent(jTabbedPane2);
-        jPanel5.add(binder4, new org.netbeans.lib.awtextra.AbsoluteConstraints(351, 200, 61, 30));
+        binder3.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
+        binder3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "3.5", "4.0", "5.5", "8.0" }));
+        binder3.setNextFocusableComponent(jTabbedPane2);
+        jPanel5.add(binder3, new org.netbeans.lib.awtextra.AbsoluteConstraints(351, 200, 61, 30));
 
         jLabel79.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         jLabel79.setText("Binder :");
@@ -1692,10 +1692,10 @@ public class EditRecipe extends javax.swing.JFrame {
         jPanel6.add(jLabel91, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 149, -1, -1));
         jPanel6.add(jSeparator12, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 255, 743, 10));
 
-        binder5.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
-        binder5.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "3.5", "4.0", "5.5", "8.0" }));
-        binder5.setNextFocusableComponent(jTabbedPane2);
-        jPanel6.add(binder5, new org.netbeans.lib.awtextra.AbsoluteConstraints(351, 200, 61, 30));
+        binder4.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
+        binder4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "3.5", "4.0", "5.5", "8.0" }));
+        binder4.setNextFocusableComponent(jTabbedPane2);
+        jPanel6.add(binder4, new org.netbeans.lib.awtextra.AbsoluteConstraints(351, 200, 61, 30));
 
         jLabel95.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         jLabel95.setText("Binder :");
@@ -1884,10 +1884,10 @@ public class EditRecipe extends javax.swing.JFrame {
         jPanel7.add(jLabel107, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 149, -1, -1));
         jPanel7.add(jSeparator14, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 255, 743, 10));
 
-        binder6.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
-        binder6.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "3.5", "4.0", "5.5", "8.0" }));
-        binder6.setNextFocusableComponent(jTabbedPane2);
-        jPanel7.add(binder6, new org.netbeans.lib.awtextra.AbsoluteConstraints(351, 200, 61, 30));
+        binder5.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
+        binder5.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "3.5", "4.0", "5.5", "8.0" }));
+        binder5.setNextFocusableComponent(jTabbedPane2);
+        jPanel7.add(binder5, new org.netbeans.lib.awtextra.AbsoluteConstraints(351, 200, 61, 30));
 
         jLabel111.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         jLabel111.setText("Binder :");
@@ -2076,10 +2076,10 @@ public class EditRecipe extends javax.swing.JFrame {
         jPanel8.add(jLabel123, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 149, -1, -1));
         jPanel8.add(jSeparator16, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 255, 775, 10));
 
-        binder7.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
-        binder7.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "3.5", "4.0", "5.5", "8.0" }));
-        binder7.setNextFocusableComponent(jTabbedPane2);
-        jPanel8.add(binder7, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 200, 61, 30));
+        binder6.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
+        binder6.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "3.5", "4.0", "5.5", "8.0" }));
+        binder6.setNextFocusableComponent(jTabbedPane2);
+        jPanel8.add(binder6, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 200, 61, 30));
 
         jLabel127.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         jLabel127.setText("Binder :");
@@ -2268,10 +2268,10 @@ public class EditRecipe extends javax.swing.JFrame {
         jPanel15.add(jLabel152, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 149, -1, -1));
         jPanel15.add(jSeparator20, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 255, 775, 10));
 
-        binder9.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
-        binder9.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "3.5", "4.0", "5.5", "8.0" }));
-        binder9.setNextFocusableComponent(save_edit_but);
-        jPanel15.add(binder9, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 200, 61, 30));
+        binder7.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
+        binder7.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "3.5", "4.0", "5.5", "8.0" }));
+        binder7.setNextFocusableComponent(save_edit_but);
+        jPanel15.add(binder7, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 200, 61, 30));
 
         jLabel169.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         jLabel169.setText("Binder :");
@@ -2535,7 +2535,7 @@ public class EditRecipe extends javax.swing.JFrame {
             if(interval == 0)
             {   
                 int colorway_id = update_this_colorway(interval,colorway_name2.getText(), 
-                             Float.parseFloat(binder2.getSelectedItem().toString()),
+                             Float.parseFloat(binder.getSelectedItem().toString()),
                              weigh_kg.getText());
                 //System.out.println("Colorway ID of Screen No."+(interval+1)+"  is = "+colorway_id);
                 if(colorway_id != -1)
@@ -2554,7 +2554,7 @@ public class EditRecipe extends javax.swing.JFrame {
             else if(interval == 1)
             {
                 int colorway_id2 = update_this_colorway(interval,colorway_name3.getText(), 
-                             Float.parseFloat(binder3.getSelectedItem().toString()),
+                             Float.parseFloat(binder2.getSelectedItem().toString()),
                              weigh_kg3.getText());
                 System.out.println("Colorway ID of Screen No."+(interval+1)+"  is = "+colorway_id2);
                 if(colorway_id2 != -1 )
@@ -2574,7 +2574,7 @@ public class EditRecipe extends javax.swing.JFrame {
             {
                 
                 int colorway_id = update_this_colorway(interval,colorway_name4.getText(), 
-                             Float.parseFloat(binder4.getSelectedItem().toString()),
+                             Float.parseFloat(binder3.getSelectedItem().toString()),
                              weigh_kg4.getText());
                 System.out.println("Colorway ID of Screen No."+(interval+1)+"  is = "+colorway_id);
                 
@@ -2594,7 +2594,7 @@ public class EditRecipe extends javax.swing.JFrame {
             else if(interval == 3)
             {
                 int colorway_id2 = update_this_colorway(interval,colorway_name5.getText(), 
-                             Float.parseFloat(binder5.getSelectedItem().toString()),
+                             Float.parseFloat(binder4.getSelectedItem().toString()),
                              weigh_kg5.getText());
                 System.out.println("Colorway ID of Screen No."+(interval+1)+"  is = "+colorway_id2);
                 if(colorway_id2 != -1 )
@@ -2614,7 +2614,7 @@ public class EditRecipe extends javax.swing.JFrame {
             else if(interval == 4)
             {
                 int colorway_id = update_this_colorway(interval,colorway_name6.getText(), 
-                             Float.parseFloat(binder6.getSelectedItem().toString()),
+                             Float.parseFloat(binder5.getSelectedItem().toString()),
                              weigh_kg6.getText());
                 System.out.println("Colorway ID of Screen No."+(interval+1)+"  is = "+colorway_id);
                 if(colorway_id != -1 )
@@ -2634,7 +2634,7 @@ public class EditRecipe extends javax.swing.JFrame {
             {
              
                 int colorway_id2 = update_this_colorway(interval,colorway_name7.getText(), 
-                             Float.parseFloat(binder7.getSelectedItem().toString()),
+                             Float.parseFloat(binder6.getSelectedItem().toString()),
                              weigh_kg7.getText());
                 System.out.println("Colorway ID of Screen No."+(interval+1)+"  is = "+colorway_id2);
                 if( colorway_id2 != -1 )
@@ -2653,7 +2653,7 @@ public class EditRecipe extends javax.swing.JFrame {
             else if(interval == 6)
             {
                 int colorway_id = update_this_colorway(interval,colorway_name8.getText(), 
-                             Float.parseFloat(binder9.getSelectedItem().toString()),
+                             Float.parseFloat(binder7.getSelectedItem().toString()),
                              weigh_kg8.getText());
                 System.out.println("Colorway ID of Screen No."+(interval+1)+"  is = "+colorway_id);
                 if(colorway_id != -1 )
@@ -3157,7 +3157,7 @@ public class EditRecipe extends javax.swing.JFrame {
             if(interval==0)
             {
                 this_colorway_screen = new Screen_and_colorway_link(colorway_name2.getText(), 
-                             Float.parseFloat(binder2.getSelectedItem().toString()),
+                             Float.parseFloat(binder.getSelectedItem().toString()),
                              weigh_kg.getText());
         
                 this_colorway_screen.add_screen(get_colorway_details_from_input(name1, percentage1));
@@ -3169,7 +3169,7 @@ public class EditRecipe extends javax.swing.JFrame {
             else if(interval==1)
             {
                 this_colorway_screen = new Screen_and_colorway_link(colorway_name3.getText(), 
-                             Float.parseFloat(binder3.getSelectedItem().toString()),
+                             Float.parseFloat(binder2.getSelectedItem().toString()),
                              weigh_kg3.getText());
                 
                 this_colorway_screen.add_screen(get_colorway_details_from_input(name5, percentage5));
@@ -3181,7 +3181,7 @@ public class EditRecipe extends javax.swing.JFrame {
             else if(interval == 2)
             {
                 this_colorway_screen = new Screen_and_colorway_link(colorway_name4.getText(), 
-                             Float.parseFloat(binder4.getSelectedItem().toString()),
+                             Float.parseFloat(binder3.getSelectedItem().toString()),
                              weigh_kg4.getText());
                 
                 this_colorway_screen.add_screen(get_colorway_details_from_input(name9, percentage9));
@@ -3193,7 +3193,7 @@ public class EditRecipe extends javax.swing.JFrame {
             else if(interval == 3)
             {
                 this_colorway_screen = new Screen_and_colorway_link(colorway_name5.getText(), 
-                             Float.parseFloat(binder5.getSelectedItem().toString()),
+                             Float.parseFloat(binder4.getSelectedItem().toString()),
                              weigh_kg5.getText());
                 
                 this_colorway_screen.add_screen(get_colorway_details_from_input(name13, percentage13));
@@ -3205,7 +3205,7 @@ public class EditRecipe extends javax.swing.JFrame {
             else if(interval == 4)
             {
                 this_colorway_screen = new Screen_and_colorway_link(colorway_name6.getText(), 
-                             Float.parseFloat(binder6.getSelectedItem().toString()),
+                             Float.parseFloat(binder5.getSelectedItem().toString()),
                              weigh_kg6.getText());
                 
                 this_colorway_screen.add_screen(get_colorway_details_from_input(name17, percentage17));
@@ -3217,7 +3217,7 @@ public class EditRecipe extends javax.swing.JFrame {
             else if(interval == 5)
             {
              this_colorway_screen = new Screen_and_colorway_link(colorway_name7.getText(), 
-                             Float.parseFloat(binder7.getSelectedItem().toString()),
+                             Float.parseFloat(binder6.getSelectedItem().toString()),
                              weigh_kg7.getText());
                 
                 this_colorway_screen.add_screen(get_colorway_details_from_input(name21, percentage21));
@@ -3229,7 +3229,7 @@ public class EditRecipe extends javax.swing.JFrame {
             else if(interval == 6)
             {
                 this_colorway_screen = new Screen_and_colorway_link(colorway_name8.getText(), 
-                             Float.parseFloat(binder9.getSelectedItem().toString()),
+                             Float.parseFloat(binder7.getSelectedItem().toString()),
                              weigh_kg8.getText());
                 
                 this_colorway_screen.add_screen(get_colorway_details_from_input(name24, percentage24));
@@ -3326,8 +3326,7 @@ public class EditRecipe extends javax.swing.JFrame {
             }
             this.web_cam_opened = false;
         }
-        
-        if(this.pigment_screen_showed)
+        else if(this.pigment_screen_showed)
         {
             pigment this_pigment = new pigment();
             if(this_pigment.get_last_pigment_id() != this.last_added_pigment_no)
@@ -3338,11 +3337,114 @@ public class EditRecipe extends javax.swing.JFrame {
             pigment_screen_showed = false;
             last_added_pigment_no = this_pigment.get_last_pigment_id();
         }
-        
-        if(this.fabric_style_screen_showed)
+        else if(this.fabric_style_screen_showed){
             this.use_func.check_and_add_new_fabrics(fab_style_comb);
+            fabric_style_screen_showed = false;
+        }
+        else if(this.binder_screen_showed){
+            
+            if(this.binder.getItemCount() != new colorway().get_all_binder().size())
+            {    
+                this.register_binder_selected_item();
+                this.change_binder_to_last_added_binder();
+            }
+            binder_screen_showed = false;
+        }
     }//GEN-LAST:event_formWindowGainedFocus
 
+    private void change_binder_to_last_added_binder()
+    {
+        float last_added_binder = new colorway().get_last_binder();
+        switch(binder_button_check)
+        {
+            case 1:
+                binder.setSelectedItem(last_added_binder);
+                break;
+            case 2:
+                binder2.setSelectedItem(last_added_binder);
+                break;
+            case 3:
+                binder3.setSelectedItem(last_added_binder);
+                break;
+            case 4:
+                binder4.setSelectedItem(last_added_binder);
+                break;
+            case 5:
+                binder5.setSelectedItem(last_added_binder);
+                break;
+            case 6:
+                binder6.setSelectedItem(last_added_binder);
+                break;
+            case 7:
+                binder7.setSelectedItem(last_added_binder);
+                break;
+        }
+    }
+    
+    private void register_binder_selected_item()
+    {
+        String[] all_binder = new String[7];
+        all_binder[0] = binder.getSelectedItem().toString();
+        all_binder[1] = binder2.getSelectedItem().toString();
+        all_binder[2] = binder3.getSelectedItem().toString();
+        all_binder[3] = binder4.getSelectedItem().toString();
+        all_binder[4] = binder5.getSelectedItem().toString();
+        all_binder[5] = binder6.getSelectedItem().toString();
+        all_binder[6] = binder7.getSelectedItem().toString();
+        
+        this.remove_and_add_all_binders();
+        
+        binder.setSelectedItem(all_binder[0]);
+        binder2.setSelectedItem(all_binder[1]);
+        binder3.setSelectedItem(all_binder[2]);
+        binder4.setSelectedItem(all_binder[3]);
+        binder5.setSelectedItem(all_binder[4]);
+        binder6.setSelectedItem(all_binder[5]);
+        binder7.setSelectedItem(all_binder[6]);
+    }
+    
+    public void remove_and_add_all_binders()
+    {
+        binder.removeAllItems();
+        binder2.removeAllItems();
+        binder3.removeAllItems();
+        binder4.removeAllItems();
+        binder5.removeAllItems();
+        binder6.removeAllItems();
+        binder7.removeAllItems();
+        /*
+        ArrayList<Float> all_binder = new ArrayList<>();
+        all_binder.add((float) 3.5);
+        all_binder.add((float) 4.0);
+        all_binder.add((float) 5.5);
+        all_binder.add((float) 8.0);
+        add_all_binders(all_binder);
+        
+        */
+        this.add_all_binders_from_database();
+    }
+    
+    public void add_all_binders_from_database()
+    {
+        colorway this_colorway = new colorway();
+        ArrayList<Float> all_binder = this_colorway.get_all_binder();
+        add_all_binders(all_binder);
+    }
+    
+    public void add_all_binders(ArrayList<Float> binder_to_be_added)
+    {
+        for(Float this_binder : binder_to_be_added)
+        {
+            binder.addItem(this_binder);
+            binder2.addItem(this_binder);
+            binder3.addItem(this_binder);
+            binder4.addItem(this_binder);
+            binder5.addItem(this_binder);
+            binder6.addItem(this_binder);
+            binder7.addItem(this_binder);
+        }
+    }
+    
     private void change_pigment_to_last_added_pigment()
     {
         Database.DB_Manager new_conn = new Database.DB_Manager();
@@ -3678,46 +3780,52 @@ public class EditRecipe extends javax.swing.JFrame {
 
     private void add_bind1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_bind1ActionPerformed
         // TODO add your handling code here:
-        add_binder_form binder_form = new add_binder_form();
-        binder_form.setVisible(true);
+        this.show_binder_form();
+        this.binder_button_check = 1;
     }//GEN-LAST:event_add_bind1ActionPerformed
 
     private void add_bind2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_bind2ActionPerformed
         // TODO add your handling code here:
-        add_binder_form binder_form = new add_binder_form();
-        binder_form.setVisible(true);
+        this.show_binder_form();
+        this.binder_button_check = 2;
     }//GEN-LAST:event_add_bind2ActionPerformed
 
     private void add_bind3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_bind3ActionPerformed
         // TODO add your handling code here:
-        add_binder_form binder_form = new add_binder_form();
-        binder_form.setVisible(true);
+        this.show_binder_form();
+        this.binder_button_check = 3;
     }//GEN-LAST:event_add_bind3ActionPerformed
 
     private void add_bind4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_bind4ActionPerformed
         // TODO add your handling code here:
-        add_binder_form binder_form = new add_binder_form();
-        binder_form.setVisible(true);
+        this.show_binder_form();
+        this.binder_button_check = 4;
     }//GEN-LAST:event_add_bind4ActionPerformed
 
     private void add_bind5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_bind5ActionPerformed
         // TODO add your handling code here:
-        add_binder_form binder_form = new add_binder_form();
-        binder_form.setVisible(true);
+        this.show_binder_form();
+        this.binder_button_check = 5;
     }//GEN-LAST:event_add_bind5ActionPerformed
 
     private void add_bind6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_bind6ActionPerformed
         // TODO add your handling code here:
-        add_binder_form binder_form = new add_binder_form();
-        binder_form.setVisible(true);
+        this.show_binder_form();
+        this.binder_button_check = 6;
     }//GEN-LAST:event_add_bind6ActionPerformed
 
     private void add_bind7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_bind7ActionPerformed
         // TODO add your handling code here:
-        add_binder_form binder_form = new add_binder_form();
-        binder_form.setVisible(true);
+        this.show_binder_form();
+        this.binder_button_check = 7;
     }//GEN-LAST:event_add_bind7ActionPerformed
 
+    private void show_binder_form()
+    {
+        add_binder_form new_binder = new add_binder_form();
+        new_binder.setVisible(true);
+        this.binder_screen_showed = true;
+    }
     private void text_job_orderKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_text_job_orderKeyReleased
         // TODO add your handling code here:
         
@@ -3798,15 +3906,6 @@ public class EditRecipe extends javax.swing.JFrame {
         add_pigment.setVisible(true);
         this.pigment_screen_showed = true;
     }
-    
-    private void show_binder_form()
-    {
-        add_binder_form new_binder = new add_binder_form();
-        new_binder.setVisible(true);
-        this.binder_screen_showed = true;
-    }
-    
-    
     
     private boolean check_this_textbox(JTextField the_textfield)
     {
@@ -4026,13 +4125,13 @@ public class EditRecipe extends javax.swing.JFrame {
     private javax.swing.JButton add_bind6;
     private javax.swing.JButton add_bind7;
     private javax.swing.JButton add_fabric;
+    private javax.swing.JComboBox binder;
     private javax.swing.JComboBox binder2;
     private javax.swing.JComboBox binder3;
     private javax.swing.JComboBox binder4;
     private javax.swing.JComboBox binder5;
     private javax.swing.JComboBox binder6;
     private javax.swing.JComboBox binder7;
-    private javax.swing.JComboBox binder9;
     private javax.swing.JButton button_include_customer;
     private javax.swing.JButton button_remove_customer;
     private javax.swing.JButton cancel_but;
