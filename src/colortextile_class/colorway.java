@@ -178,4 +178,10 @@ public class colorway {
         Database.DB_Manager new_conn = new Database.DB_Manager();
         return new_conn.add_binder(this.getBinder());
     }
+    
+    public int get_last_binder()
+    {
+        Database.DB_Manager new_conn = new Database.DB_Manager();
+        return new_conn
+    }
 }

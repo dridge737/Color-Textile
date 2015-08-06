@@ -121,6 +121,7 @@ public class Recipe_functions {
                     //float temp_percentage = Float.parseFloat(percentage_text);
                     //float temp_weight = Float.parseFloat(weight_kg);
                     float weight_prep = this.update_kg_and_prep(percentage_text, weight_kg);
+                    System.out.println(Float.toString(weight_prep));
                     //Make this 2 Decimal digits
                     if(weight_prep < 0.01)
                     {   

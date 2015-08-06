@@ -59,6 +59,7 @@ public class EditRecipe extends javax.swing.JFrame {
     private job_customer_quantity_list this_list = new job_customer_quantity_list();
     private String current_style;
     private int pigment_button_check = -1;
+    private int binder_button_check = -1;
     int last_added_pigment_no;
     /**
      * Creates new form Add_new_design

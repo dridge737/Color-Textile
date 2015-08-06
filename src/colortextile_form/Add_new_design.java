@@ -46,6 +46,7 @@ public class Add_new_design extends javax.swing.JFrame {
     private job_customer_quantity_list temporary_list = new job_customer_quantity_list();
     private String current_style;
     private int pigment_button_check = -1;
+    private int binder_button_check = -1;
     private production_recipe this_recipe = new production_recipe();
     public boolean edit_recipe = false;
     int last_added_pigment_no;
@@ -3076,7 +3077,6 @@ public class Add_new_design extends javax.swing.JFrame {
             use_func.update_kg_prep(percentage25.getText(), weigh_kg8.getText(), kg_25);
             use_func.update_kg_prep(percentage26.getText(), weigh_kg8.getText(), kg_26);
         }
-            
     }//GEN-LAST:event_coverage8KeyReleased
     
     private void button_include_customerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_include_customerActionPerformed
@@ -3286,8 +3286,15 @@ public class Add_new_design extends javax.swing.JFrame {
         }
         else if(this.fabric_style_screen_showed)
             this.use_func.check_and_add_new_fabrics(this.fab_style_comb);
-        else if(this.pigment_screen_showed)
-            this.remove_and_add_all_binders();
+        else if(this.pigment_screen_showed){
+            colorway new_colorway = new colorway(); 
+                    
+            if(this.binder.getItemCount()-4 != new_colorway.get_all_binder().size()-4)
+            {    
+                this.register_binder_selected_item();
+                this.change_binder_to_last_added_binder();
+            }
+        }
     }//GEN-LAST:event_formWindowGainedFocus
 
     
@@ -3498,36 +3505,43 @@ public class Add_new_design extends javax.swing.JFrame {
     private void bind_add1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bind_add1ActionPerformed
         // TODO add your handling code here:
         show_binder_form();
+        this.binder_button_check = 1;
     }//GEN-LAST:event_bind_add1ActionPerformed
 
     private void bind_add2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bind_add2ActionPerformed
         // TODO add your handling code here:
         show_binder_form();
+        this.binder_button_check = 2;
     }//GEN-LAST:event_bind_add2ActionPerformed
 
     private void bind_add3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bind_add3ActionPerformed
         // TODO add your handling code here:
         show_binder_form();
+        this.binder_button_check = 3;
     }//GEN-LAST:event_bind_add3ActionPerformed
 
     private void bind_add4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bind_add4ActionPerformed
         // TODO add your handling code here:
         show_binder_form();
+        this.binder_button_check = 4;
     }//GEN-LAST:event_bind_add4ActionPerformed
 
     private void bind_add5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bind_add5ActionPerformed
         // TODO add your handling code here:
         show_binder_form();
+        this.binder_button_check = 5;
     }//GEN-LAST:event_bind_add5ActionPerformed
 
     private void bind_add6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bind_add6ActionPerformed
         // TODO add your handling code here:
         show_binder_form();
+        this.binder_button_check = 6;
     }//GEN-LAST:event_bind_add6ActionPerformed
 
     private void bind_add7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bind_add7ActionPerformed
         // TODO add your handling code here:
         show_binder_form();
+        this.binder_button_check = 7;
     }//GEN-LAST:event_bind_add7ActionPerformed
 
     private void show_binder_form()
@@ -3598,7 +3612,27 @@ public class Add_new_design extends javax.swing.JFrame {
             name25.addItem("");   
             name26.addItem("");   
     }
-    
+    private void register_binder_selected_item()
+    {
+        String[] all_binder = new String[7];
+        all_binder[0] = binder.getSelectedItem().toString();
+        all_binder[1] = binder2.getSelectedItem().toString();
+        all_binder[2] = binder3.getSelectedItem().toString();
+        all_binder[3] = binder4.getSelectedItem().toString();
+        all_binder[4] = binder5.getSelectedItem().toString();
+        all_binder[5] = binder6.getSelectedItem().toString();
+        all_binder[6] = binder7.getSelectedItem().toString();
+        
+        this.remove_and_add_all_binders();
+        
+        binder.setSelectedItem(all_binder[0]);
+        binder2.setSelectedItem(all_binder[1]);
+        binder3.setSelectedItem(all_binder[2]);
+        binder4.setSelectedItem(all_binder[3]);
+        binder5.setSelectedItem(all_binder[4]);
+        binder6.setSelectedItem(all_binder[5]);
+        binder7.setSelectedItem(all_binder[6]);
+    }
     private void registerSelectedItem()
     {
         String[] allitems = new String[21];
@@ -3708,9 +3742,31 @@ public class Add_new_design extends javax.swing.JFrame {
         setJobString();   
     }
     
+    private void change_binder_to_last_added_binder()
+    {
+        switch(binder_button_check)
+        {
+            case 1:
+                binder.setSelectedItem(jLabel2);
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+            case 4:
+                break;
+            case 5:
+                break;
+            case 6:
+                break;
+            case 7:
+                break;
+
+        }
+    }
+    
     private void change_pigment_to_last_added_pigment()
     {
-        Database.DB_Manager new_conn = new Database.DB_Manager();
         pigment added_pigment = new pigment();
         added_pigment.set_name_and_id_from_last_added_pigment();
         switch(pigment_button_check)
