@@ -637,6 +637,30 @@ public class DB_Manager {
         
     }
     
+    public float get_last_binder_percent(){
+        
+        DBConnection db = new DBConnection();
+        Connection conn = db.getConnection();
+        float binder_percent = -1;
+        try
+        {
+            PreparedStatement ps = conn.prepareStatement("SELECT binder_percent FROM binders WHERE binder_id = (SELECT MAX(binder_id) FROM binders);");
+            
+            ResultSet rs = ps.executeQuery();
+            
+            if(rs.first())
+            {
+                binder_percent =  rs.getFloat("binder_percent");
+            }
+            this.closeConn(conn, ps, rs);
+            
+        }
+        catch(SQLException ex){
+            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return binder_percent;
+    }
+    
     public pigment get_last_pigment_id_and_name()
     {
         pigment last_added_pigment = new pigment();

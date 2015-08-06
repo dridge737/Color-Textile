@@ -182,6 +182,6 @@ public class colorway {
     public int get_last_binder()
     {
         Database.DB_Manager new_conn = new Database.DB_Manager();
-        return new_conn
+        return new_conn.get_last_binder_percent();
     }
 }
