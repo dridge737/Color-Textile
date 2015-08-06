@@ -586,12 +586,23 @@ public class SearchJOGui extends javax.swing.JFrame {
             System.out.println(jTable1.getValueAt(row, col));
         }
         System.out.println("end"); */
-        String selected_purchase_order = jTable1.getValueAt(row, 7).toString();
+        String selected_job_order = jTable1.getValueAt(row, 0).toString();
         
-        purchase_order purchase = new purchase_order();
-        purchase.setId_purchase(Integer.parseInt(selected_purchase_order));
+        design this_design = new production_recipe();
+        //this_recipe.set
+        this_design.setDesign_name(jTable1.getValueAt(row, 4).toString());
+        this_design.setColor_name(jTable1.getValueAt(row,5).toString());
+        this_design.setFabric_style(jTable1.getValueAt(row,6).toString());
+        this_design.get_design_code_using_variables();
+        purchase_order selected_purchase = new purchase_order();
+        selected_purchase.setJob_order_id(selected_job_order);
+        selected_purchase.setDesign_code(this_design.getDesign_code());
+        selected_purchase.set_this_purchase_details_from_job_order_and_design_code();
+                
+        //purchase_order purchase = new purchase_order();
+        //purchase.setId_purchase(Integer.parseInt(selected_purchase_order));
         
-        EditRecipe editDesign = new EditRecipe(Integer.parseInt(selected_purchase_order));
+        EditRecipe editDesign = new EditRecipe(selected_purchase.getId_purchase());
         editDesign.setVisible(true);
         close();
             

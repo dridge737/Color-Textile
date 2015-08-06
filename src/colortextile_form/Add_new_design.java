@@ -2439,7 +2439,6 @@ public class Add_new_design extends javax.swing.JFrame {
                 }
                 else
                     this_design.setDesign_code(-1);
-                
             }
             else{
                 this_design.add_new_design_and_set_design_code();
@@ -2768,7 +2767,14 @@ public class Add_new_design extends javax.swing.JFrame {
             {
                 this.add_purchase(des_code);
                 this.add_job();
+                
+                int CloseorNoreply = JOptionPane.showConfirmDialog(null,"Successfully Added this Recipe! Close Window? "
+                    + "(Yes to close this window) ", "Close this Window?", JOptionPane.YES_NO_OPTION);
+                if(CloseorNoreply == JOptionPane.YES_OPTION)
+                this.dispose();
             }
+            else
+                JOptionPane.showMessageDialog(null, "Please input a design name and/or design color.");
             
             //production_recipe prod_recipe = this.get_design_details();
             //this.this_purchase.setPurchase_Id_from_Date_and_code();
@@ -2776,10 +2782,7 @@ public class Add_new_design extends javax.swing.JFrame {
             //this.this_purchase.set_job_order_list_using_purchase_order_id();
             //SpreadsheetTrial printFile = new SpreadsheetTrial();
             //printFile.print_this_job2(prod_recipe);
-            int CloseorNoreply = JOptionPane.showConfirmDialog(null,"Successfully Added this Recipe! Close Window? "
-                    + "(Yes to close this window) ", "Close this Window?", JOptionPane.YES_NO_OPTION);
-            if(CloseorNoreply == JOptionPane.YES_OPTION)
-                this.dispose();
+            
             
         }
     }//GEN-LAST:event_add_orderActionPerformed
@@ -3286,14 +3289,14 @@ public class Add_new_design extends javax.swing.JFrame {
         }
         else if(this.fabric_style_screen_showed)
             this.use_func.check_and_add_new_fabrics(this.fab_style_comb);
-        else if(this.pigment_screen_showed){
-            colorway new_colorway = new colorway(); 
-                    
-            if(this.binder.getItemCount()-4 != new_colorway.get_all_binder().size()-4)
+        else if(this.binder_screen_showed){
+            
+            if(this.binder.getItemCount() != new colorway().get_all_binder().size())
             {    
                 this.register_binder_selected_item();
                 this.change_binder_to_last_added_binder();
             }
+            binder_screen_showed = false;
         }
     }//GEN-LAST:event_formWindowGainedFocus
 
@@ -3744,24 +3747,30 @@ public class Add_new_design extends javax.swing.JFrame {
     
     private void change_binder_to_last_added_binder()
     {
+        float last_added_binder = new colorway().get_last_binder();
         switch(binder_button_check)
         {
             case 1:
-                binder.setSelectedItem(jLabel2);
+                binder.setSelectedItem(last_added_binder);
                 break;
             case 2:
+                binder2.setSelectedItem(last_added_binder);
                 break;
             case 3:
+                binder3.setSelectedItem(last_added_binder);
                 break;
             case 4:
+                binder4.setSelectedItem(last_added_binder);
                 break;
             case 5:
+                binder5.setSelectedItem(last_added_binder);
                 break;
             case 6:
+                binder6.setSelectedItem(last_added_binder);
                 break;
             case 7:
+                binder7.setSelectedItem(last_added_binder);
                 break;
-
         }
     }
     
