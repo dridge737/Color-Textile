@@ -143,7 +143,35 @@ public class DB_Manager {
         return false;
     }
     
-    
+    public int check_if_binder_exists(Float binder)
+    {
+        DBConnection db = new DBConnection();
+        Connection conn = db.getConnection();
+        
+        try {
+        
+            PreparedStatement ps = conn.prepareStatement("SELECT EXISTS "
+                    + " (SELECT binder_id "
+                    + " FROM binders WHERE "
+                    + " binder_percent = ?) "
+                    + " AS 'CheckTest'");
+
+            int item = 1;
+            ps.setFloat(item++, binder);
+
+            ResultSet rs = ps.executeQuery();
+            
+            rs.first();
+            int checkTest = rs.getInt("CheckTest");
+            
+            this.closeConn(conn, ps, rs);
+            return checkTest;
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return 0;
+    }
     
     public int check_if_customer_exists(String customer_name)
     {

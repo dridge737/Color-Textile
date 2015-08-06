@@ -176,7 +176,17 @@ public class colorway {
     public boolean add_this_binder()
     {
         Database.DB_Manager new_conn = new Database.DB_Manager();
-        return new_conn.add_binder(this.getBinder());
+        if(check_if_binder_has_been_added())
+            return new_conn.add_binder(this.getBinder());
+        
+        return false;
+    }
+    
+    public boolean check_if_binder_has_been_added()
+    {   
+        Database.DB_Manager new_conn = new Database.DB_Manager();
+        
+        return new_conn.check_if_binder_exists(this.binder) != 0;
     }
     
     public float get_last_binder()

@@ -42,10 +42,10 @@ public class add_binder_form extends javax.swing.JFrame {
     {
         binder_model.addColumn("Binder Percent");
         colorway new_colorway = new colorway();
-        binder_model.addRow(new Object[] {3.5});
-        binder_model.addRow(new Object[] {4.0});
-        binder_model.addRow(new Object[] {5.5});
-        binder_model.addRow(new Object[] {8.0});
+        //binder_model.addRow(new Object[] {3.5});
+        //binder_model.addRow(new Object[] {4.0});
+        //binder_model.addRow(new Object[] {5.5});
+        //binder_model.addRow(new Object[] {8.0});
         //if(!new_colorway.get_all_binder().isEmpty())
         for(Float binder_perc :new_colorway.get_all_binder())
         {
@@ -191,9 +191,9 @@ public class add_binder_form extends javax.swing.JFrame {
 
     private void binderKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_binderKeyReleased
         // TODO add your handling code here:
-        if(this_function.checkText2(binder.toString()))
+        if(this_function.checkText2(binder.getText()))
         {
-        binder.setText(binder.getText().replaceAll("[^0-9]", ""));
+            binder.setText(binder.getText().replaceAll("[^0-9]", ""));
         }
     }//GEN-LAST:event_binderKeyReleased
 
