@@ -298,9 +298,9 @@ public class SpreadsheetTrial {
                 res.put("name"+x, the_screens.get(x-1).getPigment_name() );
                 
                 if(the_screens.get(x-1).getPigment_percentage() <0.01)
-                    res.put("per"+x, Float.toString(Math.round(the_screens.get(x-1).getPigment_percentage()*1000)/1000));
+                    res.put("per"+x, Float.toString( (float) Math.round(the_screens.get(x-1).getPigment_percentage()*1000)/1000));
                 else
-                    res.put("per"+x, Float.toString((float) (Math.floor(the_screens.get(x-1).getPigment_percentage()*100)/100)));
+                    res.put("per"+x, String.format("%.2f", Math.floor(the_screens.get(x-1).getPigment_percentage()*100)/100));
                         //Float.toString(the_screens.get(x-1).getPigment_percentage() )
                 res.put("kilo"+x, the_screens.get(x-1).compute_kg_prep(this_color_screen.getWeight_kg()));
                 x++;

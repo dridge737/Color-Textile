@@ -510,7 +510,7 @@ public class SearchJOGui extends javax.swing.JFrame {
                         .addComponent(jDesktopPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel1);
@@ -664,17 +664,29 @@ public class SearchJOGui extends javax.swing.JFrame {
         
         this.label_pic.setIcon(null);
         this.label_pic.revalidate();
-        int id = this.get_design_code_from_table_selected();
+        //int id = this.get_design_code_from_table_selected();
         
-        design design_conn = new  design();
-        design_conn.setDesign_code(id);
+        int row = jTable1.getSelectedRow();
         
-        ResultSet rs = design_conn.get_picture_from_design_code();
+        design this_design = new production_recipe();
+        //this_recipe.set
+        this_design.setDesign_name(jTable1.getValueAt(row, 4).toString());
+        this_design.setColor_name(jTable1.getValueAt(row,5).toString());
+        this_design.setFabric_style(jTable1.getValueAt(row,6).toString());
+        this_design.get_design_code_using_variables();
         
-        if(rs.first()){
+        this_design.set_design_picture_from_design_code();
+        //design design_conn = new  design();
+        //design_conn.setDesign_code(id);
+        
+        //ResultSet rs = design_conn.get_picture_from_design_code();
+        
+        //if(rs.first()){
+        if(this_design.getDesign_image() != null){
             //System.out
-                byte[] imagedata = rs.getBytes("design_picture");
-                format = new ImageIcon(imagedata);
+                //byte[] imagedata = rs.getBytes("design_picture");
+                //format = new ImageIcon(imagedata);
+                format = new ImageIcon(this_design.getDesign_image().getBytes(1, (int) this_design.getDesign_image().length()));
                 
                 Image image = format.getImage();
                 Image newimg = image.getScaledInstance(240, 180,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way  

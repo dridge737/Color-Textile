@@ -123,6 +123,7 @@ public class Recipe_functions {
                     float weight_prep = this.update_kg_and_prep(percentage_text, weight_kg);
                     System.out.println(Float.toString(weight_prep));
                     //Make this 2 Decimal digits
+                    System.out.println(weight_kg);
                     if(weight_prep < 0.01)
                     {   
                         //this_textfield.setText(Float.toString( (float) next_weight/1000));
