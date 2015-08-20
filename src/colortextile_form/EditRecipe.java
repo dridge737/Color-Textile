@@ -117,7 +117,7 @@ public class EditRecipe extends javax.swing.JFrame {
                 }
             }
         });
-        
+        this.remove_and_add_all_binders();  
         addListItems();
         //Center the form
         Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();

@@ -121,17 +121,23 @@ public class Recipe_functions {
                     //float temp_percentage = Float.parseFloat(percentage_text);
                     //float temp_weight = Float.parseFloat(weight_kg);
                     float weight_prep = this.update_kg_and_prep(percentage_text, weight_kg);
-                    System.out.println(Float.toString(weight_prep));
                     //Make this 2 Decimal digits
-                    System.out.println(weight_kg);
+                    /*
+                    System.out.println("THIS HERE"+weight_prep);
+                    System.out.println("THIS HERE WEIGHT"+weight_kg);
+                    System.out.println("THIS HERE PIGMENT PERCENT "+percentage_text);
+                    */
                     if(weight_prep < 0.01)
                     {   
                         //this_textfield.setText(Float.toString( (float) next_weight/1000));
                         this_textfield.setText(String.format("%.3f", (float) Math.round(weight_prep* 1000)/1000));
                     }
                     else
+                    {
                         //this_textfield.setText(Float.toString((Math.floor(weight_prep* 100)/100));
+                       
                         this_textfield.setText(String.format("%.2f", Math.floor(weight_prep* 100)/100));
+                    }
             }
             else
             {

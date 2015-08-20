@@ -665,7 +665,6 @@ public class SearchJOGui extends javax.swing.JFrame {
         this.label_pic.setIcon(null);
         this.label_pic.revalidate();
         //int id = this.get_design_code_from_table_selected();
-        
         int row = jTable1.getSelectedRow();
         
         design this_design = new production_recipe();
