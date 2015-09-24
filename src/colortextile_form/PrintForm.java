@@ -314,6 +314,7 @@ public class PrintForm extends javax.swing.JFrame {
         {
             if(this.purchase_button.isSelected())
             {
+                
                 temporary_table_model.addRow((Vector) this.search_model.getDataVector().get(row[index_add]));
             /*
                 String[] this_set = {
