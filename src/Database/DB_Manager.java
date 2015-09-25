@@ -32,23 +32,44 @@ import javax.swing.table.DefaultTableModel;
  */
 public class DB_Manager {
    
+    
    //Close Connection; 
     private void closeConn(Connection conn, PreparedStatement ps)
     {
         try {
-            conn.close();
-            ps.close();
+            if(conn!=null)
+                conn.close();
         } catch (SQLException ex) {
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
-        }   
+        }
+        
+        if(ps!=null)
+                try {
+                    ps.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
+        }  
     }
     // OVERLOAD
     private void closeConn(Connection conn, PreparedStatement ps, ResultSet rs)
     {
         try {
-            conn.close();
-            ps.close();
-            rs.close();
+            if(conn!=null)
+                conn.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        if(ps!=null)
+                try {
+                    ps.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        if(rs!=null)
+                try {
+                    rs.close();
         } catch (SQLException ex) {
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -60,97 +81,109 @@ public class DB_Manager {
     public boolean add_fabric_style(String fabric_name, float fab_kilogram)
     {
         DBConnection dbc = new DBConnection();
-        Connection conn = dbc.getConnection();
-        
+        Connection conn = null;
+        PreparedStatement ps = null;
+        boolean added = false;
         try {
-             PreparedStatement ps = 
-                     conn.prepareStatement("INSERT INTO fabric_style (fabric_name, kilogram) "
+             
+            conn = dbc.getConnection();
+            conn.prepareStatement("INSERT INTO fabric_style (fabric_name, kilogram) "
                                             + "VALUES (?, ?)");
-        
-        int item = 1;
-        
-        ps.setString(item++, fabric_name.toUpperCase());
-        ps.setFloat(item++, fab_kilogram);
-        ps.executeUpdate();
-        
-        this.closeConn(conn, ps);
-        
-        return true;
+            
+            int item = 1;
+            ps.setString(item++, fabric_name.toUpperCase());
+            ps.setFloat(item++, fab_kilogram);
+            ps.executeUpdate();
+
+            added = true;
         } catch (SQLException ex) {
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return false;
+        this.closeConn(conn, ps);
+        return added;
     }
-    
     
     public int count_number_of_pigment()
     {
+        DBConnection dbc = new DBConnection();
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
         int total = -1;
         try {
-            DBConnection db = new DBConnection();
-            Connection conn = db.getConnection();
-
-            PreparedStatement ps = conn.prepareStatement("SELECT COUNT(pigment_no) AS 'Total' FROM pigment");
-           
-            ResultSet rs = ps.executeQuery();
+            conn = dbc.getConnection();
+            ps = conn.prepareStatement("SELECT COUNT(pigment_no) AS 'Total' FROM pigment");
+            rs = ps.executeQuery();
             
             rs.first();
             total = rs.getInt("Total");
-            this.closeConn(conn, ps, rs);
-        } catch (SQLException ex) {
+            
+        } 
+        catch (SQLException ex) {
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
         }
+        this.closeConn(conn, ps, rs);
         return total;
     }
     
     public int count_number_of_fabric_style()
     {
+        DBConnection dbc = new DBConnection();
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
         int total = -1;
+        
         try {
-            DBConnection db = new DBConnection();
-            Connection conn = db.getConnection();
-
-            PreparedStatement ps = conn.prepareStatement("SELECT COUNT(id_fabric) AS 'Total' FROM fabric_style");
-           
-            ResultSet rs = ps.executeQuery();
+            conn = dbc.getConnection();
+            ps = conn.prepareStatement("SELECT COUNT(id_fabric) AS 'Total' FROM fabric_style");
+            rs = ps.executeQuery();
             
             rs.first();
             total = rs.getInt("Total");
-            this.closeConn(conn, ps, rs);
+            
         } catch (SQLException ex) {
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
         }
+        this.closeConn(conn, ps, rs);
         return total;
     }
     
     public boolean add_pigment(colortextile_class.pigment this_pigment)
     {
+        DBConnection dbc = new DBConnection();
+        Connection conn = null;
+        PreparedStatement ps = null;
+        boolean added = false;
+        
         try {
-            DBConnection db = new DBConnection();
-            Connection conn = db.getConnection();
-
-            PreparedStatement ps = conn.prepareStatement("INSERT INTO pigment(pigment_name) VALUES (?)");
+            conn = dbc.getConnection();
+            ps = conn.prepareStatement("INSERT INTO pigment(pigment_name) VALUES (?)");
 
             int item = 1;
             ps.setString(item++, this_pigment.getPigment_name().toUpperCase());
 
             ps.executeUpdate();
-            this.closeConn(conn, ps);
-            return true;
+            added =true;
+            
         } catch (SQLException ex) {
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return false;
+        this.closeConn(conn, ps, null);
+        return added;
     }
     
     public int check_if_binder_exists(Float binder)
     {
-        DBConnection db = new DBConnection();
-        Connection conn = db.getConnection();
+        DBConnection dbc = new DBConnection();
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        int checkTest = 0;
         
         try {
-        
-            PreparedStatement ps = conn.prepareStatement("SELECT EXISTS "
+            conn = dbc.getConnection();
+            ps = conn.prepareStatement("SELECT EXISTS "
                     + " (SELECT binder_id "
                     + " FROM binders WHERE "
                     + " binder_percent = ?) "
@@ -158,28 +191,30 @@ public class DB_Manager {
 
             int item = 1;
             ps.setFloat(item++, binder);
-
-            ResultSet rs = ps.executeQuery();
             
-            rs.first();
-            int checkTest = rs.getInt("CheckTest");
-            
-            this.closeConn(conn, ps, rs);
-            return checkTest;
+            rs = ps.executeQuery();
+            if(rs.first())
+                checkTest = rs.getInt("CheckTest");
             
         } catch (SQLException ex) {
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return 0;
+        
+        this.closeConn(conn, ps, rs);
+        return checkTest;
     }
     
     public int check_if_customer_exists(String customer_name)
     {
-        try {
-            DBConnection db = new DBConnection();
-            Connection conn = db.getConnection();
-
-            PreparedStatement ps = conn.prepareStatement("SELECT EXISTS "
+        DBConnection dbc = new DBConnection();
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        int checkTest = 0;
+        try 
+        {
+            conn = dbc.getConnection();
+            ps = conn.prepareStatement("SELECT EXISTS "
                     + " (SELECT id_customer "
                     + " FROM customer WHERE "
                     + " customer_name = ?) "
@@ -187,28 +222,28 @@ public class DB_Manager {
 
             int item = 1;
             ps.setString(item++, customer_name);
-
-            ResultSet rs = ps.executeQuery();
-            
-            rs.first();
-            int checkTest = rs.getInt("CheckTest");
-            
-            this.closeConn(conn, ps, rs);
-            return checkTest;
+            rs = ps.executeQuery();
+            if(rs.first())
+                checkTest = rs.getInt("CheckTest");
             
         } catch (SQLException ex) {
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return 0;
+        
+        this.closeConn(conn, ps, rs);
+        return checkTest;
     }
     
     public int check_if_job_order_exists(colortextile_class.job_order this_job)
     {
+        DBConnection dbc = new DBConnection();
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        int checkTest = 0;
         try {
-            DBConnection db = new DBConnection();
-            Connection conn = db.getConnection();
-
-            PreparedStatement ps = conn.prepareStatement("SELECT EXISTS "
+            conn = dbc.getConnection();
+            ps = conn.prepareStatement("SELECT EXISTS "
                     + " (SELECT job_order_id "
                     + " FROM job_order WHERE "
                     + " job_order_id = ?) "
@@ -217,26 +252,27 @@ public class DB_Manager {
             int item = 1;
             ps.setString(item++, this_job.getJob_id());
 
-            ResultSet rs = ps.executeQuery();
-            
-            rs.first();
-            int checkTest = rs.getInt("CheckTest");
-            this.closeConn(conn, ps, rs);
-            return checkTest;
+            rs = ps.executeQuery();
+            if(rs.first())
+            checkTest = rs.getInt("CheckTest");
             
         } catch (SQLException ex) {
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return 0;
+        this.closeConn(conn, ps, rs);
+        return checkTest;
     }
     
     public int check_if_pigment_exists(colortextile_class.pigment this_pigment)
     {
+        DBConnection dbc = new DBConnection();
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        int checkTest = 0;
         try {
-            DBConnection db = new DBConnection();
-            Connection conn = db.getConnection();
-
-            PreparedStatement ps = conn.prepareStatement("SELECT EXISTS "
+            conn = dbc.getConnection();
+            ps = conn.prepareStatement("SELECT EXISTS "
                     + " (SELECT pigment_no "
                     + " FROM pigment WHERE "
                     + " pigment_name = ?) "
@@ -244,142 +280,150 @@ public class DB_Manager {
 
             int item = 1;
             ps.setString(item++, this_pigment.getPigment_name());
-
-            ResultSet rs = ps.executeQuery();
+            rs = ps.executeQuery();
             
-            rs.first();
-            int checkTest = rs.getInt("CheckTest");
+            if(rs.first())
+                checkTest = rs.getInt("CheckTest");
             
-            this.closeConn(conn, ps);
-            return checkTest;
-            
-        } catch (SQLException ex) {
+        } 
+        catch (SQLException ex) {
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return 0;
+        this.closeConn(conn, ps);
+        return checkTest;
+            
     }
     
     public boolean add_fabric_style(design this_design)
     {
         DBConnection db = new DBConnection();
-        Connection conn = db.getConnection();
+        Connection conn = null;
+        PreparedStatement ps = null;
+        boolean added = false;
         try {
-            
-            PreparedStatement ps = conn.prepareStatement("INSERT INTO fabric_style (fabric_name, percent) VALUES (?, ?)");
+            conn = db.getConnection();
+            ps = conn.prepareStatement("INSERT INTO fabric_style (fabric_name, percent) VALUES (?, ?)");
 
             int item = 1;
             ps.setString(item++, this_design.getFabric_style());
             ps.setFloat(item++, this_design.getPercent());
 
             ps.execute();
-            
-            this.closeConn(conn, ps);
-            return true;
+            added = true;
             
         } catch (SQLException ex) {
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return false;
+        this.closeConn(conn, ps);
+        return added;
     }
     
     public boolean add_binder(Float binder)
     {
         DBConnection db = new DBConnection();
-        Connection conn = db.getConnection();
+        Connection conn = null;
+        PreparedStatement ps = null;
+        boolean added = false;
         try {
-            
+            conn = db.getConnection();
             String query = "INSERT INTO binders (binder_percent) VALUES (?)";
+            ps = conn.prepareStatement(query);
+            ps.setFloat(1, binder);
 
-            PreparedStatement preparedStmt = conn.prepareStatement(query);
-            preparedStmt.setFloat(1, binder);
-
-            preparedStmt.execute();
-            
-            this.closeConn(conn, preparedStmt);
-            return true;
+            ps.execute();
+            added = true;
         } catch (SQLException ex) {
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return false;
+        this.closeConn(conn, ps);
+        return added;
     }
     
     public boolean add_customer(colortextile_class.customer new_customer) {
+        
+        DBConnection db = new DBConnection();
+        Connection conn = null;
+        PreparedStatement preparedStmt = null;
+        boolean added = false;
         try {
-            DBConnection db = new DBConnection();
-            Connection conn = db.getConnection();
-
+            conn = db.getConnection();
             String query = "INSERT INTO customer (customer_name) VALUES (?)";
 
-            PreparedStatement preparedStmt = conn.prepareStatement(query);
+            preparedStmt = conn.prepareStatement(query);
             preparedStmt.setString(1, new_customer.getCustomer_name().toUpperCase());
-
             preparedStmt.execute();
             
-            this.closeConn(conn, preparedStmt);
-            return true;
-        } catch (SQLException ex) {
+            added = true;
+        } 
+        catch (SQLException ex) {
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return false;
+        
+        this.closeConn(conn, preparedStmt);
+        return added;
     }
     
     public boolean add_purchase_order(colortextile_class.purchase_order new_purchase) {
-        try {
-            DBConnection db = new DBConnection();
-            Connection conn = db.getConnection();
         
+        DBConnection db = new DBConnection();
+        Connection conn = null;
+        PreparedStatement preparedStmt = null;
+        boolean added = false;
+        try {
+            conn = db.getConnection();
             String query = "INSERT INTO purchase_order (quantity, design_code, job_order_id) VALUES (?, ?, ?)";
             
-            PreparedStatement preparedStmt = conn.prepareStatement(query);
+            preparedStmt = conn.prepareStatement(query);
             preparedStmt.setInt(1, new_purchase.getQuantity());
             preparedStmt.setInt(2, new_purchase.getDesign_code());
             preparedStmt.setString(3, new_purchase.getJob_order_id());
-            
             preparedStmt.execute();
+            added = true;
             
-            this.closeConn(conn, preparedStmt);
-            return true;
         } catch (SQLException ex) {
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
-               return false;
+              
         }
+        this.closeConn(conn, preparedStmt);
+        return added;
     }
     
     public boolean add_colorway(colortextile_class.colorway new_colorway)
     {
-        try{
+        DBConnection db = new DBConnection();
+        Connection conn = null;
+        PreparedStatement ps = null;
+        boolean added = false;
         
-            DBConnection db = new DBConnection();
-            Connection conn = db.getConnection();
-            
-            PreparedStatement ps = conn.prepareStatement("INSERT INTO colorway (colorway_name, binder, weight_kg, design_code)"
+        try{
+            conn = db.getConnection();
+            ps = conn.prepareStatement("INSERT INTO colorway (colorway_name, binder, weight_kg, design_code)"
                                                        + "VALUES (? , ROUND(?, 2) , ROUND(?, 2) , ?)");
             int item =1;
             ps.setString(item++, new_colorway.getColorway_name().toUpperCase());
             ps.setFloat(item++, new_colorway.getBinder());
             ps.setFloat(item++, new_colorway.getWeight_kg());
             ps.setInt(item++, new_colorway.getDesign_code());
-            
             ps.executeUpdate(); 
-            
-            this.closeConn(conn, ps);
-            return true;
+            added = true;
         }
         catch(SQLException ex)
         {
             System.out.println(ex);
         }
-        return false;
+        this.closeConn(conn, ps);
+        return added;
     }
     
     public boolean add_colorway_and_screen_connect(int id_pigment, int id_colorway, float pigment_percentage)
     {
+        DBConnection db = new DBConnection();
+        Connection conn = null;
+        PreparedStatement ps = null;
+        boolean added = false;
         try{
-        
-            DBConnection db = new DBConnection();
-            Connection conn = db.getConnection();
-            
-            PreparedStatement ps = conn.prepareStatement("INSERT INTO colorway_screen_connect"
+            conn = db.getConnection();
+            ps = conn.prepareStatement("INSERT INTO colorway_screen_connect"
                                                        + "(pigment_no, id_colorway, pigment_percentage)"
                                                        + "VALUES (?, ?, ?);");
             int item =1;
@@ -387,67 +431,67 @@ public class DB_Manager {
             ps.setInt(item++, id_colorway);
             ps.setFloat(item++, pigment_percentage);
             ps.executeUpdate();
-            
-            this.closeConn(conn, ps);
-            return true;
+            added =true;
         }
         catch(SQLException ex)
         {
             System.out.println(ex);
         }
-        return false;
+        this.closeConn(conn, ps);
+        return added;
     }
     
     public boolean add_design(colortextile_class.design new_design)
     {
-         try{
-        
-            DBConnection db = new DBConnection();
-            Connection conn = db.getConnection();
-            
-            PreparedStatement ps = conn.prepareStatement("INSERT INTO design (design_name, color_name, fabric_style) "
+        DBConnection db = new DBConnection();
+        Connection conn = null;
+        PreparedStatement ps = null;
+        boolean added = false;
+        try
+        {
+            conn = db.getConnection();
+            ps = conn.prepareStatement("INSERT INTO design (design_name, color_name, fabric_style) "
                                                         + "VALUES ( ? , ? , ? )");
             int item = 1;
             ps.setString(item++, new_design.getDesign_name().toUpperCase()); 
             ps.setString(item++, new_design.getColor_name().toUpperCase());
             ps.setString(item++, new_design.getFabric_style().toUpperCase());
-          
             ps.executeUpdate();
-            //System.out.println("Another Result = " +hello);
-            this.closeConn(conn, ps);
-            return true;
+            
+            added = true;
         }
         catch(SQLException ex)
         {
             System.out.println(ex);
         }
-        return false;
+         this.closeConn(conn, ps);
+         return added;
     }
     
     public boolean add_job_order(colortextile_class.job_order new_job)
     {
-            try 
-            {
-                DBConnection db = new DBConnection();
-                Connection conn = db.getConnection();
+        DBConnection db = new DBConnection();
+        Connection conn = null;
+        PreparedStatement preparedStmt = null;
+        boolean added = false;
+        try
+        {
+            conn = db.getConnection();
             
-                String query = "INSERT INTO job_order (job_order_id, date, customer_id) VALUES (?, ?, ?)";
-
-                PreparedStatement preparedStmt = conn.prepareStatement(query);
-                preparedStmt.setString(1, new_job.getJob_id());
-                preparedStmt.setString(2, new_job.getDate());
-                preparedStmt.setInt(3, new_job.getCustomer_id());
-                
-                preparedStmt.execute();
-                
-                this.closeConn(conn, preparedStmt);
-                return true;
-            } 
-            catch (SQLException ex) {
-                Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        
-        return false;
+            String query = "INSERT INTO job_order (job_order_id, date, customer_id) VALUES (?, ?, ?)";
+            preparedStmt = conn.prepareStatement(query);
+            preparedStmt.setString(1, new_job.getJob_id());
+            preparedStmt.setString(2, new_job.getDate());
+            preparedStmt.setInt(3, new_job.getCustomer_id());
+            preparedStmt.execute();
+            
+            added = true;
+        }
+        catch (SQLException ex) {
+            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        this.closeConn(conn, preparedStmt);
+        return added;
     }
     //ADD END
     
@@ -456,23 +500,24 @@ public class DB_Manager {
     ///Start every function with delete_*
     public boolean delete_design_and_colorway_con_from_id_colorway(int id_colorway)
     {
+        DBConnection db = new DBConnection();
+        Connection conn = null;
+        PreparedStatement ps = null;
+        boolean deleted = false;
         try {
-            DBConnection db = new DBConnection();
-            Connection conn = db.getConnection();  
-        
-            PreparedStatement ps = conn.prepareStatement("DELETE FROM colorway_screen_connect WHERE id_colorway = ?");
-        
+            
+            conn = db.getConnection();
+            ps = conn.prepareStatement("DELETE FROM colorway_screen_connect WHERE id_colorway = ?");
             int item = 1;
             ps.setInt(item++, id_colorway);
             ps.executeUpdate();
-            
-            this.closeConn(conn, ps);
-            return true;
+            deleted = true;
         }
         catch(SQLException ex){
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return false;      
+        this.closeConn(conn, ps);
+        return deleted;      
         
     }
     
@@ -484,42 +529,45 @@ public class DB_Manager {
 
     public int get_id_pigment(String pigment_name)
     {
+        DBConnection db = new DBConnection();
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        int pigment_id = -1;
         try 
         {
-            DBConnection db = new DBConnection();
-            Connection conn = db.getConnection();
-    
-            PreparedStatement ps = 
-                    conn.prepareStatement("SELECT pigment_no "
+            conn = db.getConnection();
+            ps = conn.prepareStatement("SELECT pigment_no "
                     + "FROM pigment "
                     + "WHERE pigment_name = ?");
             int item = 1;
             ps.setString(item++, pigment_name);
+            rs = ps.executeQuery();
             
-            ResultSet rs = ps.executeQuery();
             if(rs.first())
             {
-                int pigment_id = rs.getInt("pigment_no");
-                //System.out.println(pigment_id);
-                this.closeConn(conn, ps, rs);
-                return pigment_id;
+                pigment_id = rs.getInt("pigment_no");
             }   
             
         } catch (SQLException ex) {
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
         }
-    
-        return -1;
+        
+        this.closeConn(conn, ps, rs);
+        return pigment_id;
     }
     
     public int get_id_screen(int pigment_no, float pigment_percentage)
     {
-        try{
-            DBConnection db = new DBConnection();
-            Connection conn = db.getConnection();
-            
-            PreparedStatement ps = 
-            conn.prepareStatement("SELECT id_screen "
+        DBConnection db = new DBConnection();
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        int id_screen = -1;
+        try
+        {
+            conn = db.getConnection();
+            ps = conn.prepareStatement("SELECT id_screen "
                                 + "FROM screen_pigment "
                                 + "WHERE pigment_no = ? "
                                 + "AND pigment_percentage BETWEEN ? AND ?");
@@ -527,43 +575,38 @@ public class DB_Manager {
             ps.setInt(item++, pigment_no);
             ps.setFloat(item++, pigment_percentage);
             ps.setFloat(item++, pigment_percentage);
-            ResultSet rs = ps.executeQuery();
+            rs = ps.executeQuery();
             if(rs.first())
             {
-                int id_screen = rs.getInt("id_screen");
-                
-                this.closeConn(conn, ps, rs);
-                return id_screen;
+                id_screen = rs.getInt("id_screen");
             }
         }
         catch(SQLException ex){
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        return -1;
+        this.closeConn(conn, ps, rs);
+        return id_screen;
     }
     
     public List<Screen_and_colorway_link> set_all_colorway_from_design_code(int this_design_code)
     {
+        DBConnection db = new DBConnection();
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        List<Screen_and_colorway_link> all_color_screen = new ArrayList<>();
         try{
-            DBConnection db = new DBConnection();
-            Connection conn = db.getConnection();
-            
-            PreparedStatement ps = 
-            conn.prepareStatement("SELECT * " 
+            conn = db.getConnection();
+            ps = conn.prepareStatement("SELECT * " 
                                 + "FROM colorway "
                                 + "WHERE design_code = ? "
                                 + " ORDER BY id_colorway");
-/*                                + "IN (SELECT id_colorway "
+            /*                  + "IN (SELECT id_colorway "
                                     + " FROM design_colorway_connect "
-                                    + " WHERE design_code = ?) ");
-  */          
+                                    + " WHERE design_code = ?) ");*/          
             int item = 1;
             ps.setInt(item++, this_design_code);
-            
-            List<Screen_and_colorway_link> all_color_screen = new ArrayList<>();
-            
-            ResultSet rs = ps.executeQuery();
+            rs = ps.executeQuery();
             
             while(rs.next())
             {
@@ -577,25 +620,27 @@ public class DB_Manager {
                 all_color_screen.add(current_colorway);
                 //System.out.println(rs.getString("colorway_name"));
             }
-            
-            this.closeConn(conn, ps, rs);
-            return all_color_screen;
-            
         }
         catch(SQLException ex){
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return null;
+        this.closeConn(conn, ps, rs);
+        return all_color_screen;
+        
     }
     
     public List<Colorway_and_pigment> set_all_colorway_and_screen_from_colorway_id(int colorway_id)
     {
+        DBConnection db = new DBConnection();
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet screen_rs = null;
+        List<Colorway_and_pigment> this_screen = new ArrayList<>();
+        
         try{
-            DBConnection db = new DBConnection();
-            Connection conn = db.getConnection();
+            conn = db.getConnection();
             
-            PreparedStatement ps = 
-            conn.prepareStatement("SELECT id_color_screen, p.pigment_no, pigment_percentage, p.pigment_name " 
+            ps = conn.prepareStatement("SELECT id_color_screen, p.pigment_no, pigment_percentage, p.pigment_name " 
                                  + " FROM colorway_screen_connect s_p, pigment p" 
                                  + " WHERE id_colorway = ? "
                                  + " AND s_p.pigment_no = p.pigment_no "
@@ -603,9 +648,7 @@ public class DB_Manager {
             int item = 1;
             ps.setInt(item++, colorway_id);
             
-            ResultSet screen_rs = ps.executeQuery();
-            List<Colorway_and_pigment> this_screen = new ArrayList<>();
-            
+            screen_rs = ps.executeQuery();
             while(screen_rs.next())
             {
                 Colorway_and_pigment this_s_pigment = new Colorway_and_pigment();
@@ -618,91 +661,96 @@ public class DB_Manager {
                 this_screen.add(this_s_pigment);
             }
             
-            this.closeConn(conn, ps, screen_rs);
-            return this_screen;
-            
         }
         catch(SQLException ex){
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return null;
+        this.closeConn(conn, ps, screen_rs);
+        return this_screen;
+
     }
     
     //Get all colorway details using the colorway_id
     public colorway set_colorway_details_from_colorway_id(int id_colorway)
     {
-        try{
-            DBConnection db = new DBConnection();
-            Connection conn = db.getConnection();
+        DBConnection db = new DBConnection();
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        colorway this_colorway = null;
+        
+        try
+        {
+            conn = db.getConnection();
             
-            PreparedStatement ps = 
-            conn.prepareStatement("SELECT colorway_name,  binder, weight_kg, design_code "
+            ps = conn.prepareStatement("SELECT colorway_name,  binder, weight_kg, design_code "
                                 + "FROM colorway "
                                 + "WHERE id_colorway = ?");
             int item = 1;
             
             ps.setInt(item++, id_colorway);
-            ResultSet rs = ps.executeQuery();
+            rs = ps.executeQuery();
             
-            colorway this_colorway = new colorway();
             if(rs.first())
             {
+                this_colorway = new colorway();
                 this_colorway.setId_colorway(id_colorway);
                 this_colorway.setDesign_code(rs.getInt("design_code"));
                 this_colorway.setColorway_name(rs.getString("colorway_name"));
                 this_colorway.setBinder(rs.getFloat("binder"));
                 this_colorway.setWeight_kg(rs.getFloat("weight_kg"));
             }
-            
-            this.closeConn(conn, ps, rs);
-            return this_colorway;
         }
         catch(SQLException ex){
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        return null;
-        
+        this.closeConn(conn, ps, rs);
+        return this_colorway;
     }
     
     public float get_last_binder_percent(){
         
         DBConnection db = new DBConnection();
-        Connection conn = db.getConnection();
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
         float binder_percent = -1;
         try
         {
-            PreparedStatement ps = conn.prepareStatement("SELECT binder_percent FROM binders WHERE binder_id = (SELECT MAX(binder_id) FROM binders);");
+            conn = db.getConnection();
+            ps = conn.prepareStatement("SELECT binder_percent FROM binders WHERE binder_id = (SELECT MAX(binder_id) FROM binders);");
             
-            ResultSet rs = ps.executeQuery();
+            rs = ps.executeQuery();
             
             if(rs.first())
-            {
-                binder_percent =  rs.getFloat("binder_percent");
-            }
-            this.closeConn(conn, ps, rs);
-            
+                binder_percent = rs.getFloat("binder_percent");
         }
         catch(SQLException ex){
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
         }
+        this.closeConn(conn, ps, rs);
         return binder_percent;
     }
     
     public pigment get_last_pigment_id_and_name()
     {
-        pigment last_added_pigment = new pigment();
+        DBConnection db = new DBConnection();
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        pigment last_added_pigment = null;
+        
         try
         {
-            DBConnection db = new DBConnection();
-            Connection conn = db.getConnection();
+            conn = db.getConnection();
             
-            PreparedStatement ps = conn.prepareStatement("SELECT pigment_name, pigment_no FROM pigment WHERE pigment_no = (SELECT MAX(pigment_no) FROM pigment);");
+            ps = conn.prepareStatement("SELECT pigment_name, pigment_no FROM pigment WHERE pigment_no = (SELECT MAX(pigment_no) FROM pigment);");
+            rs = ps.executeQuery();
             
-            ResultSet rs = ps.executeQuery();
-            
-             if(rs.first())
-            {
+            if(rs.first())
+            {   
+                last_added_pigment = new pigment();
                 last_added_pigment.setPigment_no(rs.getInt("pigment_no"));
                 last_added_pigment.setPigment_name(rs.getString("pigment_name"));
             }
@@ -710,53 +758,58 @@ public class DB_Manager {
         catch(SQLException ex){
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
         }
+        this.closeConn(conn, ps, rs);
         return last_added_pigment;
     }
     
     public int get_id_color_screen(int id_screen, int id_colorway , float pigment_percentage)
     {
+        DBConnection db = new DBConnection();
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
         int id_color_screen = -1;
         try{
-            DBConnection db = new DBConnection();
-            Connection conn = db.getConnection();
+            conn = db.getConnection();
             
-            PreparedStatement ps = 
+            ps = 
             conn.prepareStatement("SELECT id_color_screen "
                                 + " FROM colorway_screen_connect "
                                 + " WHERE id_screen = ? "
                                 + " AND id_colorway = ?"
                                 + " AND pigment_percentage = ?");
             int item = 1;
-            
             ps.setInt(item++, id_screen);
             ps.setInt(item++, id_colorway);
             ps.setFloat(item++, pigment_percentage);
-            ResultSet rs = ps.executeQuery();
+            rs = ps.executeQuery();
             
             if(rs.first())
             {
                 id_color_screen = rs.getInt("id_color_screen");
             }
             
-            this.closeConn(conn, ps, rs);
-            return id_color_screen;
         }
         catch(SQLException ex){
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
         }
         
+        this.closeConn(conn, ps, rs);
         return id_color_screen;
     }
     
     public int get_id_colorway(colortextile_class.colorway existing_colorway)
     {
+        DBConnection db = new DBConnection();
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
         int id_colorway = -1;
+        
         try{
-            DBConnection db = new DBConnection();
-            Connection conn = db.getConnection();
+            conn = db.getConnection();
             
-            PreparedStatement ps = 
-            conn.prepareStatement("SELECT id_colorway "
+            ps = conn.prepareStatement("SELECT id_colorway "
                                  + " FROM colorway "
                                  + " WHERE colorway_name LIKE ? "
                                  + " AND binder <=> ROUND (?, 2) "
@@ -769,68 +822,70 @@ public class DB_Manager {
             ps.setInt(item++, existing_colorway.getDesign_code());
             ps.setFloat(item++, existing_colorway.getWeight_kg()- (float) 0.01);
             ps.setFloat(item++, existing_colorway.getWeight_kg()+ (float) 0.01);
-            
             //System.out.println("Colorway name :" +existing_colorway.getColorway_name());
             //System.out.println("Binder :" +existing_colorway.getBinder());
             //System.out.println("Weight Kg :" +existing_colorway.getWeight_kg());
-            
-            ResultSet rs = ps.executeQuery();
+
+            rs = ps.executeQuery();
             if(rs.first())
             {
                 id_colorway= rs.getInt("id_colorway");
              //   System.out.println(id_colorway);
             }
-            this.closeConn(conn, ps, rs);
-            return id_colorway;
         }
         catch(SQLException ex){
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        return -1;
+        this.closeConn(conn, ps, rs);
+        return id_colorway;
     }
     
     public design set_design_details_from_des_code(int code_design)
     {
+        DBConnection db = new DBConnection();
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        design this_design = null;
+        
         try{
-            DBConnection db = new DBConnection();
-            Connection conn = db.getConnection();
+            conn = db.getConnection();
             
-            PreparedStatement ps = 
-            conn.prepareStatement("SELECT * FROM design WHERE design_code = ?");
+            ps = conn.prepareStatement("SELECT * FROM design WHERE design_code = ?");
             int item = 1;
             ps.setInt(item++, code_design);
             
-            ResultSet rs = ps.executeQuery();
+            rs = ps.executeQuery();
             
-            design this_design = new design();
             if(rs.first())
             {
+                this_design = new design();
                 this_design.setColor_name(rs.getString("color_name"));
                 this_design.setDesign_name(rs.getString("design_name"));
                 this_design.setFabric_style(rs.getString("fabric_style"));
             }
             
-            this.closeConn(conn, ps, rs);
-            return this_design;
-            
         }
         catch(SQLException ex){
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return null;
+        this.closeConn(conn, ps, rs);
+        return this_design;
     }
     
     
     public int get_design_code(colortextile_class.design new_design)
     {
+        DBConnection db = new DBConnection();
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
         int design_code = -1;
+        
         try{
-            DBConnection db = new DBConnection();
-            Connection conn = db.getConnection();
+            conn = db.getConnection();
             
-            PreparedStatement ps = 
-            conn.prepareStatement("SELECT design_code "
+            ps = conn.prepareStatement("SELECT design_code "
                     + "FROM design "
                     + "WHERE design_name = ? "
                     + "AND color_name = ? "
@@ -839,44 +894,46 @@ public class DB_Manager {
             ps.setString(item++, new_design.getDesign_name());
             ps.setString(item++, new_design.getColor_name());
             ps.setString(item++, new_design.getFabric_style());
-            ResultSet rs = ps.executeQuery();
+            rs = ps.executeQuery();
             
             if(rs.first())
             {
                 design_code = rs.getInt("design_code");
             }
-            this.closeConn(conn, ps, rs);
         }
         catch(SQLException ex){
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+        this.closeConn(conn, ps, rs);
         return design_code;
     }
     
     public ArrayList<String> get_all_pigment_name()
     {
+        DBConnection db = new DBConnection();
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        ArrayList<String> pigment_list = new ArrayList<String>();
+        
         try
         {
-            DBConnection db = new DBConnection();
-            Connection conn = db.getConnection();
-
-            PreparedStatement ps = conn.prepareStatement("SELECT pigment_name FROM pigment ORDER BY pigment_name asc");
-            ResultSet rs = ps.executeQuery();
-            ArrayList<String> pigment_list = new ArrayList<String>();
+            conn = db.getConnection();
+            ps = conn.prepareStatement("SELECT pigment_name FROM pigment ORDER BY pigment_name asc");
+            rs = ps.executeQuery();
+            
             while(rs.next())
             {
                 pigment_list.add(rs.getString(1));
             }
-            this.closeConn(conn, ps, rs);
-            return pigment_list;
         }
         catch(SQLException ex)
         {
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        return null;
+        this.closeConn(conn, ps, rs);
+        return pigment_list;
         
     }
     
@@ -887,31 +944,34 @@ public class DB_Manager {
      */
     public String get_pigment_name(int id_pigment)
     {
+        DBConnection db = new DBConnection();
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        String pigment_name = null;
         try{
-            DBConnection db = new DBConnection();
-            Connection conn = db.getConnection();
             
-            PreparedStatement ps = 
-            conn.prepareStatement("SELECT pigment_name "
+            conn = db.getConnection();
+            
+            ps = conn.prepareStatement("SELECT pigment_name "
                                  + "FROM pigment "
                                  + "WHERE pigment_no = ? ");
             
             int item = 1;
             ps.setInt(item++, id_pigment);
             
-            ResultSet rs = ps.executeQuery();
-            String pigment_name = null;
+            rs = ps.executeQuery();
             if(rs.first())
             {
                 pigment_name = rs.getString("pigment_name");
             }
-            this.closeConn(conn, ps, rs);
-            return pigment_name;
+            
         }
         catch(SQLException ex){
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
         }
-            return null;
+            this.closeConn(conn, ps, rs);
+            return pigment_name;
     }
     
     //EDITING
@@ -923,44 +983,51 @@ public class DB_Manager {
     
     public int get_pigment_percentage(int id_screen)
     {
+        DBConnection db = new DBConnection();
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
         int pigment_percentage = -1;
         try{
-            DBConnection db = new DBConnection();
-            Connection conn = db.getConnection();
             
-            PreparedStatement ps = 
-            conn.prepareStatement("SELECT pigment_percentage "
+            conn = db.getConnection();
+            ps = conn.prepareStatement("SELECT pigment_percentage "
                                  + "FROM screen_pigment "
                                  + "WHERE id_screen = ? ");
             
             int item = 1;
             ps.setInt(item++, id_screen);
-            ResultSet rs = ps.executeQuery();
+            rs = ps.executeQuery();
             
             if(rs.first())
             {
                 pigment_percentage = rs.getInt("pigment_percentage");
             }
-            this.closeConn(conn, ps, rs);
+            
         }
         catch(SQLException ex){
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
         }
-            return pigment_percentage;
+        
+        this.closeConn(conn, ps, rs);
+        return pigment_percentage;
     }
     
     //SKELETON TO COPY ONLY. Not usable
     public void get_skeleton()
     {
+        DBConnection db = new DBConnection();
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
         try{
-            DBConnection db = new DBConnection();
-            Connection conn = db.getConnection();
+            conn = db.getConnection();
             
-            PreparedStatement ps = 
+            ps = 
             conn.prepareStatement("SELECT  FROM  WHERE ");
             int item = 1;
             
-            ResultSet rs = ps.executeQuery();
+            rs = ps.executeQuery();
             rs.next();
         }
         catch(SQLException ex){
@@ -968,30 +1035,33 @@ public class DB_Manager {
         }
     }
     //returns id_purchase
-    public int get_id_customer_name(colortextile_class.customer id_customer){
-        
+    public int get_id_customer_name(colortextile_class.customer id_customer)
+    {
+        DBConnection db = new DBConnection();
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
         int id_cus = -1;
+        
         try{
-            DBConnection db = new DBConnection();
-            Connection conn = db.getConnection();
-            
-            PreparedStatement ps = 
-            conn.prepareStatement("SELECT id_customer "
+            conn = db.getConnection();
+            ps = conn.prepareStatement("SELECT id_customer "
                                  + "FROM customer "
                                  + "WHERE customer_name = ? ");
             
             ps.setString(1, id_customer.getCustomer_name());
             
-            ResultSet rs = ps.executeQuery();
-            if(rs.next())
+            rs = ps.executeQuery();
+            if(rs.first())
             {
                 id_cus = rs.getInt("id_customer");
             }
-            this.closeConn(conn, ps, rs);
+            
         }
         catch(SQLException ex){
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
         }
+        this.closeConn(conn, ps, rs);
         return id_cus;
         
     }
@@ -1002,17 +1072,18 @@ public class DB_Manager {
      */
     public int get_id_customer(String customer_name)
     {
+        DBConnection db = new DBConnection();
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
         int customer_id = 0;
         try
         {
-            DBConnection db = new DBConnection();
-            Connection conn = db.getConnection();
-        
-            PreparedStatement ps = 
-                    conn.prepareStatement("SELECT id_customer "
+            conn = db.getConnection();
+            ps = conn.prepareStatement("SELECT id_customer "
                     + "FROM customer "
                     + "WHERE customer_name = '"+ customer_name + "'");
-            ResultSet rs = ps.executeQuery();
+            rs = ps.executeQuery();
             
             while(rs.next())
             {
@@ -1035,50 +1106,51 @@ public class DB_Manager {
      */    
     public String get_customer_name(int customer_id)
     {
+        DBConnection db = new DBConnection();
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
         String customer_name = null;
         try
         {
-            DBConnection db = new DBConnection();
-            Connection conn = db.getConnection();
-        
-            PreparedStatement ps = conn.prepareStatement("SELECT customer_name "
+            conn = db.getConnection();
+            ps = conn.prepareStatement("SELECT customer_name "
                                                         + "FROM customer "
                                                         + "WHERE id_customer = ?");
             
             int item = 1;
             ps.setInt(item++, customer_id);
             
-            ResultSet rs = ps.executeQuery();
+            rs = ps.executeQuery();
             
-            while(rs.next())
+            if(rs.first())
             {
                 customer_name = rs.getString("customer_name");
             }
-            this.closeConn(conn, ps, rs);
-            
         } 
         catch (SQLException ex) 
         {
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
         }
+        this.closeConn(conn, ps, rs);
         return customer_name;
     }
     
     public int get_fabric_style_id(String fabric_name)
     {
+        DBConnection db = new DBConnection();
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
         int fabric_id = -1;
         
         try{
-            DBConnection db = new DBConnection();
-            Connection conn = db.getConnection();
-            
-            PreparedStatement ps = 
-            conn.prepareStatement("SELECT id_fabric FROM fabric_style WHERE fabric_name = ?");
+            conn = db.getConnection();
+            ps = conn.prepareStatement("SELECT id_fabric FROM fabric_style WHERE fabric_name = ?");
             
             int item = 1;
             ps.setString(item++, fabric_name);
-            
-            ResultSet rs = ps.executeQuery();
+            rs = ps.executeQuery();
             if(rs.first())
             {
                 fabric_id = rs.getInt("id_fabric");
@@ -1087,131 +1159,139 @@ public class DB_Manager {
         catch(SQLException ex){
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
         }
+        this.closeConn(conn, ps, rs);
         return fabric_id;
     }
     public ArrayList<Float> get_all_binder()
     {
         DBConnection db = new DBConnection();
-        Connection conn = db.getConnection(); 
-        
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        ArrayList<Float> binder_list = new ArrayList<>();
         try
         {    
-            PreparedStatement ps = conn.prepareStatement("SELECT binder_percent FROM binders ORDER BY binder_percent ASC ");
+            conn = db.getConnection();
+            ps = conn.prepareStatement("SELECT binder_percent FROM binders ORDER BY binder_percent ASC ");
+            rs = ps.executeQuery();
             
-            ResultSet rs = ps.executeQuery();
-            ArrayList<Float> binder_list = new ArrayList<>();
             while(rs.next())
             {
                 binder_list.add(rs.getFloat("binder_percent"));
             }
-            this.closeConn(conn, ps, rs);
-            return binder_list;
         }
         catch (SQLException ex)
         {
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return null;
+        this.closeConn(conn, ps, rs);
+        return binder_list;
     }
     public ArrayList<String> get_all_fabric_styles()
     {
+        DBConnection db = new DBConnection();
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        ArrayList<String> fabric_style = new ArrayList<>();
         try
         {
-            DBConnection db = new DBConnection();
-            Connection conn = db.getConnection(); 
+            conn = db.getConnection(); 
             
-            PreparedStatement ps = conn.prepareStatement("SELECT fabric_name FROM fabric_style ORDER BY fabric_name ASC ");
-            ResultSet rs = ps.executeQuery();
-            ArrayList<String> fabric_style = new ArrayList<>();
+            ps = conn.prepareStatement("SELECT fabric_name FROM fabric_style ORDER BY fabric_name ASC ");
+            rs = ps.executeQuery();
+            
             while(rs.next())
             {
                 fabric_style.add(rs.getString("fabric_name"));
             }
-            this.closeConn(conn, ps, rs);
-            return fabric_style;
+            
         }
         catch (SQLException ex)
         {
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return null;
+        this.closeConn(conn, ps, rs);
+        return fabric_style;
     }
     
     public ArrayList<String> get_customer_list(colortextile_class.customer customer_name) 
     {
+        DBConnection db = new DBConnection();
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        ArrayList<String> names = new ArrayList<>();
         try
         {
-          DBConnection db = new DBConnection();
-          Connection conn = db.getConnection();  
+            conn = db.getConnection();  
           
-            PreparedStatement ps = conn.prepareStatement("SELECT * FROM customer ORDER BY customer_name ASC ");
-            ResultSet rs = ps.executeQuery();
-            ArrayList<String> names = new ArrayList<>();
+            ps = conn.prepareStatement("SELECT * FROM customer ORDER BY customer_name ASC ");
+            rs = ps.executeQuery();
+            
             while(rs.next())
             {
                 names.add(rs.getString("customer_name"));
             }
             customer_name.setCustomer_names(names);
-            this.closeConn(conn, ps, rs);
-            return names;
+            
         }
         catch (SQLException ex)
         {
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        return null;
-        
+        this.closeConn(conn, ps, rs);
+        return names;
     }
     
     public List<purchase_order> get_all_purchase_for_this_job_order(colortextile_class.job_order this_job_order)
     {
+        DBConnection db = new DBConnection();
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        List<purchase_order> all_purchase_this_job = new ArrayList<purchase_order>();
         try
         {
-            DBConnection db = new DBConnection();
-            Connection conn = db.getConnection(); 
-            
-            PreparedStatement ps = conn.prepareStatement("SELECT * FROM puchase_order WHERE job_order_id = ?");
+            conn = db.getConnection();
+            ps = conn.prepareStatement("SELECT * FROM puchase_order WHERE job_order_id = ?");
             
             int item = 1;
             ps.setString(item++, this_job_order.getJob_id());
-            
-            ResultSet rs = ps.executeQuery();
-            
-            List<purchase_order> all_purchase_this_job = new ArrayList<purchase_order>();
+            rs = ps.executeQuery();
             
             while(rs.next())
             {
                 purchase_order this_purchase = new purchase_order();
-                
                 this_purchase.setQuantity(rs.getInt("quantity"));
                 this_purchase.setDesign_code(rs.getInt("design_code"));
                 this_purchase.setJob_order_id(this_job_order.getJob_id());
                 this_purchase.setId_purchase(rs.getInt("id_purchase"));
-                
                 all_purchase_this_job.add(this_purchase);
             }
-            this.closeConn(conn, ps, rs);
-            return all_purchase_this_job;
-            
         }
         catch(SQLException ex)
         {
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return null;
+        this.closeConn(conn, ps, rs);
+        return all_purchase_this_job;
     }
     
     
     public ResultSet get_all_job_order(colortextile_class.job_order job_order)
     {
+        DBConnection db = new DBConnection();
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        //error
         try
         {
-          DBConnection db = new DBConnection();
-          Connection conn = db.getConnection();  
-          
-            PreparedStatement ps = conn.prepareStatement("SELECT * FROM job_order");
-            ResultSet rs = ps.executeQuery();
+            conn = db.getConnection();
+            ps = conn.prepareStatement("SELECT * FROM job_order");
+            rs = ps.executeQuery();
             
             return rs;
         }
@@ -1226,19 +1306,22 @@ public class DB_Manager {
     
     public colortextile_class.job_order get_job_order_details(String job_order_id)
     {
+        DBConnection db = new DBConnection();
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
         colortextile_class.job_order this_job = new colortextile_class.job_order();
         this_job.setJob_id("-1");
         try
         {
-            DBConnection db = new DBConnection();
-            Connection conn = db.getConnection(); 
-            PreparedStatement ps = conn.prepareStatement("SELECT * "
+            conn = db.getConnection(); 
+            ps = conn.prepareStatement("SELECT * "
                                                         + " FROM job_order jo , customer cu "
                                                         + " WHERE job_order_id = ? "
                                                         + " AND jo.customer_id = cu.id_customer");
             int item = 1;
             ps.setString(item++, job_order_id);
-            ResultSet rs = ps.executeQuery();
+            rs = ps.executeQuery();
             
             if(rs.first())
             {
@@ -1247,70 +1330,69 @@ public class DB_Manager {
                 this_job.setDate(rs.getString("date"));
                 this_job.setCustomer_name(rs.getString("customer_name"));
             }
-            this.closeConn(conn, ps, rs);
-            
         }
         catch(SQLException ex)
         {
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
         }
+        this.closeConn(conn, ps, rs);
         return this_job;
     }
     
     public List<job_order> set_job_order_info_from_purchase_id(int purchase_id){
+        
+        DBConnection db = new DBConnection();
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        List<job_order> job_list = new ArrayList<job_order>();
         try
         {
-            DBConnection db = new DBConnection();
-            Connection conn = db.getConnection(); 
-            PreparedStatement ps = conn.prepareStatement("SELECT * FROM job_order WHERE id_purchase = ?");
+            conn = db.getConnection(); 
+            ps = conn.prepareStatement("SELECT * FROM job_order WHERE id_purchase = ?");
             
             int item = 1;
             ps.setInt(item++, purchase_id);
-            
-            ResultSet rs = ps.executeQuery();
-            List<job_order> job_list = new ArrayList<job_order>();
-            
+            rs = ps.executeQuery();
             while(rs.next())
             {
                 job_order this_job = new job_order();
-                /*
-                //FOR Debugging this job
-                //System.out.println("Customer id = "+ rs.getInt("customer_id"));
-                //System.out.println("Job Order = "+ rs.getString("job_order_id"));
-                //System.out.println("Quantity = " +rs.getInt("quantity"));
-                */
+                
                 this_job.setCustomer_id(rs.getInt("customer_id"));                
                 this_job.setJob_id(rs.getString("job_order_id"));
                 this_job.setDate(rs.getString("date"));
                 //this_job.setQuantity(rs.getInt("quantity"));
-                
+
                 job_list.add(this_job);
             }
-            this.closeConn(conn, ps, rs);
+            
             /*
             for(job_order all_jobs : job_list)
             {
                 all_jobs.display_details();
             }
             */
-            return job_list;
+            
         }
         catch(SQLException ex)
         {
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return null;
+        this.closeConn(conn, ps, rs);
+        return job_list;
     }
     
     public List<purchase_order> get_all_purchase_details_from_date_and_design(String date, int des_code)
     {
+        DBConnection db = new DBConnection();
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        List<purchase_order> all_purchase_this_job = new ArrayList<purchase_order>();
         try
         {
-            DBConnection db = new DBConnection();
-            Connection conn = db.getConnection(); 
-            
-            PreparedStatement ps = 
-                    conn.prepareStatement("SELECT jo.job_order_id, date, customer_id, id_purchase, quantity, design_code "
+            conn = db.getConnection();
+            ps = conn.prepareStatement("SELECT jo.job_order_id, date, customer_id, id_purchase, quantity, design_code "
                     + " FROM purchase_order po, "
                     + "     job_order jo "
                     + " WHERE jo.job_order_id = po.job_order_id"
@@ -1321,10 +1403,7 @@ public class DB_Manager {
             ps.setString(item++, date);
             ps.setInt(item++, des_code);
             
-            ResultSet rs = ps.executeQuery();
-            
-            List<purchase_order> all_purchase_this_job = new ArrayList<purchase_order>();
-            
+            rs = ps.executeQuery();
             while(rs.next())
             {
                 purchase_order this_purchase = new purchase_order();
@@ -1334,7 +1413,6 @@ public class DB_Manager {
                 //System.out.println("Job Order = "+ rs.getString("job_order_id"));
                 //System.out.println("Design code= "+ rs.getInt("design_code"));
                 //System.out.println("Quantity = " +rs.getInt("quantity"));
-                
                 this_purchase.setQuantity(rs.getInt("quantity"));
                 this_purchase.setDesign_code(rs.getInt("design_code"));
                 this_purchase.setJob_order_id(rs.getString("job_order_id"));
@@ -1343,25 +1421,28 @@ public class DB_Manager {
                 all_purchase_this_job.add(this_purchase);
             }
             
-            return all_purchase_this_job;
+            
             
         }
         catch(SQLException ex)
         {
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return null;
+        this.closeConn(conn, ps, rs);
+        return all_purchase_this_job;
     }
     
     public List<job_order> get_all_job_order_and_details_from_design_and_purchase_id(int design_code, int purchase_id)
     {
+        DBConnection db = new DBConnection();
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        List<job_order> all_job_this_purchase = new ArrayList<job_order>();
         try
-        {   
-          DBConnection db = new DBConnection();
-          Connection conn = db.getConnection();  
-          
-          List<job_order> all_job_this_purchase = new ArrayList<job_order>();
-            PreparedStatement ps = conn.prepareStatement("SELECT p.job_order_id, customer_id, date , customer_name "
+        { 
+            conn = db.getConnection();
+            ps = conn.prepareStatement("SELECT p.job_order_id, customer_id, date , customer_name "
                     + "FROM purchase_order p , job_order j, customer c "
                     + " WHERE j.job_order_id = p.job_order_id "
                     + " AND c.id_customer = j.customer_id "
@@ -1375,7 +1456,7 @@ public class DB_Manager {
             ps.setInt(item++, design_code);
             ps.setInt(item++, purchase_id);
             
-            ResultSet rs = ps.executeQuery();
+            rs = ps.executeQuery();
             while(rs.next())
             {
                 job_order this_order = new job_order();
@@ -1385,55 +1466,56 @@ public class DB_Manager {
                 this_order.setCustomer_name(rs.getString("customer_name"));
                 all_job_this_purchase.add(this_order);
              }
-            
-            this.closeConn(conn, ps, rs);
-            return all_job_this_purchase;
         }
         catch (SQLException ex)
         {
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);   
         }
-        return null;
+        this.closeConn(conn, ps, rs);
+        return all_job_this_purchase;
     }
     
     public Blob get_design_picture_using_design_id(int design_code)
     {
-        Blob design_picture;
+        DBConnection db = new DBConnection();
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        Blob design_picture = null;
         try
         {
-          DBConnection db = new DBConnection();
-          Connection conn = db.getConnection();  
-          
-            PreparedStatement ps = conn.prepareStatement("SELECT design_picture FROM design_picture WHERE design_code = ? ");
+            conn = db.getConnection();
+            ps = conn.prepareStatement("SELECT design_picture FROM design_picture WHERE design_code = ? ");
             int item = 1;
             ps.setInt(item++, design_code);
-            
-            ResultSet rs = ps.executeQuery();
+            rs = ps.executeQuery();
             if(rs.first()){
                 design_picture = rs.getBlob(1);
-                this.closeConn(conn, ps, rs);
-                return design_picture;
             }
-            
-        this.closeConn(conn, ps,rs);
         }
         catch (SQLException ex)
         {
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);  
         }
-        return null;
+        this.closeConn(conn, ps,rs);
+        return design_picture;
     }
     
-    public ResultSet get_picture_from_design_id(colortextile_class.design this_picture){
+    public ResultSet get_picture_from_design_id(colortextile_class.design this_picture)
+    {
+        DBConnection db = new DBConnection();
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        //error
         try
         {
-          DBConnection db = new DBConnection();
-          Connection conn = db.getConnection();  
+            conn = db.getConnection();  
           
-            PreparedStatement ps = conn.prepareStatement("SELECT design_picture FROM design_picture WHERE design_code = '"+ this_picture.getDesign_code()+"' ");
-            ResultSet rs = ps.executeQuery();
+            ps = conn.prepareStatement("SELECT design_picture FROM design_picture WHERE design_code = '"+ this_picture.getDesign_code()+"' ");
+            rs = ps.executeQuery();
             
-                return rs;
+            return rs;
             
            //this.closeConn(conn, ps, rs);
         }
@@ -1446,33 +1528,33 @@ public class DB_Manager {
     
     public ArrayList<Integer> get_all_design_code_from_date(String date)
     {
+        DBConnection db = new DBConnection();
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
         ArrayList<Integer> design_codes = new ArrayList<>();
         try
         {
-          DBConnection db = new DBConnection();
-          Connection conn = db.getConnection();  
-          
-            PreparedStatement ps = conn.prepareStatement(" SELECT DISTINCT(design_code)" +
+            conn = db.getConnection();
+            ps = conn.prepareStatement(" SELECT DISTINCT(design_code)" +
                                                          " FROM job_order jo, purchase_order po " +
                                                          " WHERE jo.job_order_id = po.job_order_id" +
                                                          " AND DATE = ?;");
             
             int item = 1;
             ps.setString(item++, date);
-                                                       
-            ResultSet rs = ps.executeQuery();
+            rs = ps.executeQuery();
             
             while(rs.next())
             {
                 design_codes.add(rs.getInt("design_code"));
             }
-            this.closeConn(conn, ps, rs);
         }
         catch (SQLException ex)
         {
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
         }
-
+        this.closeConn(conn, ps, rs);
         return design_codes;
         
     }
@@ -1492,13 +1574,15 @@ public class DB_Manager {
     
     public DefaultTableModel get_table_merged_date()
     {
+        DBConnection db = new DBConnection();
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
         DefaultTableModel model = get_column_table_for_merged_date();
         
         try {
-            DBConnection db = new DBConnection();
-            Connection conn = db.getConnection();
-            
-            PreparedStatement ps = conn.prepareStatement("SELECT date, " +
+            conn = db.getConnection();
+            ps = conn.prepareStatement("SELECT date, " +
                     " group_concat(DISTINCT(design_name)) AS 'Design Name/s', " +
                     " group_concat(DISTINCT(color_name)) AS 'Color/s', " +
                     " group_concat(DISTINCT(fabric_style)) AS 'Fabric Style/s', " +
@@ -1510,8 +1594,7 @@ public class DB_Manager {
                     " AND cust.id_customer= jord.customer_id " +
                     " GROUP BY date " +
                     " ORDER BY date ASC; ");
-            
-            ResultSet rs = ps.executeQuery();
+            rs = ps.executeQuery();
             
             if (rs.next())
             {
@@ -1529,11 +1612,10 @@ public class DB_Manager {
                         rs.getString("Fabric Style/s"),
                         rs.getString("Customer/s"),
                         get_job_string
-//rs.getString("All Job Order")
+                        //rs.getString("All Job Order")
                     };
                     model.addRow(this_set);
                 }
-                this.closeConn(conn, ps, rs);
             }
             else {
                 JOptionPane.showMessageDialog(null,"No Record");
@@ -1542,26 +1624,30 @@ public class DB_Manager {
         catch (SQLException ex) {
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
         }
+        this.closeConn(conn, ps, rs);
         return model;
     
     }
     
     public DefaultTableModel get_table_job_order_purchase_design()
     {
+        DBConnection db = new DBConnection();
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
         DefaultTableModel model = new DefaultTableModel();
         
         try {
-            DBConnection db = new DBConnection();
-            Connection conn = db.getConnection();
             
-            PreparedStatement ps = conn.prepareStatement("SELECT design_name , date, "
+            conn = db.getConnection();
+            ps = conn.prepareStatement("SELECT design_name , date, "
                     + " group_concat(jord.job_order_id SEPARATOR ', ') AS 'All Jobs' " 
                     + " FROM job_order jord, purchase_order purch, design des  " 
                     + " WHERE jord.job_order_id = purch.job_order_id "
                     + " AND des.design_code = purch.design_code"
                     + " GROUP BY date, des.design_code; ");
             
-            ResultSet rs = ps.executeQuery();
+            rs = ps.executeQuery();
             
             model.addColumn("Design Name");
             model.addColumn("Date");
@@ -1579,7 +1665,6 @@ public class DB_Manager {
                     };
                     model.addRow(this_set);
                 }
-                this.closeConn(conn, ps, rs);
             }
             else {
                 JOptionPane.showMessageDialog(null,"No Record");
@@ -1588,6 +1673,7 @@ public class DB_Manager {
         catch (SQLException ex) {
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
         }
+        this.closeConn(conn, ps, rs);
         return model;
     }
     
@@ -1614,15 +1700,15 @@ public class DB_Manager {
     
     public DefaultTableModel get_table_design_customer_job_order()
     {
+        DBConnection db = new DBConnection();
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
         DefaultTableModel model = get_column_for_design_customer_job_order();
         
         try {
-            
-            DBConnection db = new DBConnection();
-            Connection conn = db.getConnection();  
-          
-            PreparedStatement ps = 
-                    conn.prepareStatement("SELECT design_name, color_name, fabric_style, Sum(Quantity) as 'Total', date, " +
+            conn = db.getConnection();
+            ps = conn.prepareStatement("SELECT design_name, color_name, fabric_style, Sum(Quantity) as 'Total', date, " +
                             " group_concat(customer_name) AS 'Customer', " +
                             " group_concat(jord.job_order_id SEPARATOR ', ') AS 'All Jobs' " +
                             " FROM job_order jord, purchase_order purch, design des, customer cust " +
@@ -1631,7 +1717,7 @@ public class DB_Manager {
                             " AND cust.id_customer= jord.customer_id " +
                             " GROUP BY date, des.design_code"+ 
                             " ORDER BY design_name ASC; ");
-            ResultSet rs = ps.executeQuery();
+            rs = ps.executeQuery();
             
             if (rs.first()){
                 
@@ -1653,7 +1739,7 @@ public class DB_Manager {
                     };
                     model.addRow(this_set);
                 }
-                this.closeConn(conn, ps, rs);
+                
             } 
             else 
             {
@@ -1664,11 +1750,16 @@ public class DB_Manager {
         {
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
         }
+        this.closeConn(conn, ps, rs);
         return model;
     }
     
     public DefaultTableModel get_table_all_design()
     {
+        DBConnection db = new DBConnection();
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
         DefaultTableModel model = new DefaultTableModel();
         
         model.addColumn("Design");  
@@ -1677,15 +1768,12 @@ public class DB_Manager {
         
         try 
         {
-            DBConnection db = new DBConnection();
-            Connection conn = db.getConnection();  
-          
-            PreparedStatement ps = 
-                    conn.prepareStatement("SELECT design_name, color_name, fabric_style " +
+            conn = db.getConnection();
+            ps = conn.prepareStatement("SELECT design_name, color_name, fabric_style " +
                             " FROM design des " + 
                             " ORDER BY design_name ASC; ");
             
-            ResultSet rs = ps.executeQuery();
+            rs = ps.executeQuery();
             
             if (rs.first()){
                 
@@ -1699,7 +1787,6 @@ public class DB_Manager {
                     };
                     model.addRow(this_set);
                 }
-                this.closeConn(conn, ps, rs);
             } 
             else 
             {
@@ -1710,6 +1797,7 @@ public class DB_Manager {
         {
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
         }
+        this.closeConn(conn, ps, rs);
         return model;
     }
     
@@ -1723,35 +1811,39 @@ public class DB_Manager {
    
     public int get_id_purchase_last(colortextile_class.purchase_order last_purchase)
     {    
+        DBConnection db = new DBConnection();
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
         int last_purchase_id = -1;
         try
         {
-            DBConnection db = new DBConnection();
-            Connection conn = db.getConnection();
+            conn = db.getConnection();
+            ps = conn.prepareStatement("SELECT MAX(id_purchase) AS last FROM purchase_order");
             
-            PreparedStatement ps = conn.prepareStatement("SELECT MAX(id_purchase) AS last FROM purchase_order");
-            
-            ResultSet rs = ps.executeQuery();
+            rs = ps.executeQuery();
             if (rs.next()) {
                 last_purchase_id = rs.getInt("last");
             }
-            
-            this.closeConn(conn, ps, rs);
-        
-        } catch(SQLException ex){
+        } 
+        catch(SQLException ex)
+        {
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
         }
+        this.closeConn(conn, ps, rs);
         return last_purchase_id;
     }
     public int get_id_purchase(colortextile_class.purchase_order new_purchase){
        
+        DBConnection db = new DBConnection();
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
         int id_purchase = -1;
         try{
-            DBConnection db = new DBConnection();
-            Connection conn = db.getConnection();
+            conn = db.getConnection();
             
-            PreparedStatement ps = 
-            conn.prepareStatement("SELECT id_purchase "
+            ps = conn.prepareStatement("SELECT id_purchase "
                                  + "FROM purchase_order "
                                  + "WHERE design_code = ? "
                                  + "AND job_order_id = ? ");
@@ -1763,29 +1855,30 @@ public class DB_Manager {
             System.out.println("Date :" +new_purchase.getDate());
             System.out.println("Colorway Id :"  new_purchase.getDesign_code);
             */
-            ResultSet rs = ps.executeQuery();
+            rs = ps.executeQuery();
             if(rs.first())
             {
                  id_purchase = rs.getInt("id_purchase");
             }
-            this.closeConn(conn, ps, rs);
         }
         catch(SQLException ex){
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
         }
+        this.closeConn(conn, ps, rs);
         return id_purchase;
     }
     
     public purchase_order get_purchase_details_from_job_order_and_design_code(String id_job_order, int design_code )
     {
+        DBConnection db = new DBConnection();
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
         purchase_order current_purchase = new purchase_order();
         try
          {
-            DBConnection db = new DBConnection();
-            Connection conn = db.getConnection();
-         
-            PreparedStatement ps = 
-            conn.prepareStatement("SELECT *"
+            conn = db.getConnection();
+            ps = conn.prepareStatement("SELECT *"
                                  + " FROM purchase_order "
                                  + " WHERE job_order_id = ? "
                                  + " AND design_code = ?");
@@ -1797,7 +1890,7 @@ public class DB_Manager {
             System.out.println("Date :" +new_purchase.getDate());
             System.out.println("Colorway Id :"  new_purchase.getDesign_code);
             */
-            ResultSet rs = ps.executeQuery();
+            rs = ps.executeQuery();
             if(rs.first())
             {
                 current_purchase.setQuantity(rs.getInt("quantity"));
@@ -1805,25 +1898,25 @@ public class DB_Manager {
                 current_purchase.setJob_order_id(rs.getString("job_order_id"));
                 current_purchase.setId_purchase(rs.getInt("id_purchase"));
             }
-            this.closeConn(conn, ps, rs);
         }
         catch(SQLException ex){
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
         }
-         
+         this.closeConn(conn, ps, rs);
          return current_purchase;
     }
     
     public purchase_order get_purchase_details(int purchase_id)
     {
+        DBConnection db = new DBConnection();
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
         purchase_order current_purchase = new purchase_order();
          try
          {
-            DBConnection db = new DBConnection();
-            Connection conn = db.getConnection();
-         
-            PreparedStatement ps = 
-            conn.prepareStatement("SELECT design_code, job_order_id, quantity "
+            conn = db.getConnection();
+            ps = conn.prepareStatement("SELECT design_code, job_order_id, quantity "
                                  + "FROM purchase_order "
                                  + "WHERE id_purchase = ? ");
             
@@ -1833,21 +1926,19 @@ public class DB_Manager {
             System.out.println("Date :" +new_purchase.getDate());
             System.out.println("Colorway Id :"  new_purchase.getDesign_code);
             */
-            ResultSet rs = ps.executeQuery();
+            rs = ps.executeQuery();
             if(rs.first())
             {
                 current_purchase.setQuantity(rs.getInt("quantity"));
                 current_purchase.setDesign_code(rs.getInt("design_code"));
                 current_purchase.setJob_order_id(rs.getString("job_order_id"));
-            
-                
             }
-            this.closeConn(conn, ps, rs);
+            
         }
         catch(SQLException ex){
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
         }
-         
+         this.closeConn(conn, ps, rs);
          return current_purchase;
          
     }
@@ -1875,14 +1966,16 @@ public class DB_Manager {
     
     public void Search_Customer_Name(colortextile_class.customer customer_name){
         
-         ArrayList<String> names = new ArrayList<>();
+        DBConnection db = new DBConnection();
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        ArrayList<String> names = new ArrayList<>();
         try
         {
-          DBConnection db = new DBConnection();
-          Connection conn = db.getConnection();  
-          
-            PreparedStatement ps = conn.prepareStatement("SELECT * FROM customer WHERE customer_name= '"+ customer_name.getCustomer_name() +"'");
-            ResultSet rs = ps.executeQuery();
+            conn = db.getConnection();
+            ps = conn.prepareStatement("SELECT * FROM customer WHERE customer_name= '"+ customer_name.getCustomer_name() +"'");
+            rs = ps.executeQuery();
             
             while(rs.next())
             {
@@ -1895,16 +1988,22 @@ public class DB_Manager {
         {
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
         }
+        this.closeConn(conn, ps, rs);
+        
     }
     public ResultSet Search_job(String id){
+        
+        DBConnection db = new DBConnection();
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        
         try{
-            DBConnection db = new DBConnection();
-          Connection conn = db.getConnection();  
-          
-          String sql = "SELECT * FROM job_order WHERE job_order_id = '" + id + "'";
-          
-          PreparedStatement ps = conn.prepareStatement(sql);
-            ResultSet rs = ps.executeQuery();
+            //error
+            conn = db.getConnection();
+            String sql = "SELECT * FROM job_order WHERE job_order_id = '" + id + "'";
+            ps = conn.prepareStatement(sql);
+            rs = ps.executeQuery();
             
             job_order results = new job_order();
             return rs;
@@ -1917,44 +2016,49 @@ public class DB_Manager {
     
     public boolean Search_job_id(colortextile_class.job_order job){
         
+        DBConnection db = new DBConnection();
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        boolean found = false;
         try{
-            DBConnection db = new DBConnection();
-          Connection conn = db.getConnection();  
           
-          String sql = "SELECT * FROM job_order WHERE job_order_id = '" + job.getJob_id() + "'";
-          
-          PreparedStatement ps = conn.prepareStatement(sql);
-            ResultSet rs = ps.executeQuery();
+            db = new DBConnection();
+            conn = db.getConnection();
+            String sql = "SELECT * FROM job_order WHERE job_order_id = '" + job.getJob_id() + "'";
+            ps = conn.prepareStatement(sql);
+            rs = ps.executeQuery();
             
-            while (rs.first()){
+            if(rs.first()){
                 String id = rs.getString("job_order_id");
-                return true;
+                found = true;
             }
            
         }catch(Exception e){
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, e);
-            
         }
-        return false;
+        return found;
     }
     
     public ResultSet Search_colorway(colortextile_class.colorway color){
-            try
+        //error
+        DBConnection db = new DBConnection();
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try
         {
-          DBConnection db = new DBConnection();
-          Connection conn = db.getConnection();  
-          
-          String sql ="SELECT * FROM colorway WHERE";
-          int increment = 0;
-          
-          if (color.getDesign_code() != -1){
-              sql = sql + " design_code = '"+color.getDesign_code()+"'";
-              increment++;
-          } 
-          
-          if (color.getId_colorway() != -1){
-              if(increment > 0)
-              { sql = sql + " AND";
+            conn = db.getConnection();
+            String sql ="SELECT * FROM colorway WHERE";
+            int increment = 0;
+            if (color.getDesign_code() != -1){
+                sql = sql + " design_code = '"+color.getDesign_code()+"'";
+                increment++;
+            }
+            
+            if (color.getId_colorway() != -1){
+                if(increment > 0)
+                { sql = sql + " AND";
               }
               sql = sql + " id_colorway= '"+color.getId_colorway()+"'";
               increment++;
@@ -1976,11 +2080,9 @@ public class DB_Manager {
               return null;
           } else {
           
-            PreparedStatement ps = conn.prepareStatement(sql);
-            ResultSet rs = ps.executeQuery();
+            ps = conn.prepareStatement(sql);
+            rs = ps.executeQuery();
             return rs;
-           
-            
           }
         }
         catch (Exception ex)
@@ -2202,11 +2304,14 @@ public class DB_Manager {
     //SEARCH END
     public int check_if_design_picture_has_already_been_added(int design_code)
     {
+        DBConnection db = new DBConnection();
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        int checkTest = 0;
         try {
-            DBConnection db = new DBConnection();
-            Connection conn = db.getConnection();
-
-            PreparedStatement ps = conn.prepareStatement("SELECT EXISTS "
+            conn = db.getConnection();
+            ps = conn.prepareStatement("SELECT EXISTS "
                     + " (SELECT design_code "
                     + " FROM design_picture WHERE "
                     + " design_code = ?) "
@@ -2214,37 +2319,37 @@ public class DB_Manager {
 
             int item = 1;
             ps.setInt(item++, design_code);
-
-            ResultSet rs = ps.executeQuery();
+            rs = ps.executeQuery();
             
             rs.first();
-            int checkTest = rs.getInt("CheckTest");
-            
-            this.closeConn(conn, ps);
-            return checkTest;
+            checkTest = rs.getInt("CheckTest");
             
         } catch (SQLException ex) {
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return 0;
+        this.closeConn(conn, ps);
+        return checkTest;
     }
     
     public void update_or_insert_design_picture(design this_design)
     {
+        //error
         DBConnection db = new DBConnection();
-        Connection conn = db.getConnection();
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
         File file = new File("New.jpg");
         try
         {
+            conn = db.getConnection();
             FileInputStream fis = new FileInputStream(file);
             //System.out.println(file.exists());
             if(file.exists())
             {
-                PreparedStatement ps;
                 int item =1;
                 if(this.check_if_design_picture_has_already_been_added(this_design.getDesign_code()) == 0)
                 {
-                    ps= conn.prepareStatement("INSERT design_picture "
+                    ps = conn.prepareStatement("INSERT design_picture "
                             + "SET design_code = ?, " +
                             "design_picture = ?");
                     ps.setInt(item++, this_design.getDesign_code());
@@ -2271,18 +2376,19 @@ public class DB_Manager {
         {
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+        this.closeConn(conn, ps, rs);
         
     }
     
     public void update_design(design this_design)
     {
         DBConnection db = new DBConnection();
-        Connection conn = db.getConnection();
-        PreparedStatement ps;
+        Connection conn = null;
+        PreparedStatement ps = null;
         int item = 1;
         try
         { 
+            conn = db.getConnection();
             ps = conn.prepareStatement("UPDATE design "
                                             + "SET design_name = ?, "
                                             + "color_name = ?, "
@@ -2296,250 +2402,264 @@ public class DB_Manager {
             ps.setInt(item++, this_design.getDesign_code());
             // System.out.println(ps);
             ps.executeUpdate();
-            this.closeConn(conn, ps);
+            
         }
         catch (SQLException ex)
         {
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);    
-        } 
+        }
+        this.closeConn(conn, ps); 
         this.update_or_insert_design_picture(this_design);
     }
     
     public void update_colorway_screen(Colorway_and_pigment this_color_screen)
     {
+        DBConnection db = new DBConnection();
+        Connection conn = null;
+        PreparedStatement ps = null;
         try{
-           DBConnection db = new DBConnection();
-           Connection conn = db.getConnection();  
-        
            /*
            UPDATE colorway_screen_connect SET pigment_no = (SELECT pigment_no FROM pigment WHERE pigment_name LIKE "L. PINK"), 
            pigment_percentage= 56
             WHERE id_color_screen = 33;
            */
-           PreparedStatement ps = conn.prepareStatement("UPDATE colorway_screen_connect "
+           ps = conn.prepareStatement("UPDATE colorway_screen_connect "
                                                         + " SET pigment_no = ?, "
                                                         + " pigment_percentage = ? "
                                                         + " WHERE id_color_screen = ?");
-          int item = 1;
-          ps.setInt(item++, this_color_screen.getPigment_no());
-          ps.setFloat(item++, this_color_screen.getPigment_percentage());
-          ps.setInt(item++, this_color_screen.getId_color_screen());
-          
-          ps.executeUpdate();
-          this.closeConn(conn, ps);
+           int item = 1;
+           ps.setInt(item++, this_color_screen.getPigment_no());
+           ps.setFloat(item++, this_color_screen.getPigment_percentage());
+           ps.setInt(item++, this_color_screen.getId_color_screen());
+           ps.executeUpdate();
+           
         }
         catch (SQLException ex)
         {
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
         }
+        this.closeConn(conn, ps);
     }
     
     public void update_pigment(pigment this_pigment)
     {
         DBConnection db = new DBConnection();
-        Connection conn = db.getConnection(); 
-         int item = 1;
+        Connection conn = null;
+        PreparedStatement ps = null;
+        int item = 1;
+        
         try {
-            PreparedStatement ps = conn.prepareStatement("UPDATE pigment "
+            conn = db.getConnection();
+            ps = conn.prepareStatement("UPDATE pigment "
                     + " SET pigment_name=? "
                     + " WHERE pigment_no = ?;");
             
             ps.setString(item++, this_pigment.getPigment_name().toUpperCase());
             ps.setInt(item++, this_pigment.getPigment_no());
             ps.executeUpdate();
-            this.closeConn(conn, ps);
             
-        } catch (SQLException ex) {
+        } catch (SQLException ex) 
+        {
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
         }
+        this.closeConn(conn, ps);
           
     }
     
     public void update_colorway(colorway this_colorway)
     {
         DBConnection db = new DBConnection();
-        Connection conn = db.getConnection(); 
-        
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
         try
         {
-          PreparedStatement ps = conn.prepareStatement("UPDATE colorway "
+            conn = db.getConnection();
+            ps = conn.prepareStatement("UPDATE colorway "
                                                         + " SET colorway_name = ?, binder = ?, weight_kg = ? "
                                                         + " WHERE id_colorway = ?");
-          int item = 1;
+            int item = 1;
           //this_colorway.view_colorway_details();
-          ps.setString(item++, this_colorway.getColorway_name().toUpperCase());
-          ps.setFloat(item++, this_colorway.getBinder());
-          ps.setFloat(item++, this_colorway.getWeight_kg());
-          ps.setInt(item++, this_colorway.getId_colorway());
+            ps.setString(item++, this_colorway.getColorway_name().toUpperCase());
+            ps.setFloat(item++, this_colorway.getBinder());
+            ps.setFloat(item++, this_colorway.getWeight_kg());
+            ps.setInt(item++, this_colorway.getId_colorway());
+            ps.executeUpdate();
           
-          ps.executeUpdate();
-          this.closeConn(conn, ps);
         }
         catch (SQLException ex)
         {
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
         }
+        this.closeConn(conn, ps);
     }
     
     public int count_job_order_usage(String job_order_id)
     {
+        DBConnection db = new DBConnection();
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
         int total = 0;
         try{
-            
-            DBConnection db = new DBConnection();
-            Connection conn = db.getConnection(); 
-            
-            PreparedStatement ps = conn.prepareStatement("SELECT COUNT(id_purchase) AS 'Total' "
+            conn = db.getConnection();
+            ps = conn.prepareStatement("SELECT COUNT(id_purchase) AS 'Total' "
                                                         + " FROM purchase_order "
                                                         + " WHERE job_order_id = ?");
-          int item = 1;
-          
-          ps.setString(item++, job_order_id);
-          
-          ResultSet rs = ps.executeQuery();
-          rs.first();
-          total = rs.getInt("Total");
-          this.closeConn(conn, ps, rs);
-          
+            int item = 1;
+            ps.setString(item++, job_order_id);
+            rs = ps.executeQuery();
+            if(rs.first())
+                total = rs.getInt("Total");
         }
         catch(SQLException ex)
         {
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
         }
+        this.closeConn(conn, ps, rs);
         return total;
     }
     
     public void update_job_order(job_order this_job_order)
     {
+        DBConnection db = new DBConnection();
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
         try
         {
-          DBConnection db = new DBConnection();
-          Connection conn = db.getConnection(); 
-          
-          PreparedStatement ps = conn.prepareStatement("UPDATE job_order "
+            conn = db.getConnection();
+            ps = conn.prepareStatement("UPDATE job_order "
                                                         + " SET customer_id  = ?, "
                                                         + " date = ?"
                                                         + " WHERE job_order_id = ?");
-          int item = 1;
-          
-          ps.setInt(item++, this_job_order.getCustomer_id());
-          ps.setString(item++, this_job_order.getDate());
-          ps.setString(item++, this_job_order.getJob_id());
-          
-          ps.executeUpdate();
-          this.closeConn(conn, ps);
+            int item = 1;
+            ps.setInt(item++, this_job_order.getCustomer_id());
+            ps.setString(item++, this_job_order.getDate());
+            ps.setString(item++, this_job_order.getJob_id());
+            ps.executeUpdate();
         }
         catch (SQLException ex)
         {
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
         }
+        this.closeConn(conn, ps);
     }
     
     public void update_purchase_order_quantity(purchase_order this_purchase)
     {
+        DBConnection db = new DBConnection();
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
         try
         {
-          DBConnection db = new DBConnection();
-          Connection conn = db.getConnection(); 
-          
-          PreparedStatement ps = conn.prepareStatement("UPDATE purchase_order "
+            conn = db.getConnection();
+            ps = conn.prepareStatement("UPDATE purchase_order "
                                                         + " SET quantity  = ? "
                                                         + " WHERE id_purchase = ?");
-          int item = 1;
-          
-          ps.setFloat(item++, this_purchase.getQuantity());
-          ps.setInt(item++, this_purchase.getId_purchase());
-          
-          ps.executeUpdate();
-          this.closeConn(conn, ps);
+            int item = 1;
+            ps.setFloat(item++, this_purchase.getQuantity());
+            ps.setInt(item++, this_purchase.getId_purchase());
+            ps.executeUpdate();
         }
         catch (SQLException ex)
         {
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
         }
+        this.closeConn(conn, ps);
     }
     
     public void delete_colorway_screen_connect(int id_colorway)
     {
-         try
+        DBConnection db = new DBConnection();
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try
         {
-          DBConnection db = new DBConnection();
-          Connection conn = db.getConnection(); 
-          
-          PreparedStatement ps = conn.prepareStatement("DELETE FROM colorway_screen_connect "
+            conn = db.getConnection();
+            ps = conn.prepareStatement("DELETE FROM colorway_screen_connect "
                                                         + "WHERE id_colorway = ?");
-          int item = 1;
-          ps.setInt(item++, id_colorway);
+            int item = 1;
+            ps.setInt(item++, id_colorway);
           //ps.setInt(item++, connection_del.getPigment_no());
-          ps.executeUpdate();
-          this.closeConn(conn, ps);
+            ps.executeUpdate();
         }
         catch (SQLException ex){
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+        this.closeConn(conn, ps);
     }
     
     public void delete_purchase_order(purchase_order this_purchase)
     {
+        DBConnection db = new DBConnection();
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
         try
         {
-          DBConnection db = new DBConnection();
-          Connection conn = db.getConnection(); 
-          
-          PreparedStatement ps = conn.prepareStatement("DELETE FROM purchase_order "
+          conn = db.getConnection();
+          ps = conn.prepareStatement("DELETE FROM purchase_order "
                                                         +" WHERE id_purchase = ?");
           int item = 1;
           ps.setInt(item++, this_purchase.getId_purchase());
-          
           ps.executeUpdate();
-          this.closeConn(conn, ps);
         }
         catch (SQLException ex)
         {
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex); 
         }
+        this.closeConn(conn, ps);
     }
     
     public void delete_pigment(int pigment_no)
     {
-        DBConnection db = new DBConnection();
-        Connection conn = db.getConnection();
         
-        try{
-             PreparedStatement ps = conn.prepareStatement("DELETE FROM pigment"
+        DBConnection db = new DBConnection();
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        
+        
+        try
+        {
+            conn = db.getConnection();
+            ps = conn.prepareStatement("DELETE FROM pigment"
                                                         +" WHERE pigment_no = ?");
             int item = 1;
             ps.setInt(item++, pigment_no);
             
             ps.executeUpdate();
-            this.closeConn(conn, ps);
+            
         }
         catch (SQLException ex)
         {
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex); 
         }
+        this.closeConn(conn, ps);
     }
     
     public void delete_job_order(job_order this_job)
     {
+        DBConnection db = new DBConnection();
+        Connection conn = null;
+        PreparedStatement ps = null;
         try
         {
-          DBConnection db = new DBConnection();
-          Connection conn = db.getConnection(); 
-          
-          PreparedStatement ps = conn.prepareStatement("DELETE FROM job_order "
+            conn = db.getConnection();
+            ps = conn.prepareStatement("DELETE FROM job_order "
                                                         +" WHERE job_order_id = ?");
-          int item = 1;
-          ps.setString(item++, this_job.getJob_id());
-          
-          ps.executeUpdate();
-          this.closeConn(conn, ps);
+            int item = 1;
+            ps.setString(item++, this_job.getJob_id());
+            ps.executeUpdate();
         }
         catch (SQLException ex)
         {
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex); 
         }
+        this.closeConn(conn, ps);
     }
     
     ////////////////////////UNUSED

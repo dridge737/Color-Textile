@@ -314,9 +314,10 @@ public class PrintForm extends javax.swing.JFrame {
         {
             if(this.purchase_button.isSelected())
             {
-                
-                temporary_table_model.addRow((Vector) this.search_model.getDataVector().get(row[index_add]));
-            /*
+                //DefaultTableModel TM = (DefaultTableModel) search_print.getModel();
+                //temporary_table_model.addRow((Vector) TM.getDataVector().get(row[index_add]));
+                //temporary_table_model.addRow((Vector) this.search_model.getDataVector().get(row[index_add]));
+            
                 String[] this_set = {
                         search_print.getValueAt(row[index_add], 0).toString(),
                         search_print.getValueAt(row[index_add], 1).toString(),
@@ -328,19 +329,23 @@ public class PrintForm extends javax.swing.JFrame {
                     };
                 
                     temporary_table_model.addRow(this_set);
-                */
+                
             }
             else
             {
                 temporary_table_model.addRow((Vector) this.search_model.getDataVector().get(row[index_add]));
-                
             }
+            System.out.println("Row = "+row[index_add]);
         }
         
         for(int remove_indexes = row.length; remove_indexes>0; remove_indexes-- )
         {
-            search_model.removeRow(row[remove_indexes-1]);
+            System.out.println("Row = "+row[remove_indexes-1]);
+            search_model = (DefaultTableModel) search_print.getModel();
+            search_model.removeRow(search_print.convertRowIndexToModel(row[remove_indexes-1]));
+            //search_print.remove(row[remove_indexes-1]);
         }
+        
         
          this.print_table.setModel(temporary_table_model);
         // search_print.remove(row);

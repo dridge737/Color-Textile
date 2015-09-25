@@ -2378,6 +2378,7 @@ public class Add_new_design extends javax.swing.JFrame {
         {
                 float weight_kg = Float.parseFloat(temp_weight_kg);
                 float coverage = use_func.compute_this_coverage(weight_kg, fab_style_comb.getSelectedItem().toString(), quantity_total.getText());
+                System.out.println("Coverage = "+coverage);
                 //NORMALIZE items
                 float adjusted_weight = use_func.compute_this_kg(coverage, fab_style_comb.getSelectedItem().toString(), "1000");
                 

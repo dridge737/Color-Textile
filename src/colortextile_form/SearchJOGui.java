@@ -585,6 +585,7 @@ public class SearchJOGui extends javax.swing.JFrame {
         {
             System.out.println(jTable1.getValueAt(row, col));
         }
+        
         System.out.println("end"); */
         String selected_job_order = jTable1.getValueAt(row, 0).toString();
         

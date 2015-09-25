@@ -35,8 +35,8 @@ public class ColorTextile {
   // Concatenate them
   // Save to file and Open the document with OpenOffice.org !
         
-        //Database.DB_Manager newManager = new Database.DB_Manager();
-        
+        Database.DB_Manager newManager = new Database.DB_Manager();
+        newManager.count_number_of_fabric_style();
         //colortextile_class.deletedClass.screen_pigment this_screen = new colortextile_class.deletedClass.screen_pigment();
         //this_screen.setPigment_no(2);
         //this_screen.setPigment_percentage((float)56.7);
