@@ -2135,7 +2135,7 @@ public class DB_Manager {
         
     }
     
-    public ResultSet Search_id_purchase(colortextile_class.purchase_order purchase){
+    public ResultSet Search_id_purchase(colortextile_class.purchase_order purchase){     // in use at (purchase order class.  SearchJOGui //  get_design_code_from_table_selected()
         try
         {
           DBConnection db = new DBConnection();
@@ -2244,7 +2244,7 @@ public class DB_Manager {
         }
         return null;
     }
-    public ResultSet Search_Design(colortextile_class.design design) {
+    public ResultSet Search_Design(colortextile_class.design design) { // still in use
         
          try
         {
