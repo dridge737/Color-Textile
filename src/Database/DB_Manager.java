@@ -1292,8 +1292,10 @@ public class DB_Manager {
             conn = db.getConnection();
             ps = conn.prepareStatement("SELECT * FROM job_order");
             rs = ps.executeQuery();
-            
+            if (rs.first()){
             return rs;
+            }
+            this.closeConn(conn, ps, rs);
         }
         catch (SQLException ex)
         {
@@ -1982,7 +1984,7 @@ public class DB_Manager {
                 names.add(rs.getString("customer_name"));
             }
             customer_name.setCustomer_names(names);
-            
+            this.closeConn(conn, ps, rs);
         }
         catch (SQLException ex)
         {
@@ -2006,8 +2008,10 @@ public class DB_Manager {
             rs = ps.executeQuery();
             
             job_order results = new job_order();
+            if(rs.first()){
             return rs;
-            
+            }
+            this.closeConn(conn, ps, rs);
         }catch(Exception e){
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, e);
         }
@@ -2033,6 +2037,7 @@ public class DB_Manager {
                 String id = rs.getString("job_order_id");
                 found = true;
             }
+            this.closeConn(conn, ps, rs);
            
         }catch(Exception e){
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, e);
@@ -2082,14 +2087,19 @@ public class DB_Manager {
           
             ps = conn.prepareStatement(sql);
             rs = ps.executeQuery();
+            if (rs.first()){
             return rs;
+            }
+            this.closeConn(conn, ps, rs);
           }
+          
         }
         catch (Exception ex)
         {
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
         return null;
         }
+        return null;
     }
     
     public ResultSet Search_colorway_screen_connect(colortextile_class.Colorway_and_pigment connect){
@@ -2123,8 +2133,10 @@ public class DB_Manager {
           
             PreparedStatement ps = conn.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
+            if(rs.first()){
             return rs;
-            
+            }
+            this.closeConn(conn, ps, rs);
           }
         }
         catch (Exception ex)
@@ -2132,7 +2144,7 @@ public class DB_Manager {
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
         return null;
         }
-        
+        return null;
     }
     
     public ResultSet Search_id_purchase(colortextile_class.purchase_order purchase){     // in use at (purchase order class.  SearchJOGui //  get_design_code_from_table_selected()
@@ -2180,10 +2192,10 @@ public class DB_Manager {
           
             PreparedStatement ps = conn.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
-            
+            if (rs.first()){
             return rs;
-           
-            
+            }
+            this.closeConn(conn, ps, rs);
           }
         }
         catch (Exception ex)
@@ -2191,6 +2203,7 @@ public class DB_Manager {
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
         return null;
         }
+        return null;
     }
     
     public ResultSet Search_Job_Order(colortextile_class.job_order job ){
@@ -2234,8 +2247,10 @@ public class DB_Manager {
           
             PreparedStatement ps = conn.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
+            if (rs.first()){
             return rs;
-            
+            }
+            this.closeConn(conn, ps, rs);
           }
         }
         catch (Exception ex)
@@ -2291,8 +2306,10 @@ public class DB_Manager {
           
             PreparedStatement ps = conn.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
-            
+            if (rs.first()){
             return rs;
+            }
+            this.closeConn(conn, ps, rs);
           }
         }
         catch (Exception ex)
@@ -2300,6 +2317,7 @@ public class DB_Manager {
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
         return null;
         }
+         return null;
     }
     //SEARCH END
     public int check_if_design_picture_has_already_been_added(int design_code)
