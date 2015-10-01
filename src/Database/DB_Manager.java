@@ -2696,33 +2696,7 @@ public class DB_Manager {
     
     ////////////////////////UNUSED
     
-    public void Search_Customer_Name(colortextile_class.customer customer_name){
-        
-        DBConnection db = new DBConnection();
-        Connection conn = null;
-        PreparedStatement ps = null;
-        ResultSet rs = null;
-        ArrayList<String> names = new ArrayList<>();
-        try
-        {
-            conn = db.getConnection();
-            ps = conn.prepareStatement("SELECT * FROM customer WHERE customer_name= '"+ customer_name.getCustomer_name() +"'");
-            rs = ps.executeQuery();
-            
-            while(rs.next())
-            {
-                names.add(rs.getString("customer_name"));
-            }
-            customer_name.setCustomer_names(names);
-            
-        }
-        catch (SQLException ex)
-        {
-            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        this.closeConn(conn, ps, rs);
-        
-    }
+    
     
     private void not_used_classes(){
         
