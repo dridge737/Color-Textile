@@ -1291,8 +1291,12 @@ public class DB_Manager {
             conn = db.getConnection();
             ps = conn.prepareStatement("SELECT * FROM job_order");
             rs = ps.executeQuery();
+            if (rs.first()){
+            ResultSet rs2 = rs;
+            this.closeConn(conn, ps, rs);
+            return rs2;
+            }
             
-            return rs;
         }
         catch (SQLException ex)
         {
@@ -1963,7 +1967,33 @@ public class DB_Manager {
     //SEARCH function for SQL
     //START all functions here with search_*
     
-    
+    public void Search_Customer_Name(colortextile_class.customer customer_name){
+        
+        DBConnection db = new DBConnection();
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        ArrayList<String> names = new ArrayList<>();
+        try
+        {
+            conn = db.getConnection();
+            ps = conn.prepareStatement("SELECT * FROM customer WHERE customer_name= '"+ customer_name.getCustomer_name() +"'");
+            rs = ps.executeQuery();
+            
+            while(rs.next())
+            {
+                names.add(rs.getString("customer_name"));
+            }
+            customer_name.setCustomer_names(names);
+            this.closeConn(conn, ps, rs);
+        }
+        catch (SQLException ex)
+        {
+            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        this.closeConn(conn, ps, rs);
+        
+    }
     public ResultSet Search_job(String id){
         
         DBConnection db = new DBConnection();
@@ -1979,7 +2009,12 @@ public class DB_Manager {
             rs = ps.executeQuery();
             
             job_order results = new job_order();
-            return rs;
+            if(rs.first()){
+            
+            ResultSet rs2 = rs;
+            this.closeConn(conn, ps, rs);
+            return rs2;
+            }
             
         }catch(Exception e){
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, e);
@@ -2006,6 +2041,7 @@ public class DB_Manager {
                 String id = rs.getString("job_order_id");
                 found = true;
             }
+            this.closeConn(conn, ps, rs);
            
         }catch(Exception e){
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, e);
@@ -2055,14 +2091,21 @@ public class DB_Manager {
           
             ps = conn.prepareStatement(sql);
             rs = ps.executeQuery();
-            return rs;
+            if (rs.first()){
+            ResultSet rs2 = rs;
+            this.closeConn(conn, ps, rs);
+            return rs2;
+            }
+            
           }
+          
         }
         catch (Exception ex)
         {
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
         return null;
         }
+        return null;
     }
     
     public ResultSet Search_colorway_screen_connect(colortextile_class.Colorway_and_pigment connect){
@@ -2096,7 +2139,11 @@ public class DB_Manager {
           
             PreparedStatement ps = conn.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
-            return rs;
+            if(rs.first()){
+            ResultSet rs2 = rs;
+            this.closeConn(conn, ps, rs);
+            return rs2;
+            }
             
           }
         }
@@ -2105,10 +2152,10 @@ public class DB_Manager {
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
         return null;
         }
-        
+        return null;
     }
     
-    public ResultSet Search_id_purchase(colortextile_class.purchase_order purchase){
+    public ResultSet Search_id_purchase(colortextile_class.purchase_order purchase){     // in use at (purchase order class.  SearchJOGui //  get_design_code_from_table_selected()
         try
         {
           DBConnection db = new DBConnection();
@@ -2153,10 +2200,12 @@ public class DB_Manager {
           
             PreparedStatement ps = conn.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
-            
-            return rs;
-           
-            
+            if (rs.first()){
+            ResultSet rs2 = rs;
+            this.closeConn(conn, ps, rs);
+            return rs2;
+            }
+          
           }
         }
         catch (Exception ex)
@@ -2164,6 +2213,7 @@ public class DB_Manager {
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
         return null;
         }
+        return null;
     }
     
     public ResultSet Search_Job_Order(colortextile_class.job_order job ){
@@ -2207,7 +2257,11 @@ public class DB_Manager {
           
             PreparedStatement ps = conn.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
-            return rs;
+            if (rs.first()){
+            ResultSet rs2 = rs;
+            this.closeConn(conn, ps, rs);
+            return rs2;
+            }
             
           }
         }
@@ -2217,7 +2271,7 @@ public class DB_Manager {
         }
         return null;
     }
-    public ResultSet Search_Design(colortextile_class.design design) {
+    public ResultSet Search_Design(colortextile_class.design design) { // still in use
         
          try
         {
@@ -2264,8 +2318,12 @@ public class DB_Manager {
           
             PreparedStatement ps = conn.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
-            
-            return rs;
+            if (rs.first()){
+            ResultSet rs2 = rs;
+            this.closeConn(conn, ps, rs);
+            return rs2;
+            }
+        
           }
         }
         catch (Exception ex)
@@ -2273,6 +2331,7 @@ public class DB_Manager {
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
         return null;
         }
+         return null;
     }
     //SEARCH END
     public int check_if_design_picture_has_already_been_added(int design_code)
