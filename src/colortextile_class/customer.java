@@ -68,11 +68,12 @@ public class customer {
     public void setCustomer_names(ArrayList<String> Customer_names) {
         this.Customer_names = Customer_names;
     }
-    
+    /*
     public void searchCustomer_name() {
         DB_Manager new_conn = new DB_Manager();
         new_conn.Search_Customer_Name(this);
     }
+    */
     
     public boolean check_if_this_customer_exists()
     {

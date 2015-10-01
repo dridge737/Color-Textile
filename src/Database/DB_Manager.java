@@ -6,7 +6,6 @@
 
 package Database;
 
-import Unused.screen_pigment;
 import colortextile_class.*;
 import java.awt.Image;
 import java.io.File;
@@ -1964,33 +1963,7 @@ public class DB_Manager {
     //SEARCH function for SQL
     //START all functions here with search_*
     
-    public void Search_Customer_Name(colortextile_class.customer customer_name){
-        
-        DBConnection db = new DBConnection();
-        Connection conn = null;
-        PreparedStatement ps = null;
-        ResultSet rs = null;
-        ArrayList<String> names = new ArrayList<>();
-        try
-        {
-            conn = db.getConnection();
-            ps = conn.prepareStatement("SELECT * FROM customer WHERE customer_name= '"+ customer_name.getCustomer_name() +"'");
-            rs = ps.executeQuery();
-            
-            while(rs.next())
-            {
-                names.add(rs.getString("customer_name"));
-            }
-            customer_name.setCustomer_names(names);
-            
-        }
-        catch (SQLException ex)
-        {
-            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        this.closeConn(conn, ps, rs);
-        
-    }
+    
     public ResultSet Search_job(String id){
         
         DBConnection db = new DBConnection();
@@ -2663,6 +2636,35 @@ public class DB_Manager {
     }
     
     ////////////////////////UNUSED
+    
+    public void Search_Customer_Name(colortextile_class.customer customer_name){
+        
+        DBConnection db = new DBConnection();
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        ArrayList<String> names = new ArrayList<>();
+        try
+        {
+            conn = db.getConnection();
+            ps = conn.prepareStatement("SELECT * FROM customer WHERE customer_name= '"+ customer_name.getCustomer_name() +"'");
+            rs = ps.executeQuery();
+            
+            while(rs.next())
+            {
+                names.add(rs.getString("customer_name"));
+            }
+            customer_name.setCustomer_names(names);
+            
+        }
+        catch (SQLException ex)
+        {
+            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        this.closeConn(conn, ps, rs);
+        
+    }
+    
     private void not_used_classes(){
         
     /*
@@ -2842,7 +2844,7 @@ public class DB_Manager {
     }
     */
     }
-    
+    /*
     public int check_if_id_screen_exists(screen_pigment this_screen)
     {
          try{
@@ -2877,7 +2879,7 @@ public class DB_Manager {
         
         return 0;
     }
-    
+    */
 }
     
    
