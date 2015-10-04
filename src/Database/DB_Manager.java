@@ -6,7 +6,6 @@
 
 package Database;
 
-import Unused.screen_pigment;
 import colortextile_class.*;
 import java.awt.Image;
 import java.io.File;
@@ -2722,6 +2721,9 @@ public class DB_Manager {
     }
     
     ////////////////////////UNUSED
+    
+    
+    
     private void not_used_classes(){
         
     /*
@@ -2901,7 +2903,7 @@ public class DB_Manager {
     }
     */
     }
-    
+    /*
     public int check_if_id_screen_exists(screen_pigment this_screen)
     {
          try{
@@ -2936,7 +2938,7 @@ public class DB_Manager {
         
         return 0;
     }
-    
+    */
 }
     
    

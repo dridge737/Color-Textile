@@ -44,6 +44,7 @@ import javax.swing.table.TableRowSorter;
  */
 public class SearchJOGui extends javax.swing.JFrame {
 
+    DefaultTableModel model = new DefaultTableModel();
     private ArrayList order_list = new ArrayList( );
     /**
      * Creates new form SearchJO
@@ -103,8 +104,6 @@ public class SearchJOGui extends javax.swing.JFrame {
         { rowSorter.setRowFilter(rf); }
 
     }
-    
-    
     
     
     public void fill_table(ResultSet rs){

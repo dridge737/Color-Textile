@@ -48,8 +48,8 @@ public class screen_pigment extends pigment /*implements Comparable<screen_pigme
     public boolean check_screen_pigment_exists()
     {
         DB_Manager new_conn = new DB_Manager();
-        if(new_conn.check_if_id_screen_exists(this) == 0)
-            return false;
+        //if(new_conn.check_if_id_screen_exists(this) == 0)
+        //    return false;
         
         return true;
     }

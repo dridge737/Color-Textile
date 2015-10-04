@@ -189,6 +189,7 @@ public class design{
        Database.DB_Manager new_conn = new Database.DB_Manager();       
        return new_conn.get_picture_from_design_id(this);
    }
+    
    
    public void set_design_picture_from_design_code()
    {
