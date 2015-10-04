@@ -106,9 +106,17 @@ public class SearchJOGui extends javax.swing.JFrame {
     
     
     
-    DefaultTableModel model = new DefaultTableModel();
+    
     public void fill_table(ResultSet rs){
         this.order_list.clear();
+        
+        DefaultTableModel model = new DefaultTableModel();
+        DefaultTableModel model2 = new DefaultTableModel();
+        purchase_order info = new purchase_order();
+        
+        
+        
+        
         
         DB_Manager conn= new DB_Manager();
         
@@ -126,52 +134,47 @@ public class SearchJOGui extends javax.swing.JFrame {
                rs.previous();
                 while (rs.next())
                 {    
-                    purchase_order info = new purchase_order();
+                    //purchase_order info = new purchase_order();
                     info.setJob_order_id(rs.getString("job_order_id"));
                     info.setId_purchase(-1);
                     info.setDesign_code(-1);
-                    ResultSet rs2 = info.Search_purchase_info();
-               
+                    
+                    model2 = info.Search_purchase_info();
+                    int count = model2.getRowCount();
                     // rs == job_order database
                     // rs2 == purchase_order database
-                    if(rs2.first())
-                    {
-                        rs2.previous();
-                        while(rs2.next()) 
-                        {
-                            design design_conn = new design();
-                            design_conn.setDesign_code(rs2.getInt("design_code"));
-                            ResultSet rs3 = design_conn.search_design();
-                            //rs3 = design code
-                            if (rs3.first()){
+                    
+                    String Job_order_reference = rs.getString("job_order_id");
+                    
+                     for(int i = 0; i < count; i++) //cars name of arraylist
+                     {
+                         if(Job_order_reference.equals(model2.getValueAt(i, 3).toString())){
+                             design design_conn = new design();
+                            design_conn.setDesign_code(Integer.parseInt(model2.getValueAt(i, 2).toString()));
+                            design_conn.search_design();
+                          
+                           
                                 String[] set1 = 
                                 {
                                     
-                                    rs2.getString("job_order_id"), 
+                                    rs.getString("job_order_id"), //3
                                     conn.get_customer_name(rs.getInt("customer_id")),
                                     rs.getString("date"),
-                                    rs2.getString("quantity"),
-                                    rs3.getString("design_name"),
-                                    rs3.getString("color_name"),
-                                    rs3.getString("fabric_style"),
+                                    model2.getValueAt(i, 1).toString(),  //2
+                                    design_conn.getDesign_name(),
+                                    design_conn.getColor_name(),
+                                    design_conn.getFabric_style()
+                                    
+                                    
                                     //Integer.toString(rs2.getInt("id_purchase"))
                                 };
                                 model.addRow(set1);
                                 
-                            } /*else {
-                                String[] set1 = {
-                                    Integer.toString(rs2.getInt("id_purchase")),
-                                    rs2.getString("job_order_id"), 
-                                    conn.get_customer_name(rs.getInt("customer_id")),
-                                    rs.getString("date"),
-                                    rs2.getString("quantity")
-                                    };
-                                model.addRow(set1);
-                            } */
-                        }
-                    } 
-                    
-                    
+                         }
+                        
+                        
+                     }
+ 
                 }
             } 
             else 
@@ -184,6 +187,8 @@ public class SearchJOGui extends javax.swing.JFrame {
             Logger.getLogger(SearchJOGui.class.getName()).log(Level.SEVERE, null, ex);
         }
         this.jTable1.setModel(model); 
+        
+        
     }
     
     
@@ -646,10 +651,12 @@ public class SearchJOGui extends javax.swing.JFrame {
         conn.setId_purchase(Integer.parseInt(id));
         conn.setDesign_code(-1);
         //conn.setJob_order_id(null);
+        DefaultTableModel model2 = new DefaultTableModel();
+        model2 = conn.Search_purchase_info();
         
-        ResultSet rs = conn.Search_purchase_info();
         
-        try {
+         return Integer.parseInt(model2.getValueAt(0, 2).toString());
+        /*try {
             if(rs.next()){
             int id1 = rs.getInt("design_code");
             System.out.println(id1);
@@ -659,7 +666,7 @@ public class SearchJOGui extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(SearchJOGui.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return -1;
+        return -1; */
     }
     private void insert_pic() throws SQLException{
         

@@ -7,6 +7,7 @@ package colortextile_class;
 
 import Database.DB_Manager;
 import java.sql.ResultSet;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -87,7 +88,7 @@ public class purchase_order {
         this.quantity = quantity;
     }
     
-    public ResultSet Search_purchase_info(){
+    public DefaultTableModel Search_purchase_info(){
         DB_Manager new_conn = new DB_Manager();
        return new_conn.Search_id_purchase(this);
     }

@@ -180,9 +180,9 @@ public class design{
         return new_conn.get_table_all_design();
     }
     
-    public ResultSet search_design(){
+    public void search_design(){
         Database.DB_Manager new_conn = new Database.DB_Manager();
-        return new_conn.Search_Design(this);
+        new_conn.Search_Design(this);
     }
     
    public ResultSet get_picture_from_design_code(){

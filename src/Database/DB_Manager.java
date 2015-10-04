@@ -1126,7 +1126,9 @@ public class DB_Manager {
             if(rs.first())
             {
                 customer_name = rs.getString("customer_name");
+                  
             }
+              this.closeConn(conn, ps, rs);
         } 
         catch (SQLException ex) 
         {
@@ -1681,6 +1683,8 @@ public class DB_Manager {
         return model;
     }
     
+   
+    
     public DefaultTableModel get_column_for_design_customer_job_order()
     {
         DefaultTableModel model = new DefaultTableModel(){
@@ -2156,7 +2160,15 @@ public class DB_Manager {
         return null;
     }
     
-    public ResultSet Search_id_purchase(colortextile_class.purchase_order purchase){     // in use at (purchase order class.  SearchJOGui //  get_design_code_from_table_selected()
+    public DefaultTableModel Search_id_purchase(colortextile_class.purchase_order purchase){     // in use at (purchase order class.  SearchJOGui //  get_design_code_from_table_selected()
+        DefaultTableModel model = new DefaultTableModel();
+        
+        model.addColumn("id_purchase");  
+        model.addColumn("quantity");   
+        model.addColumn("design_code");  
+        model.addColumn("job_order_id");  
+        
+        
         try
         {
           DBConnection db = new DBConnection();
@@ -2202,11 +2214,22 @@ public class DB_Manager {
             PreparedStatement ps = conn.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
             if (rs.first()){
-            ResultSet rs2 = rs;
-            this.closeConn(conn, ps, rs);
-            return rs2;
-            }
+                
+               rs.previous();
+                while (rs.next())
+                {   
+                    String[] this_set = {
+                        rs.getString("id_purchase"),
+                        rs.getString("quantity"),
+                        rs.getString("design_code"),
+                        rs.getString("job_order_id")
+                    };
+                    model.addRow(this_set);
+                }
+            } 
           
+            this.closeConn(conn, ps, rs);
+          return model;
           }
         }
         catch (Exception ex)
@@ -2214,7 +2237,7 @@ public class DB_Manager {
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
         return null;
         }
-        return null;
+        
     }
     
     public ResultSet Search_Job_Order(colortextile_class.job_order job ){
@@ -2272,7 +2295,7 @@ public class DB_Manager {
         }
         return null;
     }
-    public ResultSet Search_Design(colortextile_class.design design) { // still in use
+    public void Search_Design(colortextile_class.design design) { // still in use
         
          try
         {
@@ -2314,25 +2337,28 @@ public class DB_Manager {
           if (increment == 0)
           {
             //  System.out.print("nothing to be searched");
-              return null;
+           
           } else {
           
             PreparedStatement ps = conn.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
             if (rs.first()){
-            ResultSet rs2 = rs;
-            this.closeConn(conn, ps, rs);
-            return rs2;
+            
+                design.setDesign_name(rs.getString("design_name"));
+                design.setColor_name(rs.getString("color_name"));
+                design.setFabric_style(rs.getString("fabric_style"));
+          
             }
-        
+          this.closeConn(conn, ps, rs);
           }
+          
         }
         catch (Exception ex)
         {
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
-        return null;
+      
         }
-         return null;
+    
     }
     //SEARCH END
     public int check_if_design_picture_has_already_been_added(int design_code)
