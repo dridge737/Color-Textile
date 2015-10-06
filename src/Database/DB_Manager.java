@@ -2015,9 +2015,9 @@ public class DB_Manager {
             job_order results = new job_order();
             if(rs.first()){
             
-            ResultSet rs2 = rs;
-            this.closeConn(conn, ps, rs);
-            return rs2;
+            //ResultSet rs2 = rs;
+            //this.closeConn(conn, ps, rs);
+            return rs;
             }
             
         }catch(Exception e){
@@ -2096,9 +2096,9 @@ public class DB_Manager {
             ps = conn.prepareStatement(sql);
             rs = ps.executeQuery();
             if (rs.first()){
-            ResultSet rs2 = rs;
-            this.closeConn(conn, ps, rs);
-            return rs2;
+            //ResultSet rs2 = rs;
+            //this.closeConn(conn, ps, rs);
+            return rs;
             }
             
           }
@@ -2144,9 +2144,9 @@ public class DB_Manager {
             PreparedStatement ps = conn.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
             if(rs.first()){
-            ResultSet rs2 = rs;
-            this.closeConn(conn, ps, rs);
-            return rs2;
+            //ResultSet rs2 = rs;
+            //this.closeConn(conn, ps, rs);
+            return rs;
             }
             
           }
