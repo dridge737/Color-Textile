@@ -79,6 +79,7 @@ public class Add_new_design extends javax.swing.JFrame {
         //InputVerifier new_verifier = new Verifier();
         //this.pigment_percentage8.setInputVerifier(new_verifier);
         this.set_customer_list_and_autocomplete();
+        set_color_list_autocomplete();
         this.remove_and_add_all_binders();
         job_ord_label.setText(use_func.change_job_order_prefix(spinner_date));
         current_style = fab_style_comb.getSelectedItem().toString();
@@ -128,7 +129,13 @@ public class Add_new_design extends javax.swing.JFrame {
         ArrayList<Float> all_binder = this_colorway.get_all_binder();
         add_all_binders(all_binder);
     }
-    
+    public void set_color_list_autocomplete()
+    {
+        ArrayList<String> colors = new design().get_all_color_list();
+        auto_complete color_complete = new auto_complete();
+        color_complete.setupAutoComplete(this.design_color, colors);
+        this.design_color.setColumns(30);
+    }
     public void set_customer_list_and_autocomplete()
     {
         //fill_customer_list();
@@ -136,14 +143,14 @@ public class Add_new_design extends javax.swing.JFrame {
         //this.customer_combo_list.setEditable(true);
         this.customer_combo_list.setVisible(false);
         
-        ArrayList<String> words = new ArrayList<>();
         customer list = new customer();
         list.get_customer_list();
+        ArrayList<String> words = list.getCustomer_names();
         
-        for ( String name : list.getCustomer_names() )
-        {
-            words.add(name);
-        }
+//        for ( String name : list.getCustomer_names() )
+//        {
+//            words.add(name);
+//        }
         auto_complete this_auto = new auto_complete();
         this_auto.setupAutoComplete(this.customer_name_text, words);
         

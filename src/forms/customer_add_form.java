@@ -96,7 +96,7 @@ public class customer_add_form extends javax.swing.JFrame {
             customer custom = new customer();
             custom.setCustomer_name(this.text_customer_name.getText());
 
-            custom.searchCustomer_name();
+           // custom.searchCustomer_name();
      
         
             if(!(custom.getCustomer_names().isEmpty())){

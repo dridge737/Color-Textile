@@ -282,5 +282,11 @@ public class design{
         this.fabric_kilogram = fabric_kilogram;
     }
     
+    public ArrayList<String> get_all_color_list()
+    {
+        Database.DB_Manager new_conn = new Database.DB_Manager();
+        return new_conn.get_all_design_color();
+    }
+    
     
 }

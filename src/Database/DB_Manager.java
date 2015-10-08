@@ -1216,7 +1216,7 @@ public class DB_Manager {
         return fabric_style;
     }
     
-    public ArrayList<String> get_customer_list(colortextile_class.customer customer_name) 
+    public ArrayList<String> get_customer_list() 
     {
         DBConnection db = new DBConnection();
         Connection conn = null;
@@ -1234,7 +1234,6 @@ public class DB_Manager {
             {
                 names.add(rs.getString("customer_name"));
             }
-            customer_name.setCustomer_names(names);
             
         }
         catch (SQLException ex)
@@ -1245,6 +1244,36 @@ public class DB_Manager {
         this.closeConn(conn, ps, rs);
         return names;
     }
+    
+    public ArrayList<String> get_all_design_color()
+    {
+        DBConnection db = new DBConnection();
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        ArrayList<String> design_color = new ArrayList<String>();
+        try
+        {
+            conn = db.getConnection();  
+          
+            ps = conn.prepareStatement("SELECT color_name FROM design ORDER BY color_name ASC ");
+            rs = ps.executeQuery();
+            
+            while(rs.next())
+            {
+                design_color.add(rs.getString("color_name"));
+            }
+            
+        }
+        catch (SQLException ex)
+        {
+            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        this.closeConn(conn, ps, rs);
+        return design_color;
+                
+    }  
     
     public List<purchase_order> get_all_purchase_for_this_job_order(colortextile_class.job_order this_job_order)
     {

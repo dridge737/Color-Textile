@@ -90,9 +90,9 @@ public class customer {
     
     public void get_customer_list() {
         DB_Manager new_conn = new DB_Manager();
-        new_conn.get_customer_list(this);
+        this.Customer_names = new_conn.get_customer_list();
     }
-
+    
     public void set_customer_id_from_name() {
         DB_Manager new_conn = new DB_Manager();
         this.customer_id = new_conn.get_id_customer_name(this);
