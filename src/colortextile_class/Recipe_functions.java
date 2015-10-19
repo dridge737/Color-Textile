@@ -136,7 +136,7 @@ public class Recipe_functions {
                     {
                         //this_textfield.setText(Float.toString((Math.floor(weight_prep* 100)/100));
                        
-                        this_textfield.setText(String.format("%.2f", Math.floor(weight_prep* 100)/100));
+                        this_textfield.setText(String.format("%.2f", (float) Math.round(weight_prep* 100)/100));
                     }
             }
             else

@@ -376,7 +376,7 @@ public class EditRecipe extends javax.swing.JFrame {
         //weight.setText(Float.toString(prod_recipe.compute_kilograms_to_total_quantity(this_c_and_s.getWeight_kg())));
         //System.out.println(this_c_and_s.getBinder());
         //System.out.println(Float.toString(this_c_and_s.getBinder()));
-        binder.setSelectedItem(Float.toString(this_c_and_s.getBinder()));
+        binder.setSelectedItem(this_c_and_s.getBinder());
     }
     
     
