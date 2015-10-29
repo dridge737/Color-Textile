@@ -2441,6 +2441,7 @@ public class DB_Manager {
         File file = new File("New.jpg");
     }
     
+ 
     public void update_or_insert_design_picture(design this_design)
     {
         //error
