@@ -191,16 +191,28 @@ public class design{
    }
     
    
-   public void set_design_picture_from_design_code()
+   public boolean set_design_picture_from_design_code()
    {
        Database.DB_Manager new_conn = new Database.DB_Manager();
-       this.design_image = new_conn.get_design_picture_using_design_id(design_code);
+       if(new_conn.check_if_design_picture_has_already_been_added(design_code) == 1)
+       {
+           this.design_image = new_conn.get_design_picture_using_design_id(design_code);
+           return true;
+       }
+       return false;
+       
    }
 
    public void update_design()
    {
        Database.DB_Manager new_conn = new Database.DB_Manager();
        new_conn.update_design(this);
+   }
+   
+   public void add_or_update_design_picture()
+   {
+       Database.DB_Manager new_conn = new Database.DB_Manager();
+       new_conn.update_or_insert_design_picture(this);
    }
 
     /**

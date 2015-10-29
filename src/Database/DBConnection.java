@@ -23,7 +23,7 @@ public class DBConnection {
         url = "jdbc:mysql://localhost:3306/color_textile";
         driver = "com.mysql.jdbc.Driver";
         username = "root";
-        password = "printex123";
+        password = "";
     }
     public Connection getConnection()
     {
@@ -38,6 +38,7 @@ public class DBConnection {
         {
             ex.printStackTrace();
             JOptionPane.showMessageDialog(null,ex);
+            
         }
         
         return null;

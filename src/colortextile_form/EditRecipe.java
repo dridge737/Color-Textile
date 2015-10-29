@@ -2487,7 +2487,11 @@ public class EditRecipe extends javax.swing.JFrame {
         
         //prod_recipe.
         prod_recipe.update_design();
-
+        if(jLabel14.getIcon() != null)
+        {
+            prod_recipe.add_or_update_design_picture();
+        }
+        
            //System.out.println("Design Code = "+prod_recipe.getDesign_code());
         return prod_recipe.getDesign_code();
     }
@@ -2715,8 +2719,13 @@ public class EditRecipe extends javax.swing.JFrame {
             update_this_design();
             update_and_add_job_and_purchase_order();
             //add_purchase();
+            
+            int CloseorNoreply = JOptionPane.showConfirmDialog(null,"Successfully Edited this Recipe! Close Window? "
+                    + "(Yes to close this window) ", "Close this Window?", JOptionPane.YES_NO_OPTION);
+                if(CloseorNoreply == JOptionPane.YES_OPTION)
+                this.dispose();
         }
-        JOptionPane.showMessageDialog(null,"Successfully Edited this Recipe");
+        
          
     }//GEN-LAST:event_save_edit_butActionPerformed
                  
@@ -3320,6 +3329,7 @@ public class EditRecipe extends javax.swing.JFrame {
             if (f.exists() && f.canRead()) {
                 try {
                     jLabel14.setIcon( new ImageIcon(ImageIO.read(f).getScaledInstance(140, 140, java.awt.Image.SCALE_SMOOTH) ) );
+                    
                 }  catch (IOException e) {
                     e.printStackTrace();
                 }

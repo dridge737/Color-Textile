@@ -681,14 +681,15 @@ public class SearchJOGui extends javax.swing.JFrame {
         this_design.setFabric_style(jTable1.getValueAt(row,6).toString());
         this_design.get_design_code_using_variables();
         
-        this_design.set_design_picture_from_design_code();
+        if(this_design.set_design_picture_from_design_code())
+        {
         //design design_conn = new  design();
         //design_conn.setDesign_code(id);
         
         //ResultSet rs = design_conn.get_picture_from_design_code();
         
         //if(rs.first()){
-        if(this_design.getDesign_image() != null){
+        //if(this_design.getDesign_image() != null){
             //System.out
                 //byte[] imagedata = rs.getBytes("design_picture");
                 //format = new ImageIcon(imagedata);
@@ -698,10 +699,11 @@ public class SearchJOGui extends javax.swing.JFrame {
                 Image newimg = image.getScaledInstance(240, 180,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way  
                 format = new ImageIcon(newimg);  // transform it back
                 this.label_pic.setIcon(format);
+                setVisible(true);
         } 
         
         
-        setVisible(true);
+        
     }
     /**
      * @param args the command line arguments

@@ -31,7 +31,19 @@ import javax.swing.table.DefaultTableModel;
  */
 public class DB_Manager {
    
-    
+    private boolean testConnection()
+    {
+        DBConnection dbc = new DBConnection();
+        Connection conn = null;
+        
+        conn = dbc.getConnection();
+        if(conn == null)
+        {
+            return false;
+        }
+        return true;
+        
+    }
    //Close Connection; 
     private void closeConn(Connection conn, PreparedStatement ps)
     {
@@ -1509,6 +1521,8 @@ public class DB_Manager {
         return all_job_this_purchase;
     }
     
+   
+    
     public Blob get_design_picture_using_design_id(int design_code)
     {
         DBConnection db = new DBConnection();
@@ -2418,6 +2432,15 @@ public class DB_Manager {
         return checkTest;
     }
     
+    public void insert_design_picture(design this_design)
+    {
+        DBConnection db = new DBConnection();
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        File file = new File("New.jpg");
+    }
+    
     public void update_or_insert_design_picture(design this_design)
     {
         //error
@@ -2496,7 +2519,6 @@ public class DB_Manager {
             Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);    
         }
         this.closeConn(conn, ps); 
-        this.update_or_insert_design_picture(this_design);
     }
     
     public void update_colorway_screen(Colorway_and_pigment this_color_screen)
@@ -2510,6 +2532,7 @@ public class DB_Manager {
            pigment_percentage= 56
             WHERE id_color_screen = 33;
            */
+             conn = db.getConnection();
            ps = conn.prepareStatement("UPDATE colorway_screen_connect "
                                                         + " SET pigment_no = ?, "
                                                         + " pigment_percentage = ? "
@@ -2558,7 +2581,6 @@ public class DB_Manager {
         DBConnection db = new DBConnection();
         Connection conn = null;
         PreparedStatement ps = null;
-        ResultSet rs = null;
         try
         {
             conn = db.getConnection();
@@ -2612,7 +2634,7 @@ public class DB_Manager {
         DBConnection db = new DBConnection();
         Connection conn = null;
         PreparedStatement ps = null;
-        ResultSet rs = null;
+        
         try
         {
             conn = db.getConnection();
@@ -2638,7 +2660,6 @@ public class DB_Manager {
         DBConnection db = new DBConnection();
         Connection conn = null;
         PreparedStatement ps = null;
-        ResultSet rs = null;
         try
         {
             conn = db.getConnection();
@@ -2662,7 +2683,6 @@ public class DB_Manager {
         DBConnection db = new DBConnection();
         Connection conn = null;
         PreparedStatement ps = null;
-        ResultSet rs = null;
         try
         {
             conn = db.getConnection();
@@ -2684,7 +2704,7 @@ public class DB_Manager {
         DBConnection db = new DBConnection();
         Connection conn = null;
         PreparedStatement ps = null;
-        ResultSet rs = null;
+        
         try
         {
           conn = db.getConnection();
@@ -2707,8 +2727,6 @@ public class DB_Manager {
         DBConnection db = new DBConnection();
         Connection conn = null;
         PreparedStatement ps = null;
-        ResultSet rs = null;
-        
         
         try
         {
