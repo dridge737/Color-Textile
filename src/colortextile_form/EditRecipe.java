@@ -2836,19 +2836,19 @@ public class EditRecipe extends javax.swing.JFrame {
     private void percentage5KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage5KeyReleased
         // TODO add your handling code here:
         if(check_this_textbox(percentage5))
-        use_func.update_kg_prep(percentage5.getText(), weigh_kg.getText(), kg_5);
+        use_func.update_kg_prep(percentage5.getText(), weigh_kg3.getText(), kg_5);
     }//GEN-LAST:event_percentage5KeyReleased
 
     private void percentage6KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage6KeyReleased
         // TODO add your handling code here:
         if(check_this_textbox(percentage6))
-        use_func.update_kg_prep(percentage6.getText(), weigh_kg.getText(), kg_6);
+        use_func.update_kg_prep(percentage6.getText(), weigh_kg3.getText(), kg_6);
     }//GEN-LAST:event_percentage6KeyReleased
 
     private void percentage7KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage7KeyReleased
         // TODO add your handling code here:
         if(check_this_textbox(percentage7))
-        use_func.update_kg_prep(percentage7.getText(), weigh_kg.getText(), kg_7);
+        use_func.update_kg_prep(percentage7.getText(), weigh_kg3.getText(), kg_7);
     }//GEN-LAST:event_percentage7KeyReleased
 
     private void weigh_kg3KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_weigh_kg3KeyReleased
