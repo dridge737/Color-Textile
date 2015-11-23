@@ -317,6 +317,7 @@ public class production_recipe extends Design_with_colorway{
         //COMPUTE ITEM BY FIRST GETTING THE COVERAGE AS COVERAGE IS UNIVERSAL THROUGH DIFFERENT QUANTITIES
         float coverage = this.compute_this_coverage(colorway_kilogram);
                 //NORMALIZE items  
+        System.out.println("Colorway Kilogram is :"+colorway_kilogram);
         return this.compute_this_kg_normalized(coverage);
     }
     
@@ -351,6 +352,7 @@ public class production_recipe extends Design_with_colorway{
     public float compute_this_coverage(float kg)
     {
         float coverage = 0;
+        System.out.println("Quantity Sum is =" +this.get_quantity_sum());
         if(this.getFabric_style().equals("PONGEE"))
         {
             coverage = (kg*1000/this.get_quantity_sum())*10/8;
@@ -360,6 +362,10 @@ public class production_recipe extends Design_with_colorway{
             coverage = (kg*1000/this.get_quantity_sum())*10/12;
         }
         else if (this.getFabric_style().equals("MICROPEACH") || this.getFabric_style().equals("TC") || this.getFabric_style().equals("TROPICANA"))
+        {
+            coverage = (kg*1000/this.get_quantity_sum());
+        }
+        else
         {
             coverage = (kg*1000/this.get_quantity_sum());
         }

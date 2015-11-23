@@ -165,12 +165,25 @@ public class Recipe_functions {
         return p.matcher(this_text).find();
     }
     
+    
     public boolean check_this_textbox(JTextField the_textfield)
     {
-        if(checkText2(the_textfield.getText()))
-        { 
+        boolean checker = true;
+        String temporary_text_field_holder = the_textfield.getText();
+        while(temporary_text_field_holder.indexOf(".") != temporary_text_field_holder.lastIndexOf("."))
+        {
+            StringBuilder textfield_sb = new StringBuilder(temporary_text_field_holder);
+            int last_index_of_point = textfield_sb.lastIndexOf(".");
+            textfield_sb.deleteCharAt(last_index_of_point);
+            temporary_text_field_holder = textfield_sb.toString();
+            //    System.out.println(temporary_text_field_holder);
+
+        }
+        if(checkText2(temporary_text_field_holder))
+        {
+            //the_textfield.setText(temporary_text_field_holder);
+            temporary_text_field_holder = temporary_text_field_holder.replaceAll("[^0-9.]", "");
             //this.text_job_order.setText(text_job_order.getText().substring(0, 3));
-            the_textfield.setText(the_textfield.getText().replaceAll("[^0-9]", ""));
             
             //if(!the_textfield.getBackground().equals(Color.pink) )
             //{
@@ -178,9 +191,10 @@ public class Recipe_functions {
             //    count_screen_1++;
             //}
             //check_screen();
-            return false;
+            checker = false;
         }
-        return true;
+        the_textfield.setText(temporary_text_field_holder);
+        return checker;
         //else
         //{
         //    if(the_textfield.getBackground().equals(Color.pink))

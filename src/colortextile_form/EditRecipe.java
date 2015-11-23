@@ -2444,7 +2444,7 @@ public class EditRecipe extends javax.swing.JFrame {
         if(colorway_name.length()>0 && temp_weight_kg.length()>0)
         {
             float weight_kg = Float.parseFloat(temp_weight_kg);
-            System.out.println("Colorway size is : "+prod_recipe.getAll_colorways().size());
+            //System.out.println("Colorway size is : "+prod_recipe.getAll_colorways().size());
             if(prod_recipe.getAll_colorways().size()> colorway_num)
             {
                 prod_recipe.getAll_colorways().get(colorway_num).setColorway_name(colorway_name);
@@ -2678,8 +2678,9 @@ public class EditRecipe extends javax.swing.JFrame {
     private void update_and_add_job_and_purchase_order()
     {
         production_recipe temp_list = new production_recipe();
-        List<job_order> all_jobs = get_job_details();
-        List<purchase_order> all_purchase = this.get_all_purchase_details(this.prod_recipe.getDesign_code());
+        List<job_order> all_jobs = get_job_details_in_interface();
+        List<purchase_order> all_purchase = this.get_the_purchase_details_in_interface(this.prod_recipe.getDesign_code());
+        
         for(int x = 0; x < all_jobs.size() ; x++ )
         {
             int job_order_index =  this.prod_recipe.get_job_order_index(all_jobs.get(x).getJob_id());
@@ -2704,7 +2705,9 @@ public class EditRecipe extends javax.swing.JFrame {
             prod_recipe.getJobs_for_this().get(remove_iterate).check_and_delete_if_job_id_not_used();
             prod_recipe.getAll_purchase().get(remove_iterate).delete_purchase_order();
         }
-        prod_recipe = temp_list;
+        prod_recipe.setJobs_for_this(get_job_details_in_interface()); 
+        prod_recipe.setAll_purchase(this.get_the_purchase_details_in_interface(this.prod_recipe.getDesign_code())); 
+        
     }
     
     private void save_edit_butActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_save_edit_butActionPerformed
@@ -2715,9 +2718,9 @@ public class EditRecipe extends javax.swing.JFrame {
         } 
         else {
             //System.out.print("Hello");
+            update_and_add_job_and_purchase_order();
             update_and_add_all_colorways();
             update_this_design();
-            update_and_add_job_and_purchase_order();
             //add_purchase();
             
             int CloseorNoreply = JOptionPane.showConfirmDialog(null,"Successfully Edited this Recipe! Close Window? "
@@ -2807,25 +2810,25 @@ public class EditRecipe extends javax.swing.JFrame {
 
     private void percentage1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage1KeyReleased
         // TODO add your handling code here:
-        if(check_this_textbox(percentage1))
+        if(use_func.check_this_textbox(percentage1))
             use_func.update_kg_prep(percentage1.getText(), weigh_kg.getText(), kg_1);
     }//GEN-LAST:event_percentage1KeyReleased
 
     private void percentage2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage2KeyReleased
         // TODO add your handling code here:
-        if(check_this_textbox(percentage2))
+        if(use_func.check_this_textbox(percentage2))
         use_func.update_kg_prep(percentage2.getText(), weigh_kg.getText(), kg_2);
     }//GEN-LAST:event_percentage2KeyReleased
 
     private void percentage3KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage3KeyReleased
         // TODO add your handling code here:
-        if(check_this_textbox(percentage3))
+        if(use_func.check_this_textbox(percentage3))
         use_func.update_kg_prep(percentage3.getText(), weigh_kg.getText(), kg_3);
     }//GEN-LAST:event_percentage3KeyReleased
 
     private void weigh_kgKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_weigh_kgKeyReleased
         // TODO add your handling code here:
-        if(check_this_textbox(weigh_kg))
+        if(use_func.check_this_textbox(weigh_kg))
         {
             use_func.update_kg_prep(percentage1.getText(), weigh_kg.getText(), kg_1);
             use_func.update_kg_prep(percentage2.getText(), weigh_kg.getText(), kg_2);
@@ -2835,25 +2838,25 @@ public class EditRecipe extends javax.swing.JFrame {
 
     private void percentage5KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage5KeyReleased
         // TODO add your handling code here:
-        if(check_this_textbox(percentage5))
+        if(use_func.check_this_textbox(percentage5))
         use_func.update_kg_prep(percentage5.getText(), weigh_kg3.getText(), kg_5);
     }//GEN-LAST:event_percentage5KeyReleased
 
     private void percentage6KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage6KeyReleased
         // TODO add your handling code here:
-        if(check_this_textbox(percentage6))
+        if(use_func.check_this_textbox(percentage6))
         use_func.update_kg_prep(percentage6.getText(), weigh_kg3.getText(), kg_6);
     }//GEN-LAST:event_percentage6KeyReleased
 
     private void percentage7KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage7KeyReleased
         // TODO add your handling code here:
-        if(check_this_textbox(percentage7))
+        if(use_func.check_this_textbox(percentage7))
         use_func.update_kg_prep(percentage7.getText(), weigh_kg3.getText(), kg_7);
     }//GEN-LAST:event_percentage7KeyReleased
 
     private void weigh_kg3KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_weigh_kg3KeyReleased
         // TODO add your handling code here:
-        if(check_this_textbox(weigh_kg3))
+        if(use_func.check_this_textbox(weigh_kg3))
         {
             use_func.update_kg_prep(percentage5.getText(), weigh_kg3.getText(), kg_5);
             use_func.update_kg_prep(percentage6.getText(), weigh_kg3.getText(), kg_6);
@@ -2863,25 +2866,25 @@ public class EditRecipe extends javax.swing.JFrame {
  
     private void percentage9KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage9KeyReleased
         // TODO add your handling code here:
-        if(check_this_textbox(percentage9))
+        if(use_func.check_this_textbox(percentage9))
             use_func.update_kg_prep(percentage9.getText(), weigh_kg4.getText(), kg_9);
     }//GEN-LAST:event_percentage9KeyReleased
 
     private void percentage10KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage10KeyReleased
         // TODO add your handling code here:
-        if(check_this_textbox(percentage10))
+        if(use_func.check_this_textbox(percentage10))
             use_func.update_kg_prep(percentage10.getText(), weigh_kg4.getText(), kg_10);
     }//GEN-LAST:event_percentage10KeyReleased
 
     private void percentage11KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage11KeyReleased
         // TODO add your handling code here:
-        if(check_this_textbox(percentage11))       
+        if(use_func.check_this_textbox(percentage11))       
         use_func.update_kg_prep(percentage11.getText(), weigh_kg4.getText(), kg_11);
     }//GEN-LAST:event_percentage11KeyReleased
 
     private void weigh_kg4KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_weigh_kg4KeyReleased
         // TODO add your handling code here:
-        if(check_this_textbox(weigh_kg4))
+        if(use_func.check_this_textbox(weigh_kg4))
         {        
             use_func.update_kg_prep(percentage9.getText(), weigh_kg4.getText(), kg_9);
             use_func.update_kg_prep(percentage10.getText(), weigh_kg4.getText(), kg_10);
@@ -2891,25 +2894,25 @@ public class EditRecipe extends javax.swing.JFrame {
 
     private void percentage13KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage13KeyReleased
         // TODO add your handling code here:
-        if(check_this_textbox(percentage13))
+        if(use_func.check_this_textbox(percentage13))
             use_func.update_kg_prep(percentage13.getText(), weigh_kg5.getText(), kg_13);
     }//GEN-LAST:event_percentage13KeyReleased
 
     private void percentage14KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage14KeyReleased
         // TODO add your handling code here:
-        if(check_this_textbox(percentage14))
+        if(use_func.check_this_textbox(percentage14))
             use_func.update_kg_prep(percentage14.getText(), weigh_kg5.getText(), kg_14);
     }//GEN-LAST:event_percentage14KeyReleased
 
     private void percentage15KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage15KeyReleased
         // TODO add your handling code here:
-        if(check_this_textbox(percentage15))
+        if(use_func.check_this_textbox(percentage15))
             use_func.update_kg_prep(percentage15.getText(), weigh_kg5.getText(), kg_15);
     }//GEN-LAST:event_percentage15KeyReleased
 
     private void weigh_kg5KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_weigh_kg5KeyReleased
         // TODO add your handling code here:
-        if(check_this_textbox(weigh_kg5))
+        if(use_func.check_this_textbox(weigh_kg5))
         {
             use_func.update_kg_prep(percentage13.getText(), weigh_kg5.getText(), kg_13);
             use_func.update_kg_prep(percentage14.getText(), weigh_kg5.getText(), kg_14);
@@ -2919,25 +2922,25 @@ public class EditRecipe extends javax.swing.JFrame {
 
     private void percentage17KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage17KeyReleased
         // TODO add your handling code here:
-        if(check_this_textbox(percentage17))
+        if(use_func.check_this_textbox(percentage17))
             use_func.update_kg_prep(percentage17.getText(), weigh_kg6.getText(), kg_17);
     }//GEN-LAST:event_percentage17KeyReleased
 
     private void percentage18KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage18KeyReleased
         // TODO add your handling code here:
-        if(check_this_textbox(percentage18))
+        if(use_func.check_this_textbox(percentage18))
             use_func.update_kg_prep(percentage18.getText(), weigh_kg6.getText(), kg_18);
     }//GEN-LAST:event_percentage18KeyReleased
 
     private void percentage19KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage19KeyReleased
         // TODO add your handling code here:
-        if(check_this_textbox(percentage19))
+        if(use_func.check_this_textbox(percentage19))
             use_func.update_kg_prep(percentage19.getText(), weigh_kg6.getText(), kg_19);
     }//GEN-LAST:event_percentage19KeyReleased
 
     private void weigh_kg6KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_weigh_kg6KeyReleased
         // TODO add your handling code here:
-        if(check_this_textbox(weigh_kg6))
+        if(use_func.check_this_textbox(weigh_kg6))
         {
             use_func.update_kg_prep(percentage17.getText(), weigh_kg6.getText(), kg_17);
             use_func.update_kg_prep(percentage18.getText(), weigh_kg6.getText(), kg_18);
@@ -2948,25 +2951,25 @@ public class EditRecipe extends javax.swing.JFrame {
 
     private void percentage21KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage21KeyReleased
         // TODO add your handling code here:
-        if(check_this_textbox(percentage21))
+        if(use_func.check_this_textbox(percentage21))
             use_func.update_kg_prep(percentage21.getText(), weigh_kg7.getText(), kg_21);
     }//GEN-LAST:event_percentage21KeyReleased
 
     private void percentage22KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage22KeyReleased
         // TODO add your handling code here:
-        if(check_this_textbox(percentage22))
+        if(use_func.check_this_textbox(percentage22))
             use_func.update_kg_prep(percentage22.getText(), weigh_kg7.getText(), kg_22);
     }//GEN-LAST:event_percentage22KeyReleased
 
     private void percentage23KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage23KeyReleased
         // TODO add your handling code here:
-        if(check_this_textbox(percentage23))
+        if(use_func.check_this_textbox(percentage23))
             use_func.update_kg_prep(percentage23.getText(), weigh_kg7.getText(), kg_23);
     }//GEN-LAST:event_percentage23KeyReleased
 
     private void weigh_kg7KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_weigh_kg7KeyReleased
         // TODO add your handling code here:
-        if(check_this_textbox(weigh_kg7))
+        if(use_func.check_this_textbox(weigh_kg7))
         {
             use_func.update_kg_prep(percentage21.getText(), weigh_kg7.getText(), kg_21);
             use_func.update_kg_prep(percentage22.getText(), weigh_kg7.getText(), kg_22);
@@ -2976,13 +2979,13 @@ public class EditRecipe extends javax.swing.JFrame {
         
     private void percentage24KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage24KeyReleased
         // TODO add your handling code here:
-        if(check_this_textbox(percentage24))
+        if(use_func.check_this_textbox(percentage24))
             use_func.update_kg_prep(percentage24.getText(), weigh_kg8.getText(), kg_24);
     }//GEN-LAST:event_percentage24KeyReleased
 
     private void weigh_kg8KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_weigh_kg8KeyReleased
         // TODO add your handling code here:
-        if(check_this_textbox(weigh_kg8))
+        if(use_func.check_this_textbox(weigh_kg8))
         {
             use_func.update_kg_prep(percentage24.getText(), weigh_kg8.getText(), kg_24);
             use_func.update_kg_prep(percentage25.getText(), weigh_kg8.getText(), kg_25);
@@ -2993,13 +2996,13 @@ public class EditRecipe extends javax.swing.JFrame {
         
     private void percentage25KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage25KeyReleased
         // TODO add your handling code here:
-        if(check_this_textbox(percentage25))
+        if(use_func.check_this_textbox(percentage25))
             use_func.update_kg_prep(percentage25.getText(), weigh_kg8.getText(), kg_25);
     }//GEN-LAST:event_percentage25KeyReleased
 
     private void percentage26KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage26KeyReleased
         // TODO add your handling code here:
-        if(check_this_textbox(percentage26))
+        if(use_func.check_this_textbox(percentage26))
         {
             use_func.update_kg_prep(percentage26.getText(), weigh_kg8.getText(), kg_26);
         }
@@ -3147,9 +3150,9 @@ public class EditRecipe extends javax.swing.JFrame {
         //new_design.view_all_colorway_details();
         if (this.jList1.getModel().getSize() != 0)
         {
-            new_design.setJobs_for_this(this.get_job_details());
+            new_design.setJobs_for_this(this.get_job_details_in_interface());
             //Adds purchase order and design
-            new_design.setAll_purchase(get_all_purchase_details(1));
+            new_design.setAll_purchase(get_the_purchase_details_in_interface(1));
             new_design.view_all_job_order_details();
         }
         return new_design; 
@@ -3251,7 +3254,7 @@ public class EditRecipe extends javax.swing.JFrame {
         return all_colorway;
     }
     
-    private List<job_order> get_job_details()
+    private List<job_order> get_job_details_in_interface()
     {    
         List<job_order> all_job_orders = new ArrayList<>();
         for (int i = 0; i < this_list.getJob_list().size(); i++) 
@@ -3267,7 +3270,7 @@ public class EditRecipe extends javax.swing.JFrame {
         return all_job_orders;
     }
     
-    private List<purchase_order> get_all_purchase_details(int design_code)
+    private List<purchase_order> get_the_purchase_details_in_interface(int design_code)
     {
         List<purchase_order> all_purchase = new ArrayList<>();
         
@@ -3839,8 +3842,7 @@ public class EditRecipe extends javax.swing.JFrame {
     private void text_job_orderKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_text_job_orderKeyReleased
         // TODO add your handling code here:
         
-        
-        if (check_this_textbox(text_job_order) && this.text_job_order.getText().length() == 4 )
+        if (use_func.check_this_textbox(text_job_order) && this.text_job_order.getText().length() == 4 )
         {
             String job_order_text = this.job_ord_label.getText() + this.text_job_order.getText();
             job_order new_job_order = new job_order(job_order_text);
@@ -3874,7 +3876,7 @@ public class EditRecipe extends javax.swing.JFrame {
 
     private void quantityKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_quantityKeyReleased
         // TODO add your handling code here:
-        check_this_textbox(quantity);
+        use_func.check_this_textbox(quantity);
     }//GEN-LAST:event_quantityKeyReleased
 
     private void fab_style_combPopupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_fab_style_combPopupMenuWillBecomeInvisible
@@ -3915,31 +3917,6 @@ public class EditRecipe extends javax.swing.JFrame {
         add_pigment_form add_pigment = new add_pigment_form();
         add_pigment.setVisible(true);
         this.pigment_screen_showed = true;
-    }
-    
-    private boolean check_this_textbox(JTextField the_textfield)
-    {
-        if(use_func.checkText2(the_textfield.getText()))
-        {
-            the_textfield.setText(the_textfield.getText().replaceAll("[^0-9]", ""));
-            //if(!the_textfield.getBackground().equals(Color.pink) )
-            //{
-            //    the_textfield.setBackground(Color.pink);
-            //    count_screen_1++;
-            //}
-            //check_screen();
-            return false;
-        }
-        //else
-        ///{
-        //    if(the_textfield.getBackground().equals(Color.pink))
-        //    {
-        //        the_textfield.setBackground(Color.white);           
-        //        count_screen_1--;
-        //    }
-        //    check_screen();
-            return true;
-        //}
     }
     
     public void check_screen()
