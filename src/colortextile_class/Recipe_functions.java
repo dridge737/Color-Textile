@@ -169,6 +169,8 @@ public class Recipe_functions {
     public boolean check_this_textbox(JTextField the_textfield)
     {
         boolean checker = true;
+        if(checkText2(the_textfield.getText()))
+        {
         String temporary_text_field_holder = the_textfield.getText();
         while(temporary_text_field_holder.indexOf(".") != temporary_text_field_holder.lastIndexOf("."))
         {
@@ -194,6 +196,7 @@ public class Recipe_functions {
             checker = false;
         }
         the_textfield.setText(temporary_text_field_holder);
+        }
         return checker;
         //else
         //{
