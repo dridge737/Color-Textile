@@ -509,6 +509,49 @@ public class DB_Manager {
     //DELETE START
     ///DELETE function here
     ///Start every function with delete_*
+    public void delete_colorway_using_id_colorway(int id_colorway)
+    {
+        DBConnection db = new DBConnection();
+        Connection conn = null;
+        PreparedStatement ps = null;
+        
+        try
+        {
+            conn = db.getConnection();
+            ps = conn.prepareStatement("DELETE FROM colorway "
+                                                        + "WHERE id_colorway = ? ");
+            int item = 1;
+            ps.setInt(item++, id_colorway);
+          //ps.setInt(item++, connection_del.getPigment_no());
+            ps.executeUpdate();
+        }
+        catch (SQLException ex){
+            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        this.closeConn(conn, ps);
+    }
+    
+    public void delete_colorway_screen_connect(int id_colorway)
+    {
+        DBConnection db = new DBConnection();
+        Connection conn = null;
+        PreparedStatement ps = null;
+        try
+        {
+            conn = db.getConnection();
+            ps = conn.prepareStatement("DELETE FROM colorway_screen_connect "
+                                                        + "WHERE id_colorway = ?");
+            int item = 1;
+            ps.setInt(item++, id_colorway);
+          //ps.setInt(item++, connection_del.getPigment_no());
+            ps.executeUpdate();
+        }
+        catch (SQLException ex){
+            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        this.closeConn(conn, ps);
+    }
+    /*
     public boolean delete_design_and_colorway_con_from_id_colorway(int id_colorway)
     {
         DBConnection db = new DBConnection();
@@ -531,7 +574,7 @@ public class DB_Manager {
         return deleted;      
         
     }
-    
+    */
     ///////////////////////////////////////////////////////////////////////////////////////////
         
     //GET START
@@ -2679,26 +2722,7 @@ public class DB_Manager {
         this.closeConn(conn, ps);
     }
     
-    public void delete_colorway_screen_connect(int id_colorway)
-    {
-        DBConnection db = new DBConnection();
-        Connection conn = null;
-        PreparedStatement ps = null;
-        try
-        {
-            conn = db.getConnection();
-            ps = conn.prepareStatement("DELETE FROM colorway_screen_connect "
-                                                        + "WHERE id_colorway = ?");
-            int item = 1;
-            ps.setInt(item++, id_colorway);
-          //ps.setInt(item++, connection_del.getPigment_no());
-            ps.executeUpdate();
-        }
-        catch (SQLException ex){
-            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        this.closeConn(conn, ps);
-    }
+    
     
     public void delete_purchase_order(purchase_order this_purchase)
     {

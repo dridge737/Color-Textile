@@ -462,7 +462,6 @@ public class Add_new_design extends javax.swing.JFrame {
         setLocationByPlatform(true);
         setMinimumSize(new java.awt.Dimension(790, 732));
         setModalExclusionType(java.awt.Dialog.ModalExclusionType.APPLICATION_EXCLUDE);
-        setPreferredSize(new java.awt.Dimension(805, 715));
         addWindowFocusListener(new java.awt.event.WindowFocusListener() {
             public void windowGainedFocus(java.awt.event.WindowEvent evt) {
                 formWindowGainedFocus(evt);
@@ -2438,8 +2437,10 @@ public class Add_new_design extends javax.swing.JFrame {
         this_design.setDesign_code(-1);
         if(design_name.getText().length() != 0 && design_color.getText().length() != 0 )
         {
+            System.out.println(this_design.getDesign_code());
             if(this_design.get_design_code_using_variables())
             {
+                
             ////Design has already been added, just access design code;
                 int reply = JOptionPane.showConfirmDialog(null,"The design with this name, color and fabric has already been added. (Yes to use this design, No to change name of design , color or fabric) "
                     + "Do you want to use the existing design?","Use existing design?", JOptionPane.YES_NO_OPTION);
@@ -2449,12 +2450,13 @@ public class Add_new_design extends javax.swing.JFrame {
                 }
                 else
                     this_design.setDesign_code(-1);
+                
             }
             else{
                 this_design.add_new_design_and_set_design_code();
             }
         }
-        if(this_design.getDesign_code() != -1)
+        if(this_design.getDesign_code() == -1)
             this.add_all_this_colorways(this_design.getDesign_code());
         return this_design.getDesign_code();
         

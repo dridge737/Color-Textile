@@ -47,6 +47,14 @@ public class Design_with_colorway extends design {
          
      }
      
+     public void delete_all_colorway_of_this_design()
+     {
+         for(Screen_and_colorway_link delete_colorway :this.getAll_colorways())
+         {
+             delete_colorway.delete_all_screen_and_this_colorway_from_colorway_id();
+         }
+     }
+     
      public void view_all_colorway_details()
      {
          this.view_design_details();

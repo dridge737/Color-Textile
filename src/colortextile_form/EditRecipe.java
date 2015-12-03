@@ -2533,6 +2533,8 @@ public class EditRecipe extends javax.swing.JFrame {
    
     private void update_and_add_all_colorways()
     {
+        this.prod_recipe.delete_all_colorway_of_this_design();
+        
         for(int interval = 0; interval <7 ; interval++)
         {
             /////////Colorway 1
@@ -2719,6 +2721,7 @@ public class EditRecipe extends javax.swing.JFrame {
         else {
             //System.out.print("Hello");
             update_and_add_job_and_purchase_order();
+            
             update_and_add_all_colorways();
             update_this_design();
             //add_purchase();

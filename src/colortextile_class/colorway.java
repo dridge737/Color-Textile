@@ -137,6 +137,8 @@ public class colorway {
         this.setWeight_kg(temp_colorway.getWeight_kg());
         this.setDesign_code(temp_colorway.getDesign_code());
     }
+    
+    
 
     /**
      * @return the design_code
@@ -193,5 +195,11 @@ public class colorway {
     {
         Database.DB_Manager new_conn = new Database.DB_Manager();
         return new_conn.get_last_binder_percent();
+    }
+    
+    public void delete_this_colorway()
+    {
+        Database.DB_Manager new_conn = new Database.DB_Manager();
+        new_conn.delete_colorway_using_id_colorway(id_colorway);
     }
 }

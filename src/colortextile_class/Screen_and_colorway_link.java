@@ -64,6 +64,16 @@ public class Screen_and_colorway_link extends colorway implements Comparable<Scr
         
     }
     
+    public void delete_all_screen_and_this_colorway_from_colorway_id()
+    {
+        for(Colorway_and_pigment delete_screen :this.getThis_screens())
+        {
+            delete_screen.delete_id_coloray_screen_from_id_colorway();
+        }
+        this.delete_this_colorway();
+        
+    }
+    
     public void update_this_colorway()
     {
         Database.DB_Manager new_conn = new Database.DB_Manager();
@@ -78,14 +88,6 @@ public class Screen_and_colorway_link extends colorway implements Comparable<Scr
         }
                
     }
-    
-    public void delete_all_screen_and_colorway_link()
-    {
-        Database.DB_Manager new_conn = new Database.DB_Manager();
-        new_conn.delete_colorway_screen_connect(this.getId_colorway());
-        //new_conn.delete_colorway_screen_connect(null);
-    }
-
     
     @Override
     public int compareTo(Screen_and_colorway_link o) {

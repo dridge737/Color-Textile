@@ -82,10 +82,12 @@ public class Colorway_and_pigment extends pigment{
         return false;
     }
     
-    public boolean delete_id_coloray_from_id_colorway()
+    public boolean delete_id_coloray_screen_from_id_colorway()
     {
         Database.DB_Manager new_conn = new Database.DB_Manager();
-        return new_conn.delete_design_and_colorway_con_from_id_colorway(id_colorway);
+        //return 
+        new_conn.delete_colorway_screen_connect(id_colorway);
+        return true;
     }
 
     
