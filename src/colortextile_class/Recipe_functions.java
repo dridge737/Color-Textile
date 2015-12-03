@@ -229,6 +229,25 @@ public class Recipe_functions {
             }
     }
     
+    public int add_this_colorway(String colorway_name, float binder_percent, String temp_weight_kg, int design_code, String fabric_box, String quantity_total)
+    {
+        if(!colorway_name.isEmpty() && !temp_weight_kg.isEmpty())
+        {
+                float weight_kg = Float.parseFloat(temp_weight_kg);
+                float coverage = this.compute_this_coverage(weight_kg, fabric_box, quantity_total);
+                System.out.println("Coverage = "+coverage);
+                //NORMALIZE items
+                float adjusted_weight = this.compute_this_kg(coverage, fabric_box, "1000");
+                
+                colortextile_class.colorway new_colorway = new colortextile_class.colorway(colorway_name, binder_percent, adjusted_weight, design_code);
+                new_colorway.add_new_colorway();
+                new_colorway.set_id_colorway_from_variables();
+                
+                return new_colorway.getId_colorway();
+        }
+        return -1;
+    }
+    
     
     
     

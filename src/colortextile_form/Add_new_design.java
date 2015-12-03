@@ -2185,23 +2185,23 @@ public class Add_new_design extends javax.swing.JFrame {
         return pigment.getPigment_name();
     }
     
-    private void setTextValues_screens(JComboBox pigment_name, JTextField percentage, Colorway_and_pigment screen_p)
+    private void setTextValues_screens(JComboBox pigment_name, JTextField percentage, Pigment_with_screen_connect screen_p)
     {
         pigment_name.setSelectedItem(screen_p.getPigment_name());
         percentage.setText(Float.toString(screen_p.getPigment_percentage()));
     }
-    private void setTextValues_colorway(JTextField colorway, JTextField weight, JComboBox binder, Screen_and_colorway_link this_c_and_s)
+    private void setTextValues_colorway(JTextField colorway, JTextField weight, JComboBox binder, Colorway_with_pigment this_c_and_s)
     {
         colorway.setText(this_c_and_s.getColorway_name());
         weight.setText(Integer.toString(Math.round(this_c_and_s.getWeight_kg())));
         binder.setSelectedItem(this_c_and_s.getBinder());
     }
     
-    private void set_all_textbox_colorways(List<Screen_and_colorway_link> this_color_and_screen)
+    private void set_all_textbox_colorways(List<Colorway_with_pigment> this_color_and_screen)
     {
         for(int x = 0 ; x<this_color_and_screen.size(); x++)
         {
-            List<Colorway_and_pigment> current_screen = this_color_and_screen.get(x).getThis_screens();
+            List<Pigment_with_screen_connect> current_screen = this_color_and_screen.get(x).getThis_screens();
             
             if(x == 0)
             {
@@ -2378,25 +2378,6 @@ public class Add_new_design extends javax.swing.JFrame {
         return all_job_orders;
     }
     
-    private int add_this_colorway(String colorway_name, float binder_percent, String temp_weight_kg, int design_code)
-    {
-        if(!colorway_name.isEmpty() && !temp_weight_kg.isEmpty())
-        {
-                float weight_kg = Float.parseFloat(temp_weight_kg);
-                float coverage = use_func.compute_this_coverage(weight_kg, fab_style_comb.getSelectedItem().toString(), quantity_total.getText());
-                System.out.println("Coverage = "+coverage);
-                //NORMALIZE items
-                float adjusted_weight = use_func.compute_this_kg(coverage, fab_style_comb.getSelectedItem().toString(), "1000");
-                
-                colortextile_class.colorway new_colorway = new colortextile_class.colorway(colorway_name, binder_percent, adjusted_weight, design_code);
-                new_colorway.add_new_colorway();
-                new_colorway.set_id_colorway_from_variables();
-                
-                return new_colorway.getId_colorway();
-        }
-        return -1;
-    }
-    
     private int get_pigment_id(String pigment_name)
     {   
         if(!pigment_name.isEmpty())
@@ -2411,7 +2392,7 @@ public class Add_new_design extends javax.swing.JFrame {
             
     }
                                           //This contains COLORWAY NAME and PERCENTAGE TEXT   var for COLORWAY ID 
-    private void add_this_colorway_screen(Colorway_and_pigment this_screen_and_colorway, int id_colorway)
+    private void add_this_colorway_screen(Pigment_with_screen_connect this_screen_and_colorway, int id_colorway)
     {
         int id_pigment = get_pigment_id(this_screen_and_colorway.getPigment_name());
         
@@ -2454,10 +2435,10 @@ public class Add_new_design extends javax.swing.JFrame {
             }
             else{
                 this_design.add_new_design_and_set_design_code();
+                this.add_all_this_colorways(this_design.getDesign_code());
             }
         }
-        if(this_design.getDesign_code() == -1)
-            this.add_all_this_colorways(this_design.getDesign_code());
+        
         return this_design.getDesign_code();
         
     }
@@ -2470,7 +2451,7 @@ public class Add_new_design extends javax.swing.JFrame {
                 fab_style_comb.getSelectedItem().toString(),
                 use_func.get_date_from_spinner(spinner_date));
         
-        List<Screen_and_colorway_link> all_color_screen = this.get_all_colorway_inputs();
+        List<Colorway_with_pigment> all_color_screen = this.get_all_colorway_inputs();
         new_design.setAll_colorways(all_color_screen);
         //new_design.view_all_colorway_details();
         if (this.jList1.getModel().getSize() != 0)
@@ -2484,18 +2465,18 @@ public class Add_new_design extends javax.swing.JFrame {
         return new_design; 
     }
     
-    private List<Screen_and_colorway_link> get_all_colorway_inputs()
+    private List<Colorway_with_pigment> get_all_colorway_inputs()
     {
-        List<Screen_and_colorway_link> all_colorway = new ArrayList<>();
+        List<Colorway_with_pigment> all_colorway = new ArrayList<>();
         
         for(int interval = 0 ; interval < 7; interval++ )
         {
-            Screen_and_colorway_link this_colorway_screen;
+            Colorway_with_pigment this_colorway_screen;
             
             if(interval==0)
             {
                 //Individual Colorway
-                this_colorway_screen = new Screen_and_colorway_link(colorway_name.getText(), 
+                this_colorway_screen = new Colorway_with_pigment(colorway_name.getText(), 
                              Float.parseFloat(binder.getSelectedItem().toString()),
                              weigh_kg.getText());
         
@@ -2508,7 +2489,7 @@ public class Add_new_design extends javax.swing.JFrame {
             }
             else if(interval==1)
             {
-                this_colorway_screen = new Screen_and_colorway_link(colorway_name3.getText(), 
+                this_colorway_screen = new Colorway_with_pigment(colorway_name3.getText(), 
                              Float.parseFloat(binder2.getSelectedItem().toString()),
                              weigh_kg3.getText());
                 
@@ -2520,7 +2501,7 @@ public class Add_new_design extends javax.swing.JFrame {
             }
             else if(interval == 2)
             {
-                this_colorway_screen = new Screen_and_colorway_link(colorway_name4.getText(), 
+                this_colorway_screen = new Colorway_with_pigment(colorway_name4.getText(), 
                              Float.parseFloat(binder3.getSelectedItem().toString()),
                              weigh_kg4.getText());
                 
@@ -2532,7 +2513,7 @@ public class Add_new_design extends javax.swing.JFrame {
             }
             else if(interval == 3)
             {
-                this_colorway_screen = new Screen_and_colorway_link(colorway_name5.getText(), 
+                this_colorway_screen = new Colorway_with_pigment(colorway_name5.getText(), 
                              Float.parseFloat(binder4.getSelectedItem().toString()),
                              weigh_kg5.getText());
                 
@@ -2544,7 +2525,7 @@ public class Add_new_design extends javax.swing.JFrame {
             }
             else if(interval == 4)
             {
-                this_colorway_screen = new Screen_and_colorway_link(colorway_name6.getText(), 
+                this_colorway_screen = new Colorway_with_pigment(colorway_name6.getText(), 
                              Float.parseFloat(binder5.getSelectedItem().toString()),
                              weigh_kg6.getText());
                 
@@ -2556,7 +2537,7 @@ public class Add_new_design extends javax.swing.JFrame {
             }
             else if(interval == 5)
             {
-             this_colorway_screen = new Screen_and_colorway_link(colorway_name7.getText(), 
+             this_colorway_screen = new Colorway_with_pigment(colorway_name7.getText(), 
                              Float.parseFloat(binder6.getSelectedItem().toString()),
                              weigh_kg7.getText());
                 
@@ -2568,7 +2549,7 @@ public class Add_new_design extends javax.swing.JFrame {
             }
             else if(interval == 6)
             {
-                this_colorway_screen = new Screen_and_colorway_link(colorway_name8.getText(), 
+                this_colorway_screen = new Colorway_with_pigment(colorway_name8.getText(), 
                              Float.parseFloat(binder7.getSelectedItem().toString()),
                              weigh_kg8.getText());
                 
@@ -2582,13 +2563,13 @@ public class Add_new_design extends javax.swing.JFrame {
         return all_colorway;
     }
     
-    private Colorway_and_pigment get_colorway_details_from_input(JComboBox pigment_text, JTextField percentageText )
+    private Pigment_with_screen_connect get_colorway_details_from_input(JComboBox pigment_text, JTextField percentageText )
     {
-        Colorway_and_pigment this_colorway;
+        Pigment_with_screen_connect this_colorway;
         if(!use_func.checkText2(percentageText.getText()))
-        this_colorway = new Colorway_and_pigment(pigment_text.getSelectedItem().toString(), Float.parseFloat(percentageText.getText()));
+        this_colorway = new Pigment_with_screen_connect(pigment_text.getSelectedItem().toString(), Float.parseFloat(percentageText.getText()));
         else
-        this_colorway = new Colorway_and_pigment(pigment_text.getSelectedItem().toString());
+        this_colorway = new Pigment_with_screen_connect(pigment_text.getSelectedItem().toString());
         
         return this_colorway;
     }
@@ -2596,9 +2577,9 @@ public class Add_new_design extends javax.swing.JFrame {
     private void add_all_this_colorways(int design_code)
     {
         //1st Colorway if it exists
-        int colorway_id = add_this_colorway(colorway_name.getText(), 
+        int colorway_id = use_func.add_this_colorway(colorway_name.getText(), 
                              Float.parseFloat(binder.getSelectedItem().toString()),
-                             weigh_kg.getText(), design_code);
+                             weigh_kg.getText(), design_code, this.fab_style_comb.getSelectedItem().toString(), this.quantity_total.getText());
         //System.out.println("COLORWAY id 1 = " +colorway_id);
         if(colorway_id != -1 )
         {   
@@ -2613,9 +2594,9 @@ public class Add_new_design extends javax.swing.JFrame {
         }
         
         //2nd Colorway if it exists
-        int colorway_id2 = add_this_colorway(colorway_name3.getText(), 
+        int colorway_id2 = use_func.add_this_colorway(colorway_name3.getText(), 
                              Float.parseFloat(binder2.getSelectedItem().toString()),
-                             weigh_kg3.getText(), design_code);
+                             weigh_kg3.getText(), design_code, this.fab_style_comb.getSelectedItem().toString(), this.quantity_total.getText());
         //System.out.println("COLORWAY id 2 = " +colorway_id2);
         if(colorway_id2 != -1 )
         {
@@ -2630,9 +2611,9 @@ public class Add_new_design extends javax.swing.JFrame {
         }
         
         //3rd Colorway if it exists
-        int colorway_id3 = add_this_colorway(colorway_name4.getText(), 
+        int colorway_id3 = use_func.add_this_colorway(colorway_name4.getText(), 
                              Float.parseFloat(binder3.getSelectedItem().toString()),
-                             weigh_kg4.getText() , design_code);
+                             weigh_kg4.getText() , design_code, this.fab_style_comb.getSelectedItem().toString(), this.quantity_total.getText());
         //System.out.println("COLORWAY id 3 = " +colorway_id3);
         if(colorway_id3 != -1 )
         {
@@ -2647,9 +2628,9 @@ public class Add_new_design extends javax.swing.JFrame {
            
         }
         //4th Colorway if it exists
-        int colorway_id4 = add_this_colorway(colorway_name5.getText(), 
+        int colorway_id4 = use_func.add_this_colorway(colorway_name5.getText(), 
                              Float.parseFloat(binder4.getSelectedItem().toString()),
-                             weigh_kg5.getText(), design_code);
+                             weigh_kg5.getText(), design_code, this.fab_style_comb.getSelectedItem().toString(), this.quantity_total.getText());
         //System.out.println("COLORWAY id 4 = " +colorway_id4);
         if(colorway_id4 != -1 )
         {
@@ -2664,9 +2645,9 @@ public class Add_new_design extends javax.swing.JFrame {
         }
         
         //5th Colorway if it exists
-        int colorway_id5 = add_this_colorway(colorway_name6.getText(), 
+        int colorway_id5 = use_func.add_this_colorway(colorway_name6.getText(), 
                              Float.parseFloat(binder5.getSelectedItem().toString()),
-                             weigh_kg6.getText() , design_code);
+                             weigh_kg6.getText() , design_code, this.fab_style_comb.getSelectedItem().toString(), this.quantity_total.getText());
         //System.out.println("COLORWAY id 5 = " +colorway_id5);
         if(colorway_id5 != -1 )
         {
@@ -2681,9 +2662,9 @@ public class Add_new_design extends javax.swing.JFrame {
         }
         
         //6th Colorway if it exists
-        int colorway_id6 = add_this_colorway(colorway_name7.getText(), 
+        int colorway_id6 = use_func.add_this_colorway(colorway_name7.getText(), 
                              Float.parseFloat(binder6.getSelectedItem().toString()),
-                             weigh_kg7.getText(), design_code);
+                             weigh_kg7.getText(), design_code, this.fab_style_comb.getSelectedItem().toString(), this.quantity_total.getText());
         //System.out.println("COLORWAY id 6 = " +colorway_id6);
         if( colorway_id6 != -1 )
         {
@@ -2698,9 +2679,9 @@ public class Add_new_design extends javax.swing.JFrame {
         }
         
         //7th Colorway if it exists
-        int colorway_id7 = add_this_colorway(colorway_name8.getText(), 
+        int colorway_id7 = use_func.add_this_colorway(colorway_name8.getText(), 
                              Float.parseFloat(binder7.getSelectedItem().toString()),
-                             weigh_kg8.getText(), design_code);
+                             weigh_kg8.getText(), design_code, this.fab_style_comb.getSelectedItem().toString(), this.quantity_total.getText());
         //System.out.println("COLORWAY id 7 = " +colorway_id6);
         if( colorway_id7 != -1 )
         {

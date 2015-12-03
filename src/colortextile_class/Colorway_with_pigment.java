@@ -15,18 +15,18 @@ import java.util.regex.Pattern;
  *
  * @author Eldridge
  */
-public class Screen_and_colorway_link extends colorway implements Comparable<Screen_and_colorway_link>{
+public class Colorway_with_pigment extends colorway implements Comparable<Colorway_with_pigment>{
     
-    private List<Colorway_and_pigment> this_screens = new ArrayList<>();
+    private List<Pigment_with_screen_connect> this_screens = new ArrayList<>();
     
-    public Screen_and_colorway_link(){}
+    public Colorway_with_pigment(){}
     
-    public Screen_and_colorway_link(String name, float bind, float weight)
+    public Colorway_with_pigment(String name, float bind, float weight)
     {
         super(name,bind,weight);
     }
     
-    public Screen_and_colorway_link(String name, float bind, String weight)
+    public Colorway_with_pigment(String name, float bind, String weight)
     {
         this.setBinder(bind);
         this.setColorway_name(name);
@@ -51,7 +51,7 @@ public class Screen_and_colorway_link extends colorway implements Comparable<Scr
         return p.matcher(this_text).find();
     }
      
-    public void add_screen(Colorway_and_pigment this_screen)
+    public void add_screen(Pigment_with_screen_connect this_screen)
     {
         this.this_screens.add(this_screen);
     }
@@ -66,7 +66,7 @@ public class Screen_and_colorway_link extends colorway implements Comparable<Scr
     
     public void delete_all_screen_and_this_colorway_from_colorway_id()
     {
-        for(Colorway_and_pigment delete_screen :this.getThis_screens())
+        for(Pigment_with_screen_connect delete_screen :this.getThis_screens())
         {
             delete_screen.delete_id_coloray_screen_from_id_colorway();
         }
@@ -83,14 +83,14 @@ public class Screen_and_colorway_link extends colorway implements Comparable<Scr
     public void view_all_screen_pigment_details()
     {
         this.view_colorway_details();
-        for (Colorway_and_pigment this_screen : getThis_screens()) {
+        for (Pigment_with_screen_connect this_screen : getThis_screens()) {
             this_screen.view_this_colorway_screen_details();
         }
                
     }
     
     @Override
-    public int compareTo(Screen_and_colorway_link o) {
+    public int compareTo(Colorway_with_pigment o) {
         int compareTo = this.getColorway_name().compareTo(o.getColorway_name());
         return compareTo;
     }
@@ -98,14 +98,14 @@ public class Screen_and_colorway_link extends colorway implements Comparable<Scr
     /**
      * @return the this_screens
      */
-    public List<Colorway_and_pigment> getThis_screens() {
+    public List<Pigment_with_screen_connect> getThis_screens() {
         return this_screens;
     }
 
     /**
      * @param this_screens the this_screens to set
      */
-    public void setThis_screens(List<Colorway_and_pigment> this_screens) {
+    public void setThis_screens(List<Pigment_with_screen_connect> this_screens) {
         this.this_screens = this_screens;
     }
 

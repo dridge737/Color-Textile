@@ -16,7 +16,7 @@ import javax.swing.JTextField;
  */
 public class Design_with_colorway extends design {
     
-     private List<Screen_and_colorway_link> all_colorways = new ArrayList<>();
+     private List<Colorway_with_pigment> all_colorways = new ArrayList<>();
 
      public Design_with_colorway(){}
      public Design_with_colorway(String design, String color, String fabric)
@@ -24,7 +24,7 @@ public class Design_with_colorway extends design {
          super(design, color, fabric);
      }
      //Manual add
-     public void add_colorway(Screen_and_colorway_link this_color_screen_link)
+     public void add_colorway(Colorway_with_pigment this_color_screen_link)
      {
          this.getAll_colorways().add(this_color_screen_link);
      }
@@ -49,10 +49,11 @@ public class Design_with_colorway extends design {
      
      public void delete_all_colorway_of_this_design()
      {
-         for(Screen_and_colorway_link delete_colorway :this.getAll_colorways())
+         for(Colorway_with_pigment delete_colorway :this.getAll_colorways())
          {
              delete_colorway.delete_all_screen_and_this_colorway_from_colorway_id();
          }
+         this.all_colorways.clear();
      }
      
      public void view_all_colorway_details()
@@ -67,14 +68,14 @@ public class Design_with_colorway extends design {
     /**
      * @return the all_colorways
      */
-    public List<Screen_and_colorway_link> getAll_colorways() {
+    public List<Colorway_with_pigment> getAll_colorways() {
         return all_colorways;
     }
 
     /**
      * @param all_colorways the all_colorways to set
      */
-    public void setAll_colorways(List<Screen_and_colorway_link> all_colorways) {
+    public void setAll_colorways(List<Colorway_with_pigment> all_colorways) {
         this.all_colorways = all_colorways;
     }
     
