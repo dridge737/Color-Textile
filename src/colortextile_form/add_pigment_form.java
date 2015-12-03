@@ -193,7 +193,7 @@ public class add_pigment_form extends javax.swing.JFrame {
             if(add_button.getText().equals("Save"))
             {
                this.update_this_pigment.set_pigment_id_from_name();
-               if(this.update_this_pigment.getPigment_no() != -1)
+               if(this.update_this_pigment.getPigment_id() != -1)
                {
                    update_this_pigment.delete_this_pigment();
                }

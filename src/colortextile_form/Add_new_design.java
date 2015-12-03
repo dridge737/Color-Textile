@@ -2179,7 +2179,7 @@ public class Add_new_design extends javax.swing.JFrame {
      */
     public String get_pigment_name(int pigment_no){
         pigment pigment = new pigment();
-        pigment.setPigment_no(pigment_no);
+        pigment.setPigment_id(pigment_no);
         pigment.get_pigment_name_from_id();
         
         return pigment.getPigment_name();
@@ -2378,40 +2378,6 @@ public class Add_new_design extends javax.swing.JFrame {
         return all_job_orders;
     }
     
-    private int get_pigment_id(String pigment_name)
-    {   
-        if(!pigment_name.isEmpty())
-        {
-            pigment new_pigment = new pigment();
-            //get pigment id from the pigment name
-            new_pigment.setPigment_name(pigment_name);
-            new_pigment.set_pigment_id_from_name();
-            return new_pigment.getPigment_no();
-        }
-        return -1;
-            
-    }
-                                          //This contains COLORWAY NAME and PERCENTAGE TEXT   var for COLORWAY ID 
-    private void add_this_colorway_screen(Pigment_with_screen_connect this_screen_and_colorway, int id_colorway)
-    {
-        int id_pigment = get_pigment_id(this_screen_and_colorway.getPigment_name());
-        
-        //System.out.println("Pigment_id = "+ pigment_name + " Colorway_id= "+id_colorway+ "Pigment_percentage =" +pigment_percentage);
-        if(id_pigment != -1 && id_colorway != -1 && ! Float.toString(this_screen_and_colorway.getPigment_percentage()).isEmpty() )
-        {
-            this_screen_and_colorway.setId_colorway(id_colorway);
-            this_screen_and_colorway.setPigment_no(id_pigment);
-            this_screen_and_colorway.add_colorway_and_screen();
-            
-            //float pigment_percent = Float.parseFloat(pigment_percentage);
-            //colortextile_class.Pigment_screen_and_colorway new_c_and_s = new colortextile_class.Pigment_screen_and_colorway();
-            //new_c_and_s.setId_colorway(id_colorway);
-            //new_c_and_s.setPigment_no(id_pigment);
-            //new_c_and_s.setPigment_percentage(pigment_percent);
-            //new_c_and_s.add_colorway_and_screen();
-        }
-    }
-    
     private int add_this_design_and_colorway()
     {
         production_recipe this_design = get_design_details();
@@ -2583,13 +2549,13 @@ public class Add_new_design extends javax.swing.JFrame {
         //System.out.println("COLORWAY id 1 = " +colorway_id);
         if(colorway_id != -1 )
         {   
-            add_this_colorway_screen(get_colorway_details_from_input(name1,percentage1), 
+            use_func.add_this_colorway_screen(get_colorway_details_from_input(name1,percentage1), 
                     colorway_id );
             
-            add_this_colorway_screen(get_colorway_details_from_input(name2,percentage2), 
+            use_func.add_this_colorway_screen(get_colorway_details_from_input(name2,percentage2), 
                     colorway_id );
             
-            add_this_colorway_screen(get_colorway_details_from_input(name3,percentage3), 
+            use_func.add_this_colorway_screen(get_colorway_details_from_input(name3,percentage3), 
                     colorway_id );
         }
         
@@ -2600,13 +2566,13 @@ public class Add_new_design extends javax.swing.JFrame {
         //System.out.println("COLORWAY id 2 = " +colorway_id2);
         if(colorway_id2 != -1 )
         {
-            add_this_colorway_screen(get_colorway_details_from_input(name5,percentage5), 
+            use_func.add_this_colorway_screen(get_colorway_details_from_input(name5,percentage5), 
                     colorway_id2 );
             
-            add_this_colorway_screen(get_colorway_details_from_input(name6,percentage6), 
+            use_func.add_this_colorway_screen(get_colorway_details_from_input(name6,percentage6), 
                     colorway_id2 );
             
-            add_this_colorway_screen(get_colorway_details_from_input(name7,percentage7), 
+            use_func.add_this_colorway_screen(get_colorway_details_from_input(name7,percentage7), 
                     colorway_id2 );
         }
         
@@ -2617,13 +2583,13 @@ public class Add_new_design extends javax.swing.JFrame {
         //System.out.println("COLORWAY id 3 = " +colorway_id3);
         if(colorway_id3 != -1 )
         {
-            add_this_colorway_screen(get_colorway_details_from_input(name9,percentage9), 
+            use_func.add_this_colorway_screen(get_colorway_details_from_input(name9,percentage9), 
                     colorway_id3 );
             
-            add_this_colorway_screen(get_colorway_details_from_input(name10,percentage10),
+            use_func.add_this_colorway_screen(get_colorway_details_from_input(name10,percentage10),
                     colorway_id3 );
             
-            add_this_colorway_screen(get_colorway_details_from_input(name11,percentage11), 
+            use_func.add_this_colorway_screen(get_colorway_details_from_input(name11,percentage11), 
                     colorway_id3 );
            
         }
@@ -2634,13 +2600,13 @@ public class Add_new_design extends javax.swing.JFrame {
         //System.out.println("COLORWAY id 4 = " +colorway_id4);
         if(colorway_id4 != -1 )
         {
-            add_this_colorway_screen(get_colorway_details_from_input(name13,percentage13),
+            use_func.add_this_colorway_screen(get_colorway_details_from_input(name13,percentage13),
                     colorway_id4 );
             
-            add_this_colorway_screen(get_colorway_details_from_input(name14,percentage14), 
+            use_func.add_this_colorway_screen(get_colorway_details_from_input(name14,percentage14), 
                     colorway_id4 );
             
-            add_this_colorway_screen(get_colorway_details_from_input(name15,percentage15), 
+            use_func.add_this_colorway_screen(get_colorway_details_from_input(name15,percentage15), 
                     colorway_id4 );
         }
         
@@ -2651,13 +2617,13 @@ public class Add_new_design extends javax.swing.JFrame {
         //System.out.println("COLORWAY id 5 = " +colorway_id5);
         if(colorway_id5 != -1 )
         {
-            add_this_colorway_screen(get_colorway_details_from_input(name17,percentage17), 
+            use_func.add_this_colorway_screen(get_colorway_details_from_input(name17,percentage17), 
                     colorway_id5 );
             
-            add_this_colorway_screen(get_colorway_details_from_input(name18,percentage18), 
+            use_func.add_this_colorway_screen(get_colorway_details_from_input(name18,percentage18), 
                     colorway_id5 );
             
-            add_this_colorway_screen(get_colorway_details_from_input(name19,percentage19), 
+            use_func.add_this_colorway_screen(get_colorway_details_from_input(name19,percentage19), 
                     colorway_id5 );
         }
         
@@ -2668,13 +2634,13 @@ public class Add_new_design extends javax.swing.JFrame {
         //System.out.println("COLORWAY id 6 = " +colorway_id6);
         if( colorway_id6 != -1 )
         {
-            add_this_colorway_screen(get_colorway_details_from_input(name21,percentage21), 
+            use_func.add_this_colorway_screen(get_colorway_details_from_input(name21,percentage21), 
                     colorway_id6 );
             
-            add_this_colorway_screen(get_colorway_details_from_input(name22,percentage22), 
+            use_func.add_this_colorway_screen(get_colorway_details_from_input(name22,percentage22), 
                     colorway_id6 );
             
-            add_this_colorway_screen(get_colorway_details_from_input(name23,percentage23), 
+            use_func.add_this_colorway_screen(get_colorway_details_from_input(name23,percentage23), 
                     colorway_id6 );
         }
         
@@ -2685,13 +2651,13 @@ public class Add_new_design extends javax.swing.JFrame {
         //System.out.println("COLORWAY id 7 = " +colorway_id6);
         if( colorway_id7 != -1 )
         {
-            add_this_colorway_screen(get_colorway_details_from_input(name24,percentage24), 
+            use_func.add_this_colorway_screen(get_colorway_details_from_input(name24,percentage24), 
                     colorway_id7 );
             
-            add_this_colorway_screen(get_colorway_details_from_input(name25,percentage25), 
+            use_func.add_this_colorway_screen(get_colorway_details_from_input(name25,percentage25), 
                     colorway_id7 );
             
-            add_this_colorway_screen(get_colorway_details_from_input(name26,percentage26), 
+            use_func.add_this_colorway_screen(get_colorway_details_from_input(name26,percentage26), 
                     colorway_id7 );
         }
     }

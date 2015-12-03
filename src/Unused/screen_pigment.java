@@ -57,7 +57,7 @@ public class screen_pigment extends pigment /*implements Comparable<screen_pigme
     public boolean get_screen_pigment_id_from_pigment_no_and_pigment_percentage()
     {
         DB_Manager new_conn = new DB_Manager();
-        int temp_id_screen = new_conn.get_id_screen(this.getPigment_no(), pigment_percentage);
+        int temp_id_screen = new_conn.get_id_screen(this.getPigment_id(), pigment_percentage);
         if(temp_id_screen == -1)
         {
             return false;
@@ -73,13 +73,13 @@ public class screen_pigment extends pigment /*implements Comparable<screen_pigme
     public void setThis_screen_from_id_screen(screen_pigment this_screen) {
         this.id_screen = this_screen.id_screen;
         this.pigment_percentage = this_screen.pigment_percentage;
-        this.setPigment_no( this_screen.getPigment_no() );
+        this.setPigment_id( this_screen.getPigment_id() );
     }
 
     public void setThis_pigment_name()
     {
         Database.DB_Manager new_conn = new Database.DB_Manager();
-        this.setPigment_name( new_conn.get_pigment_name(this.getPigment_no()) );
+        this.setPigment_name( new_conn.get_pigment_name(this.getPigment_id()) );
     }
     
     public float compute_kg_prep(float weight_kg)

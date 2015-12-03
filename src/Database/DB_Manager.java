@@ -712,7 +712,7 @@ public class DB_Manager {
                 
                 this_s_pigment.setId_color_screen(screen_rs.getInt("id_color_screen"));
                 this_s_pigment.setId_colorway(colorway_id);
-                this_s_pigment.setPigment_no(screen_rs.getInt("p.pigment_no"));
+                this_s_pigment.setPigment_id(screen_rs.getInt("p.pigment_no"));
                 this_s_pigment.setPigment_percentage(screen_rs.getFloat("pigment_percentage"));
                 this_s_pigment.setPigment_name(screen_rs.getString("p.pigment_name"));
                 this_screen.add(this_s_pigment);
@@ -808,7 +808,7 @@ public class DB_Manager {
             if(rs.first())
             {   
                 last_added_pigment = new pigment();
-                last_added_pigment.setPigment_no(rs.getInt("pigment_no"));
+                last_added_pigment.setPigment_id(rs.getInt("pigment_no"));
                 last_added_pigment.setPigment_name(rs.getString("pigment_name"));
             }
         }
@@ -2585,7 +2585,7 @@ public class DB_Manager {
                                                         + " pigment_percentage = ? "
                                                         + " WHERE id_color_screen = ?");
            int item = 1;
-           ps.setInt(item++, this_color_screen.getPigment_no());
+           ps.setInt(item++, this_color_screen.getPigment_id());
            ps.setFloat(item++, this_color_screen.getPigment_percentage());
            ps.setInt(item++, this_color_screen.getId_color_screen());
            ps.executeUpdate();
@@ -2612,7 +2612,7 @@ public class DB_Manager {
                     + " WHERE pigment_no = ?;");
             
             ps.setString(item++, this_pigment.getPigment_name().toUpperCase());
-            ps.setInt(item++, this_pigment.getPigment_no());
+            ps.setInt(item++, this_pigment.getPigment_id());
             ps.executeUpdate();
             
         } catch (SQLException ex) 

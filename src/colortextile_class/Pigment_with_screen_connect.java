@@ -61,7 +61,7 @@ public class Pigment_with_screen_connect extends pigment{
         Database.DB_Manager new_conn = new Database.DB_Manager();
         //if(set_id_colorway_and_screen_from_variables())
         //return true;
-        return new_conn.add_colorway_and_screen_connect(this.getPigment_no(), this.id_colorway, this.getPigment_percentage());
+        return new_conn.add_colorway_and_screen_connect(this.getPigment_id(), this.id_colorway, this.getPigment_percentage());
     }
     
     public void update_colorway_and_screen()
@@ -73,7 +73,7 @@ public class Pigment_with_screen_connect extends pigment{
     public boolean set_id_colorway_and_screen_from_variables()
     {
         Database.DB_Manager new_conn = new Database.DB_Manager();
-        int temp_id_colorway_screen = new_conn.get_id_color_screen(this.getPigment_no(), this.id_colorway, this.getPigment_percentage());
+        int temp_id_colorway_screen = new_conn.get_id_color_screen(this.getPigment_id(), this.id_colorway, this.getPigment_percentage());
         if(temp_id_colorway_screen != -1)
         {
             this.id_color_screen = temp_id_colorway_screen;
@@ -135,7 +135,7 @@ public class Pigment_with_screen_connect extends pigment{
     public void view_this_colorway_screen_details()
     {
         System.out.println("Colorway ID : " + this.getId_colorway());
-        System.out.println("Pigment no :" + this.getPigment_no());
+        System.out.println("Pigment no :" + this.getPigment_id());
         System.out.println("Pigment name:" + this.getPigment_name());
         System.out.println("Pigment perentage  :" + this.getPigment_percentage());
     }

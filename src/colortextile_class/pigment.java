@@ -13,7 +13,7 @@ import java.util.ArrayList;
  * @author Eldridge
  */
 public class pigment implements Comparable<pigment>{
-    private int pigment_no;
+    private int pigment_id;
     private String pigment_name;
     private int tingi;
     private int stock;
@@ -21,15 +21,15 @@ public class pigment implements Comparable<pigment>{
     /**
      * @return the pigment_id
      */
-    public int getPigment_no() {
-        return pigment_no;
+    public int getPigment_id() {
+        return pigment_id;
     }
 
     /**
      * @param pigment_id the pigment_id to set
      */
-    public void setPigment_no(int pigment_id) {
-        this.pigment_no = pigment_id;
+    public void setPigment_id(int pigment_id) {
+        this.pigment_id = pigment_id;
     }
 
     /**
@@ -77,7 +77,7 @@ public class pigment implements Comparable<pigment>{
     public void set_pigment_id_from_name()
     {
         DB_Manager newDbManager = new DB_Manager();
-        pigment_no = newDbManager.get_id_pigment(this.pigment_name);
+        pigment_id = newDbManager.get_id_pigment(this.pigment_name);
         
     }
     
@@ -90,7 +90,7 @@ public class pigment implements Comparable<pigment>{
     public void get_pigment_name_from_id()
     {
         DB_Manager newDbManager = new DB_Manager();
-        pigment_name = newDbManager.get_pigment_name(pigment_no); 
+        pigment_name = newDbManager.get_pigment_name(pigment_id); 
     }
     
     public boolean add_pigment()
@@ -130,7 +130,7 @@ public class pigment implements Comparable<pigment>{
     {
         DB_Manager new_conn = new DB_Manager();
         pigment temporary_pigment = new_conn.get_last_pigment_id_and_name();
-        this.setPigment_no(temporary_pigment.getPigment_no());
+        this.setPigment_id(temporary_pigment.getPigment_id());
         this.setPigment_name(temporary_pigment.getPigment_name());
     }
     
@@ -143,13 +143,13 @@ public class pigment implements Comparable<pigment>{
     public void delete_this_pigment()
     {
         DB_Manager new_conn = new DB_Manager();
-        new_conn.delete_pigment(this.pigment_no);
+        new_conn.delete_pigment(this.pigment_id);
     }
     
     public int get_last_pigment_id()
     {
         this.set_name_and_id_from_last_added_pigment();
-        return this.getPigment_no();  
+        return this.getPigment_id();  
     }
     
     

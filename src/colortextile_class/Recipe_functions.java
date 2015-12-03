@@ -248,6 +248,27 @@ public class Recipe_functions {
         return -1;
     }
     
+                                          //This contains COLORWAY NAME and PERCENTAGE TEXT   var for COLORWAY ID 
+    public void add_this_colorway_screen(Pigment_with_screen_connect this_screen_and_colorway, int id_colorway)
+    {
+        this_screen_and_colorway.set_pigment_id_from_name();
+        int id_pigment = this_screen_and_colorway.getPigment_id();
+        //System.out.println("Pigment_id = "+ pigment_name + " Colorway_id= "+id_colorway+ "Pigment_percentage =" +pigment_percentage);
+        if(id_pigment != -1 && id_colorway != -1 && ! Float.toString(this_screen_and_colorway.getPigment_percentage()).isEmpty() )
+        {
+            this_screen_and_colorway.setId_colorway(id_colorway);
+            this_screen_and_colorway.setPigment_id(id_pigment);
+            this_screen_and_colorway.add_colorway_and_screen();
+            
+            //float pigment_percent = Float.parseFloat(pigment_percentage);
+            //colortextile_class.Pigment_screen_and_colorway new_c_and_s = new colortextile_class.Pigment_screen_and_colorway();
+            //new_c_and_s.setId_colorway(id_colorway);
+            //new_c_and_s.setPigment_no(id_pigment);
+            //new_c_and_s.setPigment_percentage(pigment_percent);
+            //new_c_and_s.add_colorway_and_screen();
+        }
+    }
+    
     
     
     
