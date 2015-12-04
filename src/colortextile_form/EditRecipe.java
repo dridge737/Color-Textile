@@ -208,7 +208,7 @@ public class EditRecipe extends javax.swing.JFrame {
             
             if(x == 0)
             {
-                setTextValues_colorway(colorway_name2,weigh_kg, binder, this_color_and_screen.get(x));
+                setTextValues_colorway(colorway_name,weigh_kg, binder, this_color_and_screen.get(x));
                 
                 for(int temp_loop2 = 0; temp_loop2 < current_screen.size(); temp_loop2++ )
                 {
@@ -231,128 +231,128 @@ public class EditRecipe extends javax.swing.JFrame {
             }
             else if( x == 1)
             {
-                setTextValues_colorway(colorway_name3,weigh_kg3, binder2, this_color_and_screen.get(x));
+                setTextValues_colorway(colorway_name2,weigh_kg2, binder2, this_color_and_screen.get(x));
                 
                 for(int temp_loop2 = 0; temp_loop2 < current_screen.size(); temp_loop2++ )
                 {
                     if(temp_loop2 == 0)
                     {
                             setTextValues_screens(name5, percentage5, current_screen.get(temp_loop2));
-                            use_func.update_kg_prep(percentage5.getText(), weigh_kg3.getText(), kg_5);
+                            use_func.update_kg_prep(percentage5.getText(), weigh_kg2.getText(), kg_5);
                     }
                     else if(temp_loop2 == 1)
                     {
                             setTextValues_screens(name6, percentage6, current_screen.get(temp_loop2));
-                            use_func.update_kg_prep(percentage6.getText(), weigh_kg3.getText(), kg_6);
+                            use_func.update_kg_prep(percentage6.getText(), weigh_kg2.getText(), kg_6);
                     }
                     else if(temp_loop2 == 2)
                     {
                             setTextValues_screens(name7, percentage7, current_screen.get(temp_loop2));
-                            use_func.update_kg_prep(percentage7.getText(), weigh_kg3.getText(), kg_7);
+                            use_func.update_kg_prep(percentage7.getText(), weigh_kg2.getText(), kg_7);
                     }
                 }
             }
             else if( x == 2)
             {
-                setTextValues_colorway(colorway_name4,weigh_kg4, binder3, this_color_and_screen.get(x));
+                setTextValues_colorway(colorway_name3,weigh_kg3, binder3, this_color_and_screen.get(x));
                 
                 for(int temp_loop2 = 0; temp_loop2 < current_screen.size(); temp_loop2++ )
                 {
                     if(temp_loop2 == 0)
                     {
                             setTextValues_screens(name9, percentage9, current_screen.get(temp_loop2));
-                            use_func.update_kg_prep(percentage9.getText(), weigh_kg4.getText(), kg_9);
+                            use_func.update_kg_prep(percentage9.getText(), weigh_kg3.getText(), kg_9);
                     }
                     else if(temp_loop2 == 1){
                             setTextValues_screens(name10, percentage10, current_screen.get(temp_loop2));
-                            use_func.update_kg_prep(percentage10.getText(), weigh_kg4.getText(), kg_10);
+                            use_func.update_kg_prep(percentage10.getText(), weigh_kg3.getText(), kg_10);
                     }
                     else if(temp_loop2 == 2){
                             setTextValues_screens(name11, percentage11, current_screen.get(temp_loop2));
-                            use_func.update_kg_prep(percentage11.getText(), weigh_kg4.getText(), kg_11);
+                            use_func.update_kg_prep(percentage11.getText(), weigh_kg3.getText(), kg_11);
                     }
                 }
             }
             else if( x == 3)
             {
-                setTextValues_colorway(colorway_name5,weigh_kg5, binder4, this_color_and_screen.get(x));
+                setTextValues_colorway(colorway_name4,weigh_kg4, binder4, this_color_and_screen.get(x));
                 
                 for(int temp_loop2 = 0; temp_loop2 < current_screen.size(); temp_loop2++ )
                 {
                     if(temp_loop2 == 0)
                     {
                             setTextValues_screens(name13, percentage13, current_screen.get(temp_loop2));
-                            use_func.update_kg_prep(percentage13.getText(), weigh_kg5.getText(), kg_13);
+                            use_func.update_kg_prep(percentage13.getText(), weigh_kg4.getText(), kg_13);
                     }
                     else if(temp_loop2 == 1){
                             setTextValues_screens(name14, percentage14, current_screen.get(temp_loop2));
-                            use_func.update_kg_prep(percentage14.getText(), weigh_kg5.getText(), kg_14);
+                            use_func.update_kg_prep(percentage14.getText(), weigh_kg4.getText(), kg_14);
                     }
                     else if(temp_loop2 == 2){
                             setTextValues_screens(name15, percentage15, current_screen.get(temp_loop2));
-                            use_func.update_kg_prep(percentage15.getText(), weigh_kg5.getText(), kg_15);
+                            use_func.update_kg_prep(percentage15.getText(), weigh_kg4.getText(), kg_15);
                     }
                 }
             }
             else if( x == 4)
             {
-                setTextValues_colorway(colorway_name6,weigh_kg6, binder5, this_color_and_screen.get(x));
+                setTextValues_colorway(colorway_name5,weigh_kg5, binder5, this_color_and_screen.get(x));
                 
                 for(int temp_loop2 = 0; temp_loop2 < current_screen.size(); temp_loop2++ )
                 {
                     if(temp_loop2 == 0){
                             setTextValues_screens(name17, percentage17, current_screen.get(temp_loop2));
-                            use_func.update_kg_prep(percentage17.getText(), weigh_kg6.getText(), kg_17);
+                            use_func.update_kg_prep(percentage17.getText(), weigh_kg5.getText(), kg_17);
         
                     }
                     else if(temp_loop2 == 1){
                             setTextValues_screens(name18, percentage18, current_screen.get(temp_loop2));
-                            use_func.update_kg_prep(percentage18.getText(), weigh_kg6.getText(), kg_18);
+                            use_func.update_kg_prep(percentage18.getText(), weigh_kg5.getText(), kg_18);
                     }
                     else if(temp_loop2 == 2){
                             setTextValues_screens(name19, percentage19, current_screen.get(temp_loop2));
-                            use_func.update_kg_prep(percentage19.getText(), weigh_kg6.getText(), kg_19);
+                            use_func.update_kg_prep(percentage19.getText(), weigh_kg5.getText(), kg_19);
                     }
                 }
             }
        
             else if( x == 5)
             {
-                setTextValues_colorway(colorway_name7,weigh_kg7, binder6, this_color_and_screen.get(x));
+                setTextValues_colorway(colorway_name6,weigh_kg6, binder6, this_color_and_screen.get(x));
                 
                 for(int temp_loop2 = 0; temp_loop2 < current_screen.size(); temp_loop2++ )
                 {
                     if(temp_loop2 == 0){
                             setTextValues_screens(name21, percentage21, current_screen.get(temp_loop2));
-                            use_func.update_kg_prep(percentage21.getText(), weigh_kg7.getText(), kg_21);
+                            use_func.update_kg_prep(percentage21.getText(), weigh_kg6.getText(), kg_21);
                     }
                     else if(temp_loop2 == 1){
                             setTextValues_screens(name22, percentage22, current_screen.get(temp_loop2));
-                            use_func.update_kg_prep(percentage22.getText(), weigh_kg7.getText(), kg_22);
+                            use_func.update_kg_prep(percentage22.getText(), weigh_kg6.getText(), kg_22);
                     }
                     else if(temp_loop2 == 2){
                             setTextValues_screens(name23, percentage23, current_screen.get(temp_loop2));
-                            use_func.update_kg_prep(percentage23.getText(), weigh_kg7.getText(), kg_23);
+                            use_func.update_kg_prep(percentage23.getText(), weigh_kg6.getText(), kg_23);
                     }
                 }
             }
             else if( x == 6)
             {
-                setTextValues_colorway(colorway_name8,weigh_kg8, binder7, this_color_and_screen.get(x));
+                setTextValues_colorway(colorway_name7,weigh_kg7, binder7, this_color_and_screen.get(x));
                 
                 for(int temp_loop2 = 0; temp_loop2 < current_screen.size(); temp_loop2++ )
                 {
                     if(temp_loop2 == 0){
                             setTextValues_screens(name24, percentage24, current_screen.get(temp_loop2));
-                            use_func.update_kg_prep(percentage24.getText(), weigh_kg8.getText(), kg_24);
+                            use_func.update_kg_prep(percentage24.getText(), weigh_kg7.getText(), kg_24);
                     }
                     else if(temp_loop2 == 1){
                             setTextValues_screens(name25, percentage25, current_screen.get(temp_loop2));
-                            use_func.update_kg_prep(percentage25.getText(), weigh_kg8.getText(), kg_25);
+                            use_func.update_kg_prep(percentage25.getText(), weigh_kg7.getText(), kg_25);
                     }
                     else if(temp_loop2 == 2){
                             setTextValues_screens(name26, percentage26, current_screen.get(temp_loop2));
-                            use_func.update_kg_prep(percentage26.getText(), weigh_kg8.getText(), kg_26);
+                            use_func.update_kg_prep(percentage26.getText(), weigh_kg7.getText(), kg_26);
                     }
                 }
             }
@@ -428,7 +428,7 @@ public class EditRecipe extends javax.swing.JFrame {
         jTabbedPane2 = new javax.swing.JTabbedPane();
         jPanel9 = new javax.swing.JPanel();
         jLabel129 = new javax.swing.JLabel();
-        colorway_name2 = new javax.swing.JTextField();
+        colorway_name = new javax.swing.JTextField();
         name1 = new javax.swing.JComboBox();
         percentage1 = new javax.swing.JTextField();
         jSeparator17 = new javax.swing.JSeparator();
@@ -462,7 +462,7 @@ public class EditRecipe extends javax.swing.JFrame {
         pig13 = new javax.swing.JButton();
         pig12 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
-        colorway_name3 = new javax.swing.JTextField();
+        colorway_name2 = new javax.swing.JTextField();
         name5 = new javax.swing.JComboBox();
         percentage5 = new javax.swing.JTextField();
         jSeparator7 = new javax.swing.JSeparator();
@@ -470,7 +470,7 @@ public class EditRecipe extends javax.swing.JFrame {
         jLabel50 = new javax.swing.JLabel();
         jLabel51 = new javax.swing.JLabel();
         jLabel52 = new javax.swing.JLabel();
-        weigh_kg3 = new javax.swing.JTextField();
+        weigh_kg2 = new javax.swing.JTextField();
         jLabel54 = new javax.swing.JLabel();
         name6 = new javax.swing.JComboBox();
         percentage6 = new javax.swing.JTextField();
@@ -497,7 +497,7 @@ public class EditRecipe extends javax.swing.JFrame {
         pig16 = new javax.swing.JButton();
         add_bind2 = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
-        colorway_name4 = new javax.swing.JTextField();
+        colorway_name3 = new javax.swing.JTextField();
         name9 = new javax.swing.JComboBox();
         percentage9 = new javax.swing.JTextField();
         jSeparator9 = new javax.swing.JSeparator();
@@ -505,7 +505,7 @@ public class EditRecipe extends javax.swing.JFrame {
         jLabel66 = new javax.swing.JLabel();
         jLabel67 = new javax.swing.JLabel();
         jLabel68 = new javax.swing.JLabel();
-        weigh_kg4 = new javax.swing.JTextField();
+        weigh_kg3 = new javax.swing.JTextField();
         jLabel70 = new javax.swing.JLabel();
         name10 = new javax.swing.JComboBox();
         percentage10 = new javax.swing.JTextField();
@@ -532,7 +532,7 @@ public class EditRecipe extends javax.swing.JFrame {
         pig19 = new javax.swing.JButton();
         add_bind3 = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
-        colorway_name5 = new javax.swing.JTextField();
+        colorway_name4 = new javax.swing.JTextField();
         name13 = new javax.swing.JComboBox();
         percentage13 = new javax.swing.JTextField();
         jSeparator11 = new javax.swing.JSeparator();
@@ -540,7 +540,7 @@ public class EditRecipe extends javax.swing.JFrame {
         jLabel82 = new javax.swing.JLabel();
         jLabel83 = new javax.swing.JLabel();
         jLabel84 = new javax.swing.JLabel();
-        weigh_kg5 = new javax.swing.JTextField();
+        weigh_kg4 = new javax.swing.JTextField();
         jLabel86 = new javax.swing.JLabel();
         name14 = new javax.swing.JComboBox();
         percentage14 = new javax.swing.JTextField();
@@ -567,7 +567,7 @@ public class EditRecipe extends javax.swing.JFrame {
         pig22 = new javax.swing.JButton();
         add_bind4 = new javax.swing.JButton();
         jPanel7 = new javax.swing.JPanel();
-        colorway_name6 = new javax.swing.JTextField();
+        colorway_name5 = new javax.swing.JTextField();
         name17 = new javax.swing.JComboBox();
         percentage17 = new javax.swing.JTextField();
         jSeparator13 = new javax.swing.JSeparator();
@@ -575,7 +575,7 @@ public class EditRecipe extends javax.swing.JFrame {
         jLabel98 = new javax.swing.JLabel();
         jLabel99 = new javax.swing.JLabel();
         jLabel100 = new javax.swing.JLabel();
-        weigh_kg6 = new javax.swing.JTextField();
+        weigh_kg5 = new javax.swing.JTextField();
         jLabel102 = new javax.swing.JLabel();
         name18 = new javax.swing.JComboBox();
         percentage18 = new javax.swing.JTextField();
@@ -602,7 +602,7 @@ public class EditRecipe extends javax.swing.JFrame {
         pig25 = new javax.swing.JButton();
         add_bind5 = new javax.swing.JButton();
         jPanel8 = new javax.swing.JPanel();
-        colorway_name7 = new javax.swing.JTextField();
+        colorway_name6 = new javax.swing.JTextField();
         name21 = new javax.swing.JComboBox();
         percentage21 = new javax.swing.JTextField();
         jSeparator15 = new javax.swing.JSeparator();
@@ -610,7 +610,7 @@ public class EditRecipe extends javax.swing.JFrame {
         jLabel114 = new javax.swing.JLabel();
         jLabel115 = new javax.swing.JLabel();
         jLabel116 = new javax.swing.JLabel();
-        weigh_kg7 = new javax.swing.JTextField();
+        weigh_kg6 = new javax.swing.JTextField();
         jLabel118 = new javax.swing.JLabel();
         name22 = new javax.swing.JComboBox();
         percentage22 = new javax.swing.JTextField();
@@ -637,7 +637,7 @@ public class EditRecipe extends javax.swing.JFrame {
         pig28 = new javax.swing.JButton();
         add_bind6 = new javax.swing.JButton();
         jPanel15 = new javax.swing.JPanel();
-        colorway_name8 = new javax.swing.JTextField();
+        colorway_name7 = new javax.swing.JTextField();
         name24 = new javax.swing.JComboBox();
         percentage24 = new javax.swing.JTextField();
         jSeparator19 = new javax.swing.JSeparator();
@@ -645,7 +645,7 @@ public class EditRecipe extends javax.swing.JFrame {
         jLabel117 = new javax.swing.JLabel();
         jLabel124 = new javax.swing.JLabel();
         jLabel125 = new javax.swing.JLabel();
-        weigh_kg8 = new javax.swing.JTextField();
+        weigh_kg7 = new javax.swing.JTextField();
         jLabel126 = new javax.swing.JLabel();
         name25 = new javax.swing.JComboBox();
         percentage25 = new javax.swing.JTextField();
@@ -1009,8 +1009,8 @@ public class EditRecipe extends javax.swing.JFrame {
         jLabel129.setText("Screen Name 1 :");
         jPanel9.add(jLabel129, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 10, 120, 34));
 
-        colorway_name2.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
-        jPanel9.add(colorway_name2, new org.netbeans.lib.awtextra.AbsoluteConstraints(133, 10, 180, 34));
+        colorway_name.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
+        jPanel9.add(colorway_name, new org.netbeans.lib.awtextra.AbsoluteConstraints(133, 10, 180, 34));
 
         name1.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         name1.setName("pigment_name"); // NOI18N
@@ -1203,8 +1203,8 @@ public class EditRecipe extends javax.swing.JFrame {
         });
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        colorway_name3.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
-        jPanel4.add(colorway_name3, new org.netbeans.lib.awtextra.AbsoluteConstraints(133, 10, 180, 34));
+        colorway_name2.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
+        jPanel4.add(colorway_name2, new org.netbeans.lib.awtextra.AbsoluteConstraints(133, 10, 180, 34));
 
         name5.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         name5.setName("pigment_name"); // NOI18N
@@ -1237,13 +1237,13 @@ public class EditRecipe extends javax.swing.JFrame {
         jLabel52.setText("%");
         jPanel4.add(jLabel52, new org.netbeans.lib.awtextra.AbsoluteConstraints(416, 74, 31, 22));
 
-        weigh_kg3.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
-        weigh_kg3.addKeyListener(new java.awt.event.KeyAdapter() {
+        weigh_kg2.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
+        weigh_kg2.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                weigh_kg3KeyReleased(evt);
+                weigh_kg2KeyReleased(evt);
             }
         });
-        jPanel4.add(weigh_kg3, new org.netbeans.lib.awtextra.AbsoluteConstraints(452, 10, 60, 34));
+        jPanel4.add(weigh_kg2, new org.netbeans.lib.awtextra.AbsoluteConstraints(452, 10, 60, 34));
 
         jLabel54.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         jLabel54.setText("Pigment Name :");
@@ -1399,8 +1399,8 @@ public class EditRecipe extends javax.swing.JFrame {
         });
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        colorway_name4.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
-        jPanel5.add(colorway_name4, new org.netbeans.lib.awtextra.AbsoluteConstraints(133, 10, 180, 34));
+        colorway_name3.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
+        jPanel5.add(colorway_name3, new org.netbeans.lib.awtextra.AbsoluteConstraints(133, 10, 180, 34));
 
         name9.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         name9.setName("pigment_name"); // NOI18N
@@ -1432,13 +1432,13 @@ public class EditRecipe extends javax.swing.JFrame {
         jLabel68.setText("%");
         jPanel5.add(jLabel68, new org.netbeans.lib.awtextra.AbsoluteConstraints(416, 74, 31, 22));
 
-        weigh_kg4.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
-        weigh_kg4.addKeyListener(new java.awt.event.KeyAdapter() {
+        weigh_kg3.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
+        weigh_kg3.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                weigh_kg4KeyReleased(evt);
+                weigh_kg3KeyReleased(evt);
             }
         });
-        jPanel5.add(weigh_kg4, new org.netbeans.lib.awtextra.AbsoluteConstraints(452, 10, 60, 34));
+        jPanel5.add(weigh_kg3, new org.netbeans.lib.awtextra.AbsoluteConstraints(452, 10, 60, 34));
 
         jLabel70.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         jLabel70.setText("Pigment Name :");
@@ -1592,8 +1592,8 @@ public class EditRecipe extends javax.swing.JFrame {
         });
         jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        colorway_name5.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
-        jPanel6.add(colorway_name5, new org.netbeans.lib.awtextra.AbsoluteConstraints(133, 10, 180, 34));
+        colorway_name4.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
+        jPanel6.add(colorway_name4, new org.netbeans.lib.awtextra.AbsoluteConstraints(133, 10, 180, 34));
 
         name13.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         name13.setName("pigment_name"); // NOI18N
@@ -1625,13 +1625,13 @@ public class EditRecipe extends javax.swing.JFrame {
         jLabel84.setText("%");
         jPanel6.add(jLabel84, new org.netbeans.lib.awtextra.AbsoluteConstraints(416, 74, 31, 22));
 
-        weigh_kg5.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
-        weigh_kg5.addKeyListener(new java.awt.event.KeyAdapter() {
+        weigh_kg4.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
+        weigh_kg4.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                weigh_kg5KeyReleased(evt);
+                weigh_kg4KeyReleased(evt);
             }
         });
-        jPanel6.add(weigh_kg5, new org.netbeans.lib.awtextra.AbsoluteConstraints(452, 10, 60, 34));
+        jPanel6.add(weigh_kg4, new org.netbeans.lib.awtextra.AbsoluteConstraints(452, 10, 60, 34));
 
         jLabel86.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         jLabel86.setText("Pigment Name :");
@@ -1784,8 +1784,8 @@ public class EditRecipe extends javax.swing.JFrame {
         });
         jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        colorway_name6.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
-        jPanel7.add(colorway_name6, new org.netbeans.lib.awtextra.AbsoluteConstraints(133, 10, 180, 34));
+        colorway_name5.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
+        jPanel7.add(colorway_name5, new org.netbeans.lib.awtextra.AbsoluteConstraints(133, 10, 180, 34));
 
         name17.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         name17.setName("pigment_name"); // NOI18N
@@ -1817,13 +1817,13 @@ public class EditRecipe extends javax.swing.JFrame {
         jLabel100.setText("%");
         jPanel7.add(jLabel100, new org.netbeans.lib.awtextra.AbsoluteConstraints(416, 74, 31, 22));
 
-        weigh_kg6.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
-        weigh_kg6.addKeyListener(new java.awt.event.KeyAdapter() {
+        weigh_kg5.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
+        weigh_kg5.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                weigh_kg6KeyReleased(evt);
+                weigh_kg5KeyReleased(evt);
             }
         });
-        jPanel7.add(weigh_kg6, new org.netbeans.lib.awtextra.AbsoluteConstraints(452, 10, 60, 34));
+        jPanel7.add(weigh_kg5, new org.netbeans.lib.awtextra.AbsoluteConstraints(452, 10, 60, 34));
 
         jLabel102.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         jLabel102.setText("Pigment Name :");
@@ -1976,8 +1976,8 @@ public class EditRecipe extends javax.swing.JFrame {
         });
         jPanel8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        colorway_name7.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
-        jPanel8.add(colorway_name7, new org.netbeans.lib.awtextra.AbsoluteConstraints(133, 10, 180, 34));
+        colorway_name6.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
+        jPanel8.add(colorway_name6, new org.netbeans.lib.awtextra.AbsoluteConstraints(133, 10, 180, 34));
 
         name21.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         name21.setName("pigment_name"); // NOI18N
@@ -2009,13 +2009,13 @@ public class EditRecipe extends javax.swing.JFrame {
         jLabel116.setText("%");
         jPanel8.add(jLabel116, new org.netbeans.lib.awtextra.AbsoluteConstraints(416, 74, 31, 22));
 
-        weigh_kg7.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
-        weigh_kg7.addKeyListener(new java.awt.event.KeyAdapter() {
+        weigh_kg6.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
+        weigh_kg6.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                weigh_kg7KeyReleased(evt);
+                weigh_kg6KeyReleased(evt);
             }
         });
-        jPanel8.add(weigh_kg7, new org.netbeans.lib.awtextra.AbsoluteConstraints(452, 10, 60, 34));
+        jPanel8.add(weigh_kg6, new org.netbeans.lib.awtextra.AbsoluteConstraints(452, 10, 60, 34));
 
         jLabel118.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         jLabel118.setText("Pigment Name :");
@@ -2168,8 +2168,8 @@ public class EditRecipe extends javax.swing.JFrame {
         });
         jPanel15.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        colorway_name8.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
-        jPanel15.add(colorway_name8, new org.netbeans.lib.awtextra.AbsoluteConstraints(133, 10, 180, 34));
+        colorway_name7.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
+        jPanel15.add(colorway_name7, new org.netbeans.lib.awtextra.AbsoluteConstraints(133, 10, 180, 34));
 
         name24.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         name24.setName("pigment_name"); // NOI18N
@@ -2201,13 +2201,13 @@ public class EditRecipe extends javax.swing.JFrame {
         jLabel125.setText("%");
         jPanel15.add(jLabel125, new org.netbeans.lib.awtextra.AbsoluteConstraints(416, 74, 31, 22));
 
-        weigh_kg8.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
-        weigh_kg8.addKeyListener(new java.awt.event.KeyAdapter() {
+        weigh_kg7.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
+        weigh_kg7.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                weigh_kg8KeyReleased(evt);
+                weigh_kg7KeyReleased(evt);
             }
         });
-        jPanel15.add(weigh_kg8, new org.netbeans.lib.awtextra.AbsoluteConstraints(452, 10, 60, 34));
+        jPanel15.add(weigh_kg7, new org.netbeans.lib.awtextra.AbsoluteConstraints(452, 10, 60, 34));
 
         jLabel126.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
         jLabel126.setText("Pigment Name :");
@@ -2541,7 +2541,7 @@ public class EditRecipe extends javax.swing.JFrame {
             /////////Colorway 1
             //if(interval == 0)
             //{   
-                int colorway_id = use_func.add_this_colorway(colorway_name2.getText(), 
+                int colorway_id = use_func.add_this_colorway(colorway_name.getText(), 
                              Float.parseFloat(binder.getSelectedItem().toString()),
                              weigh_kg.getText(), this.prod_recipe.getDesign_code(), this.fab_style_comb.getSelectedItem().toString(), this.quantity_total.getText());
                 /*int colorway_id = update_this_colorway(interval,colorway_name2.getText(), 
@@ -2550,25 +2550,45 @@ public class EditRecipe extends javax.swing.JFrame {
                 //System.out.println("Colorway ID of Screen No."+(interval+1)+"  is = "+colorway_id);
                 if(colorway_id != -1)
                 {
-                    update_or_add_this_screen_pigment(interval,0,name1.getSelectedItem().toString(),
+                    use_func.add_this_pigment_screen(use_func.get_pigment_screen_details_from_input(name1, percentage1), 
+                            colorway_id);
+                    use_func.add_this_pigment_screen(use_func.get_pigment_screen_details_from_input(name2, percentage2), 
+                            colorway_id);
+                    use_func.add_this_pigment_screen(use_func.get_pigment_screen_details_from_input(name3, percentage3), 
+                            colorway_id);
+                    
+                    
+                    /*update_or_add_this_screen_pigment(interval,0,name1.getSelectedItem().toString(),
                                       percentage1.getText(), colorway_id );
                     
                     update_or_add_this_screen_pigment(interval,1, name2.getSelectedItem().toString(),
                                       percentage2.getText(), colorway_id );
                     
                     update_or_add_this_screen_pigment(interval,2, name3.getSelectedItem().toString(),
-                                      percentage3.getText(), colorway_id );
+                                      percentage3.getText(), colorway_id );*/
+                    
                 } 
             //}
             ////////////Colorway 2
             //else if(interval == 1)
             //{
-                int colorway_id2 = update_this_colorway(interval,colorway_name3.getText(), 
+                int colorway_id2 = use_func.add_this_colorway(colorway_name2.getText(), 
                              Float.parseFloat(binder2.getSelectedItem().toString()),
-                             weigh_kg3.getText());
-                System.out.println("Colorway ID of Screen No."+(interval+1)+"  is = "+colorway_id2);
+                             weigh_kg2.getText(), this.prod_recipe.getDesign_code(), this.fab_style_comb.getSelectedItem().toString(), this.quantity_total.getText());
+                
+                
+                        /*int colorway_id2 = update_this_colorway(interval,colorway_name3.getText(), 
+                             Float.parseFloat(binder2.getSelectedItem().toString()),
+                             weigh_kg3.getText());*/
                 if(colorway_id2 != -1 )
                 {
+                    use_func.add_this_pigment_screen(use_func.get_pigment_screen_details_from_input(name5, percentage5), 
+                            colorway_id);
+                    use_func.add_this_pigment_screen(use_func.get_pigment_screen_details_from_input(name6, percentage6), 
+                            colorway_id);
+                    use_func.add_this_pigment_screen(use_func.get_pigment_screen_details_from_input(name7, percentage7), 
+                            colorway_id);
+                    /*
                     update_or_add_this_screen_pigment(interval, 0, name5.getSelectedItem().toString(),
                                       percentage5.getText(), colorway_id2 );
                     
@@ -2576,20 +2596,31 @@ public class EditRecipe extends javax.swing.JFrame {
                                       percentage6.getText(), colorway_id2 );
                     
                     update_or_add_this_screen_pigment(interval, 2, name7.getSelectedItem().toString(),
-                                      percentage7.getText(), colorway_id2 );
+                                      percentage7.getText(), colorway_id2 );*/
                 }
             //}
             ////////////Colorway 3
             //else if(interval == 2)
             //{
                 
-                int colorway_id = update_this_colorway(interval,colorway_name4.getText(), 
+                int colorway_id3 = use_func.add_this_colorway(colorway_name3.getText(), 
+                             Float.parseFloat(binder3.getSelectedItem().toString()),
+                             weigh_kg3.getText(), this.prod_recipe.getDesign_code(), this.fab_style_comb.getSelectedItem().toString(), this.quantity_total.getText());
+                
+                /*      update_this_colorway(interval,colorway_name4.getText(), 
                              Float.parseFloat(binder3.getSelectedItem().toString()),
                              weigh_kg4.getText());
                 System.out.println("Colorway ID of Screen No."+(interval+1)+"  is = "+colorway_id);
-                
+                */
                 if(colorway_id != -1 )
                 {
+                    use_func.add_this_pigment_screen(use_func.get_pigment_screen_details_from_input(name9, percentage9), 
+                            colorway_id);
+                    use_func.add_this_pigment_screen(use_func.get_pigment_screen_details_from_input(name10, percentage10), 
+                            colorway_id);
+                    use_func.add_this_pigment_screen(use_func.get_pigment_screen_details_from_input(name11, percentage11), 
+                            colorway_id);
+                    /*
                     update_or_add_this_screen_pigment(interval, 0, name9.getSelectedItem().toString(),
                                       percentage9.getText(), colorway_id );
                     
@@ -2597,19 +2628,29 @@ public class EditRecipe extends javax.swing.JFrame {
                                       percentage10.getText(), colorway_id );
                     
                     update_or_add_this_screen_pigment(interval, 2, name11.getSelectedItem().toString(),
-                                      percentage11.getText(), colorway_id );
+                                      percentage11.getText(), colorway_id );*/
                 }
             //}
             ////////////Colorway 4
             //else if(interval == 3)
             //{
-                int colorway_id2 = update_this_colorway(interval,colorway_name5.getText(), 
+                int colorway_id4 = use_func.add_this_colorway(colorway_name4.getText(), 
                              Float.parseFloat(binder4.getSelectedItem().toString()),
-                             weigh_kg5.getText());
-                System.out.println("Colorway ID of Screen No."+(interval+1)+"  is = "+colorway_id2);
+                             weigh_kg4.getText(), this.prod_recipe.getDesign_code(), this.fab_style_comb.getSelectedItem().toString(), this.quantity_total.getText());
+                /*
+                        update_this_colorway(interval,colorway_name4.getText(), 
+                             Float.parseFloat(binder4.getSelectedItem().toString()),
+                             weigh_kg4.getText());
+                System.out.println("Colorway ID of Screen No."+(interval+1)+"  is = "+colorway_id2);*/
                 if(colorway_id2 != -1 )
                 {
-                    
+                    use_func.add_this_pigment_screen(use_func.get_pigment_screen_details_from_input(name13, percentage13), 
+                            colorway_id);
+                    use_func.add_this_pigment_screen(use_func.get_pigment_screen_details_from_input(name14, percentage14), 
+                            colorway_id);
+                    use_func.add_this_pigment_screen(use_func.get_pigment_screen_details_from_input(name15, percentage15), 
+                            colorway_id);
+                    /*
                     update_or_add_this_screen_pigment(interval, 0, name13.getSelectedItem().toString(),
                                       percentage13.getText(), colorway_id2 );
                     
@@ -2618,17 +2659,30 @@ public class EditRecipe extends javax.swing.JFrame {
                     
                     update_or_add_this_screen_pigment(interval, 2, name15.getSelectedItem().toString(),
                                       percentage15.getText(), colorway_id2 );
+                    */
                 }
             //}
             ////////////Colorway 5
             //else if(interval == 4)
             //{
-                int colorway_id = update_this_colorway(interval,colorway_name6.getText(), 
+                int colorway_id5 = use_func.add_this_colorway(colorway_name5.getText(), 
                              Float.parseFloat(binder5.getSelectedItem().toString()),
-                             weigh_kg6.getText());
-                System.out.println("Colorway ID of Screen No."+(interval+1)+"  is = "+colorway_id);
+                             weigh_kg5.getText(), this.prod_recipe.getDesign_code(), this.fab_style_comb.getSelectedItem().toString(), this.quantity_total.getText());
+                /*
+                        update_this_colorway(interval,colorway_name5.getText(), 
+                             Float.parseFloat(binder5.getSelectedItem().toString()),
+                             weigh_kg5.getText());
+                System.out.println("Colorway ID of Screen No."+(interval+1)+"  is = "+colorway_id);*/
                 if(colorway_id != -1 )
                 {
+                    use_func.add_this_pigment_screen(use_func.get_pigment_screen_details_from_input(name17, percentage17), 
+                            colorway_id);
+                    use_func.add_this_pigment_screen(use_func.get_pigment_screen_details_from_input(name18, percentage18), 
+                            colorway_id);
+                    use_func.add_this_pigment_screen(use_func.get_pigment_screen_details_from_input(name19, percentage19), 
+                            colorway_id);
+                    
+                    /*
                     update_or_add_this_screen_pigment(interval, 0, name17.getSelectedItem().toString(),
                                       percentage17.getText(), colorway_id );
                     
@@ -2637,18 +2691,30 @@ public class EditRecipe extends javax.swing.JFrame {
                     
                     update_or_add_this_screen_pigment(interval, 2, name19.getSelectedItem().toString(),
                                       percentage19.getText(), colorway_id );
+                    */
                 }
             //}
             ////////////Colorway 6
            //else if(interval == 5)
             //{
              
-                int colorway_id2 = update_this_colorway(interval,colorway_name7.getText(), 
+                int colorway_id6 = use_func.add_this_colorway(colorway_name6.getText(), 
                              Float.parseFloat(binder6.getSelectedItem().toString()),
-                             weigh_kg7.getText());
-                System.out.println("Colorway ID of Screen No."+(interval+1)+"  is = "+colorway_id2);
+                             weigh_kg6.getText(), this.prod_recipe.getDesign_code(), this.fab_style_comb.getSelectedItem().toString(), this.quantity_total.getText());
+                /*
+                        update_this_colorway(interval,colorway_name6.getText(), 
+                             Float.parseFloat(binder6.getSelectedItem().toString()),
+                             weigh_kg6.getText());
+                System.out.println("Colorway ID of Screen No."+(interval+1)+"  is = "+colorway_id2);*/
                 if( colorway_id2 != -1 )
                 {
+                    use_func.add_this_pigment_screen(use_func.get_pigment_screen_details_from_input(name21, percentage21), 
+                            colorway_id);
+                    use_func.add_this_pigment_screen(use_func.get_pigment_screen_details_from_input(name22, percentage22), 
+                            colorway_id);
+                    use_func.add_this_pigment_screen(use_func.get_pigment_screen_details_from_input(name23, percentage23), 
+                            colorway_id);
+                    /*
                     update_or_add_this_screen_pigment(interval, 0, name21.getSelectedItem().toString(),
                                       percentage21.getText(), colorway_id2 );
                     
@@ -2656,18 +2722,29 @@ public class EditRecipe extends javax.swing.JFrame {
                                       percentage22.getText(), colorway_id2 );
                     
                     update_or_add_this_screen_pigment(interval, 2, name23.getSelectedItem().toString(),
-                                      percentage23.getText(), colorway_id2 );
+                                      percentage23.getText(), colorway_id2 );*/
                 }
             //}
             //////////// Colorway 7
             //else if(interval == 6)
             //{
-                int colorway_id = update_this_colorway(interval,colorway_name8.getText(), 
+                int colorway_id7 = use_func.add_this_colorway(colorway_name7.getText(), 
                              Float.parseFloat(binder7.getSelectedItem().toString()),
-                             weigh_kg8.getText());
-                System.out.println("Colorway ID of Screen No."+(interval+1)+"  is = "+colorway_id);
+                             weigh_kg7.getText(), this.prod_recipe.getDesign_code(), this.fab_style_comb.getSelectedItem().toString(), this.quantity_total.getText());
+                /*
+                        update_this_colorway(interval,colorway_name7.getText(), 
+                             Float.parseFloat(binder7.getSelectedItem().toString()),
+                             weigh_kg7.getText());
+                System.out.println("Colorway ID of Screen No."+(interval+1)+"  is = "+colorway_id);*/
                 if(colorway_id != -1 )
                 {
+                    use_func.add_this_pigment_screen(use_func.get_pigment_screen_details_from_input(name24, percentage24), 
+                            colorway_id);
+                    use_func.add_this_pigment_screen(use_func.get_pigment_screen_details_from_input(name25, percentage25), 
+                            colorway_id);
+                    use_func.add_this_pigment_screen(use_func.get_pigment_screen_details_from_input(name26, percentage26), 
+                            colorway_id);
+                    /*
                     update_or_add_this_screen_pigment(interval, 0, name24.getSelectedItem().toString(),
                                       percentage24.getText(), colorway_id );
                     
@@ -2675,7 +2752,7 @@ public class EditRecipe extends javax.swing.JFrame {
                                       percentage25.getText(), colorway_id );
                     
                     update_or_add_this_screen_pigment(interval, 2, name26.getSelectedItem().toString(),
-                                      percentage26.getText(), colorway_id );
+                                      percentage26.getText(), colorway_id );*/
                 }
             //}
         //}
@@ -2760,10 +2837,10 @@ public class EditRecipe extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(!use_func.checkText2(coverage2.getText()))
         {
-            compute_kg(weigh_kg7, coverage2);
-            use_func.update_kg_prep(percentage21.getText(), weigh_kg7.getText(), kg_21);
-            use_func.update_kg_prep(percentage22.getText(), weigh_kg7.getText(), kg_22);
-            use_func.update_kg_prep(percentage23.getText(), weigh_kg7.getText(), kg_23);
+            compute_kg(weigh_kg6, coverage2);
+            use_func.update_kg_prep(percentage21.getText(), weigh_kg6.getText(), kg_21);
+            use_func.update_kg_prep(percentage22.getText(), weigh_kg6.getText(), kg_22);
+            use_func.update_kg_prep(percentage23.getText(), weigh_kg6.getText(), kg_23);
         }
     }//GEN-LAST:event_coverage2KeyReleased
 
@@ -2771,10 +2848,10 @@ public class EditRecipe extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(!use_func.checkText2(coverage3.getText()))
         {
-            compute_kg(weigh_kg3, coverage3);
-            use_func.update_kg_prep(percentage5.getText(), weigh_kg3.getText(), kg_5);
-            use_func.update_kg_prep(percentage6.getText(), weigh_kg3.getText(), kg_6);
-            use_func.update_kg_prep(percentage7.getText(), weigh_kg3.getText(), kg_7);
+            compute_kg(weigh_kg2, coverage3);
+            use_func.update_kg_prep(percentage5.getText(), weigh_kg2.getText(), kg_5);
+            use_func.update_kg_prep(percentage6.getText(), weigh_kg2.getText(), kg_6);
+            use_func.update_kg_prep(percentage7.getText(), weigh_kg2.getText(), kg_7);
         }
     }//GEN-LAST:event_coverage3KeyReleased
 
@@ -2783,10 +2860,10 @@ public class EditRecipe extends javax.swing.JFrame {
 
         if(!use_func.checkText2(coverage4.getText()))
         {
-            compute_kg(weigh_kg4, coverage4);
-            use_func.update_kg_prep(percentage9.getText(), weigh_kg4.getText(), kg_9);
-            use_func.update_kg_prep(percentage10.getText(), weigh_kg4.getText(), kg_10);
-            use_func.update_kg_prep(percentage11.getText(), weigh_kg4.getText(), kg_11);
+            compute_kg(weigh_kg3, coverage4);
+            use_func.update_kg_prep(percentage9.getText(), weigh_kg3.getText(), kg_9);
+            use_func.update_kg_prep(percentage10.getText(), weigh_kg3.getText(), kg_10);
+            use_func.update_kg_prep(percentage11.getText(), weigh_kg3.getText(), kg_11);
         }
         
     }//GEN-LAST:event_coverage4KeyReleased
@@ -2795,10 +2872,10 @@ public class EditRecipe extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(!use_func.checkText2(coverage5.getText()))
         {
-            compute_kg(weigh_kg5, coverage5);
-            use_func.update_kg_prep(percentage13.getText(), weigh_kg5.getText(), kg_13);
-            use_func.update_kg_prep(percentage14.getText(), weigh_kg5.getText(), kg_14);
-            use_func.update_kg_prep(percentage15.getText(), weigh_kg5.getText(), kg_15);
+            compute_kg(weigh_kg4, coverage5);
+            use_func.update_kg_prep(percentage13.getText(), weigh_kg4.getText(), kg_13);
+            use_func.update_kg_prep(percentage14.getText(), weigh_kg4.getText(), kg_14);
+            use_func.update_kg_prep(percentage15.getText(), weigh_kg4.getText(), kg_15);
         }
     }//GEN-LAST:event_coverage5KeyReleased
 
@@ -2807,10 +2884,10 @@ public class EditRecipe extends javax.swing.JFrame {
 
         if(!use_func.checkText2(coverage6.getText()))
         {
-            compute_kg(weigh_kg6, coverage6);
-            use_func.update_kg_prep(percentage17.getText(), weigh_kg6.getText(), kg_17);
-            use_func.update_kg_prep(percentage18.getText(), weigh_kg6.getText(), kg_18);
-            use_func.update_kg_prep(percentage19.getText(), weigh_kg6.getText(), kg_19);
+            compute_kg(weigh_kg5, coverage6);
+            use_func.update_kg_prep(percentage17.getText(), weigh_kg5.getText(), kg_17);
+            use_func.update_kg_prep(percentage18.getText(), weigh_kg5.getText(), kg_18);
+            use_func.update_kg_prep(percentage19.getText(), weigh_kg5.getText(), kg_19);
         }
         
     }//GEN-LAST:event_coverage6KeyReleased
@@ -2846,172 +2923,172 @@ public class EditRecipe extends javax.swing.JFrame {
     private void percentage5KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage5KeyReleased
         // TODO add your handling code here:
         if(use_func.check_this_textbox(percentage5))
-        use_func.update_kg_prep(percentage5.getText(), weigh_kg3.getText(), kg_5);
+        use_func.update_kg_prep(percentage5.getText(), weigh_kg2.getText(), kg_5);
     }//GEN-LAST:event_percentage5KeyReleased
 
     private void percentage6KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage6KeyReleased
         // TODO add your handling code here:
         if(use_func.check_this_textbox(percentage6))
-        use_func.update_kg_prep(percentage6.getText(), weigh_kg3.getText(), kg_6);
+        use_func.update_kg_prep(percentage6.getText(), weigh_kg2.getText(), kg_6);
     }//GEN-LAST:event_percentage6KeyReleased
 
     private void percentage7KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage7KeyReleased
         // TODO add your handling code here:
         if(use_func.check_this_textbox(percentage7))
-        use_func.update_kg_prep(percentage7.getText(), weigh_kg3.getText(), kg_7);
+        use_func.update_kg_prep(percentage7.getText(), weigh_kg2.getText(), kg_7);
     }//GEN-LAST:event_percentage7KeyReleased
 
-    private void weigh_kg3KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_weigh_kg3KeyReleased
+    private void weigh_kg2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_weigh_kg2KeyReleased
         // TODO add your handling code here:
-        if(use_func.check_this_textbox(weigh_kg3))
+        if(use_func.check_this_textbox(weigh_kg2))
         {
-            use_func.update_kg_prep(percentage5.getText(), weigh_kg3.getText(), kg_5);
-            use_func.update_kg_prep(percentage6.getText(), weigh_kg3.getText(), kg_6);
-            use_func.update_kg_prep(percentage7.getText(), weigh_kg3.getText(), kg_7);
+            use_func.update_kg_prep(percentage5.getText(), weigh_kg2.getText(), kg_5);
+            use_func.update_kg_prep(percentage6.getText(), weigh_kg2.getText(), kg_6);
+            use_func.update_kg_prep(percentage7.getText(), weigh_kg2.getText(), kg_7);
         }
-    }//GEN-LAST:event_weigh_kg3KeyReleased
+    }//GEN-LAST:event_weigh_kg2KeyReleased
  
     private void percentage9KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage9KeyReleased
         // TODO add your handling code here:
         if(use_func.check_this_textbox(percentage9))
-            use_func.update_kg_prep(percentage9.getText(), weigh_kg4.getText(), kg_9);
+            use_func.update_kg_prep(percentage9.getText(), weigh_kg3.getText(), kg_9);
     }//GEN-LAST:event_percentage9KeyReleased
 
     private void percentage10KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage10KeyReleased
         // TODO add your handling code here:
         if(use_func.check_this_textbox(percentage10))
-            use_func.update_kg_prep(percentage10.getText(), weigh_kg4.getText(), kg_10);
+            use_func.update_kg_prep(percentage10.getText(), weigh_kg3.getText(), kg_10);
     }//GEN-LAST:event_percentage10KeyReleased
 
     private void percentage11KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage11KeyReleased
         // TODO add your handling code here:
         if(use_func.check_this_textbox(percentage11))       
-        use_func.update_kg_prep(percentage11.getText(), weigh_kg4.getText(), kg_11);
+        use_func.update_kg_prep(percentage11.getText(), weigh_kg3.getText(), kg_11);
     }//GEN-LAST:event_percentage11KeyReleased
 
-    private void weigh_kg4KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_weigh_kg4KeyReleased
+    private void weigh_kg3KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_weigh_kg3KeyReleased
         // TODO add your handling code here:
-        if(use_func.check_this_textbox(weigh_kg4))
+        if(use_func.check_this_textbox(weigh_kg3))
         {        
-            use_func.update_kg_prep(percentage9.getText(), weigh_kg4.getText(), kg_9);
-            use_func.update_kg_prep(percentage10.getText(), weigh_kg4.getText(), kg_10);
-            use_func.update_kg_prep(percentage11.getText(), weigh_kg4.getText(), kg_11);
+            use_func.update_kg_prep(percentage9.getText(), weigh_kg3.getText(), kg_9);
+            use_func.update_kg_prep(percentage10.getText(), weigh_kg3.getText(), kg_10);
+            use_func.update_kg_prep(percentage11.getText(), weigh_kg3.getText(), kg_11);
         }
-    }//GEN-LAST:event_weigh_kg4KeyReleased
+    }//GEN-LAST:event_weigh_kg3KeyReleased
 
     private void percentage13KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage13KeyReleased
         // TODO add your handling code here:
         if(use_func.check_this_textbox(percentage13))
-            use_func.update_kg_prep(percentage13.getText(), weigh_kg5.getText(), kg_13);
+            use_func.update_kg_prep(percentage13.getText(), weigh_kg4.getText(), kg_13);
     }//GEN-LAST:event_percentage13KeyReleased
 
     private void percentage14KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage14KeyReleased
         // TODO add your handling code here:
         if(use_func.check_this_textbox(percentage14))
-            use_func.update_kg_prep(percentage14.getText(), weigh_kg5.getText(), kg_14);
+            use_func.update_kg_prep(percentage14.getText(), weigh_kg4.getText(), kg_14);
     }//GEN-LAST:event_percentage14KeyReleased
 
     private void percentage15KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage15KeyReleased
         // TODO add your handling code here:
         if(use_func.check_this_textbox(percentage15))
-            use_func.update_kg_prep(percentage15.getText(), weigh_kg5.getText(), kg_15);
+            use_func.update_kg_prep(percentage15.getText(), weigh_kg4.getText(), kg_15);
     }//GEN-LAST:event_percentage15KeyReleased
 
-    private void weigh_kg5KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_weigh_kg5KeyReleased
+    private void weigh_kg4KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_weigh_kg4KeyReleased
         // TODO add your handling code here:
-        if(use_func.check_this_textbox(weigh_kg5))
+        if(use_func.check_this_textbox(weigh_kg4))
         {
-            use_func.update_kg_prep(percentage13.getText(), weigh_kg5.getText(), kg_13);
-            use_func.update_kg_prep(percentage14.getText(), weigh_kg5.getText(), kg_14);
-            use_func.update_kg_prep(percentage15.getText(), weigh_kg5.getText(), kg_15);
+            use_func.update_kg_prep(percentage13.getText(), weigh_kg4.getText(), kg_13);
+            use_func.update_kg_prep(percentage14.getText(), weigh_kg4.getText(), kg_14);
+            use_func.update_kg_prep(percentage15.getText(), weigh_kg4.getText(), kg_15);
         }
-    }//GEN-LAST:event_weigh_kg5KeyReleased
+    }//GEN-LAST:event_weigh_kg4KeyReleased
 
     private void percentage17KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage17KeyReleased
         // TODO add your handling code here:
         if(use_func.check_this_textbox(percentage17))
-            use_func.update_kg_prep(percentage17.getText(), weigh_kg6.getText(), kg_17);
+            use_func.update_kg_prep(percentage17.getText(), weigh_kg5.getText(), kg_17);
     }//GEN-LAST:event_percentage17KeyReleased
 
     private void percentage18KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage18KeyReleased
         // TODO add your handling code here:
         if(use_func.check_this_textbox(percentage18))
-            use_func.update_kg_prep(percentage18.getText(), weigh_kg6.getText(), kg_18);
+            use_func.update_kg_prep(percentage18.getText(), weigh_kg5.getText(), kg_18);
     }//GEN-LAST:event_percentage18KeyReleased
 
     private void percentage19KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage19KeyReleased
         // TODO add your handling code here:
         if(use_func.check_this_textbox(percentage19))
-            use_func.update_kg_prep(percentage19.getText(), weigh_kg6.getText(), kg_19);
+            use_func.update_kg_prep(percentage19.getText(), weigh_kg5.getText(), kg_19);
     }//GEN-LAST:event_percentage19KeyReleased
 
-    private void weigh_kg6KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_weigh_kg6KeyReleased
+    private void weigh_kg5KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_weigh_kg5KeyReleased
         // TODO add your handling code here:
-        if(use_func.check_this_textbox(weigh_kg6))
+        if(use_func.check_this_textbox(weigh_kg5))
         {
-            use_func.update_kg_prep(percentage17.getText(), weigh_kg6.getText(), kg_17);
-            use_func.update_kg_prep(percentage18.getText(), weigh_kg6.getText(), kg_18);
-            use_func.update_kg_prep(percentage19.getText(), weigh_kg6.getText(), kg_19);
+            use_func.update_kg_prep(percentage17.getText(), weigh_kg5.getText(), kg_17);
+            use_func.update_kg_prep(percentage18.getText(), weigh_kg5.getText(), kg_18);
+            use_func.update_kg_prep(percentage19.getText(), weigh_kg5.getText(), kg_19);
         }
         
-    }//GEN-LAST:event_weigh_kg6KeyReleased
+    }//GEN-LAST:event_weigh_kg5KeyReleased
 
     private void percentage21KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage21KeyReleased
         // TODO add your handling code here:
         if(use_func.check_this_textbox(percentage21))
-            use_func.update_kg_prep(percentage21.getText(), weigh_kg7.getText(), kg_21);
+            use_func.update_kg_prep(percentage21.getText(), weigh_kg6.getText(), kg_21);
     }//GEN-LAST:event_percentage21KeyReleased
 
     private void percentage22KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage22KeyReleased
         // TODO add your handling code here:
         if(use_func.check_this_textbox(percentage22))
-            use_func.update_kg_prep(percentage22.getText(), weigh_kg7.getText(), kg_22);
+            use_func.update_kg_prep(percentage22.getText(), weigh_kg6.getText(), kg_22);
     }//GEN-LAST:event_percentage22KeyReleased
 
     private void percentage23KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage23KeyReleased
         // TODO add your handling code here:
         if(use_func.check_this_textbox(percentage23))
-            use_func.update_kg_prep(percentage23.getText(), weigh_kg7.getText(), kg_23);
+            use_func.update_kg_prep(percentage23.getText(), weigh_kg6.getText(), kg_23);
     }//GEN-LAST:event_percentage23KeyReleased
+
+    private void weigh_kg6KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_weigh_kg6KeyReleased
+        // TODO add your handling code here:
+        if(use_func.check_this_textbox(weigh_kg6))
+        {
+            use_func.update_kg_prep(percentage21.getText(), weigh_kg6.getText(), kg_21);
+            use_func.update_kg_prep(percentage22.getText(), weigh_kg6.getText(), kg_22);
+            use_func.update_kg_prep(percentage23.getText(), weigh_kg6.getText(), kg_23);
+        }
+    }//GEN-LAST:event_weigh_kg6KeyReleased
+        
+    private void percentage24KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage24KeyReleased
+        // TODO add your handling code here:
+        if(use_func.check_this_textbox(percentage24))
+            use_func.update_kg_prep(percentage24.getText(), weigh_kg7.getText(), kg_24);
+    }//GEN-LAST:event_percentage24KeyReleased
 
     private void weigh_kg7KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_weigh_kg7KeyReleased
         // TODO add your handling code here:
         if(use_func.check_this_textbox(weigh_kg7))
         {
-            use_func.update_kg_prep(percentage21.getText(), weigh_kg7.getText(), kg_21);
-            use_func.update_kg_prep(percentage22.getText(), weigh_kg7.getText(), kg_22);
-            use_func.update_kg_prep(percentage23.getText(), weigh_kg7.getText(), kg_23);
+            use_func.update_kg_prep(percentage24.getText(), weigh_kg7.getText(), kg_24);
+            use_func.update_kg_prep(percentage25.getText(), weigh_kg7.getText(), kg_25);
+            use_func.update_kg_prep(percentage26.getText(), weigh_kg7.getText(), kg_26);
         }
     }//GEN-LAST:event_weigh_kg7KeyReleased
-        
-    private void percentage24KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage24KeyReleased
-        // TODO add your handling code here:
-        if(use_func.check_this_textbox(percentage24))
-            use_func.update_kg_prep(percentage24.getText(), weigh_kg8.getText(), kg_24);
-    }//GEN-LAST:event_percentage24KeyReleased
-
-    private void weigh_kg8KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_weigh_kg8KeyReleased
-        // TODO add your handling code here:
-        if(use_func.check_this_textbox(weigh_kg8))
-        {
-            use_func.update_kg_prep(percentage24.getText(), weigh_kg8.getText(), kg_24);
-            use_func.update_kg_prep(percentage25.getText(), weigh_kg8.getText(), kg_25);
-            use_func.update_kg_prep(percentage26.getText(), weigh_kg8.getText(), kg_26);
-        }
-    }//GEN-LAST:event_weigh_kg8KeyReleased
 
         
     private void percentage25KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage25KeyReleased
         // TODO add your handling code here:
         if(use_func.check_this_textbox(percentage25))
-            use_func.update_kg_prep(percentage25.getText(), weigh_kg8.getText(), kg_25);
+            use_func.update_kg_prep(percentage25.getText(), weigh_kg7.getText(), kg_25);
     }//GEN-LAST:event_percentage25KeyReleased
 
     private void percentage26KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_percentage26KeyReleased
         // TODO add your handling code here:
         if(use_func.check_this_textbox(percentage26))
         {
-            use_func.update_kg_prep(percentage26.getText(), weigh_kg8.getText(), kg_26);
+            use_func.update_kg_prep(percentage26.getText(), weigh_kg7.getText(), kg_26);
         }
     }//GEN-LAST:event_percentage26KeyReleased
 
@@ -3019,10 +3096,10 @@ public class EditRecipe extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(!use_func.checkText2(coverage8.getText()))
         {
-            compute_kg(weigh_kg6, coverage8);
-            use_func.update_kg_prep(percentage24.getText(), weigh_kg8.getText(), kg_24);
-            use_func.update_kg_prep(percentage25.getText(), weigh_kg8.getText(), kg_25);
-            use_func.update_kg_prep(percentage26.getText(), weigh_kg8.getText(), kg_26);
+            compute_kg(weigh_kg5, coverage8);
+            use_func.update_kg_prep(percentage24.getText(), weigh_kg7.getText(), kg_24);
+            use_func.update_kg_prep(percentage25.getText(), weigh_kg7.getText(), kg_25);
+            use_func.update_kg_prep(percentage26.getText(), weigh_kg7.getText(), kg_26);
         }
     }//GEN-LAST:event_coverage8KeyReleased
     /*
@@ -3175,7 +3252,7 @@ public class EditRecipe extends javax.swing.JFrame {
             
             if(interval==0)
             {
-                this_colorway_screen = new Colorway_with_pigment(colorway_name2.getText(), 
+                this_colorway_screen = new Colorway_with_pigment(colorway_name.getText(), 
                              Float.parseFloat(binder.getSelectedItem().toString()),
                              weigh_kg.getText());
         
@@ -3187,9 +3264,9 @@ public class EditRecipe extends javax.swing.JFrame {
             }
             else if(interval==1)
             {
-                this_colorway_screen = new Colorway_with_pigment(colorway_name3.getText(), 
+                this_colorway_screen = new Colorway_with_pigment(colorway_name2.getText(), 
                              Float.parseFloat(binder2.getSelectedItem().toString()),
-                             weigh_kg3.getText());
+                             weigh_kg2.getText());
                 
                 this_colorway_screen.add_screen(get_colorway_details_from_input(name5, percentage5));
                 this_colorway_screen.add_screen(get_colorway_details_from_input(name6, percentage6));
@@ -3199,9 +3276,9 @@ public class EditRecipe extends javax.swing.JFrame {
             }
             else if(interval == 2)
             {
-                this_colorway_screen = new Colorway_with_pigment(colorway_name4.getText(), 
+                this_colorway_screen = new Colorway_with_pigment(colorway_name3.getText(), 
                              Float.parseFloat(binder3.getSelectedItem().toString()),
-                             weigh_kg4.getText());
+                             weigh_kg3.getText());
                 
                 this_colorway_screen.add_screen(get_colorway_details_from_input(name9, percentage9));
                 this_colorway_screen.add_screen(get_colorway_details_from_input(name10, percentage10));
@@ -3211,9 +3288,9 @@ public class EditRecipe extends javax.swing.JFrame {
             }
             else if(interval == 3)
             {
-                this_colorway_screen = new Colorway_with_pigment(colorway_name5.getText(), 
+                this_colorway_screen = new Colorway_with_pigment(colorway_name4.getText(), 
                              Float.parseFloat(binder4.getSelectedItem().toString()),
-                             weigh_kg5.getText());
+                             weigh_kg4.getText());
                 
                 this_colorway_screen.add_screen(get_colorway_details_from_input(name13, percentage13));
                 this_colorway_screen.add_screen(get_colorway_details_from_input(name14, percentage14));
@@ -3223,9 +3300,9 @@ public class EditRecipe extends javax.swing.JFrame {
             }
             else if(interval == 4)
             {
-                this_colorway_screen = new Colorway_with_pigment(colorway_name6.getText(), 
+                this_colorway_screen = new Colorway_with_pigment(colorway_name5.getText(), 
                              Float.parseFloat(binder5.getSelectedItem().toString()),
-                             weigh_kg6.getText());
+                             weigh_kg5.getText());
                 
                 this_colorway_screen.add_screen(get_colorway_details_from_input(name17, percentage17));
                 this_colorway_screen.add_screen(get_colorway_details_from_input(name18, percentage18));
@@ -3235,9 +3312,9 @@ public class EditRecipe extends javax.swing.JFrame {
             }
             else if(interval == 5)
             {
-             this_colorway_screen = new Colorway_with_pigment(colorway_name7.getText(), 
+             this_colorway_screen = new Colorway_with_pigment(colorway_name6.getText(), 
                              Float.parseFloat(binder6.getSelectedItem().toString()),
-                             weigh_kg7.getText());
+                             weigh_kg6.getText());
                 
                 this_colorway_screen.add_screen(get_colorway_details_from_input(name21, percentage21));
                 this_colorway_screen.add_screen(get_colorway_details_from_input(name22, percentage22));
@@ -3247,9 +3324,9 @@ public class EditRecipe extends javax.swing.JFrame {
             }
             else if(interval == 6)
             {
-                this_colorway_screen = new Colorway_with_pigment(colorway_name8.getText(), 
+                this_colorway_screen = new Colorway_with_pigment(colorway_name7.getText(), 
                              Float.parseFloat(binder7.getSelectedItem().toString()),
-                             weigh_kg8.getText());
+                             weigh_kg7.getText());
                 
                 this_colorway_screen.add_screen(get_colorway_details_from_input(name24, percentage24));
                 this_colorway_screen.add_screen(get_colorway_details_from_input(name25, percentage25));
@@ -3765,37 +3842,37 @@ public class EditRecipe extends javax.swing.JFrame {
     }
     private void jPanel9MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel9MouseExited
         // TODO add your handling code here:
-        check_this_panels_colorway_and_weight(colorway_name2, weigh_kg, 0);
+        check_this_panels_colorway_and_weight(colorway_name, weigh_kg, 0);
     }//GEN-LAST:event_jPanel9MouseExited
 
     private void jPanel4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel4MouseExited
         // TODO add your handling code here:
-        check_this_panels_colorway_and_weight(colorway_name3, weigh_kg3, 1);
+        check_this_panels_colorway_and_weight(colorway_name2, weigh_kg2, 1);
     }//GEN-LAST:event_jPanel4MouseExited
 
     private void jPanel5MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel5MouseExited
         // TODO add your handling code here:
-         check_this_panels_colorway_and_weight(colorway_name4, weigh_kg4, 2);
+         check_this_panels_colorway_and_weight(colorway_name3, weigh_kg3, 2);
     }//GEN-LAST:event_jPanel5MouseExited
 
     private void jPanel6MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel6MouseExited
         // TODO add your handling code here:
-        check_this_panels_colorway_and_weight(colorway_name5, weigh_kg5, 3);
+        check_this_panels_colorway_and_weight(colorway_name4, weigh_kg4, 3);
     }//GEN-LAST:event_jPanel6MouseExited
 
     private void jPanel7MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel7MouseExited
         // TODO add your handling code here:
-        check_this_panels_colorway_and_weight(colorway_name6, weigh_kg6, 4);
+        check_this_panels_colorway_and_weight(colorway_name5, weigh_kg5, 4);
     }//GEN-LAST:event_jPanel7MouseExited
 
     private void jPanel8MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel8MouseExited
         // TODO add your handling code here:
-        check_this_panels_colorway_and_weight(colorway_name7, weigh_kg7, 5);
+        check_this_panels_colorway_and_weight(colorway_name6, weigh_kg6, 5);
     }//GEN-LAST:event_jPanel8MouseExited
 
     private void jPanel15MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel15MouseExited
         // TODO add your handling code here:
-        check_this_panels_colorway_and_weight(colorway_name8, weigh_kg8, 6);
+        check_this_panels_colorway_and_weight(colorway_name7, weigh_kg7, 6);
     }//GEN-LAST:event_jPanel15MouseExited
 
     private void add_bind1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_bind1ActionPerformed
@@ -3892,12 +3969,12 @@ public class EditRecipe extends javax.swing.JFrame {
         if(!current_style.equals(this.fab_style_comb.getSelectedItem().toString()))
         {
             compute_kg(weigh_kg, coverage1);
-            compute_kg(weigh_kg3, coverage3);
-            compute_kg(weigh_kg4, coverage4);
-            compute_kg(weigh_kg5, coverage5);
-            compute_kg(weigh_kg6, coverage6);
-            compute_kg(weigh_kg7, coverage2); //6th Window
-            compute_kg(weigh_kg8, coverage8); //7th Window
+            compute_kg(weigh_kg2, coverage3);
+            compute_kg(weigh_kg3, coverage4);
+            compute_kg(weigh_kg4, coverage5);
+            compute_kg(weigh_kg5, coverage6);
+            compute_kg(weigh_kg6, coverage2); //6th Window
+            compute_kg(weigh_kg7, coverage8); //7th Window
             current_style = fab_style_comb.getSelectedItem().toString();
         }
     }//GEN-LAST:event_fab_style_combPopupMenuWillBecomeInvisible
@@ -4129,13 +4206,13 @@ public class EditRecipe extends javax.swing.JFrame {
     private javax.swing.JButton button_include_customer;
     private javax.swing.JButton button_remove_customer;
     private javax.swing.JButton cancel_but;
+    private javax.swing.JTextField colorway_name;
     private javax.swing.JTextField colorway_name2;
     private javax.swing.JTextField colorway_name3;
     private javax.swing.JTextField colorway_name4;
     private javax.swing.JTextField colorway_name5;
     private javax.swing.JTextField colorway_name6;
     private javax.swing.JTextField colorway_name7;
-    private javax.swing.JTextField colorway_name8;
     private javax.swing.JTextField coverage1;
     private javax.swing.JTextField coverage2;
     private javax.swing.JTextField coverage3;
@@ -4391,12 +4468,12 @@ public class EditRecipe extends javax.swing.JFrame {
     private javax.swing.JTextField text_job_order;
     private javax.swing.JComboBox web_cams;
     private javax.swing.JTextField weigh_kg;
+    private javax.swing.JTextField weigh_kg2;
     private javax.swing.JTextField weigh_kg3;
     private javax.swing.JTextField weigh_kg4;
     private javax.swing.JTextField weigh_kg5;
     private javax.swing.JTextField weigh_kg6;
     private javax.swing.JTextField weigh_kg7;
-    private javax.swing.JTextField weigh_kg8;
     // End of variables declaration//GEN-END:variables
 
     

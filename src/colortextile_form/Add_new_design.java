@@ -2446,9 +2446,9 @@ public class Add_new_design extends javax.swing.JFrame {
                              Float.parseFloat(binder.getSelectedItem().toString()),
                              weigh_kg.getText());
         
-                this_colorway_screen.add_screen(get_colorway_details_from_input(name1, percentage1));
-                this_colorway_screen.add_screen(get_colorway_details_from_input(name2, percentage2));
-                this_colorway_screen.add_screen(get_colorway_details_from_input(name3, percentage3));
+                this_colorway_screen.add_screen(use_func.get_pigment_screen_details_from_input(name1, percentage1));
+                this_colorway_screen.add_screen(use_func.get_pigment_screen_details_from_input(name2, percentage2));
+                this_colorway_screen.add_screen(use_func.get_pigment_screen_details_from_input(name3, percentage3));
         
                 //All Colorways to be stacked in List
                 all_colorway.add(this_colorway_screen);
@@ -2459,9 +2459,9 @@ public class Add_new_design extends javax.swing.JFrame {
                              Float.parseFloat(binder2.getSelectedItem().toString()),
                              weigh_kg3.getText());
                 
-                this_colorway_screen.add_screen(get_colorway_details_from_input(name5, percentage5));
-                this_colorway_screen.add_screen(get_colorway_details_from_input(name6, percentage6));
-                this_colorway_screen.add_screen(get_colorway_details_from_input(name7, percentage7));
+                this_colorway_screen.add_screen(use_func.get_pigment_screen_details_from_input(name5, percentage5));
+                this_colorway_screen.add_screen(use_func.get_pigment_screen_details_from_input(name6, percentage6));
+                this_colorway_screen.add_screen(use_func.get_pigment_screen_details_from_input(name7, percentage7));
         
                 all_colorway.add(this_colorway_screen);
             }
@@ -2471,9 +2471,9 @@ public class Add_new_design extends javax.swing.JFrame {
                              Float.parseFloat(binder3.getSelectedItem().toString()),
                              weigh_kg4.getText());
                 
-                this_colorway_screen.add_screen(get_colorway_details_from_input(name9, percentage9));
-                this_colorway_screen.add_screen(get_colorway_details_from_input(name10, percentage10));
-                this_colorway_screen.add_screen(get_colorway_details_from_input(name11, percentage11));
+                this_colorway_screen.add_screen(use_func.get_pigment_screen_details_from_input(name9, percentage9));
+                this_colorway_screen.add_screen(use_func.get_pigment_screen_details_from_input(name10, percentage10));
+                this_colorway_screen.add_screen(use_func.get_pigment_screen_details_from_input(name11, percentage11));
         
                 all_colorway.add(this_colorway_screen);
             }
@@ -2483,9 +2483,9 @@ public class Add_new_design extends javax.swing.JFrame {
                              Float.parseFloat(binder4.getSelectedItem().toString()),
                              weigh_kg5.getText());
                 
-                this_colorway_screen.add_screen(get_colorway_details_from_input(name13, percentage13));
-                this_colorway_screen.add_screen(get_colorway_details_from_input(name14, percentage14));
-                this_colorway_screen.add_screen(get_colorway_details_from_input(name15, percentage15));
+                this_colorway_screen.add_screen(use_func.get_pigment_screen_details_from_input(name13, percentage13));
+                this_colorway_screen.add_screen(use_func.get_pigment_screen_details_from_input(name14, percentage14));
+                this_colorway_screen.add_screen(use_func.get_pigment_screen_details_from_input(name15, percentage15));
         
                 all_colorway.add(this_colorway_screen);
             }
@@ -2495,9 +2495,9 @@ public class Add_new_design extends javax.swing.JFrame {
                              Float.parseFloat(binder5.getSelectedItem().toString()),
                              weigh_kg6.getText());
                 
-                this_colorway_screen.add_screen(get_colorway_details_from_input(name17, percentage17));
-                this_colorway_screen.add_screen(get_colorway_details_from_input(name18, percentage18));
-                this_colorway_screen.add_screen(get_colorway_details_from_input(name19, percentage19));
+                this_colorway_screen.add_screen(use_func.get_pigment_screen_details_from_input(name17, percentage17));
+                this_colorway_screen.add_screen(use_func.get_pigment_screen_details_from_input(name18, percentage18));
+                this_colorway_screen.add_screen(use_func.get_pigment_screen_details_from_input(name19, percentage19));
         
                 all_colorway.add(this_colorway_screen);
             }
@@ -2507,9 +2507,9 @@ public class Add_new_design extends javax.swing.JFrame {
                              Float.parseFloat(binder6.getSelectedItem().toString()),
                              weigh_kg7.getText());
                 
-                this_colorway_screen.add_screen(get_colorway_details_from_input(name21, percentage21));
-                this_colorway_screen.add_screen(get_colorway_details_from_input(name22, percentage22));
-                this_colorway_screen.add_screen(get_colorway_details_from_input(name23, percentage23));
+                this_colorway_screen.add_screen(use_func.get_pigment_screen_details_from_input(name21, percentage21));
+                this_colorway_screen.add_screen(use_func.get_pigment_screen_details_from_input(name22, percentage22));
+                this_colorway_screen.add_screen(use_func.get_pigment_screen_details_from_input(name23, percentage23));
         
                 all_colorway.add(this_colorway_screen);   
             }
@@ -2519,9 +2519,9 @@ public class Add_new_design extends javax.swing.JFrame {
                              Float.parseFloat(binder7.getSelectedItem().toString()),
                              weigh_kg8.getText());
                 
-                this_colorway_screen.add_screen(get_colorway_details_from_input(name24, percentage24));
-                this_colorway_screen.add_screen(get_colorway_details_from_input(name25, percentage25));
-                this_colorway_screen.add_screen(get_colorway_details_from_input(name26, percentage26));
+                this_colorway_screen.add_screen(use_func.get_pigment_screen_details_from_input(name24, percentage24));
+                this_colorway_screen.add_screen(use_func.get_pigment_screen_details_from_input(name25, percentage25));
+                this_colorway_screen.add_screen(use_func.get_pigment_screen_details_from_input(name26, percentage26));
         
                 all_colorway.add(this_colorway_screen); 
             }
@@ -2529,16 +2529,7 @@ public class Add_new_design extends javax.swing.JFrame {
         return all_colorway;
     }
     
-    private Pigment_with_screen_connect get_colorway_details_from_input(JComboBox pigment_text, JTextField percentageText )
-    {
-        Pigment_with_screen_connect this_colorway;
-        if(!use_func.checkText2(percentageText.getText()))
-        this_colorway = new Pigment_with_screen_connect(pigment_text.getSelectedItem().toString(), Float.parseFloat(percentageText.getText()));
-        else
-        this_colorway = new Pigment_with_screen_connect(pigment_text.getSelectedItem().toString());
-        
-        return this_colorway;
-    }
+    
     
     private void add_all_this_colorways(int design_code)
     {
@@ -2549,13 +2540,13 @@ public class Add_new_design extends javax.swing.JFrame {
         //System.out.println("COLORWAY id 1 = " +colorway_id);
         if(colorway_id != -1 )
         {   
-            use_func.add_this_colorway_screen(get_colorway_details_from_input(name1,percentage1), 
+            use_func.add_this_pigment_screen(use_func.get_pigment_screen_details_from_input(name1,percentage1), 
                     colorway_id );
             
-            use_func.add_this_colorway_screen(get_colorway_details_from_input(name2,percentage2), 
+            use_func.add_this_pigment_screen(use_func.get_pigment_screen_details_from_input(name2,percentage2), 
                     colorway_id );
             
-            use_func.add_this_colorway_screen(get_colorway_details_from_input(name3,percentage3), 
+            use_func.add_this_pigment_screen(use_func.get_pigment_screen_details_from_input(name3,percentage3), 
                     colorway_id );
         }
         
@@ -2566,13 +2557,13 @@ public class Add_new_design extends javax.swing.JFrame {
         //System.out.println("COLORWAY id 2 = " +colorway_id2);
         if(colorway_id2 != -1 )
         {
-            use_func.add_this_colorway_screen(get_colorway_details_from_input(name5,percentage5), 
+            use_func.add_this_pigment_screen(use_func.get_pigment_screen_details_from_input(name5,percentage5), 
                     colorway_id2 );
             
-            use_func.add_this_colorway_screen(get_colorway_details_from_input(name6,percentage6), 
+            use_func.add_this_pigment_screen(use_func.get_pigment_screen_details_from_input(name6,percentage6), 
                     colorway_id2 );
             
-            use_func.add_this_colorway_screen(get_colorway_details_from_input(name7,percentage7), 
+            use_func.add_this_pigment_screen(use_func.get_pigment_screen_details_from_input(name7,percentage7), 
                     colorway_id2 );
         }
         
@@ -2583,13 +2574,13 @@ public class Add_new_design extends javax.swing.JFrame {
         //System.out.println("COLORWAY id 3 = " +colorway_id3);
         if(colorway_id3 != -1 )
         {
-            use_func.add_this_colorway_screen(get_colorway_details_from_input(name9,percentage9), 
+            use_func.add_this_pigment_screen(use_func.get_pigment_screen_details_from_input(name9,percentage9), 
                     colorway_id3 );
             
-            use_func.add_this_colorway_screen(get_colorway_details_from_input(name10,percentage10),
+            use_func.add_this_pigment_screen(use_func.get_pigment_screen_details_from_input(name10,percentage10),
                     colorway_id3 );
             
-            use_func.add_this_colorway_screen(get_colorway_details_from_input(name11,percentage11), 
+            use_func.add_this_pigment_screen(use_func.get_pigment_screen_details_from_input(name11,percentage11), 
                     colorway_id3 );
            
         }
@@ -2600,13 +2591,13 @@ public class Add_new_design extends javax.swing.JFrame {
         //System.out.println("COLORWAY id 4 = " +colorway_id4);
         if(colorway_id4 != -1 )
         {
-            use_func.add_this_colorway_screen(get_colorway_details_from_input(name13,percentage13),
+            use_func.add_this_pigment_screen(use_func.get_pigment_screen_details_from_input(name13,percentage13),
                     colorway_id4 );
             
-            use_func.add_this_colorway_screen(get_colorway_details_from_input(name14,percentage14), 
+            use_func.add_this_pigment_screen(use_func.get_pigment_screen_details_from_input(name14,percentage14), 
                     colorway_id4 );
             
-            use_func.add_this_colorway_screen(get_colorway_details_from_input(name15,percentage15), 
+            use_func.add_this_pigment_screen(use_func.get_pigment_screen_details_from_input(name15,percentage15), 
                     colorway_id4 );
         }
         
@@ -2617,13 +2608,13 @@ public class Add_new_design extends javax.swing.JFrame {
         //System.out.println("COLORWAY id 5 = " +colorway_id5);
         if(colorway_id5 != -1 )
         {
-            use_func.add_this_colorway_screen(get_colorway_details_from_input(name17,percentage17), 
+            use_func.add_this_pigment_screen(use_func.get_pigment_screen_details_from_input(name17,percentage17), 
                     colorway_id5 );
             
-            use_func.add_this_colorway_screen(get_colorway_details_from_input(name18,percentage18), 
+            use_func.add_this_pigment_screen(use_func.get_pigment_screen_details_from_input(name18,percentage18), 
                     colorway_id5 );
             
-            use_func.add_this_colorway_screen(get_colorway_details_from_input(name19,percentage19), 
+            use_func.add_this_pigment_screen(use_func.get_pigment_screen_details_from_input(name19,percentage19), 
                     colorway_id5 );
         }
         
@@ -2634,13 +2625,13 @@ public class Add_new_design extends javax.swing.JFrame {
         //System.out.println("COLORWAY id 6 = " +colorway_id6);
         if( colorway_id6 != -1 )
         {
-            use_func.add_this_colorway_screen(get_colorway_details_from_input(name21,percentage21), 
+            use_func.add_this_pigment_screen(use_func.get_pigment_screen_details_from_input(name21,percentage21), 
                     colorway_id6 );
             
-            use_func.add_this_colorway_screen(get_colorway_details_from_input(name22,percentage22), 
+            use_func.add_this_pigment_screen(use_func.get_pigment_screen_details_from_input(name22,percentage22), 
                     colorway_id6 );
             
-            use_func.add_this_colorway_screen(get_colorway_details_from_input(name23,percentage23), 
+            use_func.add_this_pigment_screen(use_func.get_pigment_screen_details_from_input(name23,percentage23), 
                     colorway_id6 );
         }
         
@@ -2651,13 +2642,13 @@ public class Add_new_design extends javax.swing.JFrame {
         //System.out.println("COLORWAY id 7 = " +colorway_id6);
         if( colorway_id7 != -1 )
         {
-            use_func.add_this_colorway_screen(get_colorway_details_from_input(name24,percentage24), 
+            use_func.add_this_pigment_screen(use_func.get_pigment_screen_details_from_input(name24,percentage24), 
                     colorway_id7 );
             
-            use_func.add_this_colorway_screen(get_colorway_details_from_input(name25,percentage25), 
+            use_func.add_this_pigment_screen(use_func.get_pigment_screen_details_from_input(name25,percentage25), 
                     colorway_id7 );
             
-            use_func.add_this_colorway_screen(get_colorway_details_from_input(name26,percentage26), 
+            use_func.add_this_pigment_screen(use_func.get_pigment_screen_details_from_input(name26,percentage26), 
                     colorway_id7 );
         }
     }

@@ -249,7 +249,7 @@ public class Recipe_functions {
     }
     
                                           //This contains COLORWAY NAME and PERCENTAGE TEXT   var for COLORWAY ID 
-    public void add_this_colorway_screen(Pigment_with_screen_connect this_screen_and_colorway, int id_colorway)
+    public void add_this_pigment_screen(Pigment_with_screen_connect this_screen_and_colorway, int id_colorway)
     {
         this_screen_and_colorway.set_pigment_id_from_name();
         int id_pigment = this_screen_and_colorway.getPigment_id();
@@ -267,6 +267,17 @@ public class Recipe_functions {
             //new_c_and_s.setPigment_percentage(pigment_percent);
             //new_c_and_s.add_colorway_and_screen();
         }
+    }
+    
+    public Pigment_with_screen_connect get_pigment_screen_details_from_input(JComboBox pigment_text, JTextField percentageText )
+    {
+        Pigment_with_screen_connect this_colorway;
+        if(!checkText2(percentageText.getText()))
+        this_colorway = new Pigment_with_screen_connect(pigment_text.getSelectedItem().toString(), Float.parseFloat(percentageText.getText()));
+        else
+        this_colorway = new Pigment_with_screen_connect(pigment_text.getSelectedItem().toString());
+        
+        return this_colorway;
     }
     
     
