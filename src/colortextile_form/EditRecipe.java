@@ -2583,11 +2583,11 @@ public class EditRecipe extends javax.swing.JFrame {
                 if(colorway_id2 != -1 )
                 {
                     use_func.add_this_pigment_screen(use_func.get_pigment_screen_details_from_input(name5, percentage5), 
-                            colorway_id);
+                            colorway_id2);
                     use_func.add_this_pigment_screen(use_func.get_pigment_screen_details_from_input(name6, percentage6), 
-                            colorway_id);
+                            colorway_id2);
                     use_func.add_this_pigment_screen(use_func.get_pigment_screen_details_from_input(name7, percentage7), 
-                            colorway_id);
+                            colorway_id2);
                     /*
                     update_or_add_this_screen_pigment(interval, 0, name5.getSelectedItem().toString(),
                                       percentage5.getText(), colorway_id2 );
@@ -2612,14 +2612,14 @@ public class EditRecipe extends javax.swing.JFrame {
                              weigh_kg4.getText());
                 System.out.println("Colorway ID of Screen No."+(interval+1)+"  is = "+colorway_id);
                 */
-                if(colorway_id != -1 )
+                if(colorway_id3 != -1 )
                 {
                     use_func.add_this_pigment_screen(use_func.get_pigment_screen_details_from_input(name9, percentage9), 
-                            colorway_id);
+                            colorway_id3);
                     use_func.add_this_pigment_screen(use_func.get_pigment_screen_details_from_input(name10, percentage10), 
-                            colorway_id);
+                            colorway_id3);
                     use_func.add_this_pigment_screen(use_func.get_pigment_screen_details_from_input(name11, percentage11), 
-                            colorway_id);
+                            colorway_id3);
                     /*
                     update_or_add_this_screen_pigment(interval, 0, name9.getSelectedItem().toString(),
                                       percentage9.getText(), colorway_id );
@@ -2642,14 +2642,14 @@ public class EditRecipe extends javax.swing.JFrame {
                              Float.parseFloat(binder4.getSelectedItem().toString()),
                              weigh_kg4.getText());
                 System.out.println("Colorway ID of Screen No."+(interval+1)+"  is = "+colorway_id2);*/
-                if(colorway_id2 != -1 )
+                if(colorway_id4 != -1 )
                 {
                     use_func.add_this_pigment_screen(use_func.get_pigment_screen_details_from_input(name13, percentage13), 
-                            colorway_id);
+                            colorway_id4);
                     use_func.add_this_pigment_screen(use_func.get_pigment_screen_details_from_input(name14, percentage14), 
-                            colorway_id);
+                            colorway_id4);
                     use_func.add_this_pigment_screen(use_func.get_pigment_screen_details_from_input(name15, percentage15), 
-                            colorway_id);
+                            colorway_id4);
                     /*
                     update_or_add_this_screen_pigment(interval, 0, name13.getSelectedItem().toString(),
                                       percentage13.getText(), colorway_id2 );
@@ -2673,14 +2673,14 @@ public class EditRecipe extends javax.swing.JFrame {
                              Float.parseFloat(binder5.getSelectedItem().toString()),
                              weigh_kg5.getText());
                 System.out.println("Colorway ID of Screen No."+(interval+1)+"  is = "+colorway_id);*/
-                if(colorway_id != -1 )
+                if(colorway_id5 != -1 )
                 {
                     use_func.add_this_pigment_screen(use_func.get_pigment_screen_details_from_input(name17, percentage17), 
-                            colorway_id);
+                            colorway_id5);
                     use_func.add_this_pigment_screen(use_func.get_pigment_screen_details_from_input(name18, percentage18), 
-                            colorway_id);
+                            colorway_id5);
                     use_func.add_this_pigment_screen(use_func.get_pigment_screen_details_from_input(name19, percentage19), 
-                            colorway_id);
+                            colorway_id5);
                     
                     /*
                     update_or_add_this_screen_pigment(interval, 0, name17.getSelectedItem().toString(),
@@ -2706,14 +2706,14 @@ public class EditRecipe extends javax.swing.JFrame {
                              Float.parseFloat(binder6.getSelectedItem().toString()),
                              weigh_kg6.getText());
                 System.out.println("Colorway ID of Screen No."+(interval+1)+"  is = "+colorway_id2);*/
-                if( colorway_id2 != -1 )
+                if( colorway_id6 != -1 )
                 {
                     use_func.add_this_pigment_screen(use_func.get_pigment_screen_details_from_input(name21, percentage21), 
-                            colorway_id);
+                            colorway_id6);
                     use_func.add_this_pigment_screen(use_func.get_pigment_screen_details_from_input(name22, percentage22), 
-                            colorway_id);
+                            colorway_id6);
                     use_func.add_this_pigment_screen(use_func.get_pigment_screen_details_from_input(name23, percentage23), 
-                            colorway_id);
+                            colorway_id6);
                     /*
                     update_or_add_this_screen_pigment(interval, 0, name21.getSelectedItem().toString(),
                                       percentage21.getText(), colorway_id2 );
@@ -2736,14 +2736,14 @@ public class EditRecipe extends javax.swing.JFrame {
                              Float.parseFloat(binder7.getSelectedItem().toString()),
                              weigh_kg7.getText());
                 System.out.println("Colorway ID of Screen No."+(interval+1)+"  is = "+colorway_id);*/
-                if(colorway_id != -1 )
+                if(colorway_id7 != -1 )
                 {
                     use_func.add_this_pigment_screen(use_func.get_pigment_screen_details_from_input(name24, percentage24), 
-                            colorway_id);
+                            colorway_id7);
                     use_func.add_this_pigment_screen(use_func.get_pigment_screen_details_from_input(name25, percentage25), 
-                            colorway_id);
+                            colorway_id7);
                     use_func.add_this_pigment_screen(use_func.get_pigment_screen_details_from_input(name26, percentage26), 
-                            colorway_id);
+                            colorway_id7);
                     /*
                     update_or_add_this_screen_pigment(interval, 0, name24.getSelectedItem().toString(),
                                       percentage24.getText(), colorway_id );
