@@ -25,13 +25,16 @@ public class add_pigment_form extends javax.swing.JFrame {
 
     DefaultTableModel model = new DefaultTableModel();
     pigment update_this_pigment = new pigment();
+    String temporary_string;
     /**
      * Creates new form add_pigment_form
      */
     public add_pigment_form() {
         initComponents();
         this.set_to_center();
-        this.fill_table();
+        model = getUpdatedPigmentTable();
+        this.pigment_table.setModel(model);
+        
         
     }
 
@@ -124,7 +127,7 @@ public class add_pigment_form extends javax.swing.JFrame {
         ));
         pigment_table.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         pigment_table.setRowHeight(20);
-        pigment_table.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        pigment_table.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
         jScrollPane1.setViewportView(pigment_table);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -211,7 +214,8 @@ public class add_pigment_form extends javax.swing.JFrame {
 
             this.edit_but.setText("Edit");
             add_button.setText("Add Pigment");
-            this.fill_table();
+            model = this.getUpdatedPigmentTable();
+            this.pigment_table.setModel(model);
             this.reset_pigment_text();
         }
         else
@@ -236,19 +240,24 @@ public class add_pigment_form extends javax.swing.JFrame {
         
     }//GEN-LAST:event_close_butActionPerformed
 
-    private void pig_textKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_pig_textKeyReleased
-        // TODO add your handling code here:
-        String text = this.pig_text.getText();
+    private void update_row_filter(String row_filter_text)
+    {
         TableRowSorter<TableModel> rowSorter
             = new TableRowSorter<>(this.pigment_table.getModel());
         
         this.pigment_table.setRowSorter(rowSorter);
         
-        if (text.trim().length() == 0) {
+        if (row_filter_text.trim().length() == 0) {
             rowSorter.setRowFilter(null);
         } else {
-            rowSorter.setRowFilter(RowFilter.regexFilter("(?i)" + text));        
+            rowSorter.setRowFilter(RowFilter.regexFilter("(?i)" + row_filter_text));        
         }
+    }
+    
+    private void pig_textKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_pig_textKeyReleased
+        // TODO add your handling code here:
+        update_row_filter(this.pig_text.getText());
+        
     }//GEN-LAST:event_pig_textKeyReleased
 
     private void pig_textFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_pig_textFocusGained
@@ -268,11 +277,12 @@ public class add_pigment_form extends javax.swing.JFrame {
 
     private void edit_butActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edit_butActionPerformed
         // TODO add your handling code here:
+        
         if(edit_but.getText().equals("Edit"))
         {
             pig_text.setForeground(Color.BLACK);
-            pig_text.setText(this.pigment_table.getModel().getValueAt(this.pigment_table.getSelectedRow(), 0).toString());
-            
+            this.temporary_string = this.pigment_table.getModel().getValueAt(this.pigment_table.getSelectedRow(), 0).toString();
+            pig_text.setText(temporary_string);
             model.removeRow(this.pigment_table.getSelectedRow());
             this.update_this_pigment.setPigment_name(pig_text.getText());
             
@@ -281,8 +291,10 @@ public class add_pigment_form extends javax.swing.JFrame {
         }
         else
         {
-            model.addRow(new String[]{pig_text.getText()});
             
+            model.addRow(new String[]{temporary_string});
+            temporary_string = "";
+            this.update_row_filter("");
             edit_but.setText("Edit");
             this.add_button.setText("Add Pigment");
             this.reset_pigment_text();
@@ -324,10 +336,11 @@ public class add_pigment_form extends javax.swing.JFrame {
         });
     }
     
-    public void fill_table() {      
+    public DefaultTableModel getUpdatedPigmentTable() {      
         
+        DefaultTableModel model_original = new DefaultTableModel();
         //model.addColumn("Pigment ID");
-        model.addColumn("Pigment Name");
+        model_original.addColumn("Pigment Name");
         //model.addColumn("Stock");
         //model.addColumn("Tingi");    
         
@@ -335,11 +348,12 @@ public class add_pigment_form extends javax.swing.JFrame {
         ArrayList new_list =all_pigment.get_all_pigment_name();
         for(int x=0; x<new_list.size(); x++)
         {
-            model.addRow(new Object[]{new_list.get(x).toString()});
+            model_original.addRow(new Object[]{new_list.get(x).toString()});
         }
         
         //pigment_table.setTableHeader(null);
-        pigment_table.setModel(model);
+        
+        return model_original;
     }
     
     

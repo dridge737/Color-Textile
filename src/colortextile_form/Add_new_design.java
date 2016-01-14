@@ -3667,31 +3667,33 @@ public class Add_new_design extends javax.swing.JFrame {
         colortextile_class.pigment list_pigment = new colortextile_class.pigment();
         ArrayList<String> pigment_list = list_pigment.get_all_pigment_name();
         addBlankSpace();
-        
-        for (String pigment_list1 : pigment_list) {
-            name1.addItem(pigment_list1);
-            name2.addItem(pigment_list1);
-            name3.addItem(pigment_list1);
-            name5.addItem(pigment_list1);
-            name6.addItem(pigment_list1);
-            name7.addItem(pigment_list1);
-            name9.addItem(pigment_list1);
-            name10.addItem(pigment_list1);
-            name11.addItem(pigment_list1);
-            name13.addItem(pigment_list1);
-            name14.addItem(pigment_list1);
-            name15.addItem(pigment_list1);
-            name17.addItem(pigment_list1);
-            name18.addItem(pigment_list1);
-            name19.addItem(pigment_list1);
-            name21.addItem(pigment_list1);
-            name22.addItem(pigment_list1);
-            name23.addItem(pigment_list1);
-            name24.addItem(pigment_list1);
-            name25.addItem(pigment_list1);
-            name26.addItem(pigment_list1);
+        if(pigment_list.size() != 0 )
+        {
+            for (String pigment_list1 : pigment_list) {
+                name1.addItem(pigment_list1);
+                name2.addItem(pigment_list1);
+                name3.addItem(pigment_list1);
+                name5.addItem(pigment_list1);
+                name6.addItem(pigment_list1);
+                name7.addItem(pigment_list1);
+                name9.addItem(pigment_list1);
+                name10.addItem(pigment_list1);
+                name11.addItem(pigment_list1);
+                name13.addItem(pigment_list1);
+                name14.addItem(pigment_list1);
+                name15.addItem(pigment_list1);
+                name17.addItem(pigment_list1);
+                name18.addItem(pigment_list1);
+                name19.addItem(pigment_list1);
+                name21.addItem(pigment_list1);
+                name22.addItem(pigment_list1);
+                name23.addItem(pigment_list1);
+                name24.addItem(pigment_list1);
+                name25.addItem(pigment_list1);
+                name26.addItem(pigment_list1);
         }
         this.last_added_pigment_no = list_pigment.get_last_pigment_id();
+        }
         setJobString();   
     }
     
