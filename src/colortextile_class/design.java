@@ -252,6 +252,22 @@ public class design{
         return new_conn.get_all_fabric_styles();
     }
     
+    public DefaultTableModel get_all_fabric_style_table_model() {      
+        
+        DefaultTableModel model_original = new DefaultTableModel();
+        model_original.addColumn("Fabric Name");  
+        
+        ArrayList new_list =this.get_all_fabric_styles();
+        for(int x=0; x<new_list.size(); x++)
+        {
+            model_original.addRow(new Object[]{new_list.get(x).toString()});
+        }
+        
+        //pigment_table.setTableHeader(null);
+        
+        return model_original;
+    }
+    
     public void view_design_details()
     {
         System.out.println("Design_code : " +this.getDesign_code());

@@ -10,7 +10,9 @@ import colortextile_class.design;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -19,6 +21,7 @@ import javax.swing.JOptionPane;
 public class fabric_style extends javax.swing.JFrame {
 
     Recipe_functions this_function = new Recipe_functions();
+    DefaultTableModel model = new DefaultTableModel();
     /**
      * Creates new form fabric_style
      */
@@ -26,6 +29,7 @@ public class fabric_style extends javax.swing.JFrame {
         initComponents();
         //this.setSize(406, 365);
         center_window();
+        get_updated_table();
     }
     
     public void center_window()
@@ -62,17 +66,20 @@ public class fabric_style extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         kilograms = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        pigment_table = new javax.swing.JTable();
+        jLabel10 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(51, 153, 255));
         jPanel1.setLayout(null);
 
-        title.setFont(new java.awt.Font("Century Gothic", 0, 36)); // NOI18N
+        title.setFont(new java.awt.Font("Century Gothic", 0, 30)); // NOI18N
         title.setForeground(new java.awt.Color(255, 255, 255));
         title.setText("Add New Fabric");
         jPanel1.add(title);
-        title.setBounds(20, 20, 342, 45);
+        title.setBounds(20, 20, 342, 38);
 
         fabric_name.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
         fabric_name.setForeground(new java.awt.Color(205, 205, 205));
@@ -86,7 +93,7 @@ public class fabric_style extends javax.swing.JFrame {
             }
         });
         jPanel1.add(fabric_name);
-        fabric_name.setBounds(40, 240, 330, 30);
+        fabric_name.setBounds(20, 295, 370, 30);
 
         cancel_button.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         cancel_button.setText("Close");
@@ -96,7 +103,7 @@ public class fabric_style extends javax.swing.JFrame {
             }
         });
         jPanel1.add(cancel_button);
-        cancel_button.setBounds(210, 400, 180, 40);
+        cancel_button.setBounds(210, 470, 180, 40);
 
         add_button.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         add_button.setText("Add New Fabric");
@@ -106,13 +113,13 @@ public class fabric_style extends javax.swing.JFrame {
             }
         });
         jPanel1.add(add_button);
-        add_button.setBounds(20, 400, 180, 40);
+        add_button.setBounds(18, 470, 180, 40);
 
         jLabel1.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Fabric Formula :");
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(10, 270, 150, 30);
+        jLabel1.setBounds(10, 330, 150, 30);
 
         FormulaPanel.setOpaque(false);
 
@@ -221,7 +228,36 @@ public class fabric_style extends javax.swing.JFrame {
         );
 
         jPanel1.add(FormulaPanel);
-        FormulaPanel.setBounds(10, 300, 380, 90);
+        FormulaPanel.setBounds(10, 360, 380, 90);
+
+        pigment_table.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        pigment_table.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        pigment_table.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        pigment_table.setRowHeight(20);
+        pigment_table.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        jScrollPane1.setViewportView(pigment_table);
+
+        jPanel1.add(jScrollPane1);
+        jScrollPane1.setBounds(20, 110, 370, 180);
+
+        jLabel10.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel10.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel10.setText("Fabric List ");
+        jLabel10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
+        jPanel1.add(jLabel10);
+        jLabel10.setBounds(20, 79, 370, 30);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -231,7 +267,7 @@ public class fabric_style extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 453, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 520, Short.MAX_VALUE)
         );
 
         pack();
@@ -260,6 +296,14 @@ public class fabric_style extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_cancel_buttonActionPerformed
 
+    private void get_updated_table()
+    {
+        model = new colortextile_class.design().get_all_fabric_style_table_model();
+        this.pigment_table.setModel(model);
+    }
+    
+    
+    
     private void add_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_buttonActionPerformed
         // TODO add your handling code here:
         if(!fabric_name.getText().equals("Fabric Name :") && !kilograms.getText().equals("Kilograms"))
@@ -352,6 +396,7 @@ public class fabric_style extends javax.swing.JFrame {
     private javax.swing.JButton cancel_button;
     private javax.swing.JTextField fabric_name;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -361,8 +406,10 @@ public class fabric_style extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextField kilograms;
+    private javax.swing.JTable pigment_table;
     private javax.swing.JLabel title;
     // End of variables declaration//GEN-END:variables
 }
