@@ -25,7 +25,6 @@ public class add_pigment_form extends javax.swing.JFrame {
 
     DefaultTableModel model = new DefaultTableModel();
     pigment update_this_pigment = new pigment();
-    String temporary_string;
     /**
      * Creates new form add_pigment_form
      */
@@ -78,7 +77,7 @@ public class add_pigment_form extends javax.swing.JFrame {
         jPanel1.add(jLabel8);
         jLabel8.setBounds(20, 20, 360, 40);
 
-        del_button.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        del_button.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
         del_button.setText("Delete");
         del_button.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         del_button.addActionListener(new java.awt.event.ActionListener() {
@@ -162,7 +161,7 @@ public class add_pigment_form extends javax.swing.JFrame {
         jPanel1.add(pig_text);
         pig_text.setBounds(10, 330, 400, 30);
 
-        edit_but.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        edit_but.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
         edit_but.setText("Edit");
         edit_but.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         edit_but.addActionListener(new java.awt.event.ActionListener() {
@@ -173,7 +172,7 @@ public class add_pigment_form extends javax.swing.JFrame {
         jPanel1.add(edit_but);
         edit_but.setBounds(110, 390, 100, 50);
 
-        close_but.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        close_but.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
         close_but.setText("Close");
         close_but.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         close_but.addActionListener(new java.awt.event.ActionListener() {
@@ -302,10 +301,9 @@ public class add_pigment_form extends javax.swing.JFrame {
         if(edit_but.getText().equals("Edit"))
         {
             pig_text.setForeground(Color.BLACK);
-            this.temporary_string = this.pigment_table.getModel().getValueAt(this.pigment_table.getSelectedRow(), 0).toString();
-            pig_text.setText(temporary_string);
+            this.update_this_pigment.setPigment_name(this.pigment_table.getModel().getValueAt(this.pigment_table.getSelectedRow(), 0).toString());
+            pig_text.setText(update_this_pigment.getPigment_name());
             model.removeRow(this.pigment_table.getSelectedRow());
-            this.update_this_pigment.setPigment_name(pig_text.getText());
             
             this.edit_but.setText("Cancel");
             this.add_button.setText("Save");
@@ -313,8 +311,8 @@ public class add_pigment_form extends javax.swing.JFrame {
         }
         else
         {
-            model.addRow(new String[]{temporary_string});
-            temporary_string = "";
+            model.addRow(new String[]{update_this_pigment.getPigment_name()});
+            update_this_pigment.setPigment_name("");
             this.update_row_filter("");
             edit_but.setText("Edit");
             this.add_button.setText("Add Pigment");

@@ -12,7 +12,10 @@ import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
 
 /**
  *
@@ -22,6 +25,8 @@ public class fabric_style extends javax.swing.JFrame {
 
     Recipe_functions this_function = new Recipe_functions();
     DefaultTableModel model = new DefaultTableModel();
+    colortextile_class.design temporary_fabric_style = new colortextile_class.design();
+
     /**
      * Creates new form fabric_style
      */
@@ -30,14 +35,14 @@ public class fabric_style extends javax.swing.JFrame {
         //this.setSize(406, 365);
         center_window();
         get_updated_table();
+        
     }
-    
-    public void center_window()
-    {
+
+    public void center_window() {
         Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
         int x = (int) ((dimension.getWidth() - this.getWidth()) / 2);
         int y = (int) ((dimension.getHeight() - this.getHeight()) / 2);
-        this.setLocation(x,y);
+        this.setLocation(x, y);
     }
 
     /**
@@ -67,8 +72,10 @@ public class fabric_style extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         kilograms = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        pigment_table = new javax.swing.JTable();
+        fabric_table = new javax.swing.JTable();
         jLabel10 = new javax.swing.JLabel();
+        delete_but = new javax.swing.JButton();
+        edit_but = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -92,28 +99,36 @@ public class fabric_style extends javax.swing.JFrame {
                 fabric_nameFocusLost(evt);
             }
         });
+        fabric_name.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                fabric_nameKeyReleased(evt);
+            }
+        });
         jPanel1.add(fabric_name);
         fabric_name.setBounds(20, 295, 370, 30);
 
-        cancel_button.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        cancel_button.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
         cancel_button.setText("Close");
+        cancel_button.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         cancel_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cancel_buttonActionPerformed(evt);
             }
         });
         jPanel1.add(cancel_button);
-        cancel_button.setBounds(210, 470, 180, 40);
+        cancel_button.setBounds(310, 470, 90, 40);
 
-        add_button.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        add_button.setText("Add New Fabric");
+        add_button.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
+        add_button.setText("Add Fabric");
+        add_button.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        add_button.setMargin(new java.awt.Insets(0, 14, 0, 14));
         add_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 add_buttonActionPerformed(evt);
             }
         });
         jPanel1.add(add_button);
-        add_button.setBounds(18, 470, 180, 40);
+        add_button.setBounds(7, 470, 110, 40);
 
         jLabel1.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -230,8 +245,8 @@ public class fabric_style extends javax.swing.JFrame {
         jPanel1.add(FormulaPanel);
         FormulaPanel.setBounds(10, 360, 380, 90);
 
-        pigment_table.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        pigment_table.setModel(new javax.swing.table.DefaultTableModel(
+        fabric_table.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        fabric_table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -242,10 +257,10 @@ public class fabric_style extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        pigment_table.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        pigment_table.setRowHeight(20);
-        pigment_table.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        jScrollPane1.setViewportView(pigment_table);
+        fabric_table.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        fabric_table.setRowHeight(20);
+        fabric_table.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        jScrollPane1.setViewportView(fabric_table);
 
         jPanel1.add(jScrollPane1);
         jScrollPane1.setBounds(20, 110, 370, 180);
@@ -258,6 +273,28 @@ public class fabric_style extends javax.swing.JFrame {
         jLabel10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
         jPanel1.add(jLabel10);
         jLabel10.setBounds(20, 79, 370, 30);
+
+        delete_but.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
+        delete_but.setText("Delete");
+        delete_but.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        delete_but.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                delete_butActionPerformed(evt);
+            }
+        });
+        jPanel1.add(delete_but);
+        delete_but.setBounds(216, 470, 90, 40);
+
+        edit_but.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
+        edit_but.setText("Edit");
+        edit_but.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        edit_but.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                edit_butActionPerformed(evt);
+            }
+        });
+        jPanel1.add(edit_but);
+        edit_but.setBounds(122, 470, 90, 40);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -275,8 +312,7 @@ public class fabric_style extends javax.swing.JFrame {
 
     private void fabric_nameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fabric_nameFocusGained
         // TODO add your handling code here:
-        if(fabric_name.getText().equals("Fabric Name :"))
-        {
+        if (fabric_name.getText().equals("Fabric Name :")) {
             this.fabric_name.setText("");
             this.fabric_name.setForeground(Color.BLACK);
         }
@@ -284,57 +320,57 @@ public class fabric_style extends javax.swing.JFrame {
 
     private void fabric_nameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fabric_nameFocusLost
         // TODO add your handling code here:
-        if(fabric_name.getText().length() == 0)
-        {
-            this.fabric_name.setText("Fabric Name :");
-            this.fabric_name.setForeground(new Color(205,205,205));
+        
+        if (fabric_name.getText().length() == 0) {
+            this.reset_fabric_text();
         }
     }//GEN-LAST:event_fabric_nameFocusLost
 
+    private void reset_fabric_text()
+    {
+        this.fabric_name.setText("Fabric Name :");
+            this.fabric_name.setForeground(new Color(205, 205, 205));
+    }
+    
     private void cancel_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancel_buttonActionPerformed
         // TODO add your handling code here:
         this.dispose();
     }//GEN-LAST:event_cancel_buttonActionPerformed
 
-    private void get_updated_table()
-    {
+    private void get_updated_table() {
         model = new colortextile_class.design().get_all_fabric_style_table_model();
-        this.pigment_table.setModel(model);
+        this.fabric_table.setModel(model);
     }
-    
-    
-    
+
     private void add_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_buttonActionPerformed
         // TODO add your handling code here:
-        if(!fabric_name.getText().equals("Fabric Name :") && !kilograms.getText().equals("Kilograms"))
-        {
-            if(!fabric_name.getText().toUpperCase().equals("PONGEE") ||
-                    !fabric_name.getText().toUpperCase().equals("KATUNIA") ||
-                    !fabric_name.getText().toUpperCase().equals("COTTON") ||
-                    !fabric_name.getText().toUpperCase().equals("MICROPEACH") ||
-                    !fabric_name.getText().toUpperCase().equals("TC") ||
-                    !fabric_name.getText().toUpperCase().equals("TROPICANA"))
-            {
+        if (!fabric_name.getText().equals("Fabric Name :") && !kilograms.getText().equals("Kilograms")) {
+            if (!fabric_name.getText().toUpperCase().equals("PONGEE")
+                    || !fabric_name.getText().toUpperCase().equals("KATUNIA")
+                    || !fabric_name.getText().toUpperCase().equals("COTTON")
+                    || !fabric_name.getText().toUpperCase().equals("MICROPEACH")
+                    || !fabric_name.getText().toUpperCase().equals("TC")
+                    || !fabric_name.getText().toUpperCase().equals("TROPICANA")) {
                 design this_design = new design();
                 this_design.setFabric_style(this.fabric_name.getText().toUpperCase());
                 this_design.setFabric_kilogram(Float.parseFloat(this.kilograms.getText()));
-                
-                if(this_design.add_fabric_style()){
+
+                if (this_design.add_fabric_style()) {
                     JOptionPane.showMessageDialog(null, "Fabric has successfully been added.");
                     this.dispose();
                 }
-            }
-            else
+            } else {
                 JOptionPane.showMessageDialog(null, "Fabric already been added.");
-            
-        }
-        else
+            }
+
+        } else {
             JOptionPane.showMessageDialog(null, "Please place a fabric name and kilograms");
+        }
     }//GEN-LAST:event_add_buttonActionPerformed
 
     private void kilogramsFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_kilogramsFocusGained
         // TODO add your handling code here:
-        if(this.kilograms.getText().equals("Kilograms")){
+        if (this.kilograms.getText().equals("Kilograms")) {
             this.kilograms.setText("");
             this.kilograms.setForeground(Color.BLACK);
         }
@@ -342,19 +378,75 @@ public class fabric_style extends javax.swing.JFrame {
 
     private void kilogramsFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_kilogramsFocusLost
         // TODO add your handling code here:
-        if(this.kilograms.getText().length() == 0)
-        {
+        if (this.kilograms.getText().length() == 0) {
             this.kilograms.setText("Kilograms");
-            this.kilograms.setForeground(new Color(205,205,205));
+            this.kilograms.setForeground(new Color(205, 205, 205));
         }
     }//GEN-LAST:event_kilogramsFocusLost
 
     private void kilogramsKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_kilogramsKeyReleased
         // TODO add your handling code here:
-        if(this_function.checkText2(kilograms.getText()))
+        if (this_function.checkText2(kilograms.getText())) {
             kilograms.setText(kilograms.getText().replaceAll("[^0-9]", ""));
+        }
     }//GEN-LAST:event_kilogramsKeyReleased
 
+    private void delete_butActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_delete_butActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_delete_butActionPerformed
+
+    private void edit_butActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edit_butActionPerformed
+        // TODO add your handling code here:
+        
+        if (fabric_name.getText().length() == 0) {
+            this.fabric_name.setText("Fabric Name :");
+            this.fabric_name.setForeground(new Color(205, 205, 205));
+        }
+        
+        
+        if(edit_but.getText().equals("Edit"))
+        {
+            this.fabric_name.setForeground(Color.BLACK);
+            this.temporary_fabric_style.setFabric_style(this.fabric_table.getModel().getValueAt(this.fabric_table.getSelectedRow(), 0).toString());
+            this.fabric_name.setText(temporary_fabric_style.getFabric_style());
+            model.removeRow(this.fabric_table.getSelectedRow());
+            
+            this.edit_but.setText("Cancel");
+            this.add_button.setText("Save");
+            this.delete_but.setEnabled(false);
+        }
+        else
+        {
+            model.addRow(new String[]{temporary_fabric_style.getFabric_style()});
+            temporary_fabric_style.setFabric_style("");
+            this.update_row_filter("");
+            edit_but.setText("Edit");
+            this.add_button.setText("Add Fabric");
+            this.delete_but.setEnabled(true);
+            this.reset_fabric_text();
+        }
+        
+    }//GEN-LAST:event_edit_butActionPerformed
+
+    private void fabric_nameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fabric_nameKeyReleased
+        // TODO add your handling code here:
+        this.update_row_filter(this.fabric_name.getText());
+    }//GEN-LAST:event_fabric_nameKeyReleased
+
+    private void update_row_filter(String row_filter_text)
+    {
+        TableRowSorter<TableModel> rowSorter
+            = new TableRowSorter<>(this.fabric_table.getModel());
+        
+        this.fabric_table.setRowSorter(rowSorter);
+        
+        if (row_filter_text.trim().length() == 0) {
+            rowSorter.setRowFilter(null);
+        } else {
+            rowSorter.setRowFilter(RowFilter.regexFilter("(?i)" + row_filter_text));        
+        }
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -394,7 +486,10 @@ public class fabric_style extends javax.swing.JFrame {
     private javax.swing.JPanel FormulaPanel;
     private javax.swing.JButton add_button;
     private javax.swing.JButton cancel_button;
+    private javax.swing.JButton delete_but;
+    private javax.swing.JButton edit_but;
     private javax.swing.JTextField fabric_name;
+    private javax.swing.JTable fabric_table;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
@@ -409,7 +504,6 @@ public class fabric_style extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextField kilograms;
-    private javax.swing.JTable pigment_table;
     private javax.swing.JLabel title;
     // End of variables declaration//GEN-END:variables
 }

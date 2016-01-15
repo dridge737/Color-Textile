@@ -70,7 +70,7 @@
         <Component class="javax.swing.JButton" name="del_button">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Century Gothic" size="14" style="0"/>
+              <Font name="Century Gothic" size="16" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Delete"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -227,7 +227,7 @@
         <Component class="javax.swing.JButton" name="edit_but">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Century Gothic" size="14" style="0"/>
+              <Font name="Century Gothic" size="16" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Edit"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -250,7 +250,7 @@
         <Component class="javax.swing.JButton" name="close_but">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Century Gothic" size="14" style="0"/>
+              <Font name="Century Gothic" size="16" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Close"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
