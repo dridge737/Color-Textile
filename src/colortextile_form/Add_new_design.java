@@ -3450,7 +3450,7 @@ public class Add_new_design extends javax.swing.JFrame {
 
     private void add_fabricActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_fabricActionPerformed
         // TODO add your handling code here:
-        fabric_style new_fab_window = new fabric_style();
+        fabric_style_form new_fab_window = new fabric_style_form();
         new_fab_window.setVisible(true);
         this.fabric_style_screen_showed = true;
     }//GEN-LAST:event_add_fabricActionPerformed

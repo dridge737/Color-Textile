@@ -42,7 +42,7 @@ public class fabric_style {
     public int get_fabric_style_id()
     {
         Database.DB_Manager new_conn = new Database.DB_Manager();
-        return new_conn.get_fabric_style_id(this.fabric_style);
+        return new_conn.get_id_fabric_style(this.fabric_style);
     }
     
     public ArrayList<String> get_all_fabric_styles()

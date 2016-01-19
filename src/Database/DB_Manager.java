@@ -98,11 +98,11 @@ public class DB_Manager {
         try {
              
             conn = dbc.getConnection();
-            conn.prepareStatement("INSERT INTO fabric_style (fabric_name, kilogram) "
-                                            + "VALUES (?, ?)");
+            ps = conn.prepareStatement("INSERT INTO fabric_style (fabric_name, kilogram) "
+                                            + " VALUES (?, ?)");
             
             int item = 1;
-            ps.setString(item++, fabric_name.toUpperCase());
+            ps.setString(item++, fabric_name);
             ps.setFloat(item++, fab_kilogram);
             ps.executeUpdate();
 
@@ -1195,7 +1195,7 @@ public class DB_Manager {
         return customer_name;
     }
     
-    public int get_fabric_style_id(String fabric_name)
+    public int get_id_fabric_style(String fabric_name)
     {
         DBConnection db = new DBConnection();
         Connection conn = null;
@@ -2741,6 +2741,29 @@ public class DB_Manager {
           int item = 1;
           ps.setInt(item++, this_purchase.getId_purchase());
           ps.executeUpdate();
+        }
+        catch (SQLException ex)
+        {
+            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex); 
+        }
+        this.closeConn(conn, ps);
+    }
+    
+    public void delete_this_fabric(int id_fabric)
+    {
+        DBConnection db = new DBConnection();
+        Connection conn = null;
+        PreparedStatement ps = null;
+        
+        try{
+            conn = db.getConnection();
+            ps = conn.prepareStatement("DELETE FROM fabric_style"
+                                                        +" WHERE id_fabric = ?");
+            int item = 1;
+            ps.setInt(item++, id_fabric);
+            
+            ps.executeUpdate();
+            
         }
         catch (SQLException ex)
         {

@@ -25,6 +25,7 @@ public class design{
     private int total_quantity;
     private float percent;
     private float fabric_kilogram;
+    private int fabric_id;
     
     public design(){}
     
@@ -231,7 +232,8 @@ public class design{
     
     public boolean add_fabric_style()
     {
-        if(get_fabric_style_id() == -1)
+        set_fabric_style_id_from_style();
+        if(this.fabric_id == -1)
         {
             Database.DB_Manager new_conn = new Database.DB_Manager();
             new_conn.add_fabric_style(fabric_style, this.fabric_kilogram);
@@ -240,10 +242,10 @@ public class design{
         return false;
     }
     
-    public int get_fabric_style_id()
+    public void set_fabric_style_id_from_style()
     {
         Database.DB_Manager new_conn = new Database.DB_Manager();
-        return new_conn.get_fabric_style_id(this.fabric_style);
+        this.fabric_id = new_conn.get_id_fabric_style(this.fabric_style);
     }
     
     public ArrayList<String> get_all_fabric_styles()
@@ -266,6 +268,12 @@ public class design{
         //pigment_table.setTableHeader(null);
         
         return model_original;
+    }
+    
+    public void delete_fabric_style()
+    {
+        Database.DB_Manager new_conn = new Database.DB_Manager();
+        new_conn.delete_this_fabric(fabric_id);
     }
     
     public void view_design_details()

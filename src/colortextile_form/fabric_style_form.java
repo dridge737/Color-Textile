@@ -21,7 +21,7 @@ import javax.swing.table.TableRowSorter;
  *
  * @author Eldridge
  */
-public class fabric_style extends javax.swing.JFrame {
+public class fabric_style_form extends javax.swing.JFrame {
 
     Recipe_functions this_function = new Recipe_functions();
     DefaultTableModel model = new DefaultTableModel();
@@ -30,7 +30,7 @@ public class fabric_style extends javax.swing.JFrame {
     /**
      * Creates new form fabric_style
      */
-    public fabric_style() {
+    public fabric_style_form() {
         initComponents();
         //this.setSize(406, 365);
         center_window();
@@ -345,23 +345,15 @@ public class fabric_style extends javax.swing.JFrame {
     private void add_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_buttonActionPerformed
         // TODO add your handling code here:
         if (!fabric_name.getText().equals("Fabric Name :") && !kilograms.getText().equals("Kilograms")) {
-            if (!fabric_name.getText().toUpperCase().equals("PONGEE")
-                    || !fabric_name.getText().toUpperCase().equals("KATUNIA")
-                    || !fabric_name.getText().toUpperCase().equals("COTTON")
-                    || !fabric_name.getText().toUpperCase().equals("MICROPEACH")
-                    || !fabric_name.getText().toUpperCase().equals("TC")
-                    || !fabric_name.getText().toUpperCase().equals("TROPICANA")) {
+            
                 design this_design = new design();
                 this_design.setFabric_style(this.fabric_name.getText().toUpperCase());
                 this_design.setFabric_kilogram(Float.parseFloat(this.kilograms.getText()));
-
+                    
                 if (this_design.add_fabric_style()) {
                     JOptionPane.showMessageDialog(null, "Fabric has successfully been added.");
                     this.dispose();
                 }
-            } else {
-                JOptionPane.showMessageDialog(null, "Fabric already been added.");
-            }
 
         } else {
             JOptionPane.showMessageDialog(null, "Please place a fabric name and kilograms");
@@ -393,6 +385,18 @@ public class fabric_style extends javax.swing.JFrame {
 
     private void delete_butActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_delete_butActionPerformed
         // TODO add your handling code here:
+        
+        int CloseorNoreply = JOptionPane.showConfirmDialog(null,"Delete this Fabric? "
+                  ,"Delete Fabric?", JOptionPane.YES_NO_OPTION);
+        if(CloseorNoreply == JOptionPane.YES_OPTION)
+        {
+            String fabric_string = this.fabric_table.getModel().getValueAt(this.fabric_table.getSelectedRow(), 0).toString();
+            this.temporary_fabric_style.setFabric_style(fabric_string);
+            this.temporary_fabric_style.set_fabric_style_id_from_style();
+            this.temporary_fabric_style.delete_fabric_style();
+            this.get_updated_table();
+        }
+        
     }//GEN-LAST:event_delete_butActionPerformed
 
     private void edit_butActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edit_butActionPerformed
@@ -464,20 +468,21 @@ public class fabric_style extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(fabric_style.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(fabric_style_form.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(fabric_style.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(fabric_style_form.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(fabric_style.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(fabric_style_form.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(fabric_style.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(fabric_style_form.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new fabric_style().setVisible(true);
+                new fabric_style_form().setVisible(true);
             }
         });
     }
