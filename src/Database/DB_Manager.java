@@ -2002,6 +2002,42 @@ public class DB_Manager {
          return current_purchase;
     }
     
+    public design get_fabric_details(int fabric_style_id)
+    {
+        DBConnection db = new DBConnection();
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        design current_fabric = new design();
+        
+        try
+         {
+            conn = db.getConnection();
+            ps = conn.prepareStatement(" SELECT *  ;"
+                                 + "FROM fabric_style "
+                                 + "WHERE id_fabric = ? ");
+            
+            int item = 1;
+            ps.setInt(item++, fabric_style_id);
+            /*  //FOR CHECKING/DEBUGGING
+            System.out.println("Date :" +new_purchase.getDate());
+            System.out.println("Colorway Id :"  new_purchase.getDesign_code);
+            */
+            rs = ps.executeQuery();
+            if(rs.first())
+            {
+                current_fabric.setFabric_kilogram(rs.getInt("kilogram"));
+                current_fabric.setFabric_style(rs.getString("fabric_name"));
+            }
+            
+        }
+        catch(SQLException ex){
+            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         this.closeConn(conn, ps, rs);
+         return current_fabric;
+    }
+    
     public purchase_order get_purchase_details(int purchase_id)
     {
         DBConnection db = new DBConnection();
@@ -2621,6 +2657,32 @@ public class DB_Manager {
         }
         this.closeConn(conn, ps);
           
+    }
+    
+    public void update_fabric(design this_fabric)
+    {
+        DBConnection db = new DBConnection();
+        Connection conn = null;
+        PreparedStatement ps = null;
+        try
+        {
+            conn = db.getConnection();
+            ps = conn.prepareStatement("UPDATE fabric_style "
+                                                        + " SET fabric_name = ?, kilogram"
+                                                        + " WHERE id_fabric= ?");
+            int item = 1;
+          //this_colorway.view_colorway_details();
+            ps.setString(item++, this_fabric.getFabric_style().toUpperCase());
+            ps.setFloat(item++, this_fabric.getFabric_kilogram());
+            ps.setInt(item++, this_fabric.getFabric_id());
+            ps.executeUpdate();
+          
+        }
+        catch (SQLException ex)
+        {
+            Logger.getLogger(DB_Manager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        this.closeConn(conn, ps);
     }
     
     public void update_colorway(colorway this_colorway)

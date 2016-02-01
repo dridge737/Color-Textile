@@ -233,7 +233,7 @@ public class design{
     public boolean add_fabric_style()
     {
         set_fabric_style_id_from_style();
-        if(this.fabric_id == -1)
+        if(this.getFabric_id() == -1)
         {
             Database.DB_Manager new_conn = new Database.DB_Manager();
             new_conn.add_fabric_style(fabric_style, this.fabric_kilogram);
@@ -245,7 +245,17 @@ public class design{
     public void set_fabric_style_id_from_style()
     {
         Database.DB_Manager new_conn = new Database.DB_Manager();
-        this.fabric_id = new_conn.get_id_fabric_style(this.fabric_style);
+        this.setFabric_id(new_conn.get_id_fabric_style(this.fabric_style));
+    }
+    
+    public void set_fabric_details_from_id()
+    {
+        Database.DB_Manager new_conn = new Database.DB_Manager();
+        design fabric_details = new_conn.get_fabric_details(getFabric_id());
+        
+        this.setFabric_kilogram(fabric_details.getFabric_kilogram());
+        this.setFabric_style(fabric_details.getFabric_style());
+        
     }
     
     public ArrayList<String> get_all_fabric_styles()
@@ -273,7 +283,7 @@ public class design{
     public void delete_fabric_style()
     {
         Database.DB_Manager new_conn = new Database.DB_Manager();
-        new_conn.delete_this_fabric(fabric_id);
+        new_conn.delete_this_fabric(getFabric_id());
     }
     
     public void view_design_details()
@@ -322,6 +332,20 @@ public class design{
     {
         Database.DB_Manager new_conn = new Database.DB_Manager();
         return new_conn.get_all_design_color();
+    }
+
+    /**
+     * @return the fabric_id
+     */
+    public int getFabric_id() {
+        return fabric_id;
+    }
+
+    /**
+     * @param fabric_id the fabric_id to set
+     */
+    public void setFabric_id(int fabric_id) {
+        this.fabric_id = fabric_id;
     }
     
     

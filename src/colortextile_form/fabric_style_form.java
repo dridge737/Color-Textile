@@ -346,6 +346,11 @@ public class fabric_style_form extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (!fabric_name.getText().equals("Fabric Name :") && !kilograms.getText().equals("Kilograms")) {
             
+            if(add_button.getText().equals("Save"))
+            {
+                this.temporary_fabric_style.delete_fabric_style();
+            }
+            
                 design this_design = new design();
                 this_design.setFabric_style(this.fabric_name.getText().toUpperCase());
                 this_design.setFabric_kilogram(Float.parseFloat(this.kilograms.getText()));
@@ -402,19 +407,16 @@ public class fabric_style_form extends javax.swing.JFrame {
     private void edit_butActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edit_butActionPerformed
         // TODO add your handling code here:
         
-        if (fabric_name.getText().length() == 0) {
-            this.fabric_name.setText("Fabric Name :");
-            this.fabric_name.setForeground(new Color(205, 205, 205));
-        }
-        
-        
         if(edit_but.getText().equals("Edit"))
         {
             this.fabric_name.setForeground(Color.BLACK);
             this.temporary_fabric_style.setFabric_style(this.fabric_table.getModel().getValueAt(this.fabric_table.getSelectedRow(), 0).toString());
             this.fabric_name.setText(temporary_fabric_style.getFabric_style());
+            this.temporary_fabric_style.set_fabric_style_id_from_style();
+            this.temporary_fabric_style.set_fabric_details_from_id();
             model.removeRow(this.fabric_table.getSelectedRow());
             
+            kilograms.setText(Float.toString(temporary_fabric_style.getFabric_kilogram()));
             this.edit_but.setText("Cancel");
             this.add_button.setText("Save");
             this.delete_but.setEnabled(false);
@@ -423,6 +425,7 @@ public class fabric_style_form extends javax.swing.JFrame {
         {
             model.addRow(new String[]{temporary_fabric_style.getFabric_style()});
             temporary_fabric_style.setFabric_style("");
+            kilograms.setText("");
             this.update_row_filter("");
             edit_but.setText("Edit");
             this.add_button.setText("Add Fabric");
