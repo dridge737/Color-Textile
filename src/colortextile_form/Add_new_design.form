@@ -203,14 +203,7 @@
               <Font name="Century Gothic" size="14" style="0"/>
             </Property>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="6">
-                <StringItem index="0" value="PONGEE"/>
-                <StringItem index="1" value="COTTON"/>
-                <StringItem index="2" value="KATUNIA"/>
-                <StringItem index="3" value="MICROPEACH"/>
-                <StringItem index="4" value="TC"/>
-                <StringItem index="5" value="TROPICANA"/>
-              </StringArray>
+              <StringArray count="0"/>
             </Property>
           </Properties>
           <Events>

@@ -309,7 +309,6 @@ public class production_recipe extends Design_with_colorway{
     {
         Database.DB_Manager new_conn = new Database.DB_Manager();
         return new_conn.get_all_design_code_from_date(Date);
-        
     }
     
     public float compute_this_kg_for_one_kilo(float colorway_kilogram)
@@ -355,6 +354,7 @@ public class production_recipe extends Design_with_colorway{
     public float compute_this_coverage(float kg)
     {
         this.set_fabric_details_from_fabric_style();
+        
         float coverage = (kg) *1000/this.get_quantity_sum()*100/this.getFabric_kilogram();
         /*
         float coverage = 0;
@@ -383,6 +383,7 @@ public class production_recipe extends Design_with_colorway{
     public float compute_this_coverage(float kg, float quantity)
     {
         this.set_fabric_details_from_fabric_style();
+        System.out.println("FABRIC KILOGRAMS = "+this.getFabric_kilogram());
         float coverage = (kg) *1000/quantity*100/this.getFabric_kilogram();
         /*
         float coverage = 0;
@@ -408,6 +409,7 @@ public class production_recipe extends Design_with_colorway{
     public float compute_this_kg_normalized(float coverage)
     {
         this.set_fabric_details_from_fabric_style();
+        System.out.println("FABRIC KILOGRAMS = "+this.getFabric_kilogram());
         float colorway_kilogram = (this.getFabric_kilogram()*coverage/100*1000)/1000;
         
         /*
@@ -435,8 +437,10 @@ public class production_recipe extends Design_with_colorway{
     {
         
         this.set_fabric_details_from_fabric_style();
+        System.out.println("FABRIC KILOGRAMS = "+this.getFabric_kilogram());
         float colorway_kilogram = (this.getFabric_kilogram()*coverage/100*this.get_quantity_sum())/1000;
                                     /*(8*coverage/10*this.get_quantity_sum())/1000;
+        
         float colorway_kilogram = 0;
        
         //System.out.println("TOTAL QUANTITY ="+this_quant);
@@ -462,6 +466,7 @@ public class production_recipe extends Design_with_colorway{
     public float compute_this_kg(float coverage, int quantity_total)
     {
         this.set_fabric_details_from_fabric_style();
+        System.out.println("FABRIC KILOGRAMS = "+this.getFabric_kilogram());
         float colorway_kilogram = (this.getFabric_kilogram()*coverage/100*quantity_total)/1000;
         /*
         float colorway_kilogram = 0;

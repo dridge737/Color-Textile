@@ -70,7 +70,6 @@ public class Add_new_design extends javax.swing.JFrame {
        });
         initComponents();
         addListItems();
-        
         //Center the form
         Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
         int x = (int) ((dimension.getWidth() - this.getWidth()) / 2);
@@ -82,12 +81,14 @@ public class Add_new_design extends javax.swing.JFrame {
         set_color_list_autocomplete();
         this.remove_and_add_all_binders();
         job_ord_label.setText(use_func.change_job_order_prefix(spinner_date));
-        current_style = fab_style_comb.getSelectedItem().toString();
+        
         design new_design = new design();
         for(String this_fabric : new_design.get_all_fabric_styles())
         {
             fab_style_comb.addItem(this_fabric);
         }
+        current_style = fab_style_comb.getSelectedItem().toString();
+        
     }
     public void remove_and_add_all_binders()
     {
@@ -526,7 +527,6 @@ public class Add_new_design extends javax.swing.JFrame {
         jLabel2.setBounds(30, 210, 153, 34);
 
         fab_style_comb.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        fab_style_comb.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "PONGEE", "COTTON", "KATUNIA", "MICROPEACH", "TC", "TROPICANA" }));
         fab_style_comb.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
             public void popupMenuCanceled(javax.swing.event.PopupMenuEvent evt) {
             }
@@ -2730,6 +2730,7 @@ public class Add_new_design extends javax.swing.JFrame {
                      recipe_to_add.set_design_details_and_colorway_details_from_design_code();
                      recipe_to_add.set_all_purchase_details_from_design_code_and_date();
                      recipe_to_add.set_job_order_list_using_design_code_and_purchase_id();
+                     recipe_to_add.compute_all_colorway_to_total_quantity();
                      prod_recipe.add(recipe_to_add);   
                      SpreadsheetTrial file_to_print = new SpreadsheetTrial();
                      file_to_print.bulk_print_item(prod_recipe);
@@ -3822,7 +3823,6 @@ public class Add_new_design extends javax.swing.JFrame {
         String Year = Integer.toString(cal.get(Calendar.YEAR));
         
         int Month = cal.get(Calendar.MONTH);
-        String Fabric = fab_style_comb.getSelectedItem().toString();
         job_ord_label.setText(Year.substring(2, 4) +"P-" + Month +"-");
     }
     /**

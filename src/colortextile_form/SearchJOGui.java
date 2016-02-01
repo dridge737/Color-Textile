@@ -391,7 +391,6 @@ public class SearchJOGui extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jTable1.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 jTable1MouseReleased(evt);
@@ -596,7 +595,6 @@ public class SearchJOGui extends javax.swing.JFrame {
         {
         EditRecipe editDesign = new EditRecipe(this.get_purchase_details_from_design_and_job_order().getId_purchase());
         editDesign.setVisible(true);
-        close();
         }
         else
              JOptionPane.showMessageDialog(null,"Please select a row to edit");
@@ -633,20 +631,29 @@ public class SearchJOGui extends javax.swing.JFrame {
 
     private void button_delete_ordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_delete_ordActionPerformed
         // TODO add your handling code here:
+        
         if( jTable1.getSelectedRows().length >0)
         {
-            purchase_order to_delete_purchase = get_purchase_details_from_design_and_job_order();
-            int CloseorNoreply = JOptionPane.showConfirmDialog(null,"Delete this purchase? "
+            int[] row = jTable1.getSelectedRows();
+        
+            for(int index_add = row.length-1; index_add>= 0; index_add-- )
+            {
+                //int row = jTable1.getSelectedRow();
+                String selected_job_order = jTable1.getValueAt(row[index_add], 0).toString();
+                purchase_order to_delete_purchase = get_purchase_details_from_design_and_job_order();
+                
+                int CloseorNoreply = JOptionPane.showConfirmDialog(null,"Delete this purchase? From Job order "+selected_job_order
                     + "(Yes to delete this pruchase) ", "Delete purchase?", JOptionPane.YES_NO_OPTION);
                 if(CloseorNoreply == JOptionPane.YES_OPTION)
                 {
                     to_delete_purchase.delete_purchase_order();
                     //job_order set = new job_order();
                     model = (DefaultTableModel) jTable1.getModel();
-                    model.removeRow(jTable1.convertRowIndexToModel(jTable1.getSelectedRow()));
+                    model.removeRow(jTable1.convertRowIndexToModel(row[index_add]));
                     //int row = jTable1.getSelectedRow();
                     //jTable1.remove(row);
                 }
+            }
         }
         else
              JOptionPane.showMessageDialog(null,"Please select a row to delete");

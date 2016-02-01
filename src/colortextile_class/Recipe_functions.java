@@ -36,18 +36,18 @@ public class Recipe_functions {
     {
         design for_fabric = new design();
         for_fabric.setFabric_style(fabric_style);
-        for_fabric.set_fabric_details_from_id();
+        for_fabric.set_fabric_details_from_fabric_style();
         
         return for_fabric;
     }
     
     public float compute_this_coverage(float kg, String fabric_style, String quantity_total)
     {
-        float computation = 0;
+        //float computation = 0;
         float this_quant = Float.parseFloat(quantity_total);
         
         design fabric_used = gather_fabric_details(fabric_style);
-        computation = (kg * 1000/ this_quant) * 100 / fabric_used.getFabric_kilogram();
+        float computation = (kg * 1000/ this_quant) * 100 / fabric_used.getFabric_kilogram();
         /*
         if(fabric_style.equals("PONGEE"))
         {
@@ -68,11 +68,11 @@ public class Recipe_functions {
     
     public float compute_this_kg(float coverage, String fabric_style, String quantity_total)
     {
-        float computation = 0;
+        //float computation = 0;
         float this_quant = Float.parseFloat(quantity_total);
         design fabric_used = gather_fabric_details(fabric_style);
         
-        float computation2 = (fabric_used.getFabric_kilogram()*coverage/100*this_quant)/1000;
+        float computation = (fabric_used.getFabric_kilogram()*coverage/100*this_quant)/1000;
         /*
         System.out.println("NEW computation = "+computation2);
         if(fabric_style.equals("PONGEE")){

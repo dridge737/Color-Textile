@@ -329,9 +329,7 @@ public class PrintForm extends javax.swing.JFrame {
                         search_print.getValueAt(row[index_add], 5).toString(),
                         search_print.getValueAt(row[index_add], 6).toString()
                     };
-                
                     temporary_table_model.addRow(this_set);
-                
             }
             else
             {
@@ -405,9 +403,10 @@ public class PrintForm extends javax.swing.JFrame {
                         recipe_to_add.set_design_details_and_colorway_details_from_design_code();
                         recipe_to_add.set_all_purchase_details_from_design_code_and_date();
                         recipe_to_add.set_job_order_list_using_design_code_and_purchase_id();
-                        recipe_to_add.view_all_colorway_details();
-                        recipe_to_add.view_all_job_order_details();
-                        recipe_to_add.view_all_puchase_order();
+                        recipe_to_add.compute_all_colorway_to_total_quantity();
+                        //recipe_to_add.view_all_colorway_details();
+                       // recipe_to_add.view_all_job_order_details();
+                        //recipe_to_add.view_all_puchase_order();
                         prod_recipe.add(recipe_to_add);
                     }
                 }

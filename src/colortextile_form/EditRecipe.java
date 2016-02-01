@@ -133,6 +133,7 @@ public class EditRecipe extends javax.swing.JFrame {
         }
         
         design new_design = new design();
+        fab_style_comb.removeAllItems();
         for(String this_fabric : new_design.get_all_fabric_styles())
         {
             fab_style_comb.addItem(this_fabric);
@@ -176,6 +177,7 @@ public class EditRecipe extends javax.swing.JFrame {
         
         //Set Design details to Text boxes (Design_name, Fabric_style, Design_color)
         design_name.setText(prod_recipe.getDesign_name());
+        current_style= prod_recipe.getFabric_style();
         fab_style_comb.setSelectedItem(prod_recipe.getFabric_style());
         //fabric_style.setText(prod_recipe.getFabric_style());
         design_color.setText(prod_recipe.getColor_name());
@@ -2819,6 +2821,7 @@ public class EditRecipe extends javax.swing.JFrame {
                      recipe_to_add.set_design_details_and_colorway_details_from_design_code();
                      recipe_to_add.set_all_purchase_details_from_design_code_and_date();
                      recipe_to_add.set_job_order_list_using_design_code_and_purchase_id();
+                     recipe_to_add.compute_all_colorway_to_total_quantity();
                      prod_recipe.add(recipe_to_add);   
                      SpreadsheetTrial file_to_print = new SpreadsheetTrial();
                      file_to_print.bulk_print_item(prod_recipe);
