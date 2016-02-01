@@ -2126,8 +2126,8 @@ public class Add_new_design extends javax.swing.JFrame {
         jPanel11.add(jTabbedPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 44, 748, 246));
 
         add_order.setBackground(new java.awt.Color(255, 255, 255));
-        add_order.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        add_order.setText("Add this Purchase");
+        add_order.setFont(new java.awt.Font("Century Gothic", 0, 17)); // NOI18N
+        add_order.setText("Add and Print Purchase");
         add_order.setToolTipText("");
         add_order.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2717,8 +2717,24 @@ public class Add_new_design extends javax.swing.JFrame {
             {
                 this.add_purchase(des_code);
                 this.add_job();
-                
-                int CloseorNoreply = JOptionPane.showConfirmDialog(null,"Successfully Added this Recipe! Close Window? "
+                int printornoreply = JOptionPane.showConfirmDialog(null,"Successfully Added this Recipe! Print this form?"
+                    + "(Yes to close this window) ", "Close this Window?", JOptionPane.YES_NO_OPTION);
+                if(printornoreply == JOptionPane.YES_OPTION)
+                {
+                    //production_recipe this_prod_recipe = new production_recipe();   
+                    //this_prod_recipe.setDate(this.spinner_date.getValue().toString());
+                     List<production_recipe> prod_recipe = new ArrayList<>();
+                     prod_recipe.add(this.get_design_details());
+                     SpreadsheetTrial file_to_print = new SpreadsheetTrial();
+                      file_to_print.bulk_print_item(prod_recipe);
+                      prod_recipe.clear();
+            //this.this_purchase.setPurchase_Id_from_Date_and_code();
+            //prod_recipe.set_design_details_from_purchase_order_id();
+            //this.this_purchase.set_job_order_list_using_purchase_order_id();
+            //SpreadsheetTrial printFile = new SpreadsheetTrial();
+            //printFile.print_this_job2(prod_recipe);
+                }
+                int CloseorNoreply = JOptionPane.showConfirmDialog(null,"Close Window? "
                     + "(Yes to close this window) ", "Close this Window?", JOptionPane.YES_NO_OPTION);
                 if(CloseorNoreply == JOptionPane.YES_OPTION)
                 this.dispose();

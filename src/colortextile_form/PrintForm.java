@@ -288,7 +288,7 @@ public class PrintForm extends javax.swing.JFrame {
         jLabel1.setBounds(20, 300, 130, 40);
 
         cancel_button.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        cancel_button.setText("Cancel & Exit");
+        cancel_button.setText("Close");
         cancel_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cancel_buttonActionPerformed(evt);

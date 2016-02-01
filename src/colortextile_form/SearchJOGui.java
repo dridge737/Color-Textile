@@ -113,15 +113,11 @@ public class SearchJOGui extends javax.swing.JFrame {
         DefaultTableModel model2 = new DefaultTableModel();
         purchase_order info = new purchase_order();
         
-        
-        
-        
-        
         DB_Manager conn= new DB_Manager();
         
         model.addColumn("Job Order");       // job_order
         model.addColumn("Customer Name");   //job_order
-        model.addColumn("date");            //job_order
+        model.addColumn("Date");            //job_order
         model.addColumn("Quantity");        //purchase order
         model.addColumn("Design Name");     //design
         model.addColumn("Colorway Name");   //design
@@ -129,7 +125,6 @@ public class SearchJOGui extends javax.swing.JFrame {
         //model.addColumn("#"); // purchaseorder
         try {
             if (rs.first()){
-                
                rs.previous();
                 while (rs.next())
                 {    
@@ -151,11 +146,8 @@ public class SearchJOGui extends javax.swing.JFrame {
                              design design_conn = new design();
                             design_conn.setDesign_code(Integer.parseInt(model2.getValueAt(i, 2).toString()));
                             design_conn.search_design();
-                          
-                           
                                 String[] set1 = 
                                 {
-                                    
                                     rs.getString("job_order_id"), //3
                                     conn.get_customer_name(rs.getInt("customer_id")),
                                     rs.getString("date"),
@@ -163,18 +155,13 @@ public class SearchJOGui extends javax.swing.JFrame {
                                     design_conn.getDesign_name(),
                                     design_conn.getColor_name(),
                                     design_conn.getFabric_style()
-                                    
-                                    
-                                    //Integer.toString(rs2.getInt("id_purchase"))
+                                        //Integer.toString(rs2.getInt("id_purchase"))
                                 };
                                 model.addRow(set1);
-                                
                          }
-                        
-                        
                      }
- 
                 }
+                rs.close();
             } 
             else 
             {
@@ -186,8 +173,6 @@ public class SearchJOGui extends javax.swing.JFrame {
             Logger.getLogger(SearchJOGui.class.getName()).log(Level.SEVERE, null, ex);
         }
         this.jTable1.setModel(model); 
-        
-        
     }
     
     
@@ -228,6 +213,8 @@ public class SearchJOGui extends javax.swing.JFrame {
         text_job_id2 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        button_delete = new javax.swing.JButton();
+        button_delete1 = new javax.swing.JButton();
 
         jFrame1.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         jFrame1.setTitle("Search Job Order");
@@ -389,6 +376,7 @@ public class SearchJOGui extends javax.swing.JFrame {
         getContentPane().setLayout(null);
 
         jPanel1.setBackground(new java.awt.Color(51, 153, 255));
+        jPanel1.setLayout(null);
 
         jTable1.setAutoCreateRowSorter(true);
         jTable1.setFont(new java.awt.Font("Century Gothic", 0, 15)); // NOI18N
@@ -416,24 +404,34 @@ public class SearchJOGui extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTable1);
 
+        jPanel1.add(jScrollPane1);
+        jScrollPane1.setBounds(33, 197, 929, 325);
+
         button_details.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        button_details.setText("Use Design");
+        button_details.setText("Use Selected Design");
         button_details.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_detailsActionPerformed(evt);
             }
         });
+        jPanel1.add(button_details);
+        button_details.setBounds(33, 528, 230, 35);
 
         button_edit.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        button_edit.setText("Edit Design");
+        button_edit.setText("Edit Purchase");
         button_edit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_editActionPerformed(evt);
             }
         });
+        jPanel1.add(button_edit);
+        button_edit.setBounds(275, 528, 230, 35);
 
         jDesktopPane1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         jDesktopPane1.add(label_pic, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 220, 180));
+
+        jPanel1.add(jDesktopPane1);
+        jDesktopPane1.setBounds(742, 11, 220, 180);
 
         text_job_id.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
         text_job_id.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -441,10 +439,14 @@ public class SearchJOGui extends javax.swing.JFrame {
                 text_job_idKeyReleased(evt);
             }
         });
+        jPanel1.add(text_job_id);
+        text_job_id.setBounds(180, 98, 380, 30);
 
         jLabel6.setFont(new java.awt.Font("Century Gothic", 0, 34)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Search Job Order");
+        jPanel1.add(jLabel6);
+        jLabel6.setBounds(33, 28, 289, 43);
 
         text_job_id2.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
         text_job_id2.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -452,73 +454,43 @@ public class SearchJOGui extends javax.swing.JFrame {
                 text_job_id2KeyReleased(evt);
             }
         });
+        jPanel1.add(text_job_id2);
+        text_job_id2.setBounds(180, 140, 380, 30);
 
-        jLabel1.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Search 1:");
+        jLabel1.setText("Search 1 :");
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(71, 98, 90, 30);
 
-        jLabel2.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Search 2:");
+        jLabel2.setText("Search 2 :");
+        jPanel1.add(jLabel2);
+        jLabel2.setBounds(71, 140, 90, 30);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(text_job_id2))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(78, 78, 78)
-                                .addComponent(text_job_id))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel1)
-                                    .addComponent(jLabel6))
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(button_details, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(button_edit, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(192, 192, 192)
-                        .addComponent(jDesktopPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 929, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(54, 54, 54)
-                        .addComponent(jLabel6)
-                        .addGap(16, 16, 16)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(text_job_id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(button_details, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(button_edit, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2)
-                            .addComponent(text_job_id2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(35, 35, 35))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jDesktopPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        button_delete.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        button_delete.setText("Delete Selected Item");
+        button_delete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_deleteActionPerformed(evt);
+            }
+        });
+        jPanel1.add(button_delete);
+        button_delete.setBounds(515, 528, 230, 35);
+
+        button_delete1.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        button_delete1.setText("Close");
+        button_delete1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_delete1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(button_delete1);
+        button_delete1.setBounds(758, 528, 200, 35);
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 990, 570);
+        jPanel1.setBounds(0, 0, 990, 580);
 
         setSize(new java.awt.Dimension(1006, 617));
         setLocationRelativeTo(null);
@@ -640,6 +612,16 @@ public class SearchJOGui extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.publicsorter();
     }//GEN-LAST:event_text_job_id2KeyReleased
+
+    private void button_deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_deleteActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_button_deleteActionPerformed
+
+    private void button_delete1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_delete1ActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_button_delete1ActionPerformed
     private int get_design_code_from_table_selected(){
         
         int row = this.get_table_row_value();
@@ -742,6 +724,8 @@ public class SearchJOGui extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton button_delete;
+    private javax.swing.JButton button_delete1;
     private javax.swing.JButton button_details;
     private javax.swing.JButton button_details1;
     private javax.swing.JButton button_edit;

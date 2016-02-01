@@ -4362,9 +4362,9 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Century Gothic" size="18" style="0"/>
+              <Font name="Century Gothic" size="17" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Add this Purchase"/>
+            <Property name="text" type="java.lang.String" value="Add and Print Purchase"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
           <AccessibilityProperties>
