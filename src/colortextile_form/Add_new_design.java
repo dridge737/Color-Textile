@@ -2425,7 +2425,7 @@ public class Add_new_design extends javax.swing.JFrame {
             new_design.setJobs_for_this(this.get_job_details());
             //Adds purchase order and design
             new_design.setAll_purchase(get_all_purchase_details(1));
-            new_design.view_all_job_order_details();
+            //new_design.view_all_job_order_details();
         }
         
         return new_design; 
@@ -2724,15 +2724,17 @@ public class Add_new_design extends javax.swing.JFrame {
                     //production_recipe this_prod_recipe = new production_recipe();   
                     //this_prod_recipe.setDate(this.spinner_date.getValue().toString());
                      List<production_recipe> prod_recipe = new ArrayList<>();
-                     prod_recipe.add(this.get_design_details());
+                     production_recipe recipe_to_add = new production_recipe();
+                     recipe_to_add.setDesign_code(des_code);
+                     recipe_to_add.setDate(use_func.get_date_from_spinner(spinner_date));
+                     recipe_to_add.set_design_details_and_colorway_details_from_design_code();
+                     recipe_to_add.set_all_purchase_details_from_design_code_and_date();
+                     recipe_to_add.set_job_order_list_using_design_code_and_purchase_id();
+                     prod_recipe.add(recipe_to_add);   
                      SpreadsheetTrial file_to_print = new SpreadsheetTrial();
-                      file_to_print.bulk_print_item(prod_recipe);
-                      prod_recipe.clear();
-            //this.this_purchase.setPurchase_Id_from_Date_and_code();
-            //prod_recipe.set_design_details_from_purchase_order_id();
-            //this.this_purchase.set_job_order_list_using_purchase_order_id();
-            //SpreadsheetTrial printFile = new SpreadsheetTrial();
-            //printFile.print_this_job2(prod_recipe);
+                     file_to_print.bulk_print_item(prod_recipe);
+                     prod_recipe.clear();
+            
                 }
                 int CloseorNoreply = JOptionPane.showConfirmDialog(null,"Close Window? "
                     + "(Yes to close this window) ", "Close this Window?", JOptionPane.YES_NO_OPTION);
@@ -2748,8 +2750,6 @@ public class Add_new_design extends javax.swing.JFrame {
             //this.this_purchase.set_job_order_list_using_purchase_order_id();
             //SpreadsheetTrial printFile = new SpreadsheetTrial();
             //printFile.print_this_job2(prod_recipe);
-            
-            
         }
     }//GEN-LAST:event_add_orderActionPerformed
     

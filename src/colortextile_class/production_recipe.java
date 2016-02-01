@@ -222,14 +222,14 @@ public class production_recipe extends Design_with_colorway{
     
     public void view_all_puchase_order()
      {
-         System.out.println("Size of this purchase is :" +this.getAll_purchase().size());
+         //System.out.println("Size of this purchase is :" +this.getAll_purchase().size());
         for (purchase_order all_purchase1 : getAll_purchase()) {
             all_purchase1.view_purchase_order_details();
         }
      }
     
     public void view_all_job_order_details(){
-        System.out.println("Size of this job is = "+jobs_for_this.size());
+        //System.out.println("Size of this job is = "+jobs_for_this.size());
         for(job_order all_jobs : jobs_for_this)
         {
             all_jobs.view_job_order_details();
@@ -317,7 +317,7 @@ public class production_recipe extends Design_with_colorway{
         //COMPUTE ITEM BY FIRST GETTING THE COVERAGE AS COVERAGE IS UNIVERSAL THROUGH DIFFERENT QUANTITIES
         float coverage = this.compute_this_coverage(colorway_kilogram);
                 //NORMALIZE items  
-        System.out.println("Colorway Kilogram is :"+colorway_kilogram);
+        //System.out.println("Colorway Kilogram is :"+colorway_kilogram);
         return this.compute_this_kg_normalized(coverage);
     }
     
@@ -326,13 +326,16 @@ public class production_recipe extends Design_with_colorway{
         //float weight_kg = Float.parseFloat(colorway_kilo_gram);
         //COMPUTE ITEM BY FIRST GETTING THE COVERAGE AS COVERAGE IS UNIVERSAL THROUGH DIFFERENT QUANTITIES
         float coverage = this.compute_this_coverage_from_normalized_item(colorway_kilogram);
-        System.out.println("Coverage = :"+coverage);
+        //System.out.println("Coverage = :"+coverage);
         return this.compute_this_kg(coverage);
     }
     
     private float compute_this_coverage_from_normalized_item(float kg)
     {
-        float coverage = 0;
+        //float coverage = 0;
+        this.set_fabric_details_from_fabric_style();
+        float coverage = (kg) *100/ this.getFabric_kilogram();
+        /*
         if(this.getFabric_style().equals("PONGEE"))
         {
             coverage = (kg)*10/8;
@@ -345,14 +348,18 @@ public class production_recipe extends Design_with_colorway{
         {
             coverage = (float)(kg);
         }
-        
+        */
         return coverage;
     }
     
     public float compute_this_coverage(float kg)
     {
+        this.set_fabric_details_from_fabric_style();
+        float coverage = (kg) *1000/this.get_quantity_sum()*100/this.getFabric_kilogram();
+        /*
         float coverage = 0;
-        System.out.println("Quantity Sum is =" +this.get_quantity_sum());
+        
+        //System.out.println("Quantity Sum is =" +this.get_quantity_sum());
         if(this.getFabric_style().equals("PONGEE"))
         {
             coverage = (kg*1000/this.get_quantity_sum())*10/8;
@@ -369,12 +376,15 @@ public class production_recipe extends Design_with_colorway{
         {
             coverage = (kg*1000/this.get_quantity_sum());
         }
-        
+        */
         return coverage;
     }
     
     public float compute_this_coverage(float kg, float quantity)
     {
+        this.set_fabric_details_from_fabric_style();
+        float coverage = (kg) *1000/quantity*100/this.getFabric_kilogram();
+        /*
         float coverage = 0;
         if(this.getFabric_style().equals("PONGEE"))
         {
@@ -390,13 +400,17 @@ public class production_recipe extends Design_with_colorway{
         }
         else
             coverage = (kg*1000/quantity);
-            
+            */
         return coverage;
         
     }
     
     public float compute_this_kg_normalized(float coverage)
     {
+        this.set_fabric_details_from_fabric_style();
+        float colorway_kilogram = (this.getFabric_kilogram()*coverage/100*1000)/1000;
+        
+        /*
         float colorway_kilogram = 0;
         //float this_quant = 1000;
         //COVERAGE SHOULD BE DIVIDED BY 100 TO BECOME DECIMAL
@@ -413,35 +427,43 @@ public class production_recipe extends Design_with_colorway{
         {
             colorway_kilogram = (10*coverage/10*1000)/1000;
         }
+                */
         return colorway_kilogram;
     }
     
     public float compute_this_kg(float coverage)
     {
+        
+        this.set_fabric_details_from_fabric_style();
+        float colorway_kilogram = (this.getFabric_kilogram()*coverage/100*this.get_quantity_sum())/1000;
+                                    /*(8*coverage/10*this.get_quantity_sum())/1000;
         float colorway_kilogram = 0;
-        float this_quant = this.get_quantity_sum();
-        System.out.println("TOTAL QUANTITY ="+this_quant);
+       
+        //System.out.println("TOTAL QUANTITY ="+this_quant);
         //COVERAGE SHOULD BE DIVIDED BY 100 TO BECOME DECIMAL
         //ORIGINAL SHOULD BE 80*COVERAGE/100*TOTAL QUANTITY/ 1000
         //SIMPLIFIED TO 8*COVERAGE/10*TOTAL QUANTITY /1000
         if(this.getFabric_style().equals("PONGEE")){
-            colorway_kilogram = (8*coverage/10*this_quant)/1000;
+            colorway_kilogram = (8*coverage/10*this.get_quantity_sum())/1000;
         }
         else if(this.getFabric_style().equals("COTTON") || this.getFabric_style().equals("KATUNIA"))
         {
-            colorway_kilogram = (12*coverage/10*this_quant)/1000;
+            colorway_kilogram = (12*coverage/10*this.get_quantity_sum())/1000;
         }
         else if (this.getFabric_style().equals("MICROPEACH") || this.getFabric_style().equals("TC") || this.getFabric_style().equals("TROPICANA"))
         {
-            colorway_kilogram = (10*coverage/10*this_quant)/1000;
+            colorway_kilogram = (10*coverage/10*this.get_quantity_sum())/1000;
             //colorway_kilogram = Math.round((10*coverage/10*this_quant)/1000);
         }
-        
+        */
         return colorway_kilogram;
     }
     
     public float compute_this_kg(float coverage, int quantity_total)
     {
+        this.set_fabric_details_from_fabric_style();
+        float colorway_kilogram = (this.getFabric_kilogram()*coverage/100*quantity_total)/1000;
+        /*
         float colorway_kilogram = 0;
         //float this_quant = this.get_quantity_sum();
         //System.out.println("TOTAL QUANTITY ="+this_quant);
@@ -460,7 +482,7 @@ public class production_recipe extends Design_with_colorway{
             colorway_kilogram = (10*coverage/10*quantity_total)/1000;
             //colorway_kilogram = Math.round((10*coverage/10*this_quant)/1000);
         }
-        
+        */
         return colorway_kilogram;
     }
     

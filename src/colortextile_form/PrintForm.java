@@ -310,6 +310,8 @@ public class PrintForm extends javax.swing.JFrame {
         //int total_col = search_print.getColumnCount();
         //for(int col = 0; col < total_col; col++)
         //{
+        if(row.length>0)
+        {
         for(int index_add = 0; index_add< row.length; index_add++ )
         {
             if(this.purchase_button.isSelected())
@@ -340,17 +342,17 @@ public class PrintForm extends javax.swing.JFrame {
         
         for(int remove_indexes = row.length; remove_indexes>0; remove_indexes-- )
         {
-            System.out.println("Row = "+row[remove_indexes-1]);
+            //System.out.println("Row = "+row[remove_indexes-1]);
             search_model = (DefaultTableModel) search_print.getModel();
             search_model.removeRow(search_print.convertRowIndexToModel(row[remove_indexes-1]));
             //search_print.remove(row[remove_indexes-1]);
         }
         
-        
          this.print_table.setModel(temporary_table_model);
         // search_print.remove(row);
-        
-        
+        }
+        else
+            JOptionPane.showMessageDialog(null,"Please select an item to add");
     }//GEN-LAST:event_add_row_buttonActionPerformed
 
     private void delete_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_delete_buttonActionPerformed

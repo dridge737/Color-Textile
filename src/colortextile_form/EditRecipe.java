@@ -2354,7 +2354,7 @@ public class EditRecipe extends javax.swing.JFrame {
 
         save_edit_but.setBackground(new java.awt.Color(255, 255, 255));
         save_edit_but.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        save_edit_but.setText("Save this Edit");
+        save_edit_but.setText("Save this Edit and Print");
         save_edit_but.setToolTipText("");
         save_edit_but.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2806,7 +2806,25 @@ public class EditRecipe extends javax.swing.JFrame {
             update_and_add_all_colorways();
             update_this_design();
             //add_purchase();
+            int printornoreply = JOptionPane.showConfirmDialog(null,"Successfully Added this Recipe! Print this form?"
+                    + "(Yes to close this window) ", "Close this Window?", JOptionPane.YES_NO_OPTION);
+                if(printornoreply == JOptionPane.YES_OPTION)
+                {
+                    //production_recipe this_prod_recipe = new production_recipe();   
+                    //this_prod_recipe.setDate(this.spinner_date.getValue().toString());
+                     List<production_recipe> prod_recipe = new ArrayList<>();
+                     production_recipe recipe_to_add = new production_recipe();
+                     recipe_to_add.setDesign_code(this.prod_recipe.getDesign_code());
+                     recipe_to_add.setDate(use_func.get_date_from_spinner(spinner_date));
+                     recipe_to_add.set_design_details_and_colorway_details_from_design_code();
+                     recipe_to_add.set_all_purchase_details_from_design_code_and_date();
+                     recipe_to_add.set_job_order_list_using_design_code_and_purchase_id();
+                     prod_recipe.add(recipe_to_add);   
+                     SpreadsheetTrial file_to_print = new SpreadsheetTrial();
+                     file_to_print.bulk_print_item(prod_recipe);
+                     prod_recipe.clear();
             
+                }
             int CloseorNoreply = JOptionPane.showConfirmDialog(null,"Successfully Edited this Recipe! Close Window? "
                     + "(Yes to close this window) ", "Close this Window?", JOptionPane.YES_NO_OPTION);
                 if(CloseorNoreply == JOptionPane.YES_OPTION)

@@ -2013,7 +2013,7 @@ public class DB_Manager {
         try
          {
             conn = db.getConnection();
-            ps = conn.prepareStatement(" SELECT *  ;"
+            ps = conn.prepareStatement(" SELECT * "
                                  + "FROM fabric_style "
                                  + "WHERE id_fabric = ? ");
             

@@ -213,7 +213,7 @@ public class SearchJOGui extends javax.swing.JFrame {
         text_job_id2 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        button_delete = new javax.swing.JButton();
+        button_delete_ord = new javax.swing.JButton();
         button_delete1 = new javax.swing.JButton();
 
         jFrame1.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -407,7 +407,7 @@ public class SearchJOGui extends javax.swing.JFrame {
         jPanel1.add(jScrollPane1);
         jScrollPane1.setBounds(33, 197, 929, 325);
 
-        button_details.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        button_details.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
         button_details.setText("Use Selected Design");
         button_details.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -417,15 +417,15 @@ public class SearchJOGui extends javax.swing.JFrame {
         jPanel1.add(button_details);
         button_details.setBounds(33, 528, 230, 35);
 
-        button_edit.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        button_edit.setText("Edit Purchase");
+        button_edit.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
+        button_edit.setText("Edit Order");
         button_edit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_editActionPerformed(evt);
             }
         });
         jPanel1.add(button_edit);
-        button_edit.setBounds(275, 528, 230, 35);
+        button_edit.setBounds(270, 528, 230, 35);
 
         jDesktopPane1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         jDesktopPane1.add(label_pic, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 220, 180));
@@ -469,17 +469,17 @@ public class SearchJOGui extends javax.swing.JFrame {
         jPanel1.add(jLabel2);
         jLabel2.setBounds(71, 140, 90, 30);
 
-        button_delete.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        button_delete.setText("Delete Selected Item");
-        button_delete.addActionListener(new java.awt.event.ActionListener() {
+        button_delete_ord.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
+        button_delete_ord.setText("Delete Order");
+        button_delete_ord.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                button_deleteActionPerformed(evt);
+                button_delete_ordActionPerformed(evt);
             }
         });
-        jPanel1.add(button_delete);
-        button_delete.setBounds(515, 528, 230, 35);
+        jPanel1.add(button_delete_ord);
+        button_delete_ord.setBounds(508, 528, 230, 35);
 
-        button_delete1.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        button_delete1.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
         button_delete1.setText("Close");
         button_delete1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -487,7 +487,7 @@ public class SearchJOGui extends javax.swing.JFrame {
             }
         });
         jPanel1.add(button_delete1);
-        button_delete1.setBounds(758, 528, 200, 35);
+        button_delete1.setBounds(750, 528, 210, 35);
 
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 990, 580);
@@ -499,25 +499,32 @@ public class SearchJOGui extends javax.swing.JFrame {
     
     private void button_detailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_detailsActionPerformed
         
-        int row = jTable1.getSelectedRow();
-        int total_col = jTable1.getColumnCount();
-        String selected_job_order = jTable1.getValueAt(row, 0).toString();
+         if( jTable1.getSelectedRows().length >0)
+        {
+            int row = jTable1.getSelectedRow();
+            int total_col = jTable1.getColumnCount();
+            String selected_job_order = jTable1.getValueAt(row, 0).toString();
         
-        design this_design = new production_recipe();
+            design this_design = new production_recipe();
         //this_recipe.set
-        this_design.setDesign_name(jTable1.getValueAt(row, 4).toString());
-        this_design.setColor_name(jTable1.getValueAt(row,5).toString());
-        this_design.setFabric_style(jTable1.getValueAt(row,6).toString());
-        this_design.get_design_code_using_variables();
+            this_design.setDesign_name(jTable1.getValueAt(row, 4).toString());
+            this_design.setColor_name(jTable1.getValueAt(row,5).toString());
+            this_design.setFabric_style(jTable1.getValueAt(row,6).toString());
+            this_design.get_design_code_using_variables();
         
-        purchase_order selected_purchase = new purchase_order();
-        selected_purchase.setJob_order_id(selected_job_order);
-        selected_purchase.setDesign_code(this_design.getDesign_code());
-        selected_purchase.set_this_purchase_details_from_job_order_and_design_code();
+            purchase_order selected_purchase = new purchase_order();
+            selected_purchase.setJob_order_id(selected_job_order);
+            selected_purchase.setDesign_code(this_design.getDesign_code());
+            selected_purchase.set_this_purchase_details_from_job_order_and_design_code();
                 
-        Add_new_design design_form = new Add_new_design();
-        design_form.setVisible(true);
-        design_form.fill_info2(selected_purchase.getId_purchase());
+            Add_new_design design_form = new Add_new_design();
+            design_form.setVisible(true);
+            design_form.fill_info2(selected_purchase.getId_purchase());
+        }
+        else
+             JOptionPane.showMessageDialog(null,"Please select a design to use");
+        
+        
         
     }//GEN-LAST:event_button_detailsActionPerformed
 
@@ -552,17 +559,10 @@ public class SearchJOGui extends javax.swing.JFrame {
     private void button_details1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_details1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_button_details1ActionPerformed
-
-    private void button_editActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_editActionPerformed
-        // TODO add your handling code here:
+    private purchase_order get_purchase_details_from_design_and_job_order()
+    {
         int row = jTable1.getSelectedRow();
         int total_col = jTable1.getColumnCount();
-        /*for(int col = 0; col < total_col; col++)
-        {
-            System.out.println(jTable1.getValueAt(row, col));
-        }
-        
-        System.out.println("end"); */
         String selected_job_order = jTable1.getValueAt(row, 0).toString();
         
         design this_design = new production_recipe();
@@ -575,13 +575,31 @@ public class SearchJOGui extends javax.swing.JFrame {
         selected_purchase.setJob_order_id(selected_job_order);
         selected_purchase.setDesign_code(this_design.getDesign_code());
         selected_purchase.set_this_purchase_details_from_job_order_and_design_code();
-                
+        
+        return selected_purchase;
+    }
+    
+    private void button_editActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_editActionPerformed
+        // TODO add your handling code here:
+        
+        /*for(int col = 0; col < total_col; col++)
+        {
+            System.out.println(jTable1.getValueAt(row, col));
+        }
+        
+        System.out.println("end"); */
+        
+            
         //purchase_order purchase = new purchase_order();
         //purchase.setId_purchase(Integer.parseInt(selected_purchase_order));
-        
-        EditRecipe editDesign = new EditRecipe(selected_purchase.getId_purchase());
+        if( jTable1.getSelectedRows().length >0)
+        {
+        EditRecipe editDesign = new EditRecipe(this.get_purchase_details_from_design_and_job_order().getId_purchase());
         editDesign.setVisible(true);
         close();
+        }
+        else
+             JOptionPane.showMessageDialog(null,"Please select a row to edit");
             
     }//GEN-LAST:event_button_editActionPerformed
 
@@ -613,10 +631,27 @@ public class SearchJOGui extends javax.swing.JFrame {
         this.publicsorter();
     }//GEN-LAST:event_text_job_id2KeyReleased
 
-    private void button_deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_deleteActionPerformed
+    private void button_delete_ordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_delete_ordActionPerformed
         // TODO add your handling code here:
+        if( jTable1.getSelectedRows().length >0)
+        {
+            purchase_order to_delete_purchase = get_purchase_details_from_design_and_job_order();
+            int CloseorNoreply = JOptionPane.showConfirmDialog(null,"Delete this purchase? "
+                    + "(Yes to delete this pruchase) ", "Delete purchase?", JOptionPane.YES_NO_OPTION);
+                if(CloseorNoreply == JOptionPane.YES_OPTION)
+                {
+                    to_delete_purchase.delete_purchase_order();
+                    //job_order set = new job_order();
+                    model = (DefaultTableModel) jTable1.getModel();
+                    model.removeRow(jTable1.convertRowIndexToModel(jTable1.getSelectedRow()));
+                    //int row = jTable1.getSelectedRow();
+                    //jTable1.remove(row);
+                }
+        }
+        else
+             JOptionPane.showMessageDialog(null,"Please select a row to delete");
         
-    }//GEN-LAST:event_button_deleteActionPerformed
+    }//GEN-LAST:event_button_delete_ordActionPerformed
 
     private void button_delete1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_delete1ActionPerformed
         // TODO add your handling code here:
@@ -724,8 +759,8 @@ public class SearchJOGui extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton button_delete;
     private javax.swing.JButton button_delete1;
+    private javax.swing.JButton button_delete_ord;
     private javax.swing.JButton button_details;
     private javax.swing.JButton button_details1;
     private javax.swing.JButton button_edit;

@@ -255,7 +255,12 @@ public class design{
         
         this.setFabric_kilogram(fabric_details.getFabric_kilogram());
         this.setFabric_style(fabric_details.getFabric_style());
-        
+    }
+    
+    public void set_fabric_details_from_fabric_style()
+    {
+        this.set_fabric_style_id_from_style();
+        this.set_fabric_details_from_id();
     }
     
     public ArrayList<String> get_all_fabric_styles()

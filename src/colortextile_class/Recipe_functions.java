@@ -32,22 +32,36 @@ public class Recipe_functions {
         return 0;
     }
     
+    public design gather_fabric_details(String fabric_style)
+    {
+        design for_fabric = new design();
+        for_fabric.setFabric_style(fabric_style);
+        for_fabric.set_fabric_details_from_id();
+        
+        return for_fabric;
+    }
+    
     public float compute_this_coverage(float kg, String fabric_style, String quantity_total)
     {
         float computation = 0;
         float this_quant = Float.parseFloat(quantity_total);
+        
+        design fabric_used = gather_fabric_details(fabric_style);
+        computation = (kg * 1000/ this_quant) * 100 / fabric_used.getFabric_kilogram();
+        /*
         if(fabric_style.equals("PONGEE"))
         {
-            computation = (kg*1000/this_quant)*10/8;
+            computation = (kg*1000/this_quant)*100/80;
         }
         else if(fabric_style.equals("COTTON") || fabric_style.equals("KATUNIA"))
         {
-            computation = (kg*1000/this_quant)*10/12;
+            computation = (kg*1000/this_quant)*100/120;
         }
         else if (fabric_style.equals("MICROPEACH") || fabric_style.equals("TC") || fabric_style.equals("TROPICANA"))
         {
-            computation = (kg*1000/this_quant);
+            computation = (kg*1000/this_quant)*100/100;
         }
+        */
         
         return computation;
     }
@@ -55,22 +69,25 @@ public class Recipe_functions {
     public float compute_this_kg(float coverage, String fabric_style, String quantity_total)
     {
         float computation = 0;
+        float this_quant = Float.parseFloat(quantity_total);
+        design fabric_used = gather_fabric_details(fabric_style);
         
+        float computation2 = (fabric_used.getFabric_kilogram()*coverage/100*this_quant)/1000;
+        /*
+        System.out.println("NEW computation = "+computation2);
         if(fabric_style.equals("PONGEE")){
-        
-            float this_quant = Float.parseFloat(quantity_total);
             computation = (8*coverage/10*this_quant)/1000;
         }
         else if(fabric_style.equals("COTTON") || fabric_style.equals("KATUNIA"))
         {
-            float this_quant = Float.parseFloat(quantity_total);
             computation = (12*coverage/10*this_quant)/1000;
         }
         else if (fabric_style.equals("MICROPEACH") || fabric_style.equals("TC") || fabric_style.equals("TROPICANA"))
         {
-            float this_quant = Float.parseFloat(quantity_total);
             computation = (10*coverage/10*this_quant)/1000;
         }
+        System.out.println("Old computation = "+computation);
+        */
         return computation;
     }
     
@@ -215,13 +232,14 @@ public class Recipe_functions {
         if(new design().count_all_fabric_style() != fabric_style.getItemCount()-4)
             {
                 fabric_style.removeAllItems();
+                /*
                 fabric_style.addItem("PONGEE");
                 fabric_style.addItem("COTTON");
                 fabric_style.addItem("KATUNIA");
                 fabric_style.addItem("MICROPEACH");
                 fabric_style.addItem("TC");
                 fabric_style.addItem("TROPICANA");
-                
+                */
                 for(String this_fabric : new design().get_all_fabric_styles())
                 {
                     fabric_style.addItem(this_fabric);
